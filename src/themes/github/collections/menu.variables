@@ -2,49 +2,65 @@
       Collection
 --------------------*/
 
-@itemVerticalPadding: 1em;
-@itemHorizontalPadding: 1.25em;
+/* Menu */
+@boxShadow: none;
+@dropdownIconDistance: @relative12px;
+@inputVerticalPadding: @relative2px;
 
-@background: #FFFFFF linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
-@fontWeight: normal;
+@itemTextColor: #767676;
+@iconOpacity: 0.5;
 
-@activeBorderSize: 0em;
+@dropdownHoveredItemBackground: #4078C0;
+@dropdownHoveredItemColor: @white;
 
-@hoverBackground: rgba(0, 0, 0, 0.02);
-@downBackground: rgba(0, 0, 0, 0.06);
+@verticalIconFloat: none;
+@verticalIconMargin: 0em @relative1px 0em 0em;
 
-@activeBackground: rgba(0, 0, 0, 0.04);
-@activeHoverBackground: rgba(0, 0, 0, 0.04);
-
-
-@headerBackground: rgba(0, 0, 0, 0.08);
-
-@subMenuMargin: 0.5em -0.6em 0;
-@subMenuHorizontalPadding: 0.7em;
-
-@arrowHoverColor: #EEEEEE;
-@arrowActiveColor: #EEEEEE;
-@arrowVerticalHoverColor: #F4F4F4;
-@arrowVerticalActiveColor: #F4F4F4;
-
-@dividerBackground: #E8E8E8;
-@verticalDividerBackground: #E8E8E8;
-
-/*-------------------
-      Elements
---------------------*/
-
-@buttonOffset: -0.15em;
-@buttonVerticalPadding: 0.75em;
+/* States */
+@hoverItemBackground: none transparent;
+@hoverItemTextColor: @linkHoverColor;
+@pressedItemBackground: @hoverItemBackground;
 
 /*-------------------
         Types
 --------------------*/
 
+/* Tabular */
+@tabularBorderColor: #EEEEEE;
+@tabularVerticalBackground: linear-gradient(to left, #f6f6f6 0%, #fff 8px) transparent;
+@tabularVerticalPadding: @relative8px;
+@tabularHorizontalPadding: @relative10px;
+@tabularTextColor: @linkColor;
+
+@tabularHoveredTextColor: @linkHoverColor;
+@tabularActiveBoxShadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+
+/* Text Menu */
+@textMenuItemColor: #333333;
+@textMenuItemFontWeight: bold;
+
+/* Pagination */
 @paginationMinWidth: 3.5em;
 
-@tieredActiveItemBackground: #F5F5F5;
-@tieredActiveMenuBackground: #F5F5F5;
+/*-------------------
+      Elements
+--------------------*/
+
+@dropdownMenuPadding: @relative5px 0px;
+@dropdownMenuBoxShadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
+
+@dropdownItemPadding: @relative6px @relative14px;
+
+/* Label */
+@labelBackground: #EEEEEE;
+@labelOffset: 0px;
+@labelTextColor: #666666;
+@labelVerticalPadding: @relative2px;
+@labelHorizontalPadding: @relative5px;
+
+/* Button */
+@buttonOffset: -0.15em;
+@buttonVerticalPadding: 0.75em;
 
 /*-------------------
       Variations

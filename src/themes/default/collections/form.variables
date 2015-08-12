@@ -69,7 +69,8 @@
 
 /* Inline Validation Prompt */
 @inlineValidationMargin: -0.5em 0em -0.5em @rowDistance;
-@inlineValidationArrowOffset: -0.3em;
+@inlineValidationBorderWidth: 1px;
+@inlineValidationArrowOffset: ~"calc(-0.3em - "@inlineValidationBorderWidth~")";
 
 /*-------------------
         States

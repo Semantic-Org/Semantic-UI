@@ -122,6 +122,7 @@
 @tagTriangleRightOffset: 100%;
 @tagTriangleTopOffset: 50%;
 @tagTriangleSize: 1.56em;
+@tagTriangleBackgroundImage: none;
 @tagTransition: background @labelTransitionDuration @labelTransitionEasing;
 
 /* Ribbon */
@@ -221,7 +222,7 @@
 @pointingTriangleSize: 0.6em;
 @pointingHorizontalDistance: @pointingTriangleSize;
 
-@pointingTriangleOffset: (@pointingTriangleSize / 2);
+@pointingTriangleOffset: ~"calc("(-@pointingTriangleSize / 2)~" - "@borderWidth~")";
 @pointingTriangleTransition: background @labelTransitionDuration @labelTransitionEasing;
 @pointingTriangleZIndex: 2;
 

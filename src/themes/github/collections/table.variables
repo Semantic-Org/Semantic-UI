@@ -1,0 +1,6 @@
+/*******************************
+    User Variable Overrides
+*******************************/
+
+@cellVerticalPadding: @relative6px;
+@cellHorizontalPadding: @relative8px;
