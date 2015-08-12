@@ -412,14 +412,15 @@ $.fn.dropdown = function(parameters) {
             if(module.has.message() && !module.has.maxSelections()) {
               module.remove.message();
             }
-            module.animate.show(function() {
-              if( module.can.click() ) {
-                module.bind.intent();
-              }
-              module.set.visible();
-              callback.call(element);
-            });
-            settings.onShow.call(element);
+            if(settings.onHide.call(element) !== false) {
+              module.animate.show(function() {
+                if( module.can.click() ) {
+                  module.bind.intent();
+                }
+                module.set.visible();
+                callback.call(element);
+              });
+            }
           }
         },
 
@@ -430,7 +431,7 @@ $.fn.dropdown = function(parameters) {
           ;
           if( module.is.active() ) {
             module.debug('Hiding dropdown');
-            if(settings.onHide.call(element) === false) {
+            if(settings.onHide.call(element) !== false) {
               module.animate.hide(function() {
                 module.remove.visible();
                 callback.call(element);
