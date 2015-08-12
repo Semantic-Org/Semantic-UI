@@ -1171,6 +1171,34 @@ a.ui.basic.label:hover {
   left: auto;
 }
 
+/* Basic Pointing */
+
+/*--- Above ---*/
+
+.ui.basic.pointing.label:before,
+.ui.basic.pointing.above.label:before {
+  top: @basicPointingTriangleOffset;
+}
+/*--- Below ---*/
+.ui.basic.pointing.bottom.label:before,
+.ui.basic.pointing.below.label:before {
+  top: auto;
+  margin-left: @basicPointingTriangleOffset;
+  bottom: @basicPointingTriangleOffset;
+}
+/*--- Left ---*/
+.ui.basic.pointing.left.label:before {
+  top: 50%;
+  margin-top: @basicPointingTriangleOffset;
+}
+/*--- Right ---*/
+.ui.basic.pointing.right.label:before {
+  top: 50%;
+  margin-top: @basicPointingTriangleOffset;
+  right: @basicPointingTriangleOffset;
+}
+
+
 /*------------------
    Floating Label
 -------------------*/
