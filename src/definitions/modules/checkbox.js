@@ -43,9 +43,9 @@ $.fn.checkbox = function(parameters) {
         $module         = $(this),
         $label          = $(this).children(selector.label),
         $input          = $(this).children(selector.input),
+        input           = $input[0],
 
         shortcutPressed = false,
-
         instance        = $module.data(moduleNamespace),
 
         observer,
@@ -99,24 +99,24 @@ $.fn.checkbox = function(parameters) {
             module.debug('Initial value is indeterminate');
             module.set.indeterminate();
             if(settings.fireOnInit) {
-              settings.onIndeterminate.call($input[0]);
-              settings.onChange.call($input[0]);
+              settings.onIndeterminate.call(input);
+              settings.onChange.call(input);
             }
           }
           else if( module.is.checked() ) {
             module.debug('Initial value is checked');
             module.set.checked();
             if(settings.fireOnInit) {
-              settings.onChecked.call($input[0]);
-              settings.onChange.call($input[0]);
+              settings.onChecked.call(input);
+              settings.onChange.call(input);
             }
           }
           else {
             module.debug('Initial value is unchecked');
             module.set.unchecked();
             if(settings.fireOnInit) {
-              settings.onUnchecked.call($input[0]);
-              settings.onChange.call($input[0]);
+              settings.onUnchecked.call(input);
+              settings.onChange.call(input);
             }
           }
         },
@@ -124,6 +124,7 @@ $.fn.checkbox = function(parameters) {
         refresh: function() {
           $label = $module.children(selector.label);
           $input = $module.children(selector.input);
+          input  = $input[0];
         },
 
         hide: {
@@ -174,8 +175,15 @@ $.fn.checkbox = function(parameters) {
 
         event: {
           click: function(event) {
-            if( $(event.target).is(selector.input) ) {
+            var
+              $target = $(event.target)
+            ;
+            if( $target.is(selector.input) ) {
               module.verbose('Using default check action on initialized checkbox');
+              return;
+            }
+            if( $target.is(selector.link) ) {
+              module.debug('Clicking link inside checkbox, skipping toggle');
               return;
             }
             module.toggle();
@@ -219,8 +227,8 @@ $.fn.checkbox = function(parameters) {
           }
           module.debug('Checking checkbox', $input);
           module.set.checked();
-          settings.onChecked.call($input[0]);
-          settings.onChange.call($input[0]);
+          settings.onChecked.call(input);
+          settings.onChange.call(input);
         },
 
         uncheck: function() {
@@ -230,8 +238,8 @@ $.fn.checkbox = function(parameters) {
           }
           module.debug('Unchecking checkbox');
           module.set.unchecked();
-          settings.onUnchecked.call($input[0]);
-          settings.onChange.call($input[0]);
+          settings.onUnchecked.call(input);
+          settings.onChange.call(input);
         },
 
         indeterminate: function() {
@@ -241,8 +249,8 @@ $.fn.checkbox = function(parameters) {
           }
           module.debug('Making checkbox indeterminate');
           module.set.indeterminate();
-          settings.onIndeterminate.call($input[0]);
-          settings.onChange.call($input[0]);
+          settings.onIndeterminate.call(input);
+          settings.onChange.call(input);
         },
 
         determinate: function() {
@@ -252,8 +260,8 @@ $.fn.checkbox = function(parameters) {
           }
           module.debug('Making checkbox determinate');
           module.set.determinate();
-          settings.onDeterminate.call($input[0]);
-          settings.onChange.call($input[0]);
+          settings.onDeterminate.call(input);
+          settings.onChange.call(input);
         },
 
         enable: function() {
@@ -263,7 +271,7 @@ $.fn.checkbox = function(parameters) {
           }
           module.debug('Enabling checkbox');
           module.set.enabled();
-          settings.onEnable.call($input[0]);
+          settings.onEnable.call(input);
         },
 
         disable: function() {
@@ -273,7 +281,7 @@ $.fn.checkbox = function(parameters) {
           }
           module.debug('Disabling checkbox');
           module.set.disabled();
-          settings.onDisable.call($input[0]);
+          settings.onDisable.call(input);
         },
 
         get: {
@@ -341,7 +349,7 @@ $.fn.checkbox = function(parameters) {
               module.debug('Input is already checked, skipping input property change');
               return;
             }
-            module.verbose('Setting state to checked', $input[0]);
+            module.verbose('Setting state to checked', input);
             $input
               .prop('indeterminate', false)
               .prop('checked', true)
@@ -721,6 +729,7 @@ $.fn.checkbox.settings = {
     checkbox : '.ui.checkbox',
     label    : 'label, .box',
     input    : 'input[type="checkbox"], input[type="radio"]',
+    link     : 'a[href]'
   }
 
 };

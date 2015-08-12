@@ -33,6 +33,7 @@
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Accordion** - Added missing notation for accordion docs #2812
 - **Build Tools** - Fixes issue where component glob `{tab, table}` caused table to be included twice in concatenated source **
+- **Checkbox** - Clicking a link inside an initialized checkbox `label` will now work correctly, and will not toggle the checkbox. #2804
 - **Container** - Fix issue with `fluid container` being `100% + gutter` at mobile resolution (causing overflow)
 - **Dropdown** - `forceSelection` no longer sets current value in search selection when current query is blank #2058
 - **Dropdown** - Dropdown `@arrowSize` will now automatically reposition itself if size is changed with variable
