@@ -2,24 +2,25 @@
 
 ### Version 2.x.x - July 23, 2015
 
-**[New Things]()
+**New Features**
 
 - **API** - Added `encodeParameters` option to enable/disable parameters being encoded with `encodeURIComponent` #2752
 - **Button** - Added `labeled button` variation for display a count next to a button.
 - **Label** - Added a new  `basic label` style, works symbiotically with other label types to provide a more lightweight style label
 - **Form Validation** - Updated appearance of form validation prompts to use a more lightweight style. Added variables for controlling error validation prompt styles in `form.variables`
 - **Divider** - Vertical divider can now be used multiple times in a single column row (not just 50/50 split). #2808
+- **Input** - Added `disabled` state for inputs #2694
 - **Menu** - Appearance of `labeled icon menu` has been modified. Horizontal menus now have icons above text, and icons are slightly larger than before.
+- **Menu** - Added new `tabular` menu types, `right tabular`, `bottom tabular`, added many new `tabular` menu variables for customizing
 
 **[Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Breadcrumb** - Breadcrumb no longer receives vertical spacing by default. This may often cause vertical alignment issues when displayed next to other `inline-block` content.
 - **Dropdown** - Added `get default text` and `get placeholder text` behaviors for returning text values.
 - **Dropdown** - Pointing dropdown (dropdown with arrows) now support `upward`, and will automatically move pointer arrows when appearing upward #2733
 - **Form** - `inverted form` now remove input border, added new variables for controlling inverted form input styles
-- **GitHub Theme** - Redid GitHub menu and button theme to be more accurate
-- **Input** - Added `disabled` state for inputs #2694
+- **GitHub Theme** - GitHub theme has been updated to use github's new button styles
 - **Label** - Added `basic` label variation, useful for item counts
-- **Menu** - Added new `tabular` menu types, `right tabular`, `bottom tabular`, added many new `tabular` menu variables for customizing
+- **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
 
 
 **[Community Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
@@ -49,7 +50,6 @@
 - **Input** - Fixed issue with appearance of `left corner labeled left icon input` #2782
 - **Item** - Fixed `bottom aligned` not working in item due to incorrect flex value #2826
 - **List** - Lists can now be `right floated` or `left floated`
-- **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
 - **Menu** - Fixed `(x) column` nested grid with alignment stacking vertically (wrong flex-direction) #2810
 - **Modal** - Fix autofocus setting in modal not working due to improper selector #2737
 - **Modal** - Increased `close` specificity, modal will now only close on `> .close` #2736
@@ -68,7 +68,7 @@
 - **Dropdown/Tab** - Fixed an instance where `metadata` was not referencing settings metadata value
 - **Form Validation** - Fixed issue with `get value(s)` where unchecked checkboxes would not correctly retrieve values
 - **Form** - Dropdown in `inline field` now use auto width instead of 100%
-- **Grid / Container ** - `ui relaxed grid container` and `ui very relaxed grid container` will now all render at same container width
+- **Grid / Container** - `ui relaxed grid container` and `ui very relaxed grid container` will now all render at same container width
 - **Icons** - Fixed issue where `active icon` or `emphasized icon` would not adjust opacity inside menus
 - **Input** - `labeled input` now keeps border on label edge so that focus color appears correctly
 - **Input** - Input now will reset `font-weight` and `font-style` if set on parent;
