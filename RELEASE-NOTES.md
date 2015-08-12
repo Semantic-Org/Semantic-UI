@@ -14,6 +14,8 @@
 - **Menu** - Added new `tabular` menu types, `right tabular`, `bottom tabular`, added many new `tabular` menu variables for customizing
 - **Menu** - Appearance of `labeled icon menu` has been modified. Horizontal menus now have icons above text, and icons are slightly larger than before.
 - **Site** - `html,body { height: 100% }` has been modified [based on reasonable feedback](http://stackoverflow.com/questions/17555682/height-100-or-min-height-100-for-html-and-body-elements)
+- **GitHub** - Redid GitHub menu and button theme to be more accurate
+
 
 **[Community Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Flag** - England flag alias is now correctly set #2770 **Thanks @eduardom**
@@ -58,6 +60,7 @@
 - **Form Validation** - Fixed issue with `get value(s)` where unchecked checkboxes would not correctly retrieve values
 - **Grid / Container ** - `ui relaxed grid container` and `ui very relaxed grid container` will now all render at same container width
 - **Icons** - Fixed issue where `active icon` or `emphasized icon` would not adjust opacity inside menus
+- **Label** - `pointint label` now rounds to exact pixel em value, should align correctly in more cases
 - **Input** - `labeled input` now keeps border on label edge so that focus color appears correctly
 - **Input** - Input now will reset `font-weight` and `font-style` if set on parent;
 - **Menu** - `@pressedItemColor` has been renamed to `@pressedItemTextColor` to match naming conventions of other variables
