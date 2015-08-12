@@ -229,7 +229,7 @@
 @secondaryActiveHoveredItemColor: @selectedTextColor;
 
 @secondaryHeaderBackground: none transparent;
-@secondaryHeaderBorder: 1px solid @borderColor;
+@secondaryHeaderBorder: none;
 
 @secondaryItemVerticalSpacing: @secondaryItemSpacing;
 @secondaryVerticalItemMargin: 0em 0em @secondaryItemVerticalSpacing;
