@@ -48,6 +48,7 @@
 - **Dropdown** - `forceSelection` no longer sets current value in search selection when current query is blank #2058
 - **Dropdown** - Fixed issue where "no results" message would be still be visible before search query on input focus #2824
 - **Dropdown** - Fixed issue where selected item would not be shown when being re-shown after filtering with single search selection #2824
+- **Input** - Fixed issue with appearance of `left corner labeled left icon input` #2782
 
 **[Community Bug Fixes](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Menu** - Fixes tabular menu missing variable for background. **Thanks @frontdevde**
