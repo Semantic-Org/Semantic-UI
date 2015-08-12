@@ -44,6 +44,7 @@
 - **Dropdown** - Fix `left menu` inside `ui menu` appearing horizontally #2778
 - **Dropdown** - `forceSelection` no longer sets current value in search selection when current query is blank #2058
 - **Dropdown** - Fixed issue where "no results" message would be still be visible before search query on input focus #2824
+- **Dropdown** - Fixed issue where selected item would not be shown when being re-shown after filtering with single search selection #2824
 
 **[Community Bug Fixes](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Menu** - Fixes tabular menu missing variable for background. **Thanks @frontdevde**
@@ -65,6 +66,7 @@
 - **Menu** - Fixed issue with `labeled input` text inside menu not appearing vertically centered
 - **Menu** - Fixed hybrid initialization not creating `menu` correctly. Fixed docs example of hybrid `<select>` initialization
 - **Dropdown/Tab** - Fixed an instance where `metadata` was not referencing settings metadata value
+- **Dropdown** - Fixed issue where `forceSelection` would not occur when `pageLostFocus` (clicked into another tab and back)
 
 ### Version 2.0.8 - August 10, 2015
 

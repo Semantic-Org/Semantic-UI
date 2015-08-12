@@ -835,6 +835,11 @@ $.fn.dropdown = function(parameters) {
                   module.hide();
                 }
               }
+              else if(pageLostFocus) {
+                if(settings.forceSelection) {
+                  module.forceSelection();
+                }
+              }
             }
           },
           icon: {
@@ -2465,7 +2470,7 @@ $.fn.dropdown = function(parameters) {
             if(settings.useLabels && module.has.maxSelections() ) {
               return;
             }
-            if(settings.useLabels) {
+            if(settings.useLabels && module.is.multiple()) {
               $item.not('.' + className.active).removeClass(className.filtered);
             }
             else {
