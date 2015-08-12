@@ -30,6 +30,7 @@
 
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Accordion** - Added missing notation for accordion docs #2812
+- **Build Tools** - Fixes issue where component glob `{tab, table}` caused table to be included twice in concatenated source **
 - **Container** - Fix issue with `fluid container` being `100% + gutter` at mobile resolution (causing overflow)
 - **Dropdown** - Remove use of `trim` which causes issues IE 11 and below #2806
 - **Dropdown** - Fixes issues with setting "" (empty quote) values when `placeholder: false` is used. Fixes issues with using `clear` and `restore defaults` without placeholders. #2637
