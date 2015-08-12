@@ -2,77 +2,82 @@
 
 ### Version 2.x.x - July 23, 2015
 
-**[Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+**[New Things]()
+
 - **API** - Added `encodeParameters` option to enable/disable parameters being encoded with `encodeURIComponent` #2752
-- **Breadcrumb** - Breadcrumb no longer receives vertical spacing by default. This may often cause vertical alignment issues when displayed next to other `inline-block` content.
 - **Button** - Added `labeled button` variation for display a count next to a button.
+- **Label** - Added a new  `basic label` style, works symbiotically with other label types to provide a more lightweight style label
+- **Form Validation** - Updated appearance of form validation prompts to use a more lightweight style. Added variables for controlling error validation prompt styles in `form.variables`
 - **Divider** - Vertical divider can now be used multiple times in a single column row (not just 50/50 split). #2808
-- **Dropdown** - Pointing dropdown (dropdown with arrows) now support `upward`, and will automatically move pointer arrows when appearing upward #2733
+- **Menu** - Appearance of `labeled icon menu` has been modified. Horizontal menus now have icons above text, and icons are slightly larger than before.
+
+**[Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+- **Breadcrumb** - Breadcrumb no longer receives vertical spacing by default. This may often cause vertical alignment issues when displayed next to other `inline-block` content.
 - **Dropdown** - Added `get default text` and `get placeholder text` behaviors for returning text values.
+- **Dropdown** - Pointing dropdown (dropdown with arrows) now support `upward`, and will automatically move pointer arrows when appearing upward #2733
+- **Form** - `inverted form` now remove input border, added new variables for controlling inverted form input styles
+- **GitHub Theme** - Redid GitHub menu and button theme to be more accurate
 - **Input** - Added `disabled` state for inputs #2694
 - **Label** - Added `basic` label variation, useful for item counts
 - **Menu** - Added new `tabular` menu types, `right tabular`, `bottom tabular`, added many new `tabular` menu variables for customizing
-- **Menu** - Appearance of `labeled icon menu` has been modified. Horizontal menus now have icons above text, and icons are slightly larger than before.
-- **Site** - `html,body { height: 100% }` has been modified [based on reasonable feedback](http://stackoverflow.com/questions/17555682/height-100-or-min-height-100-for-html-and-body-elements)
-- **GitHub** - Redid GitHub menu and button theme to be more accurate
 
 
 **[Community Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+- **Dropdown** - Dropdown `show` and `hide` are now cancellable by returning `false` from `onShow` or `onHide` callbacks.
 - **Flag** - England flag alias is now correctly set #2770 **Thanks @eduardom**
 - **Popup** - Popup will now look for inline popup as any next adjacent sibling #2772 **Thanks @malacalypse**
-- **Dropdown** - Dropdown `show` and `hide` are now cancellable by returning `false` from `onShow` or `onHide` callbacks.
 
 **Additional Enhancements**
-- **Dropdown** - Dropdown `@arrowSize` will now automatically reposition itself if size is changed with variable
-- **Dropdown** - Dropdown arrow now has a variable `@dropdownArrowSize`, and is slightly smaller than previously
-- **List** - Lists can now be `right floated` or `left floated`
-- **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
 
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Accordion** - Added missing notation for accordion docs #2812
 - **Build Tools** - Fixes issue where component glob `{tab, table}` caused table to be included twice in concatenated source **
 - **Container** - Fix issue with `fluid container` being `100% + gutter` at mobile resolution (causing overflow)
-- **Dropdown** - Remove use of `trim` which causes issues IE 11 and below #2806
-- **Dropdown** - Fixes issues with setting "" (empty quote) values when `placeholder: false` is used. Fixes issues with using `clear` and `restore defaults` without placeholders. #2637
+- **Dropdown** - `forceSelection` no longer sets current value in search selection when current query is blank #2058
+- **Dropdown** - Dropdown `@arrowSize` will now automatically reposition itself if size is changed with variable
+- **Dropdown** - Dropdown arrow now has a variable `@dropdownArrowSize`, and is slightly smaller than previously
+- **Dropdown** - Fix `left menu` inside `ui menu` appearing horizontally #2778
+- **Dropdown** - Fixed issue where "no results" message would be still be visible before search query on input focus #2824
 - **Dropdown** - Fixed issue where `onChange` would not fire when using `action: 'hide'`. #2818
+- **Dropdown** - Fixed issue where selected item would not be shown when being re-shown after filtering with single search selection #2824
+- **Dropdown** - Fixes issues with setting "" (empty quote) values when `placeholder: false` is used. Fixes issues with using `clear` and `restore defaults` without placeholders. #2637
+- **Dropdown** - Remove use of `trim` which causes issues IE 11 and below #2806
 - **Embed** - Remove accidental `console.log` statements in js #2760
 - **Form / Input** - Fixes `::placeholder` text color for `ui error input`, modifies form error placeholder color to distinguish from form value error color #2786
 - **Form** - Date input and other special input in chrome now are the same height as normal input (adds custom vendor shadow dom styling) #2704
 - **Icon** - Fixed typo in cube icon alias caused by bad grep #2765
+- **Input** - Fixed issue with appearance of `left corner labeled left icon input` #2782
 - **Item** - Fixed `bottom aligned` not working in item due to incorrect flex value #2826
+- **List** - Lists can now be `right floated` or `left floated`
+- **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
 - **Menu** - Fixed `(x) column` nested grid with alignment stacking vertically (wrong flex-direction) #2810
 - **Modal** - Fix autofocus setting in modal not working due to improper selector #2737
 - **Modal** - Increased `close` specificity, modal will now only close on `> .close` #2736
 - **Transition** - Transition callbacks now all have the correct `this` set. #2758
-- **Dropdown** - Fix `left menu` inside `ui menu` appearing horizontally #2778
-- **Dropdown** - `forceSelection` no longer sets current value in search selection when current query is blank #2058
-- **Dropdown** - Fixed issue where "no results" message would be still be visible before search query on input focus #2824
-- **Dropdown** - Fixed issue where selected item would not be shown when being re-shown after filtering with single search selection #2824
-- **Input** - Fixed issue with appearance of `left corner labeled left icon input` #2782
 
 **[Community Bug Fixes](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
-- **Menu** - Fixes tabular menu missing variable for background. **Thanks @frontdevde**
-- **Sticky** - Sticky now sets width and height with `!important` to avoid inheritance issues in some cases **Thanks @lauri-elevant** #2710
 - **API** - API debug is now `false` by default, like other modules. #2817
 - **Dropdown** - Fixed issue where label could not be removed when using a numeric value due to mismatched types #2754 #2755 **Thanks @dgurkaynak**
+- **Menu** - Fixes tabular menu missing variable for background. **Thanks @frontdevde**
+- **Sticky** - Sticky now sets width and height with `!important` to avoid inheritance issues in some cases **Thanks @lauri-elevant** #2710
 
 **Additional Bugs**
 - **Build Tools** - Fixes issue on `win` platform where packaged theme would not correctly update when using watch due to regExp not matching windows path separators.
 - **Dropdown** - Dropdown will no longer fire native `onchange` event on hidden input when setting value during initial load (unless `fireOnInit: true`) #2795 **Thanks @lauri-elevant**
+- **Dropdown** - Fixed issue where `forceSelection` would not occur when `pageLostFocus` (clicked into another tab and back)
+- **Dropdown/Tab** - Fixed an instance where `metadata` was not referencing settings metadata value
 - **Form Validation** - Fixed issue with `get value(s)` where unchecked checkboxes would not correctly retrieve values
 - **Form** - Dropdown in `inline field` now use auto width instead of 100%
 - **Grid / Container ** - `ui relaxed grid container` and `ui very relaxed grid container` will now all render at same container width
 - **Icons** - Fixed issue where `active icon` or `emphasized icon` would not adjust opacity inside menus
-- **Label** - `pointint label` now rounds to exact pixel em value, should align correctly in more cases
 - **Input** - `labeled input` now keeps border on label edge so that focus color appears correctly
 - **Input** - Input now will reset `font-weight` and `font-style` if set on parent;
+- **Label** - `pointint label` now rounds to exact pixel em value, should align correctly in more cases
 - **Menu** - `@pressedItemColor` has been renamed to `@pressedItemTextColor` to match naming conventions of other variables
 - **Menu** - Added `flex: 0 0 auto` to menu item to make sure menu do not collapse text content to reduce space
 - **Menu** - Fix text align on `dropdown item` inside `icon menu`
-- **Menu** - Fixed issue with `labeled input` text inside menu not appearing vertically centered
 - **Menu** - Fixed hybrid initialization not creating `menu` correctly. Fixed docs example of hybrid `<select>` initialization
-- **Dropdown/Tab** - Fixed an instance where `metadata` was not referencing settings metadata value
-- **Dropdown** - Fixed issue where `forceSelection` would not occur when `pageLostFocus` (clicked into another tab and back)
+- **Menu** - Fixed issue with `labeled input` text inside menu not appearing vertically centered
 
 ### Version 2.0.8 - August 10, 2015
 
