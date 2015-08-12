@@ -202,9 +202,11 @@
   float: right;
 }
 
+.ui.form .inline.fields .field > .selection.dropdown,
 .ui.form .inline.field > .selection.dropdown {
   width: auto;
 }
+.ui.form .inline.fields .field > .selection.dropdown > .dropdown.icon,
 .ui.form .inline.field > .selection.dropdown > .dropdown.icon {
   float: none;
 }
@@ -240,14 +242,19 @@
 ---------------------*/
 
 .ui.form .field .prompt.label {
-  white-space: nowrap;
+  white-space: normal;
+  background: @promptBackground !important;
+  border: @promptBorder !important;
+  color: @promptTextColor !important;
 }
+.ui.form .inline.fields .field .prompt,
 .ui.form .inline.field .prompt {
-  margin: @inlineValidationMargin;
+  margin: @inlinePromptMargin;
 }
+.ui.form .inline.fields .field .prompt:before,
 .ui.form .inline.field .prompt:before {
-  margin-top: @inlineValidationArrowOffset;
-  border-width: 0px 0px @inlineValidationBorderWidth @inlineValidationBorderWidth;
+  margin-top: @inlinePromptArrowOffset;
+  border-width: 0px 0px @inlinePromptBorderWidth @inlinePromptBorderWidth;
   bottom: auto;
   right: auto;
   top: 50%;
@@ -664,6 +671,25 @@
 .ui.inverted.form .ui.checkbox .box {
   color: @invertedLabelColor;
 }
+
+/* Inverted Field */
+.ui.inverted.form input:not([type]),
+.ui.inverted.form input[type="date"],
+.ui.inverted.form input[type="datetime-local"],
+.ui.inverted.form input[type="email"],
+.ui.inverted.form input[type="number"],
+.ui.inverted.form input[type="password"],
+.ui.inverted.form input[type="search"],
+.ui.inverted.form input[type="tel"],
+.ui.inverted.form input[type="time"],
+.ui.inverted.form input[type="text"],
+.ui.inverted.form input[type="url"] {
+  background: @invertedInputBackground;
+  border-color: @invertedInputBorderColor;
+  color: @invertedInputColor;
+  box-shadow: @invertedInputBoxShadow;
+}
+
 
 /*--------------------
      Field Groups
