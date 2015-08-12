@@ -32,10 +32,19 @@ module.exports = {
       themes      : 'src/themes/'
     },
     output: {
-      packaged     : 'dist/',
-      uncompressed : 'dist/components/',
-      compressed   : 'dist/components/',
-      themes       : 'dist/themes/'
+      packaged: {
+        css: 'dist/css/',
+        js:  'dist/js/'
+      },
+      uncompressed: {
+        css: 'dist/components/css/',
+        js:  'dist/components/js/'
+      },
+      compressed: {
+        css: 'dist/components/css/',
+        js:  'dist/components/js/'
+      },
+      themes: 'dist/themes/'
     },
     clean : 'dist/'
   },

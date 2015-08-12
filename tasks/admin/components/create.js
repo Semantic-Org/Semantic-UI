@@ -66,8 +66,8 @@ module.exports = function(callback) {
 
       var
         outputDirectory      = path.join(release.outputRoot, component),
-        isJavascript         = fs.existsSync(output.compressed + component + '.js'),
-        isCSS                = fs.existsSync(output.compressed + component + '.css'),
+        isJavascript         = fs.existsSync(output.compressed.js + component + '.js'),
+        isCSS                = fs.existsSync(output.compressed.css + component + '.css'),
         capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
         packageName          = release.packageRoot + component,
         repoName             = release.componentRepoRoot + capitalizedComponent,

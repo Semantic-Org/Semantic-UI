@@ -158,8 +158,8 @@ module.exports = function(callback) {
 
         uncompressedStream
           .pipe(plumber())
-          .pipe(replace(assets.source, assets.uncompressed))
-          .pipe(gulp.dest(output.uncompressed))
+          .pipe(replace(assets.source, assets.uncompressed.css))
+          .pipe(gulp.dest(output.uncompressed.css))
           .pipe(print(log.created))
           .on('end', function() {
             gulp.start('package uncompressed css');
@@ -168,10 +168,10 @@ module.exports = function(callback) {
 
         compressedStream = stream
           .pipe(plumber())
-          .pipe(replace(assets.source, assets.compressed))
+          .pipe(replace(assets.source, assets.compressed.css))
           .pipe(minifyCSS(settings.minify))
           .pipe(rename(settings.rename.minCSS))
-          .pipe(gulp.dest(output.compressed))
+          .pipe(gulp.dest(output.compressed.css))
           .pipe(print(log.created))
           .on('end', function() {
             gulp.start('package compressed css');
@@ -196,11 +196,11 @@ module.exports = function(callback) {
         .pipe(plumber())
         .pipe(replace(comments.license.in, comments.license.out))
         .pipe(gulpif(config.hasPermission, chmod(config.permission)))
-        .pipe(gulp.dest(output.uncompressed))
+        .pipe(gulp.dest(output.uncompressed.js))
         .pipe(print(log.created))
         .pipe(uglify(settings.uglify))
         .pipe(rename(settings.rename.minJS))
-        .pipe(gulp.dest(output.compressed))
+        .pipe(gulp.dest(output.compressed.js))
         .pipe(print(log.created))
         .on('end', function() {
           gulp.start('package compressed js');

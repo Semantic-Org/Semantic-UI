@@ -192,9 +192,18 @@ module.exports = {
       answers.dist = path.normalize(answers.dist);
 
       json.paths.output = {
-        packaged     : path.normalize(answers.dist + '/'),
-        uncompressed : path.normalize(answers.dist + '/components/'),
-        compressed   : path.normalize(answers.dist + '/components/'),
+        packaged: {
+          css: path.normalize(answers.dist + '/css/'),
+          js: path.normalize(answers.dist + '/js/'),
+        },
+        uncompressed: {
+          css: path.normalize(answers.dist + '/components/css/'),
+          js: path.normalize(answers.dist + '/components/js/'),
+        },
+        compressed: {
+          css: path.normalize(answers.dist + '/components/css/'),
+          js: path.normalize(answers.dist + '/components/js/'),
+        },
         themes       : path.normalize(answers.dist + '/themes/')
       };
     }
@@ -204,13 +213,19 @@ module.exports = {
       json.paths.source.site = path.normalize(answers.site + '/');
     }
     if(answers.packaged) {
-      json.paths.output.packaged = path.normalize(answers.packaged + '/');
+      json.paths.output.packaged = {};
+      json.paths.output.packaged.css = path.normalize(answers.packaged + '/css/');
+      json.paths.output.packaged.js = path.normalize(answers.packaged + '/js/');
     }
     if(answers.compressed) {
-      json.paths.output.compressed = path.normalize(answers.compressed + '/');
+      json.paths.output.compressed = {};
+      json.paths.output.compressed.css = path.normalize(answers.compressed + '/css/');
+      json.paths.output.compressed.js = path.normalize(answers.compressed + '/js/');
     }
     if(answers.uncompressed) {
-      json.paths.output.uncompressed = path.normalize(answers.uncompressed + '/');
+      json.paths.output.uncompressed = {};
+      json.paths.output.uncompressed.css = path.normalize(answers.uncompressed + '/css/');
+      json.paths.output.uncompressed.js = path.normalize(answers.uncompressed + '/js/');
     }
     return json;
   },
@@ -466,7 +481,7 @@ module.exports = {
         type: 'input',
         name: 'packaged',
         message: 'Where should we output a packaged version?',
-        default: defaults.paths.output.packaged,
+        default: path.join(defaults.paths.output.packaged.css, '..'),
         filter: filter.removeTrailingSlash,
         when: when.custom
       },
@@ -474,7 +489,7 @@ module.exports = {
         type: 'input',
         name: 'compressed',
         message: 'Where should we output compressed components?',
-        default: defaults.paths.output.compressed,
+        default: path.join(defaults.paths.output.compressed.css, '..'),
         filter: filter.removeTrailingSlash,
         when: when.custom
       },
@@ -482,7 +497,7 @@ module.exports = {
         type: 'input',
         name: 'uncompressed',
         message: 'Where should we output uncompressed components?',
-        default: defaults.paths.output.uncompressed,
+        default: path.join(defaults.paths.output.uncompressed.css, '..'),
         filter: filter.removeTrailingSlash,
         when: when.custom
       }
