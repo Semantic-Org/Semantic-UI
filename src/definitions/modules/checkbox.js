@@ -369,7 +369,7 @@ $.fn.checkbox = function(parameters) {
             return true;
           },
           forceCallbacks: function() {
-            return module.is.initialLoad() && settings.fireOnInit;
+            return (module.is.initialLoad() && settings.fireOnInit);
           },
           ignoreCallbacks: function() {
             return (initialLoad && !settings.fireOnInit);
