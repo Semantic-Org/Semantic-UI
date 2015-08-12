@@ -15,20 +15,16 @@
 - **Menu** - Appearance of `labeled icon menu` has been modified. Horizontal menus now have icons above text, and icons are slightly larger than before.
 - **Site** - `html,body { height: 100% }` has been modified [based on reasonable feedback](http://stackoverflow.com/questions/17555682/height-100-or-min-height-100-for-html-and-body-elements)
 
+**[Community Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+- **Flag** - England flag alias is now correctly set #2770 **Thanks @eduardom**
+- **Popup** - Popup will now look for inline popup as any next adjacent sibling #2772 **Thanks @malacalypse**
+- **Dropdown** - Dropdown `show` and `hide` are now cancellable by returning `false` from `onShow` or `onHide` callbacks.
+
 **Additional Enhancements**
 - **Dropdown** - Dropdown `@arrowSize` will now automatically reposition itself if size is changed with variable
 - **Dropdown** - Dropdown arrow now has a variable `@dropdownArrowSize`, and is slightly smaller than previously
 - **List** - Lists can now be `right floated` or `left floated`
 - **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
-
-**[Merged Pull Requests](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
-
-- **Menu** - Fixes tabular menu missing variable for background. **Thanks @frontdevde**
-- **Sticky** - Sticky now sets width and height with `!important` to avoid inheritance issues in some cases **Thanks @lauri-elevant** #2710
-- **Flag** - England flag alias is now correctly set #2770 **Thanks @eduardom**
-- **Popup** - Popup will now look for inline popup as any next adjacent sibling #2772 **Thanks @malacalypse**
-- **API** - API debug is now `false` by default, like other modules. #2817
-- **Dropdown** - Fixed issue where label could not be removed when using a numeric value due to mismatched types #2754 #2755 **Thanks @dgurkaynak**
 
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Accordion** - Added missing notation for accordion docs #2812
@@ -48,6 +44,12 @@
 - **Dropdown** - Fix `left menu` inside `ui menu` appearing horizontally #2778
 - **Dropdown** - `forceSelection` no longer sets current value in search selection when current query is blank #2058
 - **Dropdown** - Fixed issue where "no results" message would be still be visible before search query on input focus #2824
+
+**[Community Bug Fixes](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+- **Menu** - Fixes tabular menu missing variable for background. **Thanks @frontdevde**
+- **Sticky** - Sticky now sets width and height with `!important` to avoid inheritance issues in some cases **Thanks @lauri-elevant** #2710
+- **API** - API debug is now `false` by default, like other modules. #2817
+- **Dropdown** - Fixed issue where label could not be removed when using a numeric value due to mismatched types #2754 #2755 **Thanks @dgurkaynak**
 
 **Additional Bugs**
 - **Build Tools** - Fixes issue on `win` platform where packaged theme would not correctly update when using watch due to regExp not matching windows path separators.

@@ -412,7 +412,7 @@ $.fn.dropdown = function(parameters) {
             if(module.has.message() && !module.has.maxSelections()) {
               module.remove.message();
             }
-            if(settings.onHide.call(element) !== false) {
+            if(settings.onShow.call(element) !== false) {
               module.animate.show(function() {
                 if( module.can.click() ) {
                   module.bind.intent();
