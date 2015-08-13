@@ -74,6 +74,7 @@
 - **Dropdown** - Fixed issue where `forceSelection` would not occur when `pageLostFocus` (clicked into another tab and back)
 - **Dropdown/Tab** - Fixed an instance where `metadata` was not referencing settings metadata value
 - **Form Validation** - Fixed issue with `get value(s)` where unchecked checkboxes would not correctly retrieve values
+- **Input** `action input` and `labeled input` now have focused border on inner edge with label/button
 - **Form** - Dropdown in `inline field` now use auto width instead of 100%
 - **Grid / Container** - `ui relaxed grid container` and `ui very relaxed grid container` will now all render at same container width
 - **Icons** - Fixed issue where `active icon` or `emphasized icon` would not adjust opacity inside menus

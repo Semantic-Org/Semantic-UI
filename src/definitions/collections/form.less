@@ -95,6 +95,11 @@
   vertical-align: top;
 }
 
+/* Collapse Input Flex */
+.ui.form .ui.input > input {
+  width: 0px !important;
+}
+
 /* Set max height on unusual input */
 .ui.form ::-webkit-datetime-edit,
 .ui.form ::-webkit-inner-spin-button {
@@ -128,11 +133,6 @@
   border-radius: @inputBorderRadius;
   box-shadow: @inputBoxShadow;
   transition: @inputTransition;
-}
-
-/* Collapse Flex */
-.ui.form .ui.input > input {
-  width: 0px !important;
 }
 
 /* Text Area */
@@ -960,6 +960,15 @@
   vertical-align: middle;
   font-size: @inlineInputSize;
 }
+.ui.form .inline.fields .field > .ui.input,
+.ui.form .inline.field > .ui.input {
+  display: inline-flex;
+}
+.ui.form .inline.fields .field > .ui.input input,
+.ui.form .inline.field > .ui.input input {
+  width: 100% !important;
+}
+
 
 
 /* Label */
