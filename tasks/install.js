@@ -146,7 +146,7 @@ if(currentConfig && manager.name === 'NPM') {
         .pipe(gulp.dest(manager.root))
       ;
 
-      console.info('Update complete! Run "\033[92mgulp build\033[0m" to rebuild dist/ files.');
+      console.info('Update complete! Run "\x1b[92mgulp build\x1b[0m" to rebuild dist/ files.');
 
       return;
     }
@@ -170,7 +170,7 @@ if(currentConfig && manager.name === 'NPM') {
 // PM that supports Build Tools (NPM Only Now)
 if(manager.name == 'NPM') {
   rootQuestions[0].message = rootQuestions[0].message
-    .replace('{packageMessage}', 'We detected you are using \033[92m' + manager.name + '\033[0m. Nice! ')
+    .replace('{packageMessage}', 'We detected you are using \x1b[92m' + manager.name + '\x1b[0m. Nice! ')
     .replace('{root}', manager.root)
   ;
   // set default path to detected PM root
@@ -282,7 +282,7 @@ gulp.task('create install files', function(callback) {
       console.error('NPM does not have permissions to create folders at your specified path. Adjust your folders permissions and run "npm install" again');
     }
 
-    console.log('Installing to \033[92m' + answers.semanticRoot + '\033[0m');
+    console.log('Installing to \x1b[92m' + answers.semanticRoot + '\x1b[0m');
 
     console.info('Copying UI definitions');
     wrench.copyDirSyncRecursive(source.definitions, installPaths.definition, settings.wrench.overwrite);
@@ -406,7 +406,7 @@ gulp.task('clean up install', function() {
 
   // Completion Message
   if(installFolder) {
-    console.log('\n Setup Complete! \n Installing Peer Dependencies. \033[0;31mPlease refrain from ctrl + c\033[0m... \n After completion navigate to \033[92m' + answers.semanticRoot + '\033[0m and run "\033[92mgulp build\033[0m" to build');
+    console.log('\n Setup Complete! \n Installing Peer Dependencies. \x1b[0;31mPlease refrain from ctrl + c\x1b[0m... \n After completion navigate to \x1b[92m' + answers.semanticRoot + '\x1b[0m and run "\x1b[92mgulp build\x1b[0m" to build');
     process.exit(0);
   }
   else {
