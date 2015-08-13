@@ -10,6 +10,7 @@
 - **Dropdown** - Dropdown will now automatically update selected values when hidden input value changes (so long as `change` event is triggered) #2626
 - **Grid** - Added new responsive [`reversed`](http://www.semantic-ui.com/collections/grid.html#responsive-order) variations for reversing column order by device #2685
 - **Label** - Added a new  `basic label` style, works symbiotically with other label types to provide a more lightweight style label
+- **Form Validation** - Added credit card validation, supports array of card types, and international cards including non luhn cards like China UnionPay #2729
 - **Form Validation** - Updated appearance of form validation prompts to use a more lightweight style. Added variables for controlling error validation prompt styles in `form.variables`
 - **Divider** - Vertical divider can now be used multiple times in a single column row (not just 50/50 split). #2808
 - **Input** - Added `disabled` state for inputs #2694
