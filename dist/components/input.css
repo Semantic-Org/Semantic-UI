@@ -349,24 +349,24 @@
 }
 
 /* Spacing with corner label */
-.ui[class*="corner labeled"]:not(.left).labeled.input input {
+.ui[class*="corner labeled"]:not([class*="left corner labeled"]).labeled.input input {
   padding-right: 2.5em !important;
 }
-.ui[class*="corner labeled"].icon.input:not(.left) > input {
+.ui[class*="corner labeled"].icon.input:not([class*="left corner labeled"]) > input {
   padding-right: 3.25em !important;
 }
-.ui[class*="corner labeled"].icon.input:not(.left) > .icon {
+.ui[class*="corner labeled"].icon.input:not([class*="left corner labeled"]) > .icon {
   margin-right: 1.25em;
 }
 
 /* Left Labeled */
-.ui[class*="corner labeled"].left.labeled.input input {
+.ui[class*="left corner labeled"].labeled.input input {
   padding-left: 2.5em !important;
 }
-.ui[class*="corner labeled"].icon.input.left > input {
+.ui[class*="left corner labeled"].icon.input > input {
   padding-left: 3.25em !important;
 }
-.ui[class*="corner labeled"].icon.input.left > .icon {
+.ui[class*="left corner labeled"].icon.input > .icon {
   margin-left: 1.25em;
 }
 

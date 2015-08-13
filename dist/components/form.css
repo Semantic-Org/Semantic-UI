@@ -185,9 +185,11 @@
 .ui.form .field > .selection.dropdown > .dropdown.icon {
   float: right;
 }
+.ui.form .inline.fields .field > .selection.dropdown,
 .ui.form .inline.field > .selection.dropdown {
   width: auto;
 }
+.ui.form .inline.fields .field > .selection.dropdown > .dropdown.icon,
 .ui.form .inline.field > .selection.dropdown > .dropdown.icon {
   float: none;
 }
@@ -221,13 +223,19 @@
 ---------------------*/
 
 .ui.form .field .prompt.label {
-  white-space: nowrap;
+  white-space: normal;
+  background: #ffffff !important;
+  border: 1px solid #e0b4b4 !important;
+  color: #9f3a38 !important;
 }
+.ui.form .inline.fields .field .prompt,
 .ui.form .inline.field .prompt {
   margin: -0.5em 0em -0.5em 1em;
 }
+.ui.form .inline.fields .field .prompt:before,
 .ui.form .inline.field .prompt:before {
-  margin-top: -0.3em;
+  margin-top: calc(-0.3em -  1px );
+  border-width: 0px 0px 1px 1px;
   bottom: auto;
   right: auto;
   top: 50%;
@@ -342,10 +350,10 @@
 
 
 /* On Form */
-.ui.form.success .success.message {
+.ui.form.success .success.message:not(:empty) {
   display: block;
 }
-.ui.form.success .icon.success.message {
+.ui.form.success .icon.success.message:not(:empty) {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -358,10 +366,10 @@
 
 
 /* On Form */
-.ui.form.warning .warning.message {
+.ui.form.warning .warning.message:not(:empty) {
   display: block;
 }
-.ui.form.warning .icon.warning.message {
+.ui.form.warning .icon.warning.message:not(:empty) {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -374,10 +382,10 @@
 
 
 /* On Form */
-.ui.form.error .error.message {
+.ui.form.error .error.message:not(:empty) {
   display: block;
 }
-.ui.form.error .icon.error.message {
+.ui.form.error .icon.error.message:not(:empty) {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -655,6 +663,24 @@
 .ui.inverted.form .ui.checkbox label,
 .ui.inverted.form .ui.checkbox .box {
   color: rgba(255, 255, 255, 0.9);
+}
+
+/* Inverted Field */
+.ui.inverted.form input:not([type]),
+.ui.inverted.form input[type="date"],
+.ui.inverted.form input[type="datetime-local"],
+.ui.inverted.form input[type="email"],
+.ui.inverted.form input[type="number"],
+.ui.inverted.form input[type="password"],
+.ui.inverted.form input[type="search"],
+.ui.inverted.form input[type="tel"],
+.ui.inverted.form input[type="time"],
+.ui.inverted.form input[type="text"],
+.ui.inverted.form input[type="url"] {
+  background: #ffffff;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(0, 0, 0, 0.87);
+  box-shadow: none;
 }
 
 /*--------------------
