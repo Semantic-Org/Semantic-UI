@@ -63,6 +63,7 @@
 - **Modal** - Fix autofocus setting in modal not working due to improper selector #2737
 - **Modal** - Increased `close` specificity, modal will now only close on `> .close` #2736
 - **Transition** - Transition callbacks now all have the correct `this` set. #2758
+- **Search** - Calling `show results` programmatically no longer fails when input is not focused #2842
 
 **[Community Bug Fixes](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **API** - API debug is now `false` by default, like other modules. #2817
