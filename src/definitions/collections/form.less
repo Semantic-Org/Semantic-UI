@@ -89,15 +89,9 @@
 .ui.form input[type="tel"],
 .ui.form input[type="time"],
 .ui.form input[type="text"],
-.ui.form input[type="url"],
-.ui.form .ui.input {
+.ui.form input[type="url"] {
   width: @inputWidth;
   vertical-align: top;
-}
-
-/* Collapse Input Flex */
-.ui.form .ui.input > input {
-  width: 0px !important;
 }
 
 /* Set max height on unusual input */
@@ -195,6 +189,7 @@
        Dropdown
 ---------------------*/
 
+/* Block */
 .ui.form .field > .selection.dropdown {
   width: 100%;
 }
@@ -202,6 +197,7 @@
   float: right;
 }
 
+/* Inline */
 .ui.form .inline.fields .field > .selection.dropdown,
 .ui.form .inline.field > .selection.dropdown {
   width: auto;
@@ -211,6 +207,41 @@
   float: none;
 }
 
+/*--------------------
+       UI Input
+---------------------*/
+
+/* Block */
+.ui.form .fields .field .ui.input,
+.ui.form .wide.field .ui.input {
+  width: 100%;
+}
+
+.ui.form .fields .field .ui.input input,
+.ui.form .field .ui.input input {
+  width: auto;
+}
+
+/* Full Width */
+.ui.form .ten.fields .ui.input input,
+.ui.form .nine.fields .ui.input input,
+.ui.form .eight.fields .ui.input input,
+.ui.form .seven.fields .ui.input input,
+.ui.form .six.fields .ui.input input,
+.ui.form .five.fields .ui.input input,
+.ui.form .four.fields .ui.input input,
+.ui.form .three.fields .ui.input input,
+.ui.form .two.fields .ui.input input,
+.ui.form .wide.field .ui.input input {
+  flex: 1 0 auto;
+  width: 0px;
+}
+
+/* Inline */
+.ui.form .inline.fields .field:not(.wide) .ui.input,
+.ui.form .inline.field:not(.wide) .ui.input {
+  width: 100%;
+}
 
 /*--------------------
        Dividers
@@ -947,10 +978,8 @@
 /* Inline Input */
 .ui.form .inline.fields .field > input,
 .ui.form .inline.fields .field > select,
-.ui.form .inline.fields .field > .ui.input,
 .ui.form .inline.field > input,
-.ui.form .inline.field > select,
-.ui.form .inline.field > .ui.input {
+.ui.form .inline.field > select {
   display: inline-block;
   width: auto;
 
@@ -960,16 +989,6 @@
   vertical-align: middle;
   font-size: @inlineInputSize;
 }
-.ui.form .inline.fields .field > .ui.input,
-.ui.form .inline.field > .ui.input {
-  display: inline-flex;
-}
-.ui.form .inline.fields .field > .ui.input input,
-.ui.form .inline.field > .ui.input input {
-  width: 100% !important;
-}
-
-
 
 /* Label */
 .ui.form .inline.fields .field > :first-child,
@@ -987,8 +1006,7 @@
   align-items: center;
 }
 .ui.form .inline.fields .wide.field > input,
-.ui.form .inline.fields .wide.field > select,
-.ui.form .inline.fields .wide.field > .ui.input {
+.ui.form .inline.fields .wide.field > select {
   width: 100%;
 }
 
