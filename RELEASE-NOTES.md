@@ -66,7 +66,7 @@
 - **Dropdown** - Fixed issue where label could not be removed when using a numeric value due to mismatched types #2754 #2755 **Thanks @dgurkaynak**
 - **Menu** - Fixes tabular menu missing variable for background. **Thanks @frontdevde**
 - **Sticky** - Sticky now sets width and height with `!important` to avoid inheritance issues in some cases **Thanks @lauri-elevant** #2710
-- **Build Tools** - Removed octal literals from install scripts (for color escaping) #2839 **Thanks @artemkaint**
+- **Build Tools** - Removed octal literals from install scripts (for color escaping), and uses of future ECMAScript reserved words #2838 #2839 **Thanks @artemkaint**
 
 **Additional Bugs**
 - **Build Tools** - Fixes issue on `win` platform where packaged theme would not correctly update when using watch due to regExp not matching windows path separators.
