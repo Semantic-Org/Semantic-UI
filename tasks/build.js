@@ -7,6 +7,7 @@ var
 
   // config
   config       = require('./config/user'),
+  runSequence  = require('run-sequence'),
   install      = require('./config/project/install')
 ;
 
@@ -25,18 +26,20 @@ module.exports = function(callback) {
     return;
   }
 
+  var tasks = [];
+
   // check for right-to-left (RTL) language
   if(config.rtl == 'both') {
-    gulp.start('build-rtl');
+    tasks.push('build-rtl');
   }
   if(config.rtl === true || config.rtl === 'Yes') {
     gulp.start('build-rtl');
     return;
   }
 
-  gulp.start('build-javascript');
-  gulp.start('build-css');
-  gulp.start('build-assets');
+  tasks.push('build-javascript');
+  tasks.push('build-css');
+  tasks.push('build-assets');
 
-
+  runSequence(tasks, callback);
 };
