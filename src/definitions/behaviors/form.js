@@ -1248,48 +1248,48 @@ $.fn.form.settings = {
       var
         cards = {
           amex: {
-            pattern: /^3[47]/,
-            length : [15]
+            pattern : /^3[47]/,
+            length  : [15]
           },
           visa: {
-            pattern: /^4/,
-            length : [16]
+            pattern : /^4/,
+            length  : [16]
           },
           mastercard: {
-            pattern: /^5[1-5]/,
-            length : [16]
+            pattern : /^5[1-5]/,
+            length  : [16]
           },
           discover: {
-            pattern: /^(6011|622(12[6-9]|1[3-9][0-9]|[2-8][0-9]{2}|9[0-1][0-9]|92[0-5]|64[4-9])|65)/,
-            length : [16]
+            pattern : /^(6011|622(12[6-9]|1[3-9][0-9]|[2-8][0-9]{2}|9[0-1][0-9]|92[0-5]|64[4-9])|65)/,
+            length  : [16]
           },
           unionPay: {
-            pattern: /^(62|88)/,
-            length: [16, 17, 18, 19]
+            pattern : /^(62|88)/,
+            length  : [16, 17, 18, 19]
           },
           dinersClub: {
-            pattern: /^30[0-5]/,
-            length : [14]
+            pattern : /^30[0-5]/,
+            length  : [14]
           },
           dinersClubInternational: {
-            pattern: /^36/,
-            length : [14]
+            pattern : /^36/,
+            length  : [14]
           },
           jcb: {
-            pattern: /^35(2[89]|[3-8][0-9])/,
-            length : [16]
+            pattern : /^35(2[89]|[3-8][0-9])/,
+            length  : [16]
           },
           laser: {
-            pattern: /^(6304|670[69]|6771)/,
-            length : [16, 17, 18, 19]
+            pattern : /^(6304|670[69]|6771)/,
+            length  : [16, 17, 18, 19]
           },
           visaElectron: {
-            pattern: /^(4026|417500|4508|4844|491(3|7))/,
-            length : [16]
+            pattern : /^(4026|417500|4508|4844|491(3|7))/,
+            length  : [16]
           },
           maestro: {
-            pattern: /^(5018|5020|5038|6304|6759|676[1-3])/,
-            length : [12, 13, 14, 15, 16, 17, 18, 19]
+            pattern : /^(5018|5020|5038|6304|6759|676[1-3])/,
+            length  : [12, 13, 14, 15, 16, 17, 18, 19]
           }
         },
         valid         = {},
