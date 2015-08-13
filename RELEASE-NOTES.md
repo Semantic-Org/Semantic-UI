@@ -21,7 +21,7 @@
 - **Dropdown** - Added `get default text` and `get placeholder text` behaviors for returning text values.
 - **Dropdown** - Pointing dropdown (dropdown with arrows) now support `upward`, and will automatically move pointer arrows when appearing upward #2733
 - **Form** - `inverted form` now remove input border, added new variables for controlling inverted form input styles
-- **GitHub Theme** - GitHub theme has been updated to use github's new button styles
+- **GitHub Theme** - GitHub theme has been updated to use github's new button styles. Added github icon theme with port of their icon font.
 - **Label** - Added `basic` label variation, useful for item counts
 - **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
 
