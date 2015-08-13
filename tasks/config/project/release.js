@@ -5,7 +5,7 @@
 var
   requireDotFile = require('require-dot-file'),
   config,
-  package,
+  packageJson,
   version
 ;
 
@@ -17,7 +17,7 @@ var
 try {
 
   config   = requireDotFile('semantic.json');
-  package  = require('../../../package.json');
+  packageJson  = require('../../../package.json');
 
   // looks for version in config or package.json (whichever is available)
   version = (config && config.version !== undefined)
@@ -29,7 +29,7 @@ try {
 
 catch(error) {
   // generate fake package
-  package = {
+  packageJson = {
     version: 'x.x'
   };
 }
@@ -56,6 +56,6 @@ module.exports = {
     + ' *' + '\n'
     + ' */' + '\n',
 
-  version    : package.version
+  version    : packageJson.version
 
 };
