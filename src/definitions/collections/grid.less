@@ -1397,6 +1397,46 @@
 }
 
 
+/*----------------------
+        Reverse
+-----------------------*/
+
+
+/* Mobile */
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui[class*="mobile reversed"].grid,
+  .ui.grid > [class*="mobile reversed"].row {
+    flex-direction: row-reverse;
+  }
+  .ui[class*="mobile vertically reversed"].grid,
+  .ui.stackable[class*="mobile reversed"] {
+    flex-direction: column-reverse;
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
+  .ui[class*="tablet reversed"].grid,
+  .ui.grid > [class*="tablet reversed"].row {
+    flex-direction: row-reverse;
+  }
+  .ui[class*="tablet vertically reversed"].grid {
+    flex-direction: column-reverse;
+  }
+}
+
+/* Mobile */
+@media only screen and (min-width: @computerBreakpoint) {
+  .ui[class*="computer reversed"].grid,
+  .ui.grid > [class*="computer reversed"].row {
+    flex-direction: row-reverse;
+  }
+  .ui[class*="computer vertically reversed"].grid {
+    flex-direction: column-reverse;
+  }
+}
+
+
 /*-------------------
       Doubling
 --------------------*/
