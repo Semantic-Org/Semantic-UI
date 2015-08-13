@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 2.x.x - July 23, 2015
+### Version 2.x.x - Aug x, 2015
 
 **New Features**
 
@@ -30,6 +30,7 @@
 - **Dropdown** - Dropdown `show` and `hide` are now cancellable by returning `false` from `onShow` or `onHide` callbacks.
 - **Flag** - England flag alias is now correctly set #2770 **Thanks @eduardom**
 - **Popup** - Popup will now look for inline popup as any next adjacent sibling #2772 **Thanks @malacalypse**
+- **Build Tools** - `gulp build` now correctly calls `callback`, allowing those importing tasks to chain it correctly #2836 **Thanks @artemkaint**
 
 **Additional Enhancements**
 
