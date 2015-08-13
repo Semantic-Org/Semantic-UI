@@ -1479,6 +1479,69 @@
           flex-grow: 0;
 }
 
+/*----------------------
+        Reverse
+-----------------------*/
+
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+  .ui[class*="mobile reversed"].grid,
+  .ui.grid > [class*="mobile reversed"].row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  .ui[class*="mobile vertically reversed"].grid,
+  .ui.stackable[class*="mobile reversed"] {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ui[class*="tablet reversed"].grid,
+  .ui.grid > [class*="tablet reversed"].row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  .ui[class*="tablet vertically reversed"].grid {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
+
+/* Mobile */
+@media only screen and (min-width: 992px) {
+  .ui[class*="computer reversed"].grid,
+  .ui.grid > [class*="computer reversed"].row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  .ui[class*="computer vertically reversed"].grid {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
+
 /*-------------------
       Doubling
 --------------------*/

@@ -318,24 +318,20 @@
 
 /* Regular Label on Left */
 .ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > input {
-  /*border-left: none;*/
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
 .ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > .label {
-  border-right: none;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
 
 /* Regular Label on Right */
 .ui[class*="right labeled"].input > input {
-  /*border-right: none;*/
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }
 .ui[class*="right labeled"].input > .label {
-  border-left: none;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
@@ -408,7 +404,6 @@
 
 /* Button on Right */
 .ui.action.input:not([class*="left action"]) > input {
-  border-right: none;
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }
@@ -424,6 +419,10 @@
 }
 
 /* Button on Left */
+.ui[class*="left action"].input > input {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
 .ui[class*="left action"].input > .dropdown,
 .ui[class*="left action"].input > .button,
 .ui[class*="left action"].input > .buttons > .button {
@@ -433,11 +432,6 @@
 .ui[class*="left action"].input > .button:first-child,
 .ui[class*="left action"].input > .buttons:first-child > .button {
   border-radius: 0.28571429rem 0px 0px 0.28571429rem;
-}
-.ui[class*="left action"].input > input {
-  border-left: none;
-  border-top-left-radius: 0px !important;
-  border-bottom-left-radius: 0px !important;
 }
 
 /*--------------------

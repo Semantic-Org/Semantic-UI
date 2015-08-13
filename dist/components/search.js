@@ -126,7 +126,9 @@ $.fn.search = function(parameters) {
             module.set.focus();
             if( module.has.minimumCharacters() ) {
               module.query();
-              module.showResults();
+              if( module.can.show() ) {
+                module.showResults();
+              }
             }
           },
           blur: function(event) {
@@ -287,6 +289,9 @@ $.fn.search = function(parameters) {
         can: {
           useAPI: function() {
             return $.fn.api !== undefined;
+          },
+          show: function() {
+            return module.is.focused() && !module.is.visible() && !module.is.empty();
           },
           transition: function() {
             return settings.transition && $.fn.transition !== undefined && $module.transition('is supported');
@@ -752,11 +757,13 @@ $.fn.search = function(parameters) {
           $results
             .html(html)
           ;
-          module.showResults();
+          if( module.can.show() ) {
+            module.showResults();
+          }
         },
 
         showResults: function() {
-          if( !module.is.visible() && module.is.focused() && !module.is.empty() ) {
+          if(!module.is.visible()) {
             if( module.can.transition() ) {
               module.debug('Showing results with css animations');
               $results

@@ -10927,13 +10927,11 @@ img.ui.bordered.image {
 /* Regular Label on Left */
 
 .ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > input {
-  /*border-left: none;*/
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
 
 .ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > .label {
-  border-right: none;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
@@ -10941,13 +10939,11 @@ img.ui.bordered.image {
 /* Regular Label on Right */
 
 .ui[class*="right labeled"].input > input {
-  /*border-right: none;*/
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }
 
 .ui[class*="right labeled"].input > .label {
-  border-left: none;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
@@ -11031,7 +11027,6 @@ img.ui.bordered.image {
 /* Button on Right */
 
 .ui.action.input:not([class*="left action"]) > input {
-  border-right: none;
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }
@@ -11050,6 +11045,11 @@ img.ui.bordered.image {
 
 /* Button on Left */
 
+.ui[class*="left action"].input > input {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
 .ui[class*="left action"].input > .dropdown,
 .ui[class*="left action"].input > .button,
 .ui[class*="left action"].input > .buttons > .button {
@@ -11060,12 +11060,6 @@ img.ui.bordered.image {
 .ui[class*="left action"].input > .button:first-child,
 .ui[class*="left action"].input > .buttons:first-child > .button {
   border-radius: 0.28571429rem 0px 0px 0.28571429rem;
-}
-
-.ui[class*="left action"].input > input {
-  border-left: none;
-  border-top-left-radius: 0px !important;
-  border-bottom-left-radius: 0px !important;
 }
 
 /*--------------------
@@ -16096,8 +16090,7 @@ ol.ui.horizontal.list li:before,
 .ui.form input[type="tel"],
 .ui.form input[type="time"],
 .ui.form input[type="text"],
-.ui.form input[type="url"],
-.ui.form .ui.input {
+.ui.form input[type="url"] {
   width: 100%;
   vertical-align: top;
 }
@@ -16135,12 +16128,6 @@ ol.ui.horizontal.list li:before,
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
-}
-
-/* Collapse Flex */
-
-.ui.form .ui.input > input {
-  width: 0px !important;
 }
 
 /* Text Area */
@@ -16204,6 +16191,8 @@ ol.ui.horizontal.list li:before,
        Dropdown
 ---------------------*/
 
+/* Block */
+
 .ui.form .field > .selection.dropdown {
   width: 100%;
 }
@@ -16211,6 +16200,8 @@ ol.ui.horizontal.list li:before,
 .ui.form .field > .selection.dropdown > .dropdown.icon {
   float: right;
 }
+
+/* Inline */
 
 .ui.form .inline.fields .field > .selection.dropdown,
 .ui.form .inline.field > .selection.dropdown {
@@ -16220,6 +16211,48 @@ ol.ui.horizontal.list li:before,
 .ui.form .inline.fields .field > .selection.dropdown > .dropdown.icon,
 .ui.form .inline.field > .selection.dropdown > .dropdown.icon {
   float: none;
+}
+
+/*--------------------
+       UI Input
+---------------------*/
+
+/* Block */
+
+.ui.form .fields .field .ui.input,
+.ui.form .wide.field .ui.input {
+  width: 100%;
+}
+
+.ui.form .fields .field .ui.input input,
+.ui.form .field .ui.input input {
+  width: auto;
+}
+
+/* Full Width */
+
+.ui.form .ten.fields .ui.input input,
+.ui.form .nine.fields .ui.input input,
+.ui.form .eight.fields .ui.input input,
+.ui.form .seven.fields .ui.input input,
+.ui.form .six.fields .ui.input input,
+.ui.form .five.fields .ui.input input,
+.ui.form .four.fields .ui.input input,
+.ui.form .three.fields .ui.input input,
+.ui.form .two.fields .ui.input input,
+.ui.form .wide.field .ui.input input {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  width: 0px;
+}
+
+/* Inline */
+
+.ui.form .inline.fields .field:not(.wide) .ui.input,
+.ui.form .inline.field:not(.wide) .ui.input {
+  width: 100%;
 }
 
 /*--------------------
@@ -16405,7 +16438,7 @@ ol.ui.horizontal.list li:before,
 }
 
 /*--------------------
-        Error
+        Warning
 ---------------------*/
 
 /* On Form */
@@ -17059,10 +17092,8 @@ ol.ui.horizontal.list li:before,
 
 .ui.form .inline.fields .field > input,
 .ui.form .inline.fields .field > select,
-.ui.form .inline.fields .field > .ui.input,
 .ui.form .inline.field > input,
-.ui.form .inline.field > select,
-.ui.form .inline.field > .ui.input {
+.ui.form .inline.field > select {
   display: inline-block;
   width: auto;
   margin-top: 0em;
@@ -17097,8 +17128,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.form .inline.fields .wide.field > input,
-.ui.form .inline.fields .wide.field > select,
-.ui.form .inline.fields .wide.field > .ui.input {
+.ui.form .inline.fields .wide.field > select {
   width: 100%;
 }
 
@@ -18808,6 +18838,74 @@ ol.ui.horizontal.list li:before,
   -webkit-flex-grow: 0;
   -ms-flex-positive: 0;
   flex-grow: 0;
+}
+
+/*----------------------
+        Reverse
+-----------------------*/
+
+/* Mobile */
+
+@media only screen and (max-width: 767px) {
+  .ui[class*="mobile reversed"].grid,
+  .ui.grid > [class*="mobile reversed"].row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
+
+  .ui[class*="mobile vertically reversed"].grid,
+  .ui.stackable[class*="mobile reversed"] {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+}
+
+/* Tablet */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ui[class*="tablet reversed"].grid,
+  .ui.grid > [class*="tablet reversed"].row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
+
+  .ui[class*="tablet vertically reversed"].grid {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+}
+
+/* Mobile */
+
+@media only screen and (min-width: 992px) {
+  .ui[class*="computer reversed"].grid,
+  .ui.grid > [class*="computer reversed"].row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
+
+  .ui[class*="computer vertically reversed"].grid {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
 }
 
 /*-------------------
@@ -22473,6 +22571,20 @@ Floated Menu / Item
 }
 
 /*--------------
+     Fixed
+---------------*/
+
+.ui.fixed.table {
+  table-layout: fixed;
+}
+
+.ui.fixed.table th,
+.ui.fixed.table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*--------------
    Hoverable
 ---------------*/
 
@@ -22589,6 +22701,11 @@ Floated Menu / Item
 /*--------------
    Single Line
 ---------------*/
+
+.ui.table[class*="single line"],
+.ui.table [class*="single line"] {
+  white-space: nowrap;
+}
 
 .ui.table[class*="single line"],
 .ui.table [class*="single line"] {

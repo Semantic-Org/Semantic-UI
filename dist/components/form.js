@@ -1244,6 +1244,109 @@ $.fn.form.settings = {
         : false
       ;
     },
+    creditCard: function(cardNumber, cardTypes) {
+      var
+        cards = {
+          visa: {
+            pattern : /^4/,
+            length  : [16]
+          },
+          amex: {
+            pattern : /^3[47]/,
+            length  : [15]
+          },
+          mastercard: {
+            pattern : /^5[1-5]/,
+            length  : [16]
+          },
+          discover: {
+            pattern : /^(6011|622(12[6-9]|1[3-9][0-9]|[2-8][0-9]{2}|9[0-1][0-9]|92[0-5]|64[4-9])|65)/,
+            length  : [16]
+          },
+          unionPay: {
+            pattern : /^(62|88)/,
+            length  : [16, 17, 18, 19]
+          },
+          jcb: {
+            pattern : /^35(2[89]|[3-8][0-9])/,
+            length  : [16]
+          },
+          maestro: {
+            pattern : /^(5018|5020|5038|6304|6759|676[1-3])/,
+            length  : [12, 13, 14, 15, 16, 17, 18, 19]
+          },
+          dinersClub: {
+            pattern : /^(30[0-5]|^36)/,
+            length  : [14]
+          },
+          laser: {
+            pattern : /^(6304|670[69]|6771)/,
+            length  : [16, 17, 18, 19]
+          },
+          visaElectron: {
+            pattern : /^(4026|417500|4508|4844|491(3|7))/,
+            length  : [16]
+          }
+        },
+        valid         = {},
+        validCard     = false,
+        requiredTypes = (typeof cardTypes == 'string')
+          ? cardTypes.split(',')
+          : false,
+        unionPay,
+        validation
+      ;
+
+      if(typeof cardNumber !== 'string' || cardNumber.length === 0) {
+        return;
+      }
+
+      // verify card types
+      if(requiredTypes) {
+        $.each(requiredTypes, function(index, type){
+          // verify each card type
+          validation = cards[type];
+          if(validation) {
+            valid = {
+              length  : ($.inArray(cardNumber.length, validation.length) !== -1),
+              pattern : (cardNumber.search(validation.pattern) !== -1)
+            };
+            if(valid.length && valid.pattern) {
+              validCard = true;
+            }
+          }
+        });
+
+        if(!validCard) {
+          return false;
+        }
+      }
+
+      // skip luhn for UnionPay
+      unionPay = {
+        number  : ($.inArray(cardNumber.length, cards.unionPay.length) !== -1),
+        pattern : (cardNumber.search(cards.unionPay.pattern) !== -1)
+      };
+      if(unionPay.number && unionPay.pattern) {
+        return true;
+      }
+
+      // verify luhn, adapted from  <https://gist.github.com/2134376>
+      var
+        length        = cardNumber.length,
+        multiple      = 0,
+        producedValue = [
+          [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+          [0, 2, 4, 6, 8, 1, 3, 5, 7, 9]
+        ],
+        sum           = 0
+      ;
+      while (length--) {
+        sum += producedValue[multiple][parseInt(cardNumber.charAt(length), 10)];
+        multiple ^= 1;
+      }
+      return (sum % 10 === 0 && sum > 0);
+    },
 
     // different than another field
     different: function(value, identifier) {
