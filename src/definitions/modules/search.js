@@ -291,7 +291,7 @@ $.fn.search = function(parameters) {
             return $.fn.api !== undefined;
           },
           show: function() {
-            return !module.is.visible() && module.is.focused() && !module.is.empty();
+            return module.is.focused() && !module.is.visible() && !module.is.empty();
           },
           transition: function() {
             return settings.transition && $.fn.transition !== undefined && $module.transition('is supported');
@@ -763,26 +763,28 @@ $.fn.search = function(parameters) {
         },
 
         showResults: function() {
-          if( module.can.transition() ) {
-            module.debug('Showing results with css animations');
-            $results
-              .transition({
-                animation  : settings.transition + ' in',
-                debug      : settings.debug,
-                verbose    : settings.verbose,
-                duration   : settings.duration,
-                queue      : true
-              })
-            ;
+          if(!module.is.visible()) {
+            if( module.can.transition() ) {
+              module.debug('Showing results with css animations');
+              $results
+                .transition({
+                  animation  : settings.transition + ' in',
+                  debug      : settings.debug,
+                  verbose    : settings.verbose,
+                  duration   : settings.duration,
+                  queue      : true
+                })
+              ;
+            }
+            else {
+              module.debug('Showing results with javascript');
+              $results
+                .stop()
+                .fadeIn(settings.duration, settings.easing)
+              ;
+            }
+            settings.onResultsOpen.call($results);
           }
-          else {
-            module.debug('Showing results with javascript');
-            $results
-              .stop()
-              .fadeIn(settings.duration, settings.easing)
-            ;
-          }
-          settings.onResultsOpen.call($results);
         },
         hideResults: function() {
           if( module.is.visible() ) {
