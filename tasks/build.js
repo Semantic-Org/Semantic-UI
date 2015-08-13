@@ -3,19 +3,25 @@
 *******************************/
 
 var
+  // dependencies
   gulp         = require('gulp-help')(require('gulp')),
+  runSequence  = require('run-sequence'),
 
   // config
   config       = require('./config/user'),
-  runSequence  = require('run-sequence'),
-  install      = require('./config/project/install')
+  install      = require('./config/project/install'),
+
+  // task sequence
+  tasks        = []
 ;
 
-// add sub-tasks
+
+// sub-tasks
 if(config.rtl) {
   require('./collections/rtl')(gulp);
 }
 require('./collections/build')(gulp);
+
 
 module.exports = function(callback) {
 
@@ -26,15 +32,14 @@ module.exports = function(callback) {
     return;
   }
 
-  var tasks = [];
-
   // check for right-to-left (RTL) language
-  if(config.rtl == 'both') {
-    tasks.push('build-rtl');
-  }
   if(config.rtl === true || config.rtl === 'Yes') {
     gulp.start('build-rtl');
     return;
+  }
+
+  if(config.rtl == 'both') {
+    tasks.push('build-rtl');
   }
 
   tasks.push('build-javascript');
