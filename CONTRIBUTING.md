@@ -2,7 +2,7 @@
 
 ### Usage Questions
 
-Questions about usage should be asked on [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui) or [Gitter](https://gitter.im/Semantic-Org/Semantic-UI).
+Questions about usage should be asked on [the ProjectTalk message board](http://www.projecttalk.io/boards/Semantic-Org%2FSemantic-UI), [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui) or [Gitter](https://gitter.im/Semantic-Org/Semantic-UI).
 
 Examples of usage questions
 * *Why isnt my code working?*
