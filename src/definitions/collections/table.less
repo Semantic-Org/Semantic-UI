@@ -466,6 +466,21 @@
 }
 
 /*--------------
+     Fixed
+---------------*/
+
+.ui.fixed.table {
+  table-layout: fixed;
+}
+
+.ui.fixed.table th,
+.ui.fixed.table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/*--------------
    Hoverable
 ---------------*/
 
@@ -570,6 +585,10 @@
    Single Line
 ---------------*/
 
+.ui.table[class*="single line"],
+.ui.table [class*="single line"] {
+  white-space: nowrap;
+}
 .ui.table[class*="single line"],
 .ui.table [class*="single line"] {
   white-space: nowrap;
