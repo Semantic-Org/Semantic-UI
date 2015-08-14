@@ -370,9 +370,7 @@ a.ui.label {
   border-top-color: inherit;
 }
 
-
-
-/* Inside Image */
+/* Inside Table */
 .ui.image > .ribbon.label,
 .ui.card .image > .ribbon.label {
   position: absolute;
@@ -385,6 +383,15 @@ a.ui.label {
 .ui.card .image > .ui[class*="right ribbon"].label,
 .ui.image > .ui[class*="right ribbon"].label {
   left: @rightRibbonImageOffset;
+  padding-left: @horizontalPadding;
+}
+
+/* Inside Table */
+.ui.table td > .ui.ribbon.label {
+  left: @ribbonTableOffset;
+}
+.ui.table td > .ui[class*="right ribbon"].label {
+  left: @rightRibbonTableOffset;
   padding-left: @horizontalPadding;
 }
 
