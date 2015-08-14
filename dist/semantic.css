@@ -1063,15 +1063,28 @@ input::selection {
 
 /* States */
 
+/* Hover */
+
 .ui.inverted.button:hover {
   background: #ffffff;
   box-shadow: 0px 0px 0px 2px #ffffff inset !important;
   color: rgba(0, 0, 0, 0.8);
 }
 
-.ui.inverted.button:focus {
+/* Active / Focus */
+
+.ui.inverted.button:focus,
+.ui.inverted.button.active {
   background: #ffffff;
   box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* Active Focus */
+
+.ui.inverted.button.active:focus {
+  background: #dcddde;
+  box-shadow: 0px 0px 0px 2px #dcddde inset !important;
   color: rgba(0, 0, 0, 0.8);
 }
 
