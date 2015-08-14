@@ -608,8 +608,8 @@ $.fn.tab = function(parameters) {
             tabPath        = tabPath || activeTabPath;
             tabPathArray   = module.utilities.pathToArray(tabPath);
             lastTab        = module.utilities.last(tabPathArray);
-            $fullPathTab   = $tabs.filter('[data-' + metadata.tab + '="' + lastTab + '"]');
-            $simplePathTab = $tabs.filter('[data-' + metadata.tab + '="' + tabPath + '"]');
+            $fullPathTab   = $tabs.filter('[data-' + metadata.tab + '="' + tabPath + '"]');
+            $simplePathTab = $tabs.filter('[data-' + metadata.tab + '="' + lastTab + '"]');
             return ($fullPathTab.length > 0)
               ? $fullPathTab
               : $simplePathTab
