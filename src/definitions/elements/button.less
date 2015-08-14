@@ -352,16 +352,29 @@
 }
 
 /* States */
+
+/* Hover */
 .ui.inverted.button:hover {
   background: @white;
   box-shadow: 0px 0px 0px @invertedBorderSize @white inset !important;
   color: @hoverColor;
 }
-.ui.inverted.button:focus {
+
+/* Active / Focus */
+.ui.inverted.button:focus,
+.ui.inverted.button.active {
   background: @white;
   box-shadow: 0px 0px 0px @invertedBorderSize @white inset !important;
   color: @focusColor;
 }
+
+/* Active Focus */
+.ui.inverted.button.active:focus {
+  background: @midWhite;
+  box-shadow: 0px 0px 0px @invertedBorderSize @midWhite inset !important;
+  color: @focusColor;
+}
+
 
 /*-------------------
     Labeled Button
