@@ -40,6 +40,7 @@
 - **Accordion** - Added missing notation for accordion docs #2812
 - **Build Tools** - Fixes issue where component glob `{tab, table}` caused table to be included twice in concatenated source **
 - **Button** - Fixes inverted button missing an `active` and `active focus` state #2635
+- **Button** - Fixes issue where `basic button` would not have focus color text when colored #2264
 - **Checkbox** - Clicking a link inside an initialized checkbox `label` will now work correctly, and will not toggle the checkbox. #2804
 - **Container** - Fix issue with `fluid container` being `100% + gutter` at mobile resolution (causing overflow)
 - **Dropdown** - `forceSelection` no longer sets current value in search selection when current query is blank #2058
