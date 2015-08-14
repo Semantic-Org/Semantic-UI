@@ -63,6 +63,7 @@
 - **Menu** - Fixed `(x) column` nested grid with alignment stacking vertically (wrong flex-direction) #2810
 - **Modal** - Fix autofocus setting in modal not working due to improper selector #2737
 - **Modal** - Increased `close` specificity, modal will now only close on `> .close` #2736
+- **Popup** - Fixes issue where variation would not be added to a pre-existing popup even if specified in javascript #26011
 - **Transition** - Transition callbacks now all have the correct `this` set. #2758
 - **Search** - Calling `show results` programmatically no longer fails when input is not focused #2842
 
