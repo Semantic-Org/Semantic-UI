@@ -23,7 +23,6 @@
 
 @borderRadius: @defaultBorderRadius;
 @transition:
-  background-color @defaultDuration @defaultEasing,
   box-shadow @defaultDuration @defaultEasing,
   border-color @defaultDuration @defaultEasing
 ;
