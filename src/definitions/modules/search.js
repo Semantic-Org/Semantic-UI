@@ -831,7 +831,7 @@ $.fn.search = function(parameters) {
               }
             }
             if($.isFunction(template)) {
-              html = template(response);
+              html = template(response, settings);
             }
             else {
               module.error(error.noTemplate, false);
@@ -1055,6 +1055,9 @@ $.fn.search.settings = {
     'description'
   ],
   // fields to search
+  
+  displayField   : '',
+  // field to display in standard results template
 
   searchFullText : true,
   // whether to include fuzzy results in local search
@@ -1232,7 +1235,7 @@ $.fn.search.settings = {
       }
       return false;
     },
-    standard: function(response) {
+    standard: function(response, settings) {
       var
         html = ''
       ;
@@ -1254,6 +1257,9 @@ $.fn.search.settings = {
             ;
           }
           html += '<div class="content">';
+          if (settings.displayField.length > 0){
+              html += '<div class="title">' + result[settings.displayField] + '</div>';
+          }
           if(result.price !== undefined) {
             html += '<div class="price">' + result.price + '</div>';
           }
