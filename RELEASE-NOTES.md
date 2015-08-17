@@ -8,16 +8,16 @@
 - **API** Added new setting `hideError`, defaults to `auto` (will automatically hide error for elements that are not forms). #2586
 - **Button** - Added `labeled button` variation for display a count next to a button.
 - **Checkbox** - Added 4 new callbacks `beforeChecked`, `beforeUnchecked`, `beforeDeterminate`, `beforeIndeterminate`. You can now cancel a state change by returning false from these callbacks.
+- **Divider** - Vertical divider can now be used multiple times in a single column row (not just 50/50 split). #2808
 - **Dropdown** - Dropdown will now automatically update selected values when hidden input value changes (so long as `change` event is triggered) #2626
-- **Grid** - Added new responsive [`reversed`](http://www.semantic-ui.com/collections/grid.html#responsive-order) variations for reversing column order, these are also compatible with other grid types like `divided` and `celled` by device #2685
-- **Label** - Added a new  `basic label` style, works symbiotically with other label types to provide a more lightweight style label
 - **Form Validation** - Added credit card validation, supports array of card types, and international cards including non luhn cards like China UnionPay #2729
 - **Form Validation** - Updated appearance of form validation prompts to use a more lightweight style. Added variables for controlling error validation prompt styles in `form.variables`
-- **Divider** - Vertical divider can now be used multiple times in a single column row (not just 50/50 split). #2808
+- **Grid** - Added new responsive [`reversed`](http://www.semantic-ui.com/collections/grid.html#responsive-order) variations for reversing column order, these are also compatible with other grid types like `divided` and `celled` by device #2685
 - **Icon** - Added `fitted` icon variation
 - **Input** - Added `disabled` state for inputs #2694
-- **Menu** - Appearance of `labeled icon menu` has been modified. Horizontal menus now have icons above text, and icons are slightly larger than before.
+- **Label** - Added a new  `basic label` style, works symbiotically with other label types to provide a more lightweight style label
 - **Menu** - Added new `tabular` menu types, `right tabular`, `bottom tabular`, added many new `tabular` menu variables for customizing
+- **Menu** - Appearance of `labeled icon menu` has been modified. Horizontal menus now have icons above text, and icons are slightly larger than before.
 - **Table** - New `fixed` table variation added for use with `table-layout: fixed;`. This also supports "..." ellipsis when used with `single line` content
 
 **[Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**\
@@ -31,10 +31,11 @@
 
 
 **[Community Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+- **Build Tools** - `gulp build` now correctly calls `callback`, allowing those importing tasks to chain it correctly #2836 **Thanks @artemkaint**
 - **Dropdown** - Dropdown `show` and `hide` are now cancellable by returning `false` from `onShow` or `onHide` callbacks.
 - **Flag** - England flag alias is now correctly set #2770 **Thanks @eduardom**
+- **Form Validation** - Added `number` and `decimal` validations to form **Thanks TonnyORG** #2537
 - **Popup** - Popup will now look for inline popup as any next adjacent sibling #2772 **Thanks @malacalypse**
-- **Build Tools** - `gulp build` now correctly calls `callback`, allowing those importing tasks to chain it correctly #2836 **Thanks @artemkaint**
 
 **Additional Enhancements**
 
