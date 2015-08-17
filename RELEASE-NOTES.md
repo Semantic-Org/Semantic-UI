@@ -14,6 +14,7 @@
 - **Form Validation** - Added credit card validation, supports array of card types, and international cards including non luhn cards like China UnionPay #2729
 - **Form Validation** - Updated appearance of form validation prompts to use a more lightweight style. Added variables for controlling error validation prompt styles in `form.variables`
 - **Divider** - Vertical divider can now be used multiple times in a single column row (not just 50/50 split). #2808
+- **Icon** - Added `fitted` icon variation
 - **Input** - Added `disabled` state for inputs #2694
 - **Menu** - Appearance of `labeled icon menu` has been modified. Horizontal menus now have icons above text, and icons are slightly larger than before.
 - **Menu** - Added new `tabular` menu types, `right tabular`, `bottom tabular`, added many new `tabular` menu variables for customizing
