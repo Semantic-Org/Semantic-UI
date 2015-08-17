@@ -2371,7 +2371,6 @@ $.fn.dropdown = function(parameters) {
             if(settings.useLabels && module.has.maxSelections()) {
               return;
             }
-            console.log(alreadyHasValue);
             if(value === '' || alreadyHasValue) {
               $addition.remove();
               return;
