@@ -67,6 +67,7 @@
 - **Item** - Fixed `bottom aligned` not working in item due to incorrect flex value #2826
 - **List** - Lists can now be `right floated` or `left floated`
 - **Menu** - Fixed `(x) column` nested grid with alignment stacking vertically (wrong flex-direction) #2810
+- **Menu** - Sub menus now work correctly and are correctly spaced inside `secondary menu` and text menu` #2862
 - **Modal** - Fix autofocus setting in modal not working due to improper selector #2737
 - **Modal** - Increased `close` specificity, modal will now only close on `> .close` #2736
 - **Popup** - Fixes issue where variation would not be added to a pre-existing popup even if specified in javascript #26011

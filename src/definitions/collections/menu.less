@@ -857,6 +857,15 @@ Floated Menu / Item
   box-shadow: none;
 }
 
+/* Sub Menu */
+.ui.vertical.secondary.menu .item:not(.dropdown) > .menu {
+  margin: @secondaryMenuSubMenuMargin;
+}
+.ui.vertical.secondary.menu .item:not(.dropdown) > .menu > .item {
+  margin: @secondaryMenuSubMenuItemMargin;
+  padding: @secondaryMenuSubMenuItemPadding;
+}
+
 
 /*---------------------
    Secondary Vertical
@@ -1021,11 +1030,6 @@ Floated Menu / Item
   transition: @textMenuItemTransition;
 }
 
-/* Sub Menu */
-.ui.vertical.text.menu > .menu {
-  margin: @textMenuSubMenuMargin;
-}
-
 /* Border */
 .ui.text.menu .item:before,
 .ui.text.menu .menu .item:before {
@@ -1071,6 +1075,15 @@ Floated Menu / Item
 }
 .ui.vertical.text.menu .header.item {
   margin: @textVerticalMenuHeaderMargin;
+}
+
+/* Vertical Sub Menu */
+.ui.vertical.text.menu .item:not(.dropdown) > .menu {
+  margin: @textMenuSubMenuMargin;
+}
+.ui.vertical.text.menu .item:not(.dropdown) > .menu > .item {
+  margin: @textMenuSubMenuItemMargin;
+  padding: @textMenuSubMenuItemPadding;
 }
 
 /*--- hover ---*/
