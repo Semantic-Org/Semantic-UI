@@ -342,7 +342,7 @@ a.ui.label {
   border-top-color: inherit;
 }
 
-/* Inside Image */
+/* Inside Table */
 .ui.image > .ribbon.label,
 .ui.card .image > .ribbon.label {
   position: absolute;
@@ -355,6 +355,15 @@ a.ui.label {
 .ui.card .image > .ui[class*="right ribbon"].label,
 .ui.image > .ui[class*="right ribbon"].label {
   left: calc(100% +  -0.05rem  +  1.2em );
+  padding-left: 0.833em;
+}
+
+/* Inside Table */
+.ui.table td > .ui.ribbon.label {
+  left: calc( -0.71428571em  -  1.2em );
+}
+.ui.table td > .ui[class*="right ribbon"].label {
+  left: calc(100% +  0.71428571em  +  1.2em );
   padding-left: 0.833em;
 }
 
