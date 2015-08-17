@@ -28,7 +28,7 @@
 - **GitHub Theme** - GitHub theme has been updated to use github's new button styles. Added github icon theme with port of their icon font.
 - **Label** - Added `basic` label variation, useful for item counts
 - **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
-
+- **Menu** - `inverted menu` now support `colored` individual items **Thanks @maturano** #2850
 
 **[Community Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Build Tools** - `gulp build` now correctly calls `callback`, allowing those importing tasks to chain it correctly #2836 **Thanks @artemkaint**
