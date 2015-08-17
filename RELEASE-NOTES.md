@@ -47,6 +47,7 @@
 - **Container** - Fix issue with `fluid container` being `100% + gutter` at mobile resolution (causing overflow)
 - **Dropdown** - `forceSelection` no longer sets current value in search selection when current query is blank #2058
 - **Dropdown** - Dropdown `@arrowSize` will now automatically reposition itself if size is changed with variable
+- **Dropdown** - Fixed error where menu would disappear when entering spaced words using `allowAdditions: true` caused by value matching its own whitespace-trimed value #2853
 - **Dropdown** - Dropdown arrow now has a variable `@dropdownArrowSize`, and is slightly smaller than previously
 - **Dropdown** - Fix `left menu` inside `ui menu` appearing horizontally #2778
 - **Dropdown** - Fixed issue where "no results" message would be still be visible before search query on input focus #2824
