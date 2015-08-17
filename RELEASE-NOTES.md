@@ -5,6 +5,7 @@
 **New Features**
 
 - **API** - Added `encodeParameters` option to enable/disable parameters being encoded with `encodeURIComponent` #2752
+- **API** Added new setting `hideError`, defaults to `auto` (will automatically hide error for elements that are not forms). #2586
 - **Button** - Added `labeled button` variation for display a count next to a button.
 - **Checkbox** - Added 4 new callbacks `beforeChecked`, `beforeUnchecked`, `beforeDeterminate`, `beforeIndeterminate`. You can now cancel a state change by returning false from these callbacks.
 - **Dropdown** - Dropdown will now automatically update selected values when hidden input value changes (so long as `change` event is triggered) #2626
@@ -18,7 +19,7 @@
 - **Menu** - Added new `tabular` menu types, `right tabular`, `bottom tabular`, added many new `tabular` menu variables for customizing
 - **Table** - New `fixed` table variation added for use with `table-layout: fixed;`. This also supports "..." ellipsis when used with `single line` content
 
-**[Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+**[Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**\
 - **Breadcrumb** - Breadcrumb no longer receives vertical spacing by default. This may often cause vertical alignment issues when displayed next to other `inline-block` content.
 - **Dropdown** - Added `get default text` and `get placeholder text` behaviors for returning text values.
 - **Dropdown** - Pointing dropdown (dropdown with arrows) now support `upward`, and will automatically move pointer arrows when appearing upward #2733
@@ -78,6 +79,7 @@
 - **Tab** - Fixed issue where simple path would be tested before full path, i.e. `first/` vs `/second/first/` causing tab to not open in some cases **Thanks @habibutsu** #2843
 
 **Additional Bugs**
+- **API** - API now will use automatically use `form` action if no api event is specified now  when form is `stateContext` but not intialized element
 - **Build Tools** - Fixes issue on `win` platform where packaged theme would not correctly update when using watch due to regExp not matching windows path separators.
 - **Dropdown** - Dropdown will no longer fire native `onchange` event on hidden input when setting value during initial load (unless `fireOnInit: true`) #2795 **Thanks @lauri-elevant**
 - **Dropdown** - Fixed issue where `forceSelection` would not occur when `pageLostFocus` (clicked into another tab and back)
