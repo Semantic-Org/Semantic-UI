@@ -18,6 +18,7 @@
 - **Label** - Added a new  `basic label` style, works symbiotically with other label types to provide a more lightweight style label
 - **Menu** - Added new `tabular` menu types, `right tabular`, `bottom tabular`, added many new `tabular` menu variables for customizing
 - **Menu** - Appearance of `labeled icon menu` has been modified. Horizontal menus now have icons above text, and icons are slightly larger than before.
+- **Search** - Search now can use any server response mapping, use the `fields` parameter to pass in a mapping of server response to content **thanks @anibalmf1** #2645
 - **Table** - New `fixed` table variation added for use with `table-layout: fixed;`. This also supports "..." ellipsis when used with `single line` content
 
 **[Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**\
