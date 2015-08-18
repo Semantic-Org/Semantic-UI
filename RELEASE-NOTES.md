@@ -71,7 +71,7 @@
 - **Modal** - Increased `close` specificity, modal will now only close on `> .close` #2736
 - **Popup** - Fixes issue where variation would not be added to a pre-existing popup even if specified in javascript #26011
 - **Transition** - Transition callbacks now all have the correct `this` set. #2758
-- **Search** - Calling `show results` programmatically no longer fails when input is not focused #2842
+- **Search** - Calling `.search('show results')` no longer fails when input is not focused #2842
 - **Table/Label** - `ribbon labels` will now automatically position themselves when used inside a table #1930
 
 **[Community Bug Fixes](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
