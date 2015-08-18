@@ -39,6 +39,7 @@ $.fn.dropdown = function(parameters) {
 
         className       = settings.className,
         message         = settings.message,
+        fields          = settings.fields,
         metadata        = settings.metadata,
         namespace       = settings.namespace,
         regExp          = settings.regExp,
@@ -328,7 +329,7 @@ $.fn.dropdown = function(parameters) {
             module.refresh();
           },
           menu: function(values) {
-            $menu.html( templates.menu( values ));
+            $menu.html( templates.menu(values, fields));
             $item = $menu.find(selector.item);
           },
           reference: function() {
@@ -2544,7 +2545,6 @@ $.fn.dropdown = function(parameters) {
                 ;
                 if(module.is.multiple()) {
                   if(settings.useLabels) {
-                    console.log(selectedValue);
                     module.remove.value(selectedValue, selectedText, $selected);
                     module.remove.label(selectedValue);
                   }
@@ -3293,6 +3293,13 @@ $.fn.dropdown.settings = {
     value           : 'value'
   },
 
+  // property names for remote query
+  fields: {
+    values : 'values',
+    name   : 'name',
+    value  : 'value'
+  },
+
   selector : {
     addition     : '.addition',
     dropdown     : '.ui.dropdown',
@@ -3363,13 +3370,13 @@ $.fn.dropdown.settings.templates = {
   },
 
   // generates just menu from select
-  menu: function(response) {
+  menu: function(response, fields) {
     var
       values = response.values || {},
       html   = ''
     ;
-    $.each(response.values, function(index, option) {
-      html += '<div class="item" data-value="' + option.value + '">' + option.name + '</div>';
+    $.each(response[fields.values], function(index, option) {
+      html += '<div class="item" data-value="' + option[fields.value] + '">' + option[fields.name] + '</div>';
     });
     return html;
   },
