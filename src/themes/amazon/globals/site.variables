@@ -12,18 +12,15 @@
 
 @h1: 2.25em;
 
-@defaultBorderRadius: 0.2307em;
+@defaultBorderRadius: 0.30769em; /* 4px @ 13em */
 
 @disabledOpacity: 0.3;
 
-/* Colors */
-@blue: #80A6CD;
-@green: #60B044;
-@orange: #D26911;
-@black: #333333;
+@black: #444C55;
+@orange: #FDE07B;
 
-@linkColor: #4078C0;
-@linkHoverColor: @linkColor;
+@linkColor: #0066C0;
+@linkHoverColor: #C45500;
 @linkHoverUnderline: underline;
 
 @borderColor: rgba(0, 0, 0, 0.13);
@@ -36,8 +33,11 @@
 @computerBreakpoint: @largeMonitorBreakpoint;
 @tabletBreakpoint: @largeMonitorBreakpoint;
 
-@infoBackgroundColor: #E6F1F6;
+/* Colors */
+@blue: #80A6CD;
+@green: #60B044;
+@orange: #D26911;
 
+
+@infoBackgroundColor: #E6F1F6;
 @infoTextColor: #4E575B;
-@warningTextColor: #613A00;
-@errorTextColor: #991111;

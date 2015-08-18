@@ -101,8 +101,8 @@
 .icon.keyboard:before { content: '\f00d'} /*  */
 .icon.law:before { content: '\f0d8'} /*  */
 .icon.light.bulb:before { content: '\f000'} /*  */
-.icon.link:before { content: '\f05c'} /*  */
-.icon.link.external:before { content: '\f07f'} /*  */
+.icon.linkify:before { content: '\f05c'} /*  */
+.icon.linkify.external:before { content: '\f07f'} /*  */
 .icon.list.ordered:before { content: '\f062'} /*  */
 .icon.list.unordered:before { content: '\f061'} /*  */
 .icon.location:before { content: '\f060'} /*  */

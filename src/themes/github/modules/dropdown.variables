@@ -2,6 +2,10 @@
     User Variable Overrides
 *******************************/
 
+@transition:
+  width @defaultDuration @defaultEasing
+;
+
 @menuPadding: 0px;
 
 @itemVerticalPadding: @relative8px;
@@ -11,8 +15,10 @@
 
 @raisedBoxShadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
 
+@menuPadding: @relative5px 0px;
+
 @menuHeaderMargin: 0em;
-@menuHeaderPadding: @relative4px  @itemHorizontalPadding;
+@menuHeaderPadding: @relative6px @itemHorizontalPadding;
 @menuHeaderFontSize: @relative12px;
 @menuHeaderTextTransform: none;
 @menuHeaderFontWeight: normal;

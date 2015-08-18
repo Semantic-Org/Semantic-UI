@@ -11,13 +11,22 @@
 @fontWeight: bold;
 @textColor: #333333;
 
+@transition:
+  opacity @defaultDuration @defaultEasing,
+  background @defaultDuration @defaultEasing,
+  color @defaultDuration @defaultEasing,
+  background @defaultDuration @defaultEasing
+;
+
+@iconOpacity: 1;
 @iconHeight: 13px;
 @iconDistance: @relative4px;
 
 @verticalPadding: @relative6px;
 @horizontalPadding: @relative10px;
 
-@backgroundImage: linear-gradient(#FCFCFC, #EEEEEE);
+@backgroundColor: #FBFBFB;
+@backgroundImage: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.05));
 @borderBoxShadowColor: rgba(0, 0, 0, 0.13);
 
 @coloredBackgroundImage: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
@@ -50,6 +59,9 @@
 @labeledIconBackgroundColor: transparent;
 @labeledIconBorder: transparent;
 @labeledIconPadding: (@horizontalPadding + 2.25em);
+
+@labeledLabelFontSize: @relative11px;
+@labeledLabelAlign: flex-end;
 
 @basicFontWeight: bold;
 @basicTextColor: @linkColor;
