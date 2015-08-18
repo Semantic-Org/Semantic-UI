@@ -6,15 +6,17 @@
 
 - **API** - Added `encodeParameters` option to enable/disable parameters being encoded with `encodeURIComponent` #2752
 - **API** Added new setting `hideError`, defaults to `auto` (will automatically hide error for elements that are not forms). #2586
+- **Build Tools** - Packaged `.overrides` file are now an optional include
 - **Button** - Added `labeled button` variation for display a count next to a button.
 - **Checkbox** - Added 4 new callbacks `beforeChecked`, `beforeUnchecked`, `beforeDeterminate`, `beforeIndeterminate`. You can now cancel a state change by returning false from these callbacks.
+- **Cards** - Added documentation for `stackable` cards which was available but undocumented in previous versions.
 - **Divider** - Vertical divider can now be used multiple times in a single column row (not just 50/50 split). #2808
 - **Dropdown** - Dropdown will now automatically update selected values when hidden input value changes (so long as `change` event is triggered) #2626
 - **Dropdown**  - Dropdown using remote data, can now customize the property names returned by api call using `fields` (similar to search).
 - **Form Validation** - Added credit card validation, supports array of card types, and international cards including non luhn cards like China UnionPay #2729
 - **Form Validation** - Updated appearance of form validation prompts to use a more lightweight style. Added variables for controlling error validation prompt styles in `form.variables`
 - **Grid** - Added new responsive [`reversed`](http://www.semantic-ui.com/collections/grid.html#responsive-order) variations for reversing column order, these are also compatible with other grid types like `divided` and `celled` by device #2685
-- **Icon** - Added `fitted` icon variation
+- **Icon** - Added `fitted` icon variation, and new small sizes `tiny` and `mini`
 - **Input** - Added `disabled` state for inputs #2694
 - **Label** - Added a new  `basic label` style, works symbiotically with other label types to provide a more lightweight style label
 - **Menu** - Added new `tabular` menu types, `right tabular`, `bottom tabular`, added many new `tabular` menu variables for customizing
@@ -105,6 +107,7 @@
 - **Menu** - Fix text align on `dropdown item` inside `icon menu`
 - **Menu** - Fixed hybrid initialization not creating `menu` correctly. Fixed docs example of hybrid `<select>` initialization
 - **Menu** - Fixed issue with `labeled input` text inside menu not appearing vertically centered
+- **Reveal** - Reveal now uses `display: inherit` instead of forcing `inline-block`
 
 ### Version 2.0.8 - August 10, 2015
 
