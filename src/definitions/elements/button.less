@@ -393,7 +393,9 @@
   margin: 0px;
 }
 .ui.labeled.button > .label {
-  margin: 0px 0px 0px -@borderBoxShadowWidth;
+  display: flex;
+  align-items: @labeledLabelAlign;
+  margin: 0px 0px 0px @labeledLabelBorderOffset;
   font-size: @labeledLabelFontSize;
   padding: @labeledLabelPadding;
   font-size: @labeledLabelFontSize;
@@ -575,7 +577,7 @@
      Icon
 ---------------*/
 
-.ui.button > .icon {
+.ui.button > .icon:not(.button) {
   height: @iconHeight;
   opacity: @iconOpacity;
   margin: @iconMargin;
@@ -583,7 +585,7 @@
   vertical-align: @iconVerticalAlign;
   color: @iconColor;
 }
-.ui.button > .right.icon {
+.ui.button > .right.icon:not(.button) {
   margin: @rightIconMargin;
 }
 
