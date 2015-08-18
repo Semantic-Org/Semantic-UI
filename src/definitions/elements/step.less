@@ -111,6 +111,11 @@
   margin-right: 0em;
 }
 
+/* Only Step */
+.ui.steps .step:only-child {
+  border-radius: @stepsBorderRadius;
+}
+
 
 /*******************************
             Content
@@ -220,6 +225,10 @@
   border-bottom: none;
   border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
 }
+.ui.vertical.steps .step:only-child {
+  border-radius: @stepsBorderRadius;
+}
+
 
 /* Arrow */
 .ui.vertical.steps .step:after {
@@ -242,18 +251,6 @@
 }
 .ui.vertical.steps .active.step:last-child:after {
   display: @verticalActiveLastArrowDisplay;
-}
-
-
-/*---------------
-     Unbiased
-----------------*/
-
-/* Only Step */
-.ui.steps, .ui.vertical.steps {
-  .step:only-child {
-    border-radius: @stepsBorderRadius;
-  }
 }
 
 

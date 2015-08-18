@@ -39,7 +39,6 @@
 - **Popup** - Popup will now look for inline popup as any next adjacent sibling #2772 **Thanks @malacalypse**
 
 **Additional Enhancements**
-
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Accordion** - Added missing notation for accordion docs #2812
 - **Build Tools** - Fixes issue where component glob `{tab, table}` caused table to be included twice in concatenated source **
@@ -80,6 +79,7 @@
 - **Dropdown** - Fixed issue where label could not be removed when using a numeric value due to mismatched types #2754 #2755 **Thanks @dgurkaynak**
 - **Menu** - Fixes tabular menu missing variable for background. **Thanks @frontdevde**
 - **Sticky** - Sticky now sets width and height with `!important` to avoid inheritance issues in some cases **Thanks @lauri-elevant** #2710
+- **Step** - Fixed issue with display of step groups with only one step having incorrect border radius **Thanks @elliotisonfire** #2869
 - **Build Tools** - Removed octal literals from install scripts (for color escaping), and uses of future ECMAScript reserved words #2838 #2839 **Thanks @artemkaint**
 - **Tab** - Fixed issue where simple path would be tested before full path, i.e. `first/` vs `/second/first/` causing tab to not open in some cases **Thanks @habibutsu** #2843
 
