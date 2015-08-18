@@ -1562,10 +1562,10 @@ $.fn.dropdown = function(parameters) {
               return false;
             }
             return ($choice.data(metadata.value) !== undefined)
-              ? $choice.data(metadata.value)
+              ? String( $choice.data(metadata.value) )
               : (typeof choiceText === 'string')
                 ? $.trim(choiceText.toLowerCase())
-                : choiceText
+                : String(choiceText)
             ;
           },
           inputEvent: function() {
@@ -1688,7 +1688,7 @@ $.fn.dropdown = function(parameters) {
                     return;
                   }
                   if(isMultiple) {
-                    if($.inArray(optionValue.toString(), value) !== -1 || $.inArray(optionText, value) !== -1) {
+                    if($.inArray( String(optionValue), value) !== -1 || $.inArray(optionText, value) !== -1) {
                       $selectedItem = ($selectedItem)
                         ? $selectedItem.add($choice)
                         : $choice
@@ -1703,7 +1703,7 @@ $.fn.dropdown = function(parameters) {
                     }
                   }
                   else {
-                    if( optionValue.toString() == value.toString() || optionText == value) {
+                    if( String(optionValue) == String(value) || optionText == value) {
                       module.verbose('Found select item by value', optionValue, value);
                       $selectedItem = $choice;
                       return true;
@@ -2143,8 +2143,8 @@ $.fn.dropdown = function(parameters) {
               hasInput     = ($input.length > 0),
               isAddition   = !module.has.value(value),
               currentValue = module.get.values(),
-              stringValue  = (typeof value == 'number')
-                ? value.toString()
+              stringValue  = (value !== undefined)
+                ? String(value)
                 : value,
               newValue
             ;
@@ -2544,6 +2544,7 @@ $.fn.dropdown = function(parameters) {
                 ;
                 if(module.is.multiple()) {
                   if(settings.useLabels) {
+                    console.log(selectedValue);
                     module.remove.value(selectedValue, selectedText, $selected);
                     module.remove.label(selectedValue);
                   }
@@ -2622,8 +2623,8 @@ $.fn.dropdown = function(parameters) {
               .each(function(){
                 var
                   value       = $(this).data(metadata.value),
-                  stringValue = (typeof value == 'number')
-                    ? value.toString()
+                  stringValue = (value !== undefined)
+                    ? String(value)
                     : value,
                   isUserValue = module.is.userValue(stringValue)
                 ;

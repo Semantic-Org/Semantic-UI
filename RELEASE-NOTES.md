@@ -88,6 +88,7 @@
 - **Build Tools** - Fixes issue on `win` platform where packaged theme would not correctly update when using watch due to regExp not matching windows path separators.
 - **Dropdown** - Dropdown will no longer fire native `onchange` event on hidden input when setting value during initial load (unless `fireOnInit: true`) #2795 **Thanks @lauri-elevant**
 - **Dropdown** - Fixed issue where `forceSelection` would not occur when `pageLostFocus` (clicked into another tab and back)
+- **Dropdown** - Fixed issue where using the specific value `value="false"` would cause an option to not be removable from a multiple select
 - **Dropdown/Tab** - Fixed an instance where `metadata` was not referencing settings metadata value
 - **Form Validation** - Fixed issue with `get value(s)` where unchecked checkboxes would not correctly retrieve values
 - **Input** `action input` and `labeled input` now have focused border on inner edge with label/button
