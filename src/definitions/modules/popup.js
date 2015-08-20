@@ -375,7 +375,15 @@ $.fn.popup = function(parameters) {
         animate: {
           show: function(callback) {
             callback = $.isFunction(callback) ? callback : function(){};
-            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+            if(settings.transition == 'none') {
+              module.set.visible();
+              $popup.transition('show');
+              callback.call(element);
+              settings.onVisible.call($popup, element);
+              // Bind close on next event loop iteration to prevent direct close due to the click event opening this popup.
+              setTimeout(function() { module.bind.close(); }, 0);
+            }
+            else if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               module.set.visible();
               $popup
                 .transition({
@@ -403,7 +411,13 @@ $.fn.popup = function(parameters) {
               module.debug('onHide callback returned false, cancelling popup animation');
               return;
             }
-            if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
+            if(settings.transition == 'none') {
+              $popup.transition('hide');
+              module.reset();
+              callback.call(element);
+              settings.onHidden.call($popup, element);
+            }
+            else if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               $popup
                 .transition({
                   animation  : settings.transition + ' out',
