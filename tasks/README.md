@@ -13,5 +13,5 @@ These tasks can be imported into your own gulpfile allowing you to avoid using S
 var
   watch = require('path/to/semantic/tasks/watch')
 ;
-gulp.task('watch ui', 'Watch Semantic UI', watch));
+gulp.task('watch ui', watch);
 ```

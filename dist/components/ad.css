@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 1.12.3 - Ad
+ * # Semantic UI 2.0.8 - Ad
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -240,7 +240,7 @@
 }
 .ui.test.ad {
   position: relative;
-  background: #333333;
+  background: #545454;
 }
 .ui.test.ad:after {
   position: absolute;
@@ -257,7 +257,7 @@
   font-weight: bold;
 }
 .ui.mobile.test.ad:after {
-  font-size: 0.85714em;
+  font-size: 0.85714286em;
 }
 .ui.test.ad[data-text]:after {
   content: attr(data-text);

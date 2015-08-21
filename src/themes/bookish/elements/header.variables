@@ -30,8 +30,8 @@
 @h5: 0.9rem;
 
 /* Sizing */
-@tiny: 1.5em;
-@small: 1.33em;
+@huge: 1.75em;
+@large: 1.33em;
 @medium: 1.33em;
-@large: 1em;
-@huge: 0.9em;
+@small: 1em;
+@tiny: 0.9em;

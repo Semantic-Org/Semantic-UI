@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Theming - Semantic</title>
+
+  <!--- Site CSS -->
+  <link rel="stylesheet" type="text/css" href="../../dist/components/reset.css">
+  <link rel="stylesheet" type="text/css" href="../../dist/components/site.css">
+  <link rel="stylesheet" type="text/css" href="../../dist/components/grid.css">
+
+  <!--- Component CSS -->
+  <link rel="stylesheet" type="text/css" href="../../dist/components/icon.css">
+  <link rel="stylesheet" type="text/css" href="../../dist/components/input.css">
+  <link rel="stylesheet" type="text/css" href="../../dist/components/button.css">
+  <link rel="stylesheet" type="text/css" href="../../dist/components/divider.css">
+  <link rel="stylesheet" type="text/css" href="../../dist/components/label.css">
+  <link rel="stylesheet" type="text/css" href="../../dist/components/dropdown.css">
+  <link rel="stylesheet" type="text/css" href="../../dist/components/transition.css">
+  <link rel="stylesheet" type="text/css" href="../../dist/components/popup.css">
+
+  <!--- Component JS -->
+  <script src="../assets/library/jquery.min.js"></script>
+  <script src="../assets/library/iframe-content.js"></script>
+  <script type="text/javascript" src="../../dist/components/popup.js"></script>
+  <script type="text/javascript" src="../../dist/components/dropdown.js"></script>
+  <script type="text/javascript" src="../../dist/components/transition.js"></script>
+
+  <!--- Show Names -->
+  <script src="../assets/show-examples.js"></script>
+
+  <!--- Example CSS -->
+  <style>
+  body {
+    padding: 1em;
+  }
+  .ui.input + .ui.input {
+    margin-left: 1em;
+  }
+  </style>
+
+  <!--- Example Javascript -->
+  <script>
+  $(document)
+    .ready(function() {
+      $('.ui.dropdown')
+        .dropdown({
+          on: 'click'
+        })
+      ;
+    })
+  ;
+  </script>
+</head>
+
+<body>
+
+<div class="ui two column stackable grid">
+  <div class="column">
+
+    <div class="ui action left icon input">
+      <i class="search icon"></i>
+      <input type="text" placeholder="Search...">
+      <div class="ui teal button">Search</div>
+    </div>
+
+    <div class="ui divider"></div>
+    <div class="ui input error">
+      <input placeholder="Search..." type="text">
+    </div>
+    <div class="ui divider"></div>
+
+    <div class="ui right labeled input">
+      <input placeholder="Placeholder" type="text">
+      <div class="ui dropdown label">
+        <div class="text">Dropdown</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+    <div class="ui divider"></div>
+
+    <div class="ui transparent icon input">
+      <input placeholder="Search..." type="text">
+      <i class="search icon"></i>
+    </div>
+    <div class="ui transparent left icon input">
+      <input placeholder="Search..." type="text">
+      <i class="search icon"></i>
+    </div>
+    <div class="ui divider"></div>
+    <div class="ui left icon input loading">
+      <input placeholder="Loading..." type="text">
+      <i class="search icon"></i>
+    </div>
+
+    <div class="ui icon input loading">
+      <input placeholder="Loading..." type="text">
+      <i class="search icon"></i>
+    </div>
+
+  </div>
+  <div class="column">
+    <div class="ui right labeled left icon input">
+      <i class="tags icon"></i>
+      <input placeholder="Enter tags" type="text">
+      <a class="ui tag label">
+        Add Tag
+      </a>
+    </div>
+    <div class="ui divider"></div>
+    <div class="ui labeled input">
+      <a class="ui label">
+        Label
+      </a>
+      <input type="text" placeholder="Placeholder...">
+    </div>
+    <div class="ui divider"></div>
+    <div class="ui right labeled input">
+      <input type="text" placeholder="Placeholder...">
+      <a class="ui label">
+        Label
+      </a>
+    </div>
+    <div class="ui divider"></div>
+    <div class="ui labeled icon input">
+      <div class="ui label">
+        http://
+      </div>
+      <input type="text" placeholder="domain.com">
+      <i class="add circle link icon"></i>
+    </div>
+    <div class="ui right action input">
+      <input type="text" placeholder="domain.com">
+      <div class="ui teal button">
+        <i class="add icon"></i>
+        Add
+      </div>
+    </div>
+    <div class="ui divider"></div>
+    <div class="ui corner labeled input">
+      <input type="text" placeholder="Required Field">
+      <div class="ui corner label">
+        <i class="asterisk icon"></i>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

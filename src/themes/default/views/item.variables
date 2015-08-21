@@ -10,7 +10,7 @@
 @groupMargin: 1.5em 0em;
 
 /* Item */
-@display: table;
+@display: flex;
 @background: transparent;
 @borderRadius: 0rem;
 @minHeight: 0px;
@@ -19,7 +19,7 @@
 @boxShadow: none;
 @border: none;
 @zIndex: '';
-@transition: box-shadow @transitionDuration @transitionEasing;
+@transition: box-shadow @defaultDuration @defaultEasing;
 
 /* Responsive */
 @itemSpacing: 1em;
@@ -40,7 +40,7 @@
 --------------------*/
 
 /* Image */
-@imageDisplay: table-cell;
+@imageDisplay: block;
 @imageFloat: none;
 @imageMaxHeight: '';
 @imageVerticalAlign: top;
@@ -52,10 +52,10 @@
 @imageBorder: none;
 
 /* Content */
-@contentDisplay: table-cell;
+@contentDisplay: block;
 @contentVerticalAlign: top;
 
-@contentWidth: 100%;
+@contentWidth: auto;
 @contentOffset: 0em;
 @contentBackground: none;
 @contentMargin: 0em;
@@ -68,10 +68,11 @@
 /* Header */
 @headerMargin: -@lineHeightOffset 0em 0em;
 @headerFontWeight: bold;
-@headerFontSize: 1.2em;
+@headerFontSize: @relativeBig;
 @headerColor: @darkTextColor;
 
 /* Metadata */
+@metaMargin: 0.5em 0em 0.5em;
 @metaFontSize: 1em;
 @metaLineHeight: 1em;
 @metaSpacing: 0.3em;
@@ -80,7 +81,7 @@
 /* Icons */
 @actionOpacity: 0.75;
 @actionHoverOpacity: 1;
-@actionTransition: color @transitionDuration @transitionEasing;
+@actionTransition: color @defaultDuration @defaultEasing;
 
 /* Actions */
 @favoriteColor: #FFB70A;
@@ -95,14 +96,14 @@
 @metaLinkHoverColor: @textColor;
 @contentLinkColor: '';
 @contentLinkHoverColor: '';
-@contentLinkTransition: color @transitionDuration @transitionEasing;
+@contentLinkTransition: color @defaultDuration @defaultEasing;
 
 
 /* Description */
 @descriptionDistance: 0.6em;
-@descriptionMaxWidth: 550px;
+@descriptionMaxWidth: auto;
 @descriptionFontSize: 1em;
-@descriptionLineHeight: 1.33;
+@descriptionLineHeight: @lineHeight;
 @descriptionColor: @textColor;
 
 /* Content Image */
@@ -131,7 +132,7 @@
 @extraPadding: 0em 0em 0em;
 @extraBoxShadow: none;
 @extraColor: @lightTextColor;
-@extraTransition: color @transitionDuration @transitionEasing;
+@extraTransition: color @defaultDuration @defaultEasing;
 
 /*-------------------
       Variations

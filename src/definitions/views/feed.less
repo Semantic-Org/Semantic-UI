@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -29,7 +29,7 @@
   margin-top: 0em;
 }
 .ui.feed:last-child {
-  margin-top: 0em;
+  margin-bottom: 0em;
 }
 
 
@@ -39,7 +39,8 @@
 
 /* Event */
 .ui.feed > .event {
-  display: @eventDisplay;
+  display: flex;
+  flex-direction: row;
   width: @eventWidth;
   padding: @eventPadding;
   margin: @eventMargin;
@@ -56,10 +57,11 @@
 
 /* Event Label */
 .ui.feed > .event > .label {
-  display: @labelDisplay;
+  display: block;
+  flex: 0 0 auto;
   width: @labelWidth;
   height: @labelHeight;
-  vertical-align: @labelVerticalAlign;
+  align-self: @labelAlignSelf;
   text-align: @labelTextAlign;
 }
 .ui.feed > .event > .label .icon {
@@ -78,13 +80,18 @@
   border-radius: @imageLabelBorderRadius;
 }
 .ui.feed > .event > .label + .content {
-  padding: @labeledContentPadding;
+  margin: @labeledContentMargin;
 }
+
+/*--------------
+     Content
+---------------*/
 
 /* Content */
 .ui.feed > .event > .content {
-  display: @contentDisplay;
-  vertical-align: @contentVerticalAlign;
+  display: block;
+  flex: 1 1 auto;
+  align-self: @contentAlignSelf;
   text-align: @contentTextAlign;
   word-wrap: @contentWordWrap;
 }

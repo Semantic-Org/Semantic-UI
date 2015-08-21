@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -44,15 +44,21 @@
         Field
 ---------------------*/
 
-.ui.form .fields .field,
 .ui.form .field {
   clear: both;
   margin: @fieldMargin;
 }
-.ui.form .fields:last-child,
-.ui.form .field:last-child {
+
+.ui.form .field:last-child,
+.ui.form .fields:last-child .field {
   margin-bottom: 0em;
 }
+
+.ui.form .fields .field {
+  clear: both;
+  margin: @fieldMargin;
+}
+
 
 /*--------------------
         Labels
@@ -65,23 +71,6 @@
   font-size: @labelFontSize;
   font-weight: @labelFontWeight;
   text-transform: @labelTextTransform;
-}
-.ui.form .grouped.fields > label {
-  margin: @groupedLabelMargin;
-  color: @groupedLabelColor;
-  font-size: @groupedLabelFontSize;
-  font-weight: @groupedLabelFontWeight;
-  text-transform: @groupedLabelTextTransform;
-}
-.ui.form .inline.fields > label {
-  display: inline-block;
-  vertical-align: middle;
-
-  margin: @inlineLabelMargin;
-  color: @inlineLabelColor;
-  font-size: @inlineLabelFontSize;
-  font-weight: @inlineLabelFontWeight;
-  text-transform: @inlineLabelTextTransform;
 }
 
 /*--------------------
@@ -135,8 +124,12 @@
   transition: @inputTransition;
 }
 
+/* Collapse Flex */
+.ui.form .ui.input > input {
+  width: 0px !important;
+}
 
-.ui.textarea,
+/* Text Area */
 .ui.form textarea {
   margin: 0em;
   -webkit-appearance: none;
@@ -152,11 +145,13 @@
   box-shadow: @inputBoxShadow;
   transition: @textAreaTransition;
   font-size: @textAreaFontSize;
+  line-height: @textAreaLineHeight;
+  resize: @textAreaResize;
+}
+.ui.form textarea:not([rows]) {
   height: @textAreaHeight;
   min-height: @textAreaMinHeight;
   max-height: @textAreaMaxHeight;
-  line-height: @textAreaLineHeight;
-  resize: @textAreaResize;
 }
 
 .ui.form textarea,
@@ -257,6 +252,28 @@
             States
 *******************************/
 
+/*--------------------
+      Autofilled
+---------------------*/
+
+.ui.form .field.field input:-webkit-autofill {
+  box-shadow: 0px 0px 0px 100px @inputAutoFillBackground inset !important;
+  border-color: @inputAutoFillBorder !important;
+}
+
+/* Focus */
+.ui.form .field.field input:-webkit-autofill:focus {
+  box-shadow: 0px 0px 0px 100px @inputAutoFillFocusBackground inset !important;
+  border-color: @inputAutoFillFocusBorder !important;
+}
+
+/* Error */
+.ui.form .error.error input:-webkit-autofill {
+  box-shadow: 0px 0px 0px 100px @inputAutoFillErrorBackground inset !important;
+  border-color: @inputAutoFillErrorBorder !important;
+}
+
+
 
 /*--------------------
       Placeholder
@@ -266,10 +283,17 @@
 .ui.form ::-webkit-input-placeholder {
   color: @inputPlaceholderColor;
 }
+.ui.form ::-ms-input-placeholder {
+  color: @inputPlaceholderColor;
+}
 .ui.form ::-moz-placeholder {
   color: @inputPlaceholderColor;
 }
+
 .ui.form :focus::-webkit-input-placeholder {
+  color: @inputPlaceholderFocusColor;
+}
+.ui.form :focus::-ms-input-placeholder {
   color: @inputPlaceholderFocusColor;
 }
 .ui.form :focus::-moz-placeholder {
@@ -280,15 +304,23 @@
 .ui.form .error ::-webkit-input-placeholder {
   color: @inputErrorPlaceholderColor;
 }
+.ui.form .error ::-ms-input-placeholder {
+  color: @inputErrorPlaceholderColor;
+}
 .ui.form .error ::-moz-placeholder {
   color: @inputErrorPlaceholderColor;
 }
+
 .ui.form .error :focus::-webkit-input-placeholder {
+  color: @inputErrorPlaceholderFocusColor;
+}
+.ui.form .error :focus::-ms-input-placeholder {
   color: @inputErrorPlaceholderFocusColor;
 }
 .ui.form .error :focus::-moz-placeholder {
   color: @inputErrorPlaceholderFocusColor;
 }
+
 
 /*--------------------
         Focus
@@ -320,6 +352,7 @@
   -webkit-appearance: none;
 }
 
+
 /*--------------------
         Success
 ---------------------*/
@@ -327,6 +360,9 @@
 /* On Form */
 .ui.form.success .success.message {
   display: block;
+}
+.ui.form.success .icon.success.message {
+  display: flex;
 }
 
 /*--------------------
@@ -337,6 +373,9 @@
 .ui.form.warning .warning.message {
   display: block;
 }
+.ui.form.warning .icon.warning.message {
+  display: flex;
+}
 
 /*--------------------
         Warning
@@ -345,6 +384,9 @@
 /* On Form */
 .ui.form.error .error.message {
   display: block;
+}
+.ui.form.error .icon.error.message {
+  display: flex;
 }
 
 /* On Field(s) */
@@ -443,11 +485,25 @@
 .ui.form .field.error .ui.dropdown:hover .menu {
   border-color: @formErrorBorder;
 }
+.ui.form .fields.error .field .ui.multiple.selection.dropdown > .label,
+.ui.form .field.error .ui.multiple.selection.dropdown > .label {
+  background-color: @dropdownErrorLabelBackground;
+  color: @dropdownErrorLabelColor;
+}
+
 /* Hover */
 .ui.form .fields.error .field .ui.dropdown .menu .item:hover,
 .ui.form .field.error .ui.dropdown .menu .item:hover {
   background-color: @dropdownErrorHoverBackground;
 }
+
+/* Selected */
+.ui.form .fields.error .field .ui.dropdown .menu .selected.item,
+.ui.form .field.error .ui.dropdown .menu .selected.item {
+  background-color: @dropdownErrorSelectedBackground;
+}
+
+
 /* Active */
 .ui.form .fields.error .field .ui.dropdown .menu .active.item,
 .ui.form .field.error .ui.dropdown .menu .active.item {
@@ -482,17 +538,17 @@
        Disabled
 ---------------------*/
 
-.ui.form .field :disabled,
-.ui.form .field.disabled {
-  opacity: 0.5;
+.ui.form .disabled.fields .field,
+.ui.form .disabled.field,
+.ui.form .field :disabled {
+  opacity: @disabledOpacity;
 }
 .ui.form .field.disabled label {
-  opacity: 0.5;
+  opacity: @disabledLabelOpacity;
 }
 .ui.form .field.disabled :disabled {
   opacity: 1;
 }
-
 
 /*--------------
     Loading
@@ -608,17 +664,24 @@
 
 /* Grouped Vertically */
 .ui.form .grouped.fields {
+  display: block;
   margin: @groupedMargin;
 }
 .ui.form .grouped.fields:last-child {
   margin-bottom: 0em;
 }
+
 .ui.form .grouped.fields > label {
+  margin: @groupedLabelMargin;
+  color: @groupedLabelColor;
   font-size: @groupedLabelFontSize;
+  font-weight: @groupedLabelFontWeight;
+  text-transform: @groupedLabelTextTransform;
 }
-.ui.form .grouped.fields .field {
+
+.ui.form .grouped.fields .field,
+.ui.form .grouped.inline.fields .field {
   display: block;
-  float: none;
   margin: @groupedFieldMargin;
   padding: 0em;
 }
@@ -629,19 +692,11 @@
 
 /* Split fields */
 .ui.form .fields {
-  clear: both;
-}
-.ui.form .fields:after {
-  content: ' ';
-  display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  height: 0;
+  display: flex;
+  flex-direction: row;
 }
 .ui.form .fields > .field {
-  clear: none;
-  float: left;
+  flex: 0 1 auto;
   padding-left: (@gutterWidth / 2);
   padding-right: (@gutterWidth / 2);
 }
@@ -690,6 +745,9 @@
 
 /* Swap to full width on mobile */
 @media only screen and (max-width : @largestMobileScreen) {
+  .ui.form .fields {
+    flex-wrap: wrap;
+  }
   .ui.form .two.fields > .fields,
   .ui.form .two.fields > .field,
   .ui.form .three.fields > .fields,
@@ -824,20 +882,41 @@
 
 .ui.form .inline.fields {
   margin: @fieldMargin;
+  align-items: center;
 }
 .ui.form .inline.fields .field {
-  display: inline-block;
-  float: none;
-  margin: @inlineFieldsMargin;
-  padding: 0em;
+  margin: 0em;
+  padding: @inlineFieldsMargin;
 }
+
+/* Inline Label */
+.ui.form .inline.fields > label,
 .ui.form .inline.fields .field > label,
 .ui.form .inline.fields .field > p,
-.ui.form .inline.fields .field > input,
-.ui.form .inline.fields .field > .ui.input,
 .ui.form .inline.field > label,
-.ui.form .inline.field > p,
+.ui.form .inline.field > p {
+  display: inline-block;
+  width: auto;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  vertical-align: baseline;
+  font-size: @inlineLabelFontSize;
+  font-weight: @inlineLabelFontWeight;
+  color: @inlineLabelColor;
+  text-transform: @inlineLabelTextTransform;
+}
+
+/* Grouped Inline Label */
+.ui.form .inline.fields > label {
+  margin: @groupedInlineLabelMargin;
+}
+
+/* Inline Input */
+.ui.form .inline.fields .field > input,
+.ui.form .inline.fields .field > select,
+.ui.form .inline.fields .field > .ui.input,
 .ui.form .inline.field > input,
+.ui.form .inline.field > select,
 .ui.form .inline.field > .ui.input {
   display: inline-block;
   width: auto;
@@ -845,27 +924,30 @@
   margin-top: 0em;
   margin-bottom: 0em;
 
-  vertical-align: @inlineLabelVerticalAlign;
-  font-size: @inlineLabelFontSize;
+  vertical-align: middle;
+  font-size: @inlineInputSize;
 }
-.ui.form .inline.fields .field > input,
-.ui.form .inline.fields .field > .ui.input,
-.ui.form .inline.field > input,
-.ui.form .inline.field > .ui.input {
-  font-size: @inlineLabelFontSize;
-}
-.ui.form .inline.fields .field > .ui.checkbox label {
-  padding-left: @inlineCheckboxLabelDistance;
-}
+
 
 /* Label */
 .ui.form .inline.fields .field > :first-child,
 .ui.form .inline.field > :first-child {
-  margin: 0em @labelDistance 0em 0em;
+  margin: 0em @inlineLabelDistance 0em 0em;
 }
 .ui.form .inline.fields .field > :only-child,
 .ui.form .inline.field > :only-child {
   margin: 0em;
+}
+
+/* Wide */
+.ui.form .inline.fields .wide.field {
+  display: flex;
+  align-items: center;
+}
+.ui.form .inline.fields .wide.field > input,
+.ui.form .inline.fields .wide.field > select,
+.ui.form .inline.fields .wide.field > .ui.input {
+  width: 100%;
 }
 
 

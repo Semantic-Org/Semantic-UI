@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -61,7 +61,8 @@
 ---------------*/
 
 .ui.horizontal.divider {
-  position: relative;
+  display: table;
+  white-space: nowrap;
 
   height: auto;
   margin: @horizontalMargin;
@@ -72,24 +73,19 @@
 
 .ui.horizontal.divider:before,
 .ui.horizontal.divider:after {
-  position: absolute;
-  top: 50%;
   content: '';
-  z-index: 3;
-
-  width: 50%;
+  display: table-cell;
+  position: relative;
   top: 50%;
-  height: 0px;
-
-  border-top: @shadowWidth solid @shadowColor;
-  border-bottom: @highlightWidth solid @highlightColor;
+  width: 50%;
+  background-repeat: no-repeat;
 }
 
 .ui.horizontal.divider:before {
-  margin-left: @horizontalRulerOffset;
+  background-position: right @horizontalDividerMargin top 50%;
 }
 .ui.horizontal.divider:after {
-  margin-left: @horizontalDividerMargin;
+  background-position: left @horizontalDividerMargin top 50%;
 }
 
 /*--------------
@@ -136,42 +132,45 @@
 
 /* Inside grid */
 @media only screen and (max-width : (@tabletBreakpoint - 1px)) {
+
   .ui.stackable.grid .ui.vertical.divider,
   .ui.grid .stackable.row .ui.vertical.divider {
-    position: relative;
-    margin: @margin;
-    left: 50%;
+    display: table;
+    white-space: nowrap;
     height: auto;
+    margin: @horizontalMargin;
     overflow: hidden;
     line-height: 1;
     text-align: center;
+    position: static;
+    top: 0;
+    left: 0;
+    transform: none;
   }
 
   .ui.stackable.grid .ui.vertical.divider:before,
   .ui.grid .stackable.row .ui.vertical.divider:before,
   .ui.stackable.grid .ui.vertical.divider:after,
   .ui.grid .stackable.row .ui.vertical.divider:after {
-    position: absolute;
-    top: 50%;
-    left: auto;
+    position: static;
+    left: 0;
+    border-left: none;
+    border-right: none;
     content: '';
-    z-index: 3;
-
-    width: 50%;
+    display: table-cell;
+    position: relative;
     top: 50%;
-    height: 0px;
-
-    border-top: @shadowWidth solid @shadowColor;
-    border-bottom: @highlightWidth solid @highlightColor;
+    width: 50%;
+    background-repeat: no-repeat;
   }
 
   .ui.stackable.grid .ui.vertical.divider:before,
   .ui.grid .stackable.row .ui.vertical.divider:before {
-    margin-left: -(50% + @horizontalDividerMargin);
+    background-position: right @horizontalDividerMargin top 50%;
   }
   .ui.stackable.grid .ui.vertical.divider:after,
   .ui.grid .stackable.row .ui.vertical.divider:after {
-    margin-left: @horizontalDividerMargin;
+    background-position: left @horizontalDividerMargin top 50%;
   }
 }
 
@@ -197,6 +196,10 @@
 .ui.hidden.divider {
   border-color: transparent !important;
 }
+.ui.hidden.divider:before,
+.ui.hidden.divider:after {
+  display: none;
+}
 
 /*--------------
     Inverted
@@ -211,9 +214,8 @@
 .ui.divider.inverted:after,
 .ui.divider.inverted:before {
   border-top-color: @invertedShadowColor !important;
-  border-bottom-color: @invertedHighlightColor !important;
-
   border-left-color: @invertedShadowColor !important;
+  border-bottom-color: @invertedHighlightColor !important;
   border-right-color: @invertedHighlightColor !important;
 }
 

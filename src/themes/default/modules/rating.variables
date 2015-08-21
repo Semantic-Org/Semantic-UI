@@ -2,64 +2,102 @@
              Rating
 *******************************/
 
-@display: inline-block;
-@margin: 0em 0.75rem;
+@margin: 0em @relativeMini;
+@whiteSpace: nowrap;
+@verticalAlign: baseline;
 
-@verticalAlign: middle;
+@iconCursor: pointer;
+@iconWidth: 1.25em;
+@iconHeight: auto;
+@iconTransition:
+  opacity @defaultDuration @defaultEasing,
+  background @defaultDuration @defaultEasing,
+  text-shadow @defaultDuration @defaultEasing,
+  color @defaultDuration @defaultEasing
+;
 
-@iconWidth: 1.1em;
-
-@inactiveColor: rgba(0, 0, 0, 0.15);
 
 /*-------------------
         Types
 --------------------*/
 
+/* Standard */
+@inactiveBackground: transparent;
+@inactiveColor: rgba(0, 0, 0, 0.15);
+
+@selectedBackground: @inactiveBackground;
+@selectedColor: @textColor;
+
+@activeBackground: @inactiveBackground;
+@activeColor: @darkTextColor;
+
 /* Star */
 @starIconWidth: @iconWidth;
+@starIconHeight: @iconHeight;
+@starShadowWidth: 1px;
+
+@starInactiveBackground: @inactiveBackground;
 @starInactiveColor: @inactiveColor;
-@starSelectedColor: #FFB70A;
+@starInactiveTextShadow: none;
+
+@starActiveBackground: @activeBackground;
 @starActiveColor: #FFE623;
-@starActiveShadow:
-  0px -1px 0px #CFA300,
-  -1px 0px 0px #CFA300,
-  0px 1px 0px #CFA300,
-  1px 0px 0px #CFA300
+@starActiveShadowColor: #DDC507;
+@starActiveTextShadow:
+  0px -@starShadowWidth 0px @starActiveShadowColor,
+  -@starShadowWidth 0px 0px @starActiveShadowColor,
+  0px @starShadowWidth 0px @starActiveShadowColor,
+  @starShadowWidth 0px 0px @starActiveShadowColor
+;
+
+@starSelectedBackground: @selectedBackground;
+@starSelectedColor: #FFCC00;
+@starSelectedShadowColor: #E6A200;
+@starSelectedTextShadow:
+  0px -@starShadowWidth 0px @starSelectedShadowColor,
+  -@starShadowWidth 0px 0px @starSelectedShadowColor,
+  0px @starShadowWidth 0px @starSelectedShadowColor,
+  @starShadowWidth 0px 0px @starSelectedShadowColor
 ;
 
 /* Heart */
-@heartIconWidth: 1.25em;
+@heartIconWidth: 1.4em;
+@heartIconHeight: @iconHeight;
+@heartShadowWidth: 1px;
+
+@heartInactiveBackground: @inactiveBackground;
 @heartInactiveColor: @inactiveColor;
-@heartSelectedColor: #FF2733;
-@heartActiveColor: #FF2733;
-@heartActiveShadow:
-  0px -1px 0px #9E0000,
-  -1px 0px 0px #9E0000,
-  0px 1px 0px #9E0000,
-  1px 0px 0px #9E0000
+@heartInactiveTextShadow: none;
+
+@heartActiveBackground: @activeBackground;
+@heartActiveColor: #FF6D75;
+@heartActiveShadowColor: #CD0707;
+@heartActiveTextShadow:
+  0px -@heartShadowWidth 0px @heartActiveShadowColor,
+  -@heartShadowWidth 0px 0px @heartActiveShadowColor,
+  0px @heartShadowWidth 0px @heartActiveShadowColor,
+  @heartShadowWidth 0px 0px @heartActiveShadowColor
 ;
 
+@heartSelectedBackground: @selectedBackground;
+@heartSelectedColor: #FF3000;
+@heartSelectedShadowColor: #AA0101;
+@heartSelectedTextShadow:
+  0px -@heartShadowWidth 0px @heartSelectedShadowColor,
+  -@heartShadowWidth 0px 0px @heartSelectedShadowColor,
+  0px @heartShadowWidth 0px @heartSelectedShadowColor,
+  @heartShadowWidth 0px 0px @heartSelectedShadowColor
+;
 
 /*-------------------
         States
 --------------------*/
 
-@inactiveColor: rgba(0, 0, 0, 0.15);
-@hoverColor: @textColor;
-@activeColor: @darkTextColor;
-
-@interactiveIconOpacity: 0.5;
+@interactiveActiveIconOpacity: 1;
 @interactiveSelectedIconOpacity: 1;
 
 /*-------------------
       Variations
 --------------------*/
 
-@mini: 0.7rem;
-@tiny: 0.8rem;
-@small: 0.875rem;
-@medium: 1rem;
-@large: 1.1rem;
-@big: 1.25rem;
-@huge: 1.5rem;
 @massive: 2rem;

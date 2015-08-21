@@ -11,10 +11,10 @@
 @firstMargin: 0em 0em (@labelHeight + @verticalSpacing);
 @lastMargin: 0em 0em (@labelHeight);
 
-@background: @subtleTransparentBlack;
-@border: 1px solid @borderColor;
+@background: @strongTransparentBlack;
+@border: none;
 @boxShadow: none;
-@padding: 0.2857em;
+@padding: 0em;
 @borderRadius: @defaultBorderRadius;
 
 /* Bar */
@@ -22,8 +22,8 @@
 @barHeight: 1.75em;
 @barBackground: #888888;
 @barBorderRadius: @borderRadius;
-@barTransitionEasing: ease;
-@barTransitionDuration: 0.3s;
+@barTransitionEasing: @defaultEasing;
+@barTransitionDuration: @defaultDuration;
 @barTransition:
   width @barTransitionDuration @barTransitionEasing,
   background-color @barTransitionDuration @barTransitionEasing
@@ -33,7 +33,7 @@
 
 /* Progress Bar Label */
 @progressWidth: auto;
-@progressSize: 0.9em;
+@progressSize: @relativeSmall;
 @progressPosition: absolute;
 @progressTop: 50%;
 @progressRight: 0.5em;
@@ -66,12 +66,18 @@
 --------------------*/
 
 @indicatingFirstColor: #D95C5C;
-@indicatingSecondColor: #D9A65C;
+@indicatingSecondColor: #EFBC72;
 @indicatingThirdColor: #E6BB48;
 @indicatingFourthColor: #DDC928;
 @indicatingFifthColor: #B4D95C;
 @indicatingSixthColor: #66DA81;
 
+@indicatingFirstLabelColor: @textColor;
+@indicatingSecondLabelColor: @textColor;
+@indicatingThirdLabelColor: @textColor;
+@indicatingFourthLabelColor: @textColor;
+@indicatingFifthLabelColor: @textColor;
+@indicatingSixthLabelColor: @textColor;
 
 /*-------------------
         States

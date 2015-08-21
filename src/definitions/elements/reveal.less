@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -41,6 +41,7 @@
 }
 
 /* Make sure hovered element is on top of other reveal */
+.ui.active.reveal .visible.content,
 .ui.reveal:hover .visible.content {
   z-index: @activeZIndex !important;
 }
@@ -66,9 +67,7 @@
   float: left;
 
   margin: 0em;
-  transition:
-    transform @transitionDuration @transitionEasing @transitionDelay,
-  ;
+  transition: @slideTransition;
 }
 
 .ui.slide.reveal > .visible.content {
@@ -80,9 +79,11 @@
   width: 100% !important;
   transform: translateX(100%) !important;
 }
+.ui.slide.active.reveal > .visible.content,
 .ui.slide.reveal:hover > .visible.content {
   transform: translateX(-100%) !important;
 }
+.ui.slide.active.reveal > .hidden.content,
 .ui.slide.reveal:hover > .hidden.content {
   transform: translateX(0%) !important;
 }
@@ -93,9 +94,11 @@
 .ui.slide.right.reveal > .hidden.content {
   transform: translateX(-100%) !important;
 }
+.ui.slide.right.active.reveal > .visible.content,
 .ui.slide.right.reveal:hover > .visible.content {
   transform: translateX(100%) !important;
 }
+.ui.slide.right.active.reveal > .hidden.content,
 .ui.slide.right.reveal:hover > .hidden.content {
   transform: translateX(0%) !important;
 }
@@ -103,9 +106,11 @@
 .ui.slide.up.reveal > .hidden.content {
   transform: translateY(100%) !important;
 }
+.ui.slide.up.active.reveal > .visible.content,
 .ui.slide.up.reveal:hover > .visible.content {
   transform: translateY(-100%) !important;
 }
+.ui.slide.up.active.reveal > .hidden.content,
 .ui.slide.up.reveal:hover > .hidden.content {
   transform: translateY(0%) !important;
 }
@@ -113,9 +118,11 @@
 .ui.slide.down.reveal > .hidden.content {
   transform: translateY(-100%) !important;
 }
+.ui.slide.down.active.reveal > .visible.content,
 .ui.slide.down.reveal:hover > .visible.content {
   transform: translateY(100%) !important;
 }
+.ui.slide.down.active.reveal > .hidden.content,
 .ui.slide.down.reveal:hover > .hidden.content {
   transform: translateY(0%) !important;
 }
@@ -128,6 +135,7 @@
 .ui.fade.reveal > .visible.content {
   opacity: 1;
 }
+.ui.fade.active.reveal > .visible.content,
 .ui.fade.reveal:hover > .visible.content {
   opacity: 0;
 }
@@ -148,9 +156,7 @@
   float: left;
 
   margin: 0em;
-  transition:
-    transform @transitionDuration @transitionEasing @transitionDelay,
-  ;
+  transition: @moveTransition;
 }
 
 .ui.move.reveal > .visible.content {
@@ -161,15 +167,19 @@
   left: 0% !important;
   width: 100% !important;
 }
+.ui.move.active.reveal > .visible.content,
 .ui.move.reveal:hover > .visible.content {
   transform: translateX(-100%) !important;
 }
+.ui.move.right.active.reveal > .visible.content,
 .ui.move.right.reveal:hover > .visible.content {
   transform: translateX(100%) !important;
 }
+.ui.move.up.active.reveal > .visible.content,
 .ui.move.up.reveal:hover > .visible.content {
   transform: translateY(-100%) !important;
 }
+.ui.move.down.active.reveal > .visible.content,
 .ui.move.down.reveal:hover > .visible.content {
   transform: translateY(100%) !important;
 }
@@ -189,7 +199,9 @@
 .ui.rotate.right.reveal > .visible.content {
   transform-origin: bottom right;
 }
+.ui.rotate.active.reveal > .visible.conten,
 .ui.rotate.reveal:hover > .visible.content,
+.ui.rotate.right.active.reveal > .visible.content,
 .ui.rotate.right.reveal:hover > .visible.content {
   transform: rotate(@rotateDegrees);
 }
@@ -197,6 +209,7 @@
 .ui.rotate.left.reveal > .visible.content {
   transform-origin: bottom left;
 }
+.ui.rotate.left.active.reveal > .visible.content,
 .ui.rotate.left.reveal:hover > .visible.content {
   transform: rotate(-@rotateDegrees);
 }
@@ -211,6 +224,7 @@
 .ui.disabled.reveal > .content {
   transition: none !important;
 }
+.ui.disabled.active.reveal > .visible.content,
 .ui.disabled.reveal:hover > .visible.content {
   position: static !important;
   display: block !important;
@@ -221,6 +235,7 @@
   bottom: auto !important;
   transform: none !important;
 }
+.ui.disabled.active.reveal > .hidden.content,
 .ui.disabled.reveal:hover > .hidden.content {
   display: none !important;
 }
@@ -231,11 +246,11 @@
 *******************************/
 
 /*--------------
-     Masked
+     Visible
 ---------------*/
 
-.ui.masked.reveal {
-  overflow: hidden;
+.ui.visible.reveal {
+  overflow: visible;
 }
 
 /*--------------

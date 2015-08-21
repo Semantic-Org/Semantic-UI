@@ -22,35 +22,11 @@
 @tableWidth: ~"calc(100% + "@gutterWidth~")";
 @columnMaxImageWidth: 100%;
 
+@consecutiveGridDistance: (@rowSpacing / 2);
+
 /*******************************
            Variations
 *******************************/
-
-/*--------------
-     Page
----------------*/
-
-/* Column Gutters */
-@mobileWidth: auto;
-@mobileMargin: 0em;
-@mobileGutter: 0em;
-
-@tabletWidth: auto;
-@tabletMargin: 0em;
-@tabletGutter: 4em;
-
-@computerWidth: auto;
-@computerMargin: 0em;
-@computerGutter: 8%;
-
-@largeMonitorWidth: auto;
-@largeMonitorMargin: 0em;
-@largeMonitorGutter: 15%;
-
-@widescreenMonitorWidth: auto;
-@widescreenMargin: 0em;
-@widescreenMonitorGutter: 23%;
-
 
 /*--------------
      Relaxed
@@ -77,8 +53,8 @@
 @celledWidth: 1px;
 @celledBorderColor: @solidBorderColor;
 
-@celledPadding: 0.75em;
-@celledRelaxedPadding: 1em;
+@celledPadding: 1em;
+@celledRelaxedPadding: 1.5em;
 @celledVeryRelaxedPadding: 2em;
 
 /*--------------
@@ -90,3 +66,33 @@
 @stackableMobileBorder: 1px solid @borderColor;
 @stackableInvertedMobileBorder: 1px solid @whiteBorderColor;
 
+
+/*******************************
+             Legacy
+*******************************/
+
+/*--------------
+     Page
+---------------*/
+
+/* Legacy (DO NOT USE)
+ */
+@mobileWidth: auto;
+@mobileMargin: 0em;
+@mobileGutter: 0em;
+
+@tabletWidth: auto;
+@tabletMargin: 0em;
+@tabletGutter: 2em;
+
+@computerWidth: auto;
+@computerMargin: 0em;
+@computerGutter: 3%;
+
+@largeMonitorWidth: auto;
+@largeMonitorMargin: 0em;
+@largeMonitorGutter: 15%;
+
+@widescreenMonitorWidth: auto;
+@widescreenMargin: 0em;
+@widescreenMonitorGutter: 23%;

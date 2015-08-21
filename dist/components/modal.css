@@ -1,9 +1,9 @@
 /*!
- * # Semantic UI 1.12.3 - Modal
+ * # Semantic UI 2.0.8 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -21,12 +21,13 @@
   top: 50%;
   left: 50%;
   text-align: left;
-  width: 90%;
-  margin-left: -45%;
   background: #ffffff;
   border: none;
-  box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.3);
-  border-radius: 0.2857rem;
+  box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(0, 0, 0, 0.2);
+  -webkit-transform-origin: 50% 25%;
+      -ms-transform-origin: 50% 25%;
+          transform-origin: 50% 25%;
+  border-radius: 0.28571429rem;
   -webkit-user-select: text;
      -moz-user-select: text;
       -ms-user-select: text;
@@ -35,12 +36,12 @@
 }
 .ui.modal > :first-child:not(.icon),
 .ui.modal > .icon:first-child + * {
-  border-top-left-radius: 0.2857rem;
-  border-top-right-radius: 0.2857rem;
+  border-top-left-radius: 0.28571429rem;
+  border-top-right-radius: 0.28571429rem;
 }
 .ui.modal > :last-child {
-  border-bottom-left-radius: 0.2857rem;
-  border-bottom-right-radius: 0.2857rem;
+  border-bottom-left-radius: 0.28571429rem;
+  border-bottom-right-radius: 0.28571429rem;
 }
 
 
@@ -77,16 +78,17 @@
 .ui.modal > .header {
   display: block;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.05)) #ffffff;
+  background: #ffffff;
   margin: 0em;
-  padding: 1.2rem 2rem;
-  box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.05);
-  font-size: 1.6em;
-  line-height: 1.3em;
-  font-weight: bold;
+  padding: 1.25rem 1.5rem;
+  box-shadow: none;
   color: rgba(0, 0, 0, 0.85);
-  border-bottom: 1px solid rgba(39, 41, 43, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+}
+.ui.modal > .header:not(.ui) {
+  font-size: 1.42857143rem;
+  line-height: 1.2857em;
+  font-weight: bold;
 }
 
 /*--------------
@@ -94,55 +96,92 @@
 ---------------*/
 
 .ui.modal > .content {
-  display: table;
-  table-layout: fixed;
+  display: block;
   width: 100%;
   font-size: 1em;
   line-height: 1.4;
-  padding: 2rem;
+  padding: 1.5rem;
   background: #ffffff;
+}
+.ui.modal > .image.content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 /* Image */
 .ui.modal > .content > .image {
-  display: table-cell;
+  display: block;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
   width: '';
-  vertical-align: top;
+  -webkit-align-self: top;
+      -ms-flex-item-align: top;
+          align-self: top;
 }
-.ui.modal > .content > .image[class*="top aligned"] {
-  vertical-align: top;
+.ui.modal > [class*="top aligned"] {
+  -webkit-align-self: top;
+      -ms-flex-item-align: top;
+          align-self: top;
 }
-.ui.modal > .content > .image[class*="middle aligned"] {
-  vertical-align: middle;
+.ui.modal > [class*="middle aligned"] {
+  -webkit-align-self: middle;
+      -ms-flex-item-align: middle;
+          align-self: middle;
+}
+.ui.modal > [class*="stretched"] {
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+          align-self: stretch;
 }
 
 /* Description */
 .ui.modal > .content > .description {
-  display: table-cell;
-  vertical-align: top;
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  min-width: 0px;
+  -webkit-align-self: top;
+      -ms-flex-item-align: top;
+          align-self: top;
 }
 .ui.modal > .content > .icon + .description,
 .ui.modal > .content > .image + .description {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
   min-width: '';
-  width: 80%;
+  width: auto;
   padding-left: 2em;
 }
 /*rtl:ignore*/
 .ui.modal > .content > .image > i.icon {
-  font-size: 8rem;
   margin: 0em;
   opacity: 1;
   width: auto;
+  line-height: 1;
+  font-size: 8rem;
 }
 
 /*--------------
      Actions
 ---------------*/
 
-.ui.modal .actions {
-  background: #efefef;
-  padding: 1rem 2rem;
-  border-top: 1px solid rgba(39, 41, 43, 0.15);
+.ui.modal > .actions {
+  background: #f9fafb;
+  padding: 1rem 1rem;
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
   text-align: right;
 }
 .ui.modal .actions > .button {
@@ -169,20 +208,20 @@
 }
 @media only screen and (min-width: 992px) {
   .ui.modal {
-    width: 74%;
-    margin: 0em 0em 0em -37%;
+    width: 850px;
+    margin: 0em 0em 0em -425px;
   }
 }
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1200px) {
   .ui.modal {
-    width: 56%;
-    margin: 0em 0em 0em -28%;
+    width: 900px;
+    margin: 0em 0em 0em -450px;
   }
 }
 @media only screen and (min-width: 1920px) {
   .ui.modal {
-    width: 42%;
-    margin: 0em 0em 0em -21%;
+    width: 950px;
+    margin: 0em 0em 0em -475px;
   }
 }
 
@@ -192,9 +231,9 @@
     padding-right: 2.25rem;
   }
   .ui.modal > .close {
-    top: 0.905rem;
+    top: 1.0535rem;
     right: 1rem;
-    color: rgba(0, 0, 0, 0.8);
+    color: rgba(0, 0, 0, 0.87);
   }
 }
 
@@ -213,6 +252,13 @@
     right: 0.5rem !important;
   }
   /*rtl:ignore*/
+  .ui.modal .image.content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
   .ui.modal .content > .image {
     display: block;
     max-width: 100%;
@@ -243,6 +289,14 @@
   }
 }
 
+/*--------------
+    Coupling
+---------------*/
+
+.ui.inverted.dimmer > .ui.modal {
+  box-shadow: 1px 3px 10px 2px rgba(0, 0, 0, 0.2);
+}
+
 
 /*******************************
              Types
@@ -252,7 +306,7 @@
   background-color: transparent;
   border: none;
   border-radius: 0em;
-  box-shadow: 0px 0px 0px 0px;
+  box-shadow: none !important;
   color: #ffffff;
 }
 .ui.basic.modal > .header,
@@ -267,39 +321,17 @@
   top: 1rem;
   right: 1.5rem;
 }
+.ui.inverted.dimmer > .basic.modal {
+  color: rgba(0, 0, 0, 0.87);
+}
+.ui.inverted.dimmer > .ui.basic.modal > .header {
+  color: rgba(0, 0, 0, 0.85);
+}
 
 /* Tablet and Mobile */
 @media only screen and (max-width: 992px) {
   .ui.basic.modal > .close {
     color: #ffffff;
-  }
-}
-
-
-/*******************************
-            Variations
-*******************************/
-
-
-/* A modal that cannot fit on the page */
-.scrolling.dimmable.dimmed {
-  overflow: hidden;
-}
-.scrolling.dimmable.dimmed > .dimmer {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.scrolling.dimmable > .dimmer {
-  position: fixed;
-}
-.ui.scrolling.modal {
-  position: static;
-  margin: 3.5rem auto !important;
-}
-@media only screen and (max-width: 992px) {
-  .ui.scrolling.modal {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
   }
 }
 
@@ -319,6 +351,52 @@
 
 
 /*--------------
+    Scrolling
+---------------*/
+
+
+/* A modal that cannot fit on the page */
+.scrolling.dimmable.dimmed {
+  overflow: hidden;
+}
+.scrolling.dimmable.dimmed > .dimmer {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.scrolling.dimmable > .dimmer {
+  position: fixed;
+}
+.modals.dimmer .ui.scrolling.modal {
+  position: static !important;
+  margin: 3.5rem auto !important;
+}
+
+/* undetached scrolling */
+.scrolling.undetached.dimmable.dimmed {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.scrolling.undetached.dimmable.dimmed > .dimmer {
+  overflow: hidden;
+}
+.scrolling.undetached.dimmable .ui.scrolling.modal {
+  position: absolute;
+  left: 50%;
+  margin-top: 3.5rem !important;
+}
+
+/* Coupling with Sidebar */
+.undetached.dimmable.dimmed > .pusher {
+  z-index: auto;
+}
+@media only screen and (max-width: 992px) {
+  .modals.dimmer .ui.scrolling.modal {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+}
+
+/*--------------
    Full Screen
 ---------------*/
 
@@ -334,9 +412,9 @@
   padding-right: 2.25rem;
 }
 .ui.fullscreen.modal > .close {
-  top: 0.905rem;
+  top: 1.0535rem;
   right: 1rem;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /*--------------
@@ -348,7 +426,7 @@
 }
 
 /* Small */
-.ui.small.modal > .header {
+.ui.small.modal > .header:not(.ui) {
   font-size: 1.3em;
 }
 
@@ -361,26 +439,26 @@
 }
 @media only screen and (min-width: 768px) {
   .ui.small.modal {
-    width: 52.8%;
-    margin: 0em 0em 0em -26.4%;
+    width: 70.4%;
+    margin: 0em 0em 0em -35.2%;
   }
 }
 @media only screen and (min-width: 992px) {
   .ui.small.modal {
-    width: 44.4%;
-    margin: 0em 0em 0em -22.2%;
+    width: 680px;
+    margin: 0em 0em 0em -340px;
   }
 }
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1200px) {
   .ui.small.modal {
-    width: 33.6%;
-    margin: 0em 0em 0em -16.8%;
+    width: 720px;
+    margin: 0em 0em 0em -360px;
   }
 }
 @media only screen and (min-width: 1920px) {
   .ui.small.modal {
-    width: 25.2%;
-    margin: 0em 0em 0em -12.6%;
+    width: 760px;
+    margin: 0em 0em 0em -380px;
   }
 }
 
@@ -402,20 +480,20 @@
 }
 @media only screen and (min-width: 992px) {
   .ui.large.modal {
-    width: 88.8%;
-    margin: 0em 0em 0em -44.4%;
+    width: 1020px;
+    margin: 0em 0em 0em -510px;
   }
 }
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1200px) {
   .ui.large.modal {
-    width: 67.2%;
-    margin: 0em 0em 0em -33.6%;
+    width: 1080px;
+    margin: 0em 0em 0em -540px;
   }
 }
 @media only screen and (min-width: 1920px) {
   .ui.large.modal {
-    width: 50.4%;
-    margin: 0em 0em 0em -25.2%;
+    width: 1140px;
+    margin: 0em 0em 0em -570px;
   }
 }
 

@@ -10,9 +10,9 @@
 @background: @white;
 
 @maxWidth: 250px;
-@borderColor: #CCCCCC;
+@borderColor: @solidBorderColor;
 @borderWidth: 1px;
-@boxShadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+@boxShadow: @floatingShadow;
 @color: @textColor;
 
 @verticalPadding: 0.833em;
@@ -87,9 +87,3 @@
 @invertedHeaderBackground: none;
 @invertedHeaderColor: @white;
 @invertedArrowColor: @black;
-
-/* Sizes */
-@small: 0.785714rem;
-@medium: 0.85714rem;
-@large: 1rem;
-@huge: 1.14285rem;

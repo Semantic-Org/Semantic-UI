@@ -4,30 +4,37 @@
 
 @theme : @@element;
 
-/*------------------
-    Default Theme
--------------------*/
 
+/*--------------------
+   Site Variables
+---------------------*/
+
+/* Default */
 @import "@{themesFolder}/default/globals/site.variables";
+
+/* Packaged Theme */
+@import (optional) "@{themesFolder}/@{site}/globals/site.variables";
+
+/* Site Theme */
+@import (optional) "@{siteFolder}/globals/site.variables";
+
+
+/*-------------------
+ Component Variables
+---------------------*/
+
+/* Default */
 @import "@{themesFolder}/default/@{type}s/@{element}.variables";
 
-/*------------------
-   Packaged Theme
--------------------*/
-
-@import "@{themesFolder}/@{site}/globals/site.variables";
+/* Packaged Theme */
 @import "@{themesFolder}/@{theme}/@{type}s/@{element}.variables";
 
-/*------------------
-     Site Theme
--------------------*/
-
-@import "@{siteFolder}/globals/site.variables";
-@import "@{siteFolder}/@{type}s/@{element}.variables";
+/* Site Theme */
+@import (optional) "@{siteFolder}/@{type}s/@{element}.variables";
 
 
 /*******************************
-        Import Mix-ins
+             Mix-ins
 *******************************/
 
 /*------------------
@@ -35,7 +42,7 @@
 -------------------*/
 
 .loadFonts() when (@importGoogleFonts) {
-  @import (css) '@{googleProtocol}fonts.googleapis.com/css?family=@{googleFontRequest}';
+  @import url('@{googleProtocol}fonts.googleapis.com/css?family=@{googleFontRequest}');
 }
 
 /*------------------
@@ -44,5 +51,5 @@
 
 .loadUIOverrides() {
   @import "@{themesFolder}/@{theme}/@{type}s/@{element}.overrides";
-  @import "@{siteFolder}/@{type}s/@{element}.overrides";
+  @import (optional) "@{siteFolder}/@{type}s/@{element}.overrides";
 }

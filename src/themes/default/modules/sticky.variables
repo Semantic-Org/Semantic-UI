@@ -2,11 +2,6 @@
             Sticky
 *******************************/
 
-@transitionDuration: 0.2s;
-@transition:
-  width @transitionDuration @defaultEasing,
-  height @transitionDuration @defaultEasing,
-  top @transitionDuration @defaultEasing,
-  bottom @transitionDuration @defaultEasing
-;
+@transsssitionDuration: @defaultDuration;
+@transition: none;
 @zIndex: 800;

@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -24,10 +24,10 @@
 
 .ui.segment {
   position: relative;
-  background-color: @background;
+  background: @background;
   box-shadow: @boxShadow;
-  margin: @margin 0em;
-  padding: @verticalPadding @horizontalPadding;
+  margin: @margin;
+  padding: @padding;
   border-radius: @borderRadius;
   border: @border;
 }
@@ -39,40 +39,23 @@
   margin-bottom: 0em;
 }
 
-.ui.segment:after {
-  content: '';
-  display: block;
-  height: 0px;
-  clear: both;
-  visibility: hidden;
-}
 
 /* Vertical */
-.ui[class*="vertical segment"] {
+.ui.vertical.segment {
   margin: 0em;
   padding-left: 0em;
   padding-right: 0em;
 
-  background-color: transparent;
+  background: none transparent;
   border-radius: 0px;
-  border: none;
-  box-shadow: 0px -1px 0px @borderColor inset;
-}
-.ui[class*="vertical segment"]:last-child {
   box-shadow: none;
-}
-
-/* Horizontal */
-.ui[class*="horizontal segment"] {
-  margin: 0em;
-  padding-top: 0em;
-  padding-bottom: 0em;
-
-  background-color: transparent;
-  border-radius: 0px;
   border: none;
-  box-shadow: 1px 0px 0px @borderColor;
+  border-bottom: @borderWidth solid @borderColor;
 }
+.ui.vertical.segment:last-child {
+  border-bottom: none;
+}
+
 
 /*-------------------
     Loose Coupling
@@ -108,7 +91,7 @@
   padding-bottom: @pageGridMargin;
 }
 .ui.grid.segment {
-  margin: @margin 0rem;
+  margin: @margin;
   border-radius: @borderRadius;
 }
 
@@ -119,7 +102,7 @@
   box-shadow: @boxShadow;
 }
 .ui[class*="very basic"].table.segment {
-  padding: @verticalPadding @horizontalPadding;
+  padding: @padding;
 }
 
 
@@ -131,6 +114,7 @@
         Piled
 --------------------*/
 
+.ui.piled.segments,
 .ui.piled.segment {
   margin: @piledMargin 0em;
   box-shadow: @piledBoxShadow;
@@ -142,6 +126,8 @@
 .ui.piled.segment:last-child {
   margin-bottom: 0em;
 }
+.ui.piled.segments:after,
+.ui.piled.segments:before,
 .ui.piled.segment:after,
 .ui.piled.segment:before {
   background-color: @white;
@@ -152,17 +138,20 @@
   left: 0px;
   position: absolute;
   width: 100%;
+  border: @piledBorder;
   box-shadow: @piledBoxShadow;
 }
-.ui.piled.segment:after {
-  transform: rotate(@piledDegrees);
-  top: 0;
-  z-index: -1;
-}
+.ui.piled.segments:before,
 .ui.piled.segment:before {
   transform: rotate(-@piledDegrees);
   top: 0;
   z-index: -2;
+}
+.ui.piled.segments:after,
+.ui.piled.segment:after {
+  transform: rotate(@piledDegrees);
+  top: 0;
+  z-index: -1;
 }
 
 /* Piled Attached */
@@ -188,35 +177,53 @@
 .ui.stacked.segment {
   padding-bottom: @stackedPadding;
 }
-.ui.stacked.segment:after,
-.ui.stacked.segment:before {
+.ui.stacked.segments:before,
+.ui.stacked.segments:after,
+.ui.stacked.segment:before,
+.ui.stacked.segment:after {
   content: '';
   position: absolute;
   bottom: -(@stackedHeight / 2);
   left: 0%;
 
   border-top: 1px solid @borderColor;
-  background-color: @stackedPageBackground;
+  background: @stackedPageBackground;
 
   width: 100%;
   height: @stackedHeight;
   visibility: visible;
 }
+.ui.stacked.segments:before,
 .ui.stacked.segment:before {
   display: none;
 }
 
 /* Add additional page */
+.ui.tall.stacked.segments:before,
 .ui.tall.stacked.segment:before {
   display: block;
   bottom: 0px;
 }
 
 /* Inverted */
-.ui.stacked.inverted.segment:after,
-.ui.stacked.inverted.segment:before {
+.ui.stacked.inverted.segments:before,
+.ui.stacked.inverted.segments:after,
+.ui.stacked.inverted.segment:before,
+.ui.stacked.inverted.segment:after {
   background-color: @subtleTransparentBlack;
   border-top: 1px solid @selectedBorderColor;
+}
+
+/*-------------------
+       Padded
+--------------------*/
+
+.ui.padded.segment {
+  padding: @paddedSegmentPadding;
+}
+
+.ui[class*="very padded"].segment {
+  padding: @veryPaddedSegmentPadding;
 }
 
 /*-------------------
@@ -225,6 +232,16 @@
 
 .ui.compact.segment {
   display: table;
+}
+
+/* Compact Group */
+.ui.compact.segments {
+  display: inline-flex;
+}
+.ui.compact.segments .segment,
+.ui.segments .compact.segment {
+  display: block;
+  flex: 0 1 auto;
 }
 
 /*-------------------
@@ -243,8 +260,117 @@
        Raised
 --------------------*/
 
+.ui.raised.segments,
 .ui.raised.segment {
   box-shadow: @raisedBoxShadow;
+}
+
+
+/*******************************
+            Groups
+*******************************/
+
+/* Group */
+.ui.segments {
+  flex-direction: column;
+  position: relative;
+  margin: @groupedMargin;
+  border: @groupedBorder;
+  box-shadow: @groupedBoxShadow;
+  border-radius: @groupedBorderRadius;
+}
+.ui.segments:first-child {
+  margin-top: 0em;
+}
+.ui.segments:last-child {
+  margin-bottom: 0em;
+}
+
+
+/* Nested Segment */
+.ui.segments > .segment {
+  top: 0px;
+  bottom: 0px;
+  border-radius: 0px;
+  margin: @groupedSegmentMargin;
+  width: @groupedSegmentWidth;
+  box-shadow: @groupedSegmentBoxShadow;
+  border: @groupedSegmentBorder;
+  border-top: @groupedSegmentDivider;
+}
+
+.ui.segments:not(.horizontal) > .segment:first-child {
+  top: @attachedTopOffset;
+  bottom: 0px;
+  border-top: none;
+  margin-top: 0em;
+  bottom: 0px;
+  margin-bottom: 0em;
+  top: @attachedTopOffset;
+  border-radius: @borderRadius @borderRadius 0em 0em;
+}
+
+/* Bottom */
+.ui.segments:not(.horizontal) > .segment:last-child {
+  top: @attachedBottomOffset;
+  bottom: 0px;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  box-shadow: @attachedBottomBoxShadow;
+  border-radius: 0em 0em @borderRadius @borderRadius;
+}
+
+
+/* Nested Group */
+.ui.segments > .ui.segments {
+  border-top: @groupedSegmentDivider;
+  margin: @nestedGroupMargin;
+}
+.ui.segments > .segments:first-child {
+  border-top: none;
+}
+.ui.segments > .segment + .segments:not(.horizontal) {
+  margin-top: 0em;
+}
+
+/* Horizontal Group */
+.ui.horizontal.segments {
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  border-radius: 0px;
+  padding: 0em;
+  background-color: @background;
+  box-shadow: @boxShadow;
+  margin: @margin;
+  border-radius: @borderRadius;
+  border: @border;
+}
+
+/* Nested Horizontal Group */
+.ui.segments > .horizontal.segments {
+  margin: 0em;
+  background-color: transparent;
+  border-radius: 0px;
+  border: none;
+  box-shadow: none;
+  border-top: @groupedSegmentDivider;
+}
+
+/* Horizontal Segment */
+.ui.horizontal.segments > .segment {
+  flex: 1 1 auto;
+  -ms-flex: 1 1 0px; /* Solves #2550 MS Flex */
+  margin: 0em;
+  min-width: 0px;
+  background-color: transparent;
+  border-radius: 0px;
+  border: none;
+  box-shadow: none;
+  border-left: @borderWidth solid @borderColor;
+}
+.ui.horizontal.segments > .segment:first-child {
+  border-left: none;
 }
 
 
@@ -328,129 +454,142 @@
 --------------------*/
 
 .ui.basic.segment {
-  position: relative;
-  background-color: transparent;
-  box-shadow: none;
-
-  border-radius: 0px;
+  background: @basicBackground;
+  box-shadow: @basicBoxShadow;
+  border: @basicBorder;
+  border-radius: @basicBorderRadius;
 }
 
 /*-------------------
-       Fittted
+       Clearing
 --------------------*/
 
-.ui.fitted.segment {
-  padding: 0em;
+.ui.clearing.segment:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
 }
 
 /*-------------------
        Colors
 --------------------*/
 
-.ui.black.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @black;
-}
-.ui.blue.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @blue;
-}
-.ui.green.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @green;
-}
-.ui.orange.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @orange;
-}
-.ui.pink.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @pink;
-}
-.ui.purple.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @purple;
-}
+/* Red */
 .ui.red.segment:not(.inverted) {
   border-top: @coloredBorderSize solid @red;
-}
-.ui.teal.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @teal;
-}
-.ui.yellow.segment:not(.inverted) {
-  border-top: @coloredBorderSize solid @yellow;
-}
-
-.ui.black.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: @coloredBorderRadius !important;
-  border-top-right-radius: @coloredBorderRadius !important;
-}
-.ui.blue.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: @coloredBorderRadius !important;
-  border-top-right-radius: @coloredBorderRadius !important;
-}
-.ui.green.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: @coloredBorderRadius !important;
-  border-top-right-radius: @coloredBorderRadius !important;
-}
-.ui.orange.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: @coloredBorderRadius !important;
-  border-top-right-radius: @coloredBorderRadius !important;
-}
-.ui.pink.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: @coloredBorderRadius !important;
-  border-top-right-radius: @coloredBorderRadius !important;
-}
-.ui.purple.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: @coloredBorderRadius !important;
-  border-top-right-radius: @coloredBorderRadius !important;
-}
-.ui.red.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: @coloredBorderRadius !important;
-  border-top-right-radius: @coloredBorderRadius !important;
-}
-.ui.teal.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: @coloredBorderRadius !important;
-  border-top-right-radius: @coloredBorderRadius !important;
-}
-.ui.yellow.segment:not(.inverted):not(.attached) {
-  border-top-left-radius: @coloredBorderRadius !important;
-  border-top-right-radius: @coloredBorderRadius !important;
-}
-
-/*-------------------
-   Inverted Colors
---------------------*/
-
-.ui.inverted.segment,
-.ui.inverted.black.segment {
-  background-color: @black !important;
-  color: @white !important;
-}
-.ui.inverted.blue.segment {
-  background-color: @blue !important;
-  color: @white !important;
-}
-.ui.inverted.green.segment {
-  background-color: @green !important;
-  color: @white !important;
-}
-.ui.inverted.orange.segment {
-  background-color: @orange !important;
-  color: @white !important;
-}
-.ui.inverted.pink.segment {
-  background-color: @pink !important;
-  color: @white !important;
-}
-.ui.inverted.purple.segment {
-  background-color: @purple !important;
-  color: @white !important;
 }
 .ui.inverted.red.segment {
   background-color: @red !important;
   color: @white !important;
 }
+
+/* Orange */
+.ui.orange.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @orange;
+}
+.ui.inverted.orange.segment {
+  background-color: @orange !important;
+  color: @white !important;
+}
+
+/* Yellow */
+.ui.yellow.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @yellow;
+}
+.ui.inverted.yellow.segment {
+  background-color: @yellow !important;
+  color: @white !important;
+}
+
+/* Olive */
+.ui.olive.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @olive;
+}
+.ui.inverted.olive.segment {
+  background-color: @olive !important;
+  color: @white !important;
+}
+
+/* Green */
+.ui.green.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @green;
+}
+.ui.inverted.green.segment {
+  background-color: @green !important;
+  color: @white !important;
+}
+
+/* Teal */
+.ui.teal.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @teal;
+}
 .ui.inverted.teal.segment {
   background-color: @teal !important;
   color: @white !important;
 }
-.ui.inverted.yellow.segment {
-  background-color: @yellow !important;
+
+/* Blue */
+.ui.blue.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @blue;
+}
+.ui.inverted.blue.segment {
+  background-color: @blue !important;
+  color: @white !important;
+}
+
+/* Violet */
+.ui.violet.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @violet;
+}
+.ui.inverted.violet.segment {
+  background-color: @violet !important;
+  color: @white !important;
+}
+
+/* Purple */
+.ui.purple.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @purple;
+}
+.ui.inverted.purple.segment {
+  background-color: @purple !important;
+  color: @white !important;
+}
+
+/* Pink */
+.ui.pink.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @pink;
+}
+.ui.inverted.pink.segment {
+  background-color: @pink !important;
+  color: @white !important;
+}
+
+/* Brown */
+.ui.brown.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @brown;
+}
+.ui.inverted.brown.segment {
+  background-color: @brown !important;
+  color: @white !important;
+}
+
+/* Grey */
+.ui.grey.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @grey;
+}
+.ui.inverted.grey.segment {
+  background-color: @grey !important;
+  color: @white !important;
+}
+
+/* Black */
+.ui.black.segment:not(.inverted) {
+  border-top: @coloredBorderSize solid @black;
+}
+.ui.inverted.black.segment {
+  background-color: @black !important;
   color: @white !important;
 }
 
@@ -475,11 +614,11 @@
 .ui.floated.segment,
 .ui[class*="left floated"].segment {
   float: left;
-  margin-right: @margin;
+  margin-right: @floatedDistance;
 }
 .ui[class*="right floated"].segment {
   float: right;
-  margin-left: @margin;
+  margin-left: @floatedDistance;
 }
 
 
@@ -489,44 +628,45 @@
 
 .ui.inverted.segment {
   border: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
 }
+.ui.inverted.segment,
+.ui.primary.inverted.segment {
+  background: @invertedBackground;
+  color: @invertedTextColor;
+}
+
+/* Nested */
 .ui.inverted.segment .segment {
   color: @textColor;
 }
 .ui.inverted.segment .inverted.segment {
-  color: @white;
-}
-.ui.inverted.segment,
-.ui.primary.inverted.segment {
-  background-color: @black;
-  color: @white;
+  color: @invertedTextColor;
 }
 
-.ui.inverted.block.segment,
+/* Attached */
 .ui.inverted.attached.segment {
   border-color: @solidWhiteBorderColor;
 }
 
 /*-------------------
-     Ordinality
+     Emphasis
 --------------------*/
 
+/* Secondary */
 .ui.secondary.segment {
   background: @secondaryBackground;
   color: @secondaryColor;
 }
-
-.ui.tertiary.segment {
-  background: @tertiaryBackground;
-  color: @textColor;
-}
-
 .ui.secondary.inverted.segment {
   background: @secondaryInvertedBackground;
   color: @secondaryInvertedColor;
+}
+
+/* Tertiary */
+.ui.tertiary.segment {
+  background: @tertiaryBackground;
+  color: @tertiaryColor;
 }
 .ui.tertiary.inverted.segment {
   background: @tertiaryInvertedBackground;
@@ -538,26 +678,27 @@
       Attached
 --------------------*/
 
-.ui.segment.attached {
+/* Middle */
+.ui.attached.segment {
   top: 0px;
   bottom: 0px;
+  border-radius: 0px;
   margin: 0em @attachedHorizontalOffset;
   width: @attachedWidth;
   max-width: @attachedWidth;
-  border-radius: 0px;
   box-shadow: @attachedBoxShadow;
   border: @attachedBorder;
 }
-.ui.segment.attached + .ui.segment.attached:not(.top) {
+.ui.attached + .ui.attached.segment:not(.top) {
   border-top: none;
 }
 
 /* Top */
 .ui[class*="top attached"].segment {
-  top: @attachedTopOffset;
   bottom: 0px;
-  margin-top: @margin;
   margin-bottom: 0em;
+  top: @attachedTopOffset;
+  margin-top: @verticalMargin;
   border-radius: @borderRadius @borderRadius 0em 0em;
 }
 .ui.segment[class*="top attached"]:first-child {
@@ -566,64 +707,15 @@
 
 /* Bottom */
 .ui.segment[class*="bottom attached"] {
-  top: @attachedBottomOffset;
   bottom: 0px;
   margin-top: 0em;
-  margin-bottom: @margin;
+  top: @attachedBottomOffset;
+  margin-bottom: @verticalMargin;
   box-shadow: @attachedBottomBoxShadow;
   border-radius: 0em 0em @borderRadius @borderRadius;
 }
 .ui.segment[class*="bottom attached"]:last-child {
   margin-bottom: 0em;
-}
-
-
-/*-------------------
-       Groups
---------------------*/
-
-.ui.segments {
-  margin: @margin 0em;
-}
-.ui.segments:first-child {
-  margin-top: 0em;
-}
-.ui.segments:last-child {
-  margin-bottom: 0em;
-}
-
-.ui.segments > .segment {
-  top: 0px;
-  bottom: 0px;
-  margin: 0em @attachedHorizontalOffset;
-  width: @attachedWidth;
-  max-width: @attachedWidth;
-  border-radius: 0px;
-  box-shadow: @attachedBoxShadow;
-  border: @attachedBorder;
-}
-
-.ui.segments > .segment:not(:first-child) {
-  border-top: none;
-}
-
-/* Top */
-.ui.segments > .segment:first-child {
-  margin-top: 0em;
-  bottom: 0px;
-  margin-bottom: 0em;
-  top: @attachedTopOffset;
-  border-radius: @borderRadius @borderRadius 0em 0em;
-}
-
-/* Bottom */
-.ui.segments > .segment:last-child {
-  bottom: 0px;
-  margin-top: 0em;
-  margin-bottom: 0em;
-  top: @attachedBottomOffset;
-  box-shadow: @attachedBottomBoxShadow;
-  border-radius: 0em 0em @borderRadius @borderRadius;
 }
 
 .loadUIOverrides();

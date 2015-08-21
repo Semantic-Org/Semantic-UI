@@ -9,10 +9,10 @@
 @margin: 1rem 0rem;
 
 @highlightWidth: 1px;
-@highlightColor: rgba(255, 255, 255, 0.2);
+@highlightColor: @whiteBorderColor;
 
 @shadowWidth: 1px;
-@shadowColor: rgba(0, 0, 0, 0.1);
+@shadowColor: @borderColor;
 
 /* Text */
 @letterSpacing: 0.05em;
@@ -44,11 +44,10 @@
 /* Inverted */
 @invertedTextColor: @white;
 @invertedHighlightColor: rgba(255, 255, 255, 0.15);
-@invertedShadowColor: rgba(0, 0, 0, 0.15);
+@invertedShadowColor: @borderColor;
 
 /* Section */
 @sectionMargin: 2rem;
-
 
 /* Sizes */
 @medium: 1rem;

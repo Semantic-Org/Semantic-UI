@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Theming - Semantic</title>
+
+  <!--- Site CSS -->
+  <link rel="stylesheet" type="text/css" href="../../dist/components/reset.css">
+  <link rel="stylesheet" type="text/css" href="../../dist/components/site.css">
+  <link rel="stylesheet" type="text/css" href="../../dist/components/grid.css">
+
+  <!--- Component CSS -->
+  <link rel="stylesheet" type="text/css" href="../../dist/components/icon.css">
+  <link rel="stylesheet" type="text/css" href="../../dist/components/table.css">
+  <link rel="stylesheet" type="text/css" href="../../dist/components/button.css">
+  <link rel="stylesheet" type="text/css" href="../../dist/components/transition.css">
+  <link rel="stylesheet" type="text/css" href="../../dist/components/popup.css">
+
+  <!--- Component JS -->
+  <script src="../assets/library/jquery.min.js"></script>
+  <script src="../assets/library/iframe-content.js"></script>
+  <script type="text/javascript" src="../../dist/components/popup.js"></script>
+  <script type="text/javascript" src="../../dist/components/transition.js"></script>
+
+  <!--- Show Names -->
+  <script src="../assets/show-examples.js"></script>
+
+  <!--- Example CSS -->
+  <style>
+  body {
+    padding: 1em;
+  }
+  .ui.table {
+    table-layout: fixed;
+  }
+  </style>
+
+  <!--- Example Javascript -->
+  <script>
+  </script>
+</head>
+
+<body>
+
+<div class="ui two column relaxed grid">
+  <div class="column">
+    <table class="ui right aligned table">
+      <thead>
+        <th class="left aligned">Person</th>
+        <th>Calories</th>
+        <th>Fat</th>
+        <th>Protein</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="left aligned">Delmar</td>
+          <td>36</td>
+          <td>36g</td>
+          <td>2g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Louise</td>
+          <td>24</td>
+          <td>24g</td>
+          <td>29g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Terrell</td>
+          <td>22</td>
+          <td>11g</td>
+          <td>9g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Marion</td>
+          <td>7</td>
+          <td>35g</td>
+          <td>3g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Clayton</td>
+          <td>7</td>
+          <td>38g</td>
+          <td>20g</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="column">
+    <table class="ui right aligned celled table">
+      <thead>
+        <th class="left aligned">Person</th>
+        <th>Calories</th>
+        <th>Fat</th>
+        <th>Protein</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="left aligned">Drema</td>
+          <td class="positive">15</td>
+          <td class="negative">26g</td>
+          <td class="warning">8g</td>
+        </tr>
+        <tr class="positive">
+          <td class="left aligned">Nona</td>
+          <td>11</td>
+          <td>21g</td>
+          <td>16g</td>
+        </tr>
+        <tr class="negative">
+          <td class="left aligned">Isidra</td>
+          <td>34</td>
+          <td>43g</td>
+          <td>11g</td>
+        </tr>
+        <tr class="warning">
+          <td class="left aligned">Bart</td>
+          <td>41</td>
+          <td>40g</td>
+          <td>30g</td>
+        </tr>
+        <tr class="selected">
+          <td class="left aligned">Nguyet</td>
+          <td>41</td>
+          <td>44g</td>
+          <td>28g</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="column">
+    <table class="ui basic right aligned table">
+      <thead>
+        <th class="left aligned">Person</th>
+        <th>Calories</th>
+        <th>Fat</th>
+        <th>Protein</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="left aligned">Mirna</td>
+          <td>1</td>
+          <td>28g</td>
+          <td>29g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Fernando</td>
+          <td>38</td>
+          <td>2g</td>
+          <td>48g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Lisette</td>
+          <td>18</td>
+          <td>9g</td>
+          <td>23g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Ahmad</td>
+          <td>42</td>
+          <td>26g</td>
+          <td>49g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Laquanda</td>
+          <td>27</td>
+          <td>27g</td>
+          <td>49g</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="column">
+    <table class="ui very basic right aligned table">
+      <thead>
+        <th class="left aligned">Person</th>
+        <th>Calories</th>
+        <th>Fat</th>
+        <th>Protein</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="left aligned">Drema</td>
+          <td>15</td>
+          <td>26g</td>
+          <td>8g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Nona</td>
+          <td>11</td>
+          <td>21g</td>
+          <td>16g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Isidra</td>
+          <td>34</td>
+          <td>43g</td>
+          <td>11g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Bart</td>
+          <td>41</td>
+          <td>40g</td>
+          <td>30g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Nguyet</td>
+          <td>41</td>
+          <td>44g</td>
+          <td>28g</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="column">
+    <table class="ui celled selectable right aligned table">
+      <thead>
+        <th class="left aligned">Person</th>
+        <th>Calories</th>
+        <th>Fat</th>
+        <th>Protein</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="left aligned">Tasia</td>
+          <td>12</td>
+          <td>7g</td>
+          <td>21g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Ronnie</td>
+          <td>38</td>
+          <td>37g</td>
+          <td>38g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Gabriel</td>
+          <td>30</td>
+          <td>46g</td>
+          <td>46g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Logan</td>
+          <td>12</td>
+          <td>21g</td>
+          <td>39g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Clare</td>
+          <td>39</td>
+          <td>41g</td>
+          <td>2g</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="column">
+    <table class="ui striped right aligned table">
+      <thead>
+        <th class="left aligned">Person</th>
+        <th>Calories</th>
+        <th>Fat</th>
+        <th>Protein</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="left aligned">Rosaline</td>
+          <td>5</td>
+          <td>35g</td>
+          <td>6g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Barrie</td>
+          <td>27</td>
+          <td>23g</td>
+          <td>28g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Trinidad</td>
+          <td>14</td>
+          <td>50g</td>
+          <td>7g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Jaqueline</td>
+          <td>31</td>
+          <td>30g</td>
+          <td>50g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Tamala</td>
+          <td>18</td>
+          <td>6g</td>
+          <td>13g</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="column">
+    <table class="ui padded celled right aligned table">
+      <thead>
+        <th class="left aligned">Person</th>
+        <th>Calories</th>
+        <th>Fat</th>
+        <th>Protein</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="left aligned">Lianne</td>
+          <td>23</td>
+          <td>32g</td>
+          <td>43g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Joette</td>
+          <td>21</td>
+          <td>13g</td>
+          <td>31g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Le</td>
+          <td>28</td>
+          <td>39g</td>
+          <td>23g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Sacha</td>
+          <td>46</td>
+          <td>43g</td>
+          <td>13g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Bruna</td>
+          <td>9</td>
+          <td>47g</td>
+          <td>12g</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="column">
+    <table class="ui definition celled right aligned table">
+      <thead>
+        <th></th>
+        <th>Calories</th>
+        <th>Fat</th>
+        <th>Protein</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="left aligned">Lianne</td>
+          <td>23</td>
+          <td>32g</td>
+          <td>43g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Joette</td>
+          <td>21</td>
+          <td>13g</td>
+          <td>31g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Le</td>
+          <td>28</td>
+          <td>39g</td>
+          <td>23g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Sacha</td>
+          <td>46</td>
+          <td>43g</td>
+          <td>13g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Bruna</td>
+          <td>9</td>
+          <td>47g</td>
+          <td>12g</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="column">
+    <table class="ui inverted right aligned table">
+      <thead>
+        <th class="left aligned">Person</th>
+        <th>Calories</th>
+        <th>Fat</th>
+        <th>Protein</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="left aligned">Lianne</td>
+          <td>23</td>
+          <td>32g</td>
+          <td>43g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Joette</td>
+          <td>21</td>
+          <td>13g</td>
+          <td>31g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Le</td>
+          <td>28</td>
+          <td>39g</td>
+          <td>23g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Sacha</td>
+          <td>46</td>
+          <td>43g</td>
+          <td>13g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Bruna</td>
+          <td>9</td>
+          <td>47g</td>
+          <td>12g</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="column">
+    <table class="ui inverted blue selectable celled right aligned table">
+      <thead>
+        <th class="left aligned">Person</th>
+        <th>Calories</th>
+        <th>Fat</th>
+        <th>Protein</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="left aligned">Lianne</td>
+          <td>23</td>
+          <td>32g</td>
+          <td>43g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Joette</td>
+          <td>21</td>
+          <td>13g</td>
+          <td>31g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Le</td>
+          <td>28</td>
+          <td>39g</td>
+          <td>23g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Sacha</td>
+          <td>46</td>
+          <td>43g</td>
+          <td>13g</td>
+        </tr>
+        <tr>
+          <td class="left aligned">Bruna</td>
+          <td>9</td>
+          <td>47g</td>
+          <td>12g</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

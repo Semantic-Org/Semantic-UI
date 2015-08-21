@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -36,7 +36,7 @@
 .ui.input input {
   margin: 0em;
   max-width: 100%;
-  flex: 0 1 auto;
+  flex: 1 0 auto;
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: @textAlign;
@@ -242,6 +242,7 @@
 .ui.icon.input > i.icon {
   cursor: default;
   position: absolute;
+  line-height: 1;
   text-align: center;
   top: 0px;
   right: 0px;
@@ -252,6 +253,9 @@
   opacity: @iconOpacity;
   border-radius: 0em @borderRadius @borderRadius 0em;
   transition: @iconTransition;
+}
+.ui.icon.input > i.icon:not(.link) {
+  pointer-events: none;
 }
 .ui.icon.input input {
   padding-right: @iconMargin !important;
@@ -302,14 +306,14 @@
 .ui.labeled.input > .label {
   flex: 0 0 auto;
   margin: 0;
-  font-size: @medium;
+  font-size: @relativeMedium;
 }
 .ui.labeled.input > .label:not(.corner) {
   padding-top: @verticalPadding;
   padding-bottom: @verticalPadding;
 }
 
-/* Label on Left */
+/* Regular Label on Left */
 .ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > input {
   border-left: none;
   border-top-left-radius: 0px;
@@ -320,7 +324,7 @@
   border-bottom-right-radius: 0px;
 }
 
-/* Label on Right */
+/* Regular Label on Right */
 .ui[class*="right labeled"].input  > input {
   border-right: none;
   border-top-right-radius: 0px !important;
@@ -331,7 +335,6 @@
   border-bottom-left-radius: 0px;
 }
 
-
 /* Corner Label */
 .ui.labeled.input .corner.label {
   top: @labelCornerTop;
@@ -339,17 +342,39 @@
   font-size: @labelCornerSize;
   border-radius: 0em @borderRadius 0em 0em;
 }
-.ui.labeled.input input {
-  padding-right: @labeledMargin !important;
-}
 
 /* Spacing with corner label */
+.ui[class*="corner labeled"]:not(.left).labeled.input input {
+  padding-right: @labeledMargin !important;
+}
 .ui[class*="corner labeled"].icon.input:not(.left) > input {
   padding-right: @labeledIconInputMargin !important;
 }
 .ui[class*="corner labeled"].icon.input:not(.left) > .icon {
   margin-right: @labeledIconMargin;
 }
+
+/* Left Labeled */
+.ui[class*="corner labeled"].left.labeled.input input {
+  padding-left: @labeledMargin !important;
+}
+.ui[class*="corner labeled"].icon.input.left > input {
+  padding-left: @labeledIconInputMargin !important;
+}
+.ui[class*="corner labeled"].icon.input.left > .icon {
+  margin-left: @labeledIconMargin;
+}
+
+/* Corner Label Position  */
+.ui.input > .ui.corner.label {
+  top: @borderWidth;
+  right: @borderWidth;
+}
+.ui.input > .ui.left.corner.label {
+  right: auto;
+  left: @borderWidth;
+}
+
 
 /*--------------------
         Action
@@ -374,22 +399,32 @@
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }
+.ui.action.input:not([class*="left action"]) > .dropdown,
 .ui.action.input:not([class*="left action"]) > .button,
 .ui.action.input:not([class*="left action"]) > .buttons > .button {
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
+  border-radius: 0px;
+}
+.ui.action.input:not([class*="left action"]) > .dropdown:last-child,
+.ui.action.input:not([class*="left action"]) > .button:last-child,
+.ui.action.input:not([class*="left action"]) > .buttons:last-child > .button {
+  border-radius: 0px @borderRadius @borderRadius 0px;
 }
 
 /* Button on Left */
+.ui[class*="left action"].input > .dropdown,
 .ui[class*="left action"].input > .button,
 .ui[class*="left action"].input > .buttons > .button {
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
+  border-radius: 0px;
 }
-.ui[class*="left action"].input  > input {
+.ui[class*="left action"].input > .dropdown:first-child,
+.ui[class*="left action"].input > .button:first-child,
+.ui[class*="left action"].input > .buttons:first-child > .button {
+  border-radius: @borderRadius 0px 0px @borderRadius;
+}
+.ui[class*="left action"].input > input {
   border-left: none;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
 }
 
 /*--------------------
@@ -409,7 +444,7 @@
   display: flex;
 }
 .ui.fluid.input > input {
-  width: 100% !important;
+  width: 0px !important;
 }
 
 /*--------------------

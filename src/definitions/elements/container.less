@@ -1,0 +1,120 @@
+/*!
+ * # Semantic UI - Container
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2015 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'element';
+@element : 'container';
+
+@import (multiple) '../../theme.config';
+
+/*******************************
+            Container
+*******************************/
+
+/* All Sizes */
+.ui.container {
+  display: block;
+  max-width: @maxWidth !important;
+}
+
+/* Mobile */
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui.container {
+    width: @mobileWidth;
+    margin-left: @mobileGutter !important;
+    margin-right: @mobileGutter !important;
+  }
+  .ui.grid.container {
+    width: @mobileGridWidth !important;
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
+  .ui.container {
+    width: @tabletWidth;
+    margin-left: @tabletGutter !important;
+    margin-right: @tabletGutter !important;
+  }
+  .ui.grid.container {
+    width: @tabletGridWidth !important;
+  }
+}
+
+/* Small Monitor */
+@media only screen and (min-width: @computerBreakpoint) and (max-width: @largestSmallMonitor) {
+  .ui.container {
+    width: @computerWidth;
+    margin-left: @computerGutter !important;
+    margin-right: @computerGutter !important;
+  }
+  .ui.grid.container {
+    width: @computerGridWidth !important;
+  }
+}
+
+/* Large Monitor */
+@media only screen and (min-width: @largeMonitorBreakpoint) {
+  .ui.container {
+    width: @largeMonitorWidth;
+    margin-left: @largeMonitorGutter !important;
+    margin-right: @largeMonitorGutter !important;
+  }
+  .ui.grid.container {
+    width: @largeMonitorGridWidth !important;
+  }
+}
+
+/*******************************
+             Types
+*******************************/
+
+
+/* Text Container */
+.ui.text.container {
+  font-family: @textFontFamily;
+  max-width: @textWidth !important;
+  line-height: @textLineHeight;
+}
+
+.ui.text.container {
+  font-size: @textSize;
+}
+
+/* Fluid */
+.ui.fluid.container {
+  width: 100%;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+.ui[class*="left aligned"].container {
+  text-align: left;
+}
+.ui[class*="center aligned"].container {
+  text-align: center;
+}
+.ui[class*="right aligned"].container {
+  text-align: right;
+}
+.ui.justified.container {
+  text-align: justify;
+  hyphens: auto;
+}
+
+
+.loadUIOverrides();

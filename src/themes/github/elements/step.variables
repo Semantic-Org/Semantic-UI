@@ -3,12 +3,17 @@
 --------------------*/
 
 /* Step */
-@background: linear-gradient(transparent, rgba(0, 0, 0, 0.07));
+@background: transparent linear-gradient(transparent, rgba(0, 0, 0, 0.07));
 @verticalPadding: 1em;
+
+@arrowDisplay: none;
+@lastArrowDisplay: none;
+@activeArrowDisplay: block;
+@activeLastArrowDisplay: block;
 
 /* Group */
 @stepsBackground: #FFFFFF;
-@stepsBoxShadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.15);
+@stepsBoxShadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.15);
 
 /* States */
 @activeBackground: #FFFFFF;
@@ -18,3 +23,4 @@
 @arrowTopOffset: 100%;
 @arrowRightOffset: 50%;
 @arrowBorderColor: rgba(0, 0, 0, 0.2);
+@arrowBorderWidth: 0px 0px @borderWidth @borderWidth;

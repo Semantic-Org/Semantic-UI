@@ -10,10 +10,15 @@
 @duration: 0.6s;
 @easing: ease-in-out;
 
-@hiddenSideOpacity: 0.4;
+@hiddenSideOpacity: 0.6;
 @animatingZIndex: 100;
 
-@transition: all @duration @easing;
+@transition:
+  transform @duration @easing,
+  left @duration @easing,
+  width @duration @easing,
+  height @duration @easing
+;
 @sideTransition: opacity @duration @easing;
 @backfaceVisibility: hidden;
 

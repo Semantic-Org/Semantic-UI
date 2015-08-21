@@ -1,9 +1,9 @@
 /*!
- * # Semantic UI 1.12.3 - Sidebar
+ * # Semantic UI 2.0.8 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -30,6 +30,7 @@
   visibility: hidden;
   -webkit-overflow-scrolling: touch;
   height: 100% !important;
+  max-height: 100%;
   border-radius: 0em !important;
   margin: 0em !important;
   overflow-y: auto !important;
@@ -64,7 +65,6 @@
 .ui.bottom.sidebar {
   width: 100% !important;
   height: auto !important;
-  overflow-y: visible !important;
 }
 .ui.top.sidebar {
   top: 0px !important;
@@ -91,7 +91,7 @@
 
 /* Whole Page */
 body.pushable {
-  background: #333333 !important;
+  background: #545454 !important;
 }
 
 /* Page Context */
@@ -134,8 +134,10 @@ body.pushable {
   z-index: 2;
 }
 body.pushable > .pusher {
-  background: #f7f7f7;
+  background: #ffffff;
 }
+
+/* Pusher should inherit background from context */
 .pushable > .pusher {
   background: inherit;
 }
@@ -150,12 +152,10 @@ body.pushable > .pusher {
   right: 0px;
   content: '';
   background-color: rgba(0, 0, 0, 0.4);
-  width: 0px;
-  height: 0px;
   overflow: hidden;
   opacity: 0;
-  -webkit-transition: -webkit-transform 500ms, opacity 500ms;
-          transition: transform 500ms, opacity 500ms;
+  -webkit-transition: opacity 500ms;
+          transition: opacity 500ms;
   will-change: opacity;
   z-index: 1000;
 }
@@ -205,11 +205,11 @@ body.pushable > .pusher {
 /* Shadow Direction */
 .ui.left.visible.sidebar,
 .ui.right.visible.sidebar {
-  box-shadow: 0px 0px 20px rgba(39, 41, 43, 0.15);
+  box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
 }
 .ui.top.visible.sidebar,
 .ui.bottom.visible.sidebar {
-  box-shadow: 0px 0px 20px rgba(39, 41, 43, 0.15);
+  box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
 }
 
 /* Visible On Load */
@@ -254,6 +254,10 @@ body.pushable > .pusher {
 html.ios {
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+}
+html.ios,
+html.ios body {
+  height: initial !important;
 }
 
 
@@ -598,7 +602,7 @@ html.ios {
   display: block !important;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 /* End */

@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -27,8 +27,6 @@
 ---------------*/
 
 .ui.items > .item {
-  table-layout: fixed;
-
   display: @display;
   margin: @itemSpacing 0em;
   width: @width;
@@ -65,9 +63,6 @@
       Item
 ---------------*/
 
-.ui.items > .item {
-  min-width: 100%;
-}
 .ui.items > .item:after {
   display: block;
   content: ' ';
@@ -91,12 +86,13 @@
 
 .ui.items > .item > .image {
   position: relative;
+  flex: 0 0 auto;
   display: @imageDisplay;
   float: @imageFloat;
   margin: @imageMargin;
   padding: @imagePadding;
   max-height: @imageMaxHeight;
-  vertical-align: @imageVerticalAlign;
+  align-self: @imageVerticalAlign;
 }
 .ui.items > .item > .image > img {
   display: block;
@@ -117,6 +113,7 @@
 
 .ui.items > .item > .content {
   display: block;
+  flex: 1 1 auto;
   background: @contentBackground;
   margin: @contentMargin;
   padding: @contentPadding;
@@ -135,15 +132,16 @@
 }
 
 .ui.items > .item > .image + .content {
+  min-width: 0;
   width: @contentWidth;
   display: @contentDisplay;
   margin-left: @contentOffset;
-  vertical-align: @contentVerticalAlign;
+  align-self: @contentVerticalAlign;
   padding-left: @contentImageDistance;
 }
 
 .ui.items > .item > .content > .header {
-  display: block;
+  display: inline-block;
   margin: @headerMargin;
   font-family: @headerFont;
   font-weight: @headerFontWeight;
@@ -171,7 +169,7 @@
 ---------------*/
 
 .ui.items > .item .content img {
-  vertical-align: @contentImageVerticalAlign;
+  align-self: @contentImageVerticalAlign;
   width: @contentImageWidth;
 }
 .ui.items > .item img.avatar,
@@ -210,6 +208,7 @@
 ---------------*/
 
 .ui.items > .item .meta {
+  margin: @metaMargin;
   font-size: @metaFontSize;
   line-height: @metaLineHeight;
   color: @metaColor;
@@ -356,6 +355,7 @@
 /* Mobily Only */
 @media only screen and (max-width: @largestMobileScreen) {
   .ui.items > .item {
+    flex-direction: column;
     margin: @mobileItemSpacing 0em;
   }
   .ui.items > .item > .image {
@@ -387,13 +387,13 @@
 --------------------*/
 
 .ui.items > .item > .image + [class*="top aligned"].content {
-  vertical-align: top;
+  align-self: top;
 }
 .ui.items > .item > .image + [class*="middle aligned"].content {
-  vertical-align: middle;
+  align-self: center;
 }
 .ui.items > .item > .image + [class*="bottom aligned"].content {
-  vertical-align: bottom;
+  align-self: bottom;
 }
 
 

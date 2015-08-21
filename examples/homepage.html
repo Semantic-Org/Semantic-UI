@@ -7,309 +7,290 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <!-- Site Properities -->
-  <title>Homepage Example - Semantic</title>
+  <title>Homepage - Semantic</title>
+  <link rel="stylesheet" type="text/css" href="../dist/components/reset.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/site.css">
 
-  <link rel="stylesheet" type="text/css" href="../dist/semantic.css">
-  <link rel="stylesheet" type="text/css" href="homepage.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/container.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/grid.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/header.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/image.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/menu.css">
 
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
-  <script src="../dist/semantic.js"></script>
-  <script src="homepage.js"></script>
+  <link rel="stylesheet" type="text/css" href="../dist/components/divider.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/dropdown.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/segment.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/button.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/list.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/icon.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/sidebar.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/transition.css">
 
+  <style type="text/css">
+
+    .hidden.menu {
+      display: none;
+    }
+
+    .masthead.segment {
+      min-height: 700px;
+      padding: 1em 0em;
+    }
+    .masthead .logo.item img {
+      margin-right: 1em;
+    }
+    .masthead .ui.menu .ui.button {
+      margin-left: 0.5em;
+    }
+    .masthead h1.ui.header {
+      margin-top: 3em;
+      margin-bottom: 0em;
+      font-size: 4em;
+      font-weight: normal;
+    }
+    .masthead h2 {
+      font-size: 1.7em;
+      font-weight: normal;
+    }
+
+    .ui.vertical.stripe {
+      padding: 8em 0em;
+    }
+    .ui.vertical.stripe h3 {
+      font-size: 2em;
+    }
+    .ui.vertical.stripe .button + h3,
+    .ui.vertical.stripe p + h3 {
+      margin-top: 3em;
+    }
+    .ui.vertical.stripe .floated.image {
+      clear: both;
+    }
+    .ui.vertical.stripe p {
+      font-size: 1.33em;
+    }
+    .ui.vertical.stripe .horizontal.divider {
+      margin: 3em 0em;
+    }
+
+    .quote.stripe.segment {
+      padding: 0em;
+    }
+    .quote.stripe.segment .grid .column {
+      padding-top: 5em;
+      padding-bottom: 5em;
+    }
+
+    .footer.segment {
+      padding: 5em 0em;
+    }
+
+    .secondary.pointing.menu .toc.item {
+      display: none;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .ui.fixed.menu {
+        display: none !important;
+      }
+      .secondary.pointing.menu .item,
+      .secondary.pointing.menu .menu {
+        display: none;
+      }
+      .secondary.pointing.menu .toc.item {
+        display: block;
+      }
+      .masthead.segment {
+        min-height: 350px;
+      }
+      .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+      }
+      .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+      }
+    }
+
+
+  </style>
+
+  <script src="assets/library/jquery.min.js"></script>
+  <script src="../dist/components/visibility.js"></script>
+  <script src="../dist/components/sidebar.js"></script>
+  <script src="../dist/components/transition.js"></script>
+  <script>
+  $(document)
+    .ready(function() {
+
+      // fix menu when passed
+      $('.masthead')
+        .visibility({
+          once: false,
+          onBottomPassed: function() {
+            $('.fixed.menu').transition('fade in');
+          },
+          onBottomPassedReverse: function() {
+            $('.fixed.menu').transition('fade out');
+          }
+        })
+      ;
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })
+  ;
+  </script>
 </head>
-<body id="home">
-  <div class="ui inverted masthead segment">
-    <div class="ui page grid">
-      <div class="column">
-        <div class="ui inverted blue menu">
-          <div class="header item">Cat University</div>
-          <div class="right menu">
-            <div class="ui mobile dropdown link item">
-              Menu
-              <i class="dropdown icon"></i>
-              <div class="menu">
-                <a class="item">Classes</a>
-                <a class="item">Cocktail Hours</a>
-                <a class="item">Community</a>
-              </div>
-            </div>
-            <div class="ui dropdown link item">
-              Courses
-              <i class="dropdown icon"></i>
-              <div class="menu">
-                <a class="item">Petting</a>
-                <a class="item">Feeding</a>
-                <a class="item">Mind Reading</a>
-              </div>
-            </div>
-            <a class="item">Library</a>
-            <a class="item">Community</a>
-          </div>
-        </div>
-        <img src="images/cat.png" class="ui medium image">
-        <div class="ui hidden transition information">
-          <h1 class="ui inverted header">
-            An Old Cat Can Learn New Tricks
-          </h1>
-          <p>At least he won't reach his highest potential unless you enroll him in Cat University's 2013 class.</p>
-          <div class="large basic inverted animated fade ui button">
-            <div class="visible content">Come to ICU 2013</div>
-            <div class="hidden content">Register Now</div>
-          </div>
-        </div>
+<body>
+
+<!-- Following Menu -->
+<div class="ui large top fixed hidden menu">
+  <div class="ui container">
+    <a class="active item">Home</a>
+    <a class="item">Work</a>
+    <a class="item">Company</a>
+    <a class="item">Careers</a>
+    <div class="right menu">
+      <div class="item">
+        <a class="ui button">Log in</a>
+      </div>
+      <div class="item">
+        <a class="ui primary button">Sign Up</a>
       </div>
     </div>
   </div>
-  <div class="ui vertical feature segment">
-    <div class="ui centered page grid">
-      <div class="fourteen wide column">
-        <div class="ui three column center aligned stackable divided grid">
-          <div class="column">
-            <div class="ui icon header">
-              <i class="student icon"></i>
-              Courses
-            </div>
-            <p>Take your kitty to a cat-ducation course and learn how to treat her well.</p>
-            <p>
-              <a class="ui button" href="#">
-                Learn
-              </a>
-            </p>
-          </div>
-          <div class="column">
-            <div class="ui icon header">
-              <i class="code icon"></i>
-              Library
-            </div>
-            <p>Dig through our cat library to found out amazing things you can do with your kitty.</p>
-            <p>
-              <a class="ui blue right labeled icon button" href="#">
-                Research
-                <i class="right chevron icon"></i>
-              </a>
-            </p>
-          </div>
-          <div class="column">
-            <div class="ui icon header">
-              <i class="user icon"></i>
-              Community
-            </div>
-            <p>Get feedback on your cat from a community of loving pet owners on our online bulletin board system.</p>
-            <p>
-              <a class="ui button" href="#">
-                Share
-              </a>
-            </p>
-          </div>
+</div>
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+  <a class="active item">Home</a>
+  <a class="item">Work</a>
+  <a class="item">Company</a>
+  <a class="item">Careers</a>
+  <a class="item">Login</a>
+  <a class="item">Signup</a>
+</div>
+
+
+<!-- Page Contents -->
+<div class="pusher">
+  <div class="ui inverted vertical masthead center aligned segment">
+
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a class="active item">Home</a>
+        <a class="item">Work</a>
+        <a class="item">Company</a>
+        <a class="item">Careers</a>
+        <div class="right item">
+          <a class="ui inverted button">Log in</a>
+          <a class="ui inverted button">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui text container">
+      <h1 class="ui inverted header">
+        Imagine-a-Company
+      </h1>
+      <h2>Do whatever you want when you want to.</h2>
+      <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
+    </div>
+
+  </div>
+
+  <div class="ui vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="eight wide column">
+          <h3 class="ui header">We Help Companies and Companions</h3>
+          <p>We can give your company superpowers to do things that they never thought possible. Let us delight your customers and empower your needs...through pure data analytics.</p>
+          <h3 class="ui header">We Make Bananas That Can Dance</h3>
+          <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.</p>
+        </div>
+        <div class="six wide right floated column">
+          <img src="assets/images/wireframe/white-image.png" class="ui large bordered rounded image">
+        </div>
+      </div>
+      <div class="row">
+        <div class="center aligned column">
+          <a class="ui huge button">Check Them Out</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="ui inverted vertical segment">
-    <div class="ui very relaxed stackable page grid">
-      <div class="row">
+
+  <div class="ui vertical stripe quote segment">
+    <div class="ui equal width stackable internally celled grid">
+      <div class="center aligned row">
         <div class="column">
-          <h1 class="center aligned ui inverted header">
-            The Best Cat Articles
-          </h1>
+          <h3>"What a Company"</h3>
+          <p>That is what they all say about us</p>
         </div>
-      </div>
-      <div class="row">
-        <div class="ten wide column">
-          <h3 class="ui inverted header">How to Win Your Cats Attention</h3>
-          <p>Getting your cat to notice you is a large part of being a pet owner. Although I have a lot of patience for writing things about cats, perhaps this might be enough body copy to make this section of text look filled out.</p>
-          <p>This and other tips can be found in our newsletter, amazing right?</p>
-          <div class="ui basic inverted animated button button">
-            <div class="visible content">Read More</div>
-            <div class="hidden content"><i class="right arrow icon"></i></div>
-          </div>
-          <div class="ui inverted section divider"></div>
-          <h3 class="ui inverted header">More articles</h3>
-          <div class="ui inverted animated selection list">
-            <div class="item">
-              How to win in a fight with a cat
-              <div class="right floated">Jan 20, 2023</div>
-            </div>
-            <div class="item">
-              A Supposedly Fun Cat Toy I will Never Buy Again
-              <div class="right floated">Jan 1, 2023</div>
-            </div>
-            <div class="item">
-              Much ado about yarn
-              <div class="right floated">Dec 20, 2022</div>
-            </div>
-          </div>
-        </div>
-        <div class="six wide column">
-          <div class="ui form segment">
-            <h3 class="ui header">Bi-Daily Newsletter</h3>
-            <p>Sign up and get spammed with cats every day. We have no unsubscribe button!</p>
-            <div class="field">
-              <div class="ui left icon action input">
-                <i class="user icon"></i>
-                <input name="email" type="text" placeholder="name@email.com">
-                <div class="ui black submit button">Sign up</div>
-              </div>
-            </div>
-            <div class="ui error message"></div>
-          </div>
+        <div class="column">
+          <h3>"I shouldn't have gone with their competitor."</h3>
+          <p>
+            <img src="assets/images/avatar/nan.jpg" class="ui avatar image"> <b>Nan</b> Chief Fun Officer Acme Toys
+          </p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="ui vertical segment">
-    <div class="ui stackable center aligned page grid">
-      <div class="row">
-        <div class="column">
-          <h1 class="ui header">
-            Many Companies Rely on Our Cat Knowledge
-          </h1>
-          <div class="ui horizontal divider"><i class="heart icon"></i></div>
-        </div>
-      </div>
-      <div class="four column logo row">
-        <div class="column">
-          <div class="ui shape">
-            <div class="sides">
-              <div class="active side">
-                <i class="huge github icon"></i>
-              </div>
-              <div class="side">
-                <i class="huge facebook icon"></i>
-              </div>
-              <div class="side">
-                <i class="huge maxcdn icon"></i>
-              </div>
-              <div class="side">
-                <i class="huge pinterest icon"></i>
-              </div>
-              <div class="side">
-                <i class="huge weibo icon"></i>
-              </div>
-              <div class="side">
-                <i class="huge flickr icon"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui shape">
-            <div class="sides">
-              <div class="side">
-                <i class="huge github icon"></i>
-              </div>
-              <div class="side">
-                <i class="huge facebook icon"></i>
-              </div>
-              <div class="active side">
-                <i class="huge maxcdn icon"></i>
-              </div>
-              <div class="side">
-                <i class="huge pinterest icon"></i>
-              </div>
-              <div class="side">
-                <i class="huge weibo icon"></i>
-              </div>
-              <div class="side">
-                <i class="huge flickr icon"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui shape">
-            <div class="sides">
-              <div class="side">
-                <i class="huge github icon"></i>
-              </div>
-              <div class="side">
-                <i class="huge facebook icon"></i>
-              </div>
-              <div class="side">
-                <i class="huge maxcdn icon"></i>
-              </div>
-              <div class="side">
-                <i class="huge pinterest icon"></i>
-              </div>
-              <div class="active side">
-                <i class="huge weibo icon"></i>
-              </div>
-              <div class="side">
-                <i class="huge flickr icon"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          <div class="ui shape">
-            <div class="sides">
-              <div class="side">
-                <i class="huge github icon"></i>
-              </div>
-              <div class="side">
-                <i class="huge facebook icon"></i>
-              </div>
-              <div class="side">
-                <i class="huge maxcdn icon"></i>
-              </div>
-              <div class="side">
-                <i class="huge pinterest icon"></i>
-              </div>
-              <div class="side">
-                <i class="huge weibo icon"></i>
-              </div>
-              <div class="active side">
-                <i class="huge flickr icon"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="ui vertical stripe segment">
+    <div class="ui text container">
+      <h3 class="ui header">Breaking The Grid, Grabs Your Attention</h3>
+      <p>Instead of focusing on content creation and hard work, we have learned how to master the art of doing nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic and worth your attention.</p>
+      <a class="ui large button">Read More</a>
+      <h4 class="ui horizontal header divider">
+        <a href="#">Case Studies</a>
+      </h4>
+      <h3 class="ui header">Did We Tell You About Our Bananas?</h3>
+      <p>Yes I know you probably disregarded the earlier boasts as non-sequitor filler content, but its really true. It took years of gene splicing and combinatory DNA research, but our bananas can really dance.</p>
+      <a class="ui large button">I'm Still Quite Interested</a>
     </div>
   </div>
 
-  <div class="ui inverted footer vertical segment">
-    <div class="ui stackable center aligned page grid">
-      <div class="ten wide column">
-        <div class="ui three column center aligned stackable grid">
-          <div class="column">
-            <h5 class="ui inverted header">Courses</h5>
-            <div class="ui inverted link list">
-              <a class="item">Registration</a>
-              <a class="item">Course Calendar</a>
-              <a class="item">Professors</a>
-            </div>
-          </div>
-          <div class="column">
-            <h5 class="ui inverted header">Library</h5>
-            <div class="ui inverted link list">
-              <a class="item">A-Z</a>
-              <a class="item">Most Popular</a>
-              <a class="item">Recently Changed</a>
-            </div>
-          </div>
-          <div class="column">
-            <h5 class="ui inverted header">Community</h5>
-            <div class="ui inverted link list">
-              <a class="item">BBS</a>
-              <a class="item">Careers</a>
-              <a class="item">Privacy Policy</a>
-            </div>
+
+  <div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">About</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Sitemap</a>
+            <a href="#" class="item">Contact Us</a>
+            <a href="#" class="item">Religious Ceremonies</a>
+            <a href="#" class="item">Gazebo Plans</a>
           </div>
         </div>
-      </div>
-      <div class="six wide column">
-        <h5 class="ui inverted header">Contact Us</h5>
-        <addr>
-          237 Catberry Road <br>
-          Milton Keynes, London <br>
-        </addr>
-        <p>(404) 867-5309</p>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Services</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Banana Pre-Order</a>
+            <a href="#" class="item">DNA FAQ</a>
+            <a href="#" class="item">How To Access</a>
+            <a href="#" class="item">Favorite X-Men</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header">Footer Header</h4>
+          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+        </div>
       </div>
     </div>
   </div>
+</div>
+
 </body>
 
 </html>

@@ -23,6 +23,7 @@
 
 /* Elements */
 @button     : 'default';
+@container  : 'default';
 @divider    : 'default';
 @flag       : 'default';
 @header     : 'default';
@@ -50,6 +51,7 @@
 @checkbox   : 'default';
 @dimmer     : 'default';
 @dropdown   : 'default';
+@embed      : 'default';
 @modal      : 'default';
 @nag        : 'default';
 @popup      : 'default';
@@ -61,7 +63,6 @@
 @sticky     : 'default';
 @tab        : 'default';
 @transition : 'default';
-@video      : 'default';
 
 /* Views */
 @ad         : 'default';
@@ -76,10 +77,11 @@
 *******************************/
 
 /* Path to theme packages */
-@themesFolder : 'themes/';
+@themesFolder : 'themes';
 
 /* Path to site override folder */
-@siteFolder  : 'site/';
+@siteFolder  : 'site';
+
 
 /*******************************
          Import Theme

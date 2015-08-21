@@ -5,7 +5,11 @@
 /* Paths used for "serve-docs" and "build-docs" tasks */
 module.exports = {
   base: '',
+  globs: {
+    eco: '**/*.html.eco'
+  },
   paths: {
+    clean: '../docs/out/dist/',
     source: {
       config      : 'src/theme.config',
       definitions : 'src/definitions/',
@@ -13,12 +17,16 @@ module.exports = {
       themes      : 'src/themes/'
     },
     output: {
+      examples     : '../docs/out/examples/',
       less         : '../docs/out/src/',
+      metadata     : '../docs/out/',
       packaged     : '../docs/out/dist/',
       uncompressed : '../docs/out/dist/components/',
       compressed   : '../docs/out/dist/components/',
       themes       : '../docs/out/dist/themes/'
     },
-    clean: '../docs/out/dist/'
+    template: {
+      eco: '../docs/server/documents/'
+    },
   }
 };

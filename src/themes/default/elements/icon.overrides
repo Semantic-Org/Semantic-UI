@@ -235,6 +235,8 @@ i.icon.cube:before { content: "\f1b2"; }
 i.icon.cubes:before { content: "\f1b3"; }
 i.icon.circle.notched:before { content: "\f1ce"; }
 i.icon.circle.thin:before { content: "\f1db"; }
+i.icon.square.outline:before { content: "\f096"; }
+i.icon.square:before { content: "\f0c8"; }
 
 /* Item Selection */
 i.icon.checkmark:before { content: "\f00c"; }
@@ -431,8 +433,8 @@ i.icon.subway:before { content: "\f239"; }
 i.icon.table:before { content: "\f0ce"; }
 i.icon.columns:before { content: "\f0db"; }
 i.icon.sort:before { content: "\f0dc"; }
-i.icon.sort.ascending:before { content: "\f0dd"; }
-i.icon.sort.descending:before { content: "\f0de"; }
+i.icon.sort.ascending:before { content: "\f0de"; }
+i.icon.sort.descending:before { content: "\f0dd"; }
 i.icon.sort.alphabet.ascending:before { content: "\f15d"; }
 i.icon.sort.alphabet.descending:before { content: "\f15e"; }
 i.icon.sort.content.ascending:before { content: "\f160"; }
@@ -650,7 +652,7 @@ i.icon.log.out:before { content: "\f08b"; }
 i.icon.thumb.tack:before { content: "\f08d"; }
 i.icon.winner:before { content: "\f091"; }
 i.icon.bookmark.outline:before { content: "\f097"; }
-i.icon.phone.square:before { content: "\f098"; }
+i.icon.phone:before { content: "\f095"; }
 i.icon.phone.square:before { content: "\f098"; }
 i.icon.credit.card:before { content: "\f09d"; }
 i.icon.hdd.outline:before { content: "\f0a0"; }
@@ -710,6 +712,7 @@ i.icon.target:before { content: "\f140"; }
 i.icon.play.circle:before { content: "\f144"; }
 i.icon.pencil.square:before { content: "\f14b"; }
 i.icon.compass:before { content: "\f14e"; }
+i.icon.amex:before { content: "\f1f3"; }
 i.icon.eur:before { content: "\f153"; }
 i.icon.gbp:before { content: "\f154"; }
 i.icon.usd:before { content: "\f155"; }

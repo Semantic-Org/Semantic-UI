@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -106,11 +106,9 @@ img.ui.image {
 ---------------*/
 
 .ui.rounded.images .image,
-.ui.rounded.images img,
-.ui.rounded.images svg,
-.ui.rounded.image img,
-.ui.rounded.image svg,
-.ui.rounded.image {
+.ui.rounded.image,
+.ui.rounded.images .image > *,
+.ui.rounded.image > * {
   border-radius: @roundedBorderRadius;
 }
 
@@ -137,11 +135,9 @@ img.ui.bordered.image {
 }
 
 .ui.circular.images .image,
-.ui.circular.images img,
-.ui.circular.images svg,
-.ui.circular.image img,
-.ui.circular.image svg,
-.ui.circular.image {
+.ui.circular.image,
+.ui.circular.images .image > *,
+.ui.circular.image > * {
   -webkit-border-radius: @circularRadius;
   -moz-border-radius: @circularRadius;
   border-radius: @circularRadius;
@@ -184,6 +180,25 @@ img.ui.bordered.image {
   border-radius: @circularRadius;
 }
 
+/*-------------------
+       Spaced
+--------------------*/
+
+.ui.spaced.image {
+  display: inline-block !important;
+  margin-left: @spacedDistance;
+  margin-right: @spacedDistance;
+}
+
+.ui[class*="left spaced"].image {
+  margin-left: @spacedDistance;
+  margin-right: 0em;
+}
+
+.ui[class*="right spaced"].image {
+  margin-left: 0em;
+  margin-right: @spacedDistance;
+}
 
 /*-------------------
        Floated

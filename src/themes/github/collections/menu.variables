@@ -2,29 +2,24 @@
       Collection
 --------------------*/
 
-@verticalPadding       : 1em;
-@horizontalPadding     : 1.25em;
+@itemVerticalPadding: 1em;
+@itemHorizontalPadding: 1.25em;
 
-@background            : #FFFFFF linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
-@fontWeight            : normal;
+@background: #FFFFFF linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
+@fontWeight: normal;
 
-@activeBorderSize      : 0em;
+@activeBorderSize: 0em;
 
-@hoverBackground       : rgba(0, 0, 0, 0.02);
-@downBackground        : rgba(0, 0, 0, 0.06);
+@hoverBackground: rgba(0, 0, 0, 0.02);
+@downBackground: rgba(0, 0, 0, 0.06);
 
-@activeBackground      : rgba(0, 0, 0, 0.04);
-@activeHoverBackground : rgba(0, 0, 0, 0.04);
+@activeBackground: rgba(0, 0, 0, 0.04);
+@activeHoverBackground: rgba(0, 0, 0, 0.04);
 
-@boxShadow             :
-  0px 1px 2px 0px rgba(0, 0, 0, 0.15),
-  0px 0px 0px 1px rgba(0, 0, 0, 0.05)
-;
 
 @headerBackground: rgba(0, 0, 0, 0.08);
 
-@subMenuMargin: 1em;
-@subMenuFontSize: 0.9rem;
+@subMenuMargin: 0.5em -0.6em 0;
 @subMenuHorizontalPadding: 0.7em;
 
 @arrowHoverColor: #EEEEEE;

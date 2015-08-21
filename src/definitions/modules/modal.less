@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -32,12 +32,10 @@
   left: 50%;
   text-align: left;
 
-  width: @width;
-  margin-left: @xOffset;
-
   background: @background;
   border: @border;
   box-shadow: @boxShadow;
+  transform-origin: @transformOrigin;
 
   border-radius: @borderRadius;
   user-select: text;
@@ -94,11 +92,13 @@
   padding: @headerPadding;
   box-shadow: @headerBoxShadow;
 
+  color: @headerColor;
+  border-bottom: @headerBorder;
+}
+.ui.modal > .header:not(.ui) {
   font-size: @headerFontSize;
   line-height: @headerLineHeight;
   font-weight: @headerFontWeight;
-  color: @headerColor;
-  border-bottom: @headerBorder;
 }
 
 /*--------------
@@ -106,37 +106,46 @@
 ---------------*/
 
 .ui.modal > .content {
-  display: table;
-  table-layout: fixed;
+  display: block;
   width: 100%;
   font-size: @contentFontSize;
   line-height: @contentLineHeight;
   padding: @contentPadding;
   background: @contentBackground;
 }
+.ui.modal > .image.content {
+  display: flex;
+  flex-direction: row;
+}
 
 /* Image */
 .ui.modal > .content > .image {
-  display: table-cell;
+  display: block;
+  flex: 0 1 auto;
   width: @imageWidth;
-  vertical-align: @imageVerticalAlign;
+  align-self: @imageVerticalAlign;
 }
-.ui.modal > .content > .image[class*="top aligned"] {
-  vertical-align: top;
+.ui.modal > [class*="top aligned"] {
+  align-self: top;
 }
-.ui.modal > .content > .image[class*="middle aligned"] {
-  vertical-align: middle;
+.ui.modal > [class*="middle aligned"] {
+  align-self: middle;
+}
+.ui.modal > [class*="stretched"] {
+  align-self: stretch;
 }
 
 /* Description */
 .ui.modal > .content > .description {
-  display: table-cell;
-  vertical-align: top;
-  vertical-align: @descriptionVerticalAlign;
+  display: block;
+  flex: 1 0 auto;
+  min-width: 0px;
+  align-self: @descriptionVerticalAlign;
 }
 
 .ui.modal > .content > .icon + .description,
 .ui.modal > .content > .image + .description {
+  flex: 0 1 auto;
   min-width: @descriptionMinWidth;
   width: @descriptionWidth;
   padding-left: @descriptionDistance;
@@ -144,17 +153,18 @@
 
 /*rtl:ignore*/
 .ui.modal > .content > .image > i.icon {
-  font-size: @imageIconSize;
   margin: 0em;
   opacity: 1;
   width: auto;
+  line-height: 1;
+  font-size: @imageIconSize;
 }
 
 /*--------------
      Actions
 ---------------*/
 
-.ui.modal .actions {
+.ui.modal > .actions {
   background: @actionBackground;
   padding: @actionPadding;
   border-top: @actionBorder;
@@ -229,6 +239,9 @@
   }
 
   /*rtl:ignore*/
+  .ui.modal .image.content {
+    flex-direction: column;
+  }
   .ui.modal .content > .image {
     display: block;
     max-width: 100%;
@@ -260,6 +273,14 @@
   }
 }
 
+/*--------------
+    Coupling
+---------------*/
+
+.ui.inverted.dimmer > .ui.modal {
+  box-shadow: @invertedBoxShadow;
+}
+
 /*******************************
              Types
 *******************************/
@@ -268,7 +289,7 @@
   background-color: transparent;
   border: none;
   border-radius: 0em;
-  box-shadow: 0px 0px 0px 0px;
+  box-shadow: none !important;
   color: @basicModalColor;
 }
 .ui.basic.modal > .header,
@@ -284,41 +305,20 @@
   right: @basicModalCloseRight;
 }
 
+.ui.inverted.dimmer > .basic.modal {
+  color: @basicInvertedModalColor;
+}
+.ui.inverted.dimmer > .ui.basic.modal > .header {
+  color: @basicInvertedModalHeaderColor;
+}
+
 /* Tablet and Mobile */
 @media only screen and (max-width : @computerBreakpoint) {
-
   .ui.basic.modal > .close {
     color: @basicInnerCloseColor;
   }
 }
 
-/*******************************
-            Variations
-*******************************/
-
-/* A modal that cannot fit on the page */
-.scrolling.dimmable.dimmed {
-  overflow: hidden;
-}
-.scrolling.dimmable.dimmed > .dimmer {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.scrolling.dimmable > .dimmer {
-  position: fixed;
-}
-
-.ui.scrolling.modal {
-  position: static;
-  margin: @scrollingMargin auto !important;
-}
-
-@media only screen and (max-width : @computerBreakpoint) {
-  .ui.scrolling.modal {
-    margin-top: @mobileScrollingMargin;
-    margin-bottom: @mobileScrollingMargin;
-  }
-}
 
 /*******************************
              States
@@ -331,6 +331,53 @@
 /*******************************
            Variations
 *******************************/
+
+/*--------------
+    Scrolling
+---------------*/
+
+/* A modal that cannot fit on the page */
+.scrolling.dimmable.dimmed {
+  overflow: hidden;
+}
+.scrolling.dimmable.dimmed > .dimmer {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.scrolling.dimmable > .dimmer {
+  position: fixed;
+}
+.modals.dimmer .ui.scrolling.modal {
+  position: static !important;
+  margin: @scrollingMargin auto !important;
+}
+
+/* undetached scrolling */
+.scrolling.undetached.dimmable.dimmed {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.scrolling.undetached.dimmable.dimmed > .dimmer {
+  overflow: hidden;
+}
+.scrolling.undetached.dimmable .ui.scrolling.modal {
+  position: absolute;
+  left: 50%;
+  margin-top: @scrollingMargin !important;
+}
+
+/* Coupling with Sidebar */
+.undetached.dimmable.dimmed > .pusher {
+  z-index: auto;
+}
+
+@media only screen and (max-width : @computerBreakpoint) {
+  .modals.dimmer .ui.scrolling.modal {
+    margin-top: @mobileScrollingMargin !important;
+    margin-bottom: @mobileScrollingMargin !important;
+  }
+}
+
 
 /*--------------
    Full Screen
@@ -363,7 +410,7 @@
 }
 
 /* Small */
-.ui.small.modal > .header {
+.ui.small.modal > .header:not(.ui) {
   font-size: @smallHeaderSize;
 }
 

@@ -25,7 +25,7 @@
 --------------------*/
 
 /* Text */
-@textDistance: 0.7em;
+@textDistance: @relativeMini;
 @loaderTextColor: @textColor;
 @invertedLoaderTextColor: @invertedTextColor;
 
@@ -44,18 +44,17 @@
 @inlineMargin: 0em;
 
 /* Exact Sizes (Avoids Rounding Errors) */
-@mini: 1.2857em;
-@small: 1.7142em;
-@medium: 2.2585em;
-@large: 4.5714em;
+@mini: 1.2857em;   /* 18px */
+@small: 1.7142em;  /* 24px */
+@medium: 2.2585em; /* 32px */
+@large: 4.5714em;  /* 64px */
 
 @miniOffset: 0em 0em 0em -(@mini / 2);
 @smallOffset: 0em 0em 0em -(@small / 2);
 @mediumOffset: 0em 0em 0em -(@medium / 2);
 @largeOffset: 0em 0em 0em -(@large / 2);
 
-
-@miniFontSize: 0.7857em;
-@smallFontSize: 0.9285em;
-@mediumFontSize: 1em;
-@largeFontSize: 1.1428em;
+@miniFontSize: @relativeMini;
+@smallFontSize: @relativeSmall;
+@mediumFontSize: @relativeMedium;
+@largeFontSize: @relativeLarge;

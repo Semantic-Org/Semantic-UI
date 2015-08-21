@@ -21,20 +21,20 @@
 }
 
 
-.ui.labeled.icon.buttons .button .icon,
-.ui.labeled.icon.button .icon {
+.ui.labeled.icon.buttons .button > .icon,
+.ui.labeled.icon.button > .icon {
   padding-bottom: 0.48em;
   padding-top: 0.48em;
   position: absolute;
   text-align: center;
   width: 2em;
   height: 2em;
-  top: 0.3em;
+  top: 0.35em;
   left: 0.4em;
   border-radius: 3px;
 }
-.ui.right.labeled.icon.buttons .button .icon,
-.ui.right.labeled.icon.button .icon {
+.ui.right.labeled.icon.buttons .button > .icon,
+.ui.right.labeled.icon.button > .icon {
   left: auto;
   right: 0.4em;
   border-radius: 3px;

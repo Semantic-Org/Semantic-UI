@@ -22,7 +22,7 @@
 /* Icon */
 @iconOpacity: 0.8;
 @iconDistance: 0.4em;
-@iconTransition: opacity @transitionDuration @transitionEasing;
+@iconTransition: opacity @defaultDuration @defaultEasing;
 @iconMargin: 0em @iconDistance 0em -(@iconDistance / 2);
 @iconVerticalAlign: top;
 

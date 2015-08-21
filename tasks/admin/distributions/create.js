@@ -94,7 +94,7 @@ module.exports = function(callback) {
             'package.json',
             'bower.json',
             '.gitignore'
-          ]
+          ],
           files = []
         ;
         list.forEach(function(file) {
@@ -111,14 +111,14 @@ module.exports = function(callback) {
               files.push(filePath.replace(outputDirectory + path.sep, ''));
             }
           }
-        })
-        return files
+        });
+        return files;
       };
 
       // spaces out list correctly
       createList = function(files) {
         var filenames = '';
-        for(file in files) {
+        for(var file in files) {
           if(file == (files.length - 1) ) {
             filenames += "'" + files[file] + "'";
           }
@@ -132,7 +132,7 @@ module.exports = function(callback) {
 
       gulp.task(task.meteor, function() {
         var
-          files     = gatherFiles(outputDirectory)
+          files     = gatherFiles(outputDirectory),
           filenames = createList(files)
         ;
         gulp.src(release.templates.meteor[distLowerCase])
@@ -149,7 +149,7 @@ module.exports = function(callback) {
         gulp.task(task.repo, function() {
           var
             themes,
-            component,
+            components,
             releases
           ;
           themes = gulp.src('dist/themes/default/**/*', { base: 'dist/' })

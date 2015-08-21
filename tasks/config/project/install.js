@@ -92,7 +92,6 @@ module.exports = {
           folder        = pathArray[pathArray.length - 1],
           nextDirectory = path.join(directory, path.sep, '..')
         ;
-        console.log(folder, nextDirectory);
         if( folder == 'bower_components') {
           return {
             name: 'Bower',
@@ -355,6 +354,7 @@ module.exports = {
           { name: "reset", checked: true },
           { name: "site", checked: true },
           { name: "button", checked: true },
+          { name: "container", checked: true },
           { name: "divider", checked: true },
           { name: "flag", checked: true },
           { name: "header", checked: true },
@@ -384,6 +384,7 @@ module.exports = {
           { name: "checkbox", checked: true },
           { name: "dimmer", checked: true },
           { name: "dropdown", checked: true },
+          { name: "embed", checked: true },
           { name: "modal", checked: true },
           { name: "nag", checked: true },
           { name: "popup", checked: true },
@@ -395,7 +396,6 @@ module.exports = {
           { name: "sticky", checked: true },
           { name: "tab", checked: true },
           { name: "transition", checked: true },
-          { name: "video", checked: true },
           { name: "api", checked: true },
           { name: "form", checked: true },
           { name: "state", checked: true },
@@ -440,6 +440,10 @@ module.exports = {
             name: 'Yes',
             value: true
           },
+          {
+            name: 'Build Both',
+            value: 'both'
+          }
         ]
       },
       {

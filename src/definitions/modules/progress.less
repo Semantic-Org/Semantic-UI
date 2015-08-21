@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -40,83 +40,6 @@
 }
 .ui.progress:last-child {
   margin: @lastMargin;
-}
-
-/* Indicating */
-.ui.indicating.progress .bar[style*="width: 1"],
-.ui.indicating.progress .bar[style*="width: 2"] {
-  background-color: @indicatingFirstColor;
-}
-.ui.indicating.progress .bar[style*="width: 3"] {
-  background-color: @indicatingSecondColor;
-}
-.ui.indicating.progress .bar[style*="width: 4"],
-.ui.indicating.progress .bar[style*="width: 5"] {
-  background-color: @indicatingThirdColor;
-}
-.ui.indicating.progress .bar[style*="width: 6"] {
-  background-color: @indicatingFourthColor;
-}
-.ui.indicating.progress .bar[style*="width: 7"],
-.ui.indicating.progress .bar[style*="width: 8"] {
-  background-color: @indicatingFifthColor;
-}
-.ui.indicating.progress .bar[style*="width: 9"],
-.ui.indicating.progress .bar[style*="width: 100"] {
-  background-color: @indicatingSixthColor;
-}
-
-/* Indicating Label */
-.ui.indicating.progress[data-percent^="1"] .label,
-.ui.indicating.progress[data-percent^="2"] .label {
-  color: @indicatingFirstColor;
-}
-.ui.indicating.progress[data-percent^="3"] .label {
-  color: @indicatingSecondColor;
-}
-.ui.indicating.progress[data-percent^="4"] .label,
-.ui.indicating.progress[data-percent^="5"] .label {
-  color: @indicatingThirdColor;
-}
-.ui.indicating.progress[data-percent^="6"] .label {
-  color: @indicatingFourthColor;
-}
-.ui.indicating.progress[data-percent^="7"] .label,
-.ui.indicating.progress[data-percent^="8"] .label {
-  color: @indicatingFifthColor;
-}
-.ui.indicating.progress[data-percent^="9"] .label,
-.ui.indicating.progress[data-percent^="100"] .label {
-  color: @indicatingSixthColor;
-}
-
-/* Single Digits */
-.ui.indicating.progress .bar[style^="width: 1%"],
-.ui.indicating.progress .bar[style^="width: 2%"],
-.ui.indicating.progress .bar[style^="width: 3%"],
-.ui.indicating.progress .bar[style^="width: 4%"],
-.ui.indicating.progress .bar[style^="width: 5%"],
-.ui.indicating.progress .bar[style^="width: 6%"],
-.ui.indicating.progress .bar[style^="width: 7%"],
-.ui.indicating.progress .bar[style^="width: 8%"],
-.ui.indicating.progress .bar[style^="width: 9%"] {
-  background-color: @indicatingFirstColor;
-}
-.ui.indicating.progress[data-percent="1"] .label,
-.ui.indicating.progress[data-percent="2"] .label,
-.ui.indicating.progress[data-percent="3"] .label,
-.ui.indicating.progress[data-percent="4"] .label,
-.ui.indicating.progress[data-percent="5"] .label,
-.ui.indicating.progress[data-percent="6"] .label,
-.ui.indicating.progress[data-percent="7"] .label,
-.ui.indicating.progress[data-percent="8"] .label,
-.ui.indicating.progress[data-percent="9"] .label {
-  color: @indicatingFirstColor;
-}
-
-/* Indicating Success */
-.ui.indicating.progress.success .label {
-  color: @successHeaderColor;
 }
 
 /*******************************
@@ -169,6 +92,88 @@
   transition: @labelTransition;
 }
 
+
+/*******************************
+            Types
+*******************************/
+
+
+/* Indicating */
+.ui.indicating.progress[data-percent^="1"] .bar,
+.ui.indicating.progress[data-percent^="2"] .bar {
+  background-color: @indicatingFirstColor;
+}
+.ui.indicating.progress[data-percent^="3"] .bar {
+  background-color: @indicatingSecondColor;
+}
+.ui.indicating.progress[data-percent^="4"] .bar,
+.ui.indicating.progress[data-percent^="5"] .bar {
+  background-color: @indicatingThirdColor;
+}
+.ui.indicating.progress[data-percent^="6"] .bar {
+  background-color: @indicatingFourthColor;
+}
+.ui.indicating.progress[data-percent^="7"] .bar,
+.ui.indicating.progress[data-percent^="8"] .bar {
+  background-color: @indicatingFifthColor;
+}
+.ui.indicating.progress[data-percent^="9"] .bar,
+.ui.indicating.progress[data-percent^="100"] .bar {
+  background-color: @indicatingSixthColor;
+}
+
+/* Indicating Label */
+.ui.indicating.progress[data-percent^="1"] .label,
+.ui.indicating.progress[data-percent^="2"] .label {
+  color: @indicatingFirstLabelColor;
+}
+.ui.indicating.progress[data-percent^="3"] .label {
+  color: @indicatingSecondLabelColor;
+}
+.ui.indicating.progress[data-percent^="4"] .label,
+.ui.indicating.progress[data-percent^="5"] .label {
+  color: @indicatingThirdLabelColor;
+}
+.ui.indicating.progress[data-percent^="6"] .label {
+  color: @indicatingFourthLabelColor;
+}
+.ui.indicating.progress[data-percent^="7"] .label,
+.ui.indicating.progress[data-percent^="8"] .label {
+  color: @indicatingFifthLabelColor;
+}
+.ui.indicating.progress[data-percent^="9"] .label,
+.ui.indicating.progress[data-percent^="100"] .label {
+  color: @indicatingSixthLabelColor;
+}
+
+/* Single Digits */
+.ui.indicating.progress[data-percent="1"] .bar,
+.ui.indicating.progress[data-percent="2"] .bar,
+.ui.indicating.progress[data-percent="3"] .bar,
+.ui.indicating.progress[data-percent="4"] .bar,
+.ui.indicating.progress[data-percent="5"] .bar,
+.ui.indicating.progress[data-percent="6"] .bar,
+.ui.indicating.progress[data-percent="7"] .bar,
+.ui.indicating.progress[data-percent="8"] .bar,
+.ui.indicating.progress[data-percent="9"] .bar {
+  background-color: @indicatingFirstColor;
+}
+.ui.indicating.progress[data-percent="1"] .label,
+.ui.indicating.progress[data-percent="2"] .label,
+.ui.indicating.progress[data-percent="3"] .label,
+.ui.indicating.progress[data-percent="4"] .label,
+.ui.indicating.progress[data-percent="5"] .label,
+.ui.indicating.progress[data-percent="6"] .label,
+.ui.indicating.progress[data-percent="7"] .label,
+.ui.indicating.progress[data-percent="8"] .label,
+.ui.indicating.progress[data-percent="9"] .label {
+  color: @indicatingFirstLabelColor;
+}
+
+/* Indicating Success */
+.ui.indicating.progress.success .label {
+  color: @successHeaderColor;
+}
 
 /*******************************
              States
@@ -353,60 +358,108 @@
      Colors
 ---------------*/
 
-.ui.black.progress .bar {
-  background-color: @black;
-}
-.ui.blue.progress .bar {
-  background-color: @blue;
-}
-.ui.green.progress .bar {
-  background-color: @green;
-}
-.ui.orange.progress .bar {
-  background-color: @orange;
-}
-.ui.pink.progress .bar {
-  background-color: @pink;
-}
-.ui.purple.progress .bar {
-  background-color: @purple;
-}
+/* Red */
 .ui.red.progress .bar {
   background-color: @red;
-}
-.ui.teal.progress .bar {
-  background-color: @teal;
-}
-.ui.yellow.progress .bar {
-  background-color: @yellow;
-}
-
-.ui.black.inverted.progress .bar {
-  background-color: @lightBlack;
-}
-.ui.blue.inverted.progress .bar {
-  background-color: @lightBlue;
-}
-.ui.green.inverted.progress .bar {
-  background-color: @lightGreen;
-}
-.ui.orange.inverted.progress .bar {
-  background-color: @lightOrange;
-}
-.ui.pink.inverted.progress .bar {
-  background-color: @lightPink;
-}
-.ui.purple.inverted.progress .bar {
-  background-color: @lightPurple;
 }
 .ui.red.inverted.progress .bar {
   background-color: @lightRed;
 }
-.ui.teal.inverted.progress .bar {
-  background-color: @lightTeal;
+
+/* Orange */
+.ui.orange.progress .bar {
+  background-color: @orange;
+}
+.ui.orange.inverted.progress .bar {
+  background-color: @lightOrange;
+}
+
+/* Yellow */
+.ui.yellow.progress .bar {
+  background-color: @yellow;
 }
 .ui.yellow.inverted.progress .bar {
   background-color: @lightYellow;
+}
+
+/* Olive */
+.ui.olive.progress .bar {
+  background-color: @olive;
+}
+.ui.olive.inverted.progress .bar {
+  background-color: @lightOlive;
+}
+
+/* Green */
+.ui.green.progress .bar {
+  background-color: @green;
+}
+.ui.green.inverted.progress .bar {
+  background-color: @lightGreen;
+}
+
+/* Teal */
+.ui.teal.progress .bar {
+  background-color: @teal;
+}
+.ui.teal.inverted.progress .bar {
+  background-color: @lightTeal;
+}
+
+/* Blue */
+.ui.blue.progress .bar {
+  background-color: @blue;
+}
+.ui.blue.inverted.progress .bar {
+  background-color: @lightBlue;
+}
+
+/* Violet */
+.ui.violet.progress .bar {
+  background-color: @violet;
+}
+.ui.violet.inverted.progress .bar {
+  background-color: @lightViolet;
+}
+
+/* Purple */
+.ui.purple.progress .bar {
+  background-color: @purple;
+}
+.ui.purple.inverted.progress .bar {
+  background-color: @lightPurple;
+}
+
+/* Pink */
+.ui.pink.progress .bar {
+  background-color: @pink;
+}
+.ui.pink.inverted.progress .bar {
+  background-color: @lightPink;
+}
+
+/* Brown */
+.ui.brown.progress .bar {
+  background-color: @brown;
+}
+.ui.brown.inverted.progress .bar {
+  background-color: @lightBrown;
+}
+
+/* Grey */
+.ui.grey.progress .bar {
+  background-color: @grey;
+}
+.ui.grey.inverted.progress .bar {
+  background-color: @lightGrey;
+}
+
+/* Black */
+.ui.black.progress .bar {
+  background-color: @black;
+}
+.ui.black.inverted.progress .bar {
+  background-color: @lightBlack;
 }
 
 /*--------------

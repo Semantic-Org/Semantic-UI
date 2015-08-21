@@ -9,6 +9,10 @@
   border-left-color: transparent;
 }
 
+.ui.feed > .event > .label {
+  margin-left: 1.6em;
+}
+
 .ui.feed > .event > .label > img,
 .ui.feed > .event > .label > .icon {
   background-color: #009FDA;
@@ -20,16 +24,4 @@
   left: -1.6rem;
   opacity: 1;
   position: relative;
-}
-
-.ui.feed > .event > .content {
-  display: block;
-  border-left: 3px solid #ddd;
-  padding-bottom: 2em;
-  padding-left: 4em;
-}
-.ui.feed > .event > .label + .content {
-  display: table-cell;
-  border-left: medium none;
-  margin-left: 0;
 }

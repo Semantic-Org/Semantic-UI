@@ -6,22 +6,73 @@
        Element
 --------------------*/
 
-@margin: 1em 0em;
+@verticalMargin: 1em;
+@horizontalMargin: 0em;
+@margin: @verticalMargin @horizontalMargin;
 @borderCollapse: separate;
 @borderSpacing: 0px;
+@borderRadius: @defaultBorderRadius;
 @transition:
-  background @transitionDuration @transitionEasing,
-  border-color @transitionDuration @transitionEasing,
-  color @transitionDuration @transitionEasing
+  background @defaultDuration @defaultEasing,
+  color @defaultDuration @defaultEasing
 ;
-@borderRadius: 0.25rem;
-@background: #FFFFFF;
+@background: @white;
 @color: @textColor;
 @borderWidth: 1px;
-@borderColor: #D0D0D0;
 @border: @borderWidth solid @borderColor;
 @boxShadow: none;
 @textAlign: left;
+
+/*--------------
+     Parts
+---------------*/
+
+/* Table Row */
+@rowBorder: 1px solid @internalBorderColor;
+
+/* Table Cell */
+@cellVerticalPadding: @relativeMini;
+@cellHorizontalPadding: @relativeMini;
+@cellVerticalAlign: inherit;
+@cellTextAlign: inherit;
+@cellBorder: 1px solid @internalBorderColor;
+
+/* Table Header */
+@headerBorder: 1px solid @internalBorderColor;
+@headerDivider: none;
+@headerBackground: @offWhite;
+@headerAlign: inherit;
+@headerVerticalAlign: inherit;
+@headerColor: @textColor;
+@headerVerticalPadding: @relativeSmall;
+@headerHorizontalPadding: @cellHorizontalPadding;
+@headerFontStyle: none;
+@headerFontWeight: bold;
+@headerTextTransform: none;
+@headerBoxShadow: none;
+
+/* Table Footer */
+@footerBoxShadow: none;
+@footerBorder: 1px solid @borderColor;
+@footerDivider: none;
+@footerBackground: @offWhite;
+@footerAlign: inherit;
+@footerVerticalAlign: middle;
+@footerColor: @textColor;
+@footerVerticalPadding: @cellVerticalPadding;
+@footerHorizontalPadding: @cellHorizontalPadding;
+@footerFontStyle: normal;
+@footerFontWeight: normal;
+@footerTextTransform: none;
+
+/* Responsive Size */
+@responsiveHeaderDisplay: block;
+@responsiveFooterDisplay: block;
+@responsiveRowVerticalPadding: 1em;
+@responsiveRowBoxShadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
+@responsiveCellVerticalPadding: 0.25em;
+@responsiveCellHorizontalPadding: 0.75em;
+@responsiveCellBoxShadow: none !important;
 
 /*-------------------
        Types
@@ -44,63 +95,10 @@
 
 
 /*--------------
-     Parts
----------------*/
-
-/* Table Row */
-@rowBorder: 1px solid @solidBorderColor;
-
-/* Table Cell */
-@cellVerticalPadding: 0.7em;
-@cellHorizontalPadding: 0.8em;
-@cellVerticalAlign: middle;
-@cellTextAlign: @textAlign;
-@cellBorder: 1px solid @solidBorderColor;
-
-/* Table Header */
-@headerBorder: 1px solid @solidBorderColor;
-@headerDivider: none;
-@headerBackground: @darkWhite;
-@headerAlign: @textAlign;
-@headerVerticalAlign: middle;
-@headerColor: @textColor;
-@headerVerticalPadding: @cellVerticalPadding;
-@headerHorizontalPadding: @cellHorizontalPadding;
-@headerFontStyle: none;
-@headerFontWeight: bold;
-@headerTextTransform: none;
-@headerBoxShadow: none;
-
-/* Table Footer */
-@footerBoxShadow: none;
-@footerBorder: 1px solid @solidBorderColor;
-@footerDivider: none;
-@footerBackground: @white;
-@footerAlign: @textAlign;
-@footerVerticalAlign: middle;
-@footerColor: @textColor;
-@footerVerticalPadding: @cellVerticalPadding;
-@footerHorizontalPadding: @cellHorizontalPadding;
-@footerFontStyle: normal;
-@footerFontWeight: normal;
-@footerTextTransform: none;
-
-/* Responsive Size */
-@responsiveHeaderDisplay: block;
-@responsiveFooterDisplay: block;
-@responsiveRowVerticalPadding: 1em;
-@responsiveRowBoxShadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
-@responsiveCellVerticalPadding: 0.25em;
-@responsiveCellHorizontalPadding: 0.75em;
-@responsiveCellBoxShadow: none !important;
-@responsiveStatusColor: transparent;
-
-/*--------------
     Couplings
 ---------------*/
 
 @iconVerticalAlign: baseline;
-
 
 /*--------------
      States
@@ -115,54 +113,68 @@
 @positiveColorHover: darken(@positiveColor, 3);
 
 /* Negative */
-@negativeColor: #CD2929;
+@negativeColor: @negativeTextColor;
 @negativeBoxShadow: @stateMarkerWidth 0px 0px @negativeBorderColor inset;
 @negativeBackgroundHover: darken(@negativeBackgroundColor, 3);
 @negativeColorHover: darken(@negativeColor, 3);
 
 /* Error */
-@errorColor: #CD2929;
+@errorColor: @errorTextColor;
 @errorBoxShadow: @stateMarkerWidth 0px 0px @errorBorderColor inset;
 @errorBackgroundHover: darken(@errorBackgroundColor, 3);
 @errorColorHover: darken(@errorColor, 3);
 
 /* Warning */
-@warningColor: #7D6C00;
+@warningColor: @warningTextColor;
 @warningBoxShadow: @stateMarkerWidth 0px 0px @warningBorderColor inset;
 @warningBackgroundHover: darken(@warningBackgroundColor, 3);
 @warningColorHover: darken(@warningColor, 3);
 
 /* Active */
-@activeColor: rgba(50, 50, 50, 0.9);
+@activeColor: @textColor;
 @activeBackgroundColor: #E0E0E0;
 @activeBoxShadow: @stateMarkerWidth 0px 0px @activeColor inset;
+
 @activeBackgroundHover: #EFEFEF;
-@activeColorHover: rgba(50, 50, 50, 1);
+@activeColorHover: @selectedTextColor;
 
 /*--------------
      Types
 ---------------*/
 
 /* Attached */
-@attachedHorizontalOffset: -1px;
+@attachedTopOffset: 0px;
+@attachedBottomOffset: 0px;
+@attachedHorizontalOffset: -@borderWidth;
+@attachedWidth: ~"calc(100% + "-@attachedHorizontalOffset * 2~")";
 @attachedBoxShadow: none;
-@attachedTableWidth: ~"calc(100% + "@attachedHorizontalOffset * -2~")";
+@attachedBorder: @borderWidth solid @solidBorderColor;
+@attachedBottomBoxShadow:
+  @boxShadow,
+  @attachedBoxShadow
+;
 
 /* Striped */
-@stripedBackground: rgba(0, 0, 50, 0.03);
-@invertedStripedBackground: rgba(255, 255, 255, 0.06);
+@stripedBackground: rgba(0, 0, 50, 0.02);
+@invertedStripedBackground: rgba(255, 255, 255, 0.05);
+
+/* Selectable */
+@selectableBackground: @transparentBlack;
+@selectableTextColor: @selectedTextColor;
+@selectableInvertedBackground: @transparentWhite;
+@selectableInvertedTextColor: @invertedSelectedTextColor;
 
 /* Sortable */
 @sortableBackground: '';
 @sortableColor: @textColor;
 
 @sortableBorder: 1px solid @borderColor;
-@sortableIconWidth: 1em;
+@sortableIconWidth: auto;
 @sortableIconDistance: 0.5em;
 @sortableIconOpacity: 0.8;
 @sortableIconFont: 'Icons';
-@sortableIconAscending: '\f0d7';
-@sortableIconDescending: '\f0d8';
+@sortableIconAscending: '\f0d8';
+@sortableIconDescending: '\f0d7';
 @sortableDisabledColor: @disabledTextColor;
 
 @sortableHoverBackground: @transparentBlack;
@@ -187,10 +199,12 @@
 /* Inverted */
 @invertedBackground: #333333;
 @invertedBorder: none;
-@invertedCellBorderColor: rgba(0, 0, 0, 0.2);
+@invertedCellBorderColor: @whiteBorderColor;
 @invertedCellColor: @invertedTextColor;
-@invertedHeaderBackground: rgba(0, 0, 0, 0.15);
-@invertedHeaderColor: rgba(255, 255, 255, 0.9);
+
+@invertedHeaderBackground: @veryStrongTransparentBlack;
+@invertedHeaderColor: @invertedTextColor;
+@invertedHeaderBorderColor: @invertedCellBorderColor;
 
 @invertedDefinitionColumnBackground: @subtleTransparentWhite;
 @invertedDefinitionColumnColor: @invertedSelectedTextColor;
@@ -198,15 +212,14 @@
 
 /* Basic */
 @basicTableBackground: transparent;
-@basicTableBorder: 1px solid @borderColor;
+@basicTableBorder: @borderWidth solid @borderColor;
 @basicBoxShadow: none;
 
 @basicTableHeaderBackground: transparent;
 @basicTableCellBackground: transparent;
 @basicTableHeaderDivider: none;
 @basicTableCellBorder: 1px solid rgba(0, 0, 0, 0.1);
-@basicTableCellVerticalPadding: @cellVerticalPadding;
-@basicTableCellHorizontalPadding: @cellHorizontalPadding;
+@basicTableCellPadding: '';
 @basicTableStripedBackground: @transparentBlack;
 
 /* Padded */

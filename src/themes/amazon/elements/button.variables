@@ -8,12 +8,13 @@
 @textColor: #111111;
 @fontWeight: normal;
 @transition:
-  opacity @transitionDuration @transitionEasing,
-  background-color @transitionDuration @transitionEasing,
-  color @transitionDuration @transitionEasing,
-  background @transitionDuration @transitionEasing
+  opacity @defaultDuration @defaultEasing,
+  background-color @defaultDuration @defaultEasing,
+  color @defaultDuration @defaultEasing,
+  background @defaultDuration @defaultEasing
 ;
 
+@hoverBackgroundColor: #E0E0E0;
 
 @borderRadius: 3px;
 @verticalPadding: 0.8em;

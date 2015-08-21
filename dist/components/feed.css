@@ -1,9 +1,9 @@
 /*!
- * # Semantic UI 1.12.3 - Feed
+ * # Semantic UI 2.0.8 - Feed
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -21,7 +21,7 @@
   margin-top: 0em;
 }
 .ui.feed:last-child {
-  margin-top: 0em;
+  margin-bottom: 0em;
 }
 
 
@@ -32,9 +32,17 @@
 
 /* Event */
 .ui.feed > .event {
-  display: table;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   width: 100%;
-  padding: 0.5rem 0em;
+  padding: 0.21428571rem 0em;
   margin: 0em;
   background: none;
   border-top: none;
@@ -49,10 +57,16 @@
 
 /* Event Label */
 .ui.feed > .event > .label {
-  display: table-cell;
+  display: block;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
   width: 2.5em;
-  height: 2.5em;
-  vertical-align: top;
+  height: auto;
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+          align-self: stretch;
   text-align: left;
 }
 .ui.feed > .event > .label .icon {
@@ -71,13 +85,24 @@
   border-radius: 500rem;
 }
 .ui.feed > .event > .label + .content {
-  padding: 0.5em 0em 0.5em 1.25em;
+  margin: 0.5em 0em 0.35714286em 1.14285714em;
 }
+
+/*--------------
+     Content
+---------------*/
+
 
 /* Content */
 .ui.feed > .event > .content {
-  display: table-cell;
-  vertical-align: top;
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+          align-self: stretch;
   text-align: left;
   word-wrap: break-word;
 }
@@ -111,14 +136,14 @@
   margin: 0em;
   font-size: 1em;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /* Summary Image */
 .ui.feed > .event > .content .summary img {
   display: inline-block;
   width: auto;
-  height: 2em;
+  height: 10em;
   margin: -0.25em 0.25em 0em 0em;
   border-radius: 0.25em;
   vertical-align: middle;
@@ -137,7 +162,7 @@
 .ui.feed > .event > .content .user img {
   margin: -0.25em 0.25em 0em 0em;
   width: auto;
-  height: 2em;
+  height: 10em;
   vertical-align: middle;
 }
 
@@ -151,7 +176,7 @@
   display: inline-block;
   float: none;
   font-weight: normal;
-  font-size: 0.875em;
+  font-size: 0.85714286em;
   font-style: normal;
   margin: 0em 0em 0em 0.5em;
   padding: 0em;
@@ -166,7 +191,7 @@
   margin: 0.5em 0em 0em;
   background: none;
   padding: 0em;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /* Images */
@@ -178,11 +203,11 @@
 
 /* Text */
 .ui.feed > .event > .content .extra.text {
-  padding: 0.5em 1em;
-  border-left: 3px solid rgba(0, 0, 0, 0.2);
+  padding: 0em;
+  border-left: none;
   font-size: 1em;
   max-width: 500px;
-  line-height: 1.33;
+  line-height: 1.4285em;
 }
 
 /*--------------
@@ -191,7 +216,7 @@
 
 .ui.feed > .event > .content .meta {
   display: inline-block;
-  font-size: 0.875em;
+  font-size: 0.85714286em;
   margin: 0.5em 0em 0em;
   background: none;
   border: none;
@@ -239,13 +264,13 @@
   cursor: pointer;
   opacity: 1;
   color: rgba(0, 0, 0, 0.5);
-  -webkit-transition: color 0.2s ease;
-          transition: color 0.2s ease;
+  -webkit-transition: color 0.1s ease;
+          transition: color 0.1s ease;
 }
 .ui.feed > .event > .content .meta a:hover,
 .ui.feed > .event > .content .meta a:hover .icon,
 .ui.feed > .event > .content .meta > .icon:hover {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 
@@ -254,13 +279,13 @@
 *******************************/
 
 .ui.small.feed {
-  font-size: 0.9em;
+  font-size: 0.92857143rem;
 }
 .ui.feed {
-  font-size: 1em;
+  font-size: 1rem;
 }
 .ui.large.feed {
-  font-size: 1.1em;
+  font-size: 1.14285714rem;
 }
 
 

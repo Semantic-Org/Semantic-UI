@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -49,8 +49,8 @@
 
 .ui.header .sub.header {
   font-weight: normal;
-  margin: 0em;
   padding: 0em;
+  margin: @subHeaderMargin;
   font-size: @subHeaderFontSize;
   line-height: @subHeaderLineHeight;
   color: @subHeaderColor;
@@ -122,7 +122,7 @@
 
 .ui.header .ui.label {
   font-size: @labelSize;
-  margin: 0em 0em 0em @labelDistance;
+  margin-left: @labelDistance;
   vertical-align: @labelVerticalAlign;
 }
 
@@ -183,19 +183,19 @@ h5.ui.header .sub.header {
 
 .ui.huge.header {
   min-height: 1em;
-  font-size: @huge;
+  font-size: @hugeFontSize;
 }
 .ui.large.header {
-  font-size: @large;
+  font-size: @largeFontSize;
 }
 .ui.medium.header {
-  font-size: @medium;
+  font-size: @mediumFontSize;
 }
 .ui.small.header {
-  font-size: @small;
+  font-size: @smallFontSize;
 }
 .ui.tiny.header {
-  font-size: @tiny;
+  font-size: @tinyFontSize;
 }
 
 /* Sub Header */
@@ -214,6 +214,34 @@ h5.ui.header .sub.header {
 .ui.tiny.header .sub.header {
   font-size: @tinySubHeaderFontSize;
 }
+
+/*--------------
+   Sub Heading
+---------------*/
+
+.ui.sub.header {
+  padding: 0em;
+  margin-bottom: @subHeadingDistance;
+  font-weight: @subHeadingFontWeight;
+  font-size: @subHeadingFontSize;
+  text-transform: @subHeadingTextTransform;
+  color: @subHeadingColor;
+}
+
+.ui.small.sub.header {
+  font-size: @smallSubHeadingSize;
+}
+.ui.sub.header {
+  font-size: @subHeadingFontSize;
+}
+.ui.large.sub.header {
+  font-size: @largeSubHeadingSize;
+}
+.ui.huge.sub.header {
+  font-size: @hugeSubHeadingSize;
+}
+
+
 
 /*-------------------
         Icon
@@ -240,6 +268,7 @@ h5.ui.header .sub.header {
   display: block;
   width: auto;
   height: auto;
+  line-height: 1;
   padding: 0em;
   font-size: @iconHeaderSize;
   margin: 0em auto @iconHeaderMargin;
@@ -276,102 +305,6 @@ h5.ui.header .sub.header {
            Variations
 *******************************/
 
-
-/*-------------------
-       Colors
---------------------*/
-
-.ui.black.header {
-  color: @black !important;
-}
-a.ui.black.header:hover {
-  color: @blackHover !important;
-}
-
-.ui.blue.header {
-  color: @blue !important;
-}
-a.ui.blue.header:hover {
-  color: @blueHover !important;
-}
-
-.ui.green.header {
-  color: @green !important;
-}
-a.ui.green.header:hover {
-  color: @greenHover !important;
-}
-
-.ui.orange.header {
-  color: @orange !important;
-}
-a.ui.orange.header:hover {
-  color: @orangeHover !important;
-}
-
-.ui.pink.header {
-  color: @pink !important;
-}
-a.ui.pink.header:hover {
-  color: @pinkHover !important;
-}
-
-.ui.purple.header {
-  color: @purple !important;
-}
-a.ui.purple.header:hover {
-  color: @purpleHover !important;
-}
-
-.ui.red.header {
-  color: @red !important;
-}
-a.ui.red.header:hover {
-  color: @redHover !important;
-}
-
-.ui.teal.header {
-  color: @teal !important;
-}
-a.ui.teal.header:hover {
-  color: @tealHover !important;
-}
-
-.ui.yellow.header {
-  color: @yellow !important;
-}
-a.ui.yellow.header:hover {
-  color: @yellowHover !important;
-}
-
-.ui.black.dividing.header {
-  border-bottom: @dividedColoredBorderWidth solid @blackDividedBorderColor;
-}
-.ui.blue.dividing.header {
-  border-bottom: @dividedColoredBorderWidth solid @blueDividedBorderColor;
-}
-.ui.green.dividing.header {
-  border-bottom: @dividedColoredBorderWidth solid @greenDividedBorderColor;
-}
-.ui.orange.dividing.header {
-  border-bottom: @dividedColoredBorderWidth solid @orangeDividedBorderColor;
-}
-.ui.pink.dividing.header {
-  border-bottom: @dividedColoredBorderWidth solid @pinkDividedBorderColor;
-}
-.ui.purple.dividing.header {
-  border-bottom: @dividedColoredBorderWidth solid @purpleDividedBorderColor;
-}
-.ui.red.dividing.header {
-  border-bottom: @dividedColoredBorderWidth solid @redDividedBorderColor;
-}
-.ui.teal.dividing.header {
-  border-bottom: @dividedColoredBorderWidth solid @tealDividedBorderColor;
-}
-.ui.yellow.dividing.header {
-  border-bottom: @dividedColoredBorderWidth solid @yellowDividedBorderColor;
-}
-
 /*-------------------
       Inverted
 --------------------*/
@@ -385,59 +318,33 @@ a.ui.yellow.header:hover {
 .ui.inverted.attached.header {
   background: @invertedAttachedBackground;
   box-shadow: none;
+  border-color: transparent;
 }
 .ui.inverted.block.header {
   background: @invertedBlockBackground;
   box-shadow: none;
 }
+.ui.inverted.block.header {
+  border-bottom: none;
+}
 
 
 /*-------------------
-   Inverted Colors
+       Colors
 --------------------*/
 
-.ui.inverted.black.header {
-  color: @darkGrey !important;
+/*--- Red ---*/
+.ui.red.header {
+  color: @red !important;
 }
-a.ui.inverted.black.header:hover {
-  color: @darkGreyHover !important;
+a.ui.red.header:hover {
+  color: @redHover !important;
 }
-
-.ui.inverted.blue.header {
-  color: @lightBlue !important;
-}
-a.ui.inverted.blue.header:hover {
-  color: @lightBlueHover !important;
+.ui.red.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @red;
 }
 
-.ui.inverted.green.header {
-  color: @lightGreen !important;
-}
-a.ui.inverted.green.header:hover {
-  color: @lightGreenHover !important;
-}
-
-.ui.inverted.orange.header {
-  color: @lightOrange !important;
-}
-a.ui.inverted.orange.header:hover {
-  color: @lightOrangeHover !important;
-}
-
-.ui.inverted.pink.header {
-  color: @lightPink !important;
-}
-a.ui.inverted.pink.header:hover {
-  color: @lightPinkHover !important;
-}
-
-.ui.inverted.purple.header {
-  color: @lightPurple !important;
-}
-a.ui.inverted.purple.header:hover {
-  color: @lightPurpleHover !important;
-}
-
+/* Inverted */
 .ui.inverted.red.header {
   color: @lightRed !important;
 }
@@ -445,13 +352,53 @@ a.ui.inverted.red.header:hover {
   color: @lightRedHover !important;
 }
 
-.ui.inverted.teal.header {
-  color: @lightTeal !important;
+/*--- Orange ---*/
+.ui.orange.header {
+  color: @orange !important;
 }
-a.ui.inverted.teal.header:hover {
-  color: @lightTealHover !important;
+a.ui.orange.header:hover {
+  color: @orangeHover !important;
+}
+.ui.orange.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @orange;
+}
+/* Inverted */
+.ui.inverted.orange.header {
+  color: @lightOrange !important;
+}
+a.ui.inverted.orange.header:hover {
+  color: @lightOrangeHover !important;
 }
 
+/*--- Olive ---*/
+.ui.olive.header {
+  color: @olive !important;
+}
+a.ui.olive.header:hover {
+  color: @oliveHover !important;
+}
+.ui.olive.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @olive;
+}
+/* Inverted */
+.ui.inverted.olive.header {
+  color: @lightOlive !important;
+}
+a.ui.inverted.olive.header:hover {
+  color: @lightOliveHover !important;
+}
+
+/*--- Yellow ---*/
+.ui.yellow.header {
+  color: @yellow !important;
+}
+a.ui.yellow.header:hover {
+  color: @yellowHover !important;
+}
+.ui.yellow.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @yellow;
+}
+/* Inverted */
 .ui.inverted.yellow.header {
   color: @lightYellow !important;
 }
@@ -459,9 +406,150 @@ a.ui.inverted.yellow.header:hover {
   color: @lightYellowHover !important;
 }
 
-.ui.inverted.block.header {
-  border-bottom: none;
+/*--- Green ---*/
+.ui.green.header {
+  color: @green !important;
 }
+a.ui.green.header:hover {
+  color: @greenHover !important;
+}
+.ui.green.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @green;
+}
+/* Inverted */
+.ui.inverted.green.header {
+  color: @lightGreen !important;
+}
+a.ui.inverted.green.header:hover {
+  color: @lightGreenHover !important;
+}
+
+/*--- Teal ---*/
+.ui.teal.header {
+  color: @teal !important;
+}
+a.ui.teal.header:hover {
+  color: @tealHover !important;
+}
+.ui.teal.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @teal;
+}
+/* Inverted */
+.ui.inverted.teal.header {
+  color: @lightTeal !important;
+}
+a.ui.inverted.teal.header:hover {
+  color: @lightTealHover !important;
+}
+
+/*--- Blue ---*/
+.ui.blue.header {
+  color: @blue !important;
+}
+a.ui.blue.header:hover {
+  color: @blueHover !important;
+}
+.ui.blue.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @blue;
+}
+/* Inverted */
+.ui.inverted.blue.header {
+  color: @lightBlue !important;
+}
+a.ui.inverted.blue.header:hover {
+  color: @lightBlueHover !important;
+}
+
+/*--- Violet ---*/
+.ui.violet.header {
+  color: @violet !important;
+}
+a.ui.violet.header:hover {
+  color: @violetHover !important;
+}
+.ui.violet.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @violet;
+}
+/* Inverted */
+.ui.inverted.violet.header {
+  color: @lightViolet !important;
+}
+a.ui.inverted.violet.header:hover {
+  color: @lightVioletHover !important;
+}
+
+/*--- Purple ---*/
+.ui.purple.header {
+  color: @purple !important;
+}
+a.ui.purple.header:hover {
+  color: @purpleHover !important;
+}
+.ui.purple.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @purple;
+}
+/* Inverted */
+.ui.inverted.purple.header {
+  color: @lightPurple !important;
+}
+a.ui.inverted.purple.header:hover {
+  color: @lightPurpleHover !important;
+}
+
+/*--- Pink ---*/
+.ui.pink.header {
+  color: @pink !important;
+}
+a.ui.pink.header:hover {
+  color: @pinkHover !important;
+}
+.ui.pink.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @pink;
+}
+/* Inverted */
+.ui.inverted.pink.header {
+  color: @lightPink !important;
+}
+a.ui.inverted.pink.header:hover {
+  color: @lightPinkHover !important;
+}
+
+/*--- Brown ---*/
+.ui.brown.header {
+  color: @brown !important;
+}
+a.ui.brown.header:hover {
+  color: @brownHover !important;
+}
+.ui.brown.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @brown;
+}
+/* Inverted */
+.ui.inverted.brown.header {
+  color: @lightBrown !important;
+}
+a.ui.inverted.brown.header:hover {
+  color: @lightBrownHover !important;
+}
+
+/*--- Grey ---*/
+.ui.grey.header {
+  color: @grey !important;
+}
+a.ui.grey.header:hover {
+  color: @greyHover !important;
+}
+.ui.grey.dividing.header {
+  border-bottom: @dividedColoredBorderWidth solid @grey;
+}
+/* Inverted */
+.ui.inverted.grey.header {
+  color: @lightGrey !important;
+}
+a.ui.inverted.grey.header:hover {
+  color: @lightGreyHover !important;
+}
+
 
 /*-------------------
        Aligned
@@ -595,19 +683,19 @@ a.ui.inverted.yellow.header:hover {
 
 /* Attached Sizes */
 .ui.tiny.attached.header {
-  font-size: @tinyAttached;
+  font-size: @tinyAttachedSize;
 }
 .ui.small.attached.header {
-  font-size: @smallAttached;
+  font-size: @smallAttachedSize;
 }
 .ui.attached.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: @mediumAttached;
+  font-size: @mediumAttachedSize;
 }
 .ui.large.attached.header {
-  font-size: @largeAttached;
+  font-size: @largeAttachedSize;
 }
 .ui.huge.attached.header {
-  font-size: @hugeAttached;
+  font-size: @hugeAttachedSize;
 }
 
 /*-------------------
@@ -615,7 +703,7 @@ a.ui.inverted.yellow.header:hover {
 --------------------*/
 
 .ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: @medium;
+  font-size: @mediumFontSize;
 }
 
 .loadUIOverrides();

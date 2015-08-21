@@ -3,45 +3,57 @@
 *******************************/
 
 /*-------------------
+       Group
+--------------------*/
+
+@stepMargin: 1em 0em;
+@stepsBorderRadius: @defaultBorderRadius;
+@stepsBackground: '';
+@stepsBoxShadow: none;
+@stepsBorder: 1px solid @borderColor;
+
+/*-------------------
       Element
 --------------------*/
 
 @verticalMargin: 0em;
 @horizontalMargin: 0em;
 
-@arrowSize: 1.5em;
-@verticalPadding: 0.9285em;
-@horizontalPadding: 1.5em;
-@leftPadding: @horizontalPadding + (@arrowSize / 2);
+@arrowSize: @relativeLarge;
+@verticalPadding: @relativeLarge;
+@horizontalPadding: 2em;
 
 @transition:
-  background-color @transitionDuration @transitionEasing,
-  opacity @transitionDuration @transitionEasing,
-  color @transitionDuration @transitionEasing,
-  box-shadow @transitionDuration @transitionEasing
+  background-color @defaultDuration @defaultEasing,
+  opacity @defaultDuration @defaultEasing,
+  color @defaultDuration @defaultEasing,
+  box-shadow @defaultDuration @defaultEasing
 ;
-@borderRadius: @defaultBorderRadius;
-@lineHeight: 1.142rem;
-
-@backgroundColor: #FFFFFF;
+@lineHeight: @relativeLarge;
+@alignItems: center;
+@justifyContent: center;
+@backgroundColor: @white;
 @background: @backgroundColor;
 @borderRadius: 0em;
-@boxShadow: 0px 0px 0px 1px @solidBorderColor;
+@borderWidth: 1px;
+@boxShadow: none;
+@border: none;
+@divider: @borderWidth solid @borderColor;
 
 /* Icon */
-@iconDistance: 0.6em;
-@iconSize: 2em;
-@iconVerticalAlign: middle;
+@iconDistance: 1rem;
+@iconSize: 2.5em;
+@iconAlign: middle;
 
 /* Title */
 @titleFontFamily: @headerFont;
 @titleFontWeight: bold;
-@titleFontSize: 1.0714em;
+@titleFontSize: @relativeLarge;
 @titleColor: @darkTextColor;
 
 /* Description */
-@descriptionDistance: 0.1em;
-@descriptionFontSize: 0.9285em;
+@descriptionDistance: 0.25em;
+@descriptionFontSize: @relativeSmall;
 @descriptionFontWeight: normal;
 @descriptionColor: @textColor;
 
@@ -49,24 +61,44 @@
 /* Arrow */
 @arrowBackgroundColor: @backgroundColor;
 @arrowTopOffset: 50%;
-@arrowRightOffset: 0em;
-@arrowBorderColor: @borderColor;
+@arrowRightOffset: 0%;
+@arrowBorderWidth: 0px @borderWidth @borderWidth 0px;
 
+@arrowDisplay: block;
+@lastArrowDisplay: none;
+
+@activeArrowDisplay: block;
+@activeLastArrowDisplay: none;
+
+/* Mobile */
+@mobileIconDistance: @iconDistance;
 
 /*-------------------
-       Group
+       Types
 --------------------*/
 
-@stepsBorderRadius: @defaultBorderRadius;
-@stepsBackground: '';
-@stepsBoxShadow: '';
+/* Vertical */
+@verticalDivider: @divider;
+@verticalArrowTopOffset: 50%;
+@verticalArrowRightOffset: 0%;
+@verticalArrowBorderWidth: 0px @borderWidth @borderWidth 0px;
+
+@verticalArrowDisplay: none;
+@verticalLastArrowDisplay: @verticalArrowDisplay;
+
+@verticalActiveArrowDisplay: block;
+@verticalActiveLastArrowDisplay: block;
 
 /*-------------------
       Variations
 --------------------*/
 
-@attachedTopMargin: 0em;
-@attachedBottomMargin: -1px 0em 0em;
+@attachedHorizontalOffset: -@borderWidth;
+@attachedVerticalOffset: -@borderWidth;
+@attachedWidth: ~"calc(100% + "-@attachedHorizontalOffset * 2~")";
+
+@orderedFontFamily: inherit;
+@orderedFontWeight: bold;
 
 /*-------------------
        States
@@ -76,23 +108,23 @@
 @completedColor: @positiveColor;
 
 /* Hover */
-@hoverBackground: #FAFAFA;
+@hoverBackground: @offWhite;
 @hoverColor: @hoveredTextColor;
 
 /* Down */
-@downBackground: #F0F0F0;
+@downBackground: @darkWhite;
 @downColor: @pressedTextColor;
 
 /* Active */
-@activeBackground: #F0F0F0;
+@activeBackground: @darkWhite;
 @activeColor: @linkColor;
 @activeIconColor: @darkTextColor;
 
 /* Active + Hover */
-@activeHoverBackground: #ECECEC;
+@activeHoverBackground: @lightGrey;
 @activeHoverColor: @textColor;
 
 
 /* Disabled */
-@disabledBackground: @white;
+@disabledBackground: @background;
 @disabledColor: @disabledTextColor;

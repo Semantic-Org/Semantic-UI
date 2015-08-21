@@ -18,6 +18,10 @@
   border-bottom: 1px solid #DDDDDD;
   border-radius: 0em !important;
 }
+.ui.form .selection.dropdown > .menu {
+  border-top-width: 1px !important;
+  border-radius: @defaultBorderRadius !important;
+}
 
 .ui.form .ui.icon.input > .icon {
   width: 1em;

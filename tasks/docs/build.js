@@ -8,6 +8,7 @@ var
   // node dependencies
   console      = require('better-console'),
   fs           = require('fs'),
+  map          = require('map-stream'),
 
   // gulp dependencies
   autoprefixer = require('gulp-autoprefixer'),
@@ -28,9 +29,12 @@ var
   config       = require('../config/docs'),
 
   // install config
+  tasks        = require('../config/tasks'),
   configSetup  = require('../config/project/config'),
-  tasks        = require('../config/project/tasks'),
   install      = require('../config/project/install'),
+
+  // metadata parsing
+  metadata     = require('./metadata'),
 
   // shorthand
   globs,
@@ -65,15 +69,42 @@ module.exports = function(callback) {
   source = config.paths.source;
 
   /*--------------
+   Parse metadata
+   ---------------*/
+
+  // parse all *.html.eco in docs repo, data will end up in
+  // metadata.result object.  Note this assumes that the docs
+  // repository is present and in proper directory location as
+  // specified by docs.json.
+  console.info('Building Metadata');
+  gulp.src(config.paths.template.eco + globs.eco)
+    .pipe(map(metadata.parser))
+    .on('end', function() {
+      fs.writeFile(output.metadata + '/metadata.json', JSON.stringify(metadata.result, null, 2));
+    })
+  ;
+
+  /*--------------
+    Copy Examples
+  ---------------*/
+
+  console.info('Copying examples');
+  // copy src/ to server
+  gulp.src('examples/**/*.*')
+    .pipe(gulp.dest(output.examples))
+    .pipe(print(log.created))
+  ;
+
+  /*--------------
      Copy Source
   ---------------*/
 
+  console.info('Copying LESS source');
   // copy src/ to server
   gulp.src('src/**/*.*')
     .pipe(gulp.dest(output.less))
     .pipe(print(log.created))
   ;
-
 
   /*--------------
         Build

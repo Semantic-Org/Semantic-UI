@@ -75,7 +75,7 @@
 
 @extraPadding: 0.5em 0.75em;
 @extraColor: @lightTextColor;
-@extraTransition: color @transitionDuration @transitionEasing;
+@extraTransition: color @defaultDuration @defaultEasing;
 
 /*-------------------
        States

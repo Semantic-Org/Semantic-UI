@@ -1,9 +1,9 @@
 /*!
- * # Semantic UI 1.12.3 - Divider
+ * # Semantic UI 2.0.8 - Divider
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -34,8 +34,8 @@
 ---------------*/
 
 .ui.divider:not(.vertical):not(.horizontal) {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /*--------------
@@ -51,7 +51,8 @@
 ---------------*/
 
 .ui.horizontal.divider {
-  position: relative;
+  display: table;
+  white-space: nowrap;
   height: auto;
   margin: '';
   overflow: hidden;
@@ -60,21 +61,18 @@
 }
 .ui.horizontal.divider:before,
 .ui.horizontal.divider:after {
-  position: absolute;
   content: '';
-  z-index: 3;
-  width: 50%;
+  display: table-cell;
+  position: relative;
   top: 50%;
-  height: 0px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  width: 50%;
+  background-repeat: no-repeat;
 }
 .ui.horizontal.divider:before {
-  margin-left: -webkit-calc(-50% -  1em );
-  margin-left: calc(-50% -  1em );
+  background-position: right 1em top 50%;
 }
 .ui.horizontal.divider:after {
-  margin-left: 1em;
+  background-position: left 1em top 50%;
 }
 
 /*--------------
@@ -102,10 +100,9 @@
   left: 50%;
   content: '';
   z-index: 3;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
   width: 0%;
-  height: -webkit-calc(100% -  1rem );
   height: calc(100% -  1rem );
 }
 .ui.vertical.divider:before {
@@ -120,35 +117,42 @@
 @media only screen and (max-width: 767px) {
   .ui.stackable.grid .ui.vertical.divider,
   .ui.grid .stackable.row .ui.vertical.divider {
-    position: relative;
-    margin: 1rem 0rem;
-    left: 50%;
+    display: table;
+    white-space: nowrap;
     height: auto;
+    margin: '';
     overflow: hidden;
     line-height: 1;
     text-align: center;
+    position: static;
+    top: 0;
+    left: 0;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
   }
   .ui.stackable.grid .ui.vertical.divider:before,
   .ui.grid .stackable.row .ui.vertical.divider:before,
   .ui.stackable.grid .ui.vertical.divider:after,
   .ui.grid .stackable.row .ui.vertical.divider:after {
-    position: absolute;
-    left: auto;
+    position: static;
+    left: 0;
+    border-left: none;
+    border-right: none;
     content: '';
-    z-index: 3;
-    width: 50%;
+    display: table-cell;
+    position: relative;
     top: 50%;
-    height: 0px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    width: 50%;
+    background-repeat: no-repeat;
   }
   .ui.stackable.grid .ui.vertical.divider:before,
   .ui.grid .stackable.row .ui.vertical.divider:before {
-    margin-left: -51%;
+    background-position: right 1em top 50%;
   }
   .ui.stackable.grid .ui.vertical.divider:after,
   .ui.grid .stackable.row .ui.vertical.divider:after {
-    margin-left: 1em;
+    background-position: left 1em top 50%;
   }
 }
 
@@ -176,6 +180,10 @@
 .ui.hidden.divider {
   border-color: transparent !important;
 }
+.ui.hidden.divider:before,
+.ui.hidden.divider:after {
+  display: none;
+}
 
 /*--------------
     Inverted
@@ -189,9 +197,9 @@
 .ui.divider.inverted,
 .ui.divider.inverted:after,
 .ui.divider.inverted:before {
-  border-top-color: rgba(0, 0, 0, 0.15) !important;
+  border-top-color: rgba(34, 36, 38, 0.15) !important;
+  border-left-color: rgba(34, 36, 38, 0.15) !important;
   border-bottom-color: rgba(255, 255, 255, 0.15) !important;
-  border-left-color: rgba(0, 0, 0, 0.15) !important;
   border-right-color: rgba(255, 255, 255, 0.15) !important;
 }
 
@@ -233,6 +241,18 @@
          Theme Overrides
 *******************************/
 
+.ui.horizontal.divider:before,
+.ui.horizontal.divider:after {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABaAAAAACCAYAAACuTHuKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1OThBRDY4OUNDMTYxMUU0OUE3NUVGOEJDMzMzMjE2NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1OThBRDY4QUNDMTYxMUU0OUE3NUVGOEJDMzMzMjE2NyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU5OEFENjg3Q0MxNjExRTQ5QTc1RUY4QkMzMzMyMTY3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU5OEFENjg4Q0MxNjExRTQ5QTc1RUY4QkMzMzMyMTY3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+VU513gAAADVJREFUeNrs0DENACAQBDBIWLGBJQby/mUcJn5sJXQmOQMAAAAAAJqt+2prAAAAAACg2xdgANk6BEVuJgyMAAAAAElFTkSuQmCC');
+}
+@media only screen and (max-width: 767px) {
+  .ui.stackable.grid .ui.vertical.divider:before,
+  .ui.grid .stackable.row .ui.vertical.divider:before,
+  .ui.stackable.grid .ui.vertical.divider:after,
+  .ui.grid .stackable.row .ui.vertical.divider:after {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABaAAAAACCAYAAACuTHuKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1OThBRDY4OUNDMTYxMUU0OUE3NUVGOEJDMzMzMjE2NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1OThBRDY4QUNDMTYxMUU0OUE3NUVGOEJDMzMzMjE2NyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjU5OEFENjg3Q0MxNjExRTQ5QTc1RUY4QkMzMzMyMTY3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU5OEFENjg4Q0MxNjExRTQ5QTc1RUY4QkMzMzMyMTY3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+VU513gAAADVJREFUeNrs0DENACAQBDBIWLGBJQby/mUcJn5sJXQmOQMAAAAAAJqt+2prAAAAAACg2xdgANk6BEVuJgyMAAAAAElFTkSuQmCC');
+  }
+}
 
 
 /*******************************

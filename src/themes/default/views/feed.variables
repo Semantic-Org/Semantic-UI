@@ -13,18 +13,16 @@
 --------------------*/
 
 /* Event */
-@eventDisplay: table;
 @eventWidth: 100%;
-@eventPadding: 0.5rem 0em;
+@eventPadding: @3px 0em;
 @eventMargin: 0em;
 @eventBackground: none;
 @eventDivider: none;
 
 /* Event Label */
-@labelDisplay: table-cell;
 @labelWidth: 2.5em;
-@labelHeight: 2.5em;
-@labelVerticalAlign: top;
+@labelHeight: auto;
+@labelAlignSelf: stretch;
 @labelTextAlign: left;
 
 /* Icon Label */
@@ -43,12 +41,11 @@
 @imageLabelBorderRadius: @circularRadius;
 
 /* Content w/ Label */
-@labeledContentPadding: 0.5em 0em 0.5em 1.25em;
+@labeledContentMargin: 0.5em 0em @relative5px @relativeLarge;
 @lastLabeledContentPadding: 0em;
 
 /* Content */
-@contentDisplay: table-cell;
-@contentVerticalAlign: top;
+@contentAlignSelf: stretch;
 @contentTextAlign: left;
 @contentWordWrap: break-word;
 
@@ -56,19 +53,19 @@
 @dateMargin: -0.5rem 0em 0em;
 @datePadding: 0em;
 @dateColor: @lightTextColor;
-@dateFontSize: 1em;
+@dateFontSize: @relativeMedium;
 @dateFontWeight: normal;
 @dateFontStyle: normal;
 
 /* Summary */
 @summaryMargin: 0em;
-@summaryFontSize: 1em;
+@summaryFontSize: @relativeMedium;
 @summaryFontWeight: bold;
 @summaryColor: @textColor;
 
 /* Summary Image */
 @summaryImageWidth: auto;
-@summaryImageHeight: 2em;
+@summaryImageHeight: 10em;
 @summaryImageMargin: -0.25em 0.25em 0em 0em;
 @summaryImageVerticalAlign: middle;
 @summaryImageBorderRadius: 0.25em;
@@ -78,7 +75,7 @@
 @summaryDateFloat: none;
 @summaryDateMargin: 0em 0em 0em 0.5em;
 @summaryDatePadding: 0em;
-@summaryDateFontSize: 0.875em;
+@summaryDateFontSize: @relativeTiny;
 @summaryDateFontWeight: @dateFontWeight;
 @summaryDateFontStyle: @dateFontStyle;
 @summaryDateColor: @dateColor;
@@ -102,15 +99,15 @@
 @extraImageWidth: 6em;
 
 /* Extra Text */
-@extraTextPadding: 0.5em 1em;
-@extraTextPointer: 3px solid rgba(0, 0, 0, 0.2);
-@extraTextFontSize: 1em;
-@extraTextLineHeight: 1.33;
+@extraTextPadding: 0em;
+@extraTextPointer: none;
+@extraTextFontSize: @relativeMedium;
+@extraTextLineHeight: @lineHeight;
 @extraTextMaxWidth: 500px;
 
 /* Metadata Group */
 @metadataDisplay: inline-block;
-@metadataFontSize: 0.875em;
+@metadataFontSize: @relativeTiny;
 @metadataMargin: 0.5em 0em 0em;
 @metadataBackground: none;
 @metadataBorder: none;
@@ -135,15 +132,10 @@
 @metadataActionCursor: pointer;
 @metadataActionOpacity: 1;
 @metadataActionColor: rgba(0, 0, 0, 0.5);
-@metadataActionTransition: color @transitionDuration @transitionEasing;
+@metadataActionTransition: color @defaultDuration @defaultEasing;
 
 @metadataActionHoverColor: @selectedTextColor;
 
 /*-------------------
       Variations
 --------------------*/
-
-/* Size */
-@small: 0.9em;
-@medium: 1em;
-@large: 1.1em;

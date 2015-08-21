@@ -3,7 +3,7 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributorss
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -38,6 +38,7 @@
   -webkit-overflow-scrolling: touch;
 
   height: 100% !important;
+  max-height: 100%;
   border-radius: 0em !important;
   margin: 0em !important;
   overflow-y: auto !important;
@@ -70,7 +71,6 @@
 .ui.bottom.sidebar {
   width: 100% !important;
   height: auto !important;
-  overflow-y: visible !important;
 }
 .ui.top.sidebar {
   top: 0px !important;
@@ -140,6 +140,7 @@ body.pushable > .pusher {
   background: @pageBackground;
 }
 
+/* Pusher should inherit background from context */
 .pushable > .pusher {
   background: inherit;
 }
@@ -154,8 +155,6 @@ body.pushable > .pusher {
   right: 0px;
   content: '';
   background-color: @dimmerColor;
-  width: 0px;
-  height: 0px;
   overflow: hidden;
   opacity: 0;
   transition: @dimmerTransition;
@@ -249,6 +248,11 @@ body.pushable > .pusher {
 html.ios {
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+}
+
+html.ios,
+html.ios body {
+  height: initial !important;
 }
 
 
@@ -536,7 +540,7 @@ html.ios {
   display: block !important;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 /* End */

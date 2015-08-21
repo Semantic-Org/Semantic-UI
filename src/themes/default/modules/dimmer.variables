@@ -5,7 +5,7 @@
 @dimmablePosition: relative;
 @dimmerPosition: absolute;
 
-@background: rgba(0, 0, 0 , 0.85);
+@backgroundColor: rgba(0, 0, 0 , 0.85);
 @lineHeight: 1;
 @perspective: 2000px;
 
@@ -19,9 +19,12 @@
 @textColor: @white;
 @overflow: hidden;
 
-@elementStartFilter: ~"blur(0px) grayscale(0)";
-@elementEndFilter: ~"blur(15px) grayscale(0.7)";
-@elementTransition: 1.5s all ease;
+@blurredStartFilter: ~"blur(0px) grayscale(0)";
+@blurredEndFilter: ~"blur(5px) grayscale(0.7)";
+@blurredTransition: 800ms filter @defaultEasing;
+
+@blurredBackgroundColor: rgba(0, 0, 0, 0.6);
+@blurredInvertedBackgroundColor: rgba(255, 255, 255, 0.6);
 
 /* Hidden (Default) */
 @hiddenOpacity: 0;
@@ -47,12 +50,12 @@
 --------------------*/
 
 /* Inverted */
-@invertedBackground: rgba(255, 255, 255, 0.85);
+@invertedBackgroundColor: rgba(255, 255, 255, 0.85);
 @invertedTextColor: @textColor;
 
 /* Simple */
 @simpleZIndex: 1;
-@simpleStartBackground: rgba(0, 0, 0, 0);
-@simpleEndBackground: @background;
-@simpleInvertedStartBackground: rgba(255, 255, 255, 0);
-@simpleInvertedEndBackground: @invertedBackground;
+@simpleStartBackgroundColor: rgba(0, 0, 0, 0);
+@simpleEndBackgroundColor: @backgroundColor;
+@simpleInvertedStartBackgroundColor: rgba(255, 255, 255, 0);
+@simpleInvertedEndBackgroundColor: @invertedBackgroundColor;

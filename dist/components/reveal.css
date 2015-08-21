@@ -1,9 +1,9 @@
 /*!
- * # Semantic UI 1.12.3 - Reveal
+ * # Semantic UI 2.0.8 - Reveal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2014 Contributors
+ * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -24,8 +24,8 @@
   top: 0em !important;
   left: 0em !important;
   z-index: 3 !important;
-  -webkit-transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
-          transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  -webkit-transition: all 0.5s ease 0.1s;
+          transition: all 0.5s ease 0.1s;
 }
 .ui.reveal > .hidden.content {
   position: relative !important;
@@ -33,6 +33,7 @@
 }
 
 /* Make sure hovered element is on top of other reveal */
+.ui.active.reveal .visible.content,
 .ui.reveal:hover .visible.content {
   z-index: 4 !important;
 }
@@ -56,8 +57,8 @@
   display: block;
   float: left;
   margin: 0em;
-  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
-          transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  -webkit-transition: -webkit-transform 0.5s ease 0.1s;
+          transition: transform 0.5s ease 0.1s;
 }
 .ui.slide.reveal > .visible.content {
   position: relative !important;
@@ -70,11 +71,13 @@
       -ms-transform: translateX(100%) !important;
           transform: translateX(100%) !important;
 }
+.ui.slide.active.reveal > .visible.content,
 .ui.slide.reveal:hover > .visible.content {
   -webkit-transform: translateX(-100%) !important;
       -ms-transform: translateX(-100%) !important;
           transform: translateX(-100%) !important;
 }
+.ui.slide.active.reveal > .hidden.content,
 .ui.slide.reveal:hover > .hidden.content {
   -webkit-transform: translateX(0%) !important;
       -ms-transform: translateX(0%) !important;
@@ -90,11 +93,13 @@
       -ms-transform: translateX(-100%) !important;
           transform: translateX(-100%) !important;
 }
+.ui.slide.right.active.reveal > .visible.content,
 .ui.slide.right.reveal:hover > .visible.content {
   -webkit-transform: translateX(100%) !important;
       -ms-transform: translateX(100%) !important;
           transform: translateX(100%) !important;
 }
+.ui.slide.right.active.reveal > .hidden.content,
 .ui.slide.right.reveal:hover > .hidden.content {
   -webkit-transform: translateX(0%) !important;
       -ms-transform: translateX(0%) !important;
@@ -105,11 +110,13 @@
       -ms-transform: translateY(100%) !important;
           transform: translateY(100%) !important;
 }
+.ui.slide.up.active.reveal > .visible.content,
 .ui.slide.up.reveal:hover > .visible.content {
   -webkit-transform: translateY(-100%) !important;
       -ms-transform: translateY(-100%) !important;
           transform: translateY(-100%) !important;
 }
+.ui.slide.up.active.reveal > .hidden.content,
 .ui.slide.up.reveal:hover > .hidden.content {
   -webkit-transform: translateY(0%) !important;
       -ms-transform: translateY(0%) !important;
@@ -120,11 +127,13 @@
       -ms-transform: translateY(-100%) !important;
           transform: translateY(-100%) !important;
 }
+.ui.slide.down.active.reveal > .visible.content,
 .ui.slide.down.reveal:hover > .visible.content {
   -webkit-transform: translateY(100%) !important;
       -ms-transform: translateY(100%) !important;
           transform: translateY(100%) !important;
 }
+.ui.slide.down.active.reveal > .hidden.content,
 .ui.slide.down.reveal:hover > .hidden.content {
   -webkit-transform: translateY(0%) !important;
       -ms-transform: translateY(0%) !important;
@@ -138,6 +147,7 @@
 .ui.fade.reveal > .visible.content {
   opacity: 1;
 }
+.ui.fade.active.reveal > .visible.content,
 .ui.fade.reveal:hover > .visible.content {
   opacity: 0;
 }
@@ -155,8 +165,8 @@
   display: block;
   float: left;
   margin: 0em;
-  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
-          transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1) 0.15s;
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1) 0.1s;
+          transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1) 0.1s;
 }
 .ui.move.reveal > .visible.content {
   position: relative !important;
@@ -166,21 +176,25 @@
   left: 0% !important;
   width: 100% !important;
 }
+.ui.move.active.reveal > .visible.content,
 .ui.move.reveal:hover > .visible.content {
   -webkit-transform: translateX(-100%) !important;
       -ms-transform: translateX(-100%) !important;
           transform: translateX(-100%) !important;
 }
+.ui.move.right.active.reveal > .visible.content,
 .ui.move.right.reveal:hover > .visible.content {
   -webkit-transform: translateX(100%) !important;
       -ms-transform: translateX(100%) !important;
           transform: translateX(100%) !important;
 }
+.ui.move.up.active.reveal > .visible.content,
 .ui.move.up.reveal:hover > .visible.content {
   -webkit-transform: translateY(-100%) !important;
       -ms-transform: translateY(-100%) !important;
           transform: translateY(-100%) !important;
 }
+.ui.move.down.active.reveal > .visible.content,
 .ui.move.down.reveal:hover > .visible.content {
   -webkit-transform: translateY(100%) !important;
       -ms-transform: translateY(100%) !important;
@@ -192,8 +206,8 @@
 ---------------*/
 
 .ui.rotate.reveal > .visible.content {
-  -webkit-transition-duration: 0.8s;
-          transition-duration: 0.8s;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
   -webkit-transform: rotate(0deg);
       -ms-transform: rotate(0deg);
           transform: rotate(0deg);
@@ -204,7 +218,9 @@
       -ms-transform-origin: bottom right;
           transform-origin: bottom right;
 }
+.ui.rotate.active.reveal > .visible.conten,
 .ui.rotate.reveal:hover > .visible.content,
+.ui.rotate.right.active.reveal > .visible.content,
 .ui.rotate.right.reveal:hover > .visible.content {
   -webkit-transform: rotate(110deg);
       -ms-transform: rotate(110deg);
@@ -215,6 +231,7 @@
       -ms-transform-origin: bottom left;
           transform-origin: bottom left;
 }
+.ui.rotate.left.active.reveal > .visible.content,
 .ui.rotate.left.reveal:hover > .visible.content {
   -webkit-transform: rotate(-110deg);
       -ms-transform: rotate(-110deg);
@@ -233,6 +250,7 @@
   -webkit-transition: none !important;
           transition: none !important;
 }
+.ui.disabled.active.reveal > .visible.content,
 .ui.disabled.reveal:hover > .visible.content {
   position: static !important;
   display: block !important;
@@ -245,6 +263,7 @@
       -ms-transform: none !important;
           transform: none !important;
 }
+.ui.disabled.active.reveal > .hidden.content,
 .ui.disabled.reveal:hover > .hidden.content {
   display: none !important;
 }
@@ -256,11 +275,11 @@
 
 
 /*--------------
-     Masked
+     Visible
 ---------------*/
 
-.ui.masked.reveal {
-  overflow: hidden;
+.ui.visible.reveal {
+  overflow: visible;
 }
 
 /*--------------
