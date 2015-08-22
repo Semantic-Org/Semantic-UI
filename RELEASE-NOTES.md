@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 2.x.x - Aug x, 2015
+### Version 2.1.0 - Aug 22, 2015
 
 **New Features**
 

@@ -571,13 +571,13 @@ Floated Menu / Item
   box-shadow: @verticalActiveBoxShadow;
 }
 .ui.vertical.menu > .active.item:first-child {
-  border-radius: 0em @borderRadius 0em 0em;
+  border-radius: @borderRadius @borderRadius 0em 0em;
 }
 .ui.vertical.menu > .active.item:last-child {
-  border-radius: 0em 0em @borderRadius 0em;
+  border-radius: 0em 0em @borderRadius @borderRadius;
 }
 .ui.vertical.menu > .active.item:only-child {
-  border-radius: 0em @borderRadius @borderRadius 0em;
+  border-radius: @borderRadius;
 }
 .ui.vertical.menu .active.item .menu .active.item {
   border-left: none;
