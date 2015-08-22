@@ -17,6 +17,10 @@
   border-color: #32373E #24282D #212429;
 }
 
+.ui.basic.button {
+  border-width: 0px;
+}
+
 .ui.positive.button {
   border-color: #3E8E22;
 }

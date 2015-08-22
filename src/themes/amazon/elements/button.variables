@@ -19,6 +19,9 @@
   background @defaultDuration @defaultEasing
 ;
 
+@borderColor: #A2A6AC;
+@selectedBorderColor: #8D9096;
+
 @hoverBackgroundColor: #E0E0E0;
 
 @verticalPadding: @relative7px;
@@ -26,7 +29,9 @@
 
 @backgroundColor: #F7F8FA;
 @backgroundImage: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
+
 @boxShadow:
+  @borderBoxShadow,
   0 1px 0 1px rgba(255, 255, 255, 0.3) inset
 ;
 
@@ -42,6 +47,8 @@
 @labeledIconBackgroundColor: #313A43;
 @labeledIconColor: #FFFFFF;
 @labeledIconBorder: transparent;
+
+@basicBoxShadow: 0px 0px 0px 1px @borderColor inset;
 
 
 /* Labeled */
