@@ -14,8 +14,8 @@
 @h5: 0.8rem;
 
 /* Sizing */
-@huge: 1.33em;
-@large: 1.2em;
-@medium: 1em;
-@small: 0.9em;
-@tiny: 0.8em;
+@hugeFontSize: 1.33em;
+@largeFontSize: 1.2em;
+@mediumFontSize: 1em;
+@smallFontSize: 0.9em;
+@tinyFontSize: 0.8em;

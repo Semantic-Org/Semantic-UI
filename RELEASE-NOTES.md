@@ -102,13 +102,14 @@
 - **Dropdown** - When `useLabels: false` placeholder text will now show up when 0 items selected, instead of the text "0 items selected"
 - **Dropdown/Tab** - Fixed an instance where `metadata` was not referencing settings metadata value
 - **Form Validation** - Fixed issue with `get value(s)` where unchecked checkboxes would not correctly retrieve values
-- **Input** `action input` and `labeled input` now have focused border on inner edge with label/button
 - **Form** - Dropdown in `inline field` now use auto width instead of 100%
 - **Grid / Container** - `ui relaxed grid container` and `ui very relaxed grid container` will now all render at same container width
 - **Grid** - Fixed `stackable celled grid` having doubled border width between rows
+- **Header** - Fixed issue with em sizing of `chubby` and `bookish` header themes appearing too large
 - **Icons** - Fixed issue where `active icon` or `emphasized icon` would not adjust opacity inside menus
 - **Input** - `labeled input` now keeps border on label edge so that focus color appears correctly
 - **Input** - Input now will reset `font-weight` and `font-style` if set on parent;
+- **Input** `action input` and `labeled input` now have focused border on inner edge with label/button
 - **Label** - `pointint label` now rounds to exact pixel em value, should align correctly in more cases
 - **Menu** - `@pressedItemColor` has been renamed to `@pressedItemTextColor` to match naming conventions of other variables
 - **Menu** - Added `flex: 0 0 auto` to menu item to make sure menu do not collapse text content to reduce space
