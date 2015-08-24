@@ -64,11 +64,13 @@
 - **Dropdown** - Remove use of `trim` which causes issues IE 11 and below #2806
 - **Embed** - Remove accidental `console.log` statements in js #2760
 - **Form / Input** - Fixes issue where `ui input` would sometimes collapse to `0px` width, especially when used inside an `inline field` #2705 #2621 #2821
+- **Form** - `disabled field(s)` now remove `pointer-events` allowing it to disable checkbox and dropdown functionality  #555
 - **Form / Input** - Fixes `::placeholder` text color for `ui error input`, modifies form error placeholder color to distinguish from form value error color #2786
 - **Form** - Form will no longer show messages that are empty in `error`, `warning`, or `success` state.
 - **Form** - Date input and other special input in chrome now are the same height as normal input (adds custom vendor shadow dom styling) #2704
 - **Grid** - Fixed issue where `relaxed stackable grid` would have incorrect margin on mobile width
 - **Grid** - Fixed issue where nested `stackable grid` would have incorrect margin on mobile.
+- **Header** - Fixed `attached header` to have the correct bottom border on `top attached` and `attached` variations. #2798
 - **Icon** - Fixed typo in cube icon alias caused by bad grep #2765
 - **Input** - Fixed issue with appearance of `left corner labeled left icon input` #2782
 - **Item** - Fixed `bottom aligned` not working in item due to incorrect flex value #2826
