@@ -2,6 +2,8 @@
 
 ### Version 2.1.0 - Aug 22, 2015
 
+#### Features
+
 **New Features**
 
 - **API** - Added `encodeParameters` option to enable/disable parameters being encoded with `encodeURIComponent` #2752
@@ -41,7 +43,8 @@
 - **Form Validation** - Added `number` and `decimal` validations to form **Thanks TonnyORG** #2537
 - **Popup** - Popup will now look for inline popup as any next adjacent sibling #2772 **Thanks @malacalypse**
 
-**Additional Enhancements**
+#### Bugs
+
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Accordion** - Added missing notation for accordion docs #2812
 - **Build Tools** - Fixes issue where component glob `{tab, table}` caused table to be included twice in concatenated source **
@@ -64,6 +67,8 @@
 - **Form / Input** - Fixes `::placeholder` text color for `ui error input`, modifies form error placeholder color to distinguish from form value error color #2786
 - **Form** - Form will no longer show messages that are empty in `error`, `warning`, or `success` state.
 - **Form** - Date input and other special input in chrome now are the same height as normal input (adds custom vendor shadow dom styling) #2704
+- **Grid** - Fixed issue where `relaxed stackable grid` would have incorrect margin on mobile width
+- **Grid** - Fixed issue where nested `stackable grid` would have incorrect margin on mobile.
 - **Icon** - Fixed typo in cube icon alias caused by bad grep #2765
 - **Input** - Fixed issue with appearance of `left corner labeled left icon input` #2782
 - **Item** - Fixed `bottom aligned` not working in item due to incorrect flex value #2826
@@ -98,6 +103,7 @@
 - **Input** `action input` and `labeled input` now have focused border on inner edge with label/button
 - **Form** - Dropdown in `inline field` now use auto width instead of 100%
 - **Grid / Container** - `ui relaxed grid container` and `ui very relaxed grid container` will now all render at same container width
+- **Grid** - Fixed `stackable celled grid` having doubled border width between rows
 - **Icons** - Fixed issue where `active icon` or `emphasized icon` would not adjust opacity inside menus
 - **Input** - `labeled input` now keeps border on label edge so that focus color appears correctly
 - **Input** - Input now will reset `font-weight` and `font-style` if set on parent;

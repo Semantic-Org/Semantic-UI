@@ -19285,6 +19285,8 @@ ol.ui.horizontal.list li:before,
 @media only screen and (max-width: 767px) {
   .ui.stackable.grid {
     width: auto;
+    margin-left: 0em !important;
+    margin-right: 0em !important;
   }
 
   .ui.stackable.grid > .row > .wide.column,
@@ -19345,6 +19347,10 @@ ol.ui.horizontal.list li:before,
     box-shadow: none !important;
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
+  }
+
+  .ui.stackable.celled.grid > .row {
+    box-shadow: none !important;
   }
 
   .ui.stackable.divided:not(.vertically).grid > .column:not(.row),
