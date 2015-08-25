@@ -198,6 +198,7 @@ $.fn.nag = function(parameters) {
               $.cookie(key, value, options);
               module.debug('Value stored using cookie', key, value, options);
             }
+            // support for js-cookie
             else if(Cookies !== undefined) {
               Cookies.set(key, value, options);
               module.debug('Value stored using cookie', key, value, options);
@@ -218,7 +219,7 @@ $.fn.nag = function(parameters) {
             else if($.cookie !== undefined) {
               storedValue = $.cookie(key);
             }
-            // get by cookie
+            // get by js-cookie
             else if(Cookies !== undefined) {
               storedValue = Cookies.get(key);
             }
@@ -241,7 +242,7 @@ $.fn.nag = function(parameters) {
             else if($.cookie !== undefined) {
               $.removeCookie(key, options);
             }
-            // store by cookie
+            // store by js-cookie
             else if(Cookie !== undefined) {
               Cookies.remove(key, options);
             }
