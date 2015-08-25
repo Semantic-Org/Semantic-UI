@@ -2,10 +2,6 @@
    Button Variables
 --------------------*/
 
-/* These are also set in site.variables, however allows use of buttons standalone */
-@emSize: 13px;
-@pageFont: Helvetica Neue, Helvetica, Arial, sans-serif;
-
 /* Text Style */
 @textTransform: none;
 @fontWeight: bold;
@@ -21,6 +17,7 @@
 @iconOpacity: 1;
 @iconHeight: 13px;
 @iconDistance: @relative4px;
+@lineHeight: 1.53184em;
 
 @verticalPadding: @relative6px;
 @horizontalPadding: @relative10px;
@@ -78,3 +75,13 @@
 
 @positiveColor: #84D767;
 @positiveColorHover: #5DC438;
+
+/* Sizes */
+@mini: 10px;
+@tiny: 11px;
+@small: 12px;
+@medium: 13px;
+@large: 15px;
+@big: 16px;
+@huge: 18px;
+@massive: 24px;
