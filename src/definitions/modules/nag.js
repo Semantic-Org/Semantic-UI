@@ -198,6 +198,10 @@ $.fn.nag = function(parameters) {
               $.cookie(key, value, options);
               module.debug('Value stored using cookie', key, value, options);
             }
+            else if(Cookies !== undefined) {
+              Cookies.set(key, value, options);
+              module.debug('Value stored using cookie', key, value, options);
+            }
             else {
               module.error(error.noCookieStorage);
               return;
@@ -213,6 +217,10 @@ $.fn.nag = function(parameters) {
             // get by cookie
             else if($.cookie !== undefined) {
               storedValue = $.cookie(key);
+            }
+            // get by cookie
+            else if(Cookies !== undefined) {
+              storedValue = Cookies.get(key);
             }
             else {
               module.error(error.noCookieStorage);
@@ -232,6 +240,10 @@ $.fn.nag = function(parameters) {
             // store by cookie
             else if($.cookie !== undefined) {
               $.removeCookie(key, options);
+            }
+            // store by cookie
+            else if(Cookie !== undefined) {
+              Cookies.remove(key, options);
             }
             else {
               module.error(error.noStorage);
@@ -452,8 +464,8 @@ $.fn.nag.settings = {
   value         : 'dismiss',
 
   error: {
-    noCookieStorage : '$.cookie is not included. A storage solution is required.',
-    noStorage       : 'Neither $.cookie or store is defined. A storage solution is required for storing state',
+    noCookieStorage : '$.cookie or Cookies is not included. A storage solution is required.',
+    noStorage       : 'Neither $.cookie, Cookies or store is defined. A storage solution is required for storing state',
     method          : 'The method you called is not defined.'
   },
 
