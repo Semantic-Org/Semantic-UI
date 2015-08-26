@@ -18367,7 +18367,7 @@ $.api = $.fn.api = function(parameters) {
               }
               setTimeout(function() {
                 if( module.is.abortedRequest(xhr) ) {
-                  module.request.rejectWith(context, [xhr, 'aborted', httpMessage]);
+                  //module.request.rejectWith(context, [xhr, 'aborted', httpMessage]);
                 }
                 else {
                   module.request.rejectWith(context, [xhr, 'error', status, httpMessage]);
