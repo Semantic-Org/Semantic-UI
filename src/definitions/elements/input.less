@@ -339,21 +339,26 @@
 }
 
 /* Regular Label on Right */
-.ui[class*="right labeled"].input > input,
-.ui[class*="both sides labeled"].input > input {
+.ui[class*="right labeled"].input > input {
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }
-.ui[class*="right labeled"].input > .label,
-.ui.both.sides.labeled.input > input + .label {
+.ui[class*="right labeled"].input > .label {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
 
-/* Both Sides Labeled (redo right label radius) */
+/* Regular Labels on Both Sides */
+.ui.both.sides.labeled.input > input {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
 .ui.both.sides.labeled.input > input + .label {
-  border-top-right-radius: @borderRadius !important;
-  border-bottom-right-radius: @borderRadius !important;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  /* Redo input's radius removed by the "left label" */
+  border-top-right-radius: @borderRadius;
+  border-bottom-right-radius: @borderRadius;
 }
 
 /* Corner Label */
