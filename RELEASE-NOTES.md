@@ -1,16 +1,33 @@
 ## RELEASE NOTES
 
-### Version 2.0.7 - July 22, 2015
 
-**Enhancements**
+### Version 2.0.8 - August 10, 2015
 
-- **API** - All API callbacks now recieve `xhr` from API request as the third calback parameter
+**All UI** - This release should fix issues caused when importing individual component using `require` when using [single component repos](https://github.com/Semantic-Org/). See discussion in [#2816](https://github.com/Semantic-Org/Semantic-UI/pull/2816), and previously [#1156](https://github.com/Semantic-Org/Semantic-UI/pull/1156), and [#1878](https://github.com/Semantic-Org/Semantic-UI/pull/1878)
+
+### Version 2.0.7 - July 23, 2015
+
+**Important Note**
+This release should fix bugs some may have encountered with `npm install semantic-ui` hanging after set-up. See [this thread](https://github.com/Semantic-Org/Semantic-UI/issues/1816) for more details.
 
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.7+is%3Aclosed)**
-- **Build Tools** - Fixed issue where `npm install semantic-ui` would hang after setup in some version of NPM
-- **Build Tools** - Fixed `npm install` with CI or tests. Install will not stop to ask questions if project has an existing `semantic.json` file
-- **Dropdown** - Fixed border radius on `circular labeled icon button`  #2700
-- **Dropdown** - Fixed issue where dropdown nested inside `label` would not open. #2711
+- **API** - Fixed some cases where `onComplete`, `onSuccess` and `onFailure` would receive XHR as first parameter and not `response`. [#2713](https://github.com/Semantic-Org/Semantic-UI/issues/2713)
+- **API** - Fixed issue where `onFailure` would pass response as stringified JSON and not a JS object [#2713](https://github.com/Semantic-Org/Semantic-UI/issues/2713)
+- **Build Tools** - Fixed some cases of `npm install` with CI or tests. Install will not stop to ask questions if project has an existing `semantic.json` file (more quiet options to come) [#1816](https://github.com/Semantic-Org/Semantic-UI/issues/1816)
+- **Dropdown** - Fixed border radius on `circular labeled icon button`  [#2700](https://github.com/Semantic-Org/Semantic-UI/issues/2700)
+- **Dropdown** - Fixed issue where dropdown nested inside `label` would not open. [#2711](https://github.com/Semantic-Org/Semantic-UI/issues/2711)
+- **Popup** - Fixed issue where popup would not open on tablets with both touchscreen and mouse on mouseenter. [#2715](https://github.com/Semantic-Org/Semantic-UI/issues/2715)
+
+**[Merged PR](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.7+is%3Aclosed)**
+- **Build Tools** - Fixed autoprefixer not correctly setting `last 2 versions` [#2717](https://github.com/Semantic-Org/Semantic-UI/pull/2717) **Thanks @frontdevde**
+- **Gulp Import** - Fixes error `Cannot find module 'gulp-help'` which may occur when importing gulp tasks [#2653](https://github.com/Semantic-Org/Semantic-UI/issues/2653) [#2668](https://github.com/Semantic-Org/Semantic-UI/pull/2668) **Thanks @fholzer**
+
+**Docs**
+- **Recipes** - Add links to Sketch files for SUI. Add example repo on how to import gulp tasks.
+
+
+**Minor Enhancements**
+- **API** - All API callbacks now recieve `xhr` from API request as the third calback parameter
 
 **Additional Fixes**
 - **Checkbox** - Fix checkbox "check" appearing italicized when included inside italicized text
@@ -23,10 +40,10 @@
 - **Form Validation** - In `2.0.4` `length` rules were corrected to match "exact length" and not "minimum length". This may have caused issues for those who were using this rule as min length previously. We've remedied any breaking changes introduced by by returning `length` to functioning as "minimum length" and added a new rule `exactLenght` for matching exact length. #2681
 
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.0.6+is%3Aclosed)**
-- **Dropdown** - Fixed issue where `disabled` dropdown would still receive focus #2699
-- **Dropdown** - Fixed `restore value` sometimes now working correctly due to "animating out" label still being mistaken for selected. #2690
-- **Dropdown** - Added `set exactly` to remedy confusion of `set selected` not removing current selections with multiple #2689
-- **List**- Fixed issue where using an image variation like `ui image label` as a direct child of an `item` would remove right padding #2691
+- **Dropdown** - Fixed issue where `disabled` dropdown would still receive focus [#2699](https://github.com/Semantic-Org/Semantic-UI/issues/2699)
+- **Dropdown** - Fixed `restore value` sometimes now working correctly due to "animating out" label still being mistaken for selected. [#2690](https://github.com/Semantic-Org/Semantic-UI/issues/2690)
+- **Dropdown** - Added `set exactly` to remedy confusion of `set selected` not removing current selections with multiple [#2689](https://github.com/Semantic-Org/Semantic-UI/issues/2689)
+- **List**- Fixed issue where using an image variation like `ui image label` as a direct child of an `item` would remove right padding [#2691](https://github.com/Semantic-Org/Semantic-UI/issues/2691)
 
 **Additional Fixes**
 - **Dropdown** - Fixed issue where using text labels, `useLabels: false`, would cause selection count to appear incorrect.

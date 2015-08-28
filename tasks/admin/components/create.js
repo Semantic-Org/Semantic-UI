@@ -93,8 +93,8 @@ module.exports = function(callback) {
             unrelatedNotes    : new RegExp('^((?!(^.*(' + component + ').*$|###.*)).)*$', 'gmi'),
             whitespace        : /\n\s*\n\s*\n/gm,
             // npm
-            export            : /\$\.fn\.\w+\s*=\s*function\(parameters\)\s*{/g,
-            formExport        : /\$\.fn\.\w+\s*=\s*function\(fields, parameters\)\s*{/g,
+            componentExport   : /(.*)\$\.fn\.\w+\s*=\s*function\(([^\)]*)\)\s*{/g,
+            componentReference: '$.fn.' + component,
             settingsExport    : /\$\.fn\.\w+\.settings\s*=/g,
             settingsReference : /\$\.fn\.\w+\.settings/g,
             trailingComma     : /,(?=[^,]*$)/,
@@ -111,8 +111,8 @@ module.exports = function(callback) {
             unrelatedNotes    : '',
             whitespace        : '\n\n',
             // npm
-            export            :  'var _module = module;\nmodule.exports = function(parameters) {',
-            formExport        :  'var _module = module;\nmodule.exports = function(fields, parameters) {',
+            componentExport   :  'var _module = module;\n$1module.exports = function($2) {',
+            componentReference:  '_module.exports',
             settingsExport    :  'module.exports.settings =',
             settingsReference :  '_module.exports.settings',
             jQuery            :  'require("jquery")'
@@ -151,8 +151,8 @@ module.exports = function(callback) {
         return gulp.src(release.source + component + '!(*.min|*.map).js')
           .pipe(plumber())
           .pipe(flatten())
-          .pipe(replace(regExp.match.export, regExp.replace.export))
-          .pipe(replace(regExp.match.formExport, regExp.replace.formExport))
+          .pipe(replace(regExp.match.componentExport, regExp.replace.componentExport))
+          .pipe(replace(regExp.match.componentReference, regExp.replace.componentReference))
           .pipe(replace(regExp.match.settingsExport, regExp.replace.settingsExport))
           .pipe(replace(regExp.match.settingsReference, regExp.replace.settingsReference))
           .pipe(replace(regExp.match.jQuery, regExp.replace.jQuery))

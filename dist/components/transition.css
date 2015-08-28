@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.6 - Transition
+ * # Semantic UI 2.0.8 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
