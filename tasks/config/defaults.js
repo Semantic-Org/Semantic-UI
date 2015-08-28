@@ -23,6 +23,9 @@ module.exports = {
     theme    : 'src/theme.config'
   },
 
+  // Array of paths to run purify-css against
+  purify: false,
+
   // folder paths
   paths: {
     source: {

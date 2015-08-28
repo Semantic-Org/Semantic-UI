@@ -2,6 +2,7 @@
   "base": "",
 
   "paths": {
+    "purify": false,
     "source": {
       "config"      : "src/theme.config",
       "definitions" : "src/definitions/",

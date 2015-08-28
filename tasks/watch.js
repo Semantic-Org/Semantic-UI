@@ -19,6 +19,7 @@ var
   plumber      = require('gulp-plumber'),
   print        = require('gulp-print'),
   rename       = require('gulp-rename'),
+  purifyCSS    = require('gulp-purifycss'),
   replace      = require('gulp-replace'),
   uglify       = require('gulp-uglify'),
   util         = require('gulp-util'),
@@ -138,6 +139,8 @@ module.exports = function(callback) {
 
       if( fs.existsSync(lessPath) ) {
 
+        console.log(config.purify);
+
         // unified css stream
         stream = gulp.src(lessPath)
           .pipe(plumber(settings.plumber.less))
@@ -148,6 +151,7 @@ module.exports = function(callback) {
           .pipe(replace(comments.large.in, comments.large.out))
           .pipe(replace(comments.small.in, comments.small.out))
           .pipe(replace(comments.tiny.in, comments.tiny.out))
+          .pipe(gulpif(config.purify, purifyCSS(config.purify)))
           .pipe(autoprefixer(settings.prefix))
           .pipe(gulpif(config.hasPermission, chmod(config.permission)))
         ;
