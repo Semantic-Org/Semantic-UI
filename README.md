@@ -53,6 +53,8 @@ Check out our [integration wiki](https://github.com/Semantic-Org/Semantic-UI/wik
 
 * Last 2 Versions FF, Chrome, IE 10+, Safari Mac
 * IE 10+
+* Android 4.4+, Chrome for Android 44+
+* iOS Safari 7+
 * Android 4
 
 Although some components will work in IE9, [grids](http://semantic-ui.com/collections/grid.html) and other [flexbox](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes) components are not supported by IE9 and may not appear correctly.
