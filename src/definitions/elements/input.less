@@ -329,23 +329,32 @@
 }
 
 /* Regular Label on Left */
-.ui.labeled.input:not([class*="corner labeled"]) .label:nth-child(1) {
+.ui.labeled.input:not([class*="corner labeled"]) .label:first-child {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
-.ui.labeled.input:not([class*="corner labeled"]) .label:nth-child(1) + input {
+.ui.labeled.input:not([class*="corner labeled"]) .label:first-child + input {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-left-color: transparent;
+}
+.ui.labeled.input:not([class*="corner labeled"]) .label:first-child + input:focus {
+  border-left-color: @focusBorderColor;
+}
+
+/* Regular Label on Right */
+.ui[class*="right labeled"].input input {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-right-color: transparent;
+}
+.ui[class*="right labeled"].input input + .label {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
 
-/* Regular Label on Right */
-.ui.right.labeled.input input {
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-}
-.ui.right.labeled.input input + .label {
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
+.ui[class*="right labeled"].input input:focus {
+  border-right-color: @focusBorderColor;
 }
 
 /* Corner Label */

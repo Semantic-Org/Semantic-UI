@@ -189,7 +189,7 @@
 @basicBorderRadius: @borderRadius;
 @basicBorderSize: 1px;
 @basicTextColor: @textColor;
-@basicColoredBorderSize: 2px;
+@basicColoredBorderSize: 1px;
 
 @basicBackground: transparent none;
 @basicFontWeight: normal;

@@ -10,6 +10,7 @@
 - **API** Added new setting `hideError`, defaults to `auto` (will automatically hide error for elements that are not forms). #2586
 - **Build Tools** - Packaged `.overrides` file are now an optional include
 - **Button** - Added `labeled button` variation for display a count next to a button.
+- **Button** - `colored basic` button are now colored before `:hover` in the default theme, this is more in line with common usage across other websites.
 - **Checkbox** - Added 4 new callbacks `beforeChecked`, `beforeUnchecked`, `beforeDeterminate`, `beforeIndeterminate`. You can now cancel a state change by returning false from these callbacks.
 - **Cards** - Added documentation for `stackable` cards which was available but undocumented in previous versions.
 - **Divider** - Vertical divider can now be used multiple times in a single column row (not just 50/50 split). #2808
@@ -21,10 +22,12 @@
 - **Grid** - Added new responsive [`reversed`](http://www.semantic-ui.com/collections/grid.html#responsive-order) variations for reversing column order, these are also compatible with other grid types like `divided` and `celled` by device #2685
 - **Icon** - Added `fitted` icon variation, and new small sizes `tiny` and `mini`
 - **Input** - Added `disabled` state for inputs #2694
+- **Input** - Added ability for labeled input to be attached to both sides #2922 **Thanks @maturano**
 - **Label** - Added a new  `basic label` style, works symbiotically with other label types to provide a more lightweight style label
 - **Menu** - Added new `tabular` menu types, `right tabular`, `bottom tabular`, added many new `tabular` menu variables for customizing
 - **Menu** - Appearance of `labeled icon menu` has been modified. Horizontal menus now have icons above text, and icons are slightly larger than before.
 - **Search** - Search now can use any server response mapping, use the `fields` parameter to pass in a mapping of server response to content **thanks @anibalmf1** #2645
+- **Site** - Added global variable `@focusedFormBorderColor` for controlling form focus border color
 - **Table** - New `fixed` table variation added for use with `table-layout: fixed;`. This also supports "..." ellipsis when used with `single line` content
 
 **[Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**\
