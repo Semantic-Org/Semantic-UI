@@ -1,11 +1,30 @@
 /*-------------------
+      Globals
+--------------------*/
+
+/* These are also defined in site.variables but allow for stand-alone usage */
+
+
+
+/*-------------------
    Button Variables
 --------------------*/
+
+/* Sizes */
+@mini: 10px;
+@tiny: 11px;
+@small: 12px;
+@medium: 13px;
+@large: 15px;
+@big: 16px;
+@huge: 18px;
+@massive: 24px;
 
 /* Text Style */
 @textTransform: none;
 @fontWeight: bold;
 @textColor: #333333;
+@invertedTextShadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
 
 @transition:
   opacity @defaultDuration @defaultEasing,
@@ -19,8 +38,8 @@
 @iconDistance: @relative4px;
 @lineHeight: 1.53184em;
 
-@verticalPadding: @relative6px;
-@horizontalPadding: @relative10px;
+@verticalPadding: @relative7px;
+@horizontalPadding: @relative12px;
 
 @backgroundColor: #FBFBFB;
 @backgroundImage: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.05));
@@ -58,7 +77,7 @@
 @labeledIconPadding: (@horizontalPadding + 2.25em);
 
 @labeledLabelFontSize: @relative11px;
-@labeledLabelAlign: flex-end;
+@labeledLabelAlign: center;
 
 @basicFontWeight: bold;
 @basicTextColor: @linkColor;
@@ -66,22 +85,6 @@
 
 @basicHoverBackground: #E0E0E0;
 
-@blue: #3072B3;
-@green: #60B044;
-@black: #5D5D5D;
-
-@primaryColor: @blue;
-@secondaryColor: @black;
 
 @positiveColor: #84D767;
 @positiveColorHover: #5DC438;
-
-/* Sizes */
-@mini: 10px;
-@tiny: 11px;
-@small: 12px;
-@medium: 13px;
-@large: 15px;
-@big: 16px;
-@huge: 18px;
-@massive: 24px;
