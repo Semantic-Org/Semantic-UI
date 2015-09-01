@@ -329,21 +329,21 @@
 }
 
 /* Regular Label on Left */
-.ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > input {
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-}
-.ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > .label {
+.ui.labeled.input:not([class*="corner labeled"]) .label:nth-child(1) {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
+.ui.labeled.input:not([class*="corner labeled"]) .label:nth-child(1) + input {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
 
 /* Regular Label on Right */
-.ui[class*="right labeled"].input  > input {
-  border-top-right-radius: 0px !important;
-  border-bottom-right-radius: 0px !important;
+.ui.right.labeled.input input {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
-.ui[class*="right labeled"].input > .label {
+.ui.right.labeled.input input + .label {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
