@@ -117,6 +117,7 @@
 - **Menu** - Fix text align on `dropdown item` inside `icon menu`
 - **Menu** - Fixed hybrid initialization not creating `menu` correctly. Fixed docs example of hybrid `<select>` initialization
 - **Menu** - Fixed issue with `labeled input` text inside menu not appearing vertically centered
+- **Popup** - Fixed `onRemove` firing even when popup is not removed
 - **Reveal** - Reveal now uses `display: inherit` instead of forcing `inline-block`
 
 ### Version 2.0.8 - August 10, 2015
