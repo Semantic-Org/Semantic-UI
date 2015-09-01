@@ -1,38 +1,7 @@
 /*******************************
-         Site Overrides
+           Overrides
 *******************************/
 
-/*--------------
-     Tabular
----------------*/
-
-.ui.vertical.tabular.menu {
-  padding: @medium 0em;
-}
-.ui.vertical.tabular.menu .item {
-  margin-top: @relative5px;
-  margin-bottom: @relative5px;
-  border-radius: 0px;
-}
-
-/* Special Hover */
-.ui.vertical.tabular.menu a.item:not(.active):hover {
-  box-shadow: 2px 0px 0px #CCCCCC inset;
-}
-.ui.vertical.tabular.menu a.item:not(.active):hover .icon {
-  opacity: 1;
-}
-
-/* Special Active */
-.ui.vertical.tabular.menu:not(.right) .active.item {
-  border-left: 3px solid @orange !important;
-  box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.05);
-}
-
-/* Right Side */
-.ui.vertical.right.tabular.menu {
-  background: linear-gradient(to right, #f6f6f6 0%, #FFFFFF 8px) transparent;
-}
-.ui.vertical.right.tabular.menu .active.item {
-  border-right: 3px solid @orange !important;
+.ui.menu .item > .label {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
 }
