@@ -13,6 +13,7 @@
 - **Checkbox** - Added 4 new callbacks `beforeChecked`, `beforeUnchecked`, `beforeDeterminate`, `beforeIndeterminate`. You can now cancel a state change by returning false from these callbacks.
 - **Cards** - Added documentation for `stackable` cards which was available but undocumented in previous versions.
 - **Divider** - Vertical divider can now be used multiple times in a single column row (not just 50/50 split). #2808
+- **Dropdown** - Dropdown with user additions now will use custom templated messages to distinguish added choice from preselected choice #2923
 - **Dropdown** - Dropdown will now automatically update selected values when hidden input value changes (so long as `change` event is triggered) #2626
 - **Dropdown**  - Dropdown using remote data, can now customize the property names returned by api call using `fields` (similar to search).
 - **Form Validation** - Added credit card validation, supports array of card types, and international cards including non luhn cards like China UnionPay #2729
