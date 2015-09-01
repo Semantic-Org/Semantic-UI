@@ -118,11 +118,6 @@
   border-radius: 0.28571429rem 0em 0em 0.28571429rem;
 }
 
-/* Only Step */
-.ui.steps .step:only-child {
-  border-radius: 0.28571429rem;
-}
-
 /* Last Step */
 .ui.steps .step:last-child {
   border-radius: 0em 0.28571429rem 0.28571429rem 0em;
@@ -130,6 +125,11 @@
 .ui.steps .step:last-child {
   border-right: none;
   margin-right: 0em;
+}
+
+/* Only Step */
+.ui.steps .step:only-child {
+  border-radius: 0.28571429rem;
 }
 
 
@@ -263,6 +263,9 @@
 .ui.vertical.steps .step:last-child {
   border-bottom: none;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
+}
+.ui.vertical.steps .step:only-child {
+  border-radius: 0.28571429rem;
 }
 
 /* Arrow */

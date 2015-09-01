@@ -391,6 +391,16 @@ i.inverted.circular.black.icon {
         Sizes
 --------------------*/
 
+i.mini.icon,
+i.mini.icons {
+  line-height: 1;
+  font-size: 0.71428571rem;
+}
+i.tiny.icon,
+i.tiny.icons {
+  line-height: 1;
+  font-size: 0.85714286rem;
+}
 i.small.icon,
 i.small.icons {
   line-height: 1;
@@ -2118,9 +2128,6 @@ i.icon.video:before {
 i.icon.check:before {
   content: "\f00c";
 }
-i.icon.remove:before {
-  content: "\f00d";
-}
 i.icon.close:before {
   content: "\f00d";
 }
@@ -2169,9 +2176,6 @@ i.icon.play.circle.outline:before {
 i.icon.headphone:before {
   content: "\f025";
 }
-i.icon.volume.off:before {
-  content: "\f026";
-}
 i.icon.camera:before {
   content: "\f030";
 }
@@ -2198,9 +2202,6 @@ i.icon.signup:before {
 }
 i.icon.plus.circle:before {
   content: "\f055";
-}
-i.icon.minus.circle:before {
-  content: "\f056";
 }
 i.icon.dont:before {
   content: "\f05e";
@@ -2245,9 +2246,6 @@ i.icon.line.graph:before {
   content: "\f201";
 }
 i.icon.key:before {
-  content: "\f084";
-}
-i.icon.privacy:before {
   content: "\f084";
 }
 i.icon.cogs:before {
@@ -2376,20 +2374,11 @@ i.icon.envelope:before {
 i.icon.conversation:before {
   content: "\f0e6";
 }
-i.icon.lightning:before {
-  content: "\f0e7";
-}
 i.icon.umbrella:before {
   content: "\f0e9";
 }
 i.icon.lightbulb:before {
   content: "\f0eb";
-}
-i.icon.suitcase:before {
-  content: "\f0f2";
-}
-i.icon.bell.outline:before {
-  content: "\f0a2";
 }
 i.icon.ambulance:before {
   content: "\f0f9";
@@ -2429,9 +2418,6 @@ i.icon.star.half.full:before {
 }
 i.icon.question:before {
   content: "\f128";
-}
-i.icon.attention:before {
-  content: "\f12a";
 }
 i.icon.eraser:before {
   content: "\f12d";
@@ -2481,7 +2467,6 @@ i.icon.rouble:before,
 i.icon.rub:before {
   content: "\f158";
 }
-i.icon.won:before,
 i.icon.krw:before {
   content: "\f159";
 }
@@ -2534,9 +2519,6 @@ i.icon.tty:before {
 i.icon.cc:before {
   content: "\f20a";
 }
-i.icon.ils:before {
-  content: "\f20b";
-}
 i.icon.plus.cart:before {
   content: "\f217";
 }
@@ -2587,9 +2569,6 @@ i.icon.mars.stroke.vertical:before {
 }
 i.icon.mars.stroke.horizontal:before {
   content: "\f22b";
-}
-i.icon.neuter:before {
-  content: "\f22c";
 }
 i.icon.facebook.official {
   content: "\f230";

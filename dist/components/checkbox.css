@@ -155,8 +155,8 @@
 
 .ui.checkbox input:focus ~ .box:before,
 .ui.checkbox input:focus ~ label:before {
-  background: #f9fafb;
-  border-color: rgba(34, 36, 38, 0.35);
+  background: #ffffff;
+  border-color: #96c8da;
 }
 .ui.checkbox input:focus ~ .box:after,
 .ui.checkbox input:focus ~ label:after {
@@ -204,8 +204,8 @@
 .ui.checkbox input:indeterminate:focus ~ label:before,
 .ui.checkbox input:checked:focus ~ .box:before,
 .ui.checkbox input:checked:focus ~ label:before {
-  background: #f9fafb;
-  border-color: rgba(34, 36, 38, 0.5);
+  background: #ffffff;
+  border-color: #96c8da;
 }
 .ui.checkbox input:indeterminate:focus ~ .box:after,
 .ui.checkbox input:indeterminate:focus ~ label:after,
@@ -315,7 +315,7 @@
 /* Focus */
 .ui.radio.checkbox input:focus ~ .box:before,
 .ui.radio.checkbox input:focus ~ label:before {
-  background-color: #f9fafb;
+  background-color: #ffffff;
 }
 .ui.radio.checkbox input:focus ~ .box:after,
 .ui.radio.checkbox input:focus ~ label:after {
@@ -341,7 +341,7 @@
 /* Active Focus */
 .ui.radio.checkbox input:focus:checked ~ .box:before,
 .ui.radio.checkbox input:focus:checked ~ label:before {
-  background-color: #f9fafb;
+  background-color: #ffffff;
 }
 .ui.radio.checkbox input:focus:checked ~ .box:after,
 .ui.radio.checkbox input:focus:checked ~ label:after {

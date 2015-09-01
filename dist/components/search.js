@@ -1134,9 +1134,9 @@ $.fn.search.settings = {
     price           : 'price',       // result price
     results         : 'results',     // array of results (standard)
     title           : 'title',       // result title
-    action          : 'action',      // "view more" object
+    action          : 'action',      // "view more" object name
     actionText      : 'text',        // "view more" text
-    actionURL       : 'url'          // "view more" text
+    actionURL       : 'url'          // "view more" url
   },
 
   selector : {
