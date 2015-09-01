@@ -68,8 +68,13 @@
 @dividerMargin: @rowDistance 0em;
 
 /* Inline Validation Prompt */
-@inlineValidationMargin: -0.5em 0em -0.5em @rowDistance;
-@inlineValidationArrowOffset: -0.3em;
+@promptBackground: @white;
+@promptBorderColor: @formErrorBorder;
+@promptBorder: 1px solid @promptBorderColor;
+@promptTextColor: @formErrorColor;
+@inlinePromptMargin: -0.5em 0em -0.5em @rowDistance;
+@inlinePromptBorderWidth: 1px;
+@inlinePromptArrowOffset: ~"calc(-0.3em - "@inlinePromptBorderWidth~")";
 
 /*-------------------
         States
@@ -129,9 +134,10 @@
 /* Placeholder */
 @inputPlaceholderColor: lighten(@inputColor, 55);
 @inputPlaceholderFocusColor: lighten(@inputColor, 35);
-@inputErrorPlaceholderColor: lighten(@formErrorColor, 10);
-@inputErrorPlaceholderFocusColor: lighten(@formErrorColor, 5);
 
+/* Placeholder Error */
+@inputErrorPlaceholderColor: lighten(@formErrorColor, 40);
+@inputErrorPlaceholderFocusColor: lighten(@formErrorColor, 30);
 
 /* Loading Dimmer */
 @loaderDimmerColor: rgba(255, 255, 255, 0.8);
@@ -153,7 +159,12 @@
 @requiredMargin: @requiredVerticalOffset 0em 0em @requiredDistance;
 
 /* Inverted */
+@invertedInputBackground: @inputBackground;
+@invertedInputBorderColor: @whiteBorderColor;
+@invertedInputBoxShadow: @inputBoxShadow;
+@invertedInputColor: @inputColor;
 @invertedLabelColor: @invertedTextColor;
+@invertedInputBoxShadow: none;
 
 /*-------------------
       Variations

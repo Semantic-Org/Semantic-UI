@@ -88,15 +88,15 @@ i.icon.loading {
 *******************************/
 
 i.icon.hover {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 i.icon.active {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 i.emphasized.icon {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 i.disabled.icon {
@@ -108,6 +108,15 @@ i.disabled.icon {
            Variations
 *******************************/
 
+
+/*-------------------
+        Fitted
+--------------------*/
+
+i.fitted.icon {
+  width: auto;
+  margin: 0em;
+}
 
 /*-------------------
          Link
@@ -379,6 +388,16 @@ i.inverted.circular.black.icon {
         Sizes
 --------------------*/
 
+i.mini.icon,
+i.mini.icons {
+  line-height: 1;
+  font-size: @mini;
+}
+i.tiny.icon,
+i.tiny.icons {
+  line-height: 1;
+  font-size: @tiny;
+}
 i.small.icon,
 i.small.icons {
   line-height: 1;

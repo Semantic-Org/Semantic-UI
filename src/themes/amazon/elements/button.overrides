@@ -1,37 +1,37 @@
 .ui.button {
-  background-image: linear-gradient(center top , #F7F8FA, #E7E9EC) repeat scroll 0 0 rgba(0, 0, 0, 0);
+  border: 1px solid;
+  border-color: #ADB1B8 #A2A6AC #8D9096;
 }
 
 .ui.primary.button {
-  color: #111111;
-  border: 1px solid;
-  border-color: #C59F43 #AA8326 #957321;
+  border-color: #A88734 #9C7E31 #846A29;
 }
 .ui.primary.button:hover {
-  border-color: #C59F43 #AA8326 #957321;
-  color: #111111;
+  border-color: #9C7E31 #90742D #786025;
 }
 
 .ui.secondary.button {
-  border: 1px solid;
   border-color: #3D444C #2F353B #2C3137;
 }
 .ui.secondary.button:hover {
   border-color: #32373E #24282D #212429;
 }
 
+.ui.basic.button {
+  border-width: 0px;
+}
 
+.ui.positive.button {
+  border-color: #3E8E22;
+}
+
+/* Special Icons for Amazon */
 .ui.labeled.icon.buttons .button > .icon,
 .ui.labeled.icon.button > .icon {
-  padding-bottom: 0.48em;
-  padding-top: 0.48em;
-  position: absolute;
-  text-align: center;
-  width: 2em;
-  height: 2em;
-  top: 0.35em;
-  left: 0.4em;
-  border-radius: 3px;
+  margin: @relative2px;
+  height: ~"calc(100% - "@relative4px~")";
+  width: @relativeHuge;
+  border-radius: @borderRadius;
 }
 .ui.right.labeled.icon.buttons .button > .icon,
 .ui.right.labeled.icon.button > .icon {

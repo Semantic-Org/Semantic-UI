@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.8 - Container
+ * # Semantic UI 2.1.0 - Container
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -24,11 +24,17 @@
 /* Mobile */
 @media only screen and (max-width: 767px) {
   .ui.container {
-    width: auto;
+    width: auto !important;
     margin-left: 1em !important;
     margin-right: 1em !important;
   }
   .ui.grid.container {
+    width: auto !important;
+  }
+  .ui.relaxed.grid.container {
+    width: auto !important;
+  }
+  .ui.very.relaxed.grid.container {
     width: auto !important;
   }
 }
@@ -41,7 +47,13 @@
     margin-right: auto !important;
   }
   .ui.grid.container {
-    width: calc( 723px  +  2em ) !important;
+    width: calc( 723px  +  2rem ) !important;
+  }
+  .ui.relaxed.grid.container {
+    width: calc( 723px  +  3rem ) !important;
+  }
+  .ui.very.relaxed.grid.container {
+    width: calc( 723px  +  5rem ) !important;
   }
 }
 
@@ -53,7 +65,13 @@
     margin-right: auto !important;
   }
   .ui.grid.container {
-    width: calc( 933px  +  2em ) !important;
+    width: calc( 933px  +  2rem ) !important;
+  }
+  .ui.relaxed.grid.container {
+    width: calc( 933px  +  3rem ) !important;
+  }
+  .ui.very.relaxed.grid.container {
+    width: calc( 933px  +  5rem ) !important;
   }
 }
 
@@ -65,7 +83,13 @@
     margin-right: auto !important;
   }
   .ui.grid.container {
-    width: calc( 1127px  +  2em ) !important;
+    width: calc( 1127px  +  2rem ) !important;
+  }
+  .ui.relaxed.grid.container {
+    width: calc( 1127px  +  3rem ) !important;
+  }
+  .ui.very.relaxed.grid.container {
+    width: calc( 1127px  +  5rem ) !important;
   }
 }
 

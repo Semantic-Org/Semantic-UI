@@ -31,12 +31,18 @@
 /* Mobile */
 @media only screen and (max-width: @largestMobileScreen) {
   .ui.container {
-    width: @mobileWidth;
+    width: @mobileWidth !important;
     margin-left: @mobileGutter !important;
     margin-right: @mobileGutter !important;
   }
   .ui.grid.container {
     width: @mobileGridWidth !important;
+  }
+  .ui.relaxed.grid.container {
+    width: @mobileRelaxedGridWidth !important;
+  }
+  .ui.very.relaxed.grid.container {
+    width: @mobileVeryRelaxedGridWidth !important;
   }
 }
 
@@ -50,6 +56,12 @@
   .ui.grid.container {
     width: @tabletGridWidth !important;
   }
+  .ui.relaxed.grid.container {
+    width: @tabletRelaxedGridWidth !important;
+  }
+  .ui.very.relaxed.grid.container {
+    width: @tabletVeryRelaxedGridWidth !important;
+  }
 }
 
 /* Small Monitor */
@@ -62,6 +74,12 @@
   .ui.grid.container {
     width: @computerGridWidth !important;
   }
+  .ui.relaxed.grid.container {
+    width: @computerRelaxedGridWidth !important;
+  }
+  .ui.very.relaxed.grid.container {
+    width: @computerVeryRelaxedGridWidth !important;
+  }
 }
 
 /* Large Monitor */
@@ -73,6 +91,12 @@
   }
   .ui.grid.container {
     width: @largeMonitorGridWidth !important;
+  }
+  .ui.relaxed.grid.container {
+    width: @largeMonitorRelaxedGridWidth !important;
+  }
+  .ui.very.relaxed.grid.container {
+    width: @largeMonitorVeryRelaxedGridWidth !important;
   }
 }
 

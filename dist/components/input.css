@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.8 - Input
+ * # Semantic UI 2.1.0 - Input
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21,6 +21,8 @@
 
 .ui.input {
   position: relative;
+  font-weight: normal;
+  font-style: normal;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -44,8 +46,8 @@
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
-  -webkit-transition: background-color 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
-          transition: background-color 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
+  -webkit-transition: box-shadow 0.1s ease, border-color 0.1s ease;
+          transition: box-shadow 0.1s ease, border-color 0.1s ease;
   box-shadow: none;
 }
 
@@ -70,6 +72,18 @@
             States
 *******************************/
 
+
+/*--------------------
+        Disabled
+---------------------*/
+
+.ui.disabled.input,
+.ui.input input[disabled] {
+  opacity: 0.45;
+}
+.ui.disabled.input input {
+  pointer-events: none;
+}
 
 /*--------------------
         Active
@@ -148,30 +162,30 @@
 .ui.input.error input {
   background-color: #fff6f6;
   border-color: #e0b4b4;
-  color: #db2828;
+  color: #9f3a38;
   box-shadow: none;
 }
 
 /* Error Placeholder */
-.ui.input.error input ::-webkit-input-placeholder {
-  color: rgba(255, 80, 80, 0.4);
+.ui.input.error input::-webkit-input-placeholder {
+  color: #e7bdbc;
 }
-.ui.input.error input ::-moz-placeholder {
-  color: rgba(255, 80, 80, 0.4);
+.ui.input.error input::-moz-placeholder {
+  color: #e7bdbc;
 }
-.ui.input.error input ::-ms-input-placeholder {
-  color: rgba(255, 80, 80, 0.4);
+.ui.input.error input::-ms-input-placeholder {
+  color: #e7bdbc;
 }
 
 /* Focused Error Placeholder */
-.ui.input.error input :focus::-webkit-input-placeholder {
-  color: rgba(255, 80, 80, 0.7);
+.ui.input.error input:focus::-webkit-input-placeholder {
+  color: #da9796;
 }
-.ui.input.error input :focus::-moz-placeholder {
-  color: rgba(255, 80, 80, 0.7);
+.ui.input.error input:focus::-moz-placeholder {
+  color: #da9796;
 }
-.ui.input.error input :focus::-ms-input-placeholder {
-  color: rgba(255, 80, 80, 0.7);
+.ui.input.error input:focus::-ms-input-placeholder {
+  color: #da9796;
 }
 
 
@@ -304,7 +318,6 @@
 
 /* Regular Label on Left */
 .ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > input {
-  border-left: none;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
@@ -315,7 +328,6 @@
 
 /* Regular Label on Right */
 .ui[class*="right labeled"].input > input {
-  border-right: none;
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }
@@ -333,24 +345,24 @@
 }
 
 /* Spacing with corner label */
-.ui[class*="corner labeled"]:not(.left).labeled.input input {
+.ui[class*="corner labeled"]:not([class*="left corner labeled"]).labeled.input input {
   padding-right: 2.5em !important;
 }
-.ui[class*="corner labeled"].icon.input:not(.left) > input {
+.ui[class*="corner labeled"].icon.input:not([class*="left corner labeled"]) > input {
   padding-right: 3.25em !important;
 }
-.ui[class*="corner labeled"].icon.input:not(.left) > .icon {
+.ui[class*="corner labeled"].icon.input:not([class*="left corner labeled"]) > .icon {
   margin-right: 1.25em;
 }
 
 /* Left Labeled */
-.ui[class*="corner labeled"].left.labeled.input input {
+.ui[class*="left corner labeled"].labeled.input input {
   padding-left: 2.5em !important;
 }
-.ui[class*="corner labeled"].icon.input.left > input {
+.ui[class*="left corner labeled"].icon.input > input {
   padding-left: 3.25em !important;
 }
-.ui[class*="corner labeled"].icon.input.left > .icon {
+.ui[class*="left corner labeled"].icon.input > .icon {
   margin-left: 1.25em;
 }
 
@@ -392,7 +404,6 @@
 
 /* Button on Right */
 .ui.action.input:not([class*="left action"]) > input {
-  border-right: none;
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }
@@ -408,6 +419,10 @@
 }
 
 /* Button on Left */
+.ui[class*="left action"].input > input {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
 .ui[class*="left action"].input > .dropdown,
 .ui[class*="left action"].input > .button,
 .ui[class*="left action"].input > .buttons > .button {
@@ -417,11 +432,6 @@
 .ui[class*="left action"].input > .button:first-child,
 .ui[class*="left action"].input > .buttons:first-child > .button {
   border-radius: 0.28571429rem 0px 0px 0.28571429rem;
-}
-.ui[class*="left action"].input > input {
-  border-left: none;
-  border-top-left-radius: 0px !important;
-  border-bottom-left-radius: 0px !important;
 }
 
 /*--------------------

@@ -220,6 +220,13 @@ ol.ui.list ol li,
 }
 
 /* Floated Content */
+.ui[class*="left floated"].list {
+  float: left;
+}
+.ui[class*="right floated"].list {
+  float: right;
+}
+
 .ui.list .list > .item [class*="left floated"],
 .ui.list > .item [class*="left floated"] {
   float: left;
@@ -630,6 +637,15 @@ ol.ui.inverted.list li:before,
 .ui.ordered.inverted.list .list > .item:before,
 .ui.ordered.inverted.list > .item:before {
   color: @orderedInvertedCountColor;
+}
+
+/* Value */
+.ui.ordered.list > .list > .item[data-value],
+.ui.ordered.list > .item[data-value] {
+  content: attr(data-value);
+}
+ol.ui.list li[value]:before {
+  content: attr(value);
 }
 
 /* Child Lists */

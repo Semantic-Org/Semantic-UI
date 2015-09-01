@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 2.0.8
+ * # Semantic UI - 2.1.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -10,7 +10,7 @@
  */
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin');
 /*!
- * # Semantic UI 2.0.8 - Reset
+ * # Semantic UI 2.1.0 - Reset
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -495,8 +495,12 @@ td,
 th {
   padding: 0;
 }
+
+/*******************************
+         Site Overrides
+*******************************/
 /*!
- * # Semantic UI 2.0.8 - Site
+ * # Semantic UI 2.1.0 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -665,7 +669,7 @@ input::selection {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Button
+ * # Semantic UI 2.1.0 - Button
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1059,16 +1063,84 @@ input::selection {
 
 /* States */
 
+/* Hover */
+
 .ui.inverted.button:hover {
   background: #ffffff;
   box-shadow: 0px 0px 0px 2px #ffffff inset !important;
   color: rgba(0, 0, 0, 0.8);
 }
 
-.ui.inverted.button:focus {
+/* Active / Focus */
+
+.ui.inverted.button:focus,
+.ui.inverted.button.active {
   background: #ffffff;
   box-shadow: 0px 0px 0px 2px #ffffff inset !important;
   color: rgba(0, 0, 0, 0.8);
+}
+
+/* Active Focus */
+
+.ui.inverted.button.active:focus {
+  background: #dcddde;
+  box-shadow: 0px 0px 0px 2px #dcddde inset !important;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/*-------------------
+    Labeled Button
+--------------------*/
+
+.ui.labeled.button:not(.icon) {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  background: none !important;
+  padding: 0px !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.ui.labeled.button > .button {
+  margin: 0px;
+}
+
+.ui.labeled.button > .label {
+  margin: 0px 0px 0px -1px;
+  padding: 0.78571429em 1.5em;
+  font-size: 1em;
+  border-color: rgba(34, 36, 38, 0.15);
+}
+
+/* Right */
+
+.ui.labeled.button:not([class*="left labeled"]) > .button {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.ui.labeled.button:not([class*="left labeled"]) > .label {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+/* Left Side */
+
+.ui[class*="left labeled"].button > .button {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.ui[class*="left labeled"].button > .label {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 /*-------------------
@@ -1251,7 +1323,7 @@ input::selection {
 ---------------*/
 
 .ui.button > .icon {
-  height: 0.92857143em;
+  height: 0.85714286em;
   opacity: 0.8;
   margin: 0em 0.42857143em 0em -0.21428571em;
   -webkit-transition: opacity 0.1s ease;
@@ -2044,6 +2116,7 @@ input::selection {
 .ui.basic.black.button:focus {
   background: transparent !important;
   box-shadow: 0px 0px 0px 2px #2f3032 inset !important;
+  color: #27292a !important;
 }
 
 .ui.basic.black.buttons .active.button,
@@ -2205,6 +2278,7 @@ input::selection {
 .ui.basic.grey.button:focus {
   background: transparent !important;
   box-shadow: 0px 0px 0px 2px #8a8a8a inset !important;
+  color: #838383 !important;
 }
 
 .ui.basic.grey.buttons .active.button,
@@ -2366,6 +2440,7 @@ input::selection {
 .ui.basic.brown.button:focus {
   background: transparent !important;
   box-shadow: 0px 0px 0px 2px #90532b inset !important;
+  color: #975b33 !important;
 }
 
 .ui.basic.brown.buttons .active.button,
@@ -2527,6 +2602,7 @@ input::selection {
 .ui.basic.blue.button:focus {
   background: transparent !important;
   box-shadow: 0px 0px 0px 2px #0d71bb inset !important;
+  color: #1678c2 !important;
 }
 
 .ui.basic.blue.buttons .active.button,
@@ -2688,6 +2764,7 @@ input::selection {
 .ui.basic.green.button:focus {
   background: transparent !important;
   box-shadow: 0px 0px 0px 2px #0ea432 inset !important;
+  color: #16ab39 !important;
 }
 
 .ui.basic.green.buttons .active.button,
@@ -2849,6 +2926,7 @@ input::selection {
 .ui.basic.orange.button:focus {
   background: transparent !important;
   box-shadow: 0px 0px 0px 2px #e55b00 inset !important;
+  color: #f26202 !important;
 }
 
 .ui.basic.orange.buttons .active.button,
@@ -3010,6 +3088,7 @@ input::selection {
 .ui.basic.pink.button:focus {
   background: transparent !important;
   box-shadow: 0px 0px 0px 2px #e10f85 inset !important;
+  color: #e61a8d !important;
 }
 
 .ui.basic.pink.buttons .active.button,
@@ -3171,6 +3250,7 @@ input::selection {
 .ui.basic.violet.button:focus {
   background: transparent !important;
   box-shadow: 0px 0px 0px 2px #4f20b5 inset !important;
+  color: #5829bb !important;
 }
 
 .ui.basic.violet.buttons .active.button,
@@ -3332,6 +3412,7 @@ input::selection {
 .ui.basic.purple.button:focus {
   background: transparent !important;
   box-shadow: 0px 0px 0px 2px #8f1eb4 inset !important;
+  color: #9627ba !important;
 }
 
 .ui.basic.purple.buttons .active.button,
@@ -3493,6 +3574,7 @@ input::selection {
 .ui.basic.red.button:focus {
   background: transparent !important;
   box-shadow: 0px 0px 0px 2px #ca1010 inset !important;
+  color: #d01919 !important;
 }
 
 .ui.basic.red.buttons .active.button,
@@ -3654,6 +3736,7 @@ input::selection {
 .ui.basic.teal.button:focus {
   background: transparent !important;
   box-shadow: 0px 0px 0px 2px #008c86 inset !important;
+  color: #009c95 !important;
 }
 
 .ui.basic.teal.buttons .active.button,
@@ -3815,6 +3898,7 @@ input::selection {
 .ui.basic.olive.button:focus {
   background: transparent !important;
   box-shadow: 0px 0px 0px 2px #a0b605 inset !important;
+  color: #a7bd0d !important;
 }
 
 .ui.basic.olive.buttons .active.button,
@@ -3976,6 +4060,7 @@ input::selection {
 .ui.basic.yellow.button:focus {
   background: transparent !important;
   box-shadow: 0px 0px 0px 2px #daa300 inset !important;
+  color: #eaae00 !important;
 }
 
 .ui.basic.yellow.buttons .active.button,
@@ -4364,7 +4449,7 @@ input::selection {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Container
+ * # Semantic UI 2.1.0 - Container
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -4389,12 +4474,20 @@ input::selection {
 
 @media only screen and (max-width: 767px) {
   .ui.container {
-    width: auto;
+    width: auto !important;
     margin-left: 1em !important;
     margin-right: 1em !important;
   }
 
   .ui.grid.container {
+    width: auto !important;
+  }
+
+  .ui.relaxed.grid.container {
+    width: auto !important;
+  }
+
+  .ui.very.relaxed.grid.container {
     width: auto !important;
   }
 }
@@ -4409,7 +4502,15 @@ input::selection {
   }
 
   .ui.grid.container {
-    width: calc( 723px  +  2em ) !important;
+    width: calc( 723px  +  2rem ) !important;
+  }
+
+  .ui.relaxed.grid.container {
+    width: calc( 723px  +  3rem ) !important;
+  }
+
+  .ui.very.relaxed.grid.container {
+    width: calc( 723px  +  5rem ) !important;
   }
 }
 
@@ -4423,7 +4524,15 @@ input::selection {
   }
 
   .ui.grid.container {
-    width: calc( 933px  +  2em ) !important;
+    width: calc( 933px  +  2rem ) !important;
+  }
+
+  .ui.relaxed.grid.container {
+    width: calc( 933px  +  3rem ) !important;
+  }
+
+  .ui.very.relaxed.grid.container {
+    width: calc( 933px  +  5rem ) !important;
   }
 }
 
@@ -4437,7 +4546,15 @@ input::selection {
   }
 
   .ui.grid.container {
-    width: calc( 1127px  +  2em ) !important;
+    width: calc( 1127px  +  2rem ) !important;
+  }
+
+  .ui.relaxed.grid.container {
+    width: calc( 1127px  +  3rem ) !important;
+  }
+
+  .ui.very.relaxed.grid.container {
+    width: calc( 1127px  +  5rem ) !important;
   }
 }
 
@@ -4495,7 +4612,7 @@ input::selection {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Divider
+ * # Semantic UI 2.1.0 - Divider
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -4537,8 +4654,11 @@ input::selection {
     Coupling
 ---------------*/
 
-.ui.grid > .ui.divider {
-  font-size: 1rem;
+/* Allow divider between each column row */
+
+.ui.grid > .column + .divider,
+.ui.grid > .row > .column + .divider {
+  left: auto;
 }
 
 /*--------------
@@ -4763,7 +4883,7 @@ input::selection {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Flag
+ * # Semantic UI 2.1.0 - Flag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -6025,7 +6145,7 @@ i.flag.zimbabwe:before {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Header
+ * # Semantic UI 2.1.0 - Header
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -6793,13 +6913,11 @@ a.ui.inverted.grey.header:hover {
   margin-top: 0em;
   margin-bottom: 0em;
   border-top: none;
-  border-bottom: none;
   border-radius: 0em;
 }
 
 .ui.top.attached.header {
   margin-bottom: 0em;
-  border-bottom: none;
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
 
@@ -6847,7 +6965,7 @@ a.ui.inverted.grey.header:hover {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Icon
+ * # Semantic UI 2.1.0 - Icon
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -6939,15 +7057,15 @@ i.icon.loading {
 *******************************/
 
 i.icon.hover {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 i.icon.active {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 i.emphasized.icon {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 i.disabled.icon {
@@ -6957,6 +7075,15 @@ i.disabled.icon {
 /*******************************
            Variations
 *******************************/
+
+/*-------------------
+        Fitted
+--------------------*/
+
+i.fitted.icon {
+  width: auto;
+  margin: 0em;
+}
 
 /*-------------------
          Link
@@ -10051,10 +10178,6 @@ i.icon.graduation:before {
   content: "\f19d";
 }
 
-i.icon.\33d:before {
-  content: "\f1b2";
-}
-
 i.icon.weixin:before {
   content: "\f1d7";
 }
@@ -10179,7 +10302,7 @@ i.icon.bed:before {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Image
+ * # Semantic UI 2.1.0 - Image
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10491,7 +10614,7 @@ img.ui.bordered.image {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Input
+ * # Semantic UI 2.1.0 - Input
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10511,6 +10634,8 @@ img.ui.bordered.image {
 
 .ui.input {
   position: relative;
+  font-weight: normal;
+  font-style: normal;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -10535,8 +10660,8 @@ img.ui.bordered.image {
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
-  -webkit-transition: background-color 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
-  transition: background-color 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
+  -webkit-transition: box-shadow 0.1s ease, border-color 0.1s ease;
+  transition: box-shadow 0.1s ease, border-color 0.1s ease;
   box-shadow: none;
 }
 
@@ -10561,6 +10686,19 @@ img.ui.bordered.image {
 /*******************************
             States
 *******************************/
+
+/*--------------------
+        Disabled
+---------------------*/
+
+.ui.disabled.input,
+.ui.input input[disabled] {
+  opacity: 0.45;
+}
+
+.ui.disabled.input input {
+  pointer-events: none;
+}
 
 /*--------------------
         Active
@@ -10643,36 +10781,36 @@ img.ui.bordered.image {
 .ui.input.error input {
   background-color: #fff6f6;
   border-color: #e0b4b4;
-  color: #db2828;
+  color: #9f3a38;
   box-shadow: none;
 }
 
 /* Error Placeholder */
 
-.ui.input.error input ::-webkit-input-placeholder {
-  color: rgba(255, 80, 80, 0.4);
+.ui.input.error input::-webkit-input-placeholder {
+  color: #e7bdbc;
 }
 
-.ui.input.error input ::-moz-placeholder {
-  color: rgba(255, 80, 80, 0.4);
+.ui.input.error input::-moz-placeholder {
+  color: #e7bdbc;
 }
 
-.ui.input.error input ::-ms-input-placeholder {
-  color: rgba(255, 80, 80, 0.4);
+.ui.input.error input::-ms-input-placeholder {
+  color: #e7bdbc;
 }
 
 /* Focused Error Placeholder */
 
-.ui.input.error input :focus::-webkit-input-placeholder {
-  color: rgba(255, 80, 80, 0.7);
+.ui.input.error input:focus::-webkit-input-placeholder {
+  color: #da9796;
 }
 
-.ui.input.error input :focus::-moz-placeholder {
-  color: rgba(255, 80, 80, 0.7);
+.ui.input.error input:focus::-moz-placeholder {
+  color: #da9796;
 }
 
-.ui.input.error input :focus::-ms-input-placeholder {
-  color: rgba(255, 80, 80, 0.7);
+.ui.input.error input:focus::-ms-input-placeholder {
+  color: #da9796;
 }
 
 /*******************************
@@ -10822,7 +10960,6 @@ img.ui.bordered.image {
 /* Regular Label on Left */
 
 .ui.labeled.input:not([class*="corner labeled"]):not([class*="right labeled"]) > input {
-  border-left: none;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
@@ -10835,7 +10972,6 @@ img.ui.bordered.image {
 /* Regular Label on Right */
 
 .ui[class*="right labeled"].input > input {
-  border-right: none;
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }
@@ -10856,29 +10992,29 @@ img.ui.bordered.image {
 
 /* Spacing with corner label */
 
-.ui[class*="corner labeled"]:not(.left).labeled.input input {
+.ui[class*="corner labeled"]:not([class*="left corner labeled"]).labeled.input input {
   padding-right: 2.5em !important;
 }
 
-.ui[class*="corner labeled"].icon.input:not(.left) > input {
+.ui[class*="corner labeled"].icon.input:not([class*="left corner labeled"]) > input {
   padding-right: 3.25em !important;
 }
 
-.ui[class*="corner labeled"].icon.input:not(.left) > .icon {
+.ui[class*="corner labeled"].icon.input:not([class*="left corner labeled"]) > .icon {
   margin-right: 1.25em;
 }
 
 /* Left Labeled */
 
-.ui[class*="corner labeled"].left.labeled.input input {
+.ui[class*="left corner labeled"].labeled.input input {
   padding-left: 2.5em !important;
 }
 
-.ui[class*="corner labeled"].icon.input.left > input {
+.ui[class*="left corner labeled"].icon.input > input {
   padding-left: 3.25em !important;
 }
 
-.ui[class*="corner labeled"].icon.input.left > .icon {
+.ui[class*="left corner labeled"].icon.input > .icon {
   margin-left: 1.25em;
 }
 
@@ -10924,7 +11060,6 @@ img.ui.bordered.image {
 /* Button on Right */
 
 .ui.action.input:not([class*="left action"]) > input {
-  border-right: none;
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
 }
@@ -10943,6 +11078,11 @@ img.ui.bordered.image {
 
 /* Button on Left */
 
+.ui[class*="left action"].input > input {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
 .ui[class*="left action"].input > .dropdown,
 .ui[class*="left action"].input > .button,
 .ui[class*="left action"].input > .buttons > .button {
@@ -10953,12 +11093,6 @@ img.ui.bordered.image {
 .ui[class*="left action"].input > .button:first-child,
 .ui[class*="left action"].input > .buttons:first-child > .button {
   border-radius: 0.28571429rem 0px 0px 0.28571429rem;
-}
-
-.ui[class*="left action"].input > input {
-  border-left: none;
-  border-top-left-radius: 0px !important;
-  border-bottom-left-radius: 0px !important;
 }
 
 /*--------------------
@@ -11026,7 +11160,7 @@ img.ui.bordered.image {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Label
+ * # Semantic UI 2.1.0 - Label
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11047,12 +11181,12 @@ img.ui.bordered.image {
   vertical-align: baseline;
   margin: 0em 0.14285714em;
   background-color: #e8e8e8;
-  border-color: #e8e8e8;
   background-image: none;
   padding: 0.5833em 0.833em;
   color: rgba(0, 0, 0, 0.6);
   text-transform: none;
   font-weight: bold;
+  border: 0px solid transparent;
   border-radius: 0.28571429rem;
   -webkit-transition: background 0.1s ease;
   transition: background 0.1s ease;
@@ -11233,7 +11367,7 @@ a.ui.label {
   top: 50%;
   right: 100%;
   content: '';
-  background-color: #e8e8e8;
+  background-color: inherit;
   background-image: none;
   width: 1.56em;
   height: 1.56em;
@@ -11266,6 +11400,7 @@ a.ui.label {
   margin: 0em;
   padding: 0em;
   text-align: center;
+  border-color: #e8e8e8;
   width: 4em;
   height: 4em;
   z-index: 1;
@@ -11400,7 +11535,7 @@ a.ui.label {
   border-top-color: inherit;
 }
 
-/* Inside Image */
+/* Inside Table */
 
 .ui.image > .ribbon.label,
 .ui.card .image > .ribbon.label {
@@ -11416,6 +11551,17 @@ a.ui.label {
 .ui.card .image > .ui[class*="right ribbon"].label,
 .ui.image > .ui[class*="right ribbon"].label {
   left: calc(100% +  -0.05rem  +  1.2em );
+  padding-left: 0.833em;
+}
+
+/* Inside Table */
+
+.ui.table td > .ui.ribbon.label {
+  left: calc( -0.71428571em  -  1.2em );
+}
+
+.ui.table td > .ui[class*="right ribbon"].label {
+  left: calc(100% +  0.71428571em  +  1.2em );
   padding-left: 0.833em;
 }
 
@@ -11495,8 +11641,6 @@ a.ui.label:hover {
 
 .ui.labels a.label:hover:before,
 a.ui.label:hover:before {
-  background-color: #e0e0e0;
-  background-image: none;
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -11571,32 +11715,41 @@ a.ui.active.label:ActiveHover:before {
   color: #ffffff !important;
 }
 
-.ui.labels .red.label:before,
-.ui.red.labels .label:before,
-.ui.red.label:before {
-  background-color: #db2828 !important;
-}
+/* Link */
 
-.ui.red.corner.label,
-.ui.red.corner.label:hover {
-  background-color: transparent !important;
-}
-
-a.ui.red.labels .label:hover,
+.ui.red.labels .label:hover,
 a.ui.red.label:hover {
   background-color: #d01919 !important;
   border-color: #d01919 !important;
   color: #ffffff !important;
 }
 
-.ui.labels a.red.label:hover:before,
-.ui.red.labels a.label:hover:before,
-a.ui.red.label:hover:before {
-  background-color: #d01919 !important;
+/* Corner */
+
+.ui.red.corner.label,
+.ui.red.corner.label:hover {
+  background-color: transparent !important;
 }
+
+/* Ribbon */
 
 .ui.red.ribbon.label {
   border-color: #b21e1e !important;
+}
+
+/* Basic */
+
+.ui.basic.red.label {
+  background-color: #ffffff !important;
+  color: #db2828 !important;
+  border-color: #db2828 !important;
+}
+
+.ui.basic.red.labels a.label:hover,
+a.ui.basic.red.label:hover {
+  background-color: #ffffff !important;
+  color: #d01919 !important;
+  border-color: #d01919 !important;
 }
 
 /*--- Orange ---*/
@@ -11608,32 +11761,41 @@ a.ui.red.label:hover:before {
   color: #ffffff !important;
 }
 
-.ui.labels .orange.label:before,
-.ui.orange.labels .label:before,
-.ui.orange.label:before {
-  background-color: #f2711c !important;
-}
+/* Link */
 
-.ui.orange.corner.label,
-.ui.orange.corner.label:hover {
-  background-color: transparent !important;
-}
-
-a.ui.orange.labels .label:hover,
+.ui.orange.labels .label:hover,
 a.ui.orange.label:hover {
   background-color: #f26202 !important;
   border-color: #f26202 !important;
   color: #ffffff !important;
 }
 
-.ui.labels a.orange.label:hover:before,
-.ui.orange.labels a.label:hover:before,
-a.ui.orange.label:hover:before {
-  background-color: #f26202 !important;
+/* Corner */
+
+.ui.orange.corner.label,
+.ui.orange.corner.label:hover {
+  background-color: transparent !important;
 }
+
+/* Ribbon */
 
 .ui.orange.ribbon.label {
   border-color: #cf590c !important;
+}
+
+/* Basic */
+
+.ui.basic.orange.label {
+  background-color: #ffffff !important;
+  color: #f2711c !important;
+  border-color: #f2711c !important;
+}
+
+.ui.basic.orange.labels a.label:hover,
+a.ui.basic.orange.label:hover {
+  background-color: #ffffff !important;
+  color: #f26202 !important;
+  border-color: #f26202 !important;
 }
 
 /*--- Yellow ---*/
@@ -11645,32 +11807,41 @@ a.ui.orange.label:hover:before {
   color: #ffffff !important;
 }
 
-.ui.labels .yellow.label:before,
-.ui.yellow.labels .label:before,
-.ui.yellow.label:before {
-  background-color: #fbbd08 !important;
-}
+/* Link */
 
-.ui.yellow.corner.label,
-.ui.yellow.corner.label:hover {
-  background-color: transparent !important;
-}
-
-a.ui.yellow.labels .label:hover,
+.ui.yellow.labels .label:hover,
 a.ui.yellow.label:hover {
   background-color: #eaae00 !important;
   border-color: #eaae00 !important;
   color: #ffffff !important;
 }
 
-.ui.labels a.yellow.label:hover:before,
-.ui.yellow.labels a.label:hover:before,
-a.ui.yellow.label:hover:before {
-  background-color: #eaae00 !important;
+/* Corner */
+
+.ui.yellow.corner.label,
+.ui.yellow.corner.label:hover {
+  background-color: transparent !important;
 }
+
+/* Ribbon */
 
 .ui.yellow.ribbon.label {
   border-color: #cd9903 !important;
+}
+
+/* Basic */
+
+.ui.basic.yellow.label {
+  background-color: #ffffff !important;
+  color: #fbbd08 !important;
+  border-color: #fbbd08 !important;
+}
+
+.ui.basic.yellow.labels a.label:hover,
+a.ui.basic.yellow.label:hover {
+  background-color: #ffffff !important;
+  color: #eaae00 !important;
+  border-color: #eaae00 !important;
 }
 
 /*--- Olive ---*/
@@ -11682,32 +11853,41 @@ a.ui.yellow.label:hover:before {
   color: #ffffff !important;
 }
 
-.ui.labels .olive.label:before,
-.ui.olive.labels .label:before,
-.ui.olive.label:before {
-  background-color: #b5cc18 !important;
-}
+/* Link */
 
-.ui.olive.corner.label,
-.ui.olive.corner.label:hover {
-  background-color: transparent !important;
-}
-
-a.ui.olive.labels .label:hover,
+.ui.olive.labels .label:hover,
 a.ui.olive.label:hover {
   background-color: #a7bd0d !important;
   border-color: #a7bd0d !important;
   color: #ffffff !important;
 }
 
-.ui.labels a.olive.label:hover:before,
-.ui.olive.labels a.label:hover:before,
-a.ui.olive.label:hover:before {
-  background-color: #a7bd0d !important;
+/* Corner */
+
+.ui.olive.corner.label,
+.ui.olive.corner.label:hover {
+  background-color: transparent !important;
 }
+
+/* Ribbon */
 
 .ui.olive.ribbon.label {
   border-color: #198f35 !important;
+}
+
+/* Basic */
+
+.ui.basic.olive.label {
+  background-color: #ffffff !important;
+  color: #b5cc18 !important;
+  border-color: #b5cc18 !important;
+}
+
+.ui.basic.olive.labels a.label:hover,
+a.ui.basic.olive.label:hover {
+  background-color: #ffffff !important;
+  color: #a7bd0d !important;
+  border-color: #a7bd0d !important;
 }
 
 /*--- Green ---*/
@@ -11719,32 +11899,41 @@ a.ui.olive.label:hover:before {
   color: #ffffff !important;
 }
 
-.ui.labels .green.label:before,
-.ui.green.labels .label:before,
-.ui.green.label:before {
-  background-color: #21ba45 !important;
-}
+/* Link */
 
-.ui.green.corner.label,
-.ui.green.corner.label:hover {
-  background-color: transparent !important;
-}
-
-a.ui.green.labels .label:hover,
+.ui.green.labels .label:hover,
 a.ui.green.label:hover {
   background-color: #16ab39 !important;
   border-color: #16ab39 !important;
   color: #ffffff !important;
 }
 
-.ui.labels a.green.label:hover:before,
-.ui.green.labels a.label:hover:before,
-a.ui.green.label:hover:before {
-  background-color: #16ab39 !important;
+/* Corner */
+
+.ui.green.corner.label,
+.ui.green.corner.label:hover {
+  background-color: transparent !important;
 }
+
+/* Ribbon */
 
 .ui.green.ribbon.label {
   border-color: #198f35 !important;
+}
+
+/* Basic */
+
+.ui.basic.green.label {
+  background-color: #ffffff !important;
+  color: #21ba45 !important;
+  border-color: #21ba45 !important;
+}
+
+.ui.basic.green.labels a.label:hover,
+a.ui.basic.green.label:hover {
+  background-color: #ffffff !important;
+  color: #16ab39 !important;
+  border-color: #16ab39 !important;
 }
 
 /*--- Teal ---*/
@@ -11756,32 +11945,41 @@ a.ui.green.label:hover:before {
   color: #ffffff !important;
 }
 
-.ui.labels .teal.label:before,
-.ui.teal.labels .label:before,
-.ui.teal.label:before {
-  background-color: #00b5ad !important;
-}
+/* Link */
 
-.ui.teal.corner.label,
-.ui.teal.corner.label:hover {
-  background-color: transparent !important;
-}
-
-a.ui.teal.labels .label:hover,
+.ui.teal.labels .label:hover,
 a.ui.teal.label:hover {
   background-color: #009c95 !important;
   border-color: #009c95 !important;
   color: #ffffff !important;
 }
 
-.ui.labels a.teal.label:hover:before,
-.ui.teal.labels a.label:hover:before,
-a.ui.teal.label:hover:before {
-  background-color: #009c95 !important;
+/* Corner */
+
+.ui.teal.corner.label,
+.ui.teal.corner.label:hover {
+  background-color: transparent !important;
 }
+
+/* Ribbon */
 
 .ui.teal.ribbon.label {
   border-color: #00827c !important;
+}
+
+/* Basic */
+
+.ui.basic.teal.label {
+  background-color: #ffffff !important;
+  color: #00b5ad !important;
+  border-color: #00b5ad !important;
+}
+
+.ui.basic.teal.labels a.label:hover,
+a.ui.basic.teal.label:hover {
+  background-color: #ffffff !important;
+  color: #009c95 !important;
+  border-color: #009c95 !important;
 }
 
 /*--- Blue ---*/
@@ -11793,32 +11991,41 @@ a.ui.teal.label:hover:before {
   color: #ffffff !important;
 }
 
-.ui.labels .blue.label:before,
-.ui.blue.labels .label:before,
-.ui.blue.label:before {
-  background-color: #2185d0 !important;
-}
+/* Link */
 
-.ui.blue.corner.label,
-.ui.blue.corner.label:hover {
-  background-color: transparent !important;
-}
-
-a.ui.blue.labels .label:hover,
+.ui.blue.labels .label:hover,
 a.ui.blue.label:hover {
   background-color: #1678c2 !important;
   border-color: #1678c2 !important;
   color: #ffffff !important;
 }
 
-.ui.labels a.blue.label:hover:before,
-.ui.blue.labels a.label:hover:before,
-a.ui.blue.label:hover:before {
-  background-color: #1678c2 !important;
+/* Corner */
+
+.ui.blue.corner.label,
+.ui.blue.corner.label:hover {
+  background-color: transparent !important;
 }
+
+/* Ribbon */
 
 .ui.blue.ribbon.label {
   border-color: #1a69a4 !important;
+}
+
+/* Basic */
+
+.ui.basic.blue.label {
+  background-color: #ffffff !important;
+  color: #2185d0 !important;
+  border-color: #2185d0 !important;
+}
+
+.ui.basic.blue.labels a.label:hover,
+a.ui.basic.blue.label:hover {
+  background-color: #ffffff !important;
+  color: #1678c2 !important;
+  border-color: #1678c2 !important;
 }
 
 /*--- Violet ---*/
@@ -11830,32 +12037,41 @@ a.ui.blue.label:hover:before {
   color: #ffffff !important;
 }
 
-.ui.labels .violet.label:before,
-.ui.violet.labels .label:before,
-.ui.violet.label:before {
-  background-color: #6435c9 !important;
-}
+/* Link */
 
-.ui.violet.corner.label,
-.ui.violet.corner.label:hover {
-  background-color: transparent !important;
-}
-
-a.ui.violet.labels .label:hover,
+.ui.violet.labels .label:hover,
 a.ui.violet.label:hover {
   background-color: #5829bb !important;
   border-color: #5829bb !important;
   color: #ffffff !important;
 }
 
-.ui.labels a.violet.label:hover:before,
-.ui.violet.labels a.label:hover:before,
-a.ui.violet.label:hover:before {
-  background-color: #5829bb !important;
+/* Corner */
+
+.ui.violet.corner.label,
+.ui.violet.corner.label:hover {
+  background-color: transparent !important;
 }
+
+/* Ribbon */
 
 .ui.violet.ribbon.label {
   border-color: #502aa1 !important;
+}
+
+/* Basic */
+
+.ui.basic.violet.label {
+  background-color: #ffffff !important;
+  color: #6435c9 !important;
+  border-color: #6435c9 !important;
+}
+
+.ui.basic.violet.labels a.label:hover,
+a.ui.basic.violet.label:hover {
+  background-color: #ffffff !important;
+  color: #5829bb !important;
+  border-color: #5829bb !important;
 }
 
 /*--- Purple ---*/
@@ -11867,32 +12083,41 @@ a.ui.violet.label:hover:before {
   color: #ffffff !important;
 }
 
-.ui.labels .purple.label:before,
-.ui.purple.labels .label:before,
-.ui.purple.label:before {
-  background-color: #a333c8 !important;
-}
+/* Link */
 
-.ui.purple.corner.label,
-.ui.purple.corner.label:hover {
-  background-color: transparent !important;
-}
-
-a.ui.purple.labels .label:hover,
+.ui.purple.labels .label:hover,
 a.ui.purple.label:hover {
   background-color: #9627ba !important;
   border-color: #9627ba !important;
   color: #ffffff !important;
 }
 
-.ui.labels a.purple.label:hover:before,
-.ui.purple.labels a.label:hover:before,
-a.ui.purple.label:hover:before {
-  background-color: #9627ba !important;
+/* Corner */
+
+.ui.purple.corner.label,
+.ui.purple.corner.label:hover {
+  background-color: transparent !important;
 }
+
+/* Ribbon */
 
 .ui.purple.ribbon.label {
   border-color: #82299f !important;
+}
+
+/* Basic */
+
+.ui.basic.purple.label {
+  background-color: #ffffff !important;
+  color: #a333c8 !important;
+  border-color: #a333c8 !important;
+}
+
+.ui.basic.purple.labels a.label:hover,
+a.ui.basic.purple.label:hover {
+  background-color: #ffffff !important;
+  color: #9627ba !important;
+  border-color: #9627ba !important;
 }
 
 /*--- Pink ---*/
@@ -11904,32 +12129,41 @@ a.ui.purple.label:hover:before {
   color: #ffffff !important;
 }
 
-.ui.labels .pink.label:before,
-.ui.pink.labels .label:before,
-.ui.pink.label:before {
-  background-color: #e03997 !important;
-}
+/* Link */
 
-.ui.pink.corner.label,
-.ui.pink.corner.label:hover {
-  background-color: transparent !important;
-}
-
-a.ui.pink.labels .label:hover,
+.ui.pink.labels .label:hover,
 a.ui.pink.label:hover {
   background-color: #e61a8d !important;
   border-color: #e61a8d !important;
   color: #ffffff !important;
 }
 
-.ui.labels a.pink.label:hover:before,
-.ui.pink.labels a.label:hover:before,
-a.ui.pink.label:hover:before {
-  background-color: #e61a8d !important;
+/* Corner */
+
+.ui.pink.corner.label,
+.ui.pink.corner.label:hover {
+  background-color: transparent !important;
 }
+
+/* Ribbon */
 
 .ui.pink.ribbon.label {
   border-color: #c71f7e !important;
+}
+
+/* Basic */
+
+.ui.basic.pink.label {
+  background-color: #ffffff !important;
+  color: #e03997 !important;
+  border-color: #e03997 !important;
+}
+
+.ui.basic.pink.labels a.label:hover,
+a.ui.basic.pink.label:hover {
+  background-color: #ffffff !important;
+  color: #e61a8d !important;
+  border-color: #e61a8d !important;
 }
 
 /*--- Brown ---*/
@@ -11941,32 +12175,41 @@ a.ui.pink.label:hover:before {
   color: #ffffff !important;
 }
 
-.ui.labels .brown.label:before,
-.ui.brown.labels .label:before,
-.ui.brown.label:before {
-  background-color: #a5673f !important;
-}
+/* Link */
 
-.ui.brown.corner.label,
-.ui.brown.corner.label:hover {
-  background-color: transparent !important;
-}
-
-a.ui.brown.labels .label:hover,
+.ui.brown.labels .label:hover,
 a.ui.brown.label:hover {
   background-color: #975b33 !important;
   border-color: #975b33 !important;
   color: #ffffff !important;
 }
 
-.ui.labels a.brown.label:hover:before,
-.ui.brown.labels a.label:hover:before,
-a.ui.brown.label:hover:before {
-  background-color: #975b33 !important;
+/* Corner */
+
+.ui.brown.corner.label,
+.ui.brown.corner.label:hover {
+  background-color: transparent !important;
 }
+
+/* Ribbon */
 
 .ui.brown.ribbon.label {
   border-color: #805031 !important;
+}
+
+/* Basic */
+
+.ui.basic.brown.label {
+  background-color: #ffffff !important;
+  color: #a5673f !important;
+  border-color: #a5673f !important;
+}
+
+.ui.basic.brown.labels a.label:hover,
+a.ui.basic.brown.label:hover {
+  background-color: #ffffff !important;
+  color: #975b33 !important;
+  border-color: #975b33 !important;
 }
 
 /*--- Grey ---*/
@@ -11978,32 +12221,41 @@ a.ui.brown.label:hover:before {
   color: #ffffff !important;
 }
 
-.ui.labels .grey.label:before,
-.ui.grey.labels .label:before,
-.ui.grey.label:before {
-  background-color: #767676 !important;
-}
+/* Link */
 
-.ui.grey.corner.label,
-.ui.grey.corner.label:hover {
-  background-color: transparent !important;
-}
-
-a.ui.grey.labels .label:hover,
+.ui.grey.labels .label:hover,
 a.ui.grey.label:hover {
   background-color: #838383 !important;
   border-color: #838383 !important;
   color: #ffffff !important;
 }
 
-.ui.labels a.grey.label:hover:before,
-.ui.grey.labels a.label:hover:before,
-a.ui.grey.label:hover:before {
-  background-color: #838383 !important;
+/* Corner */
+
+.ui.grey.corner.label,
+.ui.grey.corner.label:hover {
+  background-color: transparent !important;
 }
 
+/* Ribbon */
+
 .ui.grey.ribbon.label {
-  border-color: #5d5d5d !important;
+  border-color: #805031 !important;
+}
+
+/* Basic */
+
+.ui.basic.grey.label {
+  background-color: #ffffff !important;
+  color: #767676 !important;
+  border-color: #767676 !important;
+}
+
+.ui.basic.grey.labels a.label:hover,
+a.ui.basic.grey.label:hover {
+  background-color: #ffffff !important;
+  color: #838383 !important;
+  border-color: #838383 !important;
 }
 
 /*--- Black ---*/
@@ -12015,32 +12267,68 @@ a.ui.grey.label:hover:before {
   color: #ffffff !important;
 }
 
-.ui.labels .black.label:before,
-.ui.black.labels .label:before,
-.ui.black.label:before {
-  background-color: #1b1c1d !important;
-}
+/* Link */
 
-.ui.black.corner.label,
-.ui.black.corner.label:hover {
-  background-color: transparent !important;
-}
-
-a.ui.black.labels .label:hover,
+.ui.black.labels .label:hover,
 a.ui.black.label:hover {
   background-color: #27292a !important;
   border-color: #27292a !important;
   color: #ffffff !important;
 }
 
-.ui.labels a.black.label:hover:before,
-.ui.black.labels a.label:hover:before,
-a.ui.black.label:hover:before {
-  background-color: #27292a !important;
+/* Corner */
+
+.ui.black.corner.label,
+.ui.black.corner.label:hover {
+  background-color: transparent !important;
 }
 
+/* Ribbon */
+
 .ui.black.ribbon.label {
-  border-color: #5d5d5d !important;
+  border-color: #805031 !important;
+}
+
+/* Basic */
+
+.ui.basic.black.label {
+  background-color: #ffffff !important;
+  color: #1b1c1d !important;
+  border-color: #1b1c1d !important;
+}
+
+.ui.basic.black.labels a.label:hover,
+a.ui.basic.black.label:hover {
+  background-color: #ffffff !important;
+  color: #27292a !important;
+  border-color: #27292a !important;
+}
+
+/*-------------------
+        Basic
+--------------------*/
+
+.ui.basic.label {
+  background: none #ffffff;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  color: rgba(0, 0, 0, 0.87);
+  box-shadow: none;
+}
+
+/* Link */
+
+a.ui.basic.label:hover {
+  text-decoration: none;
+  background: none #ffffff;
+  color: #1e70bf;
+  box-shadow: 1px solid rgba(34, 36, 38, 0.15);
+  box-shadow: none;
+}
+
+/* Pointing */
+
+.ui.basic.pointing.label:before {
+  border-color: inherit;
 }
 
 /*-------------------
@@ -12111,6 +12399,14 @@ a.ui.black.label:hover:before {
 }
 
 .ui.pointing.label:before {
+  background-color: inherit;
+  background-image: inherit;
+  border-width: none;
+  border-style: solid;
+  border-color: inherit;
+}
+
+.ui.pointing.label:before {
   position: absolute;
   content: '';
   -webkit-transform: rotate(45deg);
@@ -12118,18 +12414,13 @@ a.ui.black.label:hover:before {
   transform: rotate(45deg);
   background-image: none;
   z-index: 2;
-  width: 0.6em;
-  height: 0.6em;
+  width: 0.6666em;
+  height: 0.6666em;
   -webkit-transition: background 0.1s ease;
   transition: background 0.1s ease;
 }
 
 /*--- Above ---*/
-
-.ui.pointing.label:before {
-  background-color: #e8e8e8;
-  background-image: none;
-}
 
 .ui.pointing.label,
 .ui.pointing.above.label {
@@ -12138,8 +12429,9 @@ a.ui.black.label:hover:before {
 
 .ui.pointing.label:before,
 .ui.pointing.above.label:before {
-  margin-left: -0.3em;
-  top: -0.3em;
+  border-width: 1px 0px 0px 1px;
+  margin-left: -0.3333em;
+  top: -0.3333em;
   left: 50%;
 }
 
@@ -12153,10 +12445,11 @@ a.ui.black.label:hover:before {
 
 .ui.pointing.bottom.label:before,
 .ui.pointing.below.label:before {
-  margin-left: -0.3em;
+  border-width: 0px 1px 1px 0px;
+  margin-left: -0.3333em;
   top: auto;
   right: auto;
-  bottom: -0.3em;
+  bottom: -0.3333em;
   left: 50%;
 }
 
@@ -12164,11 +12457,12 @@ a.ui.black.label:hover:before {
 
 .ui.pointing.left.label {
   margin-top: 0em;
-  margin-left: 0.6em;
+  margin-left: 0.6666em;
 }
 
 .ui.pointing.left.label:before {
-  margin-top: -0.3em;
+  border-width: 0px 0px 1px 1px;
+  margin-top: -0.3333em;
   bottom: auto;
   right: auto;
   top: 50%;
@@ -12179,15 +12473,49 @@ a.ui.black.label:hover:before {
 
 .ui.pointing.right.label {
   margin-top: 0em;
-  margin-right: 0.6em;
+  margin-right: 0.6666em;
 }
 
 .ui.pointing.right.label:before {
-  margin-top: -0.3em;
-  right: -0.3em;
+  border-width: 1px 1px 0px 0px;
+  margin-top: -0.3333em;
+  right: -0.3333em;
   top: 50%;
   bottom: auto;
   left: auto;
+}
+
+/* Basic Pointing */
+
+/*--- Above ---*/
+
+.ui.basic.pointing.label:before,
+.ui.basic.pointing.above.label:before {
+  top: calc( -0.3333em  -  1px );
+}
+
+/*--- Below ---*/
+
+.ui.basic.pointing.bottom.label:before,
+.ui.basic.pointing.below.label:before {
+  top: auto;
+  margin-left: calc( -0.3333em  -  1px );
+  bottom: calc( -0.3333em  -  1px );
+}
+
+/*--- Left ---*/
+
+.ui.basic.pointing.left.label:before {
+  top: 50%;
+  margin-top: calc( -0.3333em  -  1px );
+}
+
+/*--- Right ---*/
+
+.ui.basic.pointing.right.label:before {
+  top: 50%;
+  margin-top: calc( -0.3333em  -  1px );
+  right: calc( -0.3333em  -  1px );
 }
 
 /*------------------
@@ -12254,7 +12582,7 @@ a.ui.black.label:hover:before {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - List
+ * # Semantic UI 2.1.0 - List
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12485,6 +12813,14 @@ ol.ui.list ol li,
 }
 
 /* Floated Content */
+
+.ui[class*="left floated"].list {
+  float: left;
+}
+
+.ui[class*="right floated"].list {
+  float: right;
+}
 
 .ui.list .list > .item [class*="left floated"],
 .ui.list > .item [class*="left floated"] {
@@ -12948,6 +13284,17 @@ ol.ui.inverted.list li:before,
   color: rgba(255, 255, 255, 0.7);
 }
 
+/* Value */
+
+.ui.ordered.list > .list > .item[data-value],
+.ui.ordered.list > .item[data-value] {
+  content: attr(data-value);
+}
+
+ol.ui.list li[value]:before {
+  content: attr(value);
+}
+
 /* Child Lists */
 
 ol.ui.list ol,
@@ -13295,7 +13642,7 @@ ol.ui.horizontal.list li:before,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Loader
+ * # Semantic UI 2.1.0 - Loader
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13600,7 +13947,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Rail
+ * # Semantic UI 2.1.0 - Rail
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13735,7 +14082,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Reveal
+ * # Semantic UI 2.1.0 - Reveal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14070,7 +14417,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Segment
+ * # Semantic UI 2.1.0 - Segment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14895,7 +15242,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Step
+ * # Semantic UI 2.1.0 - Step
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15577,7 +15924,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Breadcrumb
+ * # Semantic UI 2.1.0 - Breadcrumb
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15593,8 +15940,8 @@ ol.ui.horizontal.list li:before,
 
 .ui.breadcrumb {
   line-height: 1;
-  margin: 1em 0em;
   display: inline-block;
+  margin: 0em 0em;
   vertical-align: middle;
 }
 
@@ -15709,7 +16056,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Form
+ * # Semantic UI 2.1.0 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15787,10 +16134,16 @@ ol.ui.horizontal.list li:before,
 .ui.form input[type="tel"],
 .ui.form input[type="time"],
 .ui.form input[type="text"],
-.ui.form input[type="url"],
-.ui.form .ui.input {
+.ui.form input[type="url"] {
   width: 100%;
   vertical-align: top;
+}
+
+/* Set max height on unusual input */
+
+.ui.form ::-webkit-datetime-edit,
+.ui.form ::-webkit-inner-spin-button {
+  height: 1.2142em;
 }
 
 .ui.form input:not([type]),
@@ -15819,12 +16172,6 @@ ol.ui.horizontal.list li:before,
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
-}
-
-/* Collapse Flex */
-
-.ui.form .ui.input > input {
-  width: 0px !important;
 }
 
 /* Text Area */
@@ -15888,6 +16235,8 @@ ol.ui.horizontal.list li:before,
        Dropdown
 ---------------------*/
 
+/* Block */
+
 .ui.form .field > .selection.dropdown {
   width: 100%;
 }
@@ -15896,12 +16245,58 @@ ol.ui.horizontal.list li:before,
   float: right;
 }
 
+/* Inline */
+
+.ui.form .inline.fields .field > .selection.dropdown,
 .ui.form .inline.field > .selection.dropdown {
   width: auto;
 }
 
+.ui.form .inline.fields .field > .selection.dropdown > .dropdown.icon,
 .ui.form .inline.field > .selection.dropdown > .dropdown.icon {
   float: none;
+}
+
+/*--------------------
+       UI Input
+---------------------*/
+
+/* Block */
+
+.ui.form .fields .field .ui.input,
+.ui.form .wide.field .ui.input {
+  width: 100%;
+}
+
+.ui.form .fields .field .ui.input input,
+.ui.form .field .ui.input input {
+  width: auto;
+}
+
+/* Full Width */
+
+.ui.form .ten.fields .ui.input input,
+.ui.form .nine.fields .ui.input input,
+.ui.form .eight.fields .ui.input input,
+.ui.form .seven.fields .ui.input input,
+.ui.form .six.fields .ui.input input,
+.ui.form .five.fields .ui.input input,
+.ui.form .four.fields .ui.input input,
+.ui.form .three.fields .ui.input input,
+.ui.form .two.fields .ui.input input,
+.ui.form .wide.field .ui.input input {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  width: 0px;
+}
+
+/* Inline */
+
+.ui.form .inline.fields .field:not(.wide) .ui.input,
+.ui.form .inline.field:not(.wide) .ui.input {
+  width: 100%;
 }
 
 /*--------------------
@@ -15934,15 +16329,21 @@ ol.ui.horizontal.list li:before,
 ---------------------*/
 
 .ui.form .field .prompt.label {
-  white-space: nowrap;
+  white-space: normal;
+  background: #ffffff !important;
+  border: 1px solid #e0b4b4 !important;
+  color: #9f3a38 !important;
 }
 
+.ui.form .inline.fields .field .prompt,
 .ui.form .inline.field .prompt {
   margin: -0.5em 0em -0.5em 1em;
 }
 
+.ui.form .inline.fields .field .prompt:before,
 .ui.form .inline.field .prompt:before {
-  margin-top: -0.3em;
+  margin-top: calc(-0.3em -  1px );
+  border-width: 0px 0px 1px 1px;
   bottom: auto;
   right: auto;
   top: 50%;
@@ -16009,27 +16410,27 @@ ol.ui.horizontal.list li:before,
 /* Error Placeholder */
 
 .ui.form .error ::-webkit-input-placeholder {
-  color: #bf4d4b;
+  color: #e7bdbc;
 }
 
 .ui.form .error ::-ms-input-placeholder {
-  color: #bf4d4b;
+  color: #e7bdbc;
 }
 
 .ui.form .error ::-moz-placeholder {
-  color: #bf4d4b;
+  color: #e7bdbc;
 }
 
 .ui.form .error :focus::-webkit-input-placeholder {
-  color: #b2413f;
+  color: #da9796;
 }
 
 .ui.form .error :focus::-ms-input-placeholder {
-  color: #b2413f;
+  color: #da9796;
 }
 
 .ui.form .error :focus::-moz-placeholder {
-  color: #b2413f;
+  color: #da9796;
 }
 
 /*--------------------
@@ -16069,28 +16470,11 @@ ol.ui.horizontal.list li:before,
 
 /* On Form */
 
-.ui.form.success .success.message {
+.ui.form.success .success.message:not(:empty) {
   display: block;
 }
 
-.ui.form.success .icon.success.message {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-/*--------------------
-        Error
----------------------*/
-
-/* On Form */
-
-.ui.form.warning .warning.message {
-  display: block;
-}
-
-.ui.form.warning .icon.warning.message {
+.ui.form.success .icon.success.message:not(:empty) {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -16103,11 +16487,28 @@ ol.ui.horizontal.list li:before,
 
 /* On Form */
 
-.ui.form.error .error.message {
+.ui.form.warning .warning.message:not(:empty) {
   display: block;
 }
 
-.ui.form.error .icon.error.message {
+.ui.form.warning .icon.warning.message:not(:empty) {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/*--------------------
+        Warning
+---------------------*/
+
+/* On Form */
+
+.ui.form.error .error.message:not(:empty) {
+  display: block;
+}
+
+.ui.form.error .icon.error.message:not(:empty) {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -16405,6 +16806,25 @@ ol.ui.horizontal.list li:before,
 .ui.inverted.form .ui.checkbox label,
 .ui.inverted.form .ui.checkbox .box {
   color: rgba(255, 255, 255, 0.9);
+}
+
+/* Inverted Field */
+
+.ui.inverted.form input:not([type]),
+.ui.inverted.form input[type="date"],
+.ui.inverted.form input[type="datetime-local"],
+.ui.inverted.form input[type="email"],
+.ui.inverted.form input[type="number"],
+.ui.inverted.form input[type="password"],
+.ui.inverted.form input[type="search"],
+.ui.inverted.form input[type="tel"],
+.ui.inverted.form input[type="time"],
+.ui.inverted.form input[type="text"],
+.ui.inverted.form input[type="url"] {
+  background: #ffffff;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(0, 0, 0, 0.87);
+  box-shadow: none;
 }
 
 /*--------------------
@@ -16716,10 +17136,8 @@ ol.ui.horizontal.list li:before,
 
 .ui.form .inline.fields .field > input,
 .ui.form .inline.fields .field > select,
-.ui.form .inline.fields .field > .ui.input,
 .ui.form .inline.field > input,
-.ui.form .inline.field > select,
-.ui.form .inline.field > .ui.input {
+.ui.form .inline.field > select {
   display: inline-block;
   width: auto;
   margin-top: 0em;
@@ -16754,8 +17172,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.form .inline.fields .wide.field > input,
-.ui.form .inline.fields .wide.field > select,
-.ui.form .inline.fields .wide.field > .ui.input {
+.ui.form .inline.fields .wide.field > select {
   width: 100%;
 }
 
@@ -16795,7 +17212,7 @@ ol.ui.horizontal.list li:before,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Grid
+ * # Semantic UI 2.1.0 - Grid
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17191,6 +17608,12 @@ ol.ui.horizontal.list li:before,
 
 .ui.grid > [class*="sixteen column"].row > .column {
   width: 6.25% !important;
+}
+
+/* Celled Page */
+
+.ui.celled.page.grid {
+  box-shadow: none;
 }
 
 /*-------------------
@@ -18095,9 +18518,7 @@ ol.ui.horizontal.list li:before,
   box-shadow: 0px 0px 0px 1px #d4d4d5;
 }
 
-.ui.celled.grid > .row,
-.ui.celled.grid > .column.row,
-.ui.celled.grid > .column.row:first-child {
+.ui.celled.grid > .row {
   width: 100% !important;
   margin: 0em;
   padding: 0em;
@@ -18111,10 +18532,6 @@ ol.ui.horizontal.list li:before,
 
 .ui.celled.grid > .column:first-child,
 .ui.celled.grid > .row > .column:first-child {
-  box-shadow: none;
-}
-
-.ui.celled.page.grid {
   box-shadow: none;
 }
 
@@ -18154,7 +18571,7 @@ ol.ui.horizontal.list li:before,
 
 /* Top Aligned */
 
-.ui[class*="top aligned"].grid .column:not(.row),
+.ui[class*="top aligned"].grid > .column:not(.row),
 .ui.grid > [class*="top aligned"].row > .column,
 .ui.grid > [class*="top aligned"].column:not(.row),
 .ui.grid > .row > [class*="top aligned"].column {
@@ -18171,7 +18588,7 @@ ol.ui.horizontal.list li:before,
 
 /* Middle Aligned */
 
-.ui[class*="middle aligned"].grid .column:not(.row),
+.ui[class*="middle aligned"].grid > .column:not(.row),
 .ui.grid > [class*="middle aligned"].row > .column,
 .ui.grid > [class*="middle aligned"].column:not(.row),
 .ui.grid > .row > [class*="middle aligned"].column {
@@ -18188,7 +18605,7 @@ ol.ui.horizontal.list li:before,
 
 /* Bottom Aligned */
 
-.ui[class*="bottom aligned"].grid .column:not(.row),
+.ui[class*="bottom aligned"].grid > .column:not(.row),
 .ui.grid > [class*="bottom aligned"].row > .column,
 .ui.grid > [class*="bottom aligned"].column:not(.row),
 .ui.grid > .row > [class*="bottom aligned"].column {
@@ -18467,6 +18884,173 @@ ol.ui.horizontal.list li:before,
   flex-grow: 0;
 }
 
+/*----------------------
+        Reverse
+-----------------------*/
+
+/* Mobile */
+
+@media only screen and (max-width: 767px) {
+  .ui[class*="mobile reversed"].grid,
+  .ui[class*="mobile reversed"].grid > .row,
+  .ui.grid > [class*="mobile reversed"].row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
+
+  .ui[class*="mobile vertically reversed"].grid,
+  .ui.stackable[class*="mobile reversed"] {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+
+  /* Divided Reversed */
+
+  .ui[class*="mobile reversed"].divided.grid:not([class*="vertically divided"]) > .column:first-child,
+  .ui[class*="mobile reversed"].divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
+    box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+  }
+
+  .ui[class*="mobile reversed"].divided.grid:not([class*="vertically divided"]) > .column:last-child,
+  .ui[class*="mobile reversed"].divided.grid:not([class*="vertically divided"]) > .row > .column:last-child {
+    box-shadow: none;
+  }
+
+  /* Vertically Divided Reversed */
+
+  .ui.grid[class*="vertically divided"][class*="mobile vertically reversed"] > .row:first-child:before {
+    box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+  }
+
+  .ui.grid[class*="vertically divided"][class*="mobile vertically reversed"] > .row:last-child:before {
+    box-shadow: none;
+  }
+
+  /* Celled Reversed */
+
+  .ui[class*="mobile reversed"].celled.grid > .row > .column:first-child {
+    box-shadow: -1px 0px 0px 0px #d4d4d5;
+  }
+
+  .ui[class*="mobile reversed"].celled.grid > .row > .column:last-child {
+    box-shadow: none;
+  }
+}
+
+/* Tablet */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ui[class*="tablet reversed"].grid,
+  .ui[class*="tablet reversed"].grid > .row,
+  .ui.grid > [class*="tablet reversed"].row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
+
+  .ui[class*="tablet vertically reversed"].grid {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+
+  /* Divided Reversed */
+
+  .ui[class*="tablet reversed"].divided.grid:not([class*="vertically divided"]) > .column:first-child,
+  .ui[class*="tablet reversed"].divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
+    box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+  }
+
+  .ui[class*="tablet reversed"].divided.grid:not([class*="vertically divided"]) > .column:last-child,
+  .ui[class*="tablet reversed"].divided.grid:not([class*="vertically divided"]) > .row > .column:last-child {
+    box-shadow: none;
+  }
+
+  /* Vertically Divided Reversed */
+
+  .ui.grid[class*="vertically divided"][class*="tablet vertically reversed"] > .row:first-child:before {
+    box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+  }
+
+  .ui.grid[class*="vertically divided"][class*="tablet vertically reversed"] > .row:last-child:before {
+    box-shadow: none;
+  }
+
+  /* Celled Reversed */
+
+  .ui[class*="tablet reversed"].celled.grid > .row > .column:first-child {
+    box-shadow: -1px 0px 0px 0px #d4d4d5;
+  }
+
+  .ui[class*="tablet reversed"].celled.grid > .row > .column:last-child {
+    box-shadow: none;
+  }
+}
+
+/* Computer */
+
+@media only screen and (min-width: 992px) {
+  .ui[class*="computer reversed"].grid,
+  .ui[class*="computer reversed"].grid > .row,
+  .ui.grid > [class*="computer reversed"].row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+  }
+
+  .ui[class*="computer vertically reversed"].grid {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+
+  /* Divided Reversed */
+
+  .ui[class*="computer reversed"].divided.grid:not([class*="vertically divided"]) > .column:first-child,
+  .ui[class*="computer reversed"].divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
+    box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
+  }
+
+  .ui[class*="computer reversed"].divided.grid:not([class*="vertically divided"]) > .column:last-child,
+  .ui[class*="computer reversed"].divided.grid:not([class*="vertically divided"]) > .row > .column:last-child {
+    box-shadow: none;
+  }
+
+  /* Vertically Divided Reversed */
+
+  .ui.grid[class*="vertically divided"][class*="computer vertically reversed"] > .row:first-child:before {
+    box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
+  }
+
+  .ui.grid[class*="vertically divided"][class*="computer vertically reversed"] > .row:last-child:before {
+    box-shadow: none;
+  }
+
+  /* Celled Reversed */
+
+  .ui[class*="computer reversed"].celled.grid > .row > .column:first-child {
+    box-shadow: -1px 0px 0px 0px #d4d4d5;
+  }
+
+  .ui[class*="computer reversed"].celled.grid > .row > .column:last-child {
+    box-shadow: none;
+  }
+}
+
 /*-------------------
       Doubling
 --------------------*/
@@ -18699,6 +19283,8 @@ ol.ui.horizontal.list li:before,
 @media only screen and (max-width: 767px) {
   .ui.stackable.grid {
     width: auto;
+    margin-left: 0em !important;
+    margin-right: 0em !important;
   }
 
   .ui.stackable.grid > .row > .wide.column,
@@ -18759,6 +19345,10 @@ ol.ui.horizontal.list li:before,
     box-shadow: none !important;
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
+  }
+
+  .ui.stackable.celled.grid > .row {
+    box-shadow: none !important;
   }
 
   .ui.stackable.divided:not(.vertically).grid > .column:not(.row),
@@ -19006,6 +19596,10 @@ ol.ui.horizontal.list li:before,
   line-height: 1;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -19121,12 +19715,6 @@ ol.ui.horizontal.list li:before,
   padding-bottom: 0.57142857em;
 }
 
-.ui.menu .item > .input .button,
-.ui.menu .item > .input .label {
-  padding-top: 0.57142857em;
-  padding-bottom: 0.57142857em;
-}
-
 /*--------------
      Header
 ---------------*/
@@ -19178,12 +19766,18 @@ ol.ui.horizontal.list li:before,
   background: #ffffff;
   margin: 0em 0px 0px;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: normal !important;
+  -webkit-flex-direction: column !important;
+  -ms-flex-direction: column !important;
+  flex-direction: column !important;
 }
 
 /* Menu Items */
 
 .ui.menu .ui.dropdown .menu > .item {
   margin: 0;
+  text-align: left;
   font-size: 1em !important;
   padding: 0.71428571em 1.14285714em !important;
   background: transparent !important;
@@ -19294,10 +19888,6 @@ ol.ui.horizontal.list li:before,
   padding: 0.3em 0.71428571em;
 }
 
-.ui.menu .item > .label:before {
-  background-color: #999999;
-}
-
 .ui.menu .item > .floating.label {
   padding: 0.3em 0.71428571em;
 }
@@ -19381,7 +19971,7 @@ ol.ui.horizontal.list li:before,
 .ui.menu .link.item:active,
 .ui.menu a.item:active {
   background: rgba(0, 0, 0, 0.03);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*--------------
@@ -19583,10 +20173,10 @@ Floated Menu / Item
 ---------------*/
 
 .ui.tabular.menu {
-  background-color: transparent;
   border-radius: 0em;
   box-shadow: none !important;
   border: none;
+  background: none transparent;
   border-bottom: 1px solid #d4d4d5;
 }
 
@@ -19595,13 +20185,12 @@ Floated Menu / Item
 }
 
 .ui.tabular.menu .item {
-  background-color: transparent;
+  background: transparent;
+  border-bottom: none;
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
   border-top: 2px solid transparent;
-  border-bottom: none;
-  padding-left: 1.42857143em;
-  padding-right: 1.42857143em;
+  padding: 0.92857143em 1.42857143em;
   color: rgba(0, 0, 0, 0.87);
 }
 
@@ -19619,7 +20208,7 @@ Floated Menu / Item
 /* Active */
 
 .ui.tabular.menu .active.item {
-  background-color: #ffffff;
+  background: none #ffffff;
   color: rgba(0, 0, 0, 0.95);
   border-top-width: 1px;
   border-color: #d4d4d5;
@@ -19631,17 +20220,47 @@ Floated Menu / Item
 
 /* Coupling with segment for attachment */
 
-.ui.tabular.menu + .bottom.attached.segment,
-.ui.tabular.menu ~ .bottom.attached.segment + .bottom.attached.segment {
+.ui.tabular.menu + .bottom.attached.segment {
   border-top: none;
   margin: 0px;
   width: 100%;
 }
 
-/* Vertical Tabular */
+.top.attached.segment + .ui.bottom.tabular.menu {
+  width: calc(100% +  2px );
+  margin: 0px 0px 0px -1px;
+}
+
+/* Bottom Vertical Tabular */
+
+.ui.bottom.tabular.menu {
+  background: none transparent;
+  border-radius: 0em;
+  box-shadow: none !important;
+  border-bottom: none;
+  border-top: 1px solid #d4d4d5;
+}
+
+.ui.bottom.tabular.menu .item {
+  background: none;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-top: none;
+}
+
+.ui.bottom.tabular.menu .active.item {
+  background: none #ffffff;
+  color: rgba(0, 0, 0, 0.95);
+  border-color: #d4d4d5;
+  margin: -1px 0px 0px 0px;
+  border-radius: 0px 0px 0.28571429rem 0.28571429rem !important;
+}
+
+/* Vertical Tabular (Left) */
 
 .ui.vertical.tabular.menu {
-  background-color: transparent;
+  background: none transparent;
   border-radius: 0em;
   box-shadow: none !important;
   border-bottom: none;
@@ -19656,14 +20275,39 @@ Floated Menu / Item
   border-right: none;
 }
 
-/* Active */
-
 .ui.vertical.tabular.menu .active.item {
-  background-color: #ffffff;
+  background: none #ffffff;
   color: rgba(0, 0, 0, 0.95);
   border-color: #d4d4d5;
   margin: 0px -1px 0px 0px;
   border-radius: 0.28571429rem 0px 0px 0.28571429rem !important;
+}
+
+/* Vertical Right Tabular */
+
+.ui.vertical.right.tabular.menu {
+  background: none transparent;
+  border-radius: 0em;
+  box-shadow: none !important;
+  border-bottom: none;
+  border-right: none;
+  border-left: 1px solid #d4d4d5;
+}
+
+.ui.vertical.right.tabular.menu .item {
+  background: none;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  border-left: none;
+}
+
+.ui.vertical.right.tabular.menu .active.item {
+  background: none #ffffff;
+  color: rgba(0, 0, 0, 0.95);
+  border-color: #d4d4d5;
+  margin: 0px 0px 0px -1px;
+  border-radius: 0px 0.28571429rem 0.28571429rem 0px !important;
 }
 
 /* Dropdown */
@@ -19759,7 +20403,7 @@ Floated Menu / Item
 
 .ui.secondary.menu .header.item {
   border-radius: 0em;
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  border-right: none;
   background: none transparent;
 }
 
@@ -19999,17 +20643,17 @@ Floated Menu / Item
   border-radius: 0px;
   box-shadow: none;
   border: none;
-  margin: 1.14285714em -0.5em;
+  margin: 1em -0.5em;
 }
 
 .ui.text.menu .item {
-  padding: 0em;
   border-radius: 0px;
   box-shadow: none;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
-  margin: 0em 0.5em;
+  margin: 0em 0em;
+  padding: 0.35714286em 0.5em;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.6);
   -webkit-transition: opacity 0.1s ease;
@@ -20033,7 +20677,6 @@ Floated Menu / Item
 
 .ui.text.menu .header.item {
   background-color: transparent;
-  padding: 0em;
   opacity: 1;
   color: rgba(0, 0, 0, 0.85);
   font-size: 0.92857143em;
@@ -20091,7 +20734,6 @@ Floated Menu / Item
 
 .ui.text.menu .active.item {
   background-color: transparent;
-  padding: 0em;
   border: none;
   box-shadow: none;
   font-weight: normal;
@@ -20134,38 +20776,48 @@ Floated Menu / Item
     Icon Only
 ---------------*/
 
+/* Vertical Menu */
+
+.ui.vertical.icon.menu {
+  display: inline-block;
+  width: auto;
+}
+
+/* Item */
+
 .ui.icon.menu .item {
   height: auto;
   text-align: center;
   color: #1b1c1d;
 }
 
-.ui.icon.menu .item > .icon {
-  margin: 0em;
+/* Icon */
+
+.ui.icon.menu .item > .icon:not(.dropdown) {
+  margin: 0;
   opacity: 1;
 }
 
-.ui.vertical.icon.menu .item > .icon:not(.dropdown) {
-  display: block;
-  margin: 0em auto;
-  float: none;
-}
+/* Icon Gylph */
 
 .ui.icon.menu .icon:before {
   opacity: 1;
 }
 
-/* Item Icon Only */
+/* (x) Item Icon */
 
 .ui.menu .icon.item > .icon {
   width: auto;
   margin: 0em auto;
 }
 
-/* Vertical */
+/* Vertical Icon */
 
-.ui.vertical.icon.menu {
-  width: auto;
+.ui.vertical.icon.menu .item > .icon:not(.dropdown) {
+  display: block;
+  opacity: 1;
+  margin: 0em auto;
+  float: none;
 }
 
 /* Inverted */
@@ -20178,32 +20830,36 @@ Floated Menu / Item
    Labeled Icon
 ---------------*/
 
+/* Menu */
+
 .ui.labeled.icon.menu {
   text-align: center;
 }
 
-.ui.fluid.labeled.icon.menu .item {
-  min-width: 0em;
-}
+/* Item */
 
 .ui.labeled.icon.menu .item {
   min-width: 6em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
-.ui.labeled.icon.menu:not(.vertical) .item {
-  padding-left: 1.71428571em;
-  padding-right: 1.71428571em;
-}
+/* Icon */
 
 .ui.labeled.icon.menu .item > .icon:not(.dropdown) {
   height: 1em;
   display: block;
-  font-size: 1.42857143em !important;
-  margin: 0em 0.5rem 0em 0em !important;
+  font-size: 1.71428571em !important;
+  margin: 0em auto 0.5rem !important;
 }
 
-.ui.vertical.labeled.icon.menu .item > .icon:not(.dropdown) {
-  margin: 0em auto 0.5rem !important;
+/* Fluid */
+
+.ui.fluid.labeled.icon.menu > .item {
+  min-width: 0em;
 }
 
 /*******************************
@@ -20450,6 +21106,7 @@ Floated Menu / Item
 
 /* Red */
 
+.ui.inverted.menu .red.active.item,
 .ui.inverted.red.menu {
   background-color: #db2828;
 }
@@ -20464,6 +21121,7 @@ Floated Menu / Item
 
 /* Orange */
 
+.ui.inverted.menu .orange.active.item,
 .ui.inverted.orange.menu {
   background-color: #f2711c;
 }
@@ -20478,6 +21136,7 @@ Floated Menu / Item
 
 /* Yellow */
 
+.ui.inverted.menu .yellow.active.item,
 .ui.inverted.yellow.menu {
   background-color: #fbbd08;
 }
@@ -20492,6 +21151,7 @@ Floated Menu / Item
 
 /* Olive */
 
+.ui.inverted.menu .olive.active.item,
 .ui.inverted.olive.menu {
   background-color: #b5cc18;
 }
@@ -20506,6 +21166,7 @@ Floated Menu / Item
 
 /* Green */
 
+.ui.inverted.menu .green.active.item,
 .ui.inverted.green.menu {
   background-color: #21ba45;
 }
@@ -20520,6 +21181,7 @@ Floated Menu / Item
 
 /* Teal */
 
+.ui.inverted.menu .teal.active.item,
 .ui.inverted.teal.menu {
   background-color: #00b5ad;
 }
@@ -20534,6 +21196,7 @@ Floated Menu / Item
 
 /* Blue */
 
+.ui.inverted.menu .blue.active.item,
 .ui.inverted.blue.menu {
   background-color: #2185d0;
 }
@@ -20548,6 +21211,7 @@ Floated Menu / Item
 
 /* Violet */
 
+.ui.inverted.menu .violet.active.item,
 .ui.inverted.violet.menu {
   background-color: #6435c9;
 }
@@ -20562,6 +21226,7 @@ Floated Menu / Item
 
 /* Purple */
 
+.ui.inverted.menu .purple.active.item,
 .ui.inverted.purple.menu {
   background-color: #a333c8;
 }
@@ -20576,6 +21241,7 @@ Floated Menu / Item
 
 /* Pink */
 
+.ui.inverted.menu .pink.active.item,
 .ui.inverted.pink.menu {
   background-color: #e03997;
 }
@@ -20590,6 +21256,7 @@ Floated Menu / Item
 
 /* Brown */
 
+.ui.inverted.menu .brown.active.item,
 .ui.inverted.brown.menu {
   background-color: #a5673f;
 }
@@ -20604,6 +21271,7 @@ Floated Menu / Item
 
 /* Grey */
 
+.ui.inverted.menu .grey.active.item,
 .ui.inverted.grey.menu {
   background-color: #767676;
 }
@@ -21037,7 +21705,7 @@ Floated Menu / Item
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Message
+ * # Semantic UI 2.1.0 - Message
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21561,7 +22229,7 @@ Floated Menu / Item
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Table
+ * # Semantic UI 2.1.0 - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -22064,6 +22732,20 @@ Floated Menu / Item
 }
 
 /*--------------
+     Fixed
+---------------*/
+
+.ui.fixed.table {
+  table-layout: fixed;
+}
+
+.ui.fixed.table th,
+.ui.fixed.table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*--------------
    Hoverable
 ---------------*/
 
@@ -22180,6 +22862,11 @@ Floated Menu / Item
 /*--------------
    Single Line
 ---------------*/
+
+.ui.table[class*="single line"],
+.ui.table [class*="single line"] {
+  white-space: nowrap;
+}
 
 .ui.table[class*="single line"],
 .ui.table [class*="single line"] {
@@ -22774,7 +23461,7 @@ Floated Menu / Item
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Ad
+ * # Semantic UI 2.1.0 - Ad
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -23064,7 +23751,7 @@ Floated Menu / Item
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Item
+ * # Semantic UI 2.1.0 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -24127,7 +24814,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Comment
+ * # Semantic UI 2.1.0 - Comment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -24397,7 +25084,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Feed
+ * # Semantic UI 2.1.0 - Feed
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -24716,7 +25403,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Item
+ * # Semantic UI 2.1.0 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -25140,9 +25827,9 @@ a.ui.card:hover,
 --------------------*/
 
 .ui.items > .item > .image + [class*="top aligned"].content {
-  -webkit-align-self: top;
-  -ms-flex-item-align: top;
-  align-self: top;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
 }
 
 .ui.items > .item > .image + [class*="middle aligned"].content {
@@ -25152,9 +25839,9 @@ a.ui.card:hover,
 }
 
 .ui.items > .item > .image + [class*="bottom aligned"].content {
-  -webkit-align-self: bottom;
-  -ms-flex-item-align: bottom;
-  align-self: bottom;
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
 }
 
 /*--------------
@@ -25232,7 +25919,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Statistic
+ * # Semantic UI 2.1.0 - Statistic
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -25883,7 +26570,7 @@ a.ui.card:hover,
     User Variable Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Accordion
+ * # Semantic UI 2.1.0 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -26148,7 +26835,7 @@ a.ui.card:hover,
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Checkbox
+ * # Semantic UI 2.1.0 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -26815,7 +27502,7 @@ a.ui.card:hover,
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Dimmer
+ * # Semantic UI 2.1.0 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -27023,7 +27710,7 @@ body.dimmable > .dimmer {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Dropdown
+ * # Semantic UI 2.1.0 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -27100,6 +27787,7 @@ body.dimmable > .dimmer {
 .ui.dropdown > .dropdown.icon {
   position: relative;
   width: auto;
+  font-size: 0.85714286em;
   margin: 0em 0em 0em 1em;
 }
 
@@ -28321,7 +29009,7 @@ select.ui.dropdown {
   transform: rotate(45deg);
   width: 0.5em;
   height: 0.5em;
-  box-shadow: -1px -1px 0px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: -1px -1px 0px 1px rgba(34, 36, 38, 0.15);
   background: #ffffff;
   z-index: 2;
 }
@@ -28468,6 +29156,24 @@ select.ui.dropdown {
   right: 1em;
 }
 
+/* Upward pointing */
+
+.ui.upward.pointing.dropdown > .menu,
+.ui.upward.top.pointing.dropdown > .menu {
+  top: auto;
+  bottom: 100%;
+  margin: 0em 0em 0.71428571rem;
+  border-radius: 0.28571429rem;
+}
+
+.ui.upward.pointing.dropdown > .menu:after,
+.ui.upward.top.pointing.dropdown > .menu:after {
+  top: 100%;
+  bottom: auto;
+  box-shadow: 1px 1px 0px 1px rgba(34, 36, 38, 0.15);
+  margin: -0.25em 0em 0em;
+}
+
 /*******************************
          Theme Overrides
 *******************************/
@@ -28537,7 +29243,7 @@ select.ui.dropdown {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Video
+ * # Semantic UI 2.1.0 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -28704,7 +29410,7 @@ select.ui.dropdown {
   padding-bottom: 42.85714286%;
 }
 /*!
- * # Semantic UI 2.0.8 - Modal
+ * # Semantic UI 2.1.0 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -29263,7 +29969,7 @@ select.ui.dropdown {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Nag
+ * # Semantic UI 2.1.0 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -29409,7 +30115,7 @@ a.ui.nag {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Popup
+ * # Semantic UI 2.1.0 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -29783,7 +30489,7 @@ a.ui.nag {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Progress Bar
+ * # Semantic UI 2.1.0 - Progress Bar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -30365,7 +31071,7 @@ a.ui.nag {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Rating
+ * # Semantic UI 2.1.0 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -30645,7 +31351,7 @@ a.ui.nag {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Search
+ * # Semantic UI 2.1.0 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -31043,7 +31749,7 @@ a.ui.nag {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Shape
+ * # Semantic UI 2.1.0 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -31199,7 +31905,7 @@ a.ui.nag {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Sidebar
+ * # Semantic UI 2.1.0 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -31888,7 +32594,7 @@ html.ios body {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Sticky
+ * # Semantic UI 2.1.0 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -31963,7 +32669,7 @@ html.ios body {
          Site Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Tab
+ * # Semantic UI 2.1.0 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -32051,1220 +32757,7 @@ html.ios body {
         User Overrides
 *******************************/
 /*!
- * # Semantic UI 2.0.8 - Table
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Copyright 2015 Contributors
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-/*******************************
-             Table
-*******************************/
-
-/* Prototype */
-
-.ui.table {
-  width: 100%;
-  background: #ffffff;
-  margin: 1em 0em;
-  border: 1px solid rgba(34, 36, 38, 0.15);
-  box-shadow: none;
-  border-radius: 0.28571429rem;
-  text-align: left;
-  color: rgba(0, 0, 0, 0.87);
-  border-collapse: separate;
-  border-spacing: 0px;
-}
-
-.ui.table:first-child {
-  margin-top: 0em;
-}
-
-.ui.table:last-child {
-  margin-bottom: 0em;
-}
-
-/*******************************
-             Parts
-*******************************/
-
-/* Table Content */
-
-.ui.table th,
-.ui.table td {
-  -webkit-transition: background 0.1s ease, color 0.1s ease;
-  transition: background 0.1s ease, color 0.1s ease;
-}
-
-/* Headers */
-
-.ui.table thead {
-  box-shadow: none;
-}
-
-.ui.table thead th {
-  cursor: auto;
-  background: #f9fafb;
-  text-align: inherit;
-  color: rgba(0, 0, 0, 0.87);
-  padding: 0.92857143em 0.71428571em;
-  vertical-align: inherit;
-  font-style: none;
-  font-weight: bold;
-  text-transform: none;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.1);
-  border-left: none;
-}
-
-.ui.table thead tr > th:first-child {
-  border-left: none;
-}
-
-.ui.table thead tr:first-child > th:first-child {
-  border-radius: 0.28571429rem 0em 0em 0em;
-}
-
-.ui.table thead tr:first-child > th:last-child {
-  border-radius: 0em 0.28571429rem 0em 0em;
-}
-
-.ui.table thead tr:first-child > th:only-child {
-  border-radius: 0.28571429rem 0.28571429rem 0em 0em;
-}
-
-/* Footer */
-
-.ui.table tfoot {
-  box-shadow: none;
-}
-
-.ui.table tfoot th {
-  cursor: auto;
-  border-top: 1px solid rgba(34, 36, 38, 0.15);
-  background: #f9fafb;
-  text-align: inherit;
-  color: rgba(0, 0, 0, 0.87);
-  padding: 0.71428571em 0.71428571em;
-  vertical-align: middle;
-  font-style: normal;
-  font-weight: normal;
-  text-transform: none;
-}
-
-.ui.table tfoot tr > th:first-child {
-  border-left: none;
-}
-
-.ui.table tfoot tr:first-child > th:first-child {
-  border-radius: 0em 0em 0em 0.28571429rem;
-}
-
-.ui.table tfoot tr:first-child > th:last-child {
-  border-radius: 0em 0em 0.28571429rem 0em;
-}
-
-.ui.table tfoot tr:first-child > th:only-child {
-  border-radius: 0em 0em 0.28571429rem 0.28571429rem;
-}
-
-/* Table Row */
-
-.ui.table tr td {
-  border-top: 1px solid rgba(34, 36, 38, 0.1);
-}
-
-.ui.table tr:first-child td {
-  border-top: none;
-}
-
-/* Table Cells */
-
-.ui.table td {
-  padding: 0.71428571em 0.71428571em;
-  text-align: inherit;
-}
-
-/* Icons */
-
-.ui.table > .icon {
-  vertical-align: baseline;
-}
-
-.ui.table > .icon:only-child {
-  margin: 0em;
-}
-
-/* Table Segment */
-
-.ui.table.segment {
-  padding: 0em;
-}
-
-.ui.table.segment:after {
-  display: none;
-}
-
-.ui.table.segment.stacked:after {
-  display: block;
-}
-
-/* Responsive */
-
-@media only screen and (max-width: 767px) {
-  .ui.table:not(.unstackable) {
-    width: 100%;
-  }
-
-  .ui.table:not(.unstackable) tbody,
-  .ui.table:not(.unstackable) tr,
-  .ui.table:not(.unstackable) tr > th,
-  .ui.table:not(.unstackable) tr > td {
-    width: auto !important;
-    display: block !important;
-  }
-
-  .ui.table:not(.unstackable) {
-    padding: 0em;
-  }
-
-  .ui.table:not(.unstackable) thead {
-    display: block;
-  }
-
-  .ui.table:not(.unstackable) tfoot {
-    display: block;
-  }
-
-  .ui.table:not(.unstackable) tr {
-    padding-top: 1em;
-    padding-bottom: 1em;
-    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
-  }
-
-  .ui.table:not(.unstackable) tr > th,
-  .ui.table:not(.unstackable) tr > td {
-    background: none;
-    border: none !important;
-    padding: 0.25em 0.75em !important;
-    box-shadow: none !important;
-  }
-
-  .ui.table:not(.unstackable) th:first-child,
-  .ui.table:not(.unstackable) td:first-child {
-    font-weight: bold;
-  }
-
-  /* Definition Table */
-
-  .ui.definition.table:not(.unstackable) thead th:first-child {
-    box-shadow: none !important;
-  }
-}
-
-/*******************************
-            Coupling
-*******************************/
-
-/* UI Image */
-
-.ui.table th .image,
-.ui.table th .image img,
-.ui.table td .image,
-.ui.table td .image img {
-  max-width: none;
-}
-
-/*******************************
-             Types
-*******************************/
-
-/*--------------
-    Complex
----------------*/
-
-.ui.structured.table {
-  border-collapse: collapse;
-}
-
-.ui.structured.table thead th {
-  border-left: none;
-  border-right: none;
-}
-
-.ui.structured.sortable.table thead th {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
-}
-
-.ui.structured.basic.table th {
-  border-left: none;
-  border-right: none;
-}
-
-.ui.structured.celled.table tr th,
-.ui.structured.celled.table tr td {
-  border-left: 1px solid rgba(34, 36, 38, 0.1);
-  border-right: 1px solid rgba(34, 36, 38, 0.1);
-}
-
-/*--------------
-   Definition
----------------*/
-
-.ui.definition.table thead:not(.full-width) th:first-child {
-  pointer-events: none;
-  background: transparent;
-  font-weight: normal;
-  color: rgba(0, 0, 0, 0.4);
-  box-shadow: -1px -1px 0px 1px #ffffff;
-}
-
-.ui.definition.table tfoot:not(.full-width) th:first-child {
-  pointer-events: none;
-  background: transparent;
-  font-weight: rgba(0, 0, 0, 0.4);
-  color: normal;
-  box-shadow: 1px 1px 0px 1px #ffffff;
-}
-
-/* Remove Border */
-
-.ui.celled.definition.table thead:not(.full-width) th:first-child {
-  box-shadow: 0px -1px 0px 1px #ffffff;
-}
-
-.ui.celled.definition.table tfoot:not(.full-width) th:first-child {
-  box-shadow: 0px 1px 0px 1px #ffffff;
-}
-
-/* Highlight Defining Column */
-
-.ui.definition.table tr td:first-child {
-  background: rgba(0, 0, 0, 0.03);
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.95);
-}
-
-/* Fix 2nd Column */
-
-.ui.definition.table thead:not(.full-width) th:nth-child(2) {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
-}
-
-.ui.definition.table tfoot:not(.full-width) th:nth-child(2) {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
-}
-
-.ui.definition.table td:nth-child(2) {
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
-}
-
-/*******************************
-             States
-*******************************/
-
-/*--------------
-    Positive
----------------*/
-
-.ui.table tr.positive,
-.ui.table td.positive {
-  box-shadow: 0px 0px 0px #a3c293 inset;
-}
-
-.ui.table tr.positive,
-.ui.table td.positive {
-  background: #fcfff5 !important;
-  color: #2c662d !important;
-}
-
-/*--------------
-     Negative
----------------*/
-
-.ui.table tr.negative,
-.ui.table td.negative {
-  box-shadow: 0px 0px 0px #e0b4b4 inset;
-}
-
-.ui.table tr.negative,
-.ui.table td.negative {
-  background: #fff6f6 !important;
-  color: #9f3a38 !important;
-}
-
-/*--------------
-      Error
----------------*/
-
-.ui.table tr.error,
-.ui.table td.error {
-  box-shadow: 0px 0px 0px #e0b4b4 inset;
-}
-
-.ui.table tr.error,
-.ui.table td.error {
-  background: #fff6f6 !important;
-  color: #9f3a38 !important;
-}
-
-/*--------------
-     Warning
----------------*/
-
-.ui.table tr.warning,
-.ui.table td.warning {
-  box-shadow: 0px 0px 0px #c9ba9b inset;
-}
-
-.ui.table tr.warning,
-.ui.table td.warning {
-  background: #fffaf3 !important;
-  color: #573a08 !important;
-}
-
-/*--------------
-     Active
----------------*/
-
-.ui.table tr.active,
-.ui.table td.active {
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.87) inset;
-}
-
-.ui.table tr.active,
-.ui.table td.active {
-  background: #e0e0e0 !important;
-  color: rgba(0, 0, 0, 0.87) !important;
-}
-
-/*--------------
-     Disabled
----------------*/
-
-.ui.table tr.disabled td,
-.ui.table tr td.disabled,
-.ui.table tr.disabled:hover,
-.ui.table tr:hover td.disabled {
-  pointer-events: none;
-  color: rgba(40, 40, 40, 0.3);
-}
-
-/*******************************
-          Variations
-*******************************/
-
-/*--------------
-    Stackable
----------------*/
-
-@media only screen and (max-width: 991px) {
-  .ui[class*="tablet stackable"].table,
-  .ui[class*="tablet stackable"].table tbody,
-  .ui[class*="tablet stackable"].table tr,
-  .ui[class*="tablet stackable"].table tr > th,
-  .ui[class*="tablet stackable"].table tr > td {
-    width: 100% !important;
-    display: block !important;
-  }
-
-  .ui[class*="tablet stackable"].table {
-    padding: 0em;
-  }
-
-  .ui[class*="tablet stackable"].table thead {
-    display: block;
-  }
-
-  .ui[class*="tablet stackable"].table tfoot {
-    display: block;
-  }
-
-  .ui[class*="tablet stackable"].table tr {
-    padding-top: 1em;
-    padding-bottom: 1em;
-    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
-  }
-
-  .ui[class*="tablet stackable"].table tr > th,
-  .ui[class*="tablet stackable"].table tr > td {
-    background: none;
-    border: none !important;
-    padding: 0.25em 0.75em;
-    box-shadow: none !important;
-  }
-
-  /* Definition Table */
-
-  .ui.definition[class*="tablet stackable"].table thead th:first-child {
-    box-shadow: none !important;
-  }
-}
-
-/*--------------
- Text Alignment
----------------*/
-
-.ui.table[class*="left aligned"],
-.ui.table [class*="left aligned"] {
-  text-align: left;
-}
-
-.ui.table[class*="center aligned"],
-.ui.table [class*="center aligned"] {
-  text-align: center;
-}
-
-.ui.table[class*="right aligned"],
-.ui.table [class*="right aligned"] {
-  text-align: right;
-}
-
-/*------------------
- Vertical Alignment
-------------------*/
-
-.ui.table[class*="top aligned"],
-.ui.table [class*="top aligned"] {
-  vertical-align: top;
-}
-
-.ui.table[class*="middle aligned"],
-.ui.table [class*="middle aligned"] {
-  vertical-align: middle;
-}
-
-.ui.table[class*="bottom aligned"],
-.ui.table [class*="bottom aligned"] {
-  vertical-align: bottom;
-}
-
-/*--------------
-    Collapsing
----------------*/
-
-.ui.table th.collapsing,
-.ui.table td.collapsing {
-  width: 1px;
-  white-space: nowrap;
-}
-
-/*--------------
-   Hoverable
----------------*/
-
-.ui.selectable.table tbody tr:hover {
-  background: rgba(0, 0, 0, 0.05) !important;
-  color: rgba(0, 0, 0, 0.95) !important;
-}
-
-.ui.selectable.inverted.table tbody tr:hover {
-  background: rgba(255, 255, 255, 0.08) !important;
-  color: #ffffff !important;
-}
-
-/* Other States */
-
-.ui.selectable.table tr.error:hover,
-.ui.selectable.table tr:hover td.error {
-  background: #ffe7e7 !important;
-  color: #943634 !important;
-}
-
-.ui.selectable.table tr.warning:hover,
-.ui.selectable.table tr:hover td.warning {
-  background: #fff4e4 !important;
-  color: #493107 !important;
-}
-
-.ui.selectable.table tr.active:hover,
-.ui.selectable.table tr:hover td.active {
-  background: #e0e0e0 !important;
-  color: rgba(0, 0, 0, 0.87) !important;
-}
-
-.ui.selectable.table tr.positive:hover,
-.ui.selectable.table tr:hover td.positive {
-  background: #f7ffe6 !important;
-  color: #275b28 !important;
-}
-
-.ui.selectable.table tr.negative:hover,
-.ui.selectable.table tr:hover td.negative {
-  background: #ffe7e7 !important;
-  color: #943634 !important;
-}
-
-/*-------------------
-      Attached
---------------------*/
-
-/* Middle */
-
-.ui.attached.table {
-  top: 0px;
-  bottom: 0px;
-  border-radius: 0px;
-  margin: 0em -1px;
-  width: calc(100% +  2px );
-  max-width: calc(100% +  2px );
-  box-shadow: none;
-  border: 1px solid #d4d4d5;
-}
-
-.ui.attached + .ui.attached.table:not(.top) {
-  border-top: none;
-}
-
-/* Top */
-
-.ui[class*="top attached"].table {
-  bottom: 0px;
-  margin-bottom: 0em;
-  top: 0px;
-  margin-top: 1em;
-  border-radius: 0.28571429rem 0.28571429rem 0em 0em;
-}
-
-.ui.table[class*="top attached"]:first-child {
-  margin-top: 0em;
-}
-
-/* Bottom */
-
-.ui[class*="bottom attached"].table {
-  bottom: 0px;
-  margin-top: 0em;
-  top: 0px;
-  margin-bottom: 1em;
-  box-shadow: none, none;
-  border-radius: 0em 0em 0.28571429rem 0.28571429rem;
-}
-
-.ui[class*="bottom attached"].table:last-child {
-  margin-bottom: 0em;
-}
-
-/*--------------
-     Striped
----------------*/
-
-/* Table Striping */
-
-.ui.striped.table > tr:nth-child(2n),
-.ui.striped.table tbody tr:nth-child(2n) {
-  background-color: rgba(0, 0, 50, 0.02);
-}
-
-/* Stripes */
-
-.ui.inverted.striped.table > tr:nth-child(2n),
-.ui.inverted.striped.table tbody tr:nth-child(2n) {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-/*--------------
-   Single Line
----------------*/
-
-.ui.table[class*="single line"],
-.ui.table [class*="single line"] {
-  white-space: nowrap;
-}
-
-/*-------------------
-       Colors
---------------------*/
-
-/* Red */
-
-.ui.red.table {
-  border-top: 0.2em solid #db2828;
-}
-
-.ui.inverted.red.table {
-  background-color: #db2828 !important;
-  color: #ffffff !important;
-}
-
-/* Orange */
-
-.ui.orange.table {
-  border-top: 0.2em solid #f2711c;
-}
-
-.ui.inverted.orange.table {
-  background-color: #f2711c !important;
-  color: #ffffff !important;
-}
-
-/* Yellow */
-
-.ui.yellow.table {
-  border-top: 0.2em solid #fbbd08;
-}
-
-.ui.inverted.yellow.table {
-  background-color: #fbbd08 !important;
-  color: #ffffff !important;
-}
-
-/* Olive */
-
-.ui.olive.table {
-  border-top: 0.2em solid #b5cc18;
-}
-
-.ui.inverted.olive.table {
-  background-color: #b5cc18 !important;
-  color: #ffffff !important;
-}
-
-/* Green */
-
-.ui.green.table {
-  border-top: 0.2em solid #21ba45;
-}
-
-.ui.inverted.green.table {
-  background-color: #21ba45 !important;
-  color: #ffffff !important;
-}
-
-/* Teal */
-
-.ui.teal.table {
-  border-top: 0.2em solid #00b5ad;
-}
-
-.ui.inverted.teal.table {
-  background-color: #00b5ad !important;
-  color: #ffffff !important;
-}
-
-/* Blue */
-
-.ui.blue.table {
-  border-top: 0.2em solid #2185d0;
-}
-
-.ui.inverted.blue.table {
-  background-color: #2185d0 !important;
-  color: #ffffff !important;
-}
-
-/* Violet */
-
-.ui.violet.table {
-  border-top: 0.2em solid #6435c9;
-}
-
-.ui.inverted.violet.table {
-  background-color: #6435c9 !important;
-  color: #ffffff !important;
-}
-
-/* Purple */
-
-.ui.purple.table {
-  border-top: 0.2em solid #a333c8;
-}
-
-.ui.inverted.purple.table {
-  background-color: #a333c8 !important;
-  color: #ffffff !important;
-}
-
-/* Pink */
-
-.ui.pink.table {
-  border-top: 0.2em solid #e03997;
-}
-
-.ui.inverted.pink.table {
-  background-color: #e03997 !important;
-  color: #ffffff !important;
-}
-
-/* Brown */
-
-.ui.brown.table {
-  border-top: 0.2em solid #a5673f;
-}
-
-.ui.inverted.brown.table {
-  background-color: #a5673f !important;
-  color: #ffffff !important;
-}
-
-/* Grey */
-
-.ui.grey.table {
-  border-top: 0.2em solid #767676;
-}
-
-.ui.inverted.grey.table {
-  background-color: #767676 !important;
-  color: #ffffff !important;
-}
-
-/* Black */
-
-.ui.black.table {
-  border-top: 0.2em solid #1b1c1d;
-}
-
-.ui.inverted.black.table {
-  background-color: #1b1c1d !important;
-  color: #ffffff !important;
-}
-
-/*--------------
-  Column Count
----------------*/
-
-/* Grid Based */
-
-.ui.one.column.table td {
-  width: 100%;
-}
-
-.ui.two.column.table td {
-  width: 50%;
-}
-
-.ui.three.column.table td {
-  width: 33.33333333%;
-}
-
-.ui.four.column.table td {
-  width: 25%;
-}
-
-.ui.five.column.table td {
-  width: 20%;
-}
-
-.ui.six.column.table td {
-  width: 16.66666667%;
-}
-
-.ui.seven.column.table td {
-  width: 14.28571429%;
-}
-
-.ui.eight.column.table td {
-  width: 12.5%;
-}
-
-.ui.nine.column.table td {
-  width: 11.11111111%;
-}
-
-.ui.ten.column.table td {
-  width: 10%;
-}
-
-.ui.eleven.column.table td {
-  width: 9.09090909%;
-}
-
-.ui.twelve.column.table td {
-  width: 8.33333333%;
-}
-
-.ui.thirteen.column.table td {
-  width: 7.69230769%;
-}
-
-.ui.fourteen.column.table td {
-  width: 7.14285714%;
-}
-
-.ui.fifteen.column.table td {
-  width: 6.66666667%;
-}
-
-.ui.sixteen.column.table td {
-  width: 6.25%;
-}
-
-/* Column Width */
-
-.ui.table th.one.wide,
-.ui.table td.one.wide {
-  width: 6.25%;
-}
-
-.ui.table th.two.wide,
-.ui.table td.two.wide {
-  width: 12.5%;
-}
-
-.ui.table th.three.wide,
-.ui.table td.three.wide {
-  width: 18.75%;
-}
-
-.ui.table th.four.wide,
-.ui.table td.four.wide {
-  width: 25%;
-}
-
-.ui.table th.five.wide,
-.ui.table td.five.wide {
-  width: 31.25%;
-}
-
-.ui.table th.six.wide,
-.ui.table td.six.wide {
-  width: 37.5%;
-}
-
-.ui.table th.seven.wide,
-.ui.table td.seven.wide {
-  width: 43.75%;
-}
-
-.ui.table th.eight.wide,
-.ui.table td.eight.wide {
-  width: 50%;
-}
-
-.ui.table th.nine.wide,
-.ui.table td.nine.wide {
-  width: 56.25%;
-}
-
-.ui.table th.ten.wide,
-.ui.table td.ten.wide {
-  width: 62.5%;
-}
-
-.ui.table th.eleven.wide,
-.ui.table td.eleven.wide {
-  width: 68.75%;
-}
-
-.ui.table th.twelve.wide,
-.ui.table td.twelve.wide {
-  width: 75%;
-}
-
-.ui.table th.thirteen.wide,
-.ui.table td.thirteen.wide {
-  width: 81.25%;
-}
-
-.ui.table th.fourteen.wide,
-.ui.table td.fourteen.wide {
-  width: 87.5%;
-}
-
-.ui.table th.fifteen.wide,
-.ui.table td.fifteen.wide {
-  width: 93.75%;
-}
-
-.ui.table th.sixteen.wide,
-.ui.table td.sixteen.wide {
-  width: 100%;
-}
-
-/*--------------
-    Sortable
----------------*/
-
-.ui.sortable.table thead th {
-  cursor: pointer;
-  white-space: nowrap;
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
-  color: rgba(0, 0, 0, 0.87);
-}
-
-.ui.sortable.table thead th:first-child {
-  border-left: none;
-}
-
-.ui.sortable.table thead th.sorted,
-.ui.sortable.table thead th.sorted:hover {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.ui.sortable.table thead th:after {
-  display: none;
-  font-style: normal;
-  font-weight: normal;
-  text-decoration: inherit;
-  content: '';
-  height: 1em;
-  width: auto;
-  opacity: 0.8;
-  margin: 0em 0em 0em 0.5em;
-  font-family: 'Icons';
-}
-
-.ui.sortable.table thead th.ascending:after {
-  content: '\f0d8';
-}
-
-.ui.sortable.table thead th.descending:after {
-  content: '\f0d7';
-}
-
-/* Hover */
-
-.ui.sortable.table th.disabled:hover {
-  cursor: auto;
-  color: rgba(40, 40, 40, 0.3);
-}
-
-.ui.sortable.table thead th:hover {
-  background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.8);
-}
-
-/* Sorted */
-
-.ui.sortable.table thead th.sorted {
-  background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.95);
-}
-
-.ui.sortable.table thead th.sorted:after {
-  display: inline-block;
-}
-
-/* Sorted Hover */
-
-.ui.sortable.table thead th.sorted:hover {
-  background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.95);
-}
-
-/* Inverted */
-
-.ui.inverted.sortable.table thead th.sorted {
-  background: rgba(255, 255, 255, 0.15) -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: rgba(255, 255, 255, 0.15) linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  color: #ffffff;
-}
-
-.ui.inverted.sortable.table thead th:hover {
-  background: rgba(255, 255, 255, 0.08) -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  background: rgba(255, 255, 255, 0.08) linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  color: #ffffff;
-}
-
-.ui.inverted.sortable.table thead th {
-  border-left-color: transparent;
-  border-right-color: transparent;
-}
-
-/*--------------
-    Inverted
----------------*/
-
-/* Text Color */
-
-.ui.inverted.table {
-  background: #333333;
-  color: rgba(255, 255, 255, 0.9);
-  border: none;
-}
-
-.ui.inverted.table th {
-  background-color: rgba(0, 0, 0, 0.15);
-  border-color: rgba(255, 255, 255, 0.1) !important;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.ui.inverted.table tr td {
-  border-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-.ui.inverted.table tr.disabled td,
-.ui.inverted.table tr td.disabled,
-.ui.inverted.table tr.disabled:hover td,
-.ui.inverted.table tr:hover td.disabled {
-  pointer-events: none;
-  color: rgba(225, 225, 225, 0.3);
-}
-
-/* Definition */
-
-.ui.inverted.definition.table tfoot:not(.full-width) th:first-child,
-.ui.inverted.definition.table thead:not(.full-width) th:first-child {
-  background: #ffffff;
-}
-
-.ui.inverted.definition.table tr td:first-child {
-  background: rgba(255, 255, 255, 0.02);
-  color: #ffffff;
-}
-
-/*--------------
-   Collapsing
----------------*/
-
-.ui.collapsing.table {
-  width: auto;
-}
-
-/*--------------
-      Basic
----------------*/
-
-.ui.basic.table {
-  background: transparent;
-  border: 1px solid rgba(34, 36, 38, 0.15);
-  box-shadow: none;
-}
-
-.ui.basic.table thead,
-.ui.basic.table tfoot {
-  box-shadow: none;
-}
-
-.ui.basic.table th {
-  background: transparent;
-  border-left: none;
-}
-
-.ui.basic.table tbody tr {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.ui.basic.table td {
-  background: transparent;
-}
-
-.ui.basic.striped.table tbody tr:nth-child(2n) {
-  background-color: rgba(0, 0, 0, 0.05) !important;
-}
-
-/* Very Basic */
-
-.ui[class*="very basic"].table {
-  border: none;
-}
-
-.ui[class*="very basic"].table:not(.sortable):not(.striped) th,
-.ui[class*="very basic"].table:not(.sortable):not(.striped) td {
-  padding: '';
-}
-
-.ui[class*="very basic"].table:not(.sortable):not(.striped) th:first-child,
-.ui[class*="very basic"].table:not(.sortable):not(.striped) td:first-child {
-  padding-left: 0em;
-}
-
-.ui[class*="very basic"].table:not(.sortable):not(.striped) th:last-child,
-.ui[class*="very basic"].table:not(.sortable):not(.striped) td:last-child {
-  padding-right: 0em;
-}
-
-.ui[class*="very basic"].table:not(.sortable):not(.striped) thead tr:first-child th {
-  padding-top: 0em;
-}
-
-/*--------------
-     Celled
----------------*/
-
-.ui.celled.table tr th,
-.ui.celled.table tr td {
-  border-left: 1px solid rgba(34, 36, 38, 0.1);
-}
-
-.ui.celled.table tr th:first-child,
-.ui.celled.table tr td:first-child {
-  border-left: none;
-}
-
-/*--------------
-     Padded
----------------*/
-
-.ui.padded.table th {
-  padding-left: 1em;
-  padding-right: 1em;
-}
-
-.ui.padded.table th,
-.ui.padded.table td {
-  padding: 1em 1em;
-}
-
-/* Very */
-
-.ui[class*="very padded"].table th {
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-}
-
-.ui[class*="very padded"].table td {
-  padding: 1.5em 1.5em;
-}
-
-/*--------------
-     Compact
----------------*/
-
-.ui.compact.table th {
-  padding-left: 0.7em;
-  padding-right: 0.7em;
-}
-
-.ui.compact.table td {
-  padding: 0.5em 0.7em;
-}
-
-/* Very */
-
-.ui[class*="very compact"].table th {
-  padding-left: 0.6em;
-  padding-right: 0.6em;
-}
-
-.ui[class*="very compact"].table td {
-  padding: 0.4em 0.6em;
-}
-
-/*--------------
-      Sizes
----------------*/
-
-/* Small */
-
-.ui.small.table {
-  font-size: 0.9em;
-}
-
-/* Standard */
-
-.ui.table {
-  font-size: 1em;
-}
-
-/* Large */
-
-.ui.large.table {
-  font-size: 1.1em;
-}
-
-/*******************************
-         Site Overrides
-*******************************/
-/*!
- * # Semantic UI 2.0.8 - Transition
+ * # Semantic UI 2.1.0 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *

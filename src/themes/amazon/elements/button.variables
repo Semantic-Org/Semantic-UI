@@ -2,8 +2,13 @@
    Button Variables
 --------------------*/
 
+/* Globals */
+@pageFont: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@black: #444C55;
+@orange: #FDE07B;
+@borderRadius: 3px;
+
 /* Button Variables */
-@pageFont: Helvetica Neue, Helvetica, Arial, sans-serif;
 @textTransform: none;
 @textColor: #111111;
 @fontWeight: normal;
@@ -14,17 +19,20 @@
   background @defaultDuration @defaultEasing
 ;
 
+@borderColor: #A2A6AC;
+@selectedBorderColor: #8D9096;
+
 @hoverBackgroundColor: #E0E0E0;
 
-@borderRadius: 3px;
-@verticalPadding: 0.8em;
-@horizontalPadding: 1.75em;
+@verticalPadding: @relative7px;
+@horizontalPadding: @relativeMedium;
 
 @backgroundColor: #F7F8FA;
 @backgroundImage: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
+
 @boxShadow:
-  0 1px 0 1px rgba(255, 255, 255, 0.3) inset,
-  0 0 0 1px #ADB2BB inset
+  @borderBoxShadow,
+  0 1px 0 1px rgba(255, 255, 255, 0.3) inset
 ;
 
 @coloredBackgroundImage: linear-gradient(rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
@@ -33,7 +41,6 @@
 ;
 
 @downBoxShadow:
-  0 0 0 1px #ADB2BB inset,
   0 1px 3px rgba(0, 0, 0, 0.2) inset
 ;
 
@@ -41,11 +48,15 @@
 @labeledIconColor: #FFFFFF;
 @labeledIconBorder: transparent;
 
-@black: #444C55;
-@orange: #F4CC67;
+@basicBoxShadow: 0px 0px 0px 1px @borderColor inset;
+
+
+/* Labeled */
+@labeledLabelBorderColor: #ADB1B8;
 
 @coloredBackgroundImage: linear-gradient(rgba(255, 255, 255, 0.15), rgba(0, 0, 0, 0.1));
 @primaryColor: @orange;
+@primaryTextColor: @textColor;
 @secondaryColor: @black;
 
 @mini: 10px;

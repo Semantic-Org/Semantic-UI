@@ -1,13 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 
-.ui.button {
-  min-width: 72px;
-}
-.ui.circular.button,
-.ui.buttons .button {
-  min-width: 0px;
-}
-
 .ui.primary.button:hover {
   box-shadow:
     0px 0px 0px 1px rgba(0, 0, 0, 0.3) inset,

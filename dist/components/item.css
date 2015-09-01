@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.8 - Item
+ * # Semantic UI 2.1.0 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -393,9 +393,9 @@
 --------------------*/
 
 .ui.items > .item > .image + [class*="top aligned"].content {
-  -webkit-align-self: top;
-      -ms-flex-item-align: top;
-          align-self: top;
+  -webkit-align-self: flex-start;
+      -ms-flex-item-align: start;
+          align-self: flex-start;
 }
 .ui.items > .item > .image + [class*="middle aligned"].content {
   -webkit-align-self: center;
@@ -403,9 +403,9 @@
           align-self: center;
 }
 .ui.items > .item > .image + [class*="bottom aligned"].content {
-  -webkit-align-self: bottom;
-      -ms-flex-item-align: bottom;
-          align-self: bottom;
+  -webkit-align-self: flex-end;
+      -ms-flex-item-align: end;
+          align-self: flex-end;
 }
 
 /*--------------

@@ -81,6 +81,10 @@
   line-height: 1;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -189,11 +193,6 @@
   padding-top: 0.57142857em;
   padding-bottom: 0.57142857em;
 }
-.ui.menu .item > .input .button,
-.ui.menu .item > .input .label {
-  padding-top: 0.57142857em;
-  padding-bottom: 0.57142857em;
-}
 
 /*--------------
      Header
@@ -243,11 +242,17 @@
   background: #ffffff;
   margin: 0em 0px 0px;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: normal !important;
+  -webkit-flex-direction: column !important;
+      -ms-flex-direction: column !important;
+          flex-direction: column !important;
 }
 
 /* Menu Items */
 .ui.menu .ui.dropdown .menu > .item {
   margin: 0;
+  text-align: left;
   font-size: 1em !important;
   padding: 0.71428571em 1.14285714em !important;
   background: transparent !important;
@@ -343,9 +348,6 @@
   margin-bottom: -0.15em;
   padding: 0.3em 0.71428571em;
 }
-.ui.menu .item > .label:before {
-  background-color: #999999;
-}
 .ui.menu .item > .floating.label {
   padding: 0.3em 0.71428571em;
 }
@@ -430,7 +432,7 @@
 .ui.menu .link.item:active,
 .ui.menu a.item:active {
   background: rgba(0, 0, 0, 0.03);
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0, 0.95);
 }
 
 /*--------------
@@ -618,23 +620,22 @@ Floated Menu / Item
 ---------------*/
 
 .ui.tabular.menu {
-  background-color: transparent;
   border-radius: 0em;
   box-shadow: none !important;
   border: none;
+  background: none transparent;
   border-bottom: 1px solid #d4d4d5;
 }
 .ui.tabular.fluid.menu {
   width: calc(100% +  2px ) !important;
 }
 .ui.tabular.menu .item {
-  background-color: transparent;
+  background: transparent;
+  border-bottom: none;
   border-left: 1px solid transparent;
   border-right: 1px solid transparent;
   border-top: 2px solid transparent;
-  border-bottom: none;
-  padding-left: 1.42857143em;
-  padding-right: 1.42857143em;
+  padding: 0.92857143em 1.42857143em;
   color: rgba(0, 0, 0, 0.87);
 }
 .ui.tabular.menu .item:before {
@@ -649,7 +650,7 @@ Floated Menu / Item
 
 /* Active */
 .ui.tabular.menu .active.item {
-  background-color: #ffffff;
+  background: none #ffffff;
   color: rgba(0, 0, 0, 0.95);
   border-top-width: 1px;
   border-color: #d4d4d5;
@@ -660,16 +661,42 @@ Floated Menu / Item
 }
 
 /* Coupling with segment for attachment */
-.ui.tabular.menu + .bottom.attached.segment,
-.ui.tabular.menu ~ .bottom.attached.segment + .bottom.attached.segment {
+.ui.tabular.menu + .bottom.attached.segment {
   border-top: none;
   margin: 0px;
   width: 100%;
 }
+.top.attached.segment + .ui.bottom.tabular.menu {
+  width: calc(100% +  2px );
+  margin: 0px 0px 0px -1px;
+}
 
-/* Vertical Tabular */
+/* Bottom Vertical Tabular */
+.ui.bottom.tabular.menu {
+  background: none transparent;
+  border-radius: 0em;
+  box-shadow: none !important;
+  border-bottom: none;
+  border-top: 1px solid #d4d4d5;
+}
+.ui.bottom.tabular.menu .item {
+  background: none;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-top: none;
+}
+.ui.bottom.tabular.menu .active.item {
+  background: none #ffffff;
+  color: rgba(0, 0, 0, 0.95);
+  border-color: #d4d4d5;
+  margin: -1px 0px 0px 0px;
+  border-radius: 0px 0px 0.28571429rem 0.28571429rem !important;
+}
+
+/* Vertical Tabular (Left) */
 .ui.vertical.tabular.menu {
-  background-color: transparent;
+  background: none transparent;
   border-radius: 0em;
   box-shadow: none !important;
   border-bottom: none;
@@ -682,14 +709,36 @@ Floated Menu / Item
   border-top: 1px solid transparent;
   border-right: none;
 }
-
-/* Active */
 .ui.vertical.tabular.menu .active.item {
-  background-color: #ffffff;
+  background: none #ffffff;
   color: rgba(0, 0, 0, 0.95);
   border-color: #d4d4d5;
   margin: 0px -1px 0px 0px;
   border-radius: 0.28571429rem 0px 0px 0.28571429rem !important;
+}
+
+/* Vertical Right Tabular */
+.ui.vertical.right.tabular.menu {
+  background: none transparent;
+  border-radius: 0em;
+  box-shadow: none !important;
+  border-bottom: none;
+  border-right: none;
+  border-left: 1px solid #d4d4d5;
+}
+.ui.vertical.right.tabular.menu .item {
+  background: none;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  border-left: none;
+}
+.ui.vertical.right.tabular.menu .active.item {
+  background: none #ffffff;
+  color: rgba(0, 0, 0, 0.95);
+  border-color: #d4d4d5;
+  margin: 0px 0px 0px -1px;
+  border-radius: 0px 0.28571429rem 0.28571429rem 0px !important;
 }
 
 /* Dropdown */
@@ -775,7 +824,7 @@ Floated Menu / Item
 /* Header */
 .ui.secondary.menu .header.item {
   border-radius: 0em;
-  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  border-right: none;
   background: none transparent;
 }
 
@@ -984,16 +1033,16 @@ Floated Menu / Item
   border-radius: 0px;
   box-shadow: none;
   border: none;
-  margin: 1.14285714em -0.5em;
+  margin: 1em -0.5em;
 }
 .ui.text.menu .item {
-  padding: 0em;
   border-radius: 0px;
   box-shadow: none;
   -webkit-align-self: center;
       -ms-flex-item-align: center;
           align-self: center;
-  margin: 0em 0.5em;
+  margin: 0em 0em;
+  padding: 0.35714286em 0.5em;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.6);
   -webkit-transition: opacity 0.1s ease;
@@ -1014,7 +1063,6 @@ Floated Menu / Item
 /* Header */
 .ui.text.menu .header.item {
   background-color: transparent;
-  padding: 0em;
   opacity: 1;
   color: rgba(0, 0, 0, 0.85);
   font-size: 0.92857143em;
@@ -1066,7 +1114,6 @@ Floated Menu / Item
 
 .ui.text.menu .active.item {
   background-color: transparent;
-  padding: 0em;
   border: none;
   box-shadow: none;
   font-weight: normal;
@@ -1105,33 +1152,43 @@ Floated Menu / Item
     Icon Only
 ---------------*/
 
+
+/* Vertical Menu */
+.ui.vertical.icon.menu {
+  display: inline-block;
+  width: auto;
+}
+
+/* Item */
 .ui.icon.menu .item {
   height: auto;
   text-align: center;
   color: #1b1c1d;
 }
-.ui.icon.menu .item > .icon {
-  margin: 0em;
+
+/* Icon */
+.ui.icon.menu .item > .icon:not(.dropdown) {
+  margin: 0;
   opacity: 1;
 }
-.ui.vertical.icon.menu .item > .icon:not(.dropdown) {
-  display: block;
-  margin: 0em auto;
-  float: none;
-}
+
+/* Icon Gylph */
 .ui.icon.menu .icon:before {
   opacity: 1;
 }
 
-/* Item Icon Only */
+/* (x) Item Icon */
 .ui.menu .icon.item > .icon {
   width: auto;
   margin: 0em auto;
 }
 
-/* Vertical */
-.ui.vertical.icon.menu {
-  width: auto;
+/* Vertical Icon */
+.ui.vertical.icon.menu .item > .icon:not(.dropdown) {
+  display: block;
+  opacity: 1;
+  margin: 0em auto;
+  float: none;
 }
 
 /* Inverted */
@@ -1143,27 +1200,33 @@ Floated Menu / Item
    Labeled Icon
 ---------------*/
 
+
+/* Menu */
 .ui.labeled.icon.menu {
   text-align: center;
 }
-.ui.fluid.labeled.icon.menu .item {
-  min-width: 0em;
-}
+
+/* Item */
 .ui.labeled.icon.menu .item {
   min-width: 6em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
-.ui.labeled.icon.menu:not(.vertical) .item {
-  padding-left: 1.71428571em;
-  padding-right: 1.71428571em;
-}
+
+/* Icon */
 .ui.labeled.icon.menu .item > .icon:not(.dropdown) {
   height: 1em;
   display: block;
-  font-size: 1.42857143em !important;
-  margin: 0em 0.5rem 0em 0em !important;
-}
-.ui.vertical.labeled.icon.menu .item > .icon:not(.dropdown) {
+  font-size: 1.71428571em !important;
   margin: 0em auto 0.5rem !important;
+}
+
+/* Fluid */
+.ui.fluid.labeled.icon.menu > .item {
+  min-width: 0em;
 }
 
 
@@ -1388,6 +1451,7 @@ Floated Menu / Item
 
 
 /* Red */
+.ui.inverted.menu .red.active.item,
 .ui.inverted.red.menu {
   background-color: #db2828;
 }
@@ -1399,6 +1463,7 @@ Floated Menu / Item
 }
 
 /* Orange */
+.ui.inverted.menu .orange.active.item,
 .ui.inverted.orange.menu {
   background-color: #f2711c;
 }
@@ -1410,6 +1475,7 @@ Floated Menu / Item
 }
 
 /* Yellow */
+.ui.inverted.menu .yellow.active.item,
 .ui.inverted.yellow.menu {
   background-color: #fbbd08;
 }
@@ -1421,6 +1487,7 @@ Floated Menu / Item
 }
 
 /* Olive */
+.ui.inverted.menu .olive.active.item,
 .ui.inverted.olive.menu {
   background-color: #b5cc18;
 }
@@ -1432,6 +1499,7 @@ Floated Menu / Item
 }
 
 /* Green */
+.ui.inverted.menu .green.active.item,
 .ui.inverted.green.menu {
   background-color: #21ba45;
 }
@@ -1443,6 +1511,7 @@ Floated Menu / Item
 }
 
 /* Teal */
+.ui.inverted.menu .teal.active.item,
 .ui.inverted.teal.menu {
   background-color: #00b5ad;
 }
@@ -1454,6 +1523,7 @@ Floated Menu / Item
 }
 
 /* Blue */
+.ui.inverted.menu .blue.active.item,
 .ui.inverted.blue.menu {
   background-color: #2185d0;
 }
@@ -1465,6 +1535,7 @@ Floated Menu / Item
 }
 
 /* Violet */
+.ui.inverted.menu .violet.active.item,
 .ui.inverted.violet.menu {
   background-color: #6435c9;
 }
@@ -1476,6 +1547,7 @@ Floated Menu / Item
 }
 
 /* Purple */
+.ui.inverted.menu .purple.active.item,
 .ui.inverted.purple.menu {
   background-color: #a333c8;
 }
@@ -1487,6 +1559,7 @@ Floated Menu / Item
 }
 
 /* Pink */
+.ui.inverted.menu .pink.active.item,
 .ui.inverted.pink.menu {
   background-color: #e03997;
 }
@@ -1498,6 +1571,7 @@ Floated Menu / Item
 }
 
 /* Brown */
+.ui.inverted.menu .brown.active.item,
 .ui.inverted.brown.menu {
   background-color: #a5673f;
 }
@@ -1509,6 +1583,7 @@ Floated Menu / Item
 }
 
 /* Grey */
+.ui.inverted.menu .grey.active.item,
 .ui.inverted.grey.menu {
   background-color: #767676;
 }
