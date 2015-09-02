@@ -2,7 +2,7 @@
 
 ### Version 2.1.0 - Sep 02, 2015
 
-!!!! Features
+#### Features
 
 **New Features**
 
@@ -30,7 +30,7 @@
 - **Site** - Added global variable `@focusedFormBorderColor` for controlling form focus border color
 - **Table** - New `fixed` table variation added for use with `table-layout: fixed;`. This also supports "..." ellipsis when used with `single line` content
 
-**[Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**\
+**[Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Breadcrumb** - Breadcrumb no longer receives vertical spacing by default. This may often cause vertical alignment issues when displayed next to other `inline-block` content.
 - **Dropdown** - Added `get default text` and `get placeholder text` behaviors for returning text values.
 - **Dropdown** - Pointing dropdown (dropdown with arrows) now support `upward`, and will automatically move pointer arrows when appearing upward [#2733](https://github.com/Semantic-Org/Semantic-UI/issues/2733)
@@ -48,7 +48,7 @@
 - **Form Validation** - Form `onSuccess` and `onFailure` now receive current form fields as a parameter **Thanks @guodong**
 - **Popup** - Popup will now look for inline popup as any next adjacent sibling [#2772 **Thanks @malacalypse**](https://github.com/Semantic-Org/Semantic-UI/issues/se**)
 
-!!!! Bugs
+#### Bugs
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Accordion** - Added missing notation for accordion docs [#2812](https://github.com/Semantic-Org/Semantic-UI/issues/2812)
 - **Build Tools** - Fixed bug where `gulp version` would show `x.x` [#2875 [#2920](https://github.com/Semantic-Org/Semantic-UI/issues/2920)
