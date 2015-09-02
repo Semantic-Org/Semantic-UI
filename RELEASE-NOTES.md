@@ -48,7 +48,6 @@
 - **Popup** - Popup will now look for inline popup as any next adjacent sibling #2772 **Thanks @malacalypse**
 
 #### Bugs
-
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Accordion** - Added missing notation for accordion docs #2812
 - **Build Tools** - Fixes issue where component glob `{tab, table}` caused table to be included twice in concatenated source **
@@ -114,6 +113,7 @@
 - **Input** - `labeled input` now keeps border on label edge so that focus color appears correctly
 - **Input** - Input now will reset `font-weight` and `font-style` if set on parent;
 - **Input** `action input` and `labeled input` now have focused border on inner edge with label/button
+- **Label** - `pointing` and `attached` labels are *now word order sensitive* to allow them to work correctly with other directional variations.
 - **Label** - `pointint label` now rounds to exact pixel em value, should align correctly in more cases
 - **Menu** - `@pressedItemColor` has been renamed to `@pressedItemTextColor` to match naming conventions of other variables
 - **Menu** - Added `flex: 0 0 auto` to menu item to make sure menu do not collapse text content to reduce space
