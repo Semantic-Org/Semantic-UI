@@ -1121,10 +1121,17 @@ input::selection {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  margin: 0px 0px 0px -1px;
+  margin: 0px 0px 0px -1px !important;
   padding: '';
   font-size: 1em;
   border-color: rgba(34, 36, 38, 0.15);
+}
+
+/* Tag */
+
+.ui.labeled.button > .tag.label:before {
+  width: 1.85em;
+  height: 1.85em;
 }
 
 /* Right */
@@ -11560,7 +11567,7 @@ a.ui.label {
       Attached
 --------------------*/
 
-.ui.top.attached.label,
+.ui[class*="top attached"].label,
 .ui.attached.label {
   width: 100%;
   position: absolute;
@@ -11571,33 +11578,33 @@ a.ui.label {
   border-radius: 0.21428571rem 0.21428571rem 0em 0em;
 }
 
-.ui.bottom.attached.label {
+.ui[class*="bottom attached"].label {
   top: auto;
   bottom: 0em;
   border-radius: 0em 0em 0.21428571rem 0.21428571rem;
 }
 
-.ui.top.left.attached.label {
+.ui[class*="top left attached"].label {
   width: auto;
   margin-top: 0em !important;
   border-radius: 0.21428571rem 0em 0.28571429rem 0em;
 }
 
-.ui.top.right.attached.label {
+.ui[class*="top right attached"].label {
   width: auto;
   left: auto;
   right: 0em;
   border-radius: 0em 0.21428571rem 0em 0.28571429rem;
 }
 
-.ui.bottom.left.attached.label {
+.ui[class*="bottom left attached"].label {
   width: auto;
   top: auto;
   bottom: 0em;
   border-radius: 0em 0.28571429rem 0em 0.21428571rem;
 }
 
-.ui.bottom.right.attached.label {
+.ui[class*="bottom right attached"].label {
   top: auto;
   bottom: 0em;
   left: auto;
@@ -12397,6 +12404,8 @@ a.ui.basic.label:hover {
   border-color: inherit;
 }
 
+/* Arrow */
+
 .ui.pointing.label:before {
   position: absolute;
   content: '';
@@ -12414,46 +12423,52 @@ a.ui.basic.label:hover {
 /*--- Above ---*/
 
 .ui.pointing.label,
-.ui.pointing.above.label {
+.ui[class*="pointing above"].label {
   margin-top: 1em;
 }
 
 .ui.pointing.label:before,
-.ui.pointing.above.label:before {
+.ui[class*="pointing above"].label:before {
   border-width: 1px 0px 0px 1px;
-  margin-left: -0.3333em;
-  top: -0.3333em;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  top: 0%;
   left: 50%;
 }
 
 /*--- Below ---*/
 
-.ui.pointing.bottom.label,
-.ui.pointing.below.label {
+.ui[class*="bottom pointing"].label,
+.ui[class*="pointing below"].label {
   margin-top: 0em;
   margin-bottom: 1em;
 }
 
-.ui.pointing.bottom.label:before,
-.ui.pointing.below.label:before {
+.ui[class*="bottom pointing"].label:before,
+.ui[class*="pointing below"].label:before {
   border-width: 0px 1px 1px 0px;
-  margin-left: -0.3333em;
   top: auto;
   right: auto;
-  bottom: -0.3333em;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  top: 100%;
   left: 50%;
 }
 
 /*--- Left ---*/
 
-.ui.pointing.left.label {
+.ui[class*="left pointing"].label {
   margin-top: 0em;
   margin-left: 0.6666em;
 }
 
-.ui.pointing.left.label:before {
+.ui[class*="left pointing"].label:before {
   border-width: 0px 0px 1px 1px;
-  margin-top: -0.3333em;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
   bottom: auto;
   right: auto;
   top: 50%;
@@ -12462,16 +12477,18 @@ a.ui.basic.label:hover {
 
 /*--- Right ---*/
 
-.ui.pointing.right.label {
+.ui[class*="right pointing"].label {
   margin-top: 0em;
   margin-right: 0.6666em;
 }
 
-.ui.pointing.right.label:before {
+.ui[class*="right pointing"].label:before {
   border-width: 1px 1px 0px 0px;
-  margin-top: -0.3333em;
-  right: -0.3333em;
+  -webkit-transform: translateX(50%) translateY(-50%) rotate(45deg);
+  -ms-transform: translateX(50%) translateY(-50%) rotate(45deg);
+  transform: translateX(50%) translateY(-50%) rotate(45deg);
   top: 50%;
+  right: 0%;
   bottom: auto;
   left: auto;
 }
@@ -12481,32 +12498,31 @@ a.ui.basic.label:hover {
 /*--- Above ---*/
 
 .ui.basic.pointing.label:before,
-.ui.basic.pointing.above.label:before {
-  top: calc( -0.3333em  -  1px );
+.ui.basic[class*="pointing above"].label:before {
+  margin-top: -1px;
 }
 
 /*--- Below ---*/
 
-.ui.basic.pointing.bottom.label:before,
-.ui.basic.pointing.below.label:before {
-  top: auto;
-  margin-left: calc( -0.3333em  -  1px );
-  bottom: calc( -0.3333em  -  1px );
+.ui.basic[class*="bottom pointing"].label:before,
+.ui.basic[class*="pointing below"].label:before {
+  bottom: auto;
+  top: 100%;
+  margin-top: 1px;
 }
 
 /*--- Left ---*/
 
-.ui.basic.pointing.left.label:before {
+.ui.basic[class*="left pointing"].label:before {
   top: 50%;
-  margin-top: calc( -0.3333em  -  1px );
+  left: -1px;
 }
 
 /*--- Right ---*/
 
-.ui.basic.pointing.right.label:before {
+.ui.basic[class*="right pointing"].label:before {
   top: 50%;
-  margin-top: calc( -0.3333em  -  1px );
-  right: calc( -0.3333em  -  1px );
+  right: -1px;
 }
 
 /*------------------
@@ -16322,12 +16338,12 @@ ol.ui.horizontal.list li:before,
 
 .ui.form .inline.fields .field .prompt,
 .ui.form .inline.field .prompt {
-  margin: -0.5em 0em -0.5em 1em;
+  vertical-align: top;
+  margin: -0.25em 0em -0.5em 0.5em;
 }
 
 .ui.form .inline.fields .field .prompt:before,
 .ui.form .inline.field .prompt:before {
-  margin-top: calc(-0.3em -  1px );
   border-width: 0px 0px 1px 1px;
   bottom: auto;
   right: auto;
@@ -20213,8 +20229,9 @@ Floated Menu / Item
 }
 
 .top.attached.segment + .ui.bottom.tabular.menu {
+  position: relative;
   width: calc(100% +  2px );
-  margin: 0px 0px 0px -1px;
+  left: -1px;
 }
 
 /* Bottom Vertical Tabular */

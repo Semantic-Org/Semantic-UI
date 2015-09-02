@@ -667,8 +667,9 @@ Floated Menu / Item
   width: 100%;
 }
 .top.attached.segment + .ui.bottom.tabular.menu {
+  position: relative;
   width: calc(100% +  2px );
-  margin: 0px 0px 0px -1px;
+  left: -1px;
 }
 
 /* Bottom Vertical Tabular */

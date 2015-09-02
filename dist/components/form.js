@@ -683,6 +683,7 @@ $.fn.form = function(parameters) {
 
           form: function(event) {
             var
+              values = module.get.values(),
               apiRequest
             ;
 
@@ -696,7 +697,7 @@ $.fn.form = function(parameters) {
             if( module.is.valid() ) {
               module.debug('Form has no validation errors, submitting');
               module.set.success();
-              return settings.onSuccess.call(element, event);
+              return settings.onSuccess.call(element, values);
             }
             else {
               module.debug('Form has errors');
@@ -708,7 +709,7 @@ $.fn.form = function(parameters) {
               if($module.data('moduleApi') !== undefined) {
                 event.stopImmediatePropagation();
               }
-              return settings.onFailure.call(element, formErrors);
+              return settings.onFailure.call(element, formErrors, values);
             }
           },
 
