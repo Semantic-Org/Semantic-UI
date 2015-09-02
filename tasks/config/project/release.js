@@ -15,24 +15,27 @@ var
 *******************************/
 
 try {
-
   config      = requireDotFile('semantic.json');
-  packageJSON = require('../../../package.json');
-
-  // looks for version in config or package.json (whichever is available)
-  version = (config && config.version !== undefined)
-    ? config.version
-    : packageJSON.version
-  ;
-
 }
+catch(error) {}
 
+
+try {
+  packageJSON = require('../../../package.json');
+}
 catch(error) {
   // generate fake package
   packageJSON = {
     version: 'x.x'
   };
 }
+
+// looks for version in config or package.json (whichever is available)
+version = (config && config.version !== undefined)
+  ? config.version
+  : packageJSON.version
+;
+
 
 /*******************************
              Export
@@ -56,6 +59,6 @@ module.exports = {
     + ' *' + '\n'
     + ' */' + '\n',
 
-  version    : packageJSON.version
+  version    : version
 
 };

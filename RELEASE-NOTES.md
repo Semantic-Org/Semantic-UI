@@ -52,6 +52,7 @@
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Accordion** - Added missing notation for accordion docs #2812
 - **Build Tools** - Fixes issue where component glob `{tab, table}` caused table to be included twice in concatenated source **
+- **Build Tools** - Fixed bug where `gulp version` would show `x.x` #2875 #2920
 - **Button** - Fixes inverted button missing an `active` and `active focus` state #2635
 - **Button** - Fixes issue where `basic button` would not have focus color text when colored #2264
 - **Checkbox** - Clicking a link inside an initialized checkbox `label` will now work correctly, and will not toggle the checkbox. #2804
