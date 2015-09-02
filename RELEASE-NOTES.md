@@ -35,7 +35,7 @@
 - **Dropdown** - Added `get default text` and `get placeholder text` behaviors for returning text values.
 - **Dropdown** - Pointing dropdown (dropdown with arrows) now support `upward`, and will automatically move pointer arrows when appearing upward #2733
 - **Form** - `inverted form` now remove input border, added new variables for controlling inverted form input styles
-- **GitHub Theme** - GitHub theme has been updated to use github's new button styles. Added github icon theme with port of their icon font.
+- **GitHub Theme** - Added github icon theme with port of Octicons.
 - **Label** - Added `basic` label variation, useful for item counts
 - **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
 - **Menu** - `inverted menu` now support `colored` individual items **Thanks @maturano** #2850
@@ -44,7 +44,8 @@
 - **Build Tools** - `gulp build` now correctly calls `callback`, allowing those importing tasks to chain it correctly #2836 **Thanks @artemkaint**
 - **Dropdown** - Dropdown `show` and `hide` are now cancellable by returning `false` from `onShow` or `onHide` callbacks.
 - **Flag** - England flag alias is now correctly set #2770 **Thanks @eduardom**
-- **Form Validation** - Added `number` and `decimal` validations to form **Thanks TonnyORG** #2537
+- **Form Validation** - Form `onSuccess` and `onFailure` now receive current form fields as a parameter **Thanks @guodong**
+- **Form Validation** - Added `number` and `decimal` validations to form **Thanks @TonnyORG** #2537
 - **Popup** - Popup will now look for inline popup as any next adjacent sibling #2772 **Thanks @malacalypse**
 
 #### Bugs
