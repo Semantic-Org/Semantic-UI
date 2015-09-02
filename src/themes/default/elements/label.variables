@@ -123,7 +123,7 @@
 @tagTriangleTopOffset: 50%;
 @tagTriangleSize: 1.56em;
 @tagTriangleBackgroundImage: none;
-@tagTransition: background @labelTransitionDuration @labelTransitionEasing;
+@tagTransition: none; /* Avoids error with background: inherit; on animation */
 
 /* Ribbon */
 @ribbonTriangleSize: 1.2em;
