@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.1 - Form Validation
+ * # Semantic UI 2.1.2 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -697,7 +697,7 @@ $.fn.form = function(parameters) {
             if( module.is.valid() ) {
               module.debug('Form has no validation errors, submitting');
               module.set.success();
-              return settings.onSuccess.call(element, values);
+              return settings.onSuccess.call(element, event, values);
             }
             else {
               module.debug('Form has errors');

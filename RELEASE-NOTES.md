@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 2.1.2 - Sep 02, 2015
+
+**Bugfix**
+- **Form Validation** - Fixes callbacks on `onSuccess` so as to not break backwards compatibility. #2945 #2944
+
 ### Version 2.1.1 - Sep 02, 2015
 
 **Bugfix**
