@@ -166,6 +166,7 @@
 @labeledLabelFontSize: @relativeMedium;
 @labeledLabelBorderColor: @borderColor;
 @labeledLabelBorderOffset: -@borderBoxShadowWidth;
+@labeledTagLabelSize: 1.85em; /* hypotenuse of triangle */
 
 /* Labeled Icon */
 @labeledIconWidth: 1em + (@verticalPadding * 2);

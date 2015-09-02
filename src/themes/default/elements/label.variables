@@ -228,12 +228,11 @@
 @pointingTriangleSize: 0.6666em;
 @pointingHorizontalDistance: @pointingTriangleSize;
 
-@pointingTriangleOffset: -@pointingTriangleSize / 2;
 @pointingTriangleTransition: background @labelTransitionDuration @labelTransitionEasing;
 @pointingTriangleZIndex: 2;
 
 /* Basic Pointing */
-@basicPointingTriangleOffset: ~"calc("(-@pointingTriangleSize / 2)~" - "@pointingBorderWidth~")";
+@basicPointingTriangleOffset: -@pointingBorderWidth;
 
 /* Floating */
 @floatingTopOffset: -1em;

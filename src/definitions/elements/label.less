@@ -1132,8 +1132,8 @@ a.ui.basic.label:hover {
 .ui.pointing.label:before,
 .ui.pointing.above.label:before {
   border-width: @borderWidth 0px 0px @borderWidth;
-  margin-left: @pointingTriangleOffset;
-  top: @pointingTriangleOffset;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  top: 0%;
   left: 50%;
 }
 /*--- Below ---*/
@@ -1145,10 +1145,10 @@ a.ui.basic.label:hover {
 .ui.pointing.bottom.label:before,
 .ui.pointing.below.label:before {
   border-width: 0px @borderWidth @borderWidth 0px;
-  margin-left: @pointingTriangleOffset;
   top: auto;
   right: auto;
-  bottom: @pointingTriangleOffset;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  top: 100%;
   left: 50%;
 }
 /*--- Left ---*/
@@ -1158,7 +1158,7 @@ a.ui.basic.label:hover {
 }
 .ui.pointing.left.label:before {
   border-width: 0px 0px @borderWidth @borderWidth;
-  margin-top: @pointingTriangleOffset;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
   bottom: auto;
   right: auto;
   top: 50%;
@@ -1171,9 +1171,9 @@ a.ui.basic.label:hover {
 }
 .ui.pointing.right.label:before {
   border-width: @borderWidth @borderWidth 0px 0px;
-  margin-top: @pointingTriangleOffset;
-  right: @pointingTriangleOffset;
+  transform: translateX(50%) translateY(-50%) rotate(45deg);
   top: 50%;
+  right: 0%;
   bottom: auto;
   left: auto;
 }
@@ -1184,24 +1184,23 @@ a.ui.basic.label:hover {
 
 .ui.basic.pointing.label:before,
 .ui.basic.pointing.above.label:before {
-  top: @basicPointingTriangleOffset;
+  margin-top: @basicPointingTriangleOffset;
 }
 /*--- Below ---*/
 .ui.basic.pointing.bottom.label:before,
 .ui.basic.pointing.below.label:before {
-  top: auto;
-  margin-left: @basicPointingTriangleOffset;
-  bottom: @basicPointingTriangleOffset;
+  bottom: auto;
+  top: 100%;
+  margin-top: -@basicPointingTriangleOffset;
 }
 /*--- Left ---*/
 .ui.basic.pointing.left.label:before {
   top: 50%;
-  margin-top: @basicPointingTriangleOffset;
+  left: @basicPointingTriangleOffset;
 }
 /*--- Right ---*/
 .ui.basic.pointing.right.label:before {
   top: 50%;
-  margin-top: @basicPointingTriangleOffset;
   right: @basicPointingTriangleOffset;
 }
 

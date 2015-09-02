@@ -395,11 +395,17 @@
 .ui.labeled.button > .label {
   display: flex;
   align-items: @labeledLabelAlign;
-  margin: 0px 0px 0px @labeledLabelBorderOffset;
+  margin: 0px 0px 0px @labeledLabelBorderOffset !important;
   font-size: @labeledLabelFontSize;
   padding: @labeledLabelPadding;
   font-size: @labeledLabelFontSize;
   border-color: @labeledLabelBorderColor;
+}
+
+/* Tag */
+.ui.labeled.button > .tag.label:before {
+  width: @labeledTagLabelSize;
+  height: @labeledTagLabelSize;
 }
 
 /* Right */
