@@ -696,7 +696,7 @@ $.fn.form = function(parameters) {
             if( module.is.valid() ) {
               module.debug('Form has no validation errors, submitting');
               module.set.success();
-              return settings.onSuccess.call(element, event);
+              return settings.onSuccess.call(element, module.get.values(), event);
             }
             else {
               module.debug('Form has errors');
