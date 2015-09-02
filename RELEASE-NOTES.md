@@ -2,101 +2,101 @@
 
 ### Version 2.1.0 - Sep 02, 2015
 
-#### Features
+!!!! Features
 
 **New Features**
 
-- **API** - Added `encodeParameters` option to enable/disable parameters being encoded with `encodeURIComponent` #2752
-- **API** Added new setting `hideError`, defaults to `auto` (will automatically hide error for elements that are not forms). #2586
+- **API** - Added `encodeParameters` option to enable/disable parameters being encoded with `encodeURIComponent` [#2752](https://github.com/Semantic-Org/Semantic-UI/issues/2752)
+- **API** Added new setting `hideError`, defaults to `auto` (will automatically hide error for elements that are not forms). [#2586](https://github.com/Semantic-Org/Semantic-UI/issues/2586)
 - **Build Tools** - Packaged `.overrides` file are now an optional include
-- **Button** - Added `labeled button` variation for display a count next to a button.
 - **Button** - `colored basic` button are now colored before `:hover` in the default theme, this is more in line with common usage across other websites.
-- **Checkbox** - Added 4 new callbacks `beforeChecked`, `beforeUnchecked`, `beforeDeterminate`, `beforeIndeterminate`. You can now cancel a state change by returning false from these callbacks.
+- **Button** - Added `labeled button` variation for display a count next to a button.
 - **Cards** - Added documentation for `stackable` cards which was available but undocumented in previous versions.
-- **Divider** - Vertical divider can now be used multiple times in a single column row (not just 50/50 split). #2808
-- **Dropdown** - Dropdown with user additions now will use custom templated messages to distinguish added choice from preselected choice #2923
-- **Dropdown** - Dropdown will now automatically update selected values when hidden input value changes (so long as `change` event is triggered) #2626
+- **Checkbox** - Added 4 new callbacks `beforeChecked`, `beforeUnchecked`, `beforeDeterminate`, `beforeIndeterminate`. You can now cancel a state change by returning false from these callbacks.
+- **Divider** - Vertical divider can now be used multiple times in a single column row (not just 50/50 split). [#2808](https://github.com/Semantic-Org/Semantic-UI/issues/2808)
 - **Dropdown**  - Dropdown using remote data, can now customize the property names returned by api call using `fields` (similar to search).
-- **Form Validation** - Added credit card validation, supports array of card types, and international cards including non luhn cards like China UnionPay #2729
+- **Dropdown** - Dropdown will now automatically update selected values when hidden input value changes (so long as `change` event is triggered) [#2626](https://github.com/Semantic-Org/Semantic-UI/issues/2626)
+- **Dropdown** - Dropdown with user additions now will use custom templated messages to distinguish added choice from preselected choice [#2923](https://github.com/Semantic-Org/Semantic-UI/issues/2923)
+- **Form Validation** - Added credit card validation, supports array of card types, and international cards including non luhn cards like China UnionPay [#2729](https://github.com/Semantic-Org/Semantic-UI/issues/2729)
 - **Form Validation** - Updated appearance of form validation prompts to use a more lightweight style. Added variables for controlling error validation prompt styles in `form.variables`
-- **Grid** - Added new responsive [`reversed`](http://www.semantic-ui.com/collections/grid.html#responsive-order) variations for reversing column order, these are also compatible with other grid types like `divided` and `celled` by device #2685
+- **Grid** - Added new responsive [`reversed`](http://www.semantic-ui.com/collections/grid.html#responsive-order) variations for reversing column order, these are also compatible with other grid types like `divided` and `celled` by device [#2685](https://github.com/Semantic-Org/Semantic-UI/issues/2685)
 - **Icon** - Added `fitted` icon variation, and new small sizes `tiny` and `mini`
-- **Input** - Added `disabled` state for inputs #2694
-- **Input** - Added ability for labeled input to be attached to both sides #2922 **Thanks @maturano**
+- **Input** - Added `disabled` state for inputs [#2694](https://github.com/Semantic-Org/Semantic-UI/issues/2694)
+- **Input** - Added ability for labeled input to be attached to both sides [#2922 **Thanks @maturano**](https://github.com/Semantic-Org/Semantic-UI/issues/no**)
 - **Label** - Added a new  `basic label` style, works symbiotically with other label types to provide a more lightweight style label
 - **Menu** - Added new `tabular` menu types, `right tabular`, `bottom tabular`, added many new `tabular` menu variables for customizing
 - **Menu** - Appearance of `labeled icon menu` has been modified. Horizontal menus now have icons above text, and icons are slightly larger than before.
-- **Search** - Search now can use any server response mapping, use the `fields` parameter to pass in a mapping of server response to content **thanks @anibalmf1** #2645
+- **Search** - Search now can use any server response mapping, use the `fields` parameter to pass in a mapping of server response to content **thanks @anibalmf1** [#2645](https://github.com/Semantic-Org/Semantic-UI/issues/2645)
 - **Site** - Added global variable `@focusedFormBorderColor` for controlling form focus border color
 - **Table** - New `fixed` table variation added for use with `table-layout: fixed;`. This also supports "..." ellipsis when used with `single line` content
 
 **[Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**\
 - **Breadcrumb** - Breadcrumb no longer receives vertical spacing by default. This may often cause vertical alignment issues when displayed next to other `inline-block` content.
 - **Dropdown** - Added `get default text` and `get placeholder text` behaviors for returning text values.
-- **Dropdown** - Pointing dropdown (dropdown with arrows) now support `upward`, and will automatically move pointer arrows when appearing upward #2733
+- **Dropdown** - Pointing dropdown (dropdown with arrows) now support `upward`, and will automatically move pointer arrows when appearing upward [#2733](https://github.com/Semantic-Org/Semantic-UI/issues/2733)
 - **Form** - `inverted form` now remove input border, added new variables for controlling inverted form input styles
 - **GitHub Theme** - Added github icon theme with port of Octicons.
 - **Label** - Added `basic` label variation, useful for item counts
+- **Menu** - `inverted menu` now support `colored` individual items **Thanks @maturano** [#2850](https://github.com/Semantic-Org/Semantic-UI/issues/2850)
 - **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
-- **Menu** - `inverted menu` now support `colored` individual items **Thanks @maturano** #2850
 
 **[Community Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
-- **Build Tools** - `gulp build` now correctly calls `callback`, allowing those importing tasks to chain it correctly #2836 **Thanks @artemkaint**
+- **Build Tools** - `gulp build` now correctly calls `callback`, allowing those importing tasks to chain it correctly [#2836 **Thanks @artemkaint**](https://github.com/Semantic-Org/Semantic-UI/issues/nt**)
 - **Dropdown** - Dropdown `show` and `hide` are now cancellable by returning `false` from `onShow` or `onHide` callbacks.
-- **Flag** - England flag alias is now correctly set #2770 **Thanks @eduardom**
+- **Flag** - England flag alias is now correctly set [#2770 **Thanks @eduardom**](https://github.com/Semantic-Org/Semantic-UI/issues/om**)
+- **Form Validation** - Added `number` and `decimal` validations to form **Thanks @TonnyORG** [#2537](https://github.com/Semantic-Org/Semantic-UI/issues/2537)
 - **Form Validation** - Form `onSuccess` and `onFailure` now receive current form fields as a parameter **Thanks @guodong**
-- **Form Validation** - Added `number` and `decimal` validations to form **Thanks @TonnyORG** #2537
-- **Popup** - Popup will now look for inline popup as any next adjacent sibling #2772 **Thanks @malacalypse**
+- **Popup** - Popup will now look for inline popup as any next adjacent sibling [#2772 **Thanks @malacalypse**](https://github.com/Semantic-Org/Semantic-UI/issues/se**)
 
-#### Bugs
+!!!! Bugs
 **[Reported Bugs](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
-- **Accordion** - Added missing notation for accordion docs #2812
+- **Accordion** - Added missing notation for accordion docs [#2812](https://github.com/Semantic-Org/Semantic-UI/issues/2812)
+- **Build Tools** - Fixed bug where `gulp version` would show `x.x` [#2875 [#2920](https://github.com/Semantic-Org/Semantic-UI/issues/2920)
 - **Build Tools** - Fixes issue where component glob `{tab, table}` caused table to be included twice in concatenated source **
-- **Build Tools** - Fixed bug where `gulp version` would show `x.x` #2875 #2920
-- **Button** - Fixes inverted button missing an `active` and `active focus` state #2635
-- **Button** - Fixes issue where `basic button` would not have focus color text when colored #2264
-- **Checkbox** - Clicking a link inside an initialized checkbox `label` will now work correctly, and will not toggle the checkbox. #2804
+- **Button** - Fixes inverted button missing an `active` and `active focus` state [#2635](https://github.com/Semantic-Org/Semantic-UI/issues/2635)
+- **Button** - Fixes issue where `basic button` would not have focus color text when colored [#2264](https://github.com/Semantic-Org/Semantic-UI/issues/2264)
+- **Checkbox** - Clicking a link inside an initialized checkbox `label` will now work correctly, and will not toggle the checkbox. [#2804](https://github.com/Semantic-Org/Semantic-UI/issues/2804)
 - **Container** - Fix issue with `fluid container` being `100% + gutter` at mobile resolution (causing overflow)
-- **Dropdown** - `forceSelection` no longer sets current value in search selection when current query is blank #2058
+- **Dropdown** - `forceSelection` no longer sets current value in search selection when current query is blank [#2058](https://github.com/Semantic-Org/Semantic-UI/issues/2058)
 - **Dropdown** - Dropdown `@arrowSize` will now automatically reposition itself if size is changed with variable
-- **Dropdown** - Fixed error where menu would disappear when entering spaced words using `allowAdditions: true` caused by value matching its own whitespace-trimed value #2853
 - **Dropdown** - Dropdown arrow now has a variable `@dropdownArrowSize`, and is slightly smaller than previously
-- **Dropdown** - Fix `left menu` inside `ui menu` appearing horizontally #2778
-- **Dropdown** - Fixed issue where "no results" message would be still be visible before search query on input focus #2824
-- **Dropdown** - Fixed issue where `onChange` would not fire when using `action: 'hide'`. #2818
-- **Dropdown** - Fixed issue where selected item would not be shown when being re-shown after filtering with single search selection #2824
-- **Dropdown** - Fixes issues with setting "" (empty quote) values when `placeholder: false` is used. Fixes issues with using `clear` and `restore defaults` without placeholders. #2637
-- **Dropdown** - Remove use of `trim` which causes issues IE 11 and below #2806
-- **Embed** - Remove accidental `console.log` statements in js #2760
-- **Form / Input** - Fixes issue where `ui input` would sometimes collapse to `0px` width, especially when used inside an `inline field` #2705 #2621 #2821
-- **Form** - `disabled field(s)` now remove `pointer-events` allowing it to disable checkbox and dropdown functionality  #555
-- **Form / Input** - Fixes `::placeholder` text color for `ui error input`, modifies form error placeholder color to distinguish from form value error color #2786
+- **Dropdown** - Fix `left menu` inside `ui menu` appearing horizontally [#2778](https://github.com/Semantic-Org/Semantic-UI/issues/2778)
+- **Dropdown** - Fixed error where menu would disappear when entering spaced words using `allowAdditions: true` caused by value matching its own whitespace-trimed value [#2853](https://github.com/Semantic-Org/Semantic-UI/issues/2853)
+- **Dropdown** - Fixed issue where "no results" message would be still be visible before search query on input focus [#2824](https://github.com/Semantic-Org/Semantic-UI/issues/2824)
+- **Dropdown** - Fixed issue where `onChange` would not fire when using `action: 'hide'`. [#2818](https://github.com/Semantic-Org/Semantic-UI/issues/2818)
+- **Dropdown** - Fixed issue where selected item would not be shown when being re-shown after filtering with single search selection [#2824](https://github.com/Semantic-Org/Semantic-UI/issues/2824)
+- **Dropdown** - Fixes issues with setting "" (empty quote) values when `placeholder: false` is used. Fixes issues with using `clear` and `restore defaults` without placeholders. [#2637](https://github.com/Semantic-Org/Semantic-UI/issues/2637)
+- **Dropdown** - Remove use of `trim` which causes issues IE 11 and below [#2806](https://github.com/Semantic-Org/Semantic-UI/issues/2806)
+- **Embed** - Remove accidental `console.log` statements in js [#2760](https://github.com/Semantic-Org/Semantic-UI/issues/2760)
+- **Form / Input** - Fixes `::placeholder` text color for `ui error input`, modifies form error placeholder color to distinguish from form value error color [#2786](https://github.com/Semantic-Org/Semantic-UI/issues/2786)
+- **Form / Input** - Fixes issue where `ui input` would sometimes collapse to `0px` width, especially when used inside an `inline field` [#2705 [#2621 [#2821](https://github.com/Semantic-Org/Semantic-UI/issues/2821)
+- **Form** - `disabled field(s)` now remove `pointer-events` allowing it to disable checkbox and dropdown functionality  [#555](https://github.com/Semantic-Org/Semantic-UI/issues/#555)
+- **Form** - Date input and other special input in chrome now are the same height as normal input (adds custom vendor shadow dom styling) [#2704](https://github.com/Semantic-Org/Semantic-UI/issues/2704)
 - **Form** - Form will no longer show messages that are empty in `error`, `warning`, or `success` state.
-- **Form** - Date input and other special input in chrome now are the same height as normal input (adds custom vendor shadow dom styling) #2704
 - **Grid** - Fixed issue where `relaxed stackable grid` would have incorrect margin on mobile width
 - **Grid** - Fixed issue where nested `stackable grid` would have incorrect margin on mobile.
-- **Header** - Fixed `attached header` to have the correct bottom border on `top attached` and `attached` variations. #2798
-- **Icon** - Fixed typo in cube icon alias caused by bad grep #2765
-- **Input** - Fixed issue with appearance of `left corner labeled left icon input` #2782
-- **Item** - Fixed `bottom aligned` not working in item due to incorrect flex value #2826
+- **Header** - Fixed `attached header` to have the correct bottom border on `top attached` and `attached` variations. [#2798](https://github.com/Semantic-Org/Semantic-UI/issues/2798)
+- **Icon** - Fixed typo in cube icon alias caused by bad grep [#2765](https://github.com/Semantic-Org/Semantic-UI/issues/2765)
+- **Input** - Fixed issue with appearance of `left corner labeled left icon input` [#2782](https://github.com/Semantic-Org/Semantic-UI/issues/2782)
+- **Item** - Fixed `bottom aligned` not working in item due to incorrect flex value [#2826](https://github.com/Semantic-Org/Semantic-UI/issues/2826)
 - **List** - Lists can now be `right floated` or `left floated`
-- **Menu** - Fixed `(x) column` nested grid with alignment stacking vertically (wrong flex-direction) #2810
-- **Menu** - Sub menus now work correctly and are correctly spaced inside `secondary menu` and text menu` #2862
-- **Modal** - Fix autofocus setting in modal not working due to improper selector #2737
-- **Modal** - Increased `close` specificity, modal will now only close on `> .close` #2736
-- **Popup** - Fixes issue where variation would not be added to a pre-existing popup even if specified in javascript #26011
-- **Transition** - Transition callbacks now all have the correct `this` set. #2758
-- **Search** - Calling `.search('show results')` no longer fails when input is not focused #2842
-- **Table/Label** - `ribbon labels` will now automatically position themselves when used inside a table #1930
+- **Menu** - Fixed `(x) column` nested grid with alignment stacking vertically (wrong flex-direction) [#2810](https://github.com/Semantic-Org/Semantic-UI/issues/2810)
+- **Menu** - Sub menus now work correctly and are correctly spaced inside `secondary menu` and text menu` [#2862](https://github.com/Semantic-Org/Semantic-UI/issues/2862)
+- **Modal** - Fix autofocus setting in modal not working due to improper selector [#2737](https://github.com/Semantic-Org/Semantic-UI/issues/2737)
+- **Modal** - Increased `close` specificity, modal will now only close on `> .close` [#2736](https://github.com/Semantic-Org/Semantic-UI/issues/2736)
+- **Popup** - Fixes issue where variation would not be added to a pre-existing popup even if specified in javascript [#26011](https://github.com/Semantic-Org/Semantic-UI/issues/6011)
+- **Search** - Calling `.search('show results')` no longer fails when input is not focused [#2842](https://github.com/Semantic-Org/Semantic-UI/issues/2842)
+- **Table/Label** - `ribbon labels` will now automatically position themselves when used inside a table [#1930](https://github.com/Semantic-Org/Semantic-UI/issues/1930)
+- **Transition** - Transition callbacks now all have the correct `this` set. [#2758](https://github.com/Semantic-Org/Semantic-UI/issues/2758)
 
 **[Community Bug Fixes](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
-- **API** - API debug is now `false` by default, like other modules. #2817
-- **Dropdown** - Fixed issue where label could not be removed when using a numeric value due to mismatched types #2754 #2755 **Thanks @dgurkaynak**
+- **API** - API debug is now `false` by default, like other modules. [#2817](https://github.com/Semantic-Org/Semantic-UI/issues/2817)
+- **Build Tools** - Removed octal literals from install scripts (for color escaping), and uses of future ECMAScript reserved words [#2838 [#2839 **Thanks @artemkaint**](https://github.com/Semantic-Org/Semantic-UI/issues/nt**)
+- **Dropdown** - Fixed issue where label could not be removed when using a numeric value due to mismatched types [#2754 [#2755 **Thanks @dgurkaynak**](https://github.com/Semantic-Org/Semantic-UI/issues/ak**)
 - **Menu** - Fixes tabular menu missing variable for background. **Thanks @frontdevde**
-- **Sticky** - Sticky now sets width and height with `!important` to avoid inheritance issues in some cases **Thanks @lauri-elevant** #2710
-- **Step** - Fixed issue with display of step groups with only one step having incorrect border radius **Thanks @elliotisonfire** #2869
-- **Build Tools** - Removed octal literals from install scripts (for color escaping), and uses of future ECMAScript reserved words #2838 #2839 **Thanks @artemkaint**
-- **Tab** - Fixed issue where simple path would be tested before full path, i.e. `first/` vs `/second/first/` causing tab to not open in some cases **Thanks @habibutsu** #2843
+- **Step** - Fixed issue with display of step groups with only one step having incorrect border radius **Thanks @elliotisonfire** [#2869](https://github.com/Semantic-Org/Semantic-UI/issues/2869)
+- **Sticky** - Sticky now sets width and height with `!important` to avoid inheritance issues in some cases **Thanks @lauri-elevant** [#2710](https://github.com/Semantic-Org/Semantic-UI/issues/2710)
+- **Tab** - Fixed issue where simple path would be tested before full path, i.e. `first/` vs `/second/first/` causing tab to not open in some cases **Thanks @habibutsu** [#2843](https://github.com/Semantic-Org/Semantic-UI/issues/2843)
 
 **Additional Bugs**
 - **API** - API now will use automatically use `form` action if no api event is specified now  when form is `stateContext` but not intialized element
