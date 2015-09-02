@@ -45,6 +45,7 @@
     "gulp-watch": "*",
     "map-stream": "*",
     "require-dot-file": "*",
+    "run-sequence": "*",
     "yamljs": "*"
   },
   "dependencies": {
