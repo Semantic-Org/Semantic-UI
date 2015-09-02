@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 2.1.1 - Sep 02, 2015
+
+**Bugfix**
+- **Build Tools** - Fixes issue with comment banner incorrectly showing version `2.0.7` in `dist/`
+
 ### Version 2.1.0 - Sep 02, 2015
 
 #### Features
