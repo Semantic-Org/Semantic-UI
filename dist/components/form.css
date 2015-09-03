@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.2 - Form
+ * # Semantic UI 2.1.3 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -198,16 +198,26 @@
 
 
 /* Block */
+.ui.form .field .ui.input,
 .ui.form .fields .field .ui.input,
 .ui.form .wide.field .ui.input {
   width: 100%;
 }
+
+/* Inline  */
+.ui.form .inline.fields .field:not(.wide) .ui.input,
+.ui.form .inline.field:not(.wide) .ui.input {
+  width: auto;
+  vertical-align: middle;
+}
+
+/* Auto Input */
 .ui.form .fields .field .ui.input input,
 .ui.form .field .ui.input input {
   width: auto;
 }
 
-/* Full Width */
+/* Full Width Input */
 .ui.form .ten.fields .ui.input input,
 .ui.form .nine.fields .ui.input input,
 .ui.form .eight.fields .ui.input input,
@@ -223,12 +233,6 @@
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
   width: 0px;
-}
-
-/* Inline */
-.ui.form .inline.fields .field:not(.wide) .ui.input,
-.ui.form .inline.field:not(.wide) .ui.input {
-  width: 100%;
 }
 
 /*--------------------
