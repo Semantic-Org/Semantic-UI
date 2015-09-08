@@ -321,6 +321,10 @@ $.fn.dropdown = function(parameters) {
               if($input.is('[multiple]')) {
                 module.set.multiple();
               }
+              if ($input.prop('disabled')) {
+                module.debug('Disabling dropdown')
+                $module.addClass(className.disabled)
+              }
               $input
                 .removeAttr('class')
                 .detach()
