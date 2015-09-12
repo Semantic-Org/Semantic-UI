@@ -52,7 +52,6 @@
 @iconVerticalAlign: '';
 
 @iconMargin: 0em @iconDistance 0em -(@iconDistance / 2);
-@rightIconMargin: 0em -(@iconDistance / 2) 0em @iconDistance;
 
 /* Loader */
 @invertedLoaderFillColor: rgba(0, 0, 0, 0.15);
