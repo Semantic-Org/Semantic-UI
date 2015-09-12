@@ -1,5 +1,14 @@
 ## RELEASE NOTES
 
+### Version 2.1.4 - Sep 12, 2015
+
+**Critical Bugfixes**
+- **Build** - Fixed issue where using a packaged theme without a `site.variables` would cause build to fail
+
+**Bugfixes**
+- **Table** - Fixed issue where `(x) column segment table` was inheriting accidentally inheriting some grid styles
+
+
 ### Version 2.1.3 - Sep 03, 2015
 
 **Bugfixes**
