@@ -155,15 +155,15 @@
   box-shadow: @focusBoxShadow;
 }
 .ui.input.focus input::-webkit-input-placeholder,
-.ui.input input:focus input::-webkit-input-placeholder {
+.ui.input input:focus::-webkit-input-placeholder {
   color: @placeholderFocusColor;
 }
 .ui.input.focus input::-moz-placeholder,
-.ui.input input:focus input::-moz-placeholder {
+.ui.input input:focus::-moz-placeholder {
   color: @placeholderFocusColor;
 }
 .ui.input.focus input::-ms-input-placeholder,
-.ui.input input:focus input::-ms-input-placeholder {
+.ui.input input:focus::-ms-input-placeholder {
   color: @placeholderFocusColor;
 }
 
@@ -344,9 +344,9 @@
 
 /* Regular Label on Right */
 .ui[class*="right labeled"].input input {
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border-right-color: transparent;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  border-right-color: transparent !important;
 }
 .ui[class*="right labeled"].input input + .label {
   border-top-left-radius: 0px;
@@ -354,7 +354,7 @@
 }
 
 .ui[class*="right labeled"].input input:focus {
-  border-right-color: @focusBorderColor;
+  border-right-color: @focusBorderColor !important;
 }
 
 /* Corner Label */
@@ -419,6 +419,7 @@
 .ui.action.input:not([class*="left action"]) > input {
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
+  border-right-color: transparent !important;
 }
 .ui.action.input:not([class*="left action"]) > .dropdown,
 .ui.action.input:not([class*="left action"]) > .button,
@@ -431,10 +432,16 @@
   border-radius: 0px @borderRadius @borderRadius 0px;
 }
 
+/* Input Focus */
+.ui.action.input:not([class*="left action"]) input:focus {
+  border-right-color: @focusBorderColor !important;
+}
+
 /* Button on Left */
 .ui[class*="left action"].input > input {
   border-top-left-radius: 0px !important;
   border-bottom-left-radius: 0px !important;
+  border-left-color: transparent !important;
 }
 .ui[class*="left action"].input > .dropdown,
 .ui[class*="left action"].input > .button,
@@ -445,6 +452,10 @@
 .ui[class*="left action"].input > .button:first-child,
 .ui[class*="left action"].input > .buttons:first-child > .button {
   border-radius: @borderRadius 0px 0px @borderRadius;
+}
+/* Input Focus */
+.ui[class*="left action"].input > input:focus {
+  border-left-color: @focusBorderColor !important;
 }
 
 /*--------------------

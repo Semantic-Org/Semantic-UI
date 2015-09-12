@@ -3309,9 +3309,9 @@ $.fn.dropdown.settings = {
 
   // property names for remote query
   fields: {
-    values : 'values',
-    name   : 'name',
-    value  : 'value'
+    values : 'values', // grouping for all dropdown values
+    name   : 'name',   // displayed dropdown text
+    value  : 'value'   // actual dropdown value
   },
 
   selector : {

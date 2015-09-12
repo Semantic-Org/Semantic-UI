@@ -1,10 +1,28 @@
 ## RELEASE NOTES
 
+### Version 2.1.3 - Sep 03, 2015
+
+**Bugfixes**
+- **Embed** - Fixes issue with `?=` appearing before parameters instead of `?` [#2956](https://github.com/Semantic-Org/Semantic-UI/issues/2956) **Thanks @AgentShark**
+- **Input** - Fixes regression where `ui icon input` inside forms were not correct width [#2953](https://github.com/Semantic-Org/Semantic-UI/issues/2953)
+- **Input** - Fixes typo in focused placeholder text color preventing the value from being used [#2939](https://github.com/Semantic-Org/Semantic-UI/issues/2939)
+- **Input** - `action input` now correctly show focused border on button side, and avoids duplicating borders
+
+### Version 2.1.2 - Sep 02, 2015
+
+**Bugfix**
+- **Form Validation** - Fixes callbacks on `onSuccess` so as to not break backwards compatibility. #2945 #2944
+
+### Version 2.1.1 - Sep 02, 2015
+
+**Bugfix**
+- **Build Tools** - Fixes [issue](https://github.com/Semantic-Org/Semantic-UI/commit/3d20d5e9796e05cc100af73370173f3383cf1d81) causing comment banner to incorrectly show version `2.0.7` in `dist/`
+
 ### Version 2.1.0 - Sep 02, 2015
 
 #### Features
 
-**New Features**
+**New UI Features**
 
 - **API** - Added `encodeParameters` option to enable/disable parameters being encoded with `encodeURIComponent` [#2752](https://github.com/Semantic-Org/Semantic-UI/issues/2752)
 - **API** Added new setting `hideError`, defaults to `auto` (will automatically hide error for elements that are not forms). [#2586](https://github.com/Semantic-Org/Semantic-UI/issues/2586)
@@ -30,7 +48,7 @@
 - **Site** - Added global variable `@focusedFormBorderColor` for controlling form focus border color
 - **Table** - New `fixed` table variation added for use with `table-layout: fixed;`. This also supports "..." ellipsis when used with `single line` content
 
-**[Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+**[Additional Features](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Breadcrumb** - Breadcrumb no longer receives vertical spacing by default. This may often cause vertical alignment issues when displayed next to other `inline-block` content.
 - **Dropdown** - Added `get default text` and `get placeholder text` behaviors for returning text values.
 - **Dropdown** - Pointing dropdown (dropdown with arrows) now support `upward`, and will automatically move pointer arrows when appearing upward [#2733](https://github.com/Semantic-Org/Semantic-UI/issues/2733)
@@ -40,7 +58,7 @@
 - **Menu** - `inverted menu` now support `colored` individual items **Thanks @maturano** [#2850](https://github.com/Semantic-Org/Semantic-UI/issues/2850)
 - **Menu** - `text menu` now uses padding for hitboxes to make target area for links larger
 
-**[Community Enhancements](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
+**[Community Added Features](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.0+is%3Aclosed)**
 - **Build Tools** - `gulp build` now correctly calls `callback`, allowing those importing tasks to chain it correctly [#2836 **Thanks @artemkaint**](https://github.com/Semantic-Org/Semantic-UI/issues/nt**)
 - **Dropdown** - Dropdown `show` and `hide` are now cancellable by returning `false` from `onShow` or `onHide` callbacks.
 - **Flag** - England flag alias is now correctly set [#2770 **Thanks @eduardom**](https://github.com/Semantic-Org/Semantic-UI/issues/om**)
