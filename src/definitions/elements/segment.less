@@ -86,7 +86,8 @@
 
 /* Grid */
 .ui.page.grid.segment,
-.ui.grid .ui.segment.column {
+.ui.grid > .row > .ui.segment.column,
+.ui.grid > .ui.segment.column {
   padding-top: @pageGridMargin;
   padding-bottom: @pageGridMargin;
 }
