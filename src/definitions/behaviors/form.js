@@ -367,10 +367,9 @@ $.fn.form = function(parameters) {
             }
             if(requiresName) {
               $label = $field.closest(selector.group).find('label').eq(0);
-              console.log($field, $field.closest(selector.group));
               name = ($label.size() == 1)
                 ? $label.text()
-                : settings.text.unspecifiedField
+                : $field.prop('placeholder') || settings.text.unspecifiedField
               ;
               prompt = prompt.replace('{name}', name);
             }
