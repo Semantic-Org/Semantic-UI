@@ -30,6 +30,7 @@ $('.ui.form')
 - **Dropdown** - Fixed issue with ',' key not being allowed in dropdown due to user tagging shortcut key #3016
 - **Message** - `ui list` used inside `ui message` now aligns properly in all conditions #2958
 - **Form Validation** - Validation messages in `error message` group are now correctly removed when invalid field revalidates on blur
+- **Label** - Labels no longer force single line using `word-wrap: nowrap` #3006
 - **Table** - Fixed issue where `(x) column segment table` was inheriting accidentally inheriting some grid styles
 - **Grid** - Fixed `middle aligned grid` not applying to columns #2959
 - **Menu** - Fixed issue where `right menu` was not floating correctly inside a `menu > container` on mobile #2969
