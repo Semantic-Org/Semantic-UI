@@ -234,7 +234,7 @@ $.fn.form = function(parameters) {
             ;
             module.verbose('Checking if form is valid');
             $.each(validation, function(fieldName, field) {
-              if( !( module.validate.field(field) ) ) {
+              if( !( module.validate.field(field, fieldName) ) ) {
                 allValid = false;
               }
             });
@@ -433,17 +433,20 @@ $.fn.form = function(parameters) {
           },
           validation: function($field) {
             var
-              rules
+              fieldValidation,
+              identifier
             ;
             if(!validation) {
               return false;
             }
             $.each(validation, function(fieldName, field) {
-              if( module.get.field(field.identifier)[0] == $field[0] ) {
-                rules = field;
+              identifier = field.identifier || fieldName;
+              if( module.get.field(identifier)[0] == $field[0] ) {
+                field.identifier = identifier;
+                fieldValidation = field;
               }
             });
-            return rules || false;
+            return fieldValidation || false;
           },
           value: function (field) {
             var
@@ -590,9 +593,9 @@ $.fn.form = function(parameters) {
         },
 
         remove: {
-          prompt: function(field) {
+          prompt: function(identifier) {
             var
-              $field      = module.get.field(field.identifier),
+              $field      = module.get.field(identifier),
               $fieldGroup = $field.closest($group),
               $prompt     = $fieldGroup.children(selector.prompt)
             ;
@@ -600,7 +603,7 @@ $.fn.form = function(parameters) {
               .removeClass(className.error)
             ;
             if(settings.inline && $prompt.is(':visible')) {
-              module.verbose('Removing prompt for field', field);
+              module.verbose('Removing prompt for field', identifier);
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 $prompt.transition(settings.transition + ' out', settings.duration, function() {
                   $prompt.remove();
@@ -746,36 +749,41 @@ $.fn.form = function(parameters) {
           },
 
           // takes a validation object and returns whether field passes validation
-          field: function(field) {
+          field: function(field, fieldName) {
             var
-              $field      = module.get.field(field.identifier),
+              identifier  = field.identifier || fieldName,
+              $field      = module.get.field(identifier),
               fieldValid  = true,
               fieldErrors = []
             ;
+            if(!field.identifier) {
+              module.debug('Using field name as identifier', identifier);
+              field.identifier = identifier;
+            }
             if($field.prop('disabled')) {
-              module.debug('Field is disabled. Skipping', field.identifier);
+              module.debug('Field is disabled. Skipping', identifier);
               fieldValid = true;
             }
             else if(field.optional && $.trim($field.val()) === ''){
-              module.debug('Field is optional and empty. Skipping', field.identifier);
+              module.debug('Field is optional and empty. Skipping', identifier);
               fieldValid = true;
             }
             else if(field.rules !== undefined) {
               $.each(field.rules, function(index, rule) {
-                if( module.has.field(field.identifier) && !( module.validate.rule(field, rule) ) ) {
-                  module.debug('Field is invalid', field.identifier, rule.type);
+                if( module.has.field(identifier) && !( module.validate.rule(field, rule) ) ) {
+                  module.debug('Field is invalid', identifier, rule.type);
                   fieldErrors.push(module.get.prompt(rule));
                   fieldValid = false;
                 }
               });
             }
             if(fieldValid) {
-              module.remove.prompt(field, fieldErrors);
+              module.remove.prompt(identifier, fieldErrors);
               settings.onValid.call($field);
             }
             else {
               formErrors = formErrors.concat(fieldErrors);
-              module.add.prompt(field.identifier, fieldErrors);
+              module.add.prompt(identifier, fieldErrors);
               settings.onInvalid.call($field, fieldErrors);
               return false;
             }
