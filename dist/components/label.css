@@ -16,7 +16,6 @@
 
 .ui.label {
   display: inline-block;
-  white-space: nowrap;
   line-height: 1;
   vertical-align: baseline;
   margin: 0em 0.14285714em;

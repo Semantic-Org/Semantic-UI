@@ -5261,6 +5261,7 @@ $.fn.dropdown = function(parameters) {
                 hasSubMenu           = ($subMenu.length> 0),
                 hasSelectedItem      = ($selectedItem.length > 0),
                 selectedIsSelectable = ($selectedItem.not(selector.unselectable).length > 0),
+                delimiterPressed     = (pressedKey == keys.delimiter && settings.allowAdditions && module.is.multiple()),
                 $nextItem,
                 isSubMenuItem,
                 newIndex
@@ -5270,7 +5271,7 @@ $.fn.dropdown = function(parameters) {
               if( module.is.visible() ) {
 
                 // enter (select or open sub-menu)
-                if(pressedKey == keys.enter) {
+                if(pressedKey == keys.enter || delimiterPressed) {
                   if(pressedKey == keys.enter && hasSelectedItem && hasSubMenu && !settings.allowCategorySelection) {
                     module.verbose('Pressed enter on unselectable category, opening sub menu');
                     pressedKey = keys.rightArrow;
@@ -5387,7 +5388,7 @@ $.fn.dropdown = function(parameters) {
               }
               else {
                 // delimiter key
-                if(pressedKey == keys.delimiter && settings.allowAdditions && module.is.multiple()) {
+                if(delimiterPressed) {
                   event.preventDefault();
                 }
                 // down arrow (open menu)
