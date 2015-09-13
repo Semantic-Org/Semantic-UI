@@ -5,9 +5,9 @@
 **Critical Bugfixes**
 - **Build** - Fixed issue where using a packaged theme without a `site.variables` would cause build to fail
 
-**Minor Enhancements**
-- **Form Validation** - All form rules now have default validation prompts that will appear if no prompt is specified. These prompts include custom templating.
-- **Form Validation** - Form validation bracketed rules can now use simple templating `{value}` to represent bracketed rule in prompt, For example 'Please enter at least {value} characters' with `minLength` rule.
+**Enhancements**
+- **Form Validation** - `identifier` and `prompt` are now optional for all form validation rules. Default prompt values have been added for all rule types, and identifier will now automatically match on the named value for rule if no ID is specified.
+- **Form Validation** - All form prompts now support templates values, `{value}`, `{name}`,  `{ruleValue}`, and `{identifier}`
 
 **Bugfixes**
 - **Form Validation** - Validation messages in `error message` group are now correctly removed when invalid field revalidates on blur
