@@ -6,8 +6,25 @@
 - **Build** - Fixed issue where using a packaged theme without a `site.variables` would cause build to fail
 
 **Enhancements**
-- **Form Validation** - `identifier` and `prompt` are now optional for all form validation rules. Default prompt values have been added for all rule types, and identifier will now automatically match on the named value for rule if no ID is specified.
-- **Form Validation** - All form prompts now support templates values, `{value}`, `{name}`,  `{ruleValue}`, and `{identifier}`
+- **Form Validation** - Form validation now supports a brand new shorthand which is drastically simpler to specify #2579
+
+```javascript
+// expands out using default prompts and identifier matching property label
+$('.ui.form')
+  .form({
+    fields: {
+      name     : 'empty',
+      gender   : 'empty',
+      username : 'empty',
+      password : ['minLength[6]', 'empty'],
+      skills   : ['minCount[2]', 'empty'],
+      terms    : 'checked'
+    }
+  })
+;
+```
+- **Form Validation** - `identifier` and `prompt` are now optional for all form validation rules. Default prompt values have been added for all rule types, and identifier will now automatically match on the named value for rule if no ID is specified. #3001 #2579
+- **Form Validation** - All form prompts now support templates values, `{value}`, `{name}`,  `{ruleValue}`, and `{identifier}` #3001
 
 **Bugfixes**
 - **Form Validation** - Validation messages in `error message` group are now correctly removed when invalid field revalidates on blur
