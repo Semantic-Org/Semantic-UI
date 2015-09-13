@@ -6,8 +6,11 @@
 - **Build** - Fixed issue where using a packaged theme without a `site.variables` would cause build to fail
 
 **Bugfixes**
+- **Button** -
 - **Table** - Fixed issue where `(x) column segment table` was inheriting accidentally inheriting some grid styles
-
+- **Grid** - Fixed `middle aligned grid` not applying to columns #2959
+- **Menu** - Fixed issue where `right menu` was not floating correctly inside a `menu > container` on mobile #2969
+- **Button** - Fixes `right labeled icon button` with a `right` named icon (for example `right arrow`) having incorrect margin on icon. #2973
 
 ### Version 2.1.3 - Sep 03, 2015
 
