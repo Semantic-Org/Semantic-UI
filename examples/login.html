@@ -60,6 +60,10 @@
                 {
                   type   : 'email',
                   prompt : 'Please enter a valid e-mail'
+                },
+                {
+                  type   : 'asyncRule',
+                  prompt : 'some thing wrong!!'
                 }
               ]
             },
@@ -81,6 +85,14 @@
       ;
     })
   ;
+  $.fn.form.settings.rules.asyncRule = function (value, d) {
+
+    $('.ui.form').addClass('loading');
+    setTimeout(function () {
+      d.reject();
+      $('.ui.form').removeClass('loading');
+    }, 1000);
+  };
   </script>
 </head>
 <body>

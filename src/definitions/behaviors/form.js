@@ -225,17 +225,24 @@ $.fn.form = function(parameters) {
         },
 
         is: {
-          valid: function() {
+          valid: function(handler) {
+
             var
               allValid = true
             ;
             module.verbose('Checking if form is valid');
+            var counter = Object.keys(validation).length;
             $.each(validation, function(fieldName, field) {
-              if( !( module.validate.field(field) ) ) {
-                allValid = false;
-              }
+              module.validate.field(field, function (isValid) {
+                  --counter;
+                  if( !isValid ) {
+                      allValid = false;
+                  }
+                  if( counter === 0 ) {
+                    handler(allValid);
+                  }
+              });
             });
-            return allValid;
           }
         },
 
@@ -695,58 +702,79 @@ $.fn.form = function(parameters) {
 
             // reset errors
             formErrors = [];
-            if( module.is.valid() ) {
-              module.debug('Form has no validation errors, submitting');
-              module.set.success();
-              return settings.onSuccess.call(element, event, values);
-            }
-            else {
-              module.debug('Form has errors');
-              module.set.error();
-              if(!settings.inline) {
-                module.add.errors(formErrors);
-              }
-              // prevent ajax submit
-              if($module.data('moduleApi') !== undefined) {
-                event.stopImmediatePropagation();
-              }
-              return settings.onFailure.call(element, formErrors, values);
-            }
+            module.is.valid(function (isValid) {
+                if( isValid ) {
+                    module.debug('Form has no validation errors, submitting');
+                    module.set.success();
+                    if (settings.onSuccess.call(element, event, values)) {
+                        $module.off('submit').submit();
+                    }
+                } else {
+                    module.debug('Form has errors');
+                    module.set.error();
+                    if(!settings.inline) {
+                        module.add.errors(formErrors);
+                    }
+                    // prevent ajax submit
+                    if($module.data('moduleApi') !== undefined) {
+                        event.stopImmediatePropagation();
+                    }
+                    if (settings.onFailure.call(element, formErrors, values)) {
+                        $module.off('submit').submit();
+                    }
+                }
+            });
+            return false;
           },
 
           // takes a validation object and returns whether field passes validation
-          field: function(field) {
+          field: function(field, handler) {
             var
               $field      = module.get.field(field.identifier),
               fieldValid  = true,
               fieldErrors = []
             ;
+            var _handler = function( isValid ) {
+                if( isValid ) {
+                    module.remove.prompt(field, fieldErrors);
+                    settings.onValid.call($field);
+                }
+                else {
+                    formErrors = formErrors.concat(fieldErrors);
+                    module.add.prompt(field.identifier, fieldErrors);
+                    settings.onInvalid.call($field, fieldErrors);
+                }
+                handler(isValid);
+            };
             if($field.prop('disabled')) {
               module.debug('Field is disabled. Skipping', field.identifier);
-              fieldValid = true;
+              _handler(true);
             }
             else if(field.optional && $.trim($field.val()) === ''){
               module.debug('Field is optional and empty. Skipping', field.identifier);
-              fieldValid = true;
+              _handler(true);
             }
             else if(field.rules !== undefined) {
-              $.each(field.rules, function(index, rule) {
-                if( module.has.field(field.identifier) && !( module.validate.rule(field, rule) ) ) {
-                  module.debug('Field is invalid', field.identifier, rule.type);
-                  fieldErrors.push(rule.prompt);
-                  fieldValid = false;
-                }
-              });
-            }
-            if(fieldValid) {
-              module.remove.prompt(field, fieldErrors);
-              settings.onValid.call($field);
-            }
-            else {
-              formErrors = formErrors.concat(fieldErrors);
-              module.add.prompt(field.identifier, fieldErrors);
-              settings.onInvalid.call($field, fieldErrors);
-              return false;
+                var rulesMet = field.rules.length;
+                $.each(field.rules, function(index, rule) {
+                    var valid = true;
+                    if( module.has.field(field.identifier) ) {
+                        module.validate.rule(field, rule).done(function() {
+                            --rulesMet;
+                            if (rulesMet === 0) {
+                                _handler(valid);
+                            }
+                        }).fail(function () {
+                            module.debug('Field is invalid', field.identifier, rule.type);
+                            fieldErrors.push(rule.prompt);
+                            --rulesMet;
+                            valid = false;
+                            if (rulesMet === 0) {
+                                _handler(valid);
+                            }
+                        });
+                    }
+                });
             }
             return true;
           },
@@ -768,7 +796,9 @@ $.fn.form = function(parameters) {
               ? ''
               : $.trim(value + '')
             ;
+            var d = $.Deferred();
             // if bracket notation is used, pass in extra parameters
+
             if(bracket) {
               ancillary    = '' + bracket[1];
               functionType = type.replace(bracket[0], '');
@@ -777,7 +807,7 @@ $.fn.form = function(parameters) {
                 module.error(error.noRule, functionType);
                 return;
               }
-              isValid = rule.call($field, value, ancillary);
+              isValid = rule.call($field, value, ancillary, d);
             }
             else {
               rule = settings.rules[type];
@@ -785,9 +815,14 @@ $.fn.form = function(parameters) {
                 module.error(error.noRule, type);
                 return;
               }
-              isValid = rule.call($field, value);
+              isValid = rule.call($field, value, d);
             }
-            return isValid;
+            if (isValid === false) {
+              d.reject();
+            } else if (isValid === true) {
+              d.resolve();
+            }
+            return d;
           }
         },
 
