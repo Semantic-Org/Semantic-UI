@@ -348,13 +348,27 @@ $.fn.form = function(parameters) {
                 : 'keyup'
             ;
           },
-          prompt: function(rule) {
+          prompt: function(rule, field) {
             var
-              ruleName  = module.get.ruleName(rule),
-              ancillary = module.get.ancillaryValue(rule),
-              prompt    = rule.prompt || settings.prompt[ruleName] || settings.prompt.unspecified
+              ruleName      = module.get.ruleName(rule),
+              ancillary     = module.get.ancillaryValue(rule),
+              prompt        = rule.prompt || settings.prompt[ruleName] || settings.prompt.unspecified,
+              requiresValue = (prompt.search('{value}') !== -1),
+              $label,
+              $field
             ;
-            prompt = prompt.replace('{value}', ancillary);
+            if(requiresName || requiresValue) {
+              $field = module.get.field(field.identifier);
+            }
+            if(requiresValue) {
+              prompt = prompt.replace('{value}', $field.val());
+            }
+            if(requiresName) {
+              $label = $field.prevAll('label').eq(0);
+              prompt = prompt.replace('{name}', $label.text());
+            }
+            prompt = prompt.replace('{identifier}', field.identifier);
+            prompt = prompt.replace('{ruleValue}', ancillary);
             if(!rule.prompt) {
               module.verbose('Using default validation prompt for type', prompt, ruleName);
             }
@@ -772,7 +786,7 @@ $.fn.form = function(parameters) {
               $.each(field.rules, function(index, rule) {
                 if( module.has.field(identifier) && !( module.validate.rule(field, rule) ) ) {
                   module.debug('Field is invalid', identifier, rule.type);
-                  fieldErrors.push(module.get.prompt(rule));
+                  fieldErrors.push(module.get.prompt(rule, $field));
                   fieldValid = false;
                 }
               });
@@ -1032,24 +1046,24 @@ $.fn.form.settings = {
     integer              : 'Please enter an integer',
     decimal              : 'Please enter a decimal',
     number               : 'Please enter a number',
-    is                   : 'This field must be \'{value}\'',
-    isExactly            : 'This field must be exactly \'{value}\'',
-    not                  : 'This field cannot be set to \'{value}\'',
-    notExactly           : 'This field cannot be set to exactly \'{value}\'',
-    contain              : 'This field cannot contain \'{value}\'',
-    containExactly       : 'This field cannot contain exactly \'{value}\'',
-    doesntContain        : 'This field must contain  \'{value}\'',
-    doesntContainExactly : 'This field must contain exactly \'{value}\'',
-    minLength            : 'This field must be at least {value} characters',
-    length               : 'This field must be at least {value} characters',
-    exactLength          : 'This field must be exactly {value} characters',
-    maxLength            : 'This field cannot be longer than {value} characters',
-    match                : 'This field must match {value} field',
-    different            : 'Please enter a different value than {value} field',
+    is                   : 'This field must be \'{ruleValue}\'',
+    isExactly            : 'This field must be exactly \'{ruleValue}\'',
+    not                  : 'This field cannot be set to \'{ruleValue}\'',
+    notExactly           : 'This field cannot be set to exactly \'{ruleValue}\'',
+    contain              : 'This field cannot contain \'{ruleValue}\'',
+    containExactly       : 'This field cannot contain exactly \'{ruleValue}\'',
+    doesntContain        : 'This field must contain  \'{ruleValue}\'',
+    doesntContainExactly : 'This field must contain exactly \'{ruleValue}\'',
+    minLength            : 'This field must be at least {ruleValue} characters',
+    length               : 'This field must be at least {ruleValue} characters',
+    exactLength          : 'This field must be exactly {ruleValue} characters',
+    maxLength            : 'This field cannot be longer than {ruleValue} characters',
+    match                : 'This field must match {ruleValue} field',
+    different            : 'Please enter a different value than {ruleValue} field',
     creditCard           : 'Please enter a valid credit card',
-    minCount             : 'You must select at least {value} choices',
-    exactCount           : 'You must select exactly {value} choices',
-    maxCount             : 'You must select {value} or less choices'
+    minCount             : 'You must select at least {ruleValue} choices',
+    exactCount           : 'You must select exactly {ruleValue} choices',
+    maxCount             : 'You must select {ruleValue} or less choices'
   },
 
   selector : {
