@@ -1,13 +1,12 @@
 ## RELEASE NOTES
 
-### Version 2.1.4 - Sep 12, 2015
+### Version 2.1.4 - Sep 13, 2015
 
 **Critical Bugfixes**
-- **Build** - Fixed issue where using a packaged theme without a `site.variables` would cause build to fail #3009 #3010
+- **Build** - Fixed issue where using a packaged theme without a `site.variables` would cause build to fail [#3009](https://github.com/Semantic-Org/Semantic-UI/issues/3009) [#3010](https://github.com/Semantic-Org/Semantic-UI/issues/3010)
 
 **Enhancements**
-- **Form Validation** - Form validation now supports a brand new shorthand which is drastically simpler to specify #2579
-
+- **Form Validation** - Form validation now supports a brand new shorthand which is drastically simpler to specify [#2579](https://github.com/Semantic-Org/Semantic-UI/issues/2579)
 ```javascript
 // expands out using default prompts and identifier matching property label
 $('.ui.form')
@@ -23,18 +22,18 @@ $('.ui.form')
   })
 ;
 ```
-- **Form Validation** - `identifier` and `prompt` are now optional for all form validation rules. Default prompt values have been added for all rule types, and identifier will now automatically match on the named value for rule if no ID is specified. #3001 #2579
-- **Form Validation** - All form prompts now support templates values, `{value}`, `{name}`,  `{ruleValue}`, and `{identifier}` #3001
+- **Form Validation** - `identifier` and `prompt` are now optional for all form validation rules. Default prompt values have been added for all rule types, and identifier will now automatically match on the named value for rule if no ID is specified. [#3001](https://github.com/Semantic-Org/Semantic-UI/issues/3001) [#2579](https://github.com/Semantic-Org/Semantic-UI/issues/2579)
+- **Form Validation** - All form prompts now support templates values, `{value}`, `{name}`,  `{ruleValue}`, and `{identifier}` [#3001](https://github.com/Semantic-Org/Semantic-UI/issues/3001)
 
 **Bugfixes**
-- **Dropdown** - Fixed issue with ',' key not being allowed in dropdown due to user tagging shortcut key #3016
-- **Message** - `ui list` used inside `ui message` now aligns properly in all conditions #2958
+- **Dropdown** - Fixed issue with ',' key not being allowed in dropdown due to user tagging shortcut key [#3016](https://github.com/Semantic-Org/Semantic-UI/issues/3016)
+- **Message** - `ui list` used inside `ui message` now aligns properly in all conditions [#2958](https://github.com/Semantic-Org/Semantic-UI/issues/2958)
 - **Form Validation** - Validation messages in `error message` group are now correctly removed when invalid field revalidates on blur
-- **Label** - Labels no longer force single line using `word-wrap: nowrap` #3006
+- **Label** - Labels no longer force single line using `word-wrap: nowrap` [#3006](https://github.com/Semantic-Org/Semantic-UI/issues/3006)
 - **Table** - Fixed issue where `(x) column segment table` was inheriting accidentally inheriting some grid styles
-- **Grid** - Fixed `middle aligned grid` not applying to columns #2959
-- **Menu** - Fixed issue where `right menu` was not floating correctly inside a `menu > container` on mobile #2969
-- **Button** - Fixes `right labeled icon button` with a `right` named icon (for example `right arrow`) having incorrect margin on icon. #2973
+- **Grid** - Fixed `middle aligned grid` not applying to columns [#2959](https://github.com/Semantic-Org/Semantic-UI/issues/2959)
+- **Menu** - Fixed issue where `right menu` was not floating correctly inside a `menu > container` on mobile [#2969](https://github.com/Semantic-Org/Semantic-UI/issues/2969)
+- **Button** - Fixes `right labeled icon button` with a `right` named icon (for example `right arrow`) having incorrect margin on icon. [#2973](https://github.com/Semantic-Org/Semantic-UI/issues/2973)
 
 ### Version 2.1.3 - Sep 03, 2015
 
