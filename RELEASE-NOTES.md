@@ -27,6 +27,7 @@ $('.ui.form')
 - **Form Validation** - All form prompts now support templates values, `{value}`, `{name}`,  `{ruleValue}`, and `{identifier}` #3001
 
 **Bugfixes**
+- **Dropdown** - Fixed issue with ',' key not being allowed in dropdown due to user tagging shortcut key #3016
 - **Form Validation** - Validation messages in `error message` group are now correctly removed when invalid field revalidates on blur
 - **Table** - Fixed issue where `(x) column segment table` was inheriting accidentally inheriting some grid styles
 - **Grid** - Fixed `middle aligned grid` not applying to columns #2959
