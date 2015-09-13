@@ -3,7 +3,7 @@
 ### Version 2.1.4 - Sep 12, 2015
 
 **Critical Bugfixes**
-- **Build** - Fixed issue where using a packaged theme without a `site.variables` would cause build to fail
+- **Build** - Fixed issue where using a packaged theme without a `site.variables` would cause build to fail #3009 #3010
 
 **Enhancements**
 - **Form Validation** - Form validation now supports a brand new shorthand which is drastically simpler to specify #2579
@@ -28,6 +28,7 @@ $('.ui.form')
 
 **Bugfixes**
 - **Dropdown** - Fixed issue with ',' key not being allowed in dropdown due to user tagging shortcut key #3016
+- **Message** - `ui list` used inside `ui message` now aligns properly in all conditions #2958
 - **Form Validation** - Validation messages in `error message` group are now correctly removed when invalid field revalidates on blur
 - **Table** - Fixed issue where `(x) column segment table` was inheriting accidentally inheriting some grid styles
 - **Grid** - Fixed `middle aligned grid` not applying to columns #2959
