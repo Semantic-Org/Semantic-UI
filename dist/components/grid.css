@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.3 - Grid
+ * # Semantic UI 2.1.4 - Grid
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1190,6 +1190,7 @@
 
 /* Top Aligned */
 .ui[class*="top aligned"].grid > .column:not(.row),
+.ui[class*="top aligned"].grid > .row > .column,
 .ui.grid > [class*="top aligned"].row > .column,
 .ui.grid > [class*="top aligned"].column:not(.row),
 .ui.grid > .row > [class*="top aligned"].column {
@@ -1206,6 +1207,7 @@
 
 /* Middle Aligned */
 .ui[class*="middle aligned"].grid > .column:not(.row),
+.ui[class*="middle aligned"].grid > .row > .column,
 .ui.grid > [class*="middle aligned"].row > .column,
 .ui.grid > [class*="middle aligned"].column:not(.row),
 .ui.grid > .row > [class*="middle aligned"].column {
@@ -1222,6 +1224,7 @@
 
 /* Bottom Aligned */
 .ui[class*="bottom aligned"].grid > .column:not(.row),
+.ui[class*="bottom aligned"].grid > .row > .column,
 .ui.grid > [class*="bottom aligned"].row > .column,
 .ui.grid > [class*="bottom aligned"].column:not(.row),
 .ui.grid > .row > [class*="bottom aligned"].column {
@@ -1272,7 +1275,8 @@
 
 
 /* Left Aligned */
-.ui[class*="left aligned"].grid .column,
+.ui[class*="left aligned"].grid > .column,
+.ui[class*="left aligned"].grid > .row > .column,
 .ui.grid > [class*="left aligned"].row > .column,
 .ui.grid > [class*="left aligned"].column.column,
 .ui.grid > .row > [class*="left aligned"].column {
@@ -1283,7 +1287,8 @@
 }
 
 /* Center Aligned */
-.ui[class*="center aligned"].grid .column,
+.ui[class*="center aligned"].grid > .column,
+.ui[class*="center aligned"].grid > .row > .column,
 .ui.grid > [class*="center aligned"].row > .column,
 .ui.grid > [class*="center aligned"].column.column,
 .ui.grid > .row > [class*="center aligned"].column {
@@ -1300,7 +1305,8 @@
 }
 
 /* Right Aligned */
-.ui[class*="right aligned"].grid .column,
+.ui[class*="right aligned"].grid > .column,
+.ui[class*="right aligned"].grid > .row > .column,
 .ui.grid > [class*="right aligned"].row > .column,
 .ui.grid > [class*="right aligned"].column.column,
 .ui.grid > .row > [class*="right aligned"].column {
@@ -1311,23 +1317,16 @@
 }
 
 /* Justified */
-.ui.justified.grid,
-.ui.justified.grid > .row > .column,
 .ui.justified.grid > .column,
-.ui.grid .justified.column,
-.ui.grid > .justified.row > .column {
+.ui.justified.grid > .row > .column,
+.ui.grid > .justified.row > .column,
+.ui.grid > .justified.column.column,
+.ui.grid > .row > .justified.column {
   text-align: justify;
   -webkit-hyphens: auto;
      -moz-hyphens: auto;
       -ms-hyphens: auto;
           hyphens: auto;
-}
-.ui.grid .justified.column {
-  text-align: justify !important;
-  -webkit-hyphens: auto !important;
-     -moz-hyphens: auto !important;
-      -ms-hyphens: auto !important;
-          hyphens: auto !important;
 }
 
 /*----------------------

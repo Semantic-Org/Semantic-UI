@@ -394,7 +394,7 @@
 
 @media only screen and (max-width: 767px) {
   .ui.menu > .ui.container {
-    width: 100%;
+    width: 100% !important;
     margin-left: 0em !important;
     margin-right: 0em !important;
   }

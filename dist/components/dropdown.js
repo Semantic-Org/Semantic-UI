@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.3 - Dropdown
+ * # Semantic UI 2.1.4 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -320,6 +320,10 @@ $.fn.dropdown = function(parameters) {
               }
               if($input.is('[multiple]')) {
                 module.set.multiple();
+              }
+              if ($input.prop('disabled')) {
+                module.debug('Disabling dropdown')
+                $module.addClass(className.disabled)
               }
               $input
                 .removeAttr('class')
@@ -821,7 +825,7 @@ $.fn.dropdown = function(parameters) {
               module.hide();
             }
           },
-          // prevents focus callback from occuring on mousedown
+          // prevents focus callback from occurring on mousedown
           mousedown: function() {
             activated = true;
           },
@@ -1157,7 +1161,7 @@ $.fn.dropdown = function(parameters) {
               if( module.is.visible() ) {
 
                 // enter (select or open sub-menu)
-                if(pressedKey == keys.enter || pressedKey == keys.delimiter) {
+                if(pressedKey == keys.enter) {
                   if(pressedKey == keys.enter && hasSelectedItem && hasSubMenu && !settings.allowCategorySelection) {
                     module.verbose('Pressed enter on unselectable category, opening sub menu');
                     pressedKey = keys.rightArrow;
@@ -1274,7 +1278,7 @@ $.fn.dropdown = function(parameters) {
               }
               else {
                 // delimiter key
-                if(pressedKey == keys.delimiter) {
+                if(pressedKey == keys.delimiter && settings.allowAdditions && module.is.multiple()) {
                   event.preventDefault();
                 }
                 // down arrow (open menu)
@@ -3229,7 +3233,7 @@ $.fn.dropdown.settings = {
 
   maxSelections          : false,      // When set to a number limits the number of selections to this count
   useLabels              : true,       // whether multiple select should filter currently active selections from choices
-  delimiter              : ',',        // when multiselect uses normal <input> the values will be delmited with this character
+  delimiter              : ',',        // when multiselect uses normal <input> the values will be delimited with this character
 
   showOnFocus            : true,       // show menu on focus
   allowTab               : true,       // add tabindex to element

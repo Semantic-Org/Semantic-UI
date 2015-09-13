@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.3 - Segment
+ * # Semantic UI 2.1.4 - Segment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -75,7 +75,8 @@
 
 /* Grid */
 .ui.page.grid.segment,
-.ui.grid .ui.segment.column {
+.ui.grid > .row > .ui.segment.column,
+.ui.grid > .ui.segment.column {
   padding-top: 2em;
   padding-bottom: 2em;
 }

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.3 - Button
+ * # Semantic UI 2.1.4 - Button
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -851,9 +851,10 @@
   border-radius: 0px;
   border-top-left-radius: inherit;
   border-bottom-left-radius: inherit;
+  text-align: center;
+  margin: 0em;
   width: 2.57142857em;
   background-color: rgba(0, 0, 0, 0.05);
-  text-align: center;
   color: '';
   box-shadow: -1px 0px 0px 0px transparent inset;
 }

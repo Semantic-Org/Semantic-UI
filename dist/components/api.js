@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.3 - API
+ * # Semantic UI 2.1.4 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1103,7 +1103,7 @@ $.api.settings = {
     missingSerialize  : 'jquery-serialize-object is required to add form data to an existing data object',
     missingURL        : 'No URL specified for api event',
     noReturnedValue   : 'The beforeSend callback must return a settings object, beforeSend ignored.',
-    noStorage         : 'Caching respopnses locally requires session storage',
+    noStorage         : 'Caching responses locally requires session storage',
     parseError        : 'There was an error parsing your request',
     requiredParameter : 'Missing a required URL parameter: ',
     statusMessage     : 'Server gave an error: ',

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.3 - Shape
+ * # Semantic UI 2.1.4 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
