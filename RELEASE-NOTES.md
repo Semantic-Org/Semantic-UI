@@ -5,8 +5,12 @@
 **Critical Bugfixes**
 - **Build** - Fixed issue where using a packaged theme without a `site.variables` would cause build to fail
 
+**Minor Enhancements**
+- **Form Validation** - All form rules now have default validation prompts that will appear if no prompt is specified. These prompts include custom templating.
+- **Form Validation** - Form validation bracketed rules can now use simple templating `{value}` to represent bracketed rule in prompt, For example 'Please enter at least {value} characters' with `minLength` rule.
+
 **Bugfixes**
-- **Button** -
+- **Form Validation** - Validation messages in `error message` group are now correctly removed when invalid field revalidates on blur
 - **Table** - Fixed issue where `(x) column segment table` was inheriting accidentally inheriting some grid styles
 - **Grid** - Fixed `middle aligned grid` not applying to columns #2959
 - **Menu** - Fixed issue where `right menu` was not floating correctly inside a `menu > container` on mobile #2969
