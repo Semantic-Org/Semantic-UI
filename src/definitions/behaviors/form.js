@@ -352,10 +352,12 @@ $.fn.form = function(parameters) {
             var
               ruleName      = module.get.ruleName(rule),
               ancillary     = module.get.ancillaryValue(rule),
-              prompt        = rule.prompt || settings.prompt[ruleName] || settings.prompt.unspecified,
+              prompt        = settings.prompt[ruleName] || settings.text.unspecifiedRule,
               requiresValue = (prompt.search('{value}') !== -1),
+              requiresName  = (prompt.search('{name}') !== -1),
               $label,
-              $field
+              $field,
+              name
             ;
             if(requiresName || requiresValue) {
               $field = module.get.field(field.identifier);
@@ -364,8 +366,13 @@ $.fn.form = function(parameters) {
               prompt = prompt.replace('{value}', $field.val());
             }
             if(requiresName) {
-              $label = $field.prevAll('label').eq(0);
-              prompt = prompt.replace('{name}', $label.text());
+              $label = $field.closest(selector.group).find('label').eq(0);
+              console.log($field, $field.closest(selector.group));
+              name = ($label.size() == 1)
+                ? $label.text()
+                : settings.text.unspecifiedField
+              ;
+              prompt = prompt.replace('{name}', name);
             }
             prompt = prompt.replace('{identifier}', field.identifier);
             prompt = prompt.replace('{ruleValue}', ancillary);
@@ -786,7 +793,7 @@ $.fn.form = function(parameters) {
               $.each(field.rules, function(index, rule) {
                 if( module.has.field(identifier) && !( module.validate.rule(field, rule) ) ) {
                   module.debug('Field is invalid', identifier, rule.type);
-                  fieldErrors.push(module.get.prompt(rule, $field));
+                  fieldErrors.push(module.get.prompt(rule, field));
                   fieldValid = false;
                 }
               });
@@ -1036,34 +1043,38 @@ $.fn.form.settings = {
     url     : /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/i
   },
 
+  text: {
+    unspecifiedRule  : 'Please enter a valid value',
+    unspecifiedField : 'This field'
+  },
+
   prompt: {
-    unspecified          : 'Please enter a valid value',
-    empty                : 'Please enter a value for field',
-    checked              : 'This field must be checked',
-    email                : 'Please enter a valid e-mail',
-    url                  : 'Please enter a valid url',
-    regExp               : 'This field is not formatted correctly',
-    integer              : 'Please enter an integer',
-    decimal              : 'Please enter a decimal',
-    number               : 'Please enter a number',
-    is                   : 'This field must be \'{ruleValue}\'',
-    isExactly            : 'This field must be exactly \'{ruleValue}\'',
-    not                  : 'This field cannot be set to \'{ruleValue}\'',
-    notExactly           : 'This field cannot be set to exactly \'{ruleValue}\'',
-    contain              : 'This field cannot contain \'{ruleValue}\'',
-    containExactly       : 'This field cannot contain exactly \'{ruleValue}\'',
-    doesntContain        : 'This field must contain  \'{ruleValue}\'',
-    doesntContainExactly : 'This field must contain exactly \'{ruleValue}\'',
-    minLength            : 'This field must be at least {ruleValue} characters',
-    length               : 'This field must be at least {ruleValue} characters',
-    exactLength          : 'This field must be exactly {ruleValue} characters',
-    maxLength            : 'This field cannot be longer than {ruleValue} characters',
-    match                : 'This field must match {ruleValue} field',
-    different            : 'Please enter a different value than {ruleValue} field',
-    creditCard           : 'Please enter a valid credit card',
-    minCount             : 'You must select at least {ruleValue} choices',
-    exactCount           : 'You must select exactly {ruleValue} choices',
-    maxCount             : 'You must select {ruleValue} or less choices'
+    empty                : '{name} must have a value',
+    checked              : '{name} must be checked',
+    email                : '{name} must be a valid e-mail',
+    url                  : '{name} must be a valid url',
+    regExp               : '{name} is not formatted correctly',
+    integer              : '{name} must be an integer',
+    decimal              : '{name} must be a decimal number',
+    number               : '{name} must be set to a number',
+    is                   : '{name} must be "{ruleValue}"',
+    isExactly            : '{name} must be exactly "{ruleValue}"',
+    not                  : '{name} cannot be set to "{ruleValue}"',
+    notExactly           : '{name} cannot be set to exactly "{ruleValue}"',
+    contain              : '{name} cannot contain "{ruleValue}"',
+    containExactly       : '{name} cannot contain exactly "{ruleValue}"',
+    doesntContain        : '{name} must contain  "{ruleValue}"',
+    doesntContainExactly : '{name} must contain exactly "{ruleValue}"',
+    minLength            : '{name} must be at least {ruleValue} characters',
+    length               : '{name} must be at least {ruleValue} characters',
+    exactLength          : '{name} must be exactly {ruleValue} characters',
+    maxLength            : '{name} cannot be longer than {ruleValue} characters',
+    match                : '{name} must match {ruleValue} field',
+    different            : '{name} must have a different value than {ruleValue} field',
+    creditCard           : '{name} must be a valid credit card number',
+    minCount             : '{name} must have at least {ruleValue} choices',
+    exactCount           : '{name} must have exactly {ruleValue} choices',
+    maxCount             : '{name} must have {ruleValue} or less choices'
   },
 
   selector : {
