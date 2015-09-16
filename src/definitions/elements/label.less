@@ -25,7 +25,6 @@
 
 .ui.label {
   display: inline-block;
-  white-space: nowrap;
   line-height: 1;
   vertical-align: @verticalAlign;
 
@@ -196,6 +195,7 @@ a.ui.label {
   padding-right: @tagHorizontalPadding;
 
   border-radius: 0em @borderRadius @borderRadius 0em;
+  transition: @tagTransition;
 }
 .ui.tag.labels .label:before,
 .ui.tag.label:before {
@@ -400,7 +400,7 @@ a.ui.label {
       Attached
 --------------------*/
 
-.ui.top.attached.label,
+.ui[class*="top attached"].label,
 .ui.attached.label {
   width: 100%;
   position: absolute;
@@ -412,31 +412,31 @@ a.ui.label {
 
   border-radius: @attachedCornerBorderRadius @attachedCornerBorderRadius 0em 0em;
 }
-.ui.bottom.attached.label {
+.ui[class*="bottom attached"].label {
   top: auto;
   bottom: 0em;
   border-radius: 0em 0em @attachedCornerBorderRadius @attachedCornerBorderRadius;
 }
 
-.ui.top.left.attached.label {
+.ui[class*="top left attached"].label {
   width: auto;
   margin-top: 0em !important;
   border-radius: @attachedCornerBorderRadius 0em @attachedBorderRadius 0em;
 }
 
-.ui.top.right.attached.label {
+.ui[class*="top right attached"].label {
   width: auto;
   left: auto;
   right: 0em;
   border-radius: 0em @attachedCornerBorderRadius 0em @attachedBorderRadius;
 }
-.ui.bottom.left.attached.label {
+.ui[class*="bottom left attached"].label {
   width: auto;
   top: auto;
   bottom: 0em;
   border-radius: 0em @attachedBorderRadius 0em @attachedCornerBorderRadius;
 }
-.ui.bottom.right.attached.label {
+.ui[class*="bottom right attached"].label {
   top: auto;
   bottom: 0em;
   left: auto;
@@ -1112,7 +1112,7 @@ a.ui.basic.label:hover {
   border-style: solid;
   border-color: @pointingBorderColor;
 }
-
+/* Arrow */
 .ui.pointing.label:before {
   position: absolute;
   content: '';
@@ -1124,56 +1124,57 @@ a.ui.basic.label:hover {
   height: @pointingTriangleSize;
   transition: @pointingTriangleTransition;
 }
+
 /*--- Above ---*/
 .ui.pointing.label,
-.ui.pointing.above.label {
+.ui[class*="pointing above"].label {
   margin-top: @pointingVerticalDistance;
 }
 .ui.pointing.label:before,
-.ui.pointing.above.label:before {
+.ui[class*="pointing above"].label:before {
   border-width: @borderWidth 0px 0px @borderWidth;
-  margin-left: @pointingTriangleOffset;
-  top: @pointingTriangleOffset;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  top: 0%;
   left: 50%;
 }
 /*--- Below ---*/
-.ui.pointing.bottom.label,
-.ui.pointing.below.label {
+.ui[class*="bottom pointing"].label,
+.ui[class*="pointing below"].label {
   margin-top: 0em;
   margin-bottom: @pointingVerticalDistance;
 }
-.ui.pointing.bottom.label:before,
-.ui.pointing.below.label:before {
+.ui[class*="bottom pointing"].label:before,
+.ui[class*="pointing below"].label:before {
   border-width: 0px @borderWidth @borderWidth 0px;
-  margin-left: @pointingTriangleOffset;
   top: auto;
   right: auto;
-  bottom: @pointingTriangleOffset;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  top: 100%;
   left: 50%;
 }
 /*--- Left ---*/
-.ui.pointing.left.label {
+.ui[class*="left pointing"].label {
   margin-top: 0em;
   margin-left: @pointingHorizontalDistance;
 }
-.ui.pointing.left.label:before {
+.ui[class*="left pointing"].label:before {
   border-width: 0px 0px @borderWidth @borderWidth;
-  margin-top: @pointingTriangleOffset;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
   bottom: auto;
   right: auto;
   top: 50%;
   left: 0em;
 }
 /*--- Right ---*/
-.ui.pointing.right.label {
+.ui[class*="right pointing"].label {
   margin-top: 0em;
   margin-right: @pointingHorizontalDistance;
 }
-.ui.pointing.right.label:before {
+.ui[class*="right pointing"].label:before {
   border-width: @borderWidth @borderWidth 0px 0px;
-  margin-top: @pointingTriangleOffset;
-  right: @pointingTriangleOffset;
+  transform: translateX(50%) translateY(-50%) rotate(45deg);
   top: 50%;
+  right: 0%;
   bottom: auto;
   left: auto;
 }
@@ -1181,27 +1182,25 @@ a.ui.basic.label:hover {
 /* Basic Pointing */
 
 /*--- Above ---*/
-
 .ui.basic.pointing.label:before,
-.ui.basic.pointing.above.label:before {
-  top: @basicPointingTriangleOffset;
+.ui.basic[class*="pointing above"].label:before {
+  margin-top: @basicPointingTriangleOffset;
 }
 /*--- Below ---*/
-.ui.basic.pointing.bottom.label:before,
-.ui.basic.pointing.below.label:before {
-  top: auto;
-  margin-left: @basicPointingTriangleOffset;
-  bottom: @basicPointingTriangleOffset;
+.ui.basic[class*="bottom pointing"].label:before,
+.ui.basic[class*="pointing below"].label:before {
+  bottom: auto;
+  top: 100%;
+  margin-top: -@basicPointingTriangleOffset;
 }
 /*--- Left ---*/
-.ui.basic.pointing.left.label:before {
+.ui.basic[class*="left pointing"].label:before {
   top: 50%;
-  margin-top: @basicPointingTriangleOffset;
+  left: @basicPointingTriangleOffset;
 }
 /*--- Right ---*/
-.ui.basic.pointing.right.label:before {
+.ui.basic[class*="right pointing"].label:before {
   top: 50%;
-  margin-top: @basicPointingTriangleOffset;
   right: @basicPointingTriangleOffset;
 }
 

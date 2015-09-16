@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.0 - Search
+ * # Semantic UI 2.1.4 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -350,7 +350,7 @@ $.fn.search = function(parameters) {
               $.each(results, function(index, category) {
                 if($.isArray(category.results)) {
                   result = module.search.object(value, category.results, lookupFields)[0];
-                  // dont continue searching if a result is found
+                  // don't continue searching if a result is found
                   if(result) {
                     return false;
                   }
@@ -1134,9 +1134,9 @@ $.fn.search.settings = {
     price           : 'price',       // result price
     results         : 'results',     // array of results (standard)
     title           : 'title',       // result title
-    action          : 'action',      // "view more" object
+    action          : 'action',      // "view more" object name
     actionText      : 'text',        // "view more" text
-    actionURL       : 'url'          // "view more" text
+    actionURL       : 'url'          // "view more" url
   },
 
   selector : {

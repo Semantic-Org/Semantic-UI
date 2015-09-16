@@ -191,7 +191,7 @@
 @selectionHoverBoxShadow: none;
 
 /* Focus */
-@selectionFocusBorderColor: @selectedBorderColor;
+@selectionFocusBorderColor: @focusedFormMutedBorderColor;
 @selectionFocusBoxShadow: none;
 @selectionFocusMenuBoxShadow: @raisedShadow;
 
@@ -199,12 +199,12 @@
 @selectionVisibleTextFontWeight: normal;
 @selectionVisibleTextColor: @hoveredTextColor;
 
-@selectionVisibleBorderColor: @selectedBorderColor;
+@selectionVisibleBorderColor: @focusedFormMutedBorderColor;
 @selectionVisibleBoxShadow: @raisedShadow;
 @selectionVisibleMenuBoxShadow: @raisedShadow;
 
 /* Visible Hover */
-@selectionActiveHoverBorderColor: @selectedBorderColor;
+@selectionActiveHoverBorderColor: @focusedFormMutedBorderColor;
 @selectionActiveHoverBoxShadow: @selectionVisibleBoxShadow;
 @selectionActiveHoverMenuBoxShadow: @selectionVisibleMenuBoxShadow;
 

@@ -25,7 +25,7 @@
 @fontWeight: bold;
 @textColor: rgba(0, 0, 0, 0.6);
 @textShadow: none;
-@invertedTextShadow: none;
+@invertedTextShadow: @textShadow;
 @borderRadius: @defaultBorderRadius;
 @verticalAlign: baseline;
 
@@ -162,10 +162,12 @@
 /* Labeled */
 @labeledLabelFontSize: @medium;
 @labeledLabelAlign: center;
-@labeledLabelPadding: @verticalPadding @horizontalPadding;
+@labeledLabelPadding: '';
 @labeledLabelFontSize: @relativeMedium;
 @labeledLabelBorderColor: @borderColor;
 @labeledLabelBorderOffset: -@borderBoxShadowWidth;
+@labeledTagLabelSize: 1.85em; /* hypotenuse of triangle */
+@labeledIconMargin: 0em;
 
 /* Labeled Icon */
 @labeledIconWidth: 1em + (@verticalPadding * 2);
@@ -189,7 +191,7 @@
 @basicBorderRadius: @borderRadius;
 @basicBorderSize: 1px;
 @basicTextColor: @textColor;
-@basicColoredBorderSize: 2px;
+@basicColoredBorderSize: 1px;
 
 @basicBackground: transparent none;
 @basicFontWeight: normal;

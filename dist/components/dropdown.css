@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.0 - Dropdown
+ * # Semantic UI 2.1.4 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -460,21 +460,21 @@ select.ui.dropdown {
 
 /* Active */
 .ui.selection.active.dropdown {
-  border-color: rgba(34, 36, 38, 0.35);
+  border-color: #96c8da;
   box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
 }
 .ui.selection.active.dropdown .menu {
-  border-color: rgba(34, 36, 38, 0.35);
+  border-color: #96c8da;
   box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
 }
 
 /* Focus */
 .ui.selection.dropdown:focus {
-  border-color: rgba(34, 36, 38, 0.35);
+  border-color: #96c8da;
   box-shadow: none;
 }
 .ui.selection.dropdown:focus .menu {
-  border-color: rgba(34, 36, 38, 0.35);
+  border-color: #96c8da;
   box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
 }
 
@@ -486,11 +486,11 @@ select.ui.dropdown {
 
 /* Visible Hover */
 .ui.selection.active.dropdown:hover {
-  border-color: rgba(34, 36, 38, 0.35);
+  border-color: #96c8da;
   box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
 }
 .ui.selection.active.dropdown:hover .menu {
-  border-color: rgba(34, 36, 38, 0.35);
+  border-color: #96c8da;
   box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
 }
 
@@ -622,7 +622,7 @@ select.ui.dropdown {
       -ms-user-select: none;
           user-select: none;
   display: inline-block;
-  vertical-align: baseline;
+  vertical-align: top;
   white-space: normal;
   font-size: 1em;
   padding: 0.35714286em 0.71428571em;

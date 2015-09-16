@@ -48,8 +48,8 @@
 @labelPressedColor: @selectedTextColor;
 
 /* Focus */
-@checkboxFocusBackground: @offWhite;
-@checkboxFocusBorderColor: @selectedBorderColor;
+@checkboxFocusBackground: @white;
+@checkboxFocusBorderColor: @focusedFormMutedBorderColor;
 @checkboxFocusCheckColor: @selectedTextColor;
 @labelFocusColor: @selectedTextColor;
 
@@ -61,8 +61,8 @@
 @checkboxActiveCheckOpacity: 1;
 
 /* Active Focus */
-@checkboxActiveFocusBackground: @offWhite;
-@checkboxActiveFocusBorderColor: @strongSelectedBorderColor;
+@checkboxActiveFocusBackground: @white;
+@checkboxActiveFocusBorderColor: @checkboxFocusBorderColor;
 @checkboxActiveFocusCheckColor: @selectedTextColor;
 
 /* Indeterminate */

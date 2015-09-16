@@ -76,33 +76,33 @@
 }
 
 /* List */
-.ui.message ul.list {
+.ui.message .list:not(.ui) {
   text-align: left;
   padding: 0em;
   opacity: @listOpacity;
   list-style-position: @listStylePosition;
   margin: @listMargin 0em 0em;
 }
-.ui.message ul.list:first-child {
+.ui.message .list:not(.ui):first-child {
   margin-top: 0em;
 }
-.ui.message ul.list:last-child {
+.ui.message .list:not(.ui):last-child {
   margin-bottom: 0em;
 }
-.ui.message ul.list li {
+.ui.message .list:not(.ui) li {
   position: relative;
   list-style-type: none;
   margin: 0em 0em @listItemMargin @listItemIndent;
   padding: 0em;
 }
-.ui.message ul.list li:before {
+.ui.message .list:not(.ui) li:before {
   position: absolute;
   content: '•';
   left: -1em;
   height: 100%;
   vertical-align: baseline;
 }
-.ui.message ul.list li:last-child {
+.ui.message .list:not(.ui) li:last-child {
   margin-bottom: 0em;
 }
 

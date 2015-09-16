@@ -123,7 +123,7 @@
 @tagTriangleTopOffset: 50%;
 @tagTriangleSize: 1.56em;
 @tagTriangleBackgroundImage: none;
-@tagTransition: background @labelTransitionDuration @labelTransitionEasing;
+@tagTransition: none; /* Avoids error with background: inherit; on animation */
 
 /* Ribbon */
 @ribbonTriangleSize: 1.2em;
@@ -228,12 +228,11 @@
 @pointingTriangleSize: 0.6666em;
 @pointingHorizontalDistance: @pointingTriangleSize;
 
-@pointingTriangleOffset: -@pointingTriangleSize / 2;
 @pointingTriangleTransition: background @labelTransitionDuration @labelTransitionEasing;
 @pointingTriangleZIndex: 2;
 
 /* Basic Pointing */
-@basicPointingTriangleOffset: ~"calc("(-@pointingTriangleSize / 2)~" - "@pointingBorderWidth~")";
+@basicPointingTriangleOffset: -@pointingBorderWidth;
 
 /* Floating */
 @floatingTopOffset: -1em;

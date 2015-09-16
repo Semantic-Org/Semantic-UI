@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.0 - Form
+ * # Semantic UI 2.1.4 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -198,16 +198,26 @@
 
 
 /* Block */
+.ui.form .field .ui.input,
 .ui.form .fields .field .ui.input,
 .ui.form .wide.field .ui.input {
   width: 100%;
 }
+
+/* Inline  */
+.ui.form .inline.fields .field:not(.wide) .ui.input,
+.ui.form .inline.field:not(.wide) .ui.input {
+  width: auto;
+  vertical-align: middle;
+}
+
+/* Auto Input */
 .ui.form .fields .field .ui.input input,
 .ui.form .field .ui.input input {
   width: auto;
 }
 
-/* Full Width */
+/* Full Width Input */
 .ui.form .ten.fields .ui.input input,
 .ui.form .nine.fields .ui.input input,
 .ui.form .eight.fields .ui.input input,
@@ -223,12 +233,6 @@
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
   width: 0px;
-}
-
-/* Inline */
-.ui.form .inline.fields .field:not(.wide) .ui.input,
-.ui.form .inline.field:not(.wide) .ui.input {
-  width: 100%;
 }
 
 /*--------------------
@@ -267,11 +271,11 @@
 }
 .ui.form .inline.fields .field .prompt,
 .ui.form .inline.field .prompt {
-  margin: -0.5em 0em -0.5em 1em;
+  vertical-align: top;
+  margin: -0.25em 0em -0.5em 0.5em;
 }
 .ui.form .inline.fields .field .prompt:before,
 .ui.form .inline.field .prompt:before {
-  margin-top: calc(-0.3em -  1px );
   border-width: 0px 0px 1px 1px;
   bottom: auto;
   right: auto;
@@ -367,14 +371,14 @@
 .ui.form input[type="text"]:focus,
 .ui.form input[type="url"]:focus {
   color: rgba(0, 0, 0, 0.95);
-  border-color: rgba(34, 36, 38, 0.35);
+  border-color: #85b7d9;
   border-radius: 0.28571429rem;
   background: #ffffff;
   box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
 }
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.95);
-  border-color: rgba(34, 36, 38, 0.35);
+  border-color: #85b7d9;
   border-radius: 0.28571429rem;
   background: #ffffff;
   box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
@@ -414,7 +418,7 @@
 }
 
 /*--------------------
-        Warning
+        Error
 ---------------------*/
 
 
@@ -577,6 +581,7 @@
 .ui.form .disabled.fields .field,
 .ui.form .disabled.field,
 .ui.form .field :disabled {
+  pointer-events: none;
   opacity: 0.45;
 }
 .ui.form .field.disabled label {
