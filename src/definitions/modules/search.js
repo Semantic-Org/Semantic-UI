@@ -172,10 +172,10 @@ $.fn.search = function(parameters) {
                   return;
                 }
               }
-              module.hideResults();
               if(value) {
                 module.set.value(value);
               }
+              module.hideResults();
               if(href) {
                 module.verbose('Opening search link found in result', $link);
                 if(target == '_blank' || event.ctrlKey) {
