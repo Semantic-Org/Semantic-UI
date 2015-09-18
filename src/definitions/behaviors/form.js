@@ -1196,7 +1196,7 @@ $.fn.form.settings = {
         max,
         parts
       ;
-      if(range === undefined || range === false || range === '' || range === '..') {
+      if( !range || ['', '..'].indexOf(range) !== -1) {
         // do nothing
       }
       else if(range.indexOf('..') == -1) {
