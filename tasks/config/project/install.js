@@ -353,6 +353,7 @@ module.exports = {
         choices: [
           { name: "reset", checked: true },
           { name: "site", checked: true },
+          { name: "utility", checked: true },
           { name: "button", checked: true },
           { name: "container", checked: true },
           { name: "divider", checked: true },
