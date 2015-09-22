@@ -9,3 +9,153 @@
  * http://opensource.org/licenses/MIT
  *
  */
+
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'global';
+@element : 'utility';
+
+@import (multiple) '../../theme.config';
+
+/*******************************
+     Floating and clearing
+*******************************/
+
+// Floated objects
+.ui.floated {
+  max-width: 100%;
+  margin-bottom: @verticalMargin;
+  &[class*='left floated'] {
+    float: left;
+    margin-right: @horizontalMargin;
+  }
+  &[class*='right floated'] {
+    float: right;
+    margin-left: @horizontalMargin;
+  }
+  &.fitted {
+    margin: 0 !important;
+  }
+}
+
+// Micro clearfix
+.ui.group {
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// New block formatting context
+.ui.context {
+  overflow: hidden;
+}
+
+/*******************************
+        Text alignment
+*******************************/
+
+.ui[class*='left aligned'] {
+  text-align: left;
+}
+.ui[class*='right aligned'] {
+  text-align: right;
+}
+.ui[class*='center aligned'] {
+  text-align: center;
+}
+.ui[class*='justify aligned'] {
+  text-align: justify;
+}
+
+/*******************************
+          Visibility
+*******************************/
+
+.ui.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.ui.invisible {
+  visibility: hidden !important;
+}
+
+/* These include arbitrary class repetitions for forced specificity */
+
+/* Mobile Only Hide */
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui.tablet:not(.mobile).only {
+    display: none !important;
+  }
+  .ui[class*="computer only"]:not(.mobile) {
+    display: none !important;
+  }
+  .ui[class*="large screen only"]:not(.mobile) {
+    display: none !important;
+  }
+  .ui[class*="widescreen"]:not(.mobile) {
+    display: none !important;
+  }
+}
+/* Tablet Only Hide */
+@media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
+  .ui[class*="mobile only"]:not(.tablet) {
+    display: none !important;
+  }
+  .ui[class*="computer only"]:not(.tablet) {
+    display: none !important;
+  }
+  .ui[class*="large screen only"]:not(.mobile) {
+    display: none !important;
+  }
+  .ui[class*="widescreen"]:not(.mobile) {
+    display: none !important;
+  }
+}
+
+/* Computer Only Hide */
+@media only screen and (min-width: @computerBreakpoint) and (max-width: @largestSmallMonitor) {
+  .ui[class*="mobile only"]:not(.computer) {
+    display: none !important;
+  }
+  .ui[class*="tablet only"]:not(.computer) {
+    display: none !important;
+  }
+  .ui[class*="large screen only"]:not(.mobile) {
+    display: none !important;
+  }
+  .ui[class*="widescreen"]:not(.mobile) {
+    display: none !important;
+  }
+}
+
+/* Large Screen Only Hide */
+@media only screen and (min-width: @largeMonitorBreakpoint) and (max-width: @largestLargeMonitor) {
+  .ui[class*="mobile only"]:not(.computer) {
+    display: none !important;
+  }
+  .ui[class*="tablet only"]:not(.computer) {
+    display: none !important;
+  }
+  .ui[class*="widescreen"]:not(.mobile) {
+    display: none !important;
+  }
+}
+
+/* Widescreen Only Hide */
+@media only screen and (min-width: @widescreenMonitorBreakpoint) {
+  .ui[class*="mobile only"]:not(.computer) {
+    display: none !important;
+  }
+  .ui[class*="tablet only"]:not(.computer) {
+    display: none !important;
+  }
+}
