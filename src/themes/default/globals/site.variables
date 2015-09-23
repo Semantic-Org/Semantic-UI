@@ -458,6 +458,7 @@
 @instagramColor  : #49769C;
 @pinterestColor  : #00ACED;
 @vkColor         : #4D7198;
+@okColor         : #F4731C;
 
 /*-------------------
       Borders
@@ -624,6 +625,7 @@
 @instagramHoverColor  : saturate(darken(@instagramColor, 5), 10, relative);
 @pinterestHoverColor  : saturate(darken(@pinterestColor, 5), 10, relative);
 @vkHoverColor         : saturate(darken(@vkColor, 5), 10, relative);
+@okHoverColor         : saturate(darken(@okColor, 5), 10, relative);
 
 /*---  Dark Tones  ---*/
 @fullBlackHover       : lighten(@fullBlack, 5);
@@ -682,6 +684,7 @@
 @instagramFocusColor  : saturate(darken(@instagramColor, 8), 20, relative);
 @pinterestFocusColor  : saturate(darken(@pinterestColor, 8), 20, relative);
 @vkFocusColor         : saturate(darken(@vkColor, 8), 20, relative);
+@okFocusColor         : saturate(darken(@okColor, 8), 20, relative);
 
 /*---  Dark Tones  ---*/
 @fullBlackFocus       : lighten(@fullBlack, 8);
@@ -741,6 +744,7 @@
 @instagramDownColor  : darken(@instagramColor, 10);
 @pinterestDownColor  : darken(@pinterestColor, 10);
 @vkDownColor         : darken(@vkColor, 10);
+@okDownColor         : darken(@okColor, 10);
 
 /*---  Dark Tones  ---*/
 @fullBlackDown       : lighten(@fullBlack, 10);
@@ -800,6 +804,7 @@
 @instagramActiveColor  : saturate(darken(@instagramColor, 5), 15, relative);
 @pinterestActiveColor  : saturate(darken(@pinterestColor, 5), 15, relative);
 @vkActiveColor         : saturate(darken(@vkColor, 5), 15, relative);
+@okActiveColor         : saturate(darken(@okColor, 5), 15, relative);
 
 /*---  Dark Tones  ---*/
 @fullBlackActive       : darken(@fullBlack, 5);
