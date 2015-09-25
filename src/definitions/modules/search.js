@@ -1262,8 +1262,8 @@ $.fn.search.settings = {
 
         // each result
         $.each(response[fields.results], function(index, result) {
-          if(response[fields.url]) {
-            html  += '<a class="result" href="' + response[fields.url] + '">';
+          if(result[fields.url]) {
+            html  += '<a class="result" href="' + result[fields.url] + '">';
           }
           else {
             html  += '<a class="result">';
