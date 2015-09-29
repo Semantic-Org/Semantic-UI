@@ -19,8 +19,7 @@
     "css3",
     "framework"
   ],
-  "license" : 'MIT'
-  ],
+  "license" : "MIT",
   "ignore": [
     "src/site",
     "test"
