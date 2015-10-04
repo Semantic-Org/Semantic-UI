@@ -87,9 +87,11 @@
   },
   "devDependencies": {
     "github": "^0.2.4",
+    "gulp-babel": "^5.2.1",
     "gulp-concat-filenames": "^1.0.0",
     "gulp-debug": "^2.0.1",
     "gulp-git": "^1.2.4",
+    "gulp-jsinspect": "^1.1.1",
     "gulp-tap": "^0.1.3",
     "merge-stream": "^0.1.7"
   }
