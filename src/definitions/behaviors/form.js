@@ -809,6 +809,7 @@ $.fn.form = function(parameters) {
                   module.debug('Field is invalid', identifier, rule.type);
                   fieldErrors.push(module.get.prompt(rule, field));
                   fieldValid = false;
+                  return false;
                 }
               });
             }
