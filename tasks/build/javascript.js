@@ -18,6 +18,7 @@ var
   rename       = require('gulp-rename'),
   replace      = require('gulp-replace'),
   uglify       = require('gulp-uglify'),
+  runSequence  = require('run-sequence'),
 
   // config
   config       = require('../config/user'),
@@ -41,12 +42,6 @@ require('../collections/internal')(gulp);
 
 module.exports = function(callback) {
 
-  var
-    stream,
-    compressedStream,
-    uncompressedStream
-  ;
-
   console.info('Building Javascript');
 
   if( !install.isSetup() ) {
@@ -68,9 +63,10 @@ module.exports = function(callback) {
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(print(log.created))
     .on('end', function() {
-      gulp.start('package compressed js');
-      gulp.start('package uncompressed js');
-      callback();
+      runSequence(
+        ['package compressed js', 'package uncompressed js'],
+        callback
+      );
     })
   ;
 
