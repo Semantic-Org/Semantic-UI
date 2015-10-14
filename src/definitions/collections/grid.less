@@ -1790,7 +1790,7 @@
 
 /* Mobile Only Hide */
 @media only screen and (max-width: @largestMobileScreen) {
-  .ui.tablet:not(.mobile).only.grid.grid.grid,
+  .ui[class*="tablet only"].grid.grid.grid:not(.mobile),
   .ui.grid.grid.grid > [class*="tablet only"].row:not(.mobile),
   .ui.grid.grid.grid > [class*="tablet only"].column:not(.mobile),
   .ui.grid.grid.grid > .row > [class*="tablet only"].column:not(.mobile) {
@@ -1808,10 +1808,10 @@
   .ui.grid.grid.grid > .row > [class*="large screen only"].column:not(.mobile) {
     display: none !important;
   }
-  .ui[class*="widescreen"].grid.grid.grid:not(.mobile),
-  .ui.grid.grid.grid > [class*="large screen only"].row:not(.mobile),
-  .ui.grid.grid.grid > [class*="large screen only"].column:not(.mobile),
-  .ui.grid.grid.grid > .row > [class*="large screen only"].column:not(.mobile) {
+  .ui[class*="widescreen only"].grid.grid.grid:not(.mobile),
+  .ui.grid.grid.grid > [class*="widescreen only"].row:not(.mobile),
+  .ui.grid.grid.grid > [class*="widescreen only"].column:not(.mobile),
+  .ui.grid.grid.grid > .row > [class*="widescreen only"].column:not(.mobile) {
     display: none !important;
   }
 }
@@ -1835,7 +1835,7 @@
   .ui.grid.grid.grid > .row > [class*="large screen only"].column:not(.mobile) {
     display: none !important;
   }
-  .ui[class*="widescreen"].grid.grid.grid:not(.mobile),
+  .ui[class*="widescreen only"].grid.grid.grid:not(.mobile),
   .ui.grid.grid.grid > [class*="widescreen only"].row:not(.mobile),
   .ui.grid.grid.grid > [class*="widescreen only"].column:not(.mobile),
   .ui.grid.grid.grid > .row > [class*="widescreen only"].column:not(.mobile) {
@@ -1863,7 +1863,7 @@
   .ui.grid.grid.grid > .row > [class*="large screen only"].column:not(.mobile) {
     display: none !important;
   }
-  .ui[class*="widescreen"].grid.grid.grid:not(.mobile),
+  .ui[class*="widescreen only"].grid.grid.grid:not(.mobile),
   .ui.grid.grid.grid > [class*="widescreen only"].row:not(.mobile),
   .ui.grid.grid.grid > [class*="widescreen only"].column:not(.mobile),
   .ui.grid.grid.grid > .row > [class*="widescreen only"].column:not(.mobile) {
@@ -1885,7 +1885,7 @@
   .ui.grid.grid.grid > .row > [class*="tablet only"].column:not(.computer) {
     display: none !important;
   }
-  .ui[class*="widescreen"].grid.grid.grid:not(.mobile),
+  .ui[class*="widescreen only"].grid.grid.grid:not(.mobile),
   .ui.grid.grid.grid > [class*="widescreen only"].row:not(.mobile),
   .ui.grid.grid.grid > [class*="widescreen only"].column:not(.mobile),
   .ui.grid.grid.grid > .row > [class*="widescreen only"].column:not(.mobile) {
