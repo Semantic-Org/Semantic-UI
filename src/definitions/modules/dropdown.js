@@ -3312,6 +3312,7 @@ $.fn.dropdown.settings = {
   fields: {
     values : 'values', // grouping for all dropdown values
     name   : 'name',   // displayed dropdown text
+    text   : 'text',   // displayed label text
     value  : 'value'   // actual dropdown value
   },
 
@@ -3386,12 +3387,13 @@ $.fn.dropdown.settings.templates = {
 
   // generates just menu from select
   menu: function(response, fields) {
-    var
-      values = response.values || {},
-      html   = ''
-    ;
+    var html   = '';
     $.each(response[fields.values], function(index, option) {
-      html += '<div class="item" data-value="' + option[fields.value] + '">' + option[fields.name] + '</div>';
+      html += '<div class="item" data-value="' + option[fields.value] + '"';
+      if (option[fields.text]) {
+        html += ' data-text="' + option[fields.text] + '"';
+      }
+      html += '>' + option[fields.name] + '</div>';
     });
     return html;
   },
