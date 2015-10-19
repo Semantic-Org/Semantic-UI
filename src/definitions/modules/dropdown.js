@@ -2649,13 +2649,16 @@ $.fn.dropdown = function(parameters) {
                     : value,
                   isUserValue = module.is.userValue(stringValue)
                 ;
-                if(isUserValue) {
-                  module.remove.value(stringValue);
-                  module.remove.label(stringValue);
-                }
-                else {
-                  // selected will also remove label
-                  module.remove.selected(stringValue);
+                var toRemove = settings.onBeforeRemove.call(element, stringValue) !== false;
+                if (toRemove) {
+                  if(isUserValue) {
+                    module.remove.value(stringValue);
+                    module.remove.label(stringValue);
+                  }
+                  else {
+                    // selected will also remove label
+                    module.remove.selected(stringValue);
+                  }
                 }
               })
             ;
@@ -3267,6 +3270,7 @@ $.fn.dropdown.settings = {
   onChange      : function(value, text, $selected){},
   onAdd         : function(value, text, $selected){},
   onRemove      : function(value, text, $selected){},
+  onBeforeRemove      : function(value, text, $selected){},
 
   onLabelSelect : function($selectedLabels){},
   onLabelCreate : function(value, text) { return $(this); },
