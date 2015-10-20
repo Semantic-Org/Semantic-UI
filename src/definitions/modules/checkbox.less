@@ -63,7 +63,7 @@
 
 .ui.checkbox .box,
 .ui.checkbox label {
-  cursor: auto;
+  cursor: pointer;
   position: relative;
   display: block;
   padding-left: @labelDistance;
@@ -231,7 +231,8 @@
 ---------------*/
 
 .ui.read-only.checkbox,
-.ui.read-only.checkbox label {
+.ui.read-only.checkbox label,
+.ui.checkbox input[readonly] + label {
   cursor: default;
 }
 
@@ -261,7 +262,6 @@
 
 /* Selectable Label */
 .ui.checkbox input.hidden + label {
-  cursor: pointer;
   user-select: none;
 }
 
