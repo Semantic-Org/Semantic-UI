@@ -446,7 +446,7 @@ $.fn.popup = function(parameters) {
           calculations: function() {
             var
               targetElement  = $target[0],
-              targetPosition = (settings.inline || settings.popup)
+              targetPosition = (settings.inline || (settings.popup && settings.movePopup))
                 ? $target.position()
                 : $target.offset(),
               calculations = {},
