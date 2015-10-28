@@ -315,9 +315,7 @@
             inputChange: function () {
               var val = $input.val();
               var date = parser.date(val, settings);
-              if (date) {
-                module.set.date(date, false);
-              }
+              module.set.date(date, false);
             },
             inputFocus: function () {
               module.popup('show');
@@ -360,7 +358,11 @@
                 return;
               }
 
-              $module.data(metadata.date, date);
+              if (date) {
+                $module.data(metadata.date, date);
+              } else {
+                $module.removeData(metadata.date);
+              }
               module.set.focusDate(date); //also updates calendar
 
               if (updateInput && $input.length) {
@@ -370,13 +372,21 @@
             focusDate: function (date) {
               date = module.helper.sanitiseDate(date);
               date = module.helper.dateInRange(date);
-              $module.data(metadata.focusDate, date);
+              if (date) {
+                $module.data(metadata.focusDate, date);
+              } else {
+                $module.removeData(metadata.focusDate);
+              }
               module.create.calendar();
             }
           },
 
           changeDate: function (date) {
             module.set.date(date);
+          },
+
+          clear: function () {
+            module.set.date(undefined);
           },
 
           popup: function () {
@@ -757,7 +767,8 @@
           year = new Date().getFullYear();
         }
 
-        return new Date(year, month - 1, day);
+        var date = new Date(year, month - 1, day);
+        return isNaN(date) ? null : date;
       }
     },
 
