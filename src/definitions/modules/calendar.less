@@ -1,0 +1,73 @@
+@type    : 'module';
+@element : 'calendar';
+
+@import (multiple) '../../theme.config';
+
+/*******************************
+            Popup
+*******************************/
+
+.ui.calendar .ui.popup {
+  max-width: none;
+  padding: 0;
+  border: none;
+  user-select: none;
+}
+
+/*******************************
+            Calendar
+*******************************/
+
+/*--------------
+      Focus
+---------------*/
+
+.ui.calendar .calendar:focus,
+.ui.calendar .calendar.active {
+  outline: 0;
+}
+
+.ui.calendar .calendar:focus .ui.table tr td.focus,
+.ui.calendar .calendar.active .ui.table tr td.focus {
+  box-shadow: inset 0 0 0 1px @focusedCellBorderColor;
+}
+
+/*******************************
+            Table
+*******************************/
+
+.ui.calendar .ui.table tr th,
+.ui.calendar .ui.table tr td {
+  padding: 0.5em;
+}
+
+.ui.calendar .ui.table tr th {
+  border-left: none;
+}
+
+.ui.calendar .ui.table tr:first-child th {
+  border: none;
+}
+
+.ui.calendar .ui.table tr:nth-child(2) th {
+  padding-top: 0.2em;
+  padding-bottom: 0.3em;
+}
+
+.ui.calendar .ui.table tr td.today {
+  font-weight: bold;
+}
+
+.ui.calendar .ui.table tr th.link,
+.ui.calendar .ui.table tr td.link {
+  cursor: pointer;
+}
+
+.ui.calendar .ui.table tr.disabled th,
+.ui.calendar .ui.table tr th.disabled,
+.ui.calendar .ui.table tr:hover th.disabled {
+  pointer-events: none;
+  color: @disabledTextColor;
+}
+
+.loadUIOverrides();

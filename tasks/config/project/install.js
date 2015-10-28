@@ -381,6 +381,7 @@ module.exports = {
           { name: "item", checked: true },
           { name: "statistic", checked: true },
           { name: "accordion", checked: true },
+          { name: "calendar", checked: true },
           { name: "checkbox", checked: true },
           { name: "dimmer", checked: true },
           { name: "dropdown", checked: true },
