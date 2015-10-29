@@ -121,7 +121,8 @@
               }
               var onShow = function () {
                 //reset the focus date onShow
-                module.set.focusDate(module.get.date());
+                module.set.focusDate(module.get.date(), false);
+                module.set.mode(settings.startMode || 'day');
                 return settings.onShow.apply($container, arguments);
               };
               var options = $.extend({}, settings.popupOptions, {
@@ -153,70 +154,123 @@
 
           create: {
             calendar: function () {
+              var i, r, c, row, cell;
+
+              var mode = module.get.mode();
               var today = new Date();
               var date = module.get.date();
               var focusDate = module.get.focusDate();
               var display = focusDate || date || settings.startDate || today;
-              if (!focusDate) {
-                focusDate = display;
-              }
+              display = module.helper.dateInRange(display);
+              focusDate = focusDate || display;
 
+              var minute = display.getMinutes();
+              var hour = display.getHours();
+              var day = display.getDate();
               var month = display.getMonth();
               var year = display.getFullYear();
-              var first = new Date(year, month, 1);
-              var last = new Date(year, month + 1, 0);
-              var previousFirst = new Date(year, month - 1, 1);
-              var previousLast = new Date(year, month, 0);
-              var nextFirst = new Date(year, month + 1, 1);
-              var columnOfFirst = (first.getDay() - settings.firstDayOfWeek % 7 + 7) % 7;
-              var requiredCells = settings.constantHeight ? 7 * 6 : last.getDate() + columnOfFirst;
-              var requiredRows = Math.ceil(requiredCells / 7);
+
+              var isYear = mode === 'year';
+              var isMonth = mode === 'month';
+              var isDay = mode === 'day';
+              var isHour = mode === 'hour';
+              var isMinute = mode === 'minute';
+              var isTimeOnly = settings.type === 'time';
+
+              var columns = isDay ? 7 : isHour ? 4 : 3;
+              var columnsString = columns === 7 ? 'seven' : columns === 4 ? 'four' : 'three';
+              var rows = isDay || isHour ? 6 : 4;
+
+              var firstMonthDayColumn = (new Date(year, month, 1).getDay() - settings.firstDayOfWeek % 7 + 7) % 7;
+              if (!settings.constantHeight && isDay) {
+                var requiredCells = new Date(year, month + 1, 0).getDate() + firstMonthDayColumn;
+                rows = Math.ceil(requiredCells / 7);
+              }
+
+              var yearChange = isYear ? 10 : isMonth ? 1 : 0;
+              var monthChange = isDay ? 1 : 0;
+              var dayChange = isHour || isMinute ? 1 : 0;
+              var prevNextDay = isHour || isMinute ? day : 1;
+              var prevDate = new Date(year - yearChange, month - monthChange, prevNextDay - dayChange, hour);
+              var nextDate = new Date(year + yearChange, month + monthChange, prevNextDay + dayChange, hour);
+
+              var prevLast = isYear ? new Date(Math.ceil(year / 10) * 10 - 9, 0, 0) :
+                isMonth ? new Date(year, 0, 0) : isDay ? new Date(year, month, 0) : new Date(year, month, day, -1);
+              var nextFirst = isYear ? new Date(Math.ceil(year / 10) * 10 + 1, 0, 1) :
+                isMonth ? new Date(year + 1, 0, 1) : isDay ? new Date(year, month + 1, 1) : new Date(year, month, day + 1);
 
               $container.empty();
 
-              var table = $('<table/>').addClass(className.table).appendTo($container);
-              var thead = $('<thead/>').appendTo(table);
+              var table = $('<table/>').addClass(className.table)
+                .addClass(columnsString + ' column').addClass(mode).appendTo($container);
 
-              var monthHeaderRow = $('<tr/>').appendTo(thead);
-              var prevMonth = $('<th/>').addClass(className.prev).appendTo(monthHeaderRow);
-              prevMonth.data('date', previousFirst);
-              prevMonth.toggleClass(className.disabledCell, !module.helper.isDateInRange(previousLast));
-              $('<i/>').addClass(className.prevIcon).appendTo(prevMonth);
-              var monthHeader = $('<th/>').attr('colspan', '5').appendTo(monthHeaderRow);
-              monthHeader.text(formatter.header(display, settings));
-              var nextMonth = $('<th/>').addClass(className.next).appendTo(monthHeaderRow);
-              nextMonth.data('date', nextFirst);
-              nextMonth.toggleClass(className.disabledCell, !module.helper.isDateInRange(nextFirst));
-              $('<i/>').addClass(className.nextIcon).appendTo(nextMonth);
+              //no header for time-only mode
+              if (!isTimeOnly || !(isHour || isMinute)) {
+                var thead = $('<thead/>').appendTo(table);
 
-              var dayHeaderRow = $('<tr/>').appendTo(thead);
-              for (var i = 0; i < 7; i++) {
-                var dayHeader = $('<th/>').appendTo(dayHeaderRow);
-                dayHeader.text(formatter.columnHeader((i + settings.firstDayOfWeek) % 7, settings));
+                row = $('<tr/>').appendTo(thead);
+                cell = $('<th/>').attr('colspan', '' + columns).appendTo(row);
+
+                var headerText = $('<span/>').addClass(className.link).appendTo(cell);
+                headerText.text(formatter.header(display, mode, settings));
+                var newMode = isTimeOnly ? 'hour' : isMonth ? (settings.disableYear ? 'day' : 'year') :
+                  isDay ? (settings.disableMonth ? 'year' : 'month') : 'day';
+                headerText.data(metadata.mode, newMode);
+
+                var prev = $('<span/>').addClass(className.prev).appendTo(cell);
+                prev.data(metadata.focusDate, prevDate);
+                prev.toggleClass(className.disabledCell, !module.helper.isDateInRange(prevLast, mode));
+                $('<i/>').addClass(className.prevIcon).appendTo(prev);
+
+                var next = $('<span/>').addClass(className.next).appendTo(cell);
+                next.data(metadata.focusDate, nextDate);
+                next.toggleClass(className.disabledCell, !module.helper.isDateInRange(nextFirst, mode));
+                $('<i/>').addClass(className.nextIcon).appendTo(next);
+
+                if (isDay) {
+                  row = $('<tr/>').appendTo(thead);
+                  for (i = 0; i < columns; i++) {
+                    cell = $('<th/>').appendTo(row);
+                    cell.text(formatter.columnHeader((i + settings.firstDayOfWeek) % 7, settings));
+                  }
+                }
               }
 
-              var day = 1 - columnOfFirst;
               var tbody = $('<tbody/>').appendTo(table);
-              for (var r = 0; r < requiredRows; r++) {
-                var row = $('<tr/>').appendTo(tbody);
-                for (var c = 0; c < 7; c++, day++) {
-                  var cell = $('<td/>').addClass(className.cell).appendTo(row);
-                  var cellDate = new Date(year, month, day);
-                  cell.text(cellDate.getDate());
-                  var disabled = cellDate.getMonth() !== month || !module.helper.isDateInRange(cellDate);
+              i = isYear ? Math.ceil(year / 10) * 10 - 9 : isDay ? 1 - firstMonthDayColumn : 0;
+              for (r = 0; r < rows; r++) {
+                row = $('<tr/>').appendTo(tbody);
+                for (c = 0; c < columns; c++, i++) {
+                  var cellDate = isYear ? new Date(i, month, 1, hour, minute) :
+                    isMonth ? new Date(year, i, 1, hour, minute) : isDay ? new Date(year, month, i, hour, minute) :
+                      isHour ? new Date(year, month, day, i) : new Date(year, month, day, hour, i * 5);
+                  var cellText = isYear ? i :
+                    isMonth ? settings.text.monthsShort[i] : isDay ? cellDate.getDate() :
+                      formatter.time(cellDate, settings, true);
+                  cell = $('<td/>').addClass(className.cell).appendTo(row);
+                  cell.text(cellText);
+                  cell.data(metadata.date, cellDate);
+                  var disabled = (isDay && cellDate.getMonth() !== month) || !module.helper.isDateInRange(cellDate, mode);
+                  var focusDateEqual = module.helper.dateEqual(cellDate, focusDate, mode);
                   cell.toggleClass(className.disabledCell, disabled);
-                  cell.toggleClass(className.todayCell, module.helper.dateEqual(cellDate, today));
-                  cell.toggleClass(className.activeCell, module.helper.dateEqual(cellDate, date));
-                  cell.toggleClass(className.focusCell, !isTouch && module.helper.dateEqual(cellDate, focusDate));
-                  cell.data('date', cellDate);
+                  cell.toggleClass(className.focusCell, !isTouch && focusDateEqual);
+                  cell.toggleClass(className.activeCell, module.helper.dateEqual(cellDate, date, mode));
+                  if (!isHour && !isMinute) {
+                    cell.toggleClass(className.todayCell, module.helper.dateEqual(cellDate, today, mode));
+                  }
+                  if (focusDateEqual) {
+                    //ensure that the focus date is exactly equal to the cell date
+                    //so that, if selected, the correct value is set
+                    module.set.focusDate(cellDate, false);
+                  }
                 }
               }
 
               if (settings.today) {
                 var todayRow = $('<tr/>').appendTo(tbody);
-                var todayButton = $('<td/>').attr('colspan', '7').addClass(className.today).appendTo(todayRow);
+                var todayButton = $('<td/>').attr('colspan', '' + columns).addClass(className.today).appendTo(todayRow);
                 todayButton.text(formatter.today(settings));
-                todayButton.data('date', today);
+                todayButton.data(metadata.date, today);
               }
             }
           },
@@ -258,20 +312,23 @@
               event.preventDefault();
               event.stopPropagation();
               var target = $(event.target);
-              if (target.parent().data('date')) {
-                target = target.parent();
+              var parent = target.parent();
+              if (parent.data(metadata.date) || parent.data(metadata.focusDate) || parent.data(metadata.mode)) {
+                //clicked on a child element, switch to parent
+                target = parent;
               }
-              var date = target.data('date');
-              if (!date) {
-                return;
+              var date = target.data(metadata.date);
+              var focusDate = target.data(metadata.focusDate);
+              var mode = target.data(metadata.mode);
+              if (date) {
+                var forceSet = target.hasClass(className.today);
+                module.set.selectDate(date, forceSet);
               }
-              if (target.hasClass(className.prev) || target.hasClass(className.next)) {
-                module.set.focusDate(date);
-              } else {
-                module.set.date(date);
-                if (settings.closable) {
-                  module.popup('hide');
-                }
+              else if (focusDate) {
+                module.set.focusDate(focusDate);
+              }
+              else if (mode) {
+                module.set.mode(mode);
               }
             },
             mousedown: function (event) {
@@ -289,21 +346,28 @@
               if (module.popup('is visible')) {
                 if (event.keyCode === 37 || event.keyCode === 38 || event.keyCode === 39 || event.keyCode === 40) {
                   //arrow keys
-                  var increment = event.keyCode === 37 ? -1 : event.keyCode === 38 ? -7 : event.keyCode == 39 ? 1 : 7;
-                  var focusDate = module.get.focusDate();
-                  if (!focusDate) {
-                    focusDate = module.get.date() || new Date();
+                  var mode = module.get.mode();
+                  var bigIncrement = mode === 'day' ? 7 : mode === 'hour' ? 4 : 3;
+                  var increment = event.keyCode === 37 ? -1 : event.keyCode === 38 ? -bigIncrement : event.keyCode == 39 ? 1 : bigIncrement;
+                  increment *= mode === 'minute' ? 5 : 1;
+                  var focusDate = module.get.focusDate() || module.get.date() || new Date();
+                  var year = focusDate.getFullYear() + (mode === 'year' ? increment : 0);
+                  var month = focusDate.getMonth() + (mode === 'month' ? increment : 0);
+                  var day = focusDate.getDate() + (mode === 'day' ? increment : 0);
+                  var hour = focusDate.getHours() + (mode === 'hour' ? increment : 0);
+                  var minute = focusDate.getMinutes() + (mode === 'minute' ? increment : 0);
+                  var newFocusDate = new Date(year, month, day, hour, minute);
+                  if (settings.type === 'time') {
+                    newFocusDate = module.helper.mergeDateTime(focusDate, newFocusDate);
                   }
-                  focusDate = new Date(focusDate.getFullYear(), focusDate.getMonth(), focusDate.getDate() + increment);
-                  module.set.focusDate(focusDate);
+                  if (module.helper.isDateInRange(newFocusDate, mode)) {
+                    module.set.focusDate(newFocusDate);
+                  }
                 } else if (event.keyCode === 13) {
                   //enter
                   var date = module.get.focusDate();
                   if (date) {
-                    module.set.date(date);
-                    if (settings.closable) {
-                      module.popup('hide');
-                    }
+                    module.set.selectDate(date);
                   }
                 }
               }
@@ -325,7 +389,7 @@
             },
             inputBlur: function () {
               var date = module.get.date();
-              var text = formatter.date(date, settings);
+              var text = formatter.datetime(date, settings);
               $input.val(text);
               $container.removeClass(className.active);
             }
@@ -338,9 +402,37 @@
             focusDate: function () {
               return $module.data(metadata.focusDate);
             },
+            mode: function () {
+              //only returns valid modes for the current settings
+              var mode = $module.data(metadata.mode) || settings.startMode;
+              var validModes = module.get.validModes();
+              if ($.inArray(mode, validModes) >= 0) {
+                return mode;
+              }
+              return settings.type === 'time' ? 'hour' : 'day';
+            },
+            validModes: function () {
+              var validModes = [];
+              if (settings.type !== 'time') {
+                if (!settings.disableYear) {
+                  validModes.push('year');
+                }
+                if (!settings.disableMonth) {
+                  validModes.push('month');
+                }
+                validModes.push('day');
+              }
+              if (settings.type !== 'date') {
+                validModes.push('hour');
+                if (!settings.disableMinute) {
+                  validModes.push('minute');
+                }
+              }
+              return validModes;
+            },
             isTouch: function () {
               try {
-                document.createEvent("TouchEvent");
+                document.createEvent('TouchEvent');
                 return true;
               }
               catch (e) {
@@ -350,14 +442,36 @@
           },
 
           set: {
+            selectDate: function (date, forceSet) {
+              var mode = module.get.mode();
+              var complete = forceSet || mode === 'minute' ||
+                (settings.type === 'date' && mode === 'day') ||
+                (settings.disableMinute && mode === 'hour');
+              if (complete) {
+                var canceled = module.set.date(date) === false;
+                if (!canceled && settings.closable) {
+                  module.popup('hide');
+                }
+              } else {
+                var newMode = mode === 'year' ? (!settings.disableMonth ? 'month' : 'day') :
+                  mode === 'month' ? 'day' : mode === 'day' ? 'hour' : 'minute';
+                module.set.mode(newMode, false);
+                if (mode === 'hour' || (mode === 'day' && module.get.date())) {
+                  //the user has chosen enough to consider a valid date/time has been chosen
+                  module.set.date(date);
+                } else {
+                  module.set.focusDate(date);
+                }
+              }
+            },
             date: function (date, updateInput) {
+              updateInput = updateInput !== false;
               date = module.helper.sanitiseDate(date);
               date = module.helper.dateInRange(date);
-              updateInput = updateInput !== false;
 
-              var text = formatter.date(date, settings);
+              var text = formatter.datetime(date, settings);
               if (settings.onChange.call(element, date, text) === false) {
-                return;
+                return false;
               }
 
               if (date) {
@@ -371,7 +485,8 @@
                 $input.val(text);
               }
             },
-            focusDate: function (date) {
+            focusDate: function (date, refreshCalendar) {
+              refreshCalendar = refreshCalendar !== false;
               date = module.helper.sanitiseDate(date);
               date = module.helper.dateInRange(date);
               if (date) {
@@ -379,7 +494,20 @@
               } else {
                 $module.removeData(metadata.focusDate);
               }
-              module.create.calendar();
+              if (refreshCalendar) {
+                module.create.calendar();
+              }
+            },
+            mode: function (mode, refreshCalendar) {
+              refreshCalendar = refreshCalendar !== false;
+              if (mode) {
+                $module.data(metadata.mode, mode);
+              } else {
+                $module.removeData(metadata.mode);
+              }
+              if (refreshCalendar) {
+                module.create.calendar();
+              }
             }
           },
 
@@ -408,28 +536,48 @@
               }
               return date;
             },
-            dateEqual: function (date1, date2) {
-              //ignore time component of dates
-              return !!date1 && !!date2 &&
-                date1.getFullYear() === date2.getFullYear() &&
-                date1.getMonth() === date2.getMonth() &&
-                date1.getDate() === date2.getDate();
+            dateDiff: function (date1, date2, mode) {
+              mode = mode || 'day';
+              var isTimeOnly = settings.type === 'time';
+              var isYear = mode === 'year';
+              var isYearOrMonth = isYear || mode === 'month';
+              var isMinute = mode === 'minute';
+              var isHourOrMinute = isMinute || mode === 'hour';
+              //only care about a minute accuracy of 5
+              date1 = new Date(
+                isTimeOnly ? 2000 : date1.getFullYear(),
+                isTimeOnly ? 0 : isYear ? 0 : date1.getMonth(),
+                isTimeOnly ? 1 : isYearOrMonth ? 1 : date1.getDate(),
+                !isHourOrMinute ? 0 : date1.getHours(),
+                !isMinute ? 0 : Math.floor(date1.getMinutes() / 5));
+              date2 = new Date(
+                isTimeOnly ? 2000 : date2.getFullYear(),
+                isTimeOnly ? 0 : isYear ? 0 : date2.getMonth(),
+                isTimeOnly ? 1 : isYearOrMonth ? 1 : date2.getDate(),
+                !isHourOrMinute ? 0 : date2.getHours(),
+                !isMinute ? 0 : Math.floor(date2.getMinutes() / 5));
+              return date2.getTime() - date1.getTime();
             },
-            dateDiff: function (date1, date2) {
-              //create new dates so that times aren't considered
-              return new Date(date2.getFullYear(), date2.getMonth(), date2.getDate()).getTime() -
-                new Date(date1.getFullYear(), date1.getMonth(), date1.getDate()).getTime();
+            dateEqual: function (date1, date2, mode) {
+              return !!date1 && !!date2 && module.helper.dateDiff(date1, date2, mode) === 0;
+            },
+            isDateInRange: function (date, mode) {
+              return !(!date ||
+              (settings.minDate && module.helper.dateDiff(date, settings.minDate, mode) > 0) ||
+              (settings.maxDate && module.helper.dateDiff(settings.maxDate, date, mode) > 0));
             },
             dateInRange: function (date) {
+              var isTimeOnly = settings.type === 'time';
               return !date ? date :
-                (settings.minDate && module.helper.dateDiff(date, settings.minDate) > 0) ? settings.minDate :
-                  (settings.maxDate && module.helper.dateDiff(settings.maxDate, date) > 0) ? settings.maxDate :
+                (settings.minDate && module.helper.dateDiff(date, settings.minDate, 'minute') > 0) ?
+                  (isTimeOnly ? module.helper.mergeDateTime(date, settings.minDate) : settings.minDate) :
+                  (settings.maxDate && module.helper.dateDiff(settings.maxDate, date, 'minute') > 0) ?
+                    (isTimeOnly ? module.helper.mergeDateTime(date, settings.maxDate) : settings.maxDate) :
                     date;
             },
-            isDateInRange: function (date) {
-              return !(!date ||
-              (settings.minDate && module.helper.dateDiff(date, settings.minDate) > 0) ||
-              (settings.maxDate && module.helper.dateDiff(settings.maxDate, date) > 0));
+            mergeDateTime: function (date, time) {
+              return (!date || !time) ? time :
+                new Date(date.getFullYear(), date.getMonth(), date.getDate(), time.getHours(), time.getMinutes());
             }
           },
 
@@ -618,17 +766,23 @@
     verbose: false,
     performance: false,
 
-    firstDayOfWeek: 0,    // day for first column (0 = Sunday)
-    constantHeight: true, // add rows to shorter months to keep calendar height consistent (6 rows)
-    today: false,         // show a 'today' button at the bottom of the calendar
-    closable: true,       // close the popup after selecting a date
+    type: 'datetime',     // picker type, can be 'date', 'time', or 'datetime'
+    firstDayOfWeek: 0,    // day for first day column (0 = Sunday)
+    constantHeight: true, // add rows to shorter months to keep day calendar height consistent (6 rows)
+    today: false,         // show a 'today/now' button at the bottom of the calendar
+    closable: true,       // close the popup after selecting a date/time
     monthFirst: true,     // month before day when parsing/converting date from/to text
     touchReadonly: true,  // set input to readonly on touch devices
     inline: false,        // create the calendar inline instead of inside a popup
     on: 'click',          // when to show the popup
-    startDate: false,     // date/month to display initially when no date is selected (defaults to today)
-    minDate: false,       // minimum date that can be selected, dates before are disabled
-    maxDate: false,       // maximum date that can be selected, dates after are disabled
+    startDate: false,     // date to display initially when no date is selected (false = now)
+    startMode: false,     // display mode to start in, can be 'year', 'month', 'day', 'hour', 'minute' (false = 'day')
+    minDate: false,       // minimum date/time that can be selected, dates/times before are disabled
+    maxDate: false,       // maximum date/time that can be selected, dates/times after are disabled
+    ampm: true,           // show am/pm in time mode
+    disableYear: false,   // disable year selection mode
+    disableMonth: false,  // disable month selection mode
+    disableMinute: false, // disable minute selection mode
 
     // popup options ('popup', 'on', 'hoverable', and show/hide callbacks are overridden)
     popupOptions: {
@@ -639,17 +793,42 @@
 
     text: {
       days: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-      months: ['January', 'February', 'March', 'April', 'May', 'June',
-        'July', 'August', 'September', 'October', 'November', 'December'],
-      today: 'Today'
+      months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+      today: 'Today',
+      now: 'Now',
+      am: 'AM',
+      pm: 'PM'
     },
 
     formatter: {
-      header: function (date, settings) {
-        return settings.text.months[date.getMonth()] + ' ' + date.getFullYear();
+      header: function (date, mode, settings) {
+        var day = date.getDate();
+        var month = settings.text.months[date.getMonth()];
+        var year = date.getFullYear();
+        if (mode === 'year') {
+          var decadeYear = Math.ceil(year / 10) * 10;
+          return (decadeYear - 9) + ' - ' + (decadeYear + 2);
+        }
+        if (mode === 'month') {
+          return year;
+        }
+        if (mode === 'day') {
+          return month + ' ' + year;
+        }
+        return (settings.monthFirst ? month + ' ' + day : day + ' ' + month) + ' ' + year;
       },
       columnHeader: function (day, settings) {
         return settings.text.days[day];
+      },
+      datetime: function (date, settings) {
+        if (!date) {
+          return '';
+        }
+        var day = settings.type === 'time' ? '' : settings.formatter.date(date, settings);
+        var time = settings.type === 'date' ? '' : settings.formatter.time(date, settings, false);
+        var separator = settings.type === 'datetime' ? ' ' : '';
+        return day + separator + time;
       },
       date: function (date, settings) {
         if (!date) {
@@ -660,8 +839,21 @@
         var year = date.getFullYear();
         return (settings.monthFirst ? month + ' ' + day : day + ' ' + month) + ', ' + year;
       },
+      time: function (date, settings, forCalendar) {
+        if (!date) {
+          return '';
+        }
+        var hour = date.getHours();
+        var minute = date.getMinutes();
+        var ampm = '';
+        if (settings.ampm) {
+          ampm = ' ' + (hour < 12 ? settings.text.am : settings.text.pm);
+          hour = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+        }
+        return hour + ':' + (minute < 10 ? '0' : '') + minute + ampm;
+      },
       today: function (settings) {
-        return settings.text.today;
+        return settings.type === 'date' ? settings.text.today : settings.text.now;
       }
     },
 
@@ -670,95 +862,171 @@
         if (!text) {
           return null;
         }
-        text = ('' + text).trim();
+        text = ('' + text).trim().toLowerCase();
         if (text.length === 0) {
           return null;
         }
 
-        var day = -1, month = -1, year = -1;
-        var parts = text.split(settings.regExp.dateDelimiter).slice(0, 3);
         var i, j, k;
+        var minute = -1, hour = -1, day = -1, month = -1, year = -1;
+        var isAm = undefined;
 
-        //textual month
-        for (i = 0; i < parts.length; i++) {
-          var part = parts[i];
-          part = part.substring(0, Math.min(part.length, 3)).toLowerCase();
-          for (j = 0; j < settings.text.months.length; j++) {
-            var monthString = settings.text.months[j];
-            monthString = monthString.substring(0, Math.min(part.length, Math.min(monthString.length, 3))).toLowerCase();
-            if (monthString === part) {
-              month = j + 1;
+        var isTimeOnly = settings.type === 'time';
+        var isDateOnly = settings.type === 'date';
+
+        var words = text.split(/[^A-Za-z\u00C0-\u024F]+/g);
+        var numbers = text.split(/[^\d:]+/g);
+
+        if (!isDateOnly) {
+          //am/pm
+          isAm = $.inArray(settings.text.am.toLowerCase(), words) >= 0 ? true :
+            $.inArray(settings.text.pm.toLowerCase(), words) >= 0 ? false : undefined;
+
+          //time with ':'
+          for (i = 0; i < numbers.length; i++) {
+            var number = numbers[i];
+            if (number.indexOf(':') >= 0) {
+              if (hour < 0 || minute < 0) {
+                var parts = number.split(':');
+                for (k = 0; k < Math.min(2, parts.length); k++) {
+                  j = parseInt(parts[k]);
+                  if (isNaN(j)) {
+                    j = 0;
+                  }
+                  if (k === 0) {
+                    hour = j;
+                  } else {
+                    minute = j;
+                  }
+                }
+              }
+              numbers.splice(i, 1);
+            }
+          }
+        }
+
+        if (!isTimeOnly) {
+          //textual month
+          for (i = 0; i < words.length; i++) {
+            var word = words[i];
+            if (word.length <= 0) {
+              continue;
+            }
+            word = word.substring(0, Math.min(word.length, 3));
+            for (j = 0; j < settings.text.months.length; j++) {
+              var monthString = settings.text.months[j];
+              monthString = monthString.substring(0, Math.min(word.length, Math.min(monthString.length, 3))).toLowerCase();
+              if (monthString === word) {
+                month = j + 1;
+                break;
+              }
+            }
+            if (month >= 0) {
               break;
             }
           }
-          if (month >= 0) {
-            parts.splice(i, 1);
-            break;
-          }
-        }
 
-        //year > 31
-        for (i = parts.length - 1; i >= 0; i--) {
-          j = parseInt(parts[i]);
-          if (isNaN(j)) {
-            continue;
-          }
-          if (j > 31) {
-            year = j;
-            parts.splice(i, 1);
-            break;
-          }
-        }
-
-        //numeric month
-        if (month < 0) {
-          for (i = 0; i < parts.length; i++) {
-            k = i > 1 || settings.monthFirst ? i : i === 1 ? 0 : 1;
-            j = parseInt(parts[k]);
+          //year > 59
+          for (i = 0; i < numbers.length; i++) {
+            j = parseInt(numbers[i]);
             if (isNaN(j)) {
               continue;
             }
-            if (1 <= j && j <= 12) {
-              month = j;
-              parts.splice(k, 1);
+            if (j > 59) {
+              year = j;
+              numbers.splice(i, 1);
+              break;
+            }
+          }
+
+          //numeric month
+          if (month < 0) {
+            for (i = 0; i < numbers.length; i++) {
+              k = i > 1 || settings.monthFirst ? i : i === 1 ? 0 : 1;
+              j = parseInt(numbers[k]);
+              if (isNaN(j)) {
+                continue;
+              }
+              if (1 <= j && j <= 12) {
+                month = j;
+                numbers.splice(k, 1);
+                break;
+              }
+            }
+          }
+
+          //day
+          for (i = 0; i < numbers.length; i++) {
+            j = parseInt(numbers[i]);
+            if (isNaN(j)) {
+              continue;
+            }
+            if (1 <= j && j <= 31) {
+              day = j;
+              numbers.splice(i, 1);
+              break;
+            }
+          }
+
+          //year <= 59
+          if (year < 0) {
+            for (i = numbers.length - 1; i >= 0; i--) {
+              j = parseInt(numbers[i]);
+              if (isNaN(j)) {
+                continue;
+              }
+              if (j < 99) {
+                j += 2000;
+              }
+              year = j;
+              numbers.splice(i, 1);
               break;
             }
           }
         }
 
-        //day
-        for (i = 0; i < parts.length; i++) {
-          j = parseInt(parts[i]);
-          if (isNaN(j)) {
-            continue;
+        if (!isDateOnly) {
+          //hour
+          if (hour < 0) {
+            for (i = 0; i < numbers.length; i++) {
+              j = parseInt(numbers[i]);
+              if (isNaN(j)) {
+                continue;
+              }
+              if (0 <= j && j <= 23) {
+                hour = j;
+                numbers.splice(i, 1);
+                break;
+              }
+            }
           }
-          if (1 <= j && j <= 31) {
-            day = j;
-            parts.splice(i, 1);
-            break;
+
+          //minute
+          if (minute < 0) {
+            for (i = 0; i < numbers.length; i++) {
+              j = parseInt(numbers[i]);
+              if (isNaN(j)) {
+                continue;
+              }
+              if (0 <= j && j <= 59) {
+                minute = j;
+                numbers.splice(i, 1);
+                break;
+              }
+            }
           }
         }
 
-        //year <= 31
-        if (year < 0) {
-          for (i = parts.length - 1; i >= 0; i--) {
-            j = parseInt(parts[i]);
-            if (isNaN(j)) {
-              continue;
-            }
-            if (j < 99) {
-              j += 2000;
-            }
-            year = j;
-            parts.splice(i, 1);
-            break;
-          }
-        }
-
-        if (day < 0 && month < 0 && year < 0) {
+        if (minute < 0 && hour < 0 && day < 0 && month < 0 && year < 0) {
           return null;
         }
 
+        if (minute < 0) {
+          minute = 0;
+        }
+        if (hour < 0) {
+          hour = 0;
+        }
         if (day < 0) {
           day = 1;
         }
@@ -769,7 +1037,17 @@
           year = new Date().getFullYear();
         }
 
-        var date = new Date(year, month - 1, day);
+        if (isAm !== undefined) {
+          if (isAm) {
+            if (hour === 12) {
+              hour = 0;
+            }
+          } else if (hour < 12) {
+            hour += 12;
+          }
+        }
+
+        var date = new Date(year, month - 1, day, hour, minute);
         return isNaN(date) ? null : date;
       }
     },
@@ -814,22 +1092,24 @@
       calendar: 'calendar',
       active: 'active',
       popup: 'ui popup',
-      table: 'ui seven column celled center aligned unstackable table',
+      table: 'ui celled center aligned unstackable table',
       prev: 'prev link',
       next: 'next link',
       prevIcon: 'chevron left icon',
       nextIcon: 'chevron right icon',
+      link: 'link',
       cell: 'link',
       disabledCell: 'disabled',
       activeCell: 'active',
       focusCell: 'focus',
       todayCell: 'today',
-      today: 'link'
+      today: 'today link'
     },
 
     metadata: {
       date: 'date',
-      focusDate: 'focusDate'
+      focusDate: 'focusDate',
+      mode: 'mode'
     }
   };
 

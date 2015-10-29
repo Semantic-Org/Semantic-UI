@@ -27,8 +27,9 @@
   outline: 0;
 }
 
-.ui.calendar .calendar:focus .ui.table tr td.focus,
-.ui.calendar .calendar.active .ui.table tr td.focus {
+.ui.calendar .calendar:focus .ui.table tbody:not(:hover) tr td.focus,
+.ui.calendar .calendar.active .ui.table tbody:not(:hover) tr td.focus,
+.ui.calendar .calendar .ui.table tbody tr td:hover {
   box-shadow: inset 0 0 0 1px @focusedCellBorderColor;
 }
 
@@ -36,9 +37,24 @@
             Table
 *******************************/
 
+.ui.calendar .ui.table.year,
+.ui.calendar .ui.table.month,
+.ui.calendar .ui.table.minute {
+  min-width: 15em;
+}
+
+.ui.calendar .ui.table.day {
+  min-width: 18em;
+}
+
+.ui.calendar .ui.table.hour {
+  min-width: 20em;
+}
+
 .ui.calendar .ui.table tr th,
 .ui.calendar .ui.table tr td {
   padding: 0.5em;
+  white-space: nowrap;
 }
 
 .ui.calendar .ui.table tr th {
@@ -49,27 +65,50 @@
   margin: 0;
 }
 
+.ui.calendar .ui.table tr th .icon {
+  margin: 0;
+}
+
 .ui.calendar .ui.table tr:first-child th {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.ui.calendar .ui.table.day tr:first-child th {
   border: none;
 }
 
-.ui.calendar .ui.table tr:nth-child(2) th {
+.ui.calendar .ui.table.day tr:nth-child(2) th {
   padding-top: 0.2em;
   padding-bottom: 0.3em;
+}
+
+.ui.calendar .ui.table tr td {
+  padding-left: 0.1em;
+  padding-right: 0.1em;
+}
+
+.ui.calendar .ui.table tr .link {
+  cursor: pointer;
+}
+
+.ui.calendar .ui.table tr .prev.link {
+  width: 14.28571429%;
+  position: absolute;
+  left: 0;
+}
+
+.ui.calendar .ui.table tr .next.link {
+  width: 14.28571429%;
+  position: absolute;
+  right: 0;
 }
 
 .ui.calendar .ui.table tr td.today {
   font-weight: bold;
 }
 
-.ui.calendar .ui.table tr th.link,
-.ui.calendar .ui.table tr td.link {
-  cursor: pointer;
-}
-
-.ui.calendar .ui.table tr.disabled th,
-.ui.calendar .ui.table tr th.disabled,
-.ui.calendar .ui.table tr:hover th.disabled {
+.ui.calendar .ui.table tr .disabled {
   pointer-events: none;
   color: @disabledTextColor;
 }
