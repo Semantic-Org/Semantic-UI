@@ -231,7 +231,7 @@
                   row = $('<tr/>').appendTo(thead);
                   for (i = 0; i < columns; i++) {
                     cell = $('<th/>').appendTo(row);
-                    cell.text(formatter.columnHeader((i + settings.firstDayOfWeek) % 7, settings));
+                    cell.text(formatter.dayColumnHeader((i + settings.firstDayOfWeek) % 7, settings));
                   }
                 }
               }
@@ -803,22 +803,31 @@
 
     formatter: {
       header: function (date, mode, settings) {
-        var day = date.getDate();
+        return mode === 'year' ? settings.formatter.yearHeader(date, settings) :
+          mode === 'month' ? settings.formatter.monthHeader(date, settings) :
+            mode === 'day' ? settings.formatter.dayHeader(date, settings) :
+              mode === 'hour' ? settings.formatter.hourHeader(date, settings) :
+                settings.formatter.minuteHeader(date, settings);
+      },
+      yearHeader: function (date, settings) {
+        var decadeYear = Math.ceil(date.getFullYear() / 10) * 10;
+        return (decadeYear - 9) + ' - ' + (decadeYear + 2);
+      },
+      monthHeader: function (date, settings) {
+        return date.getFullYear();
+      },
+      dayHeader: function (date, settings) {
         var month = settings.text.months[date.getMonth()];
         var year = date.getFullYear();
-        if (mode === 'year') {
-          var decadeYear = Math.ceil(year / 10) * 10;
-          return (decadeYear - 9) + ' - ' + (decadeYear + 2);
-        }
-        if (mode === 'month') {
-          return year;
-        }
-        if (mode === 'day') {
-          return month + ' ' + year;
-        }
-        return (settings.monthFirst ? month + ' ' + day : day + ' ' + month) + ' ' + year;
+        return month + ' ' + year;
       },
-      columnHeader: function (day, settings) {
+      hourHeader: function (date, settings) {
+        return settings.formatter.date(date, settings);
+      },
+      minuteHeader: function (date, settings) {
+        return settings.formatter.date(date, settings);
+      },
+      dayColumnHeader: function (day, settings) {
         return settings.text.days[day];
       },
       datetime: function (date, settings) {
