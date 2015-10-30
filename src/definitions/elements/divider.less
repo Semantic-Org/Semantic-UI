@@ -134,8 +134,8 @@
 /* Inside grid */
 @media only screen and (max-width : @largestMobileScreen) {
 
-  .ui.stackable.grid .ui.vertical.divider,
-  .ui.grid .stackable.row .ui.vertical.divider {
+  .ui.stackable.grid > .ui.vertical.divider,
+  .ui.grid .stackable.row > .ui.vertical.divider {
     display: table;
     white-space: nowrap;
     height: auto;
@@ -149,10 +149,10 @@
     transform: none;
   }
 
-  .ui.stackable.grid .ui.vertical.divider:before,
-  .ui.grid .stackable.row .ui.vertical.divider:before,
-  .ui.stackable.grid .ui.vertical.divider:after,
-  .ui.grid .stackable.row .ui.vertical.divider:after {
+  .ui.stackable.grid > .ui.vertical.divider:before,
+  .ui.grid .stackable.row > .ui.vertical.divider:before,
+  .ui.stackable.grid > .ui.vertical.divider:after,
+  .ui.grid .stackable.row > .ui.vertical.divider:after {
     position: static;
     left: 0;
     border-left: none;
@@ -165,12 +165,12 @@
     background-repeat: no-repeat;
   }
 
-  .ui.stackable.grid .ui.vertical.divider:before,
-  .ui.grid .stackable.row .ui.vertical.divider:before {
+  .ui.stackable.grid > .ui.vertical.divider:before,
+  .ui.grid .stackable.row > .ui.vertical.divider:before {
     background-position: right @horizontalDividerMargin top 50%;
   }
-  .ui.stackable.grid .ui.vertical.divider:after,
-  .ui.grid .stackable.row .ui.vertical.divider:after {
+  .ui.stackable.grid > .ui.vertical.divider:after,
+  .ui.grid .stackable.row > .ui.vertical.divider:after {
     background-position: left @horizontalDividerMargin top 50%;
   }
 }
