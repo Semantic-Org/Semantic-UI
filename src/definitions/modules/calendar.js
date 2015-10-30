@@ -531,7 +531,7 @@
               if (!(date instanceof Date)) {
                 date = parser.date('' + date);
               }
-              if (isNaN(date)) {
+              if (isNaN(date.getTime())) {
                 return undefined;
               }
               return date;
@@ -903,9 +903,9 @@
                     j = 0;
                   }
                   if (k === 0) {
-                    hour = j;
+                    hour = j % 24;
                   } else {
-                    minute = j;
+                    minute = j % 60;
                   }
                 }
               }
@@ -1057,7 +1057,11 @@
         }
 
         var date = new Date(year, month - 1, day, hour, minute);
-        return isNaN(date) ? null : date;
+        if (date.getMonth() !== month - 1 || date.getFullYear() !== year) {
+          //month or year don't match up, switch to last day of the month
+          date = new Date(year, month, 0, hour, minute);
+        }
+        return isNaN(date.getTime()) ? null : date;
       }
     },
 
