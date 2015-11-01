@@ -11,6 +11,7 @@
 
 **Major Bug Fixes**
 - **Checkbox/Dropdown/Search** - Fixed issue where using `.trigger('change')` would not fire native `change` event. Only triggering event handlers attached with jQuery #3108
+- **Transition** - Fixed bug where static transitions (those that dont animate in/out of view) would not fire `onComplete` event
 
 **Bugs**
 - **Divider/Step/Modal/AD** - Fixes 1px jump at `@mobileBreakpoint` caused by incorrect edge conditions in media query #3180 **THanks @mdehoog**
