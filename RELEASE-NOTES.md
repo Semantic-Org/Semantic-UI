@@ -29,6 +29,7 @@
 - **Grid** - Fixes attached segment 1px offset inside grid column #3226
 - **Grid** - Fixes some inconsistencies with `widescreen only` class #3161 **Thanks @mdehoog**
 - **Popup** - Fixes positioning issue when `movePopup: false` #3213 **Thanks @parisholley**
+- **Popup** - Popup now works with `svg` elements #3043
 - **Progress* - Calling `reset` will now reset `value` to 0, so increment starts again at 0
 - **Search** - Fixes `onSearchQuery` not firing when results are cached **Thanks @mnquintana**
 - **Search** - Fixes `url` parameter not working correctly due to typo in source **Thanks @fabienb4**
