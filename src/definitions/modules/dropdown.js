@@ -1158,7 +1158,6 @@ $.fn.dropdown = function(parameters) {
                 isSubMenuItem,
                 newIndex
               ;
-
               // visible menu keyboard shortcuts
               if( module.is.visible() ) {
 
