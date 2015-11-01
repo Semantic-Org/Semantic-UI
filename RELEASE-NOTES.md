@@ -4,6 +4,7 @@
 
 **Minor Enhancements*8
 - **Modal** - `onHide` callback can now cancel event by returning false #3168 **Thanks @mdehoog**
+- **Dropdown** - Added `onLabelRemove`
 
 **Bugs**
 - **Divider/Step/Modal/AD** - Fixes 1px jump at `@mobileBreakpoint` caused by incorrect edge conditions in media query #3180 **THanks @mdehoog**
