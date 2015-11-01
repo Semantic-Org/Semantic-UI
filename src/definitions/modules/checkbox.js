@@ -502,10 +502,15 @@ $.fn.checkbox = function(parameters) {
 
         trigger: {
           change: function() {
-            module.verbose('Triggering change event from programmatic change');
-            $input
-              .trigger('change')
+            var
+              events       = document.createEvent('HTMLEvents'),
+              inputElement = $input[0]
             ;
+            if(inputElement) {
+              module.verbose('Triggering native change event');
+              events.initEvent('change', false, true);
+              inputElement.dispatchEvent(events);
+            }
           }
         },
 
