@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.4 - Accordion
+ * # Semantic UI 2.1.5 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -129,7 +129,7 @@
 .ui.styled.accordion,
 .ui.styled.accordion .accordion {
   border-radius: 0.28571429rem;
-  background: #ffffff;
+  background: #FFFFFF;
   box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15), 0px 0px 0px 1px rgba(34, 36, 38, 0.15);
 }
 .ui.styled.accordion .title,

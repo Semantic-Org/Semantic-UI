@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.4 - Rating
+ * # Semantic UI 2.1.5 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -472,4 +472,4 @@ $.fn.rating.settings = {
 
 };
 
-})( jQuery, window , document );
+})( jQuery, window, document );

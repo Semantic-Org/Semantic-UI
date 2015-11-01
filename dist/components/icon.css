@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.4 - Icon
+ * # Semantic UI 2.1.5 - Icon
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -206,11 +206,11 @@ i.bordered.inverted.icon {
 /* Inverted Shapes */
 i.inverted.bordered.icon,
 i.inverted.circular.icon {
-  background-color: #1b1c1d !important;
-  color: #ffffff !important;
+  background-color: #1B1C1D !important;
+  color: #FFFFFF !important;
 }
 i.inverted.icon {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 /*-------------------
@@ -220,145 +220,145 @@ i.inverted.icon {
 
 /* Red */
 i.red.icon {
-  color: #db2828 !important;
+  color: #DB2828 !important;
 }
 i.inverted.red.icon {
-  color: #ff695e !important;
+  color: #FF695E !important;
 }
 i.inverted.bordered.red.icon,
 i.inverted.circular.red.icon {
-  background-color: #db2828 !important;
-  color: #ffffff !important;
+  background-color: #DB2828 !important;
+  color: #FFFFFF !important;
 }
 
 /* Orange */
 i.orange.icon {
-  color: #f2711c !important;
+  color: #F2711C !important;
 }
 i.inverted.orange.icon {
-  color: #ff851b !important;
+  color: #FF851B !important;
 }
 i.inverted.bordered.orange.icon,
 i.inverted.circular.orange.icon {
-  background-color: #f2711c !important;
-  color: #ffffff !important;
+  background-color: #F2711C !important;
+  color: #FFFFFF !important;
 }
 
 /* Yellow */
 i.yellow.icon {
-  color: #fbbd08 !important;
+  color: #FBBD08 !important;
 }
 i.inverted.yellow.icon {
-  color: #ffe21f !important;
+  color: #FFE21F !important;
 }
 i.inverted.bordered.yellow.icon,
 i.inverted.circular.yellow.icon {
-  background-color: #fbbd08 !important;
-  color: #ffffff !important;
+  background-color: #FBBD08 !important;
+  color: #FFFFFF !important;
 }
 
 /* Olive */
 i.olive.icon {
-  color: #b5cc18 !important;
+  color: #B5CC18 !important;
 }
 i.inverted.olive.icon {
-  color: #d9e778 !important;
+  color: #D9E778 !important;
 }
 i.inverted.bordered.olive.icon,
 i.inverted.circular.olive.icon {
-  background-color: #b5cc18 !important;
-  color: #ffffff !important;
+  background-color: #B5CC18 !important;
+  color: #FFFFFF !important;
 }
 
 /* Green */
 i.green.icon {
-  color: #21ba45 !important;
+  color: #21BA45 !important;
 }
 i.inverted.green.icon {
-  color: #2ecc40 !important;
+  color: #2ECC40 !important;
 }
 i.inverted.bordered.green.icon,
 i.inverted.circular.green.icon {
-  background-color: #21ba45 !important;
-  color: #ffffff !important;
+  background-color: #21BA45 !important;
+  color: #FFFFFF !important;
 }
 
 /* Teal */
 i.teal.icon {
-  color: #00b5ad !important;
+  color: #00B5AD !important;
 }
 i.inverted.teal.icon {
-  color: #6dffff !important;
+  color: #6DFFFF !important;
 }
 i.inverted.bordered.teal.icon,
 i.inverted.circular.teal.icon {
-  background-color: #00b5ad !important;
-  color: #ffffff !important;
+  background-color: #00B5AD !important;
+  color: #FFFFFF !important;
 }
 
 /* Blue */
 i.blue.icon {
-  color: #2185d0 !important;
+  color: #2185D0 !important;
 }
 i.inverted.blue.icon {
-  color: #54c8ff !important;
+  color: #54C8FF !important;
 }
 i.inverted.bordered.blue.icon,
 i.inverted.circular.blue.icon {
-  background-color: #2185d0 !important;
-  color: #ffffff !important;
+  background-color: #2185D0 !important;
+  color: #FFFFFF !important;
 }
 
 /* Violet */
 i.violet.icon {
-  color: #6435c9 !important;
+  color: #6435C9 !important;
 }
 i.inverted.violet.icon {
-  color: #a291fb !important;
+  color: #A291FB !important;
 }
 i.inverted.bordered.violet.icon,
 i.inverted.circular.violet.icon {
-  background-color: #6435c9 !important;
-  color: #ffffff !important;
+  background-color: #6435C9 !important;
+  color: #FFFFFF !important;
 }
 
 /* Purple */
 i.purple.icon {
-  color: #a333c8 !important;
+  color: #A333C8 !important;
 }
 i.inverted.purple.icon {
-  color: #dc73ff !important;
+  color: #DC73FF !important;
 }
 i.inverted.bordered.purple.icon,
 i.inverted.circular.purple.icon {
-  background-color: #a333c8 !important;
-  color: #ffffff !important;
+  background-color: #A333C8 !important;
+  color: #FFFFFF !important;
 }
 
 /* Pink */
 i.pink.icon {
-  color: #e03997 !important;
+  color: #E03997 !important;
 }
 i.inverted.pink.icon {
-  color: #ff8edf !important;
+  color: #FF8EDF !important;
 }
 i.inverted.bordered.pink.icon,
 i.inverted.circular.pink.icon {
-  background-color: #e03997 !important;
-  color: #ffffff !important;
+  background-color: #E03997 !important;
+  color: #FFFFFF !important;
 }
 
 /* Brown */
 i.brown.icon {
-  color: #a5673f !important;
+  color: #A5673F !important;
 }
 i.inverted.brown.icon {
-  color: #d67c1c !important;
+  color: #D67C1C !important;
 }
 i.inverted.bordered.brown.icon,
 i.inverted.circular.brown.icon {
-  background-color: #a5673f !important;
-  color: #ffffff !important;
+  background-color: #A5673F !important;
+  color: #FFFFFF !important;
 }
 
 /* Grey */
@@ -366,25 +366,25 @@ i.grey.icon {
   color: #767676 !important;
 }
 i.inverted.grey.icon {
-  color: #dcddde !important;
+  color: #DCDDDE !important;
 }
 i.inverted.bordered.grey.icon,
 i.inverted.circular.grey.icon {
   background-color: #767676 !important;
-  color: #ffffff !important;
+  color: #FFFFFF !important;
 }
 
 /* Black */
 i.black.icon {
-  color: #1b1c1d !important;
+  color: #1B1C1D !important;
 }
 i.inverted.black.icon {
   color: #545454 !important;
 }
 i.inverted.bordeblack.black.icon,
 i.inverted.circular.black.icon {
-  background-color: #1b1c1d !important;
-  color: #ffffff !important;
+  background-color: #1B1C1D !important;
+  color: #FFFFFF !important;
 }
 
 /*-------------------
@@ -476,10 +476,10 @@ i.icons .corner.icon {
       -ms-transform: none;
           transform: none;
   font-size: 0.45em;
-  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
+  text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #FFFFFF;
 }
 i.icons .inverted.corner.icon {
-  text-shadow: -1px -1px 0 #1b1c1d, 1px -1px 0 #1b1c1d, -1px 1px 0 #1b1c1d, 1px 1px 0 #1b1c1d;
+  text-shadow: -1px -1px 0 #1B1C1D, 1px -1px 0 #1B1C1D, -1px 1px 0 #1B1C1D, 1px 1px 0 #1B1C1D;
 }
 /*
  * Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -2376,6 +2376,9 @@ i.icon.conversation:before {
 }
 i.icon.umbrella:before {
   content: "\f0e9";
+}
+i.icon.clipboard:before {
+  content: "\f0ea";
 }
 i.icon.lightbulb:before {
   content: "\f0eb";

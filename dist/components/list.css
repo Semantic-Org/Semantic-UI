@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.4 - List
+ * # Semantic UI 2.1.5 - List
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -182,7 +182,7 @@ ol.ui.list ol li,
 .ui.list .list > a.item,
 .ui.list > a.item {
   cursor: pointer;
-  color: #4183c4;
+  color: #4183C4;
 }
 .ui.list .list > a.item:hover,
 .ui.list > a.item:hover {
@@ -199,7 +199,7 @@ ol.ui.list ol li,
 .ui.list .list > .item a.header,
 .ui.list > .item a.header {
   cursor: pointer;
-  color: #4183c4 !important;
+  color: #4183C4 !important;
 }
 .ui.list .list > .item a.header:hover,
 .ui.list > .item a.header:hover {

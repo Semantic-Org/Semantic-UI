@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.4 - Transition
+ * # Semantic UI 2.1.5 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -228,7 +228,9 @@ $.fn.transition = function() {
               module.show();
             }
             else {
+              module.verbose('Static animation completed');
               module.restore.conditions();
+              settings.onComplete.call(element);
             }
           }
         },
@@ -1069,4 +1071,4 @@ $.fn.transition.settings = {
 };
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.4 - Loader
+ * # Semantic UI 2.1.5 - Loader
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -126,7 +126,7 @@
   border-color: rgba(255, 255, 255, 0.15);
 }
 .ui.dimmer .ui.loader:after {
-  border-color: #ffffff transparent transparent;
+  border-color: #FFFFFF transparent transparent;
 }
 
 /* White Dimmer (Inverted) */
@@ -243,7 +243,7 @@
   border-color: rgba(255, 255, 255, 0.15);
 }
 .ui.inverted.loader:after {
-  border-top-color: #ffffff;
+  border-top-color: #FFFFFF;
 }
 
 /*-------------------
