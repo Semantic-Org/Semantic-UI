@@ -2027,7 +2027,7 @@ $.fn.dropdown = function(parameters) {
             }
             else {
               module.debug('Added tabindex to dropdown');
-              if(!$module.attr('tabindex') ) {
+              if( $module.attr('tabindex') === undefined) {
                 $module
                   .attr('tabindex', 0)
                 ;
@@ -2684,19 +2684,19 @@ $.fn.dropdown = function(parameters) {
             if( module.has.search() ) {
               module.debug('Searchable dropdown initialized');
               $search
-                .attr('tabindex', '-1')
+                .removeAttr('tabindex')
               ;
               $menu
-                .attr('tabindex', '-1')
+                .removeAttr('tabindex')
               ;
             }
             else {
               module.debug('Simple selection dropdown initialized');
               $module
-                .attr('tabindex', '-1')
+                .removeAttr('tabindex')
               ;
               $menu
-                .attr('tabindex', '-1')
+                .removeAttr('tabindex')
               ;
             }
           }
