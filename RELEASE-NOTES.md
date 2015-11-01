@@ -7,6 +7,7 @@
 - **Modal** - `onHide` callback can now cancel event by returning false #3168 **Thanks @mdehoog**
 - **Dropdown** - Added `onLabelRemove` callback that allows value removal to be cancelled by callback **Thanks @goloveychuk**
 - **Table** - Added `selectable` on table cell, allowing for full table-cell links
+- **Popup** Added three new variables for `arrow` background color based on position, top, center or bottom. This makes it easier to use gradient backgrounds with popups and still match arrow colors.
 
 **Bugs**
 - **Divider/Step/Modal/AD** - Fixes 1px jump at `@mobileBreakpoint` caused by incorrect edge conditions in media query #3180 **THanks @mdehoog**
@@ -19,6 +20,7 @@
 - **Grid** - Fixes some inconsistencies with `widescreen only` class #3161 **Thanks @mdehoog**
 - **Search** - Fixes `url` parameter not working correctly due to typo in source **Thanks @fabienb4**
 - **Dimmer** - Dimmer can now works correctly with `opacity: 0` #3167 **Thanks @mdehoog**
+- **Segment** - Fixes border on `horizontal segment` when they are `:first-child` inside `segments` group
 
 ### Version 2.1.4 - Sep 13, 2015
 

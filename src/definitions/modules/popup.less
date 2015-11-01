@@ -38,7 +38,7 @@
   border: @border;
   line-height: @lineHeight;
   max-width: @maxWidth;
-  background-color: @background;
+  background: @background;
 
   padding: @verticalPadding @horizontalPadding;
   font-weight: @fontWeight;
@@ -209,6 +209,31 @@
   margin-top: @arrowOffset;
   box-shadow: @rightArrowBoxShadow;
 }
+
+/* Arrow Color By Location */
+.ui.bottom.popup:before {
+  background: @arrowTopBackground;
+}
+.ui.right.center.popup:before,
+.ui.left.center.popup:before {
+  background: @arrowCenterBackground;
+}
+.ui.top.popup:before {
+  background: @arrowBottomBackground;
+}
+
+/* Inverted Arrow Color */
+.ui.inverted.bottom.popup:before {
+  background: @invertedArrowTopBackground;
+}
+.ui.inverted.right.center.popup:before,
+.ui.inverted.left.center.popup:before {
+  background: @invertedArrowCenterBackground;
+}
+.ui.inverted.top.popup:before {
+  background: @invertedArrowBottomBackground;
+}
+
 
 /*******************************
             Coupling
