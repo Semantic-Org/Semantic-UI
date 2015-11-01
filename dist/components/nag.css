@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.4 - Nag
+ * # Semantic UI 2.1.5 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -40,7 +40,7 @@ a.ui.nag {
 .ui.nag > .title {
   display: inline-block;
   margin: 0em 0.5em;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 .ui.nag > .close.icon {
   cursor: pointer;
@@ -50,7 +50,7 @@ a.ui.nag {
   right: 1em;
   font-size: 1em;
   margin: -0.5em 0em 0em;
-  color: #ffffff;
+  color: #FFFFFF;
   -webkit-transition: opacity 0.2s ease;
           transition: opacity 0.2s ease;
 }
@@ -110,7 +110,7 @@ a.ui.nag {
 
 .ui.inverted.nags .nag,
 .ui.inverted.nag {
-  background-color: #f3f4f5;
+  background-color: #F3F4F5;
   color: rgba(0, 0, 0, 0.85);
 }
 .ui.inverted.nags .nag .close,

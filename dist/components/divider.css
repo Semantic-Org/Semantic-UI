@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.4 - Divider
+ * # Semantic UI 2.1.5 - Divider
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -195,7 +195,7 @@
 .ui.divider.inverted,
 .ui.vertical.inverted.divider,
 .ui.horizontal.inverted.divider {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 .ui.divider.inverted,
 .ui.divider.inverted:after,

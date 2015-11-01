@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.4 - Header
+ * # Semantic UI 2.1.5 - Header
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -38,6 +38,7 @@
 ---------------*/
 
 .ui.header .sub.header {
+  display: block;
   font-weight: normal;
   padding: 0em;
   margin: 0em;
@@ -294,7 +295,7 @@ h5.ui.header .sub.header {
 --------------------*/
 
 .ui.inverted.header {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 .ui.inverted.header .sub.header {
   color: rgba(255, 255, 255, 0.8);
@@ -322,18 +323,18 @@ h5.ui.header .sub.header {
 /*--- Red ---*/
 
 .ui.red.header {
-  color: #db2828 !important;
+  color: #DB2828 !important;
 }
 a.ui.red.header:hover {
   color: #d01919 !important;
 }
 .ui.red.dividing.header {
-  border-bottom: 2px solid #db2828;
+  border-bottom: 2px solid #DB2828;
 }
 
 /* Inverted */
 .ui.inverted.red.header {
-  color: #ff695e !important;
+  color: #FF695E !important;
 }
 a.ui.inverted.red.header:hover {
   color: #ff5144 !important;
@@ -342,18 +343,18 @@ a.ui.inverted.red.header:hover {
 /*--- Orange ---*/
 
 .ui.orange.header {
-  color: #f2711c !important;
+  color: #F2711C !important;
 }
 a.ui.orange.header:hover {
   color: #f26202 !important;
 }
 .ui.orange.dividing.header {
-  border-bottom: 2px solid #f2711c;
+  border-bottom: 2px solid #F2711C;
 }
 
 /* Inverted */
 .ui.inverted.orange.header {
-  color: #ff851b !important;
+  color: #FF851B !important;
 }
 a.ui.inverted.orange.header:hover {
   color: #ff7701 !important;
@@ -362,18 +363,18 @@ a.ui.inverted.orange.header:hover {
 /*--- Olive ---*/
 
 .ui.olive.header {
-  color: #b5cc18 !important;
+  color: #B5CC18 !important;
 }
 a.ui.olive.header:hover {
   color: #a7bd0d !important;
 }
 .ui.olive.dividing.header {
-  border-bottom: 2px solid #b5cc18;
+  border-bottom: 2px solid #B5CC18;
 }
 
 /* Inverted */
 .ui.inverted.olive.header {
-  color: #d9e778 !important;
+  color: #D9E778 !important;
 }
 a.ui.inverted.olive.header:hover {
   color: #d8ea5c !important;
@@ -382,18 +383,18 @@ a.ui.inverted.olive.header:hover {
 /*--- Yellow ---*/
 
 .ui.yellow.header {
-  color: #fbbd08 !important;
+  color: #FBBD08 !important;
 }
 a.ui.yellow.header:hover {
   color: #eaae00 !important;
 }
 .ui.yellow.dividing.header {
-  border-bottom: 2px solid #fbbd08;
+  border-bottom: 2px solid #FBBD08;
 }
 
 /* Inverted */
 .ui.inverted.yellow.header {
-  color: #ffe21f !important;
+  color: #FFE21F !important;
 }
 a.ui.inverted.yellow.header:hover {
   color: #ffdf05 !important;
@@ -402,18 +403,18 @@ a.ui.inverted.yellow.header:hover {
 /*--- Green ---*/
 
 .ui.green.header {
-  color: #21ba45 !important;
+  color: #21BA45 !important;
 }
 a.ui.green.header:hover {
   color: #16ab39 !important;
 }
 .ui.green.dividing.header {
-  border-bottom: 2px solid #21ba45;
+  border-bottom: 2px solid #21BA45;
 }
 
 /* Inverted */
 .ui.inverted.green.header {
-  color: #2ecc40 !important;
+  color: #2ECC40 !important;
 }
 a.ui.inverted.green.header:hover {
   color: #22be34 !important;
@@ -422,18 +423,18 @@ a.ui.inverted.green.header:hover {
 /*--- Teal ---*/
 
 .ui.teal.header {
-  color: #00b5ad !important;
+  color: #00B5AD !important;
 }
 a.ui.teal.header:hover {
   color: #009c95 !important;
 }
 .ui.teal.dividing.header {
-  border-bottom: 2px solid #00b5ad;
+  border-bottom: 2px solid #00B5AD;
 }
 
 /* Inverted */
 .ui.inverted.teal.header {
-  color: #6dffff !important;
+  color: #6DFFFF !important;
 }
 a.ui.inverted.teal.header:hover {
   color: #54ffff !important;
@@ -442,18 +443,18 @@ a.ui.inverted.teal.header:hover {
 /*--- Blue ---*/
 
 .ui.blue.header {
-  color: #2185d0 !important;
+  color: #2185D0 !important;
 }
 a.ui.blue.header:hover {
   color: #1678c2 !important;
 }
 .ui.blue.dividing.header {
-  border-bottom: 2px solid #2185d0;
+  border-bottom: 2px solid #2185D0;
 }
 
 /* Inverted */
 .ui.inverted.blue.header {
-  color: #54c8ff !important;
+  color: #54C8FF !important;
 }
 a.ui.inverted.blue.header:hover {
   color: #3ac0ff !important;
@@ -462,18 +463,18 @@ a.ui.inverted.blue.header:hover {
 /*--- Violet ---*/
 
 .ui.violet.header {
-  color: #6435c9 !important;
+  color: #6435C9 !important;
 }
 a.ui.violet.header:hover {
   color: #5829bb !important;
 }
 .ui.violet.dividing.header {
-  border-bottom: 2px solid #6435c9;
+  border-bottom: 2px solid #6435C9;
 }
 
 /* Inverted */
 .ui.inverted.violet.header {
-  color: #a291fb !important;
+  color: #A291FB !important;
 }
 a.ui.inverted.violet.header:hover {
   color: #8a73ff !important;
@@ -482,18 +483,18 @@ a.ui.inverted.violet.header:hover {
 /*--- Purple ---*/
 
 .ui.purple.header {
-  color: #a333c8 !important;
+  color: #A333C8 !important;
 }
 a.ui.purple.header:hover {
   color: #9627ba !important;
 }
 .ui.purple.dividing.header {
-  border-bottom: 2px solid #a333c8;
+  border-bottom: 2px solid #A333C8;
 }
 
 /* Inverted */
 .ui.inverted.purple.header {
-  color: #dc73ff !important;
+  color: #DC73FF !important;
 }
 a.ui.inverted.purple.header:hover {
   color: #d65aff !important;
@@ -502,18 +503,18 @@ a.ui.inverted.purple.header:hover {
 /*--- Pink ---*/
 
 .ui.pink.header {
-  color: #e03997 !important;
+  color: #E03997 !important;
 }
 a.ui.pink.header:hover {
   color: #e61a8d !important;
 }
 .ui.pink.dividing.header {
-  border-bottom: 2px solid #e03997;
+  border-bottom: 2px solid #E03997;
 }
 
 /* Inverted */
 .ui.inverted.pink.header {
-  color: #ff8edf !important;
+  color: #FF8EDF !important;
 }
 a.ui.inverted.pink.header:hover {
   color: #ff74d8 !important;
@@ -522,18 +523,18 @@ a.ui.inverted.pink.header:hover {
 /*--- Brown ---*/
 
 .ui.brown.header {
-  color: #a5673f !important;
+  color: #A5673F !important;
 }
 a.ui.brown.header:hover {
   color: #975b33 !important;
 }
 .ui.brown.dividing.header {
-  border-bottom: 2px solid #a5673f;
+  border-bottom: 2px solid #A5673F;
 }
 
 /* Inverted */
 .ui.inverted.brown.header {
-  color: #d67c1c !important;
+  color: #D67C1C !important;
 }
 a.ui.inverted.brown.header:hover {
   color: #c86f11 !important;
@@ -553,7 +554,7 @@ a.ui.grey.header:hover {
 
 /* Inverted */
 .ui.inverted.grey.header {
-  color: #dcddde !important;
+  color: #DCDDDE !important;
 }
 a.ui.inverted.grey.header:hover {
   color: #cfd0d2 !important;
@@ -629,10 +630,10 @@ a.ui.inverted.grey.header:hover {
 --------------------*/
 
 .ui.block.header {
-  background: #f3f4f5;
+  background: #F3F4F5;
   padding: 0.71428571rem 1rem;
   box-shadow: none;
-  border: 1px solid #d4d4d5;
+  border: 1px solid #D4D4D5;
   border-radius: 0.28571429rem;
 }
 .ui.tiny.block.header {
@@ -656,15 +657,15 @@ a.ui.inverted.grey.header:hover {
 --------------------*/
 
 .ui.attached.header {
-  background: #ffffff;
+  background: #FFFFFF;
   padding: 0.71428571rem 1rem;
   margin-left: -1px;
   margin-right: -1px;
   box-shadow: none;
-  border: 1px solid #d4d4d5;
+  border: 1px solid #D4D4D5;
 }
 .ui.attached.block.header {
-  background: #f3f4f5;
+  background: #F3F4F5;
 }
 .ui.attached:not(.top):not(.bottom).header {
   margin-top: 0em;

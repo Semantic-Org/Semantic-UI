@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.4 - Progress
+ * # Semantic UI 2.1.5 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -89,6 +89,7 @@ $.fn.progress = function(parameters) {
 
         reset: function() {
           module.set.percent(0);
+          module.set.value(0);
         },
 
         complete: function() {
@@ -791,4 +792,4 @@ $.fn.progress.settings = {
 };
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );

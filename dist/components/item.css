@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.4 - Item
+ * # Semantic UI 2.1.5 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -272,10 +272,10 @@
 }
 .ui.items > .item > .content .favorite.icon:hover {
   opacity: 1;
-  color: #ffb70a;
+  color: #FFB70A;
 }
 .ui.items > .item > .content .active.favorite.icon {
-  color: #ffe623;
+  color: #FFE623;
 }
 
 /*-----Like----- */
@@ -290,10 +290,10 @@
 }
 .ui.items > .item > .content .like.icon:hover {
   opacity: 1;
-  color: #ff2733;
+  color: #FF2733;
 }
 .ui.items > .item > .content .active.like.icon {
-  color: #ff2733;
+  color: #FF2733;
 }
 
 /*----------------

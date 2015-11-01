@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.4 - Tab
+ * # Semantic UI 2.1.5 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -895,4 +895,4 @@ $.fn.tab.settings = {
 
 };
 
-})( jQuery, window , document );
+})( jQuery, window, document );
