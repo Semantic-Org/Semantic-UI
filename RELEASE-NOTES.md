@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 2.1.5 - Nov 1, 2015
+
+**Bugs**
+- **Sticky** - Fixes bug where sticky would stick at incorrect times when using a different scroll container than `body` and when the container's `scrollTop` is not 0 on init.
+
+
 ### Version 2.1.4 - Sep 13, 2015
 
 **Critical Bugfixes**

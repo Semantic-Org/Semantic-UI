@@ -889,4 +889,4 @@ $.fn.modal.settings = {
 };
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );
