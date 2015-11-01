@@ -6,6 +6,7 @@
 - **Form** - Adds `equal width form` and `equal width fields` for simpler grouped fields
 - **Modal** - `onHide` callback can now cancel event by returning false #3168 **Thanks @mdehoog**
 - **Dropdown** - Added `onLabelRemove` callback that allows value removal to be cancelled by callback **Thanks @goloveychuk**
+- **Table** - Added `selectable` on table cell, allowing for full table-cell links
 
 **Bugs**
 - **Divider/Step/Modal/AD** - Fixes 1px jump at `@mobileBreakpoint` caused by incorrect edge conditions in media query #3180 **THanks @mdehoog**
