@@ -23,6 +23,7 @@
 - **Dimmer** - Dimmer can now works correctly with `opacity: 0` #3167 **Thanks @mdehoog**
 - **Dropdown** - Fixed issue where tabindex was being removed incorrectly with `selection dropdown` in some cases. #3002
 - **Dropdown** - Added `remoteValues` as a possible `field` setting. Allowing users to return API results using arbitrary JSON object groupings. #3080
+- **Dropdown** - Added ability to pass in `keys` as a setting, to avoid issues with languages where comma delimiter may be a different keycode #3016
 - **Dropdown** - `search dropdown` will now initialize with `autocomplete="off"` to avoid triggering native autocomplete menu
 - **Form Validation** - Fixes error on `blur` or `change` when using a blank validation object #3131 **Thanks @listepo**
 - **Form Validation** - Fixes some issues with form integer validation #3053 **Thanks @maturano**
