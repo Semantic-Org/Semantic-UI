@@ -514,4 +514,4 @@ $.fn.visit.settings = {
 
 };
 
-})( jQuery, window , document );
+})( jQuery, window, document );
