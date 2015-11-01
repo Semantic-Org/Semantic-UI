@@ -8,6 +8,7 @@
 - **Dropdown** - Added `onLabelRemove` callback that allows value removal to be cancelled by callback **Thanks @goloveychuk**
 - **Table** - Added `selectable` on table cell, allowing for full table-cell links
 - **Popup** Added three new variables for `arrow` background color based on position, top, center or bottom. This makes it easier to use gradient backgrounds with popups and still match arrow colors.
+- **Popup** - Added behaviors `get popup` and `change content` to more easily determine popup from activating element and change text
 
 **Major Bug Fixes**
 - **Checkbox/Dropdown/Search** - Fixed issue where using `.trigger('change')` would not fire native `change` event. Only triggering event handlers attached with jQuery #3108
@@ -25,10 +26,15 @@
 - **Grid** - Fixes attached segment 1px offset inside grid column #3226
 - **Grid** - Fixes some inconsistencies with `widescreen only` class #3161 **Thanks @mdehoog**
 - **Popup** - Fixes positioning issue when `movePopup: false` #3213 **Thanks @parisholley**
+- **Progress* - Calling `reset` will now reset `value` to 0, so increment starts again at 0
 - **Search** - Fixes `onSearchQuery` not firing when results are cached **Thanks @mnquintana**
 - **Search** - Fixes `url` parameter not working correctly due to typo in source **Thanks @fabienb4**
 - **Segment** - Fixes border on `horizontal segment` when they are `:first-child` inside `segments` group
 - **Sticky** - Fixes bug where sticky would stick at incorrect times when using a different scroll container than `body` and when the container's `scrollTop` is not 0 on init.
+
+**Docs Bugs**
+- Thanks to everyone who has submitted PRs for typos, grammatical changes. These are too numerous to count, but really help improve the quality of our docs.
+- **Progress** - Progress example code no longer shows accidental inline css
 
 ### Version 2.1.4 - Sep 13, 2015
 
