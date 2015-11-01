@@ -1299,6 +1299,17 @@ $.fn.dropdown = function(parameters) {
           }
         },
 
+        trigger: {
+          change: function() {
+            var
+              changeEvent = document.createEvent('HTMLEvents')
+            ;
+            module.verbose('Triggering native change event');
+            changeEvent.initEvent('change', false, true);
+            element.dispatchEvent(changeEvent);
+          }
+        },
+
         determine: {
           selectAction: function(text, value) {
             module.verbose('Determining action', settings.action);
@@ -2185,7 +2196,7 @@ $.fn.dropdown = function(parameters) {
                 module.debug('Input native change event ignored on initial load');
               }
               else {
-                $input.trigger('change');
+                module.trigger.change();
               }
               internalChange = false;
             }
