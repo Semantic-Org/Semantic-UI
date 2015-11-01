@@ -19,6 +19,7 @@
 - **Dropdown** - `search dropdown` will now initialize with `autocomplete="off"` to avoid triggering native autocomplete menu
 - **Form Validation** - Fixes error on `blur` or `change` when using a blank validation object #3131 **Thanks @listepo**
 - **Form Validation** - Fixes some issues with form integer validation #3053 **Thanks @maturano**
+- **Form Validation** - `decimal` rule now **only matches decimals**, to match any number use `number` rule. #3060
 - **Form** - Removed `divider` spacing as part of `ui form`, this caused inheritance issues when using special divider types #3092
 - **Grid** - Fixes attached segment 1px offset inside grid column #3226
 - **Grid** - Fixes some inconsistencies with `widescreen only` class #3161 **Thanks @mdehoog**
