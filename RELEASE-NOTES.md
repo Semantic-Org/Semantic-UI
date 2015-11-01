@@ -4,11 +4,12 @@
 
 **Minor Enhancements*8
 - **Modal** - `onHide` callback can now cancel event by returning false #3168 **Thanks @mdehoog**
-- **Dropdown** - Added `onLabelRemove`
+- **Dropdown** - Added `onLabelRemove` callback that allows value removal to be cancelled by callback **Thanks @goloveychuk**
 
 **Bugs**
 - **Divider/Step/Modal/AD** - Fixes 1px jump at `@mobileBreakpoint` caused by incorrect edge conditions in media query #3180 **THanks @mdehoog**
 - **Sticky** - Fixes bug where sticky would stick at incorrect times when using a different scroll container than `body` and when the container's `scrollTop` is not 0 on init.
+- **Form Validation** - Fixes error on `blur` or `change` when using a blank validation object #3131 **Thanks @listepo**
 - **Grid** - Fixes attached segment 1px offset inside grid column #3226
 - **Popup** - Fixes positioning issue when `movePopup: false` #3213 **Thanks @parisholley**
 - **Form Validation** - Fixes some issues with form integer validation #3053 **Thanks @maturano**
