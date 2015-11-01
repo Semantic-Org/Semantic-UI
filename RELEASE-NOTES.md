@@ -16,6 +16,7 @@
 **Bugs**
 - **Divider/Step/Modal/AD** - Fixes 1px jump at `@mobileBreakpoint` caused by incorrect edge conditions in media query #3180 **THanks @mdehoog**
 - **Dimmer** - Dimmer can now works correctly with `opacity: 0` #3167 **Thanks @mdehoog**
+- **Dropdown** - Fixed issue where tabindex was being removed incorrectly with `selection dropdown` in some cases. #3002
 - **Dropdown** - `search dropdown` will now initialize with `autocomplete="off"` to avoid triggering native autocomplete menu
 - **Form Validation** - Fixes error on `blur` or `change` when using a blank validation object #3131 **Thanks @listepo**
 - **Form Validation** - Fixes some issues with form integer validation #3053 **Thanks @maturano**
