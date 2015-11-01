@@ -236,16 +236,28 @@ $.fn.sticky = function(parameters) {
                 height : $module.outerHeight()
               },
               context = {
-                offset        : $context.offset(),
-                height        : $context.outerHeight()
+                offset : $context.offset(),
+                height : $context.outerHeight()
               },
               container = {
                 height: $container.outerHeight()
-              }
+              },
+              scroll
             ;
+            if(!module.is.standardScroll()) {
+              module.debug('Non-standard scroll. Removing scroll offset from element offset');
+              scroll = {
+                top  : $scroll.scrollTop(),
+                left : $scroll.scrollLeft()
+              }
+              element.offset.top  += scroll.top;
+              context.offset.top  += scroll.top;
+              element.offset.left += scroll.left;
+              context.offset.left += scroll.left;
+            }
             module.cache = {
               fits : ( element.height < window.height ),
-              window: {
+              window : {
                 height: window.height
               },
               element: {
@@ -397,6 +409,9 @@ $.fn.sticky = function(parameters) {
         },
 
         is: {
+          standardScroll: function() {
+            return ($scroll[0] == window);
+          },
           top: function() {
             return $module.hasClass(className.top);
           },
@@ -884,4 +899,4 @@ $.fn.sticky.settings = {
 
 };
 
-})( jQuery, window , document );
+})( jQuery, window, document );
