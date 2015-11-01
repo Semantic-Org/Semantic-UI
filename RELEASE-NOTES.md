@@ -3,6 +3,7 @@
 ### Version 2.1.5 - Nov 1, 2015
 
 **Minor Enhancements*8
+- **Form** - Adds `equal width form` and `equal width fields` for simpler grouped fields
 - **Modal** - `onHide` callback can now cancel event by returning false #3168 **Thanks @mdehoog**
 - **Dropdown** - Added `onLabelRemove` callback that allows value removal to be cancelled by callback **Thanks @goloveychuk**
 
