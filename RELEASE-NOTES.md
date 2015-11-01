@@ -14,16 +14,17 @@
 
 **Bugs**
 - **Divider/Step/Modal/AD** - Fixes 1px jump at `@mobileBreakpoint` caused by incorrect edge conditions in media query #3180 **THanks @mdehoog**
-- **Sticky** - Fixes bug where sticky would stick at incorrect times when using a different scroll container than `body` and when the container's `scrollTop` is not 0 on init.
-- **Form Validation** - Fixes error on `blur` or `change` when using a blank validation object #3131 **Thanks @listepo**
-- **Grid** - Fixes attached segment 1px offset inside grid column #3226
-- **Popup** - Fixes positioning issue when `movePopup: false` #3213 **Thanks @parisholley**
-- **Form Validation** - Fixes some issues with form integer validation #3053 **Thanks @maturano**
-- **Search** - Fixes `onSearchQuery` not firing when results are cached **Thanks @mnquintana**
-- **Grid** - Fixes some inconsistencies with `widescreen only` class #3161 **Thanks @mdehoog**
-- **Search** - Fixes `url` parameter not working correctly due to typo in source **Thanks @fabienb4**
 - **Dimmer** - Dimmer can now works correctly with `opacity: 0` #3167 **Thanks @mdehoog**
+- **Dropdown** - `search dropdown` will now initialize with `autocomplete="off"` to avoid triggering native autocomplete menu
+- **Form Validation** - Fixes error on `blur` or `change` when using a blank validation object #3131 **Thanks @listepo**
+- **Form Validation** - Fixes some issues with form integer validation #3053 **Thanks @maturano**
+- **Grid** - Fixes attached segment 1px offset inside grid column #3226
+- **Grid** - Fixes some inconsistencies with `widescreen only` class #3161 **Thanks @mdehoog**
+- **Popup** - Fixes positioning issue when `movePopup: false` #3213 **Thanks @parisholley**
+- **Search** - Fixes `onSearchQuery` not firing when results are cached **Thanks @mnquintana**
+- **Search** - Fixes `url` parameter not working correctly due to typo in source **Thanks @fabienb4**
 - **Segment** - Fixes border on `horizontal segment` when they are `:first-child` inside `segments` group
+- **Sticky** - Fixes bug where sticky would stick at incorrect times when using a different scroll container than `body` and when the container's `scrollTop` is not 0 on init.
 
 ### Version 2.1.4 - Sep 13, 2015
 
