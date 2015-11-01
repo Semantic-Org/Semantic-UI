@@ -423,6 +423,12 @@ $.fn.popup = function(parameters) {
           }
         },
 
+        change: {
+          content: function(html) {
+            $popup.html(html);
+          }
+        },
+
         get: {
           html: function() {
             $module.removeData(metadata.html);
@@ -439,6 +445,9 @@ $.fn.popup = function(parameters) {
           variation: function() {
             $module.removeData(metadata.variation);
             return $module.data(metadata.variation) || settings.variation;
+          },
+          popup: function() {
+            return $popup;
           },
           popupOffset: function() {
             return $popup.offset();
