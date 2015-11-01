@@ -4,6 +4,7 @@
 
 **Bugs**
 - **Sticky** - Fixes bug where sticky would stick at incorrect times when using a different scroll container than `body` and when the container's `scrollTop` is not 0 on init.
+- **Grid** - Fixes attached segment 1px offset inside grid column #3226
 
 
 ### Version 2.1.4 - Sep 13, 2015
