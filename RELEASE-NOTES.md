@@ -21,6 +21,8 @@
 **Bugs**
 - **Divider/Step/Modal/AD** - Fixes 1px jump at `@mobileBreakpoint` caused by incorrect edge conditions in media query #3180 **THanks @mdehoog**
 - **Dimmer** - Dimmer can now works correctly with `opacity: 0` #3167 **Thanks @mdehoog**
+- **Dropdown** - Fixed condition where focusing on dropdown would show a blank menu when "no results" was reached and the dropdown was refocused
+- **Dropdown** - Search dropdowns will now correctly filter by current search term on re-focus
 - **Dropdown** - Fixed issue where tabindex was being removed incorrectly with `selection dropdown` in some cases. #3002
 - **Dropdown** - Added `remoteValues` as a possible `field` setting. Allowing users to return API results using arbitrary JSON object groupings. #3080
 - **Dropdown** - Added ability to pass in `keys` as a setting, to avoid issues with languages where comma delimiter may be a different keycode #3016

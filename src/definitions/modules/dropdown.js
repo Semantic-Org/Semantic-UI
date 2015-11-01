@@ -413,7 +413,7 @@ $.fn.dropdown = function(parameters) {
             if(module.is.multiple() && !module.has.search() && module.is.allFiltered()) {
               return true;
             }
-            if(module.has.message() && !module.has.maxSelections()) {
+            if(module.has.message() && !(module.has.maxSelections() || module.has.allResultsFiltered()) ) {
               module.remove.message();
             }
             if(settings.onShow.call(element) !== false) {
@@ -791,13 +791,17 @@ $.fn.dropdown = function(parameters) {
               : $activeItem,
             hasSelected = ($selectedItem.size() > 0)
           ;
-          if( hasSelected && module.has.query() ) {
-            module.debug('Forcing partial selection to selected item', $selectedItem);
-            module.event.item.click.call($selectedItem);
+          if( module.has.query() ) {
+            if(hasSelected) {
+              module.debug('Forcing partial selection to selected item', $selectedItem);
+              module.event.item.click.call($selectedItem);
+              return;
+            }
+            else {
+              module.remove.searchTerm();
+            }
           }
-          else {
-            module.hide();
-          }
+          module.hide();
         },
 
         event: {
@@ -842,6 +846,7 @@ $.fn.dropdown = function(parameters) {
                 module.remove.activeLabel();
               }
               if(settings.showOnFocus) {
+                module.search();
                 module.show();
               }
             },
