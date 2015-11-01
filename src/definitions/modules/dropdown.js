@@ -687,7 +687,7 @@ $.fn.dropdown = function(parameters) {
             searchTerm = (query !== undefined)
               ? query
               : module.get.query(),
-            results         =  null,
+            results          =  null,
             escapedTerm      = module.escape.regExp(searchTerm),
             beginsWithRegExp = new RegExp('^' + escapedTerm, 'igm')
           ;
@@ -731,7 +731,7 @@ $.fn.dropdown = function(parameters) {
           }
           module.debug('Showing only matched items', searchTerm);
           module.remove.filteredItem();
-          if(results){
+          if(results) {
             $item
               .not(results)
               .addClass(className.filtered)
@@ -2643,12 +2643,17 @@ $.fn.dropdown = function(parameters) {
             $labels
               .each(function(){
                 var
-                  value       = $(this).data(metadata.value),
+                  $label      = $(this),
+                  value       = $label.data(metadata.value),
                   stringValue = (value !== undefined)
                     ? String(value)
                     : value,
                   isUserValue = module.is.userValue(stringValue)
                 ;
+                if(settings.onLabelRemove.call($label, value) === false) {
+                  module.debug('Label remove callback cancelled removal');
+                  return;
+                }
                 if(isUserValue) {
                   module.remove.value(stringValue);
                   module.remove.label(stringValue);
@@ -3270,6 +3275,7 @@ $.fn.dropdown.settings = {
 
   onLabelSelect : function($selectedLabels){},
   onLabelCreate : function(value, text) { return $(this); },
+  onLabelRemove : function(value) { return true; },
   onNoResults   : function(searchTerm) { return true; },
   onShow        : function(){},
   onHide        : function(){},
