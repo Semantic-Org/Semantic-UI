@@ -16,6 +16,7 @@
 **Major Bug Fixes**
 - **Checkbox/Dropdown/Search** - Fixed issue where using `.trigger('change')` would not fire native `change` event. Only triggering event handlers attached with jQuery #3108
 - **Transition** - Fixed bug where static transitions (those that dont animate in/out of view) would not fire `onComplete` event
+- **Sticky** - Fixes bug where sticky would stick at incorrect times when using a different scroll container than `body` and scrollTop is not 0 on page load.
 
 **Bugs**
 - **Divider/Step/Modal/AD** - Fixes 1px jump at `@mobileBreakpoint` caused by incorrect edge conditions in media query #3180 **THanks @mdehoog**
@@ -28,17 +29,17 @@
 - **Form** - Removed `divider` spacing as part of `ui form`, this caused inheritance issues when using special divider types #3092
 - **Grid** - Fixes attached segment 1px offset inside grid column #3226
 - **Grid** - Fixes some inconsistencies with `widescreen only` class #3161 **Thanks @mdehoog**
+- **Header** - Sub headers now force `display: block` #3020
 - **Popup** - Fixes positioning issue when `movePopup: false` #3213 **Thanks @parisholley**
 - **Popup** - Popup now works with `svg` elements #3043
 - **Progress* - Calling `reset` will now reset `value` to 0, so increment starts again at 0
 - **Search** - Fixes `onSearchQuery` not firing when results are cached **Thanks @mnquintana**
 - **Search** - Fixes `url` parameter not working correctly due to typo in source **Thanks @fabienb4**
 - **Segment** - Fixes border on `horizontal segment` when they are `:first-child` inside `segments` group
-- **Sticky** - Fixes bug where sticky would stick at incorrect times when using a different scroll container than `body` and when the container's `scrollTop` is not 0 on init.
-
 **Docs Bugs**
 - Thanks to everyone who has submitted PRs for typos, grammatical changes. These are too numerous to count, but really help improve the quality of our docs.
 - **Progress** - Progress example code no longer shows accidental inline css
+- **Sticky** - Fixed issue where pressing home/end button would cause sticky to break due to internal logic not allowing immediate jump from bottom attached to top attached, experienced most likely when pressing "home" or "end" key #3011
 
 ### Version 2.1.4 - Sep 13, 2015
 
