@@ -299,7 +299,9 @@ $.fn.form = function(parameters) {
                 module.validate.form.call(module, event, true);
               }
               else if(settings.on == 'blur' || settings.on == 'change') {
-                module.validate.field( validationRules );
+                if(validationRules) {
+                  module.validate.field( validationRules );
+                }
               }
             },
             change: function(event) {
