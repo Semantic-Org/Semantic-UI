@@ -1302,11 +1302,14 @@ $.fn.dropdown = function(parameters) {
         trigger: {
           change: function() {
             var
-              changeEvent = document.createEvent('HTMLEvents')
+              events       = document.createEvent('HTMLEvents'),
+              inputElement = $input[0]
             ;
-            module.verbose('Triggering native change event');
-            changeEvent.initEvent('change', false, true);
-            element.dispatchEvent(changeEvent);
+            if(inputElement) {
+              module.verbose('Triggering native change event');
+              events.initEvent('change', false, true);
+              inputElement.dispatchEvent(events);
+            }
           }
         },
 
