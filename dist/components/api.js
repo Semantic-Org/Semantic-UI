@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.4 - API
+ * # Semantic UI 2.1.5 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1133,4 +1133,4 @@ $.api.settings = {
 
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.4 - Sidebar
+ * # Semantic UI 2.1.5 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1019,4 +1019,4 @@ $.fn.sidebar.settings = {
 };
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.4 - Popup
+ * # Semantic UI 2.1.5 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -25,10 +25,10 @@
   min-width: -moz-min-content;
   min-width: min-content;
   z-index: 1900;
-  border: 1px solid #d4d4d5;
+  border: 1px solid #D4D4D5;
   line-height: 1.4285em;
   max-width: 250px;
-  background-color: #ffffff;
+  background: #FFFFFF;
   padding: 0.833em 1em;
   font-weight: normal;
   font-style: normal;
@@ -51,7 +51,7 @@
   content: '';
   width: 0.75em;
   height: 0.75em;
-  background: #ffffff;
+  background: #FFFFFF;
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
@@ -145,6 +145,7 @@
 .ui.bottom.left.popup {
   margin-left: 0em;
 }
+/*rtl:rename*/
 .ui.bottom.left.popup:before {
   top: -0.325em;
   left: 1em;
@@ -156,6 +157,7 @@
 .ui.bottom.right.popup {
   margin-right: 0em;
 }
+/*rtl:rename*/
 .ui.bottom.right.popup:before {
   top: -0.325em;
   right: 1em;
@@ -177,6 +179,7 @@
 .ui.top.left.popup {
   margin-left: 0em;
 }
+/*rtl:rename*/
 .ui.top.left.popup:before {
   bottom: -0.325em;
   left: 1em;
@@ -187,6 +190,7 @@
 .ui.top.right.popup {
   margin-right: 0em;
 }
+/*rtl:rename*/
 .ui.top.right.popup:before {
   bottom: -0.325em;
   right: 1em;
@@ -197,6 +201,7 @@
 
 /*--- Left Center ---*/
 
+/*rtl:rename*/
 .ui.left.center.popup:before {
   top: 50%;
   right: -0.325em;
@@ -208,6 +213,7 @@
 
 /*--- Right Center  ---*/
 
+/*rtl:rename*/
 .ui.right.center.popup:before {
   top: 50%;
   left: -0.325em;
@@ -215,6 +221,30 @@
   right: auto;
   margin-top: -0.325em;
   box-shadow: -1px 1px 0px 0px #bababc;
+}
+
+/* Arrow Color By Location */
+.ui.bottom.popup:before {
+  background: #FFFFFF;
+}
+.ui.right.center.popup:before,
+.ui.left.center.popup:before {
+  background: #FFFFFF;
+}
+.ui.top.popup:before {
+  background: #FFFFFF;
+}
+
+/* Inverted Arrow Color */
+.ui.inverted.bottom.popup:before {
+  background: #1B1C1D;
+}
+.ui.inverted.right.center.popup:before,
+.ui.inverted.left.center.popup:before {
+  background: #1B1C1D;
+}
+.ui.inverted.top.popup:before {
+  background: #1B1C1D;
 }
 
 
@@ -297,17 +327,17 @@
 
 /* Inverted colors  */
 .ui.inverted.popup {
-  background: #1b1c1d;
-  color: #ffffff;
+  background: #1B1C1D;
+  color: #FFFFFF;
   border: none;
   box-shadow: none;
 }
 .ui.inverted.popup .header {
   background-color: none;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 .ui.inverted.popup:before {
-  background-color: #1b1c1d;
+  background-color: #1B1C1D;
   box-shadow: none !important;
 }
 

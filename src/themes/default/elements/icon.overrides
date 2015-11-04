@@ -682,6 +682,7 @@ i.icon.triangle.right:before { content: "\f0da"; }
 i.icon.envelope:before { content: "\f0e0"; }
 i.icon.conversation:before { content: "\f0e6"; }
 i.icon.umbrella:before { content: "\f0e9"; }
+i.icon.clipboard:before { content: "\f0ea"; }
 i.icon.lightbulb:before { content: "\f0eb"; }
 i.icon.ambulance:before { content: "\f0f9"; }
 i.icon.medkit:before { content: "\f0fa"; }

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.4 - Nag
+ * # Semantic UI 2.1.5 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -483,4 +483,4 @@ $.fn.nag.settings = {
 
 };
 
-})( jQuery, window , document );
+})( jQuery, window, document );

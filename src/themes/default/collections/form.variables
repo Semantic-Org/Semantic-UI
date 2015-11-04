@@ -64,9 +64,6 @@
 @checkboxLabelFontSize: 1em;
 @checkboxLabelTextTransform: @labelTextTransform;
 
-/* Divider */
-@dividerMargin: @rowDistance 0em;
-
 /* Inline Validation Prompt */
 @promptBackground: @white;
 @promptBorderColor: @formErrorBorder;

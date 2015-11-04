@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.4 - Site
+ * # Semantic UI 2.1.5 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -484,4 +484,4 @@ $.extend($.expr[ ":" ], {
 });
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );
