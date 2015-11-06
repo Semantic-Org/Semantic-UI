@@ -27,9 +27,10 @@ module.exports = function(callback) {
   console.info('Building assets');
 
   // copy assets
-  return gulp.src(source.themes + '/**/assets/**/*.*')
+  gulp.src(source.themes + '/**/assets/**/*.*')
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(gulp.dest(output.themes))
+    .on('end', callback)
   ;
 
 };

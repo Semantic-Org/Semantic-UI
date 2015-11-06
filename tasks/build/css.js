@@ -21,6 +21,7 @@ var
   print        = require('gulp-print'),
   rename       = require('gulp-rename'),
   replace      = require('gulp-replace'),
+  runSequence  = require('run-sequence'),
 
   // config
   config       = require('../config/user'),
@@ -42,52 +43,29 @@ var
 // add internal tasks (concat release)
 require('../collections/internal')(gulp);
 
-module.exports = function(callback) {
+// unified css stream
+var stream = gulp.src(source.definitions + '/**/' + globs.components + '.less')
+  .pipe(plumber(settings.plumber.less))
+  .pipe(less(settings.less))
+  .pipe(autoprefixer(settings.prefix))
+  .pipe(replace(comments.variables.in, comments.variables.out))
+  .pipe(replace(comments.license.in, comments.license.out))
+  .pipe(replace(comments.large.in, comments.large.out))
+  .pipe(replace(comments.small.in, comments.small.out))
+  .pipe(replace(comments.tiny.in, comments.tiny.out))
+  .pipe(flatten())
+;
 
-  var
-    stream,
-    compressedStream,
-    uncompressedStream
-  ;
-
-  console.info('Building CSS');
-
-  if( !install.isSetup() ) {
-    console.error('Cannot build files. Run "gulp install" to set-up Semantic');
-    return;
-  }
-
-  // unified css stream
-  stream = gulp.src(source.definitions + '/**/' + globs.components + '.less')
-    .pipe(plumber(settings.plumber.less))
-    .pipe(less(settings.less))
-    .pipe(autoprefixer(settings.prefix))
-    .pipe(replace(comments.variables.in, comments.variables.out))
-    .pipe(replace(comments.license.in, comments.license.out))
-    .pipe(replace(comments.large.in, comments.large.out))
-    .pipe(replace(comments.small.in, comments.small.out))
-    .pipe(replace(comments.tiny.in, comments.tiny.out))
-    .pipe(flatten())
-  ;
-
-  // two concurrent streams from same source to concat release
-  uncompressedStream = stream.pipe(clone());
-  compressedStream   = stream.pipe(clone());
-
-  // uncompressed component css
-  uncompressedStream
+gulp.task('build uncompressed css', function() {
+  return stream.pipe(clone())
     .pipe(plumber())
     .pipe(replace(assets.source, assets.uncompressed))
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
-    .on('end', function() {
-      gulp.start('package uncompressed css');
-    })
-  ;
-
-  // compressed component css
-  compressedStream = stream
+});
+gulp.task('build compressed css', function() {
+  return stream.pipe(clone())
     .pipe(plumber())
     .pipe(clone())
     .pipe(replace(assets.source, assets.compressed))
@@ -96,10 +74,21 @@ module.exports = function(callback) {
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(gulp.dest(output.compressed))
     .pipe(print(log.created))
-    .on('end', function() {
-      gulp.start('package compressed css');
-      callback();
-    })
-  ;
+});
+
+module.exports = function(callback) {
+
+  console.info('Building CSS');
+
+  if( !install.isSetup() ) {
+    console.error('Cannot build files. Run "gulp install" to set-up Semantic');
+    return;
+  }
+
+  runSequence(
+    ['build uncompressed css', 'build compressed css'],
+    ['package uncompressed css', 'package compressed css'],
+    callback
+  );
 
 };
