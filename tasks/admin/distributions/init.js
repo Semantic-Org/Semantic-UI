@@ -65,18 +65,17 @@ module.exports = function(callback) {
     }
 
     var
-      component            = release.distributions[index],
-      lowerCaseComponent   = component.toLowerCase(),
-      outputDirectory      = path.resolve(release.outputRoot + lowerCaseComponent),
-      repoName             = release.distRepoRoot + component,
+      component          = release.distributions[index],
+      lowerCaseComponent = component.toLowerCase(),
+      outputDirectory    = path.resolve(release.outputRoot + lowerCaseComponent),
+      repoName           = release.distRepoRoot + component,
 
-      gitOptions           = { cwd: outputDirectory },
-      pullOptions          = { args: '-q', cwd: outputDirectory, quiet: true },
-      resetOptions         = { args: '-q --hard', cwd: outputDirectory, quiet: true },
-
-      gitURL               = 'https://github.com/' + release.org + '/' + repoName + '.git',
-      repoURL              = 'https://github.com/' + release.org + '/' + repoName + '/',
-      localRepoSetup       = fs.existsSync(path.join(outputDirectory, '.git'))
+      gitOptions         = { cwd: outputDirectory },
+      pullOptions        = { args: '-q', cwd: outputDirectory, quiet: true },
+      resetOptions       = { args: '-q --hard', cwd: outputDirectory, quiet: true },
+      gitURL             = 'git@github.com:' + release.org + '/' + repoName + '.git',
+      repoURL            = 'https://github.com/' + release.org + '/' + repoName + '/',
+      localRepoSetup     = fs.existsSync(path.join(outputDirectory, '.git'))
     ;
 
     console.log('Processing repository: ' + outputDirectory);
