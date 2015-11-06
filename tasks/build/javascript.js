@@ -18,6 +18,8 @@ var
   rename       = require('gulp-rename'),
   replace      = require('gulp-replace'),
   uglify       = require('gulp-uglify'),
+  babel        = require('gulp-babel'),
+  jsinspect    = require('gulp-jsinspect'),
 
   // config
   config       = require('../config/user'),
@@ -56,8 +58,15 @@ module.exports = function(callback) {
 
   // copy source javascript
   gulp.src(source.definitions + '/**/' + globs.components + '.js')
+    .pipe(gulpif(config.jsinspect, jsinspect({
+      threshold: 30,
+      failOnMatch: false,
+      identifiers: true,
+      suppress: 0
+    })))
     .pipe(plumber())
     .pipe(flatten())
+    .pipe(gulpif(config.babel, babel()))
     .pipe(replace(comments.license.in, comments.license.out))
     .pipe(gulp.dest(output.uncompressed))
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))

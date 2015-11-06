@@ -112,6 +112,9 @@ module.exports = {
   globs      : {
     ignored    : '!(*.min|*.map|*.rtl)',
     ignoredRTL : '!(*.min|*.map)'
-  }
+  },
+
+  jsinspect: false,
+  babel: false
 
 };

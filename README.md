@@ -7,6 +7,12 @@
 [![ProjectTalk Messageboard](http://www.projecttalk.io/images/gh_badge-3e578a9f437f841de7446bab9a49d103.svg?vsn=d)]
 (http://www.projecttalk.io/boards/Semantic-Org%2FSemantic-UI?utm_campaign=gh-badge&utm_medium=badge&utm_source=github)
 
+[![Dependency Status](https://david-dm.org/Semantic-Org/Semantic-UI.svg)](https://david-dm.org/Semantic-Org/Semantic-UI)
+
+[![devDependency Status](https://david-dm.org/Semantic-Org/Semantic-UI/dev-status.svg)](https://david-dm.org/Semantic-Org/Semantic-UI#info=devDependencies)
+
+[![peerDependency Status](https://david-dm.org/Semantic-Org/Semantic-UI/peer-status.svg)](https://david-dm.org/Semantic-Org/Semantic-UI#info=peerDependencies)
+
 Semantic is a UI framework designed for theming.
 
 Key Features
