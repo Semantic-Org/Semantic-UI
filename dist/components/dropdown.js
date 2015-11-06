@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.5 - Dropdown
+ * # Semantic UI 2.1.6 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1311,7 +1311,7 @@ $.fn.dropdown = function(parameters) {
             ;
             if(inputElement) {
               module.verbose('Triggering native change event');
-              events.initEvent('change', false, true);
+              events.initEvent('change', true, false);
               inputElement.dispatchEvent(events);
             }
           }

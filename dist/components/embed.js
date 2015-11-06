@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.5 - Video
+ * # Semantic UI 2.1.6 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
