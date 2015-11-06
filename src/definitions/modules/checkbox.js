@@ -508,7 +508,7 @@ $.fn.checkbox = function(parameters) {
             ;
             if(inputElement) {
               module.verbose('Triggering native change event');
-              events.initEvent('change', false, true);
+              events.initEvent('change', true, false);
               inputElement.dispatchEvent(events);
             }
           }
