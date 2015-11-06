@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.5 - State
+ * # Semantic UI 2.1.6 - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
