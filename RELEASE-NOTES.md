@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 2.1.6 - Nov 6, 2015
+
+**Bug Fixes**
+- **Checkbox/Dropdown/Search** - Fixed issue where dropdown/checkbox `change` events were not bubbling. (Dispatched events were swapped to use native `document.creatEvent` in `2.1.5` unfortunately the flag to bubble events was mistakenly off.)
+
 ### Version 2.1.5 - Nov 1, 2015
 
 **Docs Enhancements**
