@@ -419,20 +419,24 @@
               if ($.inArray(mode, validModes) >= 0) {
                 return mode;
               }
-              return settings.type === 'time' ? 'hour' : 'day';
+              return settings.type === 'time' ? 'hour' :
+                settings.type === 'month' ? 'month' :
+                  settings.type === 'year' ? 'year' : 'day';
             },
             validModes: function () {
               var validModes = [];
               if (settings.type !== 'time') {
-                if (!settings.disableYear) {
+                if (!settings.disableYear || settings.type === 'year') {
                   validModes.push('year');
                 }
-                if (!settings.disableMonth) {
+                if (!(settings.disableMonth || settings.type === 'year') || settings.type === 'month') {
                   validModes.push('month');
                 }
-                validModes.push('day');
+                if (settings.type.indexOf('date') >= 0) {
+                  validModes.push('day');
+                }
               }
-              if (settings.type !== 'date') {
+              if (settings.type.indexOf('time') >= 0) {
                 validModes.push('hour');
                 if (!settings.disableMinute) {
                   validModes.push('minute');
@@ -455,8 +459,10 @@
             selectDate: function (date, forceSet) {
               var mode = module.get.mode();
               var complete = forceSet || mode === 'minute' ||
+                (settings.disableMinute && mode === 'hour') ||
                 (settings.type === 'date' && mode === 'day') ||
-                (settings.disableMinute && mode === 'hour');
+                (settings.type === 'month' && mode === 'month') ||
+                (settings.type === 'year' && mode === 'year');
               if (complete) {
                 var canceled = module.set.date(date) === false;
                 if (!canceled && settings.closable) {
@@ -777,7 +783,7 @@
     verbose: false,
     performance: false,
 
-    type: 'datetime',     // picker type, can be 'date', 'time', or 'datetime'
+    type: 'datetime',     // picker type, can be 'datetime', 'date', 'time', 'month', or 'year'
     firstDayOfWeek: 0,    // day for first day column (0 = Sunday)
     constantHeight: true, // add rows to shorter months to keep day calendar height consistent (6 rows)
     today: false,         // show a 'today/now' button at the bottom of the calendar
@@ -847,7 +853,7 @@
           return '';
         }
         var day = settings.type === 'time' ? '' : settings.formatter.date(date, settings);
-        var time = settings.type === 'date' ? '' : settings.formatter.time(date, settings, false);
+        var time = settings.type.indexOf('time') < 0 ? '' : settings.formatter.time(date, settings, false);
         var separator = settings.type === 'datetime' ? ' ' : '';
         return day + separator + time;
       },
@@ -858,7 +864,9 @@
         var day = date.getDate();
         var month = settings.text.months[date.getMonth()];
         var year = date.getFullYear();
-        return (settings.monthFirst ? month + ' ' + day : day + ' ' + month) + ', ' + year;
+        return settings.type === 'year' ? year :
+          settings.type === 'month' ? month + ' ' + year :
+          (settings.monthFirst ? month + ' ' + day : day + ' ' + month) + ', ' + year;
       },
       time: function (date, settings, forCalendar) {
         if (!date) {
@@ -893,7 +901,7 @@
         var isAm = undefined;
 
         var isTimeOnly = settings.type === 'time';
-        var isDateOnly = settings.type === 'date';
+        var isDateOnly = settings.type.indexOf('time') < 0;
 
         var words = text.split(/[^A-Za-z\u00C0-\u024F]+/g);
         var numbers = text.split(/[^\d:]+/g);
