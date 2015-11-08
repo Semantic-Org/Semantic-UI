@@ -18,19 +18,8 @@
             Calendar
 *******************************/
 
-/*--------------
-      Focus
----------------*/
-
-.ui.calendar .calendar:focus,
-.ui.calendar .calendar.active {
+.ui.calendar .calendar:focus {
   outline: 0;
-}
-
-.ui.calendar .calendar:focus .ui.table tbody:not(:hover) tr td.focus,
-.ui.calendar .calendar.active .ui.table tbody:not(:hover) tr td.focus,
-.ui.calendar .calendar .ui.table tbody tr td:hover {
-  box-shadow: inset 0 0 0 1px @focusedCellBorderColor;
 }
 
 /*******************************
@@ -105,13 +94,39 @@
   right: 0;
 }
 
-.ui.calendar .ui.table tr td.today {
-  font-weight: bold;
-}
-
 .ui.calendar .ui.table tr .disabled {
   pointer-events: none;
   color: @disabledTextColor;
+}
+
+/*--------------
+     States
+---------------*/
+
+.ui.calendar .ui.table tr td.today {
+  font-weight: @todayFontWeight;
+}
+
+.ui.calendar .ui.table tr td.range {
+  background: @rangeBackground;
+  color: @rangeTextColor;
+  box-shadow: @rangeBoxShadow;
+}
+
+.ui.calendar .ui.table.inverted tr td.range {
+  background: @rangeInvertedBackground;
+  color: @rangeInvertedTextColor;
+  box-shadow: @rangeInvertedBoxShadow;
+}
+
+.ui.calendar .calendar:focus .ui.table tbody tr td.focus,
+.ui.calendar .calendar.active .ui.table tbody tr td.focus {
+  box-shadow: @focusBoxShadow;
+}
+
+.ui.calendar .calendar:focus .ui.table.inverted tbody tr td.focus,
+.ui.calendar .calendar.active .ui.table.inverted tbody tr td.focus {
+  box-shadow: @focusInvertedBoxShadow;
 }
 
 .loadUIOverrides();
