@@ -929,7 +929,8 @@
     popupOptions: {
       position: 'bottom left',
       lastResort: 'bottom left',
-      prefer: 'opposite'
+      prefer: 'opposite',
+      hideOnScroll: false
     },
 
     text: {
