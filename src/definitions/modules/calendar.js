@@ -128,10 +128,11 @@
                 module.set.mode(settings.startMode);
                 return settings.onShow.apply($container, arguments);
               };
+              var on = settings.on || ($input.length ? 'focus' : 'click');
               var options = $.extend({}, settings.popupOptions, {
                 popup: $container,
-                on: settings.on,
-                hoverable: settings.on === 'hover',
+                on: on,
+                hoverable: on === 'hover',
                 onShow: onShow,
                 onVisible: onVisible,
                 onHide: settings.onHide,
@@ -443,7 +444,6 @@
               module.set.date(date, false);
             },
             inputFocus: function () {
-              module.popup('show');
               $container.addClass(className.active);
             },
             inputBlur: function () {
@@ -911,7 +911,7 @@
     monthFirst: true,     // month before day when parsing/converting date from/to text
     touchReadonly: true,  // set input to readonly on touch devices
     inline: false,        // create the calendar inline instead of inside a popup
-    on: 'click',          // when to show the popup
+    on: null,             // when to show the popup (defaults to 'focus' for input, 'click' for others)
     initialDate: null,    // date to display initially when no date is selected (null = now)
     startMode: false,     // display mode to start in, can be 'year', 'month', 'day', 'hour', 'minute' (false = 'day')
     minDate: null,        // minimum date/time that can be selected, dates/times before are disabled
