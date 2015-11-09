@@ -54,6 +54,8 @@
           instance = $module.data(moduleNamespace),
 
           isTouch,
+          isTouchDown = false,
+          focusDateUsedForRange = false,
           module
           ;
 
@@ -173,7 +175,7 @@
 
               if (!focusDate) {
                 focusDate = display;
-                module.set.focusDate(focusDate, false);
+                module.set.focusDate(focusDate, false, false);
               }
 
               var minute = display.getMinutes();
@@ -269,7 +271,7 @@
                   if (module.helper.dateEqual(cellDate, focusDate, mode)) {
                     //ensure that the focus date is exactly equal to the cell date
                     //so that, if selected, the correct value is set
-                    module.set.focusDate(cellDate, false);
+                    module.set.focusDate(cellDate, false, false);
                   }
                 }
               }
@@ -289,14 +291,14 @@
           },
 
           update: {
-            focus: function (useFocusDateForRange, container) {
+            focus: function (updateRange, container) {
               container = container || $container;
               var mode = module.get.mode();
               var date = module.get.date();
               var focusDate = module.get.focusDate();
               var startDate = module.get.startDate();
               var endDate = module.get.endDate();
-              var rangeDate = (useFocusDateForRange ? focusDate : null) || date || (!isTouch ? focusDate : null);
+              var rangeDate = (updateRange ? focusDate : null) || date || (!isTouch ? focusDate : null);
 
               container.find('td').each(function () {
                 var cell = $(this);
@@ -310,7 +312,7 @@
                 var inRange = !rangeDate ? false :
                   ((!!startDate && module.helper.isDateInRange(cellDate, mode, startDate, rangeDate)) ||
                   (!!endDate && module.helper.isDateInRange(cellDate, mode, rangeDate, endDate)));
-                cell.toggleClass(className.focusCell, focused && !isTouch);
+                cell.toggleClass(className.focusCell, focused && (!isTouch || isTouchDown));
                 cell.toggleClass(className.rangeCell, inRange && !active && !disabled);
               });
             }
@@ -322,10 +324,10 @@
 
           bind: {
             events: function () {
-              $container.on('click' + eventNamespace, module.event.click);
-              $container.on('touchend' + eventNamespace, module.event.click);
               $container.on('mousedown' + eventNamespace, module.event.mousedown);
               $container.on('touchstart' + eventNamespace, module.event.mousedown);
+              $container.on('mouseup' + eventNamespace, module.event.mouseup);
+              $container.on('touchend' + eventNamespace, module.event.mouseup);
               $container.on('mouseover' + eventNamespace, module.event.mouseover);
               if ($input.length) {
                 $input.on('input' + eventNamespace, module.event.inputChange);
@@ -348,11 +350,32 @@
           },
 
           event: {
-            click: function (event) {
+            mouseover: function (event) {
+              var target = $(event.target);
+              var date = target.data(metadata.date);
+              var mousedown = event.buttons === 1;
+              if (date) {
+                module.set.focusDate(date, false, true, mousedown);
+              }
+            },
+            mousedown: function (event) {
+              if ($input.length) {
+                //prevent the mousedown on the calendar causing the input to lose focus
+                event.preventDefault();
+              }
+              isTouchDown = event.type.indexOf('touch') >= 0;
+              var target = $(event.target);
+              var date = target.data(metadata.date);
+              if (date) {
+                module.set.focusDate(date, false, true, true);
+              }
+            },
+            mouseup: function (event) {
               //ensure input has focus so that it receives keydown events for calendar navigation
               module.focus();
               event.preventDefault();
               event.stopPropagation();
+              isTouchDown = false;
               var target = $(event.target);
               var parent = target.parent();
               if (parent.data(metadata.date) || parent.data(metadata.focusDate) || parent.data(metadata.mode)) {
@@ -371,26 +394,6 @@
               }
               else if (mode) {
                 module.set.mode(mode);
-              }
-            },
-            mousedown: function (event) {
-              if ($input.length) {
-                //prevent the mousedown on the calendar causing the input to lose focus
-                event.preventDefault();
-              }
-              var target = $(event.target);
-              var date = target.data(metadata.date);
-              if (date) {
-                module.set.focusDate(date, false);
-                module.update.focus(true);
-              }
-            },
-            mouseover: function (event) {
-              var target = $(event.target);
-              var date = target.data(metadata.date);
-              if (date) {
-                module.set.focusDate(date, false);
-                module.update.focus();
               }
             },
             keydown: function (event) {
@@ -444,12 +447,12 @@
               $container.addClass(className.active);
             },
             inputBlur: function () {
+              $container.removeClass(className.active);
               if (settings.formatInput) {
                 var date = module.get.date();
                 var text = formatter.datetime(date, settings);
                 $input.val(text);
               }
-              $container.removeClass(className.active);
             }
           },
 
@@ -591,10 +594,15 @@
               }
               module.set.dataKeyValue(metadata.endDate, date, refreshCalendar);
             },
-            focusDate: function (date, refreshCalendar) {
+            focusDate: function (date, refreshCalendar, updateFocus, updateRange) {
               date = module.helper.sanitiseDate(date);
               date = module.helper.dateInRange(date);
-              module.set.dataKeyValue(metadata.focusDate, date, refreshCalendar);
+              var changed = module.set.dataKeyValue(metadata.focusDate, date, refreshCalendar);
+              updateFocus = (updateFocus !== false && changed && refreshCalendar === false) || focusDateUsedForRange != updateRange;
+              focusDateUsedForRange = updateRange;
+              if (updateFocus) {
+                module.update.focus(updateRange);
+              }
             },
             mode: function (mode, refreshCalendar) {
               module.set.dataKeyValue(metadata.mode, mode, refreshCalendar);
@@ -607,10 +615,11 @@
               } else {
                 $module.removeData(key);
               }
-              refreshCalendar = refreshCalendar === true || (refreshCalendar !== false && !equal);
+              refreshCalendar = refreshCalendar !== false && !equal;
               if (refreshCalendar) {
                 module.create.calendar();
               }
+              return !equal;
             }
           },
 
