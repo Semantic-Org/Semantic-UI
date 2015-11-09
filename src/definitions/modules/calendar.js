@@ -388,7 +388,7 @@
               var mode = target.data(metadata.mode);
               if (date) {
                 var forceSet = target.hasClass(className.today);
-                module.set.selectDate(date, forceSet);
+                module.selectDate(date, forceSet);
               }
               else if (focusDate) {
                 module.set.focusDate(focusDate);
@@ -427,7 +427,7 @@
                   //enter
                   var date = module.get.focusDate();
                   if (date) {
-                    module.set.selectDate(date);
+                    module.selectDate(date);
                   }
                 }
               }
@@ -525,36 +525,6 @@
           },
 
           set: {
-            selectDate: function (date, forceSet) {
-              var mode = module.get.mode();
-              var complete = forceSet || mode === 'minute' ||
-                (settings.disableMinute && mode === 'hour') ||
-                (settings.type === 'date' && mode === 'day') ||
-                (settings.type === 'month' && mode === 'month') ||
-                (settings.type === 'year' && mode === 'year');
-              if (complete) {
-                var canceled = module.set.date(date) === false;
-                if (!canceled && settings.closable) {
-                  module.popup('hide');
-                  //if this is a range calendar, show the end date calendar popup and focus the input
-                  var endModule = module.get.calendarModule(settings.endCalendar);
-                  if (endModule) {
-                    endModule.popup('show');
-                    endModule.focus();
-                  }
-                }
-              } else {
-                var newMode = mode === 'year' ? (!settings.disableMonth ? 'month' : 'day') :
-                  mode === 'month' ? 'day' : mode === 'day' ? 'hour' : 'minute';
-                module.set.mode(newMode);
-                if (mode === 'hour' || (mode === 'day' && module.get.date())) {
-                  //the user has chosen enough to consider a valid date/time has been chosen
-                  module.set.date(date);
-                } else {
-                  module.set.focusDate(date);
-                }
-              }
-            },
             date: function (date, updateInput, fireChange) {
               updateInput = updateInput !== false;
               fireChange = fireChange !== false;
@@ -620,6 +590,37 @@
                 module.create.calendar();
               }
               return !equal;
+            }
+          },
+
+          selectDate: function (date, forceSet) {
+            var mode = module.get.mode();
+            var complete = forceSet || mode === 'minute' ||
+              (settings.disableMinute && mode === 'hour') ||
+              (settings.type === 'date' && mode === 'day') ||
+              (settings.type === 'month' && mode === 'month') ||
+              (settings.type === 'year' && mode === 'year');
+            if (complete) {
+              var canceled = module.set.date(date) === false;
+              if (!canceled && settings.closable) {
+                module.popup('hide');
+                //if this is a range calendar, show the end date calendar popup and focus the input
+                var endModule = module.get.calendarModule(settings.endCalendar);
+                if (endModule) {
+                  endModule.popup('show');
+                  endModule.focus();
+                }
+              }
+            } else {
+              var newMode = mode === 'year' ? (!settings.disableMonth ? 'month' : 'day') :
+                mode === 'month' ? 'day' : mode === 'day' ? 'hour' : 'minute';
+              module.set.mode(newMode);
+              if (mode === 'hour' || (mode === 'day' && module.get.date())) {
+                //the user has chosen enough to consider a valid date/time has been chosen
+                module.set.date(date);
+              } else {
+                module.set.focusDate(date);
+              }
             }
           },
 
