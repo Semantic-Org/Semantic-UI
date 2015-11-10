@@ -84,7 +84,7 @@
           destroy: function () {
             module.verbose('Destroying previous calendar for', element);
             $module.removeData(moduleNamespace);
-            $module.unbind.events();
+            module.unbind.events();
           },
 
           setup: {
