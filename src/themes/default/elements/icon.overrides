@@ -1,5 +1,5 @@
 /*
- * Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome
+ * Font Awesome 4.4.0 by @davegandy - http://fontawesome.io - @fontawesome
  * License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 
@@ -82,6 +82,17 @@ i.icon.at:before { content: "\f1fa"; }
 i.icon.eyedropper:before { content: "\f1fb"; }
 i.icon.paint.brush:before { content: "\f1fc"; }
 i.icon.heartbeat:before { content: "\f21e"; }
+i.icon.mouse.pointer:before { content: "\f245"; }
+i.icon.hand.pointer:before { content: "\f25a"; }
+i.icon.hand.peace:before { content: "\f25b"; }
+i.icon.trademark:before { content: "\f25c"; }
+i.icon.registered:before { content: "\f25d"; }
+i.icon.creative.commons:before { content: "\f25e"; }
+i.icon.add.to.calendar:before { content: "\f271"; }
+i.icon.remove.from.calendar:before { content: "\f272"; }
+i.icon.delete.calendar:before { content: "\f273"; }
+i.icon.checked.calendar:before { content: "\f274"; }
+i.icon.industry:before { content: "\f275"; }
 
 /* User Actions */
 i.icon.download:before { content: "\f019"; }
@@ -137,6 +148,16 @@ i.icon.add.to.cart:before { content: "\f217"; }
 i.icon.in.cart:before { content: "\f218"; }
 i.icon.add.user:before { content: "\f234"; }
 i.icon.remove.user:before { content: "\f235"; }
+i.icon.object.group:before { content: "\f247"; }
+i.icon.object.ungroup:before { content: "\f248"; }
+i.icon.clone:before { content: "\f24d"; }
+i.icon.hand.rock:before { content: "\f255"; }
+i.icon.hand.paper:before { content: "\f256"; }
+i.icon.hand.scissors:before { content: "\f257"; }
+i.icon.hand.lizard:before { content: "\f258"; }
+i.icon.hand.spock:before { content: "\f259"; }
+i.icon.commenting:before { content: "\f27a"; }
+i.icon.commenting.outline:before { content: "\f27b"; }
 
 /* Messages */
 i.icon.help.circle:before { content: "\f059"; }
@@ -221,6 +242,15 @@ i.icon.bomb:before { content: "\f1e2"; }
 i.icon.soccer:before { content: "\f1e3"; }
 i.icon.calculator:before { content: "\f1ec"; }
 i.icon.diamond:before { content: "\f219"; }
+i.icon.sticky.note:before { content: "\f249"; }
+i.icon.sticky.note.outline:before { content: "\f24a"; }
+i.icon.balance.scale:before { content: "\f24e"; }
+i.icon.hourglass.empty:before,
+i.icon.hourglass.outline:before { content: "\f250"; }
+i.icon.hourglass.start:before { content: "\f251"; }
+i.icon.hourglass.half:before { content: "\f252"; }
+i.icon.hourglass.end:before { content: "\f253"; }
+i.icon.hourglass.full:before { content: "\f254"; }
 
 /* Shapes */
 i.icon.crosshairs:before { content: "\f05b"; }
@@ -330,6 +360,13 @@ i.icon.mobile:before { content: "\f10b"; }
 i.icon.game:before { content: "\f11b"; }
 i.icon.keyboard:before { content: "\f11c"; }
 i.icon.plug:before { content: "\f1e6"; }
+i.icon.battery.full:before { content: "\f240"; }
+i.icon.battery.three.quarters:before { content: "\f241"; }
+i.icon.battery.half:before { content: "\f242"; }
+i.icon.battery.quarter:before { content: "\f243"; }
+i.icon.battery.empty:before { content: "\f244"; }
+i.icon.television:before { content: "\f26c"; }
+
 
 /* File System */
 i.icon.folder:before { content: "\f07b"; }
@@ -428,6 +465,10 @@ i.icon.street.view:before { content: "\f21d"; }
 i.icon.hotel:before { content: "\f236"; }
 i.icon.train:before { content: "\f238"; }
 i.icon.subway:before { content: "\f239"; }
+i.icon.map.pin:before { content: "\f276"; }
+i.icon.map.signs:before { content: "\f277"; }
+i.icon.map.outline:before { content: "\f278"; }
+i.icon.map:before { content: "\f279"; }
 
 /* Tables */
 i.icon.table:before { content: "\f0ce"; }
@@ -471,6 +512,7 @@ i.icon.superscript:before { content: "\f12b"; }
 i.icon.subscript:before { content: "\f12c"; }
 i.icon.header:before { content: "\f1dc"; }
 i.icon.paragraph:before { content: "\f1dd"; }
+i.icon.text.cursor:before { content: "\f246"; }
 
 /* Currency */
 i.icon.euro:before { content: "\f153"; }
@@ -492,6 +534,8 @@ i.icon.mastercard:before { content: "\f1f1"; }
 i.icon.discover:before { content: "\f1f2"; }
 i.icon.american.express:before { content: "\f1f3"; }
 i.icon.stripe:before { content: "\f1f5"; }
+i.icon.japan.credit.bureau:before { content: "\f24b"; }
+i.icon.diners.club:before { content: "\f24c"; }
 
 /* Networks and Websites*/
 i.icon.twitter.square:before { content: "\f081"; }
@@ -590,6 +634,29 @@ i.icon.skyatlas:before { content: "\f216"; }
 i.icon.whatsapp:before { content: "\f232"; }
 i.icon.viacoin:before { content: "\f237"; }
 i.icon.medium:before { content: "\f23a"; }
+i.icon.y.combinator:before { content: "\f23b"; }
+i.icon.optinmonster:before { content: "\f23c"; }
+i.icon.opencart:before { content: "\f23d"; }
+i.icon.expeditedssl:before { content: "\f23e"; }
+i.icon.gg:before { content: "\f260"; }
+i.icon.gg.circle:before { content: "\f261"; }
+i.icon.tripadvisor:before { content: "\f262"; }
+i.icon.odnoklassniki:before { content: "\f263"; }
+i.icon.odnoklassniki.square:before { content: "\f264"; }
+i.icon.pocket:before { content: "\f265"; }
+i.icon.wikipedia:before { content: "\f266"; }
+i.icon.safari:before { content: "\f267"; }
+i.icon.chrome:before { content: "\f268"; }
+i.icon.firefox:before { content: "\f269"; }
+i.icon.opera:before { content: "\f26a"; }
+i.icon.internet.explorer:before { content: "\f26b"; }
+i.icon.contao:before { content: "\f26d"; }
+i.icon.500px:before { content: "\f26e"; }
+i.icon.amazon:before { content: "\f270"; }
+i.icon.houzz:before { content: "\f27c"; }
+i.icon.vimeo:before { content: "\f27d"; }
+i.icon.black.tie:before { content: "\f27e"; }
+i.icon.fonticons:before { content: "\f280"; }
 
 /*******************************
             Aliases
@@ -753,3 +820,26 @@ i.icon.mars.stroke.horizontal:before { content: "\f22b"; }
 i.icon.facebook.official { content: "\f230"; }
 i.icon.pinterest.official { content: "\f231"; }
 i.icon.bed:before { content: "\f236"; }
+i.icon.yc:before { content: "\f23b"; }
+i.icon.battery.four:before,
+i.icon.battery.4:before { content: "\f240"; }
+i.icon.battery.three:before,
+i.icon.battery.3:before { content: "\f241"; }
+i.icon.battery.two:before,
+i.icon.battery.2:before { content: "\f242"; }
+i.icon.battery.one:before,
+i.icon.battery.1:before { content: "\f243"; }
+i.icon.battery.zero:before,
+i.icon.battery.0:before { content: "\f244"; }
+i.icon.jcb:before { content: "\f24b"; }
+i.icon.hourglass.0:before,
+i.icon.hourglass.zero:before { content: "\f250"; }
+i.icon.hourglass.1:before,
+i.icon.hourglass.one:before { content: "\f251"; }
+i.icon.hourglass.2:before,
+i.icon.hourglass.two:before { content: "\f252"; }
+i.icon.hourglass.3:before,
+i.icon.hourglass.three:before { content: "\f253"; }
+i.icon.hourglass.4:before,
+i.icon.hourglass.four:before { content: "\f254"; }
+i.icon.tv:before { content: "\f26c"; }
