@@ -33,7 +33,6 @@ for instance `lemon icon` not `lemon outline icon` since there is only one lemon
 /* Web Content */
 i.icon.search:before { content: "\f002"; }
 i.icon.mail.outline:before { content: "\f003"; }
-i.icon.external:before { content: "\f08e"; }
 i.icon.signal:before { content: "\f012"; }
 i.icon.setting:before { content: "\f013"; }
 i.icon.home:before { content: "\f015"; }
@@ -44,8 +43,9 @@ i.icon.tags:before { content: "\f02c"; }
 i.icon.image:before { content: "\f03e"; }
 i.icon.calendar:before { content: "\f073"; }
 i.icon.comment:before { content: "\f075"; }
-i.icon.comments:before { content: "\f086"; }
 i.icon.shop:before { content: "\f07a"; }
+i.icon.comments:before { content: "\f086"; }
+i.icon.external:before { content: "\f08e"; }
 i.icon.privacy:before { content: "\f084"; }
 i.icon.settings:before { content: "\f085"; }
 i.icon.trophy:before { content: "\f091"; }
@@ -56,9 +56,11 @@ i.icon.tasks:before { content: "\f0ae"; }
 i.icon.cloud:before { content: "\f0c2"; }
 i.icon.lab:before { content: "\f0c3"; }
 i.icon.mail:before { content: "\f0e0"; }
-i.icon.idea:before { content: "\f0eb"; }
 i.icon.dashboard:before { content: "\f0e4"; }
+i.icon.comment.outline:before { content: "\f0e5"; }
+i.icon.comments.outline:before { content: "\f0e6"; }
 i.icon.sitemap:before { content: "\f0e8"; }
+i.icon.idea:before { content: "\f0eb"; }
 i.icon.alarm:before { content: "\f0f3"; }
 i.icon.terminal:before { content: "\f120"; }
 i.icon.code:before { content: "\f121"; }
@@ -70,8 +72,6 @@ i.icon.bug:before { content: "\f188"; }
 i.icon.mail.square:before { content: "\f199"; }
 i.icon.history:before { content: "\f1da"; }
 i.icon.options:before { content: "\f1de"; }
-i.icon.comment.outline:before { content: "\f0e5"; }
-i.icon.comments.outline:before { content: "\f0e6"; }
 i.icon.text.telephone:before { content: "\f1e4"; }
 i.icon.find:before { content: "\f1e5"; }
 i.icon.wifi:before { content: "\f1eb"; }
@@ -95,6 +95,7 @@ i.icon.checked.calendar:before { content: "\f274"; }
 i.icon.industry:before { content: "\f275"; }
 
 /* User Actions */
+i.icon.wait:before { content: "\f017"; }
 i.icon.download:before { content: "\f019"; }
 i.icon.repeat:before { content: "\f01e"; }
 i.icon.refresh:before { content: "\f021"; }
@@ -120,8 +121,8 @@ i.icon.pin:before { content: "\f08d"; }
 i.icon.sign.in:before { content: "\f090"; }
 i.icon.upload:before { content: "\f093"; }
 i.icon.call:before { content: "\f095"; }
-i.icon.call.square:before { content: "\f098"; }
 i.icon.remove.bookmark:before { content: "\f097"; }
+i.icon.call.square:before { content: "\f098"; }
 i.icon.unlock:before { content: "\f09c"; }
 i.icon.configure:before { content: "\f0ad"; }
 i.icon.filter:before { content: "\f0b0"; }
@@ -134,6 +135,8 @@ i.icon.reply:before { content: "\f112"; }
 i.icon.reply.all:before { content: "\f122"; }
 i.icon.erase:before { content: "\f12d"; }
 i.icon.unlock.alternate:before { content: "\f13e"; }
+i.icon.write.square:before { content: "\f14b"; }
+i.icon.share.square:before { content: "\f14d"; }
 i.icon.archive:before { content: "\f187"; }
 i.icon.translate:before { content: "\f1ab"; }
 i.icon.recycle:before { content: "\f1b8"; }
@@ -141,9 +144,6 @@ i.icon.send:before { content: "\f1d8"; }
 i.icon.send.outline:before { content: "\f1d9"; }
 i.icon.share.alternate:before { content: "\f1e0"; }
 i.icon.share.alternate.square:before { content: "\f1e1"; }
-i.icon.wait:before { content: "\f017"; }
-i.icon.write.square:before { content: "\f14b"; }
-i.icon.share.square:before { content: "\f14d"; }
 i.icon.add.to.cart:before { content: "\f217"; }
 i.icon.in.cart:before { content: "\f218"; }
 i.icon.add.user:before { content: "\f234"; }
@@ -162,21 +162,21 @@ i.icon.commenting.outline:before { content: "\f27b"; }
 /* Messages */
 i.icon.help.circle:before { content: "\f059"; }
 i.icon.info.circle:before { content: "\f05a"; }
-i.icon.warning:before { content: "\f12a"; }
 i.icon.warning.circle:before { content: "\f06a"; }
 i.icon.warning.sign:before { content: "\f071"; }
+i.icon.announcement:before { content: "\f0a1"; }
 i.icon.help:before { content: "\f128"; }
 i.icon.info:before { content: "\f129"; }
-i.icon.announcement:before { content: "\f0a1"; }
+i.icon.warning:before { content: "\f12a"; }
 i.icon.birthday:before {  content: "\f1fd"; }
 
 /* Users */
+i.icon.user:before { content: "\f007"; }
 i.icon.users:before { content: "\f0c0"; }
 i.icon.doctor:before { content: "\f0f0"; }
-i.icon.child:before { content: "\f1ae"; }
-i.icon.user:before { content: "\f007"; }
 i.icon.handicap:before { content: "\f193"; }
 i.icon.student:before { content: "\f19d"; }
+i.icon.child:before { content: "\f1ae"; }
 i.icon.spy:before { content: "\f21b"; }
 
 /* Gender & Sexuality */
@@ -197,9 +197,9 @@ i.icon.neuter:before { content: "\f22c"; }
 i.icon.genderless:before { content: "\f22d"; }
 
 /* View Adjustment */
+i.icon.block.layout:before { content: "\f009"; }
 i.icon.grid.layout:before { content: "\f00a"; }
 i.icon.list.layout:before { content: "\f00b"; }
-i.icon.block.layout:before { content: "\f009"; }
 i.icon.zoom:before { content: "\f00e"; }
 i.icon.zoom.out:before { content: "\f010"; }
 i.icon.resize.vertical:before { content: "\f07d"; }
@@ -217,12 +217,12 @@ i.icon.leaf:before { content: "\f06c"; }
 i.icon.fire:before { content: "\f06d"; }
 i.icon.plane:before { content: "\f072"; }
 i.icon.magnet:before { content: "\f076"; }
-i.icon.legal:before { content: "\f0e3"; }
 i.icon.lemon:before { content: "\f094"; }
 i.icon.world:before { content: "\f0ac"; }
 i.icon.travel:before { content: "\f0b1"; }
 i.icon.shipping:before { content: "\f0d1"; }
 i.icon.money:before { content: "\f0d6"; }
+i.icon.legal:before { content: "\f0e3"; }
 i.icon.lightning:before { content: "\f0e7"; }
 i.icon.umbrella:before { content: "\f0e9"; }
 i.icon.treatment:before { content: "\f0f1"; }
@@ -247,7 +247,6 @@ i.icon.sticky.note:before { content: "\f249"; }
 i.icon.sticky.note.outline:before { content: "\f24a"; }
 i.icon.balance.scale:before { content: "\f24e"; }
 i.icon.hourglass.empty:before { content: "\f250"; }
-i.icon.hourglass.outline:before { content: "\f250"; }
 i.icon.hourglass.start:before { content: "\f251"; }
 i.icon.hourglass.half:before { content: "\f252"; }
 i.icon.hourglass.end:before { content: "\f253"; }
@@ -256,18 +255,19 @@ i.icon.hourglass.full:before { content: "\f254"; }
 /* Shapes */
 i.icon.crosshairs:before { content: "\f05b"; }
 i.icon.asterisk:before { content: "\f069"; }
+i.icon.square.outline:before { content: "\f096"; }
 i.icon.certificate:before { content: "\f0a3"; }
-i.icon.circle:before { content: "\f111"; }
+i.icon.square:before { content: "\f0c8"; }
 i.icon.quote.left:before { content: "\f10d"; }
 i.icon.quote.right:before { content: "\f10e"; }
+i.icon.spinner:before { content: "\f110"; }
+i.icon.circle:before { content: "\f111"; }
 i.icon.ellipsis.horizontal:before { content: "\f141"; }
 i.icon.ellipsis.vertical:before { content: "\f142"; }
 i.icon.cube:before { content: "\f1b2"; }
 i.icon.cubes:before { content: "\f1b3"; }
 i.icon.circle.notched:before { content: "\f1ce"; }
 i.icon.circle.thin:before { content: "\f1db"; }
-i.icon.square.outline:before { content: "\f096"; }
-i.icon.square:before { content: "\f0c8"; }
 
 /* Item Selection */
 i.icon.checkmark:before { content: "\f00c"; }
@@ -284,10 +284,10 @@ i.icon.plus:before { content: "\f067"; }
 i.icon.minus:before { content: "\f068"; }
 i.icon.add.square:before { content: "\f0fe"; }
 i.icon.radio:before { content: "\f10c"; }
-i.icon.selected.radio:before { content: "\f192"; }
 i.icon.minus.square:before { content: "\f146"; }
 i.icon.minus.square.outline:before { content: "\f147"; }
 i.icon.check.square:before { content: "\f14a"; }
+i.icon.selected.radio:before { content: "\f192"; }
 i.icon.plus.square.outline:before { content: "\f196"; }
 i.icon.toggle.off:before { content: "\f204"; }
 i.icon.toggle.on:before { content: "\f205"; }
@@ -351,7 +351,6 @@ i.icon.toggle.left:before { content: "\f191"; }
 
 /* Computer */
 i.icon.power:before { content: "\f011"; }
-i.icon.trash:before { content: "\f1f8"; }
 i.icon.trash.outline:before { content: "\f014"; }
 i.icon.disk.outline:before { content: "\f0a0"; }
 i.icon.desktop:before { content: "\f108"; }
@@ -361,6 +360,7 @@ i.icon.mobile:before { content: "\f10b"; }
 i.icon.game:before { content: "\f11b"; }
 i.icon.keyboard:before { content: "\f11c"; }
 i.icon.plug:before { content: "\f1e6"; }
+i.icon.trash:before { content: "\f1f8"; }
 i.icon.battery.full:before { content: "\f240"; }
 i.icon.battery.three.quarters:before { content: "\f241"; }
 i.icon.battery.half:before { content: "\f242"; }
@@ -370,16 +370,16 @@ i.icon.television:before { content: "\f26c"; }
 
 
 /* File System */
+i.icon.file.outline:before { content: "\f016"; }
 i.icon.folder:before { content: "\f07b"; }
 i.icon.folder.open:before { content: "\f07c"; }
-i.icon.level.up:before { content: "\f148"; }
-i.icon.level.down:before { content: "\f149"; }
-i.icon.file:before { content: "\f15b"; }
-i.icon.file.outline:before { content: "\f016"; }
-i.icon.file.text:before { content: "\f15c"; }
 i.icon.file.text.outline:before { content: "\f0f6"; }
 i.icon.folder.outline:before { content: "\f114"; }
 i.icon.folder.open.outline:before { content: "\f115"; }
+i.icon.level.up:before { content: "\f148"; }
+i.icon.level.down:before { content: "\f149"; }
+i.icon.file:before { content: "\f15b"; }
+i.icon.file.text:before { content: "\f15c"; }
 i.icon.file.pdf.outline:before { content: "\f1c1"; }
 i.icon.file.word.outline:before { content: "\f1c2"; }
 i.icon.file.excel.outline:before { content: "\f1c3"; }
@@ -393,10 +393,10 @@ i.icon.file.code.outline:before { content: "\f1c9"; }
 /* Technologies */
 i.icon.barcode:before { content: "\f02a"; }
 i.icon.qrcode:before { content: "\f029"; }
+i.icon.rss:before { content: "\f09e"; }
 i.icon.fork:before { content: "\f126"; }
 i.icon.html5:before { content: "\f13b"; }
 i.icon.css3:before { content: "\f13c"; }
-i.icon.rss:before { content: "\f09e"; }
 i.icon.rss.square:before { content: "\f143"; }
 i.icon.openid:before { content: "\f19b"; }
 i.icon.database:before { content: "\f1c0"; }
@@ -450,6 +450,7 @@ i.icon.first.aid:before { content: "\f0fa"; }
 i.icon.military:before { content: "\f0fb"; }
 i.icon.h:before { content: "\f0fd"; }
 i.icon.location.arrow:before { content: "\f124"; }
+i.icon.compass:before { content: "\f14e"; }
 i.icon.space.shuttle:before { content: "\f197"; }
 i.icon.university:before { content: "\f19c"; }
 i.icon.building:before { content: "\f1ad"; }
@@ -523,17 +524,18 @@ i.icon.rupee:before { content: "\f156"; }
 i.icon.yen:before { content: "\f157"; }
 i.icon.ruble:before { content: "\f158"; }
 i.icon.won:before { content: "\f159"; }
+i.icon.bitcoin:before { content: "\f15a"; }
 i.icon.lira:before { content: "\f195"; }
 i.icon.shekel:before { content: "\f20b"; }
 
 /* Payment Options */
 i.icon.paypal:before { content: "\f1ed"; }
-i.icon.paypal.card:before { content: "\f1f4"; }
 i.icon.google.wallet:before { content: "\f1ee"; }
 i.icon.visa:before { content: "\f1f0"; }
 i.icon.mastercard:before { content: "\f1f1"; }
 i.icon.discover:before { content: "\f1f2"; }
 i.icon.american.express:before { content: "\f1f3"; }
+i.icon.paypal.card:before { content: "\f1f4"; }
 i.icon.stripe:before { content: "\f1f5"; }
 i.icon.japan.credit.bureau:before { content: "\f24b"; }
 i.icon.diners.club:before { content: "\f24c"; }
@@ -553,7 +555,6 @@ i.icon.google.plus:before { content: "\f0d5"; }
 i.icon.linkedin:before { content: "\f0e1"; }
 i.icon.github.alternate:before { content: "\f113"; }
 i.icon.maxcdn:before { content: "\f136"; }
-i.icon.bitcoin:before { content: "\f15a"; }
 i.icon.youtube.square:before { content: "\f166"; }
 i.icon.youtube:before { content: "\f167"; }
 i.icon.xing:before { content: "\f168"; }
@@ -717,10 +718,7 @@ i.icon.phone.square:before { content: "\f098"; }
 i.icon.credit.card:before { content: "\f09d"; }
 i.icon.hdd.outline:before { content: "\f0a0"; }
 i.icon.bullhorn:before { content: "\f0a1"; }
-i.icon.bell:before { content: "\f0f3"; }
 i.icon.bell.outline:before { content: "\f0a2"; }
-i.icon.bell.slash:before { content: "\f1f6"; }
-i.icon.bell.slash.outline:before { content: "\f1f7"; }
 i.icon.hand.outline.right:before { content: "\f0a4"; }
 i.icon.hand.outline.left:before { content: "\f0a5"; }
 i.icon.hand.outline.up:before { content: "\f0a6"; }
@@ -750,6 +748,7 @@ i.icon.clipboard:before { content: "\f0ea"; }
 i.icon.lightbulb:before { content: "\f0eb"; }
 i.icon.link:before { content: "\f0c1"; }
 i.icon.chain:before { content: "\f0c1"; }
+i.icon.bell:before { content: "\f0f3"; }
 i.icon.ambulance:before { content: "\f0f9"; }
 i.icon.medkit:before { content: "\f0fa"; }
 i.icon.fighter.jet:before { content: "\f0fb"; }
@@ -757,7 +756,6 @@ i.icon.beer:before { content: "\f0fc"; }
 i.icon.plus.square:before { content: "\f0fe"; }
 i.icon.computer:before { content: "\f108"; }
 i.icon.circle.outline:before { content: "\f10c"; }
-i.icon.spinner:before { content: "\f110"; }
 i.icon.gamepad:before { content: "\f11b"; }
 i.icon.star.half.full:before { content: "\f123"; }
 i.icon.broken.chain:before { content: "\f127"; }
@@ -770,7 +768,6 @@ i.icon.shield:before { content: "\f132"; }
 i.icon.target:before { content: "\f140"; }
 i.icon.play.circle:before { content: "\f144"; }
 i.icon.pencil.square:before { content: "\f14b"; }
-i.icon.compass:before { content: "\f14e"; }
 i.icon.eur:before { content: "\f153"; }
 i.icon.gbp:before { content: "\f154"; }
 i.icon.usd:before { content: "\f155"; }
@@ -782,25 +779,27 @@ i.icon.rouble:before { content: "\f158"; }
 i.icon.rub:before { content: "\f158"; }
 i.icon.krw:before { content: "\f159"; }
 i.icon.btc:before { content: "\f15a"; }
-i.icon.try:before { content: "\f195"; }
+i.icon.gratipay:before { content: "\f184"; }
 i.icon.zip:before { content: "\f187"; }
 i.icon.dot.circle.outline:before { content: "\f192"; }
+i.icon.try:before { content: "\f195"; }
+i.icon.graduation:before { content: "\f19d"; }
 i.icon.circle.outline:before { content: "\f1db"; }
 i.icon.sliders:before { content: "\f1de"; }
 i.icon.wi-fi:before { content: "\f1eb"; }
-i.icon.graduation:before { content: "\f19d"; }
 i.icon.weixin:before { content: "\f1d7"; }
-i.icon.binoculars:before { content: "\f1e5"; }
-i.icon.gratipay:before { content: "\f184"; }
-i.icon.teletype:before { content: "\f1e4"; }
-i.icon.power.cord:before { content: "\f1e6"; }
 i.icon.tty:before { content: "\f1e4"; }
+i.icon.teletype:before { content: "\f1e4"; }
+i.icon.binoculars:before { content: "\f1e5"; }
+i.icon.power.cord:before { content: "\f1e6"; }
 i.icon.visa.card:before { content: "\f1f0"; }
 i.icon.mastercard.card:before { content: "\f1f1"; }
 i.icon.discover.card:before { content: "\f1f2"; }
 i.icon.amex:before { content: "\f1f3"; }
 i.icon.american.express.card:before { content: "\f1f3"; }
 i.icon.stripe.card:before { content: "\f1f5"; }
+i.icon.bell.slash:before { content: "\f1f6"; }
+i.icon.bell.slash.outline:before { content: "\f1f7"; }
 i.icon.area.graph:before { content: "\f1fe"; }
 i.icon.pie.graph:before { content: "\f200"; }
 i.icon.line.graph:before { content: "\f201"; }
@@ -844,6 +843,7 @@ i.icon.i.cursor:before { content: "\f246"; }
 i.icon.jcb:before { content: "\f24b"; }
 i.icon.japan.credit.bureau.card:before { content: "\f24b"; }
 i.icon.diners.club.card:before { content: "\f24c"; }
+i.icon.hourglass.outline:before { content: "\f250"; }
 i.icon.hourglass.zero:before { content: "\f250"; }
 i.icon.hourglass.one:before { content: "\f251"; }
 i.icon.hourglass.two:before { content: "\f252"; }
