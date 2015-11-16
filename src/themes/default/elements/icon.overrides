@@ -48,6 +48,8 @@ i.icon.comments:before { content: "\f086"; }
 i.icon.external:before { content: "\f08e"; }
 i.icon.privacy:before { content: "\f084"; }
 i.icon.settings:before { content: "\f085"; }
+i.icon.comments:before { content: "\f086"; }
+i.icon.external:before { content: "\f08e"; }
 i.icon.trophy:before { content: "\f091"; }
 i.icon.payment:before { content: "\f09d"; }
 i.icon.feed:before { content: "\f09e"; }
@@ -391,8 +393,8 @@ i.icon.file.video.outline:before { content: "\f1c8"; }
 i.icon.file.code.outline:before { content: "\f1c9"; }
 
 /* Technologies */
-i.icon.barcode:before { content: "\f02a"; }
 i.icon.qrcode:before { content: "\f029"; }
+i.icon.barcode:before { content: "\f02a"; }
 i.icon.rss:before { content: "\f09e"; }
 i.icon.fork:before { content: "\f126"; }
 i.icon.html5:before { content: "\f13b"; }
@@ -476,8 +478,8 @@ i.icon.map:before { content: "\f279"; }
 i.icon.table:before { content: "\f0ce"; }
 i.icon.columns:before { content: "\f0db"; }
 i.icon.sort:before { content: "\f0dc"; }
-i.icon.sort.ascending:before { content: "\f0de"; }
 i.icon.sort.descending:before { content: "\f0dd"; }
+i.icon.sort.ascending:before { content: "\f0de"; }
 i.icon.sort.alphabet.ascending:before { content: "\f15d"; }
 i.icon.sort.alphabet.descending:before { content: "\f15e"; }
 i.icon.sort.content.ascending:before { content: "\f160"; }
