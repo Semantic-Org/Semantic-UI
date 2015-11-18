@@ -953,7 +953,7 @@ i.flag.vanuatu:before {
   background-position: -108px -182px;
 }
 i.flag.gb.wls:before,
-i.flag.walles:before {
+i.flag.wales:before {
   background-position: -108px -208px;
 }
 i.flag.wf:before,
