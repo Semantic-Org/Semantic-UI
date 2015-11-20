@@ -41,5 +41,4 @@
 @downPressedShadow: 0px 1px 4px rgba(0, 0, 0, 0.2) inset;
 
 @labeledIconBackgroundColor: rgba(85, 172, 238, 0.05);
-@labeledIconBorder: @borderBoxShadowColor;
-@labeledIconColor: #55ACEE;
+@labeledIconBorder: rgba(0, 0, 0, 0.1);

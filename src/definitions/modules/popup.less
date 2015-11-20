@@ -38,7 +38,7 @@
   border: @border;
   line-height: @lineHeight;
   max-width: @maxWidth;
-  background-color: @background;
+  background: @background;
 
   padding: @verticalPadding @horizontalPadding;
   font-weight: @fontWeight;
@@ -140,6 +140,7 @@
 .ui.bottom.left.popup {
   margin-left: @boxArrowOffset;
 }
+/*rtl:rename*/
 .ui.bottom.left.popup:before {
   top: @arrowOffset;
   left: @arrowDistanceFromEdge;
@@ -152,6 +153,7 @@
 .ui.bottom.right.popup {
   margin-right: @boxArrowOffset;
 }
+/*rtl:rename*/
 .ui.bottom.right.popup:before {
   top: @arrowOffset;
   right: @arrowDistanceFromEdge;
@@ -172,6 +174,7 @@
 .ui.top.left.popup {
   margin-left: @boxArrowOffset;
 }
+/*rtl:rename*/
 .ui.top.left.popup:before {
   bottom: @arrowOffset;
   left: @arrowDistanceFromEdge;
@@ -182,6 +185,7 @@
 .ui.top.right.popup {
   margin-right: @boxArrowOffset;
 }
+/*rtl:rename*/
 .ui.top.right.popup:before {
   bottom: @arrowOffset;
   right: @arrowDistanceFromEdge;
@@ -191,6 +195,7 @@
 }
 
 /*--- Left Center ---*/
+/*rtl:rename*/
 .ui.left.center.popup:before {
   top: 50%;
   right: @arrowOffset;
@@ -201,6 +206,7 @@
 }
 
 /*--- Right Center  ---*/
+/*rtl:rename*/
 .ui.right.center.popup:before {
   top: 50%;
   left: @arrowOffset;
@@ -209,6 +215,31 @@
   margin-top: @arrowOffset;
   box-shadow: @rightArrowBoxShadow;
 }
+
+/* Arrow Color By Location */
+.ui.bottom.popup:before {
+  background: @arrowTopBackground;
+}
+.ui.right.center.popup:before,
+.ui.left.center.popup:before {
+  background: @arrowCenterBackground;
+}
+.ui.top.popup:before {
+  background: @arrowBottomBackground;
+}
+
+/* Inverted Arrow Color */
+.ui.inverted.bottom.popup:before {
+  background: @invertedArrowTopBackground;
+}
+.ui.inverted.right.center.popup:before,
+.ui.inverted.left.center.popup:before {
+  background: @invertedArrowCenterBackground;
+}
+.ui.inverted.top.popup:before {
+  background: @invertedArrowBottomBackground;
+}
+
 
 /*******************************
             Coupling

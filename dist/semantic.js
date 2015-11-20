@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 2.0.8
+ * # Semantic UI - 2.1.6
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -9,7 +9,7 @@
  *
  */
 /*!
- * # Semantic UI 2.0.8 - Site
+ * # Semantic UI 2.1.6 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -91,7 +91,7 @@ $.site = $.fn.site = function(parameters) {
       requestAnimationFrame: function() {
         module.debug('Normalizing requestAnimationFrame');
         if(window.requestAnimationFrame === undefined) {
-          module.debug('RequestAnimationFrame not available, normailizing event');
+          module.debug('RequestAnimationFrame not available, normalizing event');
           window.requestAnimationFrame = window.requestAnimationFrame
             || window.mozRequestAnimationFrame
             || window.webkitRequestAnimationFrame
@@ -494,9 +494,10 @@ $.extend($.expr[ ":" ], {
 });
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );
+
 /*!
- * # Semantic UI 2.0.8 - Form Validation
+ * # Semantic UI 2.1.6 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -722,13 +723,16 @@ $.fn.form = function(parameters) {
         },
 
         is: {
+          bracketedRule: function(rule) {
+            return (rule.type && rule.type.match(settings.regExp.bracket));
+          },
           valid: function() {
             var
               allValid = true
             ;
             module.verbose('Checking if form is valid');
             $.each(validation, function(fieldName, field) {
-              if( !( module.validate.field(field) ) ) {
+              if( !( module.validate.field(field, fieldName) ) ) {
                 allValid = false;
               }
             });
@@ -782,7 +786,7 @@ $.fn.form = function(parameters) {
             keyup: function() {
               keyHeldDown = false;
             },
-            blur: function() {
+            blur: function(event) {
               var
                 $field          = $(this),
                 $fieldGroup     = $field.closest($group),
@@ -790,13 +794,15 @@ $.fn.form = function(parameters) {
               ;
               if( $fieldGroup.hasClass(className.error) ) {
                 module.debug('Revalidating field', $field, validationRules);
-                module.validate.field( validationRules );
+                module.validate.form.call(module, event, true);
               }
               else if(settings.on == 'blur' || settings.on == 'change') {
-                module.validate.field( validationRules );
+                if(validationRules) {
+                  module.validate.field( validationRules );
+                }
               }
             },
-            change: function() {
+            change: function(event) {
               var
                 $field      = $(this),
                 $fieldGroup = $field.closest($group)
@@ -805,7 +811,7 @@ $.fn.form = function(parameters) {
                 clearTimeout(module.timer);
                 module.timer = setTimeout(function() {
                   module.debug('Revalidating field', $field,  module.get.validation($field));
-                  module.validate.field( module.get.validation($field) );
+                  module.validate.form.call(module, event, true);
                 }, settings.delay);
               }
             }
@@ -814,6 +820,18 @@ $.fn.form = function(parameters) {
         },
 
         get: {
+          ancillaryValue: function(rule) {
+            if(!rule.type || !module.is.bracketedRule(rule)) {
+              return false;
+            }
+            return rule.type.match(settings.regExp.bracket)[1] + '';
+          },
+          ruleName: function(rule) {
+            if( module.is.bracketedRule(rule) ) {
+              return rule.type.replace(rule.type.match(settings.regExp.bracket)[0], '');
+            }
+            return rule.type;
+          },
           changeEvent: function(type, $input) {
             if(type == 'checkbox' || type == 'radio' || type == 'hidden' || $input.is('select')) {
               return 'change';
@@ -830,16 +848,46 @@ $.fn.form = function(parameters) {
                 : 'keyup'
             ;
           },
-          settings: function() {
+          prompt: function(rule, field) {
             var
-              firstProperty
+              ruleName      = module.get.ruleName(rule),
+              ancillary     = module.get.ancillaryValue(rule),
+              prompt        = rule.prompt || settings.prompt[ruleName] || settings.text.unspecifiedRule,
+              requiresValue = (prompt.search('{value}') !== -1),
+              requiresName  = (prompt.search('{name}') !== -1),
+              $label,
+              $field,
+              name
             ;
+            if(requiresName || requiresValue) {
+              $field = module.get.field(field.identifier);
+            }
+            if(requiresValue) {
+              prompt = prompt.replace('{value}', $field.val());
+            }
+            if(requiresName) {
+              $label = $field.closest(selector.group).find('label').eq(0);
+              name = ($label.size() == 1)
+                ? $label.text()
+                : $field.prop('placeholder') || settings.text.unspecifiedField
+              ;
+              prompt = prompt.replace('{name}', name);
+            }
+            prompt = prompt.replace('{identifier}', field.identifier);
+            prompt = prompt.replace('{ruleValue}', ancillary);
+            if(!rule.prompt) {
+              module.verbose('Using default validation prompt for type', prompt, ruleName);
+            }
+            return prompt;
+          },
+          settings: function() {
             if($.isPlainObject(parameters)) {
               var
-                keys             = Object.keys(parameters),
+                keys     = Object.keys(parameters),
                 isLegacySettings = (keys.length > 0)
                   ? (parameters[keys[0]].identifier !== undefined && parameters[keys[0]].rules !== undefined)
-                  : false
+                  : false,
+                ruleKeys
               ;
               if(isLegacySettings) {
                 // 1.x (ducktyped)
@@ -850,6 +898,23 @@ $.fn.form = function(parameters) {
               }
               else {
                 // 2.x
+                if(parameters.fields) {
+                  ruleKeys = Object.keys(parameters.fields);
+                  if( typeof parameters.fields[ruleKeys[0]] == 'string' || $.isArray(parameters.fields[ruleKeys[0]]) ) {
+                    $.each(parameters.fields, function(name, rules) {
+                      if(typeof rules == 'string') {
+                        rules = [rules];
+                      }
+                      parameters.fields[name] = {
+                        rules: []
+                      };
+                      $.each(rules, function(index, rule) {
+                        parameters.fields[name].rules.push({ type: rule });
+                      });
+                    });
+                  }
+                }
+
                 settings   = $.extend(true, {}, $.fn.form.settings, parameters);
                 validation = $.extend({}, $.fn.form.settings.defaults, settings.fields);
                 module.verbose('Extending settings', validation, settings);
@@ -903,17 +968,20 @@ $.fn.form = function(parameters) {
           },
           validation: function($field) {
             var
-              rules
+              fieldValidation,
+              identifier
             ;
             if(!validation) {
               return false;
             }
             $.each(validation, function(fieldName, field) {
-              if( module.get.field(field.identifier)[0] == $field[0] ) {
-                rules = field;
+              identifier = field.identifier || fieldName;
+              if( module.get.field(identifier)[0] == $field[0] ) {
+                field.identifier = identifier;
+                fieldValidation = field;
               }
             });
-            return rules || false;
+            return fieldValidation || false;
           },
           value: function (field) {
             var
@@ -952,11 +1020,10 @@ $.fn.form = function(parameters) {
                   }
                   if(isCheckbox) {
                     if(isChecked) {
-                      values[name].push(value);
+                      values[name].push(value || true);
                     }
                     else {
-                      module.debug('Omitted unchecked checkbox', $field);
-                      return true;
+                      values[name].push(false);
                     }
                   }
                   else {
@@ -971,11 +1038,10 @@ $.fn.form = function(parameters) {
                   }
                   else if(isCheckbox) {
                     if(isChecked) {
-                      values[name] = true;
+                      values[name] = value || true;
                     }
                     else {
-                      module.debug('Omitted unchecked checkbox', $field);
-                      return true;
+                      values[name] = false;
                     }
                   }
                   else {
@@ -1054,6 +1120,7 @@ $.fn.form = function(parameters) {
           },
           errors: function(errors) {
             module.debug('Adding form error messages', errors);
+            module.set.error();
             $message
               .html( settings.templates.error(errors) )
             ;
@@ -1061,9 +1128,9 @@ $.fn.form = function(parameters) {
         },
 
         remove: {
-          prompt: function(field) {
+          prompt: function(identifier) {
             var
-              $field      = module.get.field(field.identifier),
+              $field      = module.get.field(identifier),
               $fieldGroup = $field.closest($group),
               $prompt     = $fieldGroup.children(selector.prompt)
             ;
@@ -1071,7 +1138,7 @@ $.fn.form = function(parameters) {
               .removeClass(className.error)
             ;
             if(settings.inline && $prompt.is(':visible')) {
-              module.verbose('Removing prompt for field', field);
+              module.verbose('Removing prompt for field', identifier);
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 $prompt.transition(settings.transition + ' out', settings.duration, function() {
                   $prompt.remove();
@@ -1180,8 +1247,9 @@ $.fn.form = function(parameters) {
 
         validate: {
 
-          form: function(event) {
+          form: function(event, ignoreCallbacks) {
             var
+              values = module.get.values(),
               apiRequest
             ;
 
@@ -1195,7 +1263,9 @@ $.fn.form = function(parameters) {
             if( module.is.valid() ) {
               module.debug('Form has no validation errors, submitting');
               module.set.success();
-              return settings.onSuccess.call(element, event);
+              if(ignoreCallbacks !== true) {
+                return settings.onSuccess.call(element, event, values);
+              }
             }
             else {
               module.debug('Form has errors');
@@ -1207,41 +1277,48 @@ $.fn.form = function(parameters) {
               if($module.data('moduleApi') !== undefined) {
                 event.stopImmediatePropagation();
               }
-              return settings.onFailure.call(element, formErrors);
+              if(ignoreCallbacks !== true) {
+                return settings.onFailure.call(element, formErrors, values);
+              }
             }
           },
 
           // takes a validation object and returns whether field passes validation
-          field: function(field) {
+          field: function(field, fieldName) {
             var
-              $field      = module.get.field(field.identifier),
+              identifier  = field.identifier || fieldName,
+              $field      = module.get.field(identifier),
               fieldValid  = true,
               fieldErrors = []
             ;
+            if(!field.identifier) {
+              module.debug('Using field name as identifier', identifier);
+              field.identifier = identifier;
+            }
             if($field.prop('disabled')) {
-              module.debug('Field is disabled. Skipping', field.identifier);
+              module.debug('Field is disabled. Skipping', identifier);
               fieldValid = true;
             }
             else if(field.optional && $.trim($field.val()) === ''){
-              module.debug('Field is optional and empty. Skipping', field.identifier);
+              module.debug('Field is optional and empty. Skipping', identifier);
               fieldValid = true;
             }
             else if(field.rules !== undefined) {
               $.each(field.rules, function(index, rule) {
-                if( module.has.field(field.identifier) && !( module.validate.rule(field, rule) ) ) {
-                  module.debug('Field is invalid', field.identifier, rule.type);
-                  fieldErrors.push(rule.prompt);
+                if( module.has.field(identifier) && !( module.validate.rule(field, rule) ) ) {
+                  module.debug('Field is invalid', identifier, rule.type);
+                  fieldErrors.push(module.get.prompt(rule, field));
                   fieldValid = false;
                 }
               });
             }
             if(fieldValid) {
-              module.remove.prompt(field, fieldErrors);
+              module.remove.prompt(identifier, fieldErrors);
               settings.onValid.call($field);
             }
             else {
               formErrors = formErrors.concat(fieldErrors);
-              module.add.prompt(field.identifier, fieldErrors);
+              module.add.prompt(identifier, fieldErrors);
               settings.onInvalid.call($field, fieldErrors);
               return false;
             }
@@ -1249,42 +1326,26 @@ $.fn.form = function(parameters) {
           },
 
           // takes validation rule and returns whether field passes rule
-          rule: function(field, validation) {
+          rule: function(field, rule) {
             var
-              $field        = module.get.field(field.identifier),
-              type          = validation.type,
-              value         = $field.val(),
-              bracket       = type.match(settings.regExp.bracket),
-              isValid       = true,
-              rule,
-              ancillary,
-              functionType
+              $field       = module.get.field(field.identifier),
+              type         = rule.type,
+              value        = $field.val(),
+              isValid      = true,
+              ancillary    = module.get.ancillaryValue(rule),
+              ruleName     = module.get.ruleName(rule),
+              ruleFunction = settings.rules[ruleName]
             ;
+            if( !$.isFunction(ruleFunction) ) {
+              module.error(error.noRule, ruleName);
+              return;
+            }
             // cast to string avoiding encoding special values
             value = (value === undefined || value === '' || value === null)
               ? ''
               : $.trim(value + '')
             ;
-            // if bracket notation is used, pass in extra parameters
-            if(bracket) {
-              ancillary    = '' + bracket[1];
-              functionType = type.replace(bracket[0], '');
-              rule         = settings.rules[functionType];
-              if( !$.isFunction(rule) ) {
-                module.error(error.noRule, functionType);
-                return;
-              }
-              isValid = rule.call($field, value, ancillary);
-            }
-            else {
-              rule = settings.rules[type];
-              if( !$.isFunction(rule) ) {
-                module.error(error.noRule, type);
-                return;
-              }
-              isValid = rule.call($field, value);
-            }
-            return isValid;
+            return ruleFunction.call($field, value, ancillary);
           }
         },
 
@@ -1487,11 +1548,47 @@ $.fn.form.settings = {
 
   regExp: {
     bracket : /\[(.*)\]/i,
-    escape  : /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g,
+    decimal : /^\d*(\.)\d+/,
     email   : "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
-    integer : /^\-?\d+$/,
+    escape  : /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g,
     flags   : /^\/(.*)\/(.*)?/,
+    integer : /^\-?\d+$/,
+    number  : /^\-?\d*(\.\d+)?$/,
     url     : /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/i
+  },
+
+  text: {
+    unspecifiedRule  : 'Please enter a valid value',
+    unspecifiedField : 'This field'
+  },
+
+  prompt: {
+    empty                : '{name} must have a value',
+    checked              : '{name} must be checked',
+    email                : '{name} must be a valid e-mail',
+    url                  : '{name} must be a valid url',
+    regExp               : '{name} is not formatted correctly',
+    integer              : '{name} must be an integer',
+    decimal              : '{name} must be a decimal number',
+    number               : '{name} must be set to a number',
+    is                   : '{name} must be "{ruleValue}"',
+    isExactly            : '{name} must be exactly "{ruleValue}"',
+    not                  : '{name} cannot be set to "{ruleValue}"',
+    notExactly           : '{name} cannot be set to exactly "{ruleValue}"',
+    contain              : '{name} cannot contain "{ruleValue}"',
+    containExactly       : '{name} cannot contain exactly "{ruleValue}"',
+    doesntContain        : '{name} must contain  "{ruleValue}"',
+    doesntContainExactly : '{name} must contain exactly "{ruleValue}"',
+    minLength            : '{name} must be at least {ruleValue} characters',
+    length               : '{name} must be at least {ruleValue} characters',
+    exactLength          : '{name} must be exactly {ruleValue} characters',
+    maxLength            : '{name} cannot be longer than {ruleValue} characters',
+    match                : '{name} must match {ruleValue} field',
+    different            : '{name} must have a different value than {ruleValue} field',
+    creditCard           : '{name} must be a valid credit card number',
+    minCount             : '{name} must have at least {ruleValue} choices',
+    exactCount           : '{name} must have exactly {ruleValue} choices',
+    maxCount             : '{name} must have {ruleValue} or less choices'
   },
 
   selector : {
@@ -1517,10 +1614,10 @@ $.fn.form.settings = {
   },
 
   error: {
-    oldSyntax  : 'Starting in 2.0 forms now only take a single settings object. Validation settings converted to new syntax automatically.',
     identifier : 'You must specify a string identifier for each field',
+    method     : 'The method you called is not defined.',
     noRule     : 'There is no rule matching the one you specified',
-    method     : 'The method you called is not defined.'
+    oldSyntax  : 'Starting in 2.0 forms now only take a single settings object. Validation settings converted to new syntax automatically.'
   },
 
   templates: {
@@ -1540,7 +1637,7 @@ $.fn.form.settings = {
     // template that produces label
     prompt: function(errors) {
       return $('<div/>')
-        .addClass('ui red pointing prompt label')
+        .addClass('ui basic red pointing prompt label')
         .html(errors[0])
       ;
     }
@@ -1599,7 +1696,7 @@ $.fn.form.settings = {
         max,
         parts
       ;
-      if(range === undefined || range === '' || range === '..') {
+      if( !range || ['', '..'].indexOf(range) !== -1) {
         // do nothing
       }
       else if(range.indexOf('..') == -1) {
@@ -1623,6 +1720,15 @@ $.fn.form.settings = {
       );
     },
 
+    // is valid number (with decimal)
+    decimal: function(value) {
+      return $.fn.form.settings.regExp.decimal.test(value);
+    },
+
+    // is valid number
+    number: function(value) {
+      return $.fn.form.settings.regExp.number.test(value);
+    },
 
     // is value (case insensitive)
     is: function(value, text) {
@@ -1769,14 +1875,108 @@ $.fn.form.settings = {
       ;
     },
 
-    exactCount: function(value, exactCount) {
-      if(exactCount == 0) {
-        return (value === '');
+    creditCard: function(cardNumber, cardTypes) {
+      var
+        cards = {
+          visa: {
+            pattern : /^4/,
+            length  : [16]
+          },
+          amex: {
+            pattern : /^3[47]/,
+            length  : [15]
+          },
+          mastercard: {
+            pattern : /^5[1-5]/,
+            length  : [16]
+          },
+          discover: {
+            pattern : /^(6011|622(12[6-9]|1[3-9][0-9]|[2-8][0-9]{2}|9[0-1][0-9]|92[0-5]|64[4-9])|65)/,
+            length  : [16]
+          },
+          unionPay: {
+            pattern : /^(62|88)/,
+            length  : [16, 17, 18, 19]
+          },
+          jcb: {
+            pattern : /^35(2[89]|[3-8][0-9])/,
+            length  : [16]
+          },
+          maestro: {
+            pattern : /^(5018|5020|5038|6304|6759|676[1-3])/,
+            length  : [12, 13, 14, 15, 16, 17, 18, 19]
+          },
+          dinersClub: {
+            pattern : /^(30[0-5]|^36)/,
+            length  : [14]
+          },
+          laser: {
+            pattern : /^(6304|670[69]|6771)/,
+            length  : [16, 17, 18, 19]
+          },
+          visaElectron: {
+            pattern : /^(4026|417500|4508|4844|491(3|7))/,
+            length  : [16]
+          }
+        },
+        valid         = {},
+        validCard     = false,
+        requiredTypes = (typeof cardTypes == 'string')
+          ? cardTypes.split(',')
+          : false,
+        unionPay,
+        validation
+      ;
+
+      if(typeof cardNumber !== 'string' || cardNumber.length === 0) {
+        return;
       }
-      if(exactCount == 1) {
-        return (value !== '' && value.search(',') === -1);
+
+      // verify card types
+      if(requiredTypes) {
+        $.each(requiredTypes, function(index, type){
+          // verify each card type
+          validation = cards[type];
+          if(validation) {
+            valid = {
+              length  : ($.inArray(cardNumber.length, validation.length) !== -1),
+              pattern : (cardNumber.search(validation.pattern) !== -1)
+            };
+            if(valid.length && valid.pattern) {
+              validCard = true;
+            }
+          }
+        });
+
+        if(!validCard) {
+          return false;
+        }
       }
-      return (value.split(',').length == exactCount);
+
+      // skip luhn for UnionPay
+      unionPay = {
+        number  : ($.inArray(cardNumber.length, cards.unionPay.length) !== -1),
+        pattern : (cardNumber.search(cards.unionPay.pattern) !== -1)
+      };
+      if(unionPay.number && unionPay.pattern) {
+        return true;
+      }
+
+      // verify luhn, adapted from  <https://gist.github.com/2134376>
+      var
+        length        = cardNumber.length,
+        multiple      = 0,
+        producedValue = [
+          [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+          [0, 2, 4, 6, 8, 1, 3, 5, 7, 9]
+        ],
+        sum           = 0
+      ;
+      while (length--) {
+        sum += producedValue[multiple][parseInt(cardNumber.charAt(length), 10)];
+        multiple ^= 1;
+      }
+      return (sum % 10 === 0 && sum > 0);
     },
 
     minCount: function(value, minCount) {
@@ -1787,6 +1987,16 @@ $.fn.form.settings = {
         return (value !== '');
       }
       return (value.split(',').length >= minCount);
+    },
+
+    exactCount: function(value, exactCount) {
+      if(exactCount == 0) {
+        return (value === '');
+      }
+      if(exactCount == 1) {
+        return (value !== '' && value.search(',') === -1);
+      }
+      return (value.split(',').length == exactCount);
     },
 
     maxCount: function(value, maxCount) {
@@ -1802,10 +2012,10 @@ $.fn.form.settings = {
 
 };
 
-})( jQuery, window , document );
+})( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.0.8 - Accordion
+ * # Semantic UI 2.1.6 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1869,7 +2079,9 @@ $.fn.accordion = function(parameters) {
         initialize: function() {
           module.debug('Initializing', $module);
           module.bind.events();
-          module.observeChanges();
+          if(settings.observeChanges) {
+            module.observeChanges();
+          }
           module.instantiate();
         },
 
@@ -2352,22 +2564,24 @@ $.fn.accordion.settings = {
   verbose         : false,
   performance     : true,
 
-  on              : 'click',
+  on              : 'click', // event on title that opens accordion
 
-  exclusive       : true,
-  collapsible     : true,
-  closeNested     : false,
-  animateChildren : true,
+  observeChanges  : true,  // whether accordion should automatically refresh on DOM insertion
 
-  duration        : 350,
-  easing          : 'easeOutQuad',
+  exclusive       : true,  // whether a single accordion content panel should be open at once
+  collapsible     : true,  // whether accordion content can be closed
+  closeNested     : false, // whether nested content should be closed when a panel is closed
+  animateChildren : true,  // whether children opacity should be animated
+
+  duration        : 350, // duration of animation
+  easing          : 'easeOutQuad', // easing equation for animation
 
 
-  onOpening       : function(){},
-  onOpen          : function(){},
-  onClosing       : function(){},
-  onClose         : function(){},
-  onChange        : function(){},
+  onOpening       : function(){}, // callback before open animation
+  onOpen          : function(){}, // callback after open animation
+  onClosing       : function(){}, // callback before closing animation
+  onClose         : function(){}, // callback after closing animation
+  onChange        : function(){}, // callback after closing or opening animation
 
   error: {
     method : 'The method you called is not defined'
@@ -2394,11 +2608,11 @@ $.extend( $.easing, {
   }
 });
 
-})( jQuery, window , document );
+})( jQuery, window, document );
 
 
 /*!
- * # Semantic UI 2.0.8 - Checkbox
+ * # Semantic UI 2.1.6 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2442,9 +2656,10 @@ $.fn.checkbox = function(parameters) {
         $module         = $(this),
         $label          = $(this).children(selector.label),
         $input          = $(this).children(selector.input),
+        input           = $input[0],
 
+        initialLoad     = false,
         shortcutPressed = false,
-
         instance        = $module.data(moduleNamespace),
 
         observer,
@@ -2494,35 +2709,26 @@ $.fn.checkbox = function(parameters) {
         },
 
         setup: function() {
+          module.set.initialLoad();
           if( module.is.indeterminate() ) {
             module.debug('Initial value is indeterminate');
-            module.set.indeterminate();
-            if(settings.fireOnInit) {
-              settings.onIndeterminate.call($input[0]);
-              settings.onChange.call($input[0]);
-            }
+            module.indeterminate();
           }
           else if( module.is.checked() ) {
             module.debug('Initial value is checked');
-            module.set.checked();
-            if(settings.fireOnInit) {
-              settings.onChecked.call($input[0]);
-              settings.onChange.call($input[0]);
-            }
+            module.check();
           }
           else {
             module.debug('Initial value is unchecked');
-            module.set.unchecked();
-            if(settings.fireOnInit) {
-              settings.onUnchecked.call($input[0]);
-              settings.onChange.call($input[0]);
-            }
+            module.uncheck();
           }
+          module.remove.initialLoad();
         },
 
         refresh: function() {
           $label = $module.children(selector.label);
           $input = $module.children(selector.input);
+          input  = $input[0];
         },
 
         hide: {
@@ -2573,8 +2779,15 @@ $.fn.checkbox = function(parameters) {
 
         event: {
           click: function(event) {
-            if( $(event.target).is(selector.input) ) {
+            var
+              $target = $(event.target)
+            ;
+            if( $target.is(selector.input) ) {
               module.verbose('Using default check action on initialized checkbox');
+              return;
+            }
+            if( $target.is(selector.link) ) {
+              module.debug('Clicking link inside checkbox, skipping toggle');
               return;
             }
             module.toggle();
@@ -2612,47 +2825,53 @@ $.fn.checkbox = function(parameters) {
         },
 
         check: function() {
-          if( !module.is.indeterminate() && module.is.checked() ) {
-            module.debug('Checkbox is already checked');
+          if( !module.should.allowCheck() ) {
             return;
           }
           module.debug('Checking checkbox', $input);
           module.set.checked();
-          settings.onChecked.call($input[0]);
-          settings.onChange.call($input[0]);
+          if( !module.should.ignoreCallbacks() ) {
+            settings.onChecked.call(input);
+            settings.onChange.call(input);
+          }
         },
 
         uncheck: function() {
-          if( !module.is.indeterminate() && module.is.unchecked() ) {
-            module.debug('Checkbox is already unchecked');
+          if( !module.should.allowUncheck() ) {
             return;
           }
           module.debug('Unchecking checkbox');
           module.set.unchecked();
-          settings.onUnchecked.call($input[0]);
-          settings.onChange.call($input[0]);
+          if( !module.should.ignoreCallbacks() ) {
+            settings.onUnchecked.call(input);
+            settings.onChange.call(input);
+          }
         },
 
         indeterminate: function() {
-          if( module.is.indeterminate() ) {
+          if( module.should.allowIndeterminate() ) {
             module.debug('Checkbox is already indeterminate');
             return;
           }
           module.debug('Making checkbox indeterminate');
           module.set.indeterminate();
-          settings.onIndeterminate.call($input[0]);
-          settings.onChange.call($input[0]);
+          if( !module.should.ignoreCallbacks() ) {
+            settings.onIndeterminate.call(input);
+            settings.onChange.call(input);
+          }
         },
 
         determinate: function() {
-          if( module.is.determinate() ) {
+          if( module.should.allowDeterminate() ) {
             module.debug('Checkbox is already determinate');
             return;
           }
           module.debug('Making checkbox determinate');
           module.set.determinate();
-          settings.onDeterminate.call($input[0]);
-          settings.onChange.call($input[0]);
+          if( !module.should.ignoreCallbacks() ) {
+            settings.onDeterminate.call(input);
+            settings.onChange.call(input);
+          }
         },
 
         enable: function() {
@@ -2662,7 +2881,7 @@ $.fn.checkbox = function(parameters) {
           }
           module.debug('Enabling checkbox');
           module.set.enabled();
-          settings.onEnable.call($input[0]);
+          settings.onEnable.call(input);
         },
 
         disable: function() {
@@ -2672,7 +2891,7 @@ $.fn.checkbox = function(parameters) {
           }
           module.debug('Disabling checkbox');
           module.set.disabled();
-          settings.onDisable.call($input[0]);
+          settings.onDisable.call(input);
         },
 
         get: {
@@ -2691,6 +2910,9 @@ $.fn.checkbox = function(parameters) {
         },
 
         is: {
+          initialLoad: function() {
+            return initialLoad;
+          },
           radio: function() {
             return ($input.hasClass(className.radio) || $input.attr('type') == 'radio');
           },
@@ -2714,6 +2936,59 @@ $.fn.checkbox = function(parameters) {
           }
         },
 
+        should: {
+          allowCheck: function() {
+            if(module.is.determinate() && module.is.checked() && !module.should.forceCallbacks() ) {
+              module.debug('Should not allow check, checkbox is already checked');
+              return false;
+            }
+            if(settings.beforeChecked.apply(input) === false) {
+              module.debug('Should not allow check, beforeChecked cancelled');
+              return false;
+            }
+            return true;
+          },
+          allowUncheck: function() {
+            if(module.is.determinate() && module.is.unchecked() && !module.should.forceCallbacks() ) {
+              module.debug('Should not allow uncheck, checkbox is already unchecked');
+              return false;
+            }
+            if(settings.beforeUnchecked.apply(input) === false) {
+              module.debug('Should not allow uncheck, beforeUnchecked cancelled');
+              return false;
+            }
+            return true;
+          },
+          allowIndeterminate: function() {
+            if(module.is.indeterminate() && !module.should.forceCallbacks() ) {
+              module.debug('Should not allow indeterminate, checkbox is already indeterminate');
+              return false;
+            }
+            if(settings.beforeIndeterminate.apply(input) === false) {
+              module.debug('Should not allow indeterminate, beforeIndeterminate cancelled');
+              return false;
+            }
+            return true;
+          },
+          allowDeterminate: function() {
+            if(module.is.determinate() && !module.should.forceCallbacks() ) {
+              module.debug('Should not allow determinate, checkbox is already determinate');
+              return false;
+            }
+            if(settings.beforeDeterminate.apply(input) === false) {
+              module.debug('Should not allow determinate, beforeDeterminate cancelled');
+              return false;
+            }
+            return true;
+          },
+          forceCallbacks: function() {
+            return (module.is.initialLoad() && settings.fireOnInit);
+          },
+          ignoreCallbacks: function() {
+            return (initialLoad && !settings.fireOnInit);
+          }
+        },
+
         can: {
           change: function() {
             return !( $module.hasClass(className.disabled) || $module.hasClass(className.readOnly) || $input.prop('disabled') || $input.prop('readonly') );
@@ -2727,6 +3002,9 @@ $.fn.checkbox = function(parameters) {
         },
 
         set: {
+          initialLoad: function() {
+            initialLoad = true;
+          },
           checked: function() {
             module.verbose('Setting class to checked');
             $module
@@ -2740,7 +3018,7 @@ $.fn.checkbox = function(parameters) {
               module.debug('Input is already checked, skipping input property change');
               return;
             }
-            module.verbose('Setting state to checked', $input[0]);
+            module.verbose('Setting state to checked', input);
             $input
               .prop('indeterminate', false)
               .prop('checked', true)
@@ -2829,12 +3107,23 @@ $.fn.checkbox = function(parameters) {
           }
         },
 
+        remove: {
+          initialLoad: function() {
+            initialLoad = false;
+          }
+        },
+
         trigger: {
           change: function() {
-            module.verbose('Triggering change event from programmatic change');
-            $input
-              .trigger('change')
+            var
+              events       = document.createEvent('HTMLEvents'),
+              inputElement = $input[0]
             ;
+            if(inputElement) {
+              module.verbose('Triggering native change event');
+              events.initEvent('change', true, false);
+              inputElement.dispatchEvent(events);
+            }
           }
         },
 
@@ -3081,27 +3370,32 @@ $.fn.checkbox = function(parameters) {
 
 $.fn.checkbox.settings = {
 
-  name            : 'Checkbox',
-  namespace       : 'checkbox',
+  name                : 'Checkbox',
+  namespace           : 'checkbox',
 
-  debug           : false,
-  verbose         : true,
-  performance     : true,
+  debug               : false,
+  verbose             : true,
+  performance         : true,
 
   // delegated event context
-  uncheckable     : 'auto',
-  fireOnInit      : false,
+  uncheckable         : 'auto',
+  fireOnInit          : false,
 
-  onChange        : function(){},
+  onChange            : function(){},
 
-  onChecked       : function(){},
-  onUnchecked     : function(){},
+  beforeChecked       : function(){},
+  beforeUnchecked     : function(){},
+  beforeDeterminate   : function(){},
+  beforeIndeterminate : function(){},
 
-  onDeterminate   : function() {},
-  onIndeterminate : function() {},
+  onChecked           : function(){},
+  onUnchecked         : function(){},
 
-  onEnabled       : function(){},
-  onDisabled      : function(){},
+  onDeterminate       : function() {},
+  onIndeterminate     : function() {},
+
+  onEnabled           : function(){},
+  onDisabled          : function(){},
 
   className       : {
     checked       : 'checked',
@@ -3120,14 +3414,15 @@ $.fn.checkbox.settings = {
     checkbox : '.ui.checkbox',
     label    : 'label, .box',
     input    : 'input[type="checkbox"], input[type="radio"]',
+    link     : 'a[href]'
   }
 
 };
 
-})( jQuery, window , document );
+})( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.0.8 - Dimmer
+ * # Semantic UI 2.1.6 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3513,7 +3808,7 @@ $.fn.dimmer = function(parameters) {
               colorArray = color.split(','),
               isRGBA     = (colorArray && colorArray.length == 4)
             ;
-            opacity    = settings.opacity || opacity;
+            opacity    = settings.opacity === 0 ? 0 : settings.opacity || opacity;
             if(isRGBA) {
               colorArray[3] = opacity + ')';
               color         = colorArray.join(',');
@@ -3818,9 +4113,9 @@ $.fn.dimmer.settings = {
 
 };
 
-})( jQuery, window , document );
+})( jQuery, window, document );
 /*!
- * # Semantic UI 2.0.8 - Dropdown
+ * # Semantic UI 2.1.6 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3860,6 +4155,8 @@ $.fn.dropdown = function(parameters) {
 
         className       = settings.className,
         message         = settings.message,
+        fields          = settings.fields,
+        keys            = settings.keys,
         metadata        = settings.metadata,
         namespace       = settings.namespace,
         regExp          = settings.regExp,
@@ -3886,6 +4183,7 @@ $.fn.dropdown = function(parameters) {
 
         activated       = false,
         itemActivated   = false,
+        internalChange  = false,
         element         = this,
         instance        = $module.data(moduleNamespace),
 
@@ -3914,11 +4212,7 @@ $.fn.dropdown = function(parameters) {
             module.restore.selected();
 
             module.create.id();
-            if(hasTouch) {
-              module.bind.touchEvents();
-            }
-            module.bind.mouseEvents();
-            module.bind.keyboardEvents();
+            module.bind.events();
 
             module.observeChanges();
             module.instantiate();
@@ -4004,10 +4298,11 @@ $.fn.dropdown = function(parameters) {
             ;
             $.each(values, function(index, value) {
               if(module.get.item(value) === false) {
-                html         = settings.templates.addition(value);
+                html         = settings.templates.addition( module.add.variables(message.addResult, value) );
                 $userChoice  = $('<div />')
                   .html(html)
-                  .data(metadata.value, value)
+                  .attr('data-' + metadata.value, value)
+                  .attr('data-' + metadata.text, value)
                   .addClass(className.addition)
                   .addClass(className.item)
                 ;
@@ -4032,6 +4327,12 @@ $.fn.dropdown = function(parameters) {
               });
             }
           },
+          menu: function() {
+            $menu = $('<div />')
+              .addClass(className.menu)
+              .appendTo($module)
+            ;
+          }
         },
 
         search: function(query) {
@@ -4089,21 +4390,19 @@ $.fn.dropdown = function(parameters) {
               module.setup.select();
               module.setup.returnedObject();
             }
+            if( !module.has.menu() ) {
+              module.create.menu();
+            }
             if( module.is.search() && !module.has.search() ) {
               module.verbose('Adding search input');
               $search = $('<input />')
                 .addClass(className.search)
+                .prop('autocomplete', 'off')
                 .insertBefore($text)
               ;
             }
             if(settings.allowTab) {
               module.set.tabbable();
-            }
-            if($menu.length === 0) {
-              $menu = $('<div />')
-                .addClass(className.menu)
-                .appendTo($module)
-              ;
             }
           },
           select: function() {
@@ -4118,7 +4417,10 @@ $.fn.dropdown = function(parameters) {
             if($input.parent(selector.dropdown).length > 0) {
               module.debug('UI dropdown already exists. Creating dropdown menu only');
               $module = $input.closest(selector.dropdown);
-              $menu   = $module.children(selector.menu);
+              if( !module.has.menu() ) {
+                module.create.menu();
+              }
+              $menu = $module.children(selector.menu);
               module.setup.menu(selectValues);
             }
             else {
@@ -4137,6 +4439,10 @@ $.fn.dropdown = function(parameters) {
               if($input.is('[multiple]')) {
                 module.set.multiple();
               }
+              if ($input.prop('disabled')) {
+                module.debug('Disabling dropdown')
+                $module.addClass(className.disabled)
+              }
               $input
                 .removeAttr('class')
                 .detach()
@@ -4146,7 +4452,7 @@ $.fn.dropdown = function(parameters) {
             module.refresh();
           },
           menu: function(values) {
-            $menu.html( templates.menu( values ));
+            $menu.html( templates.menu(values, fields));
             $item = $menu.find(selector.item);
           },
           reference: function() {
@@ -4203,7 +4509,6 @@ $.fn.dropdown = function(parameters) {
           ;
         },
 
-
         toggle: function() {
           module.verbose('Toggling menu visibility');
           if( !module.is.active() ) {
@@ -4221,19 +4526,21 @@ $.fn.dropdown = function(parameters) {
           ;
           if( module.can.show() && !module.is.active() ) {
             module.debug('Showing dropdown');
-            if(module.is.multiple()) {
-              if(!module.has.search() && module.is.allFiltered()) {
-                return true;
-              }
+            if(module.is.multiple() && !module.has.search() && module.is.allFiltered()) {
+              return true;
             }
-            module.animate.show(function() {
-              if( module.can.click() ) {
-                module.bind.intent();
-              }
-              module.set.visible();
-              callback.call(element);
-            });
-            settings.onShow.call(element);
+            if(module.has.message() && !(module.has.maxSelections() || module.has.allResultsFiltered()) ) {
+              module.remove.message();
+            }
+            if(settings.onShow.call(element) !== false) {
+              module.animate.show(function() {
+                if( module.can.click() ) {
+                  module.bind.intent();
+                }
+                module.set.visible();
+                callback.call(element);
+              });
+            }
           }
         },
 
@@ -4244,11 +4551,12 @@ $.fn.dropdown = function(parameters) {
           ;
           if( module.is.active() ) {
             module.debug('Hiding dropdown');
-            module.animate.hide(function() {
-              module.remove.visible();
-              callback.call(element);
-            });
-            settings.onHide.call(element);
+            if(settings.onHide.call(element) !== false) {
+              module.animate.hide(function() {
+                module.remove.visible();
+                callback.call(element);
+              });
+            }
           }
         },
 
@@ -4277,21 +4585,13 @@ $.fn.dropdown = function(parameters) {
         },
 
         bind: {
-          keyboardEvents: function() {
-            module.debug('Binding keyboard events');
-            $module
-              .on('keydown' + eventNamespace, module.event.keydown)
-            ;
-            if( module.has.search() ) {
-              $module
-                .on(module.get.inputEvent() + eventNamespace, selector.search, module.event.input)
-              ;
+          events: function() {
+            if(hasTouch) {
+              module.bind.touchEvents();
             }
-            if( module.is.multiple() ) {
-              $document
-                .on('keydown' + elementNamespace, module.event.document.keydown)
-              ;
-            }
+            module.bind.keyboardEvents();
+            module.bind.inputEvents();
+            module.bind.mouseEvents();
           },
           touchEvents: function() {
             module.debug('Touch device detected binding additional touch events');
@@ -4307,11 +4607,33 @@ $.fn.dropdown = function(parameters) {
               .on('touchstart' + eventNamespace, selector.item, module.event.item.mouseenter)
             ;
           },
+          keyboardEvents: function() {
+            module.verbose('Binding keyboard events');
+            $module
+              .on('keydown' + eventNamespace, module.event.keydown)
+            ;
+            if( module.has.search() ) {
+              $module
+                .on(module.get.inputEvent() + eventNamespace, selector.search, module.event.input)
+              ;
+            }
+            if( module.is.multiple() ) {
+              $document
+                .on('keydown' + elementNamespace, module.event.document.keydown)
+              ;
+            }
+          },
+          inputEvents: function() {
+            module.verbose('Binding input change events');
+            $module
+              .on('change' + eventNamespace, selector.input, module.event.change)
+            ;
+          },
           mouseEvents: function() {
-            module.debug('Mouse detected binding mouse events');
+            module.verbose('Binding mouse events');
             if(module.is.multiple()) {
               $module
-                .on('click'   + eventNamespace, selector.label, module.event.label.click)
+                .on('click'   + eventNamespace, selector.label,  module.event.label.click)
                 .on('click'   + eventNamespace, selector.remove, module.event.remove.click)
               ;
             }
@@ -4448,7 +4770,6 @@ $.fn.dropdown = function(parameters) {
             apiSettings = {
               errorDuration        : false,
               throttle             : settings.throttle,
-              cache                : 'local',
               urlData              : {
                 query: query
               },
@@ -4463,7 +4784,7 @@ $.fn.dropdown = function(parameters) {
               onSuccess : function(response) {
                 module.remove.message();
                 module.setup.menu({
-                  values: response.results
+                  values: response[fields.remoteValues]
                 });
                 callback();
               }
@@ -4484,15 +4805,14 @@ $.fn.dropdown = function(parameters) {
             searchTerm = (query !== undefined)
               ? query
               : module.get.query(),
-            $results         = $(),
+            results          =  null,
             escapedTerm      = module.escape.regExp(searchTerm),
             beginsWithRegExp = new RegExp('^' + escapedTerm, 'igm')
           ;
           // avoid loop if we're matching nothing
-          if(searchTerm === '') {
-            $results = $item;
-          }
-          else {
+          if( module.has.query() ) {
+            results = [];
+
             module.verbose('Searching for matching values', searchTerm);
             $item
               .each(function(){
@@ -4504,11 +4824,11 @@ $.fn.dropdown = function(parameters) {
                 if(settings.match == 'both' || settings.match == 'text') {
                   text = String(module.get.choiceText($choice, false));
                   if(text.search(beginsWithRegExp) !== -1) {
-                    $results = $results.add($choice);
+                    results.push(this);
                     return true;
                   }
                   else if(settings.fullTextSearch && module.fuzzySearch(searchTerm, text)) {
-                    $results = $results.add($choice);
+                    results.push(this);
                     return true;
                   }
                 }
@@ -4516,24 +4836,25 @@ $.fn.dropdown = function(parameters) {
                   value = String(module.get.choiceValue($choice, text));
 
                   if(value.search(beginsWithRegExp) !== -1) {
-                    $results = $results.add($choice);
+                    results.push(this);
                     return true;
                   }
                   else if(settings.fullTextSearch && module.fuzzySearch(searchTerm, value)) {
-                    $results = $results.add($choice);
+                    results.push(this);
                     return true;
                   }
                 }
               })
             ;
           }
-
           module.debug('Showing only matched items', searchTerm);
           module.remove.filteredItem();
-          $item
-            .not($results)
-            .addClass(className.filtered)
-          ;
+          if(results) {
+            $item
+              .not(results)
+              .addClass(className.filtered)
+            ;
+          }
         },
 
         fuzzySearch: function(query, term) {
@@ -4586,16 +4907,26 @@ $.fn.dropdown = function(parameters) {
               : $activeItem,
             hasSelected = ($selectedItem.size() > 0)
           ;
-          if(hasSelected) {
-            module.debug('Forcing partial selection to selected item', $selectedItem);
-            module.event.item.click.call($selectedItem);
+          if( module.has.query() ) {
+            if(hasSelected) {
+              module.debug('Forcing partial selection to selected item', $selectedItem);
+              module.event.item.click.call($selectedItem);
+              return;
+            }
+            else {
+              module.remove.searchTerm();
+            }
           }
-          else {
-            module.hide();
-          }
+          module.hide();
         },
 
         event: {
+          change: function() {
+            if(!internalChange) {
+              module.debug('Input changed, updating selection');
+              module.set.selected();
+            }
+          },
           focus: function() {
             if(settings.showOnFocus && !activated && module.is.hidden() && !pageLostFocus) {
               module.show();
@@ -4617,7 +4948,7 @@ $.fn.dropdown = function(parameters) {
               module.hide();
             }
           },
-          // prevents focus callback from occuring on mousedown
+          // prevents focus callback from occurring on mousedown
           mousedown: function() {
             activated = true;
           },
@@ -4631,6 +4962,7 @@ $.fn.dropdown = function(parameters) {
                 module.remove.activeLabel();
               }
               if(settings.showOnFocus) {
+                module.search();
                 module.show();
               }
             },
@@ -4646,6 +4978,11 @@ $.fn.dropdown = function(parameters) {
                 }
                 else {
                   module.hide();
+                }
+              }
+              else if(pageLostFocus) {
+                if(settings.forceSelection) {
+                  module.forceSelection();
                 }
               }
             }
@@ -4724,7 +5061,9 @@ $.fn.dropdown = function(parameters) {
             touch: function(event) {
               module.determine.eventOnElement(event, function() {
                 if(event.type == 'touchstart') {
-                  module.timer = setTimeout(module.hide, settings.delay.touch);
+                  module.timer = setTimeout(function() {
+                    module.hide();
+                  }, settings.delay.touch);
                 }
                 else if(event.type == 'touchmove') {
                   clearTimeout(module.timer);
@@ -4774,15 +5113,17 @@ $.fn.dropdown = function(parameters) {
                 }, settings.delay.hide);
               }
             },
+            touchend: function() {
+            },
             click: function (event) {
               var
-                $choice  = $(this),
-                $target  = (event)
+                $choice        = $(this),
+                $target        = (event)
                   ? $(event.target)
                   : $(''),
-                $subMenu = $choice.find(selector.menu),
-                text     = module.get.choiceText($choice),
-                value    = module.get.choiceValue($choice, text),
+                $subMenu       = $choice.find(selector.menu),
+                text           = module.get.choiceText($choice),
+                value          = module.get.choiceValue($choice, text),
                 hasSubMenu     = ($subMenu.length > 0),
                 isBubbledEvent = ($subMenu.find($target).length > 0)
               ;
@@ -4802,14 +5143,13 @@ $.fn.dropdown = function(parameters) {
             keydown: function(event) {
               var
                 pressedKey    = event.which,
-                keys          = module.get.shortcutKeys(),
                 isShortcutKey = module.is.inObject(pressedKey, keys)
               ;
               if(isShortcutKey) {
                 var
                   $label            = $module.find(selector.label),
                   $activeLabel      = $label.filter('.' + className.active),
-                  activeValue       = $activeLabel.data('value'),
+                  activeValue       = $activeLabel.data(metadata.value),
                   labelIndex        = $label.index($activeLabel),
                   labelCount        = $label.length,
                   hasActiveLabel    = ($activeLabel.length > 0),
@@ -4916,7 +5256,6 @@ $.fn.dropdown = function(parameters) {
           keydown: function(event) {
             var
               pressedKey    = event.which,
-              keys          = module.get.shortcutKeys(),
               isShortcutKey = module.is.inObject(pressedKey, keys)
             ;
             if(isShortcutKey) {
@@ -4935,16 +5274,16 @@ $.fn.dropdown = function(parameters) {
                 hasSubMenu           = ($subMenu.length> 0),
                 hasSelectedItem      = ($selectedItem.length > 0),
                 selectedIsSelectable = ($selectedItem.not(selector.unselectable).length > 0),
+                delimiterPressed     = (pressedKey == keys.delimiter && settings.allowAdditions && module.is.multiple()),
                 $nextItem,
                 isSubMenuItem,
                 newIndex
               ;
-
               // visible menu keyboard shortcuts
               if( module.is.visible() ) {
 
                 // enter (select or open sub-menu)
-                if(pressedKey == keys.enter || pressedKey == keys.delimiter) {
+                if(pressedKey == keys.enter || delimiterPressed) {
                   if(pressedKey == keys.enter && hasSelectedItem && hasSubMenu && !settings.allowCategorySelection) {
                     module.verbose('Pressed enter on unselectable category, opening sub menu');
                     pressedKey = keys.rightArrow;
@@ -5061,7 +5400,7 @@ $.fn.dropdown = function(parameters) {
               }
               else {
                 // delimiter key
-                if(pressedKey == keys.delimiter) {
+                if(delimiterPressed) {
                   event.preventDefault();
                 }
                 // down arrow (open menu)
@@ -5076,6 +5415,20 @@ $.fn.dropdown = function(parameters) {
               if( module.is.selection() && !module.is.search() ) {
                 module.set.selectedLetter( String.fromCharCode(pressedKey) );
               }
+            }
+          }
+        },
+
+        trigger: {
+          change: function() {
+            var
+              events       = document.createEvent('HTMLEvents'),
+              inputElement = $input[0]
+            ;
+            if(inputElement) {
+              module.verbose('Triggering native change event');
+              events.initEvent('change', true, false);
+              inputElement.dispatchEvent(events);
             }
           }
         },
@@ -5172,7 +5525,8 @@ $.fn.dropdown = function(parameters) {
             module.hideAndClear();
           },
 
-          hide: function() {
+          hide: function(text, value) {
+            module.set.value(value);
             module.hideAndClear();
           }
 
@@ -5181,6 +5535,15 @@ $.fn.dropdown = function(parameters) {
         get: {
           id: function() {
             return id;
+          },
+          defaultText: function() {
+            return $module.data(metadata.defaultText);
+          },
+          defaultValue: function() {
+            return $module.data(metadata.defaultValue);
+          },
+          placeholderText: function() {
+            return $module.data(metadata.placeholderText) || '';
           },
           text: function() {
             return $text.text();
@@ -5251,21 +5614,6 @@ $.fn.dropdown = function(parameters) {
               return range.text.length - rangeLength;
             }
           },
-          shortcutKeys: function() {
-            return {
-              backspace  : 8,
-              delimiter  : 188, // comma
-              deleteKey  : 46,
-              enter      : 13,
-              escape     : 27,
-              pageUp     : 33,
-              pageDown   : 34,
-              leftArrow  : 37,
-              upArrow    : 38,
-              rightArrow : 39,
-              downArrow  : 40
-            };
-          },
           value: function() {
             var
               value = ($input.length > 0)
@@ -5330,8 +5678,8 @@ $.fn.dropdown = function(parameters) {
               return ($choice.data(metadata.text) !== undefined)
                 ? $choice.data(metadata.text)
                 : (preserveHTML)
-                  ? $choice.html().trim()
-                  : $choice.text().trim()
+                  ? $.trim($choice.html())
+                  : $.trim($choice.text())
               ;
             }
           },
@@ -5341,10 +5689,10 @@ $.fn.dropdown = function(parameters) {
               return false;
             }
             return ($choice.data(metadata.value) !== undefined)
-              ? $choice.data(metadata.value)
+              ? String( $choice.data(metadata.value) )
               : (typeof choiceText === 'string')
-                ? choiceText.toLowerCase().trim()
-                : choiceText
+                ? $.trim(choiceText.toLowerCase())
+                : String(choiceText)
             ;
           },
           inputEvent: function() {
@@ -5447,7 +5795,7 @@ $.fn.dropdown = function(parameters) {
             ;
             shouldSearch = (isMultiple)
               ? (value.length > 0)
-              : (value !== undefined && value !== '' && value !== null)
+              : (value !== undefined && value !== null)
             ;
             isMultiple = (module.is.multiple() && $.isArray(value));
             strict     = (value === '' || value === 0)
@@ -5467,7 +5815,7 @@ $.fn.dropdown = function(parameters) {
                     return;
                   }
                   if(isMultiple) {
-                    if($.inArray(optionValue.toString(), value) !== -1 || $.inArray(optionText, value) !== -1) {
+                    if($.inArray( String(optionValue), value) !== -1 || $.inArray(optionText, value) !== -1) {
                       $selectedItem = ($selectedItem)
                         ? $selectedItem.add($choice)
                         : $choice
@@ -5482,7 +5830,7 @@ $.fn.dropdown = function(parameters) {
                     }
                   }
                   else {
-                    if( optionValue.toString() == value.toString() || optionText == value) {
+                    if( String(optionValue) == String(value) || optionText == value) {
                       module.verbose('Found select item by value', optionValue, value);
                       $selectedItem = $choice;
                       return true;
@@ -5532,15 +5880,21 @@ $.fn.dropdown = function(parameters) {
           },
           defaultText: function() {
             var
-              defaultText = $module.data(metadata.defaultText)
+              defaultText     = module.get.defaultText(),
+              placeholderText = module.get.placeholderText
             ;
-            module.debug('Restoring default text', defaultText);
-            module.set.text(defaultText);
-            $text.addClass(className.placeholder);
+            if(defaultText === placeholderText) {
+              module.debug('Restoring default placeholder text', defaultText);
+              module.set.placeholderText(defaultText);
+            }
+            else {
+              module.debug('Restoring default text', defaultText);
+              module.set.text(defaultText);
+            }
           },
           defaultValue: function() {
             var
-              defaultValue = $module.data(metadata.defaultValue)
+              defaultValue = module.get.defaultValue()
             ;
             if(defaultValue !== undefined) {
               module.debug('Restoring default value', defaultValue);
@@ -5652,7 +6006,7 @@ $.fn.dropdown = function(parameters) {
             var
               text
             ;
-            if($text.hasClass(className.placeholder)) {
+            if(settings.placeholder !== false && $text.hasClass(className.placeholder)) {
               text = module.get.text();
               module.verbose('Saving placeholder text as', text);
               $module.data(metadata.placeholderText, text);
@@ -5686,8 +6040,8 @@ $.fn.dropdown = function(parameters) {
 
         scrollPage: function(direction, $selectedItem) {
           var
-            $selectedItem = $selectedItem || module.get.selectedItem(),
-            $menu         = $selectedItem.closest(selector.menu),
+            $currentItem  = $selectedItem || module.get.selectedItem(),
+            $menu         = $currentItem.closest(selector.menu),
             menuHeight    = $menu.outerHeight(),
             currentScroll = $menu.scrollTop(),
             itemHeight    = $item.eq(0).outerHeight(),
@@ -5702,8 +6056,8 @@ $.fn.dropdown = function(parameters) {
             elementIndex
           ;
           elementIndex      = (direction == 'up')
-            ? $selectableItem.index($selectedItem) - itemsPerPage
-            : $selectableItem.index($selectedItem) + itemsPerPage
+            ? $selectableItem.index($currentItem) - itemsPerPage
+            : $selectableItem.index($currentItem) + itemsPerPage
           ;
           isWithinRange = (direction == 'up')
             ? (elementIndex >= 0)
@@ -5717,7 +6071,7 @@ $.fn.dropdown = function(parameters) {
           ;
           if($nextSelectedItem.length > 0) {
             module.debug('Scrolling page', direction, $nextSelectedItem);
-            $selectedItem
+            $currentItem
               .removeClass(className.selected)
             ;
             $nextSelectedItem
@@ -5759,12 +6113,10 @@ $.fn.dropdown = function(parameters) {
             $module.addClass(className.loading);
           },
           placeholderText: function(text) {
-            text = text || $module.data(metadata.placeholderText);
-            if(text) {
-              module.debug('Restoring placeholder text');
-              module.set.text(text);
-              $text.addClass(className.placeholder);
-            }
+            text = text || module.get.placeholderText();
+            module.debug('Setting placeholder text', text);
+            module.set.text(text);
+            $text.addClass(className.placeholder);
           },
           tabbable: function() {
             if( module.has.search() ) {
@@ -5779,7 +6131,7 @@ $.fn.dropdown = function(parameters) {
             }
             else {
               module.debug('Added tabindex to dropdown');
-              if(!$module.attr('tabindex') ) {
+              if( $module.attr('tabindex') === undefined) {
                 $module
                   .attr('tabindex', 0)
                 ;
@@ -5792,6 +6144,14 @@ $.fn.dropdown = function(parameters) {
           initialLoad: function() {
             module.verbose('Setting initial load');
             initialLoad = true;
+          },
+          activeItem: function($item) {
+            if( settings.allowAdditions && $item.filter(selector.addition).length > 0 ) {
+              $item.addClass(className.filtered);
+            }
+            else {
+              $item.addClass(className.active);
+            }
           },
           scrollPosition: function($item, forceScroll) {
             var
@@ -5847,10 +6207,12 @@ $.fn.dropdown = function(parameters) {
                 }
               }
               else {
+                if(text !== module.get.placeholderText()) {
+                  $text.removeClass(className.placeholder);
+                }
                 module.debug('Changing text', text, $text);
                 $text
                   .removeClass(className.filtered)
-                  .removeClass(className.placeholder)
                 ;
                 if(settings.preserveHTML) {
                   $text.html(text);
@@ -5916,8 +6278,8 @@ $.fn.dropdown = function(parameters) {
               hasInput     = ($input.length > 0),
               isAddition   = !module.has.value(value),
               currentValue = module.get.values(),
-              stringValue  = (typeof value == 'number')
-                ? value.toString()
+              stringValue  = (value !== undefined)
+                ? String(value)
                 : value,
               newValue
             ;
@@ -5934,15 +6296,22 @@ $.fn.dropdown = function(parameters) {
                 module.add.optionValue(value);
               }
               module.debug('Updating input value', value, currentValue);
+              internalChange = true;
               $input
                 .val(value)
-                .trigger('change')
               ;
+              if(settings.fireOnInit === false && module.is.initialLoad()) {
+                module.debug('Input native change event ignored on initial load');
+              }
+              else {
+                module.trigger.change();
+              }
+              internalChange = false;
             }
             else {
               module.verbose('Storing value in metadata', value, $input);
               if(value !== currentValue) {
-                $module.data(metadata.value, value);
+                $module.data(metadata.value, stringValue);
               }
             }
             if(settings.fireOnInit === false && module.is.initialLoad()) {
@@ -6009,14 +6378,14 @@ $.fn.dropdown = function(parameters) {
                     if(settings.useLabels) {
                       module.add.value(selectedValue, selectedText, $selected);
                       module.add.label(selectedValue, selectedText, shouldAnimate);
-                      $selected.addClass(className.active);
+                      module.set.activeItem($selected);
                       module.filterActive();
                       module.select.nextAvailable($selectedItem);
                     }
                     else {
                       module.add.value(selectedValue, selectedText, $selected);
                       module.set.text(module.add.variables(message.count));
-                      $selected.addClass(className.active);
+                      module.set.activeItem($selected);
                     }
                   }
                   else if(!isFiltered) {
@@ -6129,7 +6498,8 @@ $.fn.dropdown = function(parameters) {
           userSuggestion: function(value) {
             var
               $addition         = $menu.children(selector.addition),
-              alreadyHasValue   = module.get.item(value),
+              $existingItem     = module.get.item(value),
+              alreadyHasValue   = $existingItem && $existingItem.not(selector.addition).length,
               hasUserSuggestion = $addition.length > 0,
               html
             ;
@@ -6144,10 +6514,11 @@ $.fn.dropdown = function(parameters) {
               .removeClass(className.selected)
             ;
             if(hasUserSuggestion) {
-              html = settings.templates.addition(value);
+              html = settings.templates.addition( module.add.variables(message.addResult, value) );
               $addition
                 .html(html)
-                .data(metadata.value, value)
+                .attr('data-' + metadata.value, value)
+                .attr('data-' + metadata.text, value)
                 .removeClass(className.filtered)
                 .addClass(className.selected)
               ;
@@ -6162,7 +6533,7 @@ $.fn.dropdown = function(parameters) {
               module.verbose('Adding item choice to menu corresponding with user choice addition', $addition);
             }
           },
-          variables: function(message) {
+          variables: function(message, term) {
             var
               hasCount    = (message.search('{count}') !== -1),
               hasMaxCount = (message.search('{maxCount}') !== -1),
@@ -6181,7 +6552,7 @@ $.fn.dropdown = function(parameters) {
               message = message.replace('{maxCount}', settings.maxSelections);
             }
             if(hasTerm) {
-              query   = module.get.query();
+              query   = term || module.get.query();
               message = message.replace('{term}', query);
             }
             return message;
@@ -6216,7 +6587,7 @@ $.fn.dropdown = function(parameters) {
             }
 
             if(settings.fireOnInit === false && module.is.initialLoad()) {
-              module.verbose('No callback on initial load', settings.onAdd);
+              module.verbose('Skipping onadd callback on initial load', settings.onAdd);
             }
             else {
               settings.onAdd.call(element, addedValue, addedText, $selectedItem);
@@ -6253,7 +6624,7 @@ $.fn.dropdown = function(parameters) {
             if(settings.useLabels && module.has.maxSelections() ) {
               return;
             }
-            if(settings.useLabels) {
+            if(settings.useLabels && module.is.multiple()) {
               $item.not('.' + className.active).removeClass(className.filtered);
             }
             else {
@@ -6314,7 +6685,12 @@ $.fn.dropdown = function(parameters) {
                   }
                   else {
                     module.remove.value(selectedValue, selectedText, $selected);
-                    module.set.text(module.add.variables(message.count));
+                    if(module.get.selectionCount() === 0) {
+                      module.set.placeholderText();
+                    }
+                    else {
+                      module.set.text(module.add.variables(message.count));
+                    }
                   }
                 }
                 else {
@@ -6386,16 +6762,24 @@ $.fn.dropdown = function(parameters) {
             $labels
               .each(function(){
                 var
-                  value       = $(this).data('value'),
-                  isUserValue = module.is.userValue(value)
+                  $label      = $(this),
+                  value       = $label.data(metadata.value),
+                  stringValue = (value !== undefined)
+                    ? String(value)
+                    : value,
+                  isUserValue = module.is.userValue(stringValue)
                 ;
+                if(settings.onLabelRemove.call($label, value) === false) {
+                  module.debug('Label remove callback cancelled removal');
+                  return;
+                }
                 if(isUserValue) {
-                  module.remove.value(value);
-                  module.remove.label(value);
+                  module.remove.value(stringValue);
+                  module.remove.label(stringValue);
                 }
                 else {
                   // selected will also remove label
-                  module.remove.selected(value);
+                  module.remove.selected(stringValue);
                 }
               })
             ;
@@ -6404,19 +6788,19 @@ $.fn.dropdown = function(parameters) {
             if( module.has.search() ) {
               module.debug('Searchable dropdown initialized');
               $search
-                .attr('tabindex', '-1')
+                .removeAttr('tabindex')
               ;
               $menu
-                .attr('tabindex', '-1')
+                .removeAttr('tabindex')
               ;
             }
             else {
               module.debug('Simple selection dropdown initialized');
               $module
-                .attr('tabindex', '-1')
+                .removeAttr('tabindex')
               ;
               $menu
-                .attr('tabindex', '-1')
+                .removeAttr('tabindex')
               ;
             }
           }
@@ -6465,6 +6849,9 @@ $.fn.dropdown = function(parameters) {
           },
           allResultsFiltered: function() {
             return ($item.filter(selector.unselectable).length === $item.length);
+          },
+          query: function() {
+            return (module.get.query() !== '');
           },
           value: function(value) {
             var
@@ -6972,7 +7359,7 @@ $.fn.dropdown.settings = {
 
   maxSelections          : false,      // When set to a number limits the number of selections to this count
   useLabels              : true,       // whether multiple select should filter currently active selections from choices
-  delimiter              : ',',        // when multiselect uses normal <input> the values will be delmited with this character
+  delimiter              : ',',        // when multiselect uses normal <input> the values will be delimited with this character
 
   showOnFocus            : true,       // show menu on focus
   allowTab               : true,       // add tabindex to element
@@ -7007,6 +7394,7 @@ $.fn.dropdown.settings = {
 
   onLabelSelect : function($selectedLabels){},
   onLabelCreate : function(value, text) { return $(this); },
+  onLabelRemove : function(value) { return true; },
   onNoResults   : function(searchTerm) { return true; },
   onShow        : function(){},
   onHide        : function(){},
@@ -7044,6 +7432,28 @@ $.fn.dropdown.settings = {
     placeholderText : 'placeholder',
     text            : 'text',
     value           : 'value'
+  },
+
+  // property names for remote query
+  fields: {
+    remoteValues : 'results', // grouping for api results
+    values       : 'values', // grouping for all dropdown values
+    name         : 'name',   // displayed dropdown text
+    value        : 'value'   // actual dropdown value
+  },
+
+  keys : {
+    backspace  : 8,
+    delimiter  : 188, // comma
+    deleteKey  : 46,
+    enter      : 13,
+    escape     : 27,
+    pageUp     : 33,
+    pageDown   : 34,
+    leftArrow  : 37,
+    upArrow    : 38,
+    rightArrow : 39,
+    downArrow  : 40
   },
 
   selector : {
@@ -7116,13 +7526,13 @@ $.fn.dropdown.settings.templates = {
   },
 
   // generates just menu from select
-  menu: function(response) {
+  menu: function(response, fields) {
     var
-      values = response.values || {},
+      values = response[fields.values] || {},
       html   = ''
     ;
-    $.each(response.values, function(index, option) {
-      html += '<div class="item" data-value="' + option.value + '">' + option.name + '</div>';
+    $.each(values, function(index, option) {
+      html += '<div class="item" data-value="' + option[fields.value] + '">' + option[fields.name] + '</div>';
     });
     return html;
   },
@@ -7145,10 +7555,10 @@ $.fn.dropdown.settings.templates = {
 
 };
 
-})( jQuery, window , document );
+})( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.0.8 - Video
+ * # Semantic UI 2.1.6 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7246,7 +7656,6 @@ $.fn.embed = function(parameters) {
           events: function() {
             if( module.has.placeholder() ) {
               module.debug('Adding placeholder events');
-              console.log($module, selector.placeholder);
               $module
                 .on('click' + eventNamespace, selector.placeholder, module.createAndShow)
                 .on('click' + eventNamespace, selector.icon, module.createAndShow)
@@ -7281,7 +7690,6 @@ $.fn.embed = function(parameters) {
         createEmbed: function(url) {
           module.refresh();
           url = url || module.get.url();
-          console.log(url);
           $embed = $('<div/>')
             .addClass(className.embed)
             .html( module.generate.embed(url) )
@@ -7292,7 +7700,6 @@ $.fn.embed = function(parameters) {
         },
 
         createAndShow: function() {
-          console.log('cands');
           module.createEmbed();
           module.show();
         },
@@ -7779,7 +8186,7 @@ $.fn.embed.settings = {
   templates: {
     iframe : function(url, parameters) {
       return ''
-        + '<iframe src="' + url + '?=' + parameters + '"'
+        + '<iframe src="' + url + '?' + parameters + '"'
         + ' width="100%" height="100%"'
         + ' frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
       ;
@@ -7808,10 +8215,10 @@ $.fn.embed.settings = {
 
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.0.8 - Modal
+ * # Semantic UI 2.1.6 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8153,7 +8560,9 @@ $.fn.modal = function(parameters) {
                       module.add.keyboardShortcuts();
                       module.save.focus();
                       module.set.active();
-                      module.set.autofocus();
+                      if(settings.autofocus) {
+                        module.set.autofocus();
+                      }
                       callback();
                     }
                   })
@@ -8175,7 +8584,10 @@ $.fn.modal = function(parameters) {
             : function(){}
           ;
           module.debug('Hiding modal');
-          settings.onHide.call(element);
+          if(settings.onHide.call(element, $(this)) === false) {
+            module.verbose('Hide callback returned false cancelling hide');
+            return;
+          }
 
           if( module.is.animating() || module.is.active() ) {
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
@@ -8374,17 +8786,15 @@ $.fn.modal = function(parameters) {
 
         set: {
           autofocus: function() {
-            if(settings.autofocus) {
-              var
-                $inputs    = $module.filter(':input').filter(':visible'),
-                $autofocus = $inputs.filter('[autofocus]'),
-                $input     = ($autofocus.length > 0)
-                  ? $autofocus.first()
-                  : $inputs.first()
-              ;
-              if($input.length > 0) {
-                $input.focus();
-              }
+            var
+              $inputs    = $module.find(':input').filter(':visible'),
+              $autofocus = $inputs.filter('[autofocus]'),
+              $input     = ($autofocus.length > 0)
+                ? $autofocus.first()
+                : $inputs.first()
+            ;
+            if($input.length > 0) {
+              $input.focus();
             }
           },
           clickaway: function() {
@@ -8666,7 +9076,7 @@ $.fn.modal.settings = {
   onVisible  : function(){},
 
   // called before hide animation
-  onHide     : function(){},
+  onHide     : function(){ return true; },
 
   // called after hide animation
   onHidden   : function(){},
@@ -8678,7 +9088,7 @@ $.fn.modal.settings = {
   onDeny     : function(){ return true; },
 
   selector    : {
-    close    : '.close',
+    close    : '> .close',
     approve  : '.actions .positive, .actions .approve, .actions .ok',
     deny     : '.actions .negative, .actions .deny, .actions .cancel',
     modal    : '.ui.modal'
@@ -8698,10 +9108,10 @@ $.fn.modal.settings = {
 };
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.0.8 - Nag
+ * # Semantic UI 2.1.6 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8896,6 +9306,10 @@ $.fn.nag = function(parameters) {
               window.localStorage.setItem(key, value);
               module.debug('Value stored using local storage', key, value);
             }
+            else if(settings.storageMethod == 'sessionstorage' && window.sessionStorage !== undefined) {
+              window.sessionStorage.setItem(key, value);
+              module.debug('Value stored using session storage', key, value);
+            }
             else if($.cookie !== undefined) {
               $.cookie(key, value, options);
               module.debug('Value stored using cookie', key, value, options);
@@ -8911,6 +9325,9 @@ $.fn.nag = function(parameters) {
             ;
             if(settings.storageMethod == 'localstorage' && window.localStorage !== undefined) {
               storedValue = window.localStorage.getItem(key);
+            }
+            else if(settings.storageMethod == 'sessionstorage' && window.sessionStorage !== undefined) {
+              storedValue = window.sessionStorage.getItem(key);
             }
             // get by cookie
             else if($.cookie !== undefined) {
@@ -8928,8 +9345,11 @@ $.fn.nag = function(parameters) {
             var
               options = module.get.storageOptions()
             ;
-            if(settings.storageMethod == 'local' && window.store !== undefined) {
+            if(settings.storageMethod == 'localstorage' && window.localStorage !== undefined) {
               window.localStorage.removeItem(key);
+            }
+            else if(settings.storageMethod == 'sessionstorage' && window.sessionStorage !== undefined) {
+              window.sessionStorage.removeItem(key);
             }
             // store by cookie
             else if($.cookie !== undefined) {
@@ -9175,10 +9595,10 @@ $.fn.nag.settings = {
 
 };
 
-})( jQuery, window , document );
+})( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.0.8 - Popup
+ * # Semantic UI 2.1.6 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9275,7 +9695,7 @@ $.fn.popup = function(parameters) {
           }
           else {
             if(settings.inline) {
-              $popup = $target.next(selector.popup).eq(0);
+              $popup = $target.nextAll(selector.popup).eq(0);
               settings.popup = $popup;
             }
           }
@@ -9302,6 +9722,9 @@ $.fn.popup = function(parameters) {
           if( $offsetParent.is('html') && $offsetParent[0] !== $body[0] ) {
             module.debug('Setting page as offset parent');
             $offsetParent = $body;
+          }
+          if( module.get.variation() ) {
+            module.set.variation();
           }
         },
 
@@ -9373,7 +9796,6 @@ $.fn.popup = function(parameters) {
         create: function() {
           var
             html      = module.get.html(),
-            variation = module.get.variation(),
             title     = module.get.title(),
             content   = module.get.content()
           ;
@@ -9388,15 +9810,9 @@ $.fn.popup = function(parameters) {
             }
             $popup = $('<div/>')
               .addClass(className.popup)
-              .addClass(variation)
               .data(metadata.activator, $module)
               .html(html)
             ;
-            if(variation) {
-              $popup
-                .addClass(variation)
-              ;
-            }
             if(settings.inline) {
               module.verbose('Inserting popup element inline', $popup);
               $popup
@@ -9410,6 +9826,8 @@ $.fn.popup = function(parameters) {
               ;
             }
             module.refresh();
+            module.set.variation();
+
             if(settings.hoverable) {
               module.bind.popup();
             }
@@ -9523,12 +9941,12 @@ $.fn.popup = function(parameters) {
         },
 
         removePopup: function() {
-          module.debug('Removing popup', $popup);
           if( module.has.popup() && !settings.popup) {
+            module.debug('Removing popup', $popup);
             $popup.remove();
             $popup = undefined;
+            settings.onRemove.call($popup, element);
           }
-          settings.onRemove.call($popup, element);
         },
 
         save: {
@@ -9604,6 +10022,12 @@ $.fn.popup = function(parameters) {
           }
         },
 
+        change: {
+          content: function(html) {
+            $popup.html(html);
+          }
+        },
+
         get: {
           html: function() {
             $module.removeData(metadata.html);
@@ -9621,13 +10045,16 @@ $.fn.popup = function(parameters) {
             $module.removeData(metadata.variation);
             return $module.data(metadata.variation) || settings.variation;
           },
+          popup: function() {
+            return $popup;
+          },
           popupOffset: function() {
             return $popup.offset();
           },
           calculations: function() {
             var
               targetElement  = $target[0],
-              targetPosition = (settings.inline || settings.popup)
+              targetPosition = (settings.inline || (settings.popup && settings.movePopup))
                 ? $target.position()
                 : $target.offset(),
               calculations = {},
@@ -9869,7 +10296,7 @@ $.fn.popup = function(parameters) {
             popup  = calculations.popup;
             parent = calculations.parent;
 
-            if(target.width === 0 && target.height === 0) {
+            if(target.width === 0 && target.height === 0 && !(target.element instanceof SVGGraphicsElement)) {
               module.debug('Popup target is hidden, no action taken');
               return false;
             }
@@ -10032,6 +10459,14 @@ $.fn.popup = function(parameters) {
             $popup.css('width', calculations.container.width);
           },
 
+          variation: function(variation) {
+            variation = variation || module.get.variation();
+            if(variation && module.has.popup() ) {
+              module.verbose('Adding variation to popup', variation);
+              $popup.addClass(variation);
+            }
+          },
+
           visible: function() {
             $module.addClass(className.visible);
           }
@@ -10040,6 +10475,13 @@ $.fn.popup = function(parameters) {
         remove: {
           loading: function() {
             $popup.removeClass(className.loading);
+          },
+          variation: function(variation) {
+            variation = variation || module.get.variation();
+            if(variation) {
+              module.verbose('Removing variation', variation);
+              $popup.removeClass(variation);
+            }
           },
           visible: function() {
             $module.removeClass(className.visible);
@@ -10563,10 +11005,10 @@ $.fn.popup.settings = {
 };
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.0.8 - Progress
+ * # Semantic UI 2.1.6 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10656,6 +11098,7 @@ $.fn.progress = function(parameters) {
 
         reset: function() {
           module.set.percent(0);
+          module.set.value(0);
         },
 
         complete: function() {
@@ -11358,9 +11801,9 @@ $.fn.progress.settings = {
 };
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );
 /*!
- * # Semantic UI 2.0.8 - Rating
+ * # Semantic UI 2.1.6 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11833,10 +12276,10 @@ $.fn.rating.settings = {
 
 };
 
-})( jQuery, window , document );
+})( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.0.8 - Search
+ * # Semantic UI 2.1.6 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11873,6 +12316,7 @@ $.fn.search = function(parameters) {
         className       = settings.className,
         metadata        = settings.metadata,
         regExp          = settings.regExp,
+        fields          = settings.fields,
         selector        = settings.selector,
         error           = settings.error,
         namespace       = settings.namespace,
@@ -11963,7 +12407,9 @@ $.fn.search = function(parameters) {
             module.set.focus();
             if( module.has.minimumCharacters() ) {
               module.query();
-              module.showResults();
+              if( module.can.show() ) {
+                module.showResults();
+              }
             }
           },
           blur: function(event) {
@@ -12043,9 +12489,7 @@ $.fn.search = function(parameters) {
           // search shortcuts
           if(keyCode == keys.escape) {
             module.verbose('Escape key pressed, blurring search field');
-            $prompt
-              .trigger('blur')
-            ;
+            module.trigger.blur();
           }
           if( module.is.visible() ) {
             if(keyCode == keys.enter) {
@@ -12125,6 +12569,9 @@ $.fn.search = function(parameters) {
           useAPI: function() {
             return $.fn.api !== undefined;
           },
+          show: function() {
+            return module.is.focused() && !module.is.visible() && !module.is.empty();
+          },
           transition: function() {
             return settings.transition && $.fn.transition !== undefined && $module.transition('is supported');
           }
@@ -12139,6 +12586,20 @@ $.fn.search = function(parameters) {
           },
           focused: function() {
             return ($prompt.filter(':focus').length > 0);
+          }
+        },
+
+        trigger: {
+          blur: function() {
+            var
+              events        = document.createEvent('HTMLEvents'),
+              promptElement = $prompt[0]
+            ;
+            if(promptElement) {
+              module.verbose('Triggering native blur event');
+              events.initEvent('blur', false, false);
+              promptElement.dispatchEvent(events);
+            }
           }
         },
 
@@ -12181,7 +12642,7 @@ $.fn.search = function(parameters) {
               $.each(results, function(index, category) {
                 if($.isArray(category.results)) {
                   result = module.search.object(value, category.results, lookupFields)[0];
-                  // dont continue searching if a result is found
+                  // don't continue searching if a result is found
                   if(result) {
                     return false;
                   }
@@ -12255,8 +12716,8 @@ $.fn.search = function(parameters) {
               else {
                 module.error(error.source);
               }
-              settings.onSearchQuery.call(element, searchTerm);
             }
+            settings.onSearchQuery.call(element, searchTerm);
           }
           else {
             module.hideResults();
@@ -12403,14 +12864,14 @@ $.fn.search = function(parameters) {
             ;
             module.verbose('Parsing server response', response);
             if(response !== undefined) {
-              if(searchTerm !== undefined && response.results !== undefined) {
+              if(searchTerm !== undefined && response[fields.results] !== undefined) {
                 module.addResults(searchHTML);
-                module.inject.id(response.results);
+                module.inject.id(response[fields.results]);
                 module.write.cache(searchTerm, {
                   html    : searchHTML,
-                  results : response.results
+                  results : response[fields.results]
                 });
-                module.save.results(response.results);
+                module.save.results(response[fields.results]);
               }
             }
           }
@@ -12589,11 +13050,13 @@ $.fn.search = function(parameters) {
           $results
             .html(html)
           ;
-          module.showResults();
+          if( module.can.show() ) {
+            module.showResults();
+          }
         },
 
         showResults: function() {
-          if( !module.is.visible() && module.is.focused() && !module.is.empty() ) {
+          if(!module.is.visible()) {
             if( module.can.transition() ) {
               module.debug('Showing results with css animations');
               $results
@@ -12645,8 +13108,8 @@ $.fn.search = function(parameters) {
           module.debug('Generating html from response', response);
           var
             template       = settings.templates[settings.type],
-            isProperObject = ($.isPlainObject(response.results) && !$.isEmptyObject(response.results)),
-            isProperArray  = ($.isArray(response.results) && response.results.length > 0),
+            isProperObject = ($.isPlainObject(response[fields.results]) && !$.isEmptyObject(response[fields.results])),
+            isProperArray  = ($.isArray(response[fields.results]) && response[fields.results].length > 0),
             html           = ''
           ;
           if(isProperObject || isProperArray ) {
@@ -12657,11 +13120,11 @@ $.fn.search = function(parameters) {
                 }
               }
               else {
-                response.results = response.results.slice(0, settings.maxResults);
+                response[fields.results] = response[fields.results].slice(0, settings.maxResults);
               }
             }
             if($.isFunction(template)) {
-              html = template(response);
+              html = template(response, fields);
             }
             else {
               module.error(error.noTemplate, false);
@@ -12886,6 +13349,9 @@ $.fn.search.settings = {
   ],
   // fields to search
 
+  displayField   : '',
+  // field to display in standard results template
+
   searchFullText : true,
   // whether to include fuzzy results in local search
 
@@ -12913,7 +13379,7 @@ $.fn.search.settings = {
   onSelect       : false,
   onResultsAdd   : false,
 
-  onSearchQuery  : function(){},
+  onSearchQuery  : function(query){},
   onResults      : function(response){},
 
   onResultsOpen  : function(){},
@@ -12948,6 +13414,22 @@ $.fn.search.settings = {
   regExp: {
     escape     : /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g,
     beginsWith : '(?:\s|^)'
+  },
+
+  // maps api response attributes to internal representation
+  fields: {
+    categories      : 'results',     // array of categories (category view)
+    categoryName    : 'name',        // name of category (category view)
+    categoryResults : 'results',     // array of results (category view)
+    description     : 'description', // result description
+    image           : 'image',       // result image
+    price           : 'price',       // result price
+    results         : 'results',     // array of results (standard)
+    title           : 'title',       // result title
+    url             : 'url',         // result url
+    action          : 'action',      // "view more" object name
+    actionText      : 'text',        // "view more" text
+    actionURL       : 'url'          // "view more" url
   },
 
   selector : {
@@ -13003,95 +13485,98 @@ $.fn.search.settings = {
       }
       return html;
     },
-    category: function(response) {
+    category: function(response, fields) {
       var
         html = '',
         escape = $.fn.search.settings.templates.escape
       ;
-      if(response.results !== undefined) {
+      if(response[fields.categoryResults] !== undefined) {
+
         // each category
-        $.each(response.results, function(index, category) {
-          if(category.results !== undefined && category.results.length > 0) {
-            html  += ''
-              + '<div class="category">'
-              + '<div class="name">' + category.name + '</div>'
-            ;
+        $.each(response[fields.categoryResults], function(index, category) {
+          if(category[fields.results] !== undefined && category.results.length > 0) {
+
+            html  += '<div class="category">';
+
+            if(category[fields.categoryName] !== undefined) {
+              html += '<div class="name">' + category[fields.categoryName] + '</div>';
+            }
+
             // each item inside category
             $.each(category.results, function(index, result) {
-              html  += '<div class="result">';
-              if(result.url) {
-                html  += '<a href="' + result.url + '"></a>';
+              if(result[fields.url]) {
+                html  += '<a class="result" href="' + result[fields.url] + '">';
               }
-              if(result.image !== undefined) {
-                result.image = escape(result.image);
+              else {
+                html  += '<a class="result">';
+              }
+              if(result[fields.image] !== undefined) {
                 html += ''
                   + '<div class="image">'
-                  + ' <img src="' + result.image + '" alt="">'
+                  + ' <img src="' + result[fields.image] + '">'
                   + '</div>'
                 ;
               }
               html += '<div class="content">';
-              if(result.price !== undefined) {
-                result.price = escape(result.price);
-                html += '<div class="price">' + result.price + '</div>';
+              if(result[fields.price] !== undefined) {
+                html += '<div class="price">' + result[fields.price] + '</div>';
               }
-              if(result.title !== undefined) {
-                result.title = escape(result.title);
-                html += '<div class="title">' + result.title + '</div>';
+              if(result[fields.title] !== undefined) {
+                html += '<div class="title">' + result[fields.title] + '</div>';
               }
-              if(result.description !== undefined) {
-                html += '<div class="description">' + result.description + '</div>';
+              if(result[fields.description] !== undefined) {
+                html += '<div class="description">' + result[fields.description] + '</div>';
               }
               html  += ''
                 + '</div>'
-                + '</div>'
               ;
+              html += '</a>';
             });
             html  += ''
               + '</div>'
             ;
           }
         });
-        if(response.action) {
+        if(response[fields.action]) {
           html += ''
-          + '<a href="' + response.action.url + '" class="action">'
-          +   response.action.text
+          + '<a href="' + response[fields.action][fields.actionURL] + '" class="action">'
+          +   response[fields.action][fields.actionText]
           + '</a>';
         }
         return html;
       }
       return false;
     },
-    standard: function(response) {
+    standard: function(response, fields) {
       var
         html = ''
       ;
-      if(response.results !== undefined) {
+      if(response[fields.results] !== undefined) {
 
         // each result
-        $.each(response.results, function(index, result) {
-          if(result.url) {
-            html  += '<a class="result" href="' + result.url + '">';
+        $.each(response[fields.results], function(index, result) {
+          if(result[fields.url]) {
+            html  += '<a class="result" href="' + result[fields.url] + '">';
           }
           else {
             html  += '<a class="result">';
           }
-          if(result.image !== undefined) {
+          if(result[fields.image] !== undefined) {
             html += ''
               + '<div class="image">'
-              + ' <img src="' + result.image + '">'
+              + ' <img src="' + result[fields.image] + '">'
               + '</div>'
             ;
           }
           html += '<div class="content">';
-          if(result.price !== undefined) {
-            html += '<div class="price">' + result.price + '</div>';
+          if(result[fields.price] !== undefined) {
+            html += '<div class="price">' + result[fields.price] + '</div>';
           }
-          if(result.title !== undefined) {
-            html += '<div class="title">' + result.title + '</div>';
+          if(result[fields.title] !== undefined) {
+            html += '<div class="title">' + result[fields.title] + '</div>';
           }
-          if(result.description !== undefined) {
-            html += '<div class="description">' + result.description + '</div>';
+          if(result[fields.description] !== undefined) {
+            html += '<div class="description">' + result[fields.description] + '</div>';
           }
           html  += ''
             + '</div>'
@@ -13099,10 +13584,10 @@ $.fn.search.settings = {
           html += '</a>';
         });
 
-        if(response.action) {
+        if(response[fields.action]) {
           html += ''
-          + '<a href="' + response.action.url + '" class="action">'
-          +   response.action.text
+          + '<a href="' + response[fields.action][fields.actionURL] + '" class="action">'
+          +   response[fields.action][fields.actionText]
           + '</a>';
         }
         return html;
@@ -13112,10 +13597,10 @@ $.fn.search.settings = {
   }
 };
 
-})( jQuery, window , document );
+})( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.0.8 - Shape
+ * # Semantic UI 2.1.6 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13989,9 +14474,9 @@ $.fn.shape.settings = {
 };
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );
 /*!
- * # Semantic UI 2.0.8 - Sidebar
+ * # Semantic UI 2.1.6 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15011,10 +15496,10 @@ $.fn.sidebar.settings = {
 };
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.0.8 - Sticky
+ * # Semantic UI 2.1.6 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15238,8 +15723,8 @@ $.fn.sticky = function(parameters) {
           },
           positions: function() {
             var
-              window = {
-                height: $window.height()
+              scrollContext = {
+                height : $scroll.height()
               },
               element = {
                 margin: {
@@ -15251,17 +15736,28 @@ $.fn.sticky = function(parameters) {
                 height : $module.outerHeight()
               },
               context = {
-                offset        : $context.offset(),
-                height        : $context.outerHeight()
+                offset : $context.offset(),
+                height : $context.outerHeight()
               },
               container = {
                 height: $container.outerHeight()
               }
             ;
+            if( !module.is.standardScroll() ) {
+              module.debug('Non-standard scroll. Removing scroll offset from element offset');
+
+              scrollContext.top  = $scroll.scrollTop();
+              scrollContext.left = $scroll.scrollLeft();
+
+              element.offset.top  += scrollContext.top;
+              context.offset.top  += scrollContext.top;
+              element.offset.left += scrollContext.left;
+              context.offset.left += scrollContext.left;
+            }
             module.cache = {
-              fits : ( element.height < window.height ),
-              window: {
-                height: window.height
+              fits : ( element.height < scrollContext.height ),
+              scrollContext : {
+                height : scrollContext.height
               },
               element: {
                 margin : element.margin,
@@ -15321,9 +15817,9 @@ $.fn.sticky = function(parameters) {
             scroll = scroll || $scroll.scrollTop();
             var
               element        = module.cache.element,
-              window         = module.cache.window,
+              scrollContext  = module.cache.scrollContext,
               delta          = module.get.scrollChange(scroll),
-              maxScroll      = (element.height - window.height + settings.offset),
+              maxScroll      = (element.height - scrollContext.height + settings.offset),
               elementScroll  = module.get.currentElementScroll(),
               possibleScroll = (elementScroll + delta)
             ;
@@ -15405,17 +15901,16 @@ $.fn.sticky = function(parameters) {
           },
           size: function() {
             if(module.cache.element.height !== 0 && module.cache.element.width !== 0) {
-              $module
-                .css({
-                  width  : module.cache.element.width,
-                  height : module.cache.element.height
-                })
-              ;
+              element.style.setProperty('width',  module.cache.element.width  + 'px', 'important');
+              element.style.setProperty('height', module.cache.element.height + 'px', 'important');
             }
           }
         },
 
         is: {
+          standardScroll: function() {
+            return ($scroll[0] == window);
+          },
           top: function() {
             return $module.hasClass(className.top);
           },
@@ -15442,14 +15937,14 @@ $.fn.sticky = function(parameters) {
             cache          = module.cache,
             fits           = cache.fits,
             element        = cache.element,
-            window         = cache.window,
+            scrollContext  = cache.scrollContext,
             context        = cache.context,
             offset         = (module.is.bottom() && settings.pushing)
               ? settings.bottomOffset
               : settings.offset,
             scroll         = {
               top    : cachedPosition + offset,
-              bottom : cachedPosition + offset + window.height
+              bottom : cachedPosition + offset + scrollContext.height
             },
             direction      = module.get.direction(scroll.top),
             elementScroll  = (fits)
@@ -15464,16 +15959,17 @@ $.fn.sticky = function(parameters) {
           if(elementVisible) {
 
             if( module.is.initialPosition() ) {
-              if(scroll.top > context.bottom) {
-                module.debug('Element bottom of container');
+              if(scroll.top >= context.bottom) {
+                module.debug('Initial element position is bottom of container');
                 module.bindBottom();
               }
               else if(scroll.top > element.top) {
-                module.debug('Element passed, fixing element to page');
-                if( (element.height + scroll.top - elementScroll) > context.bottom ) {
+                if( (element.height + scroll.top - elementScroll) >= context.bottom ) {
+                  module.debug('Initial element position is bottom of container');
                   module.bindBottom();
                 }
                 else {
+                  module.debug('Initial element position is fixed');
                   module.fixTop();
                 }
               }
@@ -15483,11 +15979,11 @@ $.fn.sticky = function(parameters) {
 
               // currently fixed top
               if( module.is.top() ) {
-                if( scroll.top < element.top ) {
+                if( scroll.top <= element.top ) {
                   module.debug('Fixed element reached top of container');
                   module.setInitialPosition();
                 }
-                else if( (element.height + scroll.top - elementScroll) > context.bottom ) {
+                else if( (element.height + scroll.top - elementScroll) >= context.bottom ) {
                   module.debug('Fixed element reached bottom of container');
                   module.bindBottom();
                 }
@@ -15503,12 +15999,12 @@ $.fn.sticky = function(parameters) {
               else if(module.is.bottom() ) {
 
                 // top edge
-                if( (scroll.bottom - element.height) < element.top) {
+                if( (scroll.bottom - element.height) <= element.top) {
                   module.debug('Bottom fixed rail has reached top of container');
                   module.setInitialPosition();
                 }
                 // bottom edge
-                else if(scroll.bottom > context.bottom) {
+                else if(scroll.bottom >= context.bottom) {
                   module.debug('Bottom fixed rail has reached bottom of container');
                   module.bindBottom();
                 }
@@ -15522,16 +16018,22 @@ $.fn.sticky = function(parameters) {
               }
             }
             else if( module.is.bottom() ) {
-              if(settings.pushing) {
-                if(module.is.bound() && scroll.bottom < context.bottom ) {
-                  module.debug('Fixing bottom attached element to bottom of browser.');
-                  module.fixBottom();
-                }
+              if( scroll.top <= element.top ) {
+                module.debug('Jumped from bottom fixed to top fixed, most likely used home/end button');
+                module.setInitialPosition();
               }
               else {
-                if(module.is.bound() && (scroll.top < context.bottom - element.height) ) {
-                  module.debug('Fixing bottom attached element to top of browser.');
-                  module.fixTop();
+                if(settings.pushing) {
+                  if(module.is.bound() && scroll.bottom <= context.bottom ) {
+                    module.debug('Fixing bottom attached element to bottom of browser.');
+                    module.fixBottom();
+                  }
+                }
+                else {
+                  if(module.is.bound() && (scroll.top <= context.bottom - element.height) ) {
+                    module.debug('Fixing bottom attached element to top of browser.');
+                    module.fixTop();
+                  }
                 }
               }
             }
@@ -15573,6 +16075,7 @@ $.fn.sticky = function(parameters) {
         },
 
         setInitialPosition: function() {
+          module.debug('Returning to initial position');
           module.unfix();
           module.unbind();
         },
@@ -15615,24 +16118,28 @@ $.fn.sticky = function(parameters) {
         },
 
         unbind: function() {
-          module.debug('Removing absolute position on element');
-          module.remove.offset();
-          $module
-            .removeClass(className.bound)
-            .removeClass(className.top)
-            .removeClass(className.bottom)
-          ;
+          if( module.is.bound() ) {
+            module.debug('Removing container bound position on element');
+            module.remove.offset();
+            $module
+              .removeClass(className.bound)
+              .removeClass(className.top)
+              .removeClass(className.bottom)
+            ;
+          }
         },
 
         unfix: function() {
-          module.debug('Removing fixed position on element');
-          module.remove.offset();
-          $module
-            .removeClass(className.fixed)
-            .removeClass(className.top)
-            .removeClass(className.bottom)
-          ;
-          settings.onUnstick.call(element);
+          if( module.is.fixed() ) {
+            module.debug('Removing fixed position on element');
+            module.remove.offset();
+            $module
+              .removeClass(className.fixed)
+              .removeClass(className.top)
+              .removeClass(className.bottom)
+            ;
+            settings.onUnstick.call(element);
+          }
         },
 
         reset: function() {
@@ -15897,9 +16404,9 @@ $.fn.sticky.settings = {
 
 };
 
-})( jQuery, window , document );
+})( jQuery, window, document );
 /*!
- * # Semantic UI 2.0.8 - Tab
+ * # Semantic UI 2.1.6 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -16007,7 +16514,7 @@ $.fn.tab = function(parameters) {
 
         bind: {
           events: function() {
-            // if using $.tab dont add events
+            // if using $.tab don't add events
             if( !$.isWindow( element ) ) {
               module.debug('Attaching tab activation events to element', $module);
               $module
@@ -16274,7 +16781,7 @@ $.fn.tab = function(parameters) {
             else if(tabPath.search('/') == -1 && tabPath !== '') {
               // look for in page anchor
               $anchor     = $('#' + tabPath + ', a[name="' + tabPath + '"]');
-              currentPath = $anchor.closest('[data-tab]').data('tab');
+              currentPath = $anchor.closest('[data-tab]').data(metadata.tab);
               $tab        = module.get.tabElement(currentPath);
               // if anchor exists use parent tab
               if($anchor && $anchor.length > 0 && currentPath) {
@@ -16340,10 +16847,11 @@ $.fn.tab = function(parameters) {
             var
               $tab        = module.get.tabElement(tabPath),
               apiSettings = {
-                dataType : 'html',
-                on       : 'now',
-                cache    : settings.alwaysRefresh,
-                headers  : {
+                dataType         : 'html',
+                encodeParameters : false,
+                on               : 'now',
+                cache            : settings.alwaysRefresh,
+                headers          : {
                   'X-Remote': true
                 },
                 onSuccess : function(response) {
@@ -16508,8 +17016,8 @@ $.fn.tab = function(parameters) {
             tabPath        = tabPath || activeTabPath;
             tabPathArray   = module.utilities.pathToArray(tabPath);
             lastTab        = module.utilities.last(tabPathArray);
-            $fullPathTab   = $tabs.filter('[data-' + metadata.tab + '="' + lastTab + '"]');
-            $simplePathTab = $tabs.filter('[data-' + metadata.tab + '="' + tabPath + '"]');
+            $fullPathTab   = $tabs.filter('[data-' + metadata.tab + '="' + tabPath + '"]');
+            $simplePathTab = $tabs.filter('[data-' + metadata.tab + '="' + lastTab + '"]');
             return ($fullPathTab.length > 0)
               ? $fullPathTab
               : $simplePathTab
@@ -16794,9 +17302,10 @@ $.fn.tab.settings = {
 
 };
 
-})( jQuery, window , document );
+})( jQuery, window, document );
+
 /*!
- * # Semantic UI 2.0.8 - Transition
+ * # Semantic UI 2.1.6 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17025,7 +17534,9 @@ $.fn.transition = function() {
               module.show();
             }
             else {
+              module.verbose('Static animation completed');
               module.restore.conditions();
+              settings.onComplete.call(element);
             }
           }
         },
@@ -17189,7 +17700,7 @@ $.fn.transition = function() {
               module.add.failSafe();
             }
             module.set.duration(settings.duration);
-            settings.onStart.call(this);
+            settings.onStart.call(element);
           }
         },
 
@@ -17565,8 +18076,8 @@ $.fn.transition = function() {
           module.remove.visible();
           module.set.hidden();
           module.force.hidden();
-          settings.onHide.call(this);
-          settings.onComplete.call(this);
+          settings.onHide.call(element);
+          settings.onComplete.call(element);
           // module.repaint();
         },
 
@@ -17575,8 +18086,8 @@ $.fn.transition = function() {
           module.remove.hidden();
           module.set.visible();
           module.force.visible();
-          settings.onShow.call(this);
-          settings.onComplete.call(this);
+          settings.onShow.call(element);
+          settings.onComplete.call(element);
           // module.repaint();
         },
 
@@ -17866,10 +18377,10 @@ $.fn.transition.settings = {
 };
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.0.8 - API
+ * # Semantic UI 2.1.6 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17979,7 +18490,7 @@ $.api = $.fn.api = function(parameters) {
               ;
             }
             else if(settings.on == 'now') {
-              module.debug('Querying API now', triggerEvent);
+              module.debug('Querying API endpoint immediately');
               module.query();
             }
           }
@@ -18136,12 +18647,18 @@ $.api = $.fn.api = function(parameters) {
 
         },
 
+        should: {
+          removeError: function() {
+            return ( settings.hideError === true || (settings.hideError === 'auto' && !module.is.form()) );
+          }
+        },
+
         is: {
           disabled: function() {
             return ($module.filter(selector.disabled).length > 0);
           },
           form: function() {
-            return $module.is('form');
+            return $module.is('form') || $context.is('form');
           },
           mocked: function() {
             return (settings.mockResponse || settings.mockResponseAsync);
@@ -18228,7 +18745,11 @@ $.api = $.fn.api = function(parameters) {
                   }
                   else {
                     module.verbose('Found required variable', variable, value);
-                    url = url.replace(templatedString, module.get.urlEncodedValue(value));
+                    value = (settings.encodeParameters)
+                      ? module.get.urlEncodedValue(value)
+                      : value
+                    ;
+                    url = url.replace(templatedString, value);
                   }
                 });
               }
@@ -18428,7 +18949,9 @@ $.api = $.fn.api = function(parameters) {
               if(settings.errorDuration && status !== 'aborted') {
                 module.debug('Adding error state');
                 module.set.error();
-                setTimeout(module.remove.error, settings.errorDuration);
+                if( module.should.removeError() ) {
+                  setTimeout(module.remove.error, settings.errorDuration);
+                }
               }
               module.debug('API Request failed', errorMessage, xhr);
               settings.onFailure.call(context, response, $module, xhr);
@@ -18594,7 +19117,7 @@ $.api = $.fn.api = function(parameters) {
               module.debug('URL value is already encoded, avoiding double encoding', value);
               return value;
             }
-            module.verbose('Encoding value for url', value, encodedValue);
+            module.verbose('Encoding value using encodeURIComponent', value, encodedValue);
             return encodedValue;
           },
           defaultData: function() {
@@ -18655,7 +19178,7 @@ $.api = $.fn.api = function(parameters) {
               url = settings.api[action];
             }
             else if( module.is.form() ) {
-              url = $module.attr('action') || false;
+              url = $module.attr('action') || $context.attr('action') || false;
               module.debug('No url or action specified, defaulting to form action', url);
             }
             return url;
@@ -18860,7 +19383,7 @@ $.api.settings = {
   name              : 'API',
   namespace         : 'api',
 
-  debug             : true,
+  debug             : false,
   verbose           : false,
   performance       : true,
 
@@ -18882,8 +19405,14 @@ $.api.settings = {
   // duration for loading state
   loadingDuration   : 0,
 
+  // whether to hide errors after a period of time
+  hideError         : 'auto',
+
   // duration for error state
   errorDuration     : 2000,
+
+  // whether parameters should be encoded with encodeURIComponent
+  encodeParameters  : true,
 
   // API action to use
   action            : false,
@@ -18955,7 +19484,7 @@ $.api.settings = {
     missingSerialize  : 'jquery-serialize-object is required to add form data to an existing data object',
     missingURL        : 'No URL specified for api event',
     noReturnedValue   : 'The beforeSend callback must return a settings object, beforeSend ignored.',
-    noStorage         : 'Caching respopnses locally requires session storage',
+    noStorage         : 'Caching responses locally requires session storage',
     parseError        : 'There was an error parsing your request',
     requiredParameter : 'Missing a required URL parameter: ',
     statusMessage     : 'Server gave an error: ',
@@ -18985,10 +19514,10 @@ $.api.settings = {
 
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.0.8 - State
+ * # Semantic UI 2.1.6 - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -19681,10 +20210,10 @@ $.fn.state.settings = {
 
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.0.8 - Visibility
+ * # Semantic UI 2.1.6 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20898,4 +21427,4 @@ $.fn.visibility.settings = {
 
 };
 
-})( jQuery, window , document );
+})( jQuery, window, document );

@@ -1,6 +1,6 @@
 {
   "name": "semantic-ui",
-  "version": "2.0.8",
+  "version": "2.1.6",
   "title": "Semantic UI",
   "description": "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
   "homepage": "http://www.semantic-ui.com",
@@ -27,6 +27,7 @@
     "gulp-concat": "*",
     "gulp-concat-css": "*",
     "gulp-copy": "*",
+    "gulp-dedupe": "*",
     "gulp-flatten": "*",
     "gulp-header": "*",
     "gulp-help": "*",
@@ -44,6 +45,7 @@
     "gulp-watch": "*",
     "map-stream": "*",
     "require-dot-file": "*",
+    "run-sequence": "*",
     "yamljs": "*"
   },
   "dependencies": {
@@ -57,6 +59,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-concat-css": "^2.2.0",
     "gulp-copy": "0.0.2",
+    "gulp-dedupe": "0.0.2",
     "gulp-flatten": "^0.1.0",
     "gulp-header": "^1.2.2",
     "gulp-help": "^1.6.0",

@@ -57,6 +57,11 @@
 @celledRelaxedPadding: 1.5em;
 @celledVeryRelaxedPadding: 2em;
 
+@celledGridDivider: 0px 0px 0px @celledWidth @celledBorderColor;
+@celledRowDivider: 0px (-@celledWidth) 0px 0px @celledBorderColor;
+@celledColumnDivider: (-@celledWidth) 0px 0px 0px @celledBorderColor;
+
+
 /*--------------
     Stackable
 ---------------*/

@@ -51,10 +51,11 @@
     Coupling
 ---------------*/
 
-.ui.grid > .ui.divider {
-  font-size: 1rem;
+/* Allow divider between each column row */
+.ui.grid > .column + .divider,
+.ui.grid > .row > .column + .divider {
+  left: auto;
 }
-
 
 /*--------------
    Horizontal
@@ -131,7 +132,7 @@
 }
 
 /* Inside grid */
-@media only screen and (max-width : (@tabletBreakpoint - 1px)) {
+@media only screen and (max-width : @largestMobileScreen) {
 
   .ui.stackable.grid .ui.vertical.divider,
   .ui.grid .stackable.row .ui.vertical.divider {

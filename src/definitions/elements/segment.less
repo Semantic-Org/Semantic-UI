@@ -86,7 +86,8 @@
 
 /* Grid */
 .ui.page.grid.segment,
-.ui.grid .ui.segment.column {
+.ui.grid > .row > .ui.segment.column,
+.ui.grid > .ui.segment.column {
   padding-top: @pageGridMargin;
   padding-bottom: @pageGridMargin;
 }
@@ -368,6 +369,11 @@
   border: none;
   box-shadow: none;
   border-left: @borderWidth solid @borderColor;
+}
+
+/* Border Fixes */
+.ui.segments > .horizontal.segments:first-child {
+  border-top: none;
 }
 .ui.horizontal.segments > .segment:first-child {
   border-left: none;

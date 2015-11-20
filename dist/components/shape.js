@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.0.8 - Shape
+ * # Semantic UI 2.1.6 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -873,4 +873,4 @@ $.fn.shape.settings = {
 };
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );

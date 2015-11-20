@@ -19,9 +19,7 @@
     "css3",
     "framework"
   ],
-  "license" : [
-    "http://semantic-ui.mit-license.org/"
-  ],
+  "license" : "MIT",
   "ignore": [
     "src/site",
     "test"

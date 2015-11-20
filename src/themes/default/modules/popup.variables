@@ -51,6 +51,11 @@
 @arrowStroke: @borderWidth;
 @arrowColor: darken(@borderColor, 10);
 
+/* Arrow color by position */
+@arrowTopBackground: @arrowBackground;
+@arrowCenterBackground: @arrowBackground;
+@arrowBottomBackground: @arrowBackground;
+
 @arrowBoxShadow: @arrowStroke @arrowStroke 0px 0px @arrowColor;
 @leftArrowBoxShadow: @arrowStroke -@arrowStroke 0px 0px @arrowColor;
 @rightArrowBoxShadow: -@arrowStroke @arrowStroke 0px 0px @arrowColor;
@@ -86,4 +91,9 @@
 
 @invertedHeaderBackground: none;
 @invertedHeaderColor: @white;
-@invertedArrowColor: @black;
+@invertedArrowColor: @invertedBackground;
+
+/* Arrow color by position */
+@invertedArrowTopBackground: @invertedBackground;
+@invertedArrowCenterBackground: @invertedBackground;
+@invertedArrowBottomBackground: @invertedBackground;

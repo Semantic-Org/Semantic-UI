@@ -23,7 +23,6 @@
 
 @borderRadius: @defaultBorderRadius;
 @transition:
-  background-color @defaultDuration @defaultEasing,
   box-shadow @defaultDuration @defaultEasing,
   border-color @defaultDuration @defaultEasing
 ;
@@ -70,9 +69,6 @@
 @placeholderColor: @unselectedTextColor;
 @placeholderFocusColor: @textColor;
 
-@placeholderErrorColor: rgba(255, 80, 80, 0.4);
-@placeholderErrorFocusColor: rgba(255, 80, 80, 0.7);
-
 /* Down */
 @downBorderColor: rgba(0, 0, 0, 0.3);
 @downBackground: #FAFAFA;
@@ -80,16 +76,19 @@
 @downBoxShadow: none;
 
 /* Focus */
-@focusBorderColor: @selectedBorderColor;
+@focusBorderColor: @focusedFormBorderColor;
 @focusBackground: @background;
 @focusColor: @hoveredTextColor;
 @focusBoxShadow: none;
 
 /* Error */
 @errorBackground: @negativeBackgroundColor;
+@errorColor: @negativeTextColor;
 @errorBorder: @negativeBorderColor;
-@errorColor: @negativeColor;
 @errorBoxShadow: none;
+
+@placeholderErrorColor: lighten(@errorColor, 40);
+@placeholderErrorFocusColor: lighten(@errorColor, 30);
 
 /* Loader */
 @invertedLoaderFillColor: rgba(0, 0, 0, 0.15);

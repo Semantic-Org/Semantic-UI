@@ -10,13 +10,15 @@
 @verticalMargin: 0em;
 @horizontalMargin: @relative2px;
 @backgroundColor: #E8E8E8;
+@color: @mutedTextColor;
 @backgroundImage: none;
-@labelTextColor: rgba(0, 0, 0, 0.6);
-@verticalPadding: 0.5833em;
+@verticalPadding: 0.5833em; /* medium is not @emSize custom value required */
 @horizontalPadding: 0.833em;
 @borderRadius: @absoluteBorderRadius;
 @textTransform: none;
 @fontWeight: bold;
+@borderWidth: 1px;
+@border: 0px solid transparent;
 
 @lineHeightOffset: -(@verticalPadding / 2);
 
@@ -100,6 +102,18 @@
       Variations
 --------------------*/
 
+/* Basic */
+@basicBackground: none @white;
+@basicBorderWidth: 1px;
+@basicBorder: @basicBorderWidth solid @borderColor;
+@basicColor: @textColor;
+@basicBoxShadow: none;
+
+@basicHoverBackground: @basicBackground;
+@basicHoverColor: @linkHoverColor;
+@basicHoverBorder: @basicBorder;
+@basicHoverBoxShadow: @basicBoxShadow;
+
 /* Tag */
 @tagCircleColor: @white;
 @tagCircleSize: 0.5em;
@@ -108,10 +122,10 @@
 @tagTriangleRightOffset: 100%;
 @tagTriangleTopOffset: 50%;
 @tagTriangleSize: 1.56em;
-@tagTransition: background @labelTransitionDuration @labelTransitionEasing;
+@tagTriangleBackgroundImage: none;
+@tagTransition: none; /* Avoids error with background: inherit; on animation */
 
 /* Ribbon */
-@ribbonImageTopDistance: 1rem;
 @ribbonTriangleSize: 1.2em;
 @ribbonShadowColor: rgba(0, 0, 0, 0.15);
 
@@ -120,9 +134,15 @@
 @ribbonDistance: ~"calc("@ribbonMargin~" + "@ribbonTriangleSize~")";
 @rightRibbonOffset:  ~"calc(100% + "@ribbonMargin~" + "@ribbonTriangleSize~")";
 
+@ribbonImageTopDistance: 1rem;
 @ribbonImageMargin: -0.05rem; /* Rounding Offset on Triangle */
 @ribbonImageOffset: ~"calc("-@ribbonImageMargin~" - "@ribbonTriangleSize~")";
 @rightRibbonImageOffset:  ~"calc(100% + "@ribbonImageMargin~" + "@ribbonTriangleSize~")";
+
+@ribbonTableMargin: @relativeMini; /* Rounding Offset on Triangle */
+@ribbonTableOffset: ~"calc("-@ribbonTableMargin~" - "@ribbonTriangleSize~")";
+@rightRibbonTableOffset:  ~"calc(100% + "@ribbonTableMargin~" + "@ribbonTriangleSize~")";
+
 
 /* Colors */
 @redTextColor: @white;
@@ -202,13 +222,17 @@
 @emptyCircleSize: 0.5em;
 
 /* Pointing */
+@pointingBorderColor: inherit;
+@pointingBorderWidth: @borderWidth;
 @pointingVerticalDistance: 1em;
-@pointingTriangleSize: 0.6em;
+@pointingTriangleSize: 0.6666em;
 @pointingHorizontalDistance: @pointingTriangleSize;
 
-@pointingTriangleOffset: (@pointingTriangleSize / 2);
 @pointingTriangleTransition: background @labelTransitionDuration @labelTransitionEasing;
 @pointingTriangleZIndex: 2;
+
+/* Basic Pointing */
+@basicPointingTriangleOffset: -@pointingBorderWidth;
 
 /* Floating */
 @floatingTopOffset: -1em;

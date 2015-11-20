@@ -82,6 +82,7 @@
   line-height: 1;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
+  flex: 0 0 auto;
   user-select: none;
 
   background: @itemBackground;
@@ -176,12 +177,6 @@
   padding-top: @inputVerticalPadding;
   padding-bottom: @inputVerticalPadding;
 }
-.ui.menu .item > .input .button,
-.ui.menu .item > .input .label {
-  padding-top: @inputVerticalPadding;
-  padding-bottom: @inputVerticalPadding;
-}
-
 
 
 /*--------------
@@ -234,12 +229,14 @@
   background: @dropdownBackground;
   margin: @dropdownMenuDistance 0px 0px;
   box-shadow: @dropdownMenuBoxShadow;
+  flex-direction: column !important;
 }
 
 
 /* Menu Items */
 .ui.menu .ui.dropdown .menu > .item {
   margin: 0;
+  text-align: left;
   font-size: @dropdownItemFontSize !important;
   padding: @dropdownItemPadding !important;
   background: @dropdownItemBackground !important;
@@ -336,9 +333,6 @@
   margin-bottom: @labelOffset;
   padding: @labelVerticalPadding @labelHorizontalPadding;
 }
-.ui.menu .item > .label:before {
-  background-color: @labelBackground;
-}
 .ui.menu .item > .floating.label {
   padding: @labelVerticalPadding @labelHorizontalPadding;
 }
@@ -383,7 +377,7 @@
 
 @media only screen and (max-width: @largestMobileScreen) {
   .ui.menu > .ui.container {
-    width: 100%;
+    width: 100% !important;
     margin-left: 0em !important;
     margin-right: 0em !important;
   }
@@ -422,7 +416,7 @@
 .ui.menu .link.item:active,
 .ui.menu a.item:active {
   background: @pressedItemBackground;
-  color: @pressedItemColor;
+  color: @pressedItemTextColor;
 }
 
 
@@ -577,13 +571,13 @@ Floated Menu / Item
   box-shadow: @verticalActiveBoxShadow;
 }
 .ui.vertical.menu > .active.item:first-child {
-  border-radius: 0em @borderRadius 0em 0em;
+  border-radius: @borderRadius @borderRadius 0em 0em;
 }
 .ui.vertical.menu > .active.item:last-child {
-  border-radius: 0em 0em @borderRadius 0em;
+  border-radius: 0em 0em @borderRadius @borderRadius;
 }
 .ui.vertical.menu > .active.item:only-child {
-  border-radius: 0em @borderRadius @borderRadius 0em;
+  border-radius: @borderRadius;
 }
 .ui.vertical.menu .active.item .menu .active.item {
   border-left: none;
@@ -600,26 +594,24 @@ Floated Menu / Item
 ---------------*/
 
 .ui.tabular.menu {
-  background-color: transparent;
   border-radius: 0em;
   box-shadow: none !important;
   border: none;
+  background: @tabularBackground;
   border-bottom: @tabularBorderWidth solid @tabularBorderColor;
 }
 .ui.tabular.fluid.menu {
   width: @tabularFluidWidth !important;
 }
 .ui.tabular.menu .item {
-  background-color: transparent;
+  background: transparent;
+  border-bottom: none;
 
   border-left: @tabularBorderWidth solid transparent;
   border-right: @tabularBorderWidth solid transparent;
   border-top: @tabularOppositeBorderWidth solid transparent;
-  border-bottom: none;
-
-  padding-left: @tabularHorizontalPadding;
-  padding-right: @tabularHorizontalPadding;
-  color: @tabularMenuTextColor;
+  padding: @tabularVerticalPadding @tabularHorizontalPadding;
+  color: @tabularTextColor;
 }
 .ui.tabular.menu .item:before {
   display: none;
@@ -628,12 +620,12 @@ Floated Menu / Item
 /* Hover */
 .ui.tabular.menu .item:hover {
   background-color: transparent;
-  color: @hoveredTextColor;
+  color: @tabularHoveredTextColor;
 }
 
 /* Active */
 .ui.tabular.menu .active.item {
-  background-color: @tabularMenuActiveBackground;
+  background: @tabularActiveBackground;
   color: @tabularActiveColor;
   border-top-width: @tabularBorderWidth;
   border-color: @tabularBorderColor;
@@ -644,16 +636,43 @@ Floated Menu / Item
 }
 
 /* Coupling with segment for attachment */
-.ui.tabular.menu + .bottom.attached.segment,
-.ui.tabular.menu ~ .bottom.attached.segment + .bottom.attached.segment {
+.ui.tabular.menu + .bottom.attached.segment {
   border-top: none;
   margin: 0px;
   width: 100%;
 }
+.top.attached.segment + .ui.bottom.tabular.menu {
+  position: relative;
+  width: @tabularFluidWidth;
+  left: -@tabularFluidOffset;
+}
 
-/* Vertical Tabular */
+/* Bottom Vertical Tabular */
+.ui.bottom.tabular.menu {
+  background: @tabularBackground;
+  border-radius: 0em;
+  box-shadow: none !important;
+  border-bottom: none;
+  border-top: @tabularBorderWidth solid @tabularBorderColor;
+}
+.ui.bottom.tabular.menu .item {
+  background: none;
+  border-left: @tabularBorderWidth solid transparent;
+  border-right: @tabularBorderWidth solid transparent;
+  border-bottom: @tabularBorderWidth solid transparent;
+  border-top: none;
+}
+.ui.bottom.tabular.menu .active.item {
+  background: @tabularActiveBackground;
+  color: @tabularActiveColor;
+  border-color: @tabularBorderColor;
+  margin: -@tabularBorderWidth 0px 0px 0px;
+  border-radius: 0px 0px @tabularBorderRadius @tabularBorderRadius !important;
+}
+
+/* Vertical Tabular (Left) */
 .ui.vertical.tabular.menu {
-  background-color: transparent;
+  background: @tabularVerticalBackground;
   border-radius: 0em;
   box-shadow: none !important;
   border-bottom: none;
@@ -666,14 +685,36 @@ Floated Menu / Item
   border-top: @tabularBorderWidth solid transparent;
   border-right: none;
 }
-
-/* Active */
 .ui.vertical.tabular.menu .active.item {
-  background-color: @tabularMenuActiveBackground;
-  color: @tabularMenuActiveColor;
+  background: @tabularActiveBackground;
+  color: @tabularActiveColor;
   border-color: @tabularBorderColor;
   margin: 0px -@tabularBorderWidth 0px 0px;
   border-radius: @tabularBorderRadius 0px 0px @tabularBorderRadius !important;
+}
+
+/* Vertical Right Tabular */
+.ui.vertical.right.tabular.menu {
+  background: @tabularVerticalBackground;
+  border-radius: 0em;
+  box-shadow: none !important;
+  border-bottom: none;
+  border-right: none;
+  border-left: @tabularBorderWidth solid @tabularBorderColor;
+}
+.ui.vertical.right.tabular.menu .item {
+  background: none;
+  border-right: @tabularBorderWidth solid transparent;
+  border-bottom: @tabularBorderWidth solid transparent;
+  border-top: @tabularBorderWidth solid transparent;
+  border-left: none;
+}
+.ui.vertical.right.tabular.menu .active.item {
+  background: @tabularActiveBackground;
+  color: @tabularActiveColor;
+  border-color: @tabularBorderColor;
+  margin: 0px 0px 0px -@tabularBorderWidth;
+  border-radius: 0px @tabularBorderRadius @tabularBorderRadius 0px !important;
 }
 
 /* Dropdown */
@@ -815,6 +856,15 @@ Floated Menu / Item
 }
 .ui.secondary.attached.menu {
   box-shadow: none;
+}
+
+/* Sub Menu */
+.ui.vertical.secondary.menu .item:not(.dropdown) > .menu {
+  margin: @secondaryMenuSubMenuMargin;
+}
+.ui.vertical.secondary.menu .item:not(.dropdown) > .menu > .item {
+  margin: @secondaryMenuSubMenuItemMargin;
+  padding: @secondaryMenuSubMenuItemPadding;
 }
 
 
@@ -971,19 +1021,14 @@ Floated Menu / Item
   margin: @textMenuMargin;
 }
 .ui.text.menu .item {
-  padding: 0em;
   border-radius: 0px;
   box-shadow: none;
   align-self: center;
   margin: @textMenuItemMargin;
+  padding: @textMenuItemPadding;
   font-weight: @textMenuItemFontWeight;
   color: @textMenuItemColor;
   transition: @textMenuItemTransition;
-}
-
-/* Sub Menu */
-.ui.vertical.text.menu > .menu {
-  margin: @textMenuSubMenuMargin;
 }
 
 /* Border */
@@ -995,7 +1040,6 @@ Floated Menu / Item
 /* Header */
 .ui.text.menu .header.item {
   background-color: transparent;
-  padding: 0em;
   opacity: 1;
   color: @textMenuHeaderColor;
   font-size: @textMenuHeaderSize;
@@ -1034,6 +1078,15 @@ Floated Menu / Item
   margin: @textVerticalMenuHeaderMargin;
 }
 
+/* Vertical Sub Menu */
+.ui.vertical.text.menu .item:not(.dropdown) > .menu {
+  margin: @textMenuSubMenuMargin;
+}
+.ui.vertical.text.menu .item:not(.dropdown) > .menu > .item {
+  margin: @textMenuSubMenuItemMargin;
+  padding: @textMenuSubMenuItemPadding;
+}
+
 /*--- hover ---*/
 .ui.text.menu .item:hover {
   opacity: 1;
@@ -1043,7 +1096,6 @@ Floated Menu / Item
 /*--- active ---*/
 .ui.text.menu .active.item {
   background-color: transparent;
-  padding: 0em;
   border: none;
   box-shadow: none;
   font-weight: @textMenuActiveItemFontWeight;
@@ -1081,33 +1133,42 @@ Floated Menu / Item
     Icon Only
 ---------------*/
 
+/* Vertical Menu */
+.ui.vertical.icon.menu {
+  display: inline-block;
+  width: auto;
+}
+
+/* Item */
 .ui.icon.menu .item {
   height: auto;
   text-align: @iconMenuTextAlign;
   color: @iconMenuItemColor;
 }
-.ui.icon.menu .item > .icon {
-  margin: 0em;
+
+/* Icon */
+.ui.icon.menu .item > .icon:not(.dropdown) {
+  margin: 0;
   opacity: 1;
 }
-.ui.vertical.icon.menu .item > .icon:not(.dropdown) {
-  display: block;
-  margin: 0em auto;
-  float: none;
-}
+
+/* Icon Gylph */
 .ui.icon.menu .icon:before {
   opacity: 1;
 }
 
-/* Item Icon Only */
+/* (x) Item Icon */
 .ui.menu .icon.item > .icon {
   width: auto;
   margin: 0em auto;
 }
 
-/* Vertical */
-.ui.vertical.icon.menu {
-  width: auto;
+/* Vertical Icon */
+.ui.vertical.icon.menu .item > .icon:not(.dropdown) {
+  display: block;
+  opacity: 1;
+  margin: 0em auto;
+  float: none;
 }
 
 /* Inverted */
@@ -1119,29 +1180,28 @@ Floated Menu / Item
    Labeled Icon
 ---------------*/
 
+/* Menu */
 .ui.labeled.icon.menu {
   text-align: center;
 }
-.ui.fluid.labeled.icon.menu .item {
-  min-width: 0em;
-}
 
-.ui.labeled.icon.menu .item {
+/* Item */
+.ui.labeled.icon.menu  .item {
   min-width: @labeledIconMinWidth;
-}
-.ui.labeled.icon.menu:not(.vertical) .item {
-  padding-left: @labeledIconItemHorizontalPadding;
-  padding-right: @labeledIconItemHorizontalPadding;
+  flex-direction: column;
 }
 
+/* Icon */
 .ui.labeled.icon.menu .item > .icon:not(.dropdown) {
   height: 1em;
   display: block;
   font-size: @labeledIconSize !important;
-  margin: 0em @labeledIconTextMargin 0em 0em !important;
-}
-.ui.vertical.labeled.icon.menu .item > .icon:not(.dropdown) {
   margin: 0em auto @labeledIconTextMargin !important;
+}
+
+/* Fluid */
+.ui.fluid.labeled.icon.menu > .item {
+  min-width: 0em;
 }
 
 
@@ -1358,6 +1418,7 @@ Floated Menu / Item
 ---------------*/
 
 /* Red */
+.ui.inverted.menu .red.active.item,
 .ui.inverted.red.menu {
   background-color: @red;
 }
@@ -1369,6 +1430,7 @@ Floated Menu / Item
 }
 
 /* Orange */
+.ui.inverted.menu .orange.active.item,
 .ui.inverted.orange.menu {
   background-color: @orange;
 }
@@ -1380,6 +1442,7 @@ Floated Menu / Item
 }
 
 /* Yellow */
+.ui.inverted.menu .yellow.active.item,
 .ui.inverted.yellow.menu {
   background-color: @yellow;
 }
@@ -1391,6 +1454,7 @@ Floated Menu / Item
 }
 
 /* Olive */
+.ui.inverted.menu .olive.active.item,
 .ui.inverted.olive.menu {
   background-color: @olive;
 }
@@ -1402,6 +1466,7 @@ Floated Menu / Item
 }
 
 /* Green */
+.ui.inverted.menu .green.active.item,
 .ui.inverted.green.menu {
   background-color: @green;
 }
@@ -1413,6 +1478,7 @@ Floated Menu / Item
 }
 
 /* Teal */
+.ui.inverted.menu .teal.active.item,
 .ui.inverted.teal.menu {
   background-color: @teal;
 }
@@ -1424,6 +1490,7 @@ Floated Menu / Item
 }
 
 /* Blue */
+.ui.inverted.menu .blue.active.item,
 .ui.inverted.blue.menu {
   background-color: @blue;
 }
@@ -1435,6 +1502,7 @@ Floated Menu / Item
 }
 
 /* Violet */
+.ui.inverted.menu .violet.active.item,
 .ui.inverted.violet.menu {
   background-color: @violet;
 }
@@ -1446,6 +1514,7 @@ Floated Menu / Item
 }
 
 /* Purple */
+.ui.inverted.menu .purple.active.item,
 .ui.inverted.purple.menu {
   background-color: @purple;
 }
@@ -1457,6 +1526,7 @@ Floated Menu / Item
 }
 
 /* Pink */
+.ui.inverted.menu .pink.active.item,
 .ui.inverted.pink.menu {
   background-color: @pink;
 }
@@ -1468,6 +1538,7 @@ Floated Menu / Item
 }
 
 /* Brown */
+.ui.inverted.menu .brown.active.item,
 .ui.inverted.brown.menu {
   background-color: @brown;
 }
@@ -1479,6 +1550,7 @@ Floated Menu / Item
 }
 
 /* Grey */
+.ui.inverted.menu .grey.active.item,
 .ui.inverted.grey.menu {
   background-color: @grey;
 }
@@ -1564,8 +1636,10 @@ Floated Menu / Item
 .ui.item.menu,
 .ui.item.menu .item {
   width: 100%;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
+  padding-left: 0em !important;
+  padding-right: 0em !important;
+  margin-left: 0em !important;
+  margin-right: 0em !important;
   text-align: center;
   justify-content: center;
 }

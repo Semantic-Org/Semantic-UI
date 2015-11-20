@@ -16,9 +16,9 @@ Key Features
 * Built with EM values for responsive design
 * Flexbox friendly
 
-## 2.0 Release
+## 2.1 Release
 
-Semantic UI `2.0` is now available. Read up on [what's new](http://www.semantic-ui.com/introduction/new.html) in the docs.
+Semantic UI `2.1` is now available. Read up on [what's new](http://www.semantic-ui.com/introduction/new.html) in the docs.
 
 Migration info from `1.x` can be found in the [2.0 release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md#version-200---march-xx-2015)
 
@@ -53,7 +53,8 @@ Check out our [integration wiki](https://github.com/Semantic-Org/Semantic-UI/wik
 
 * Last 2 Versions FF, Chrome, IE 10+, Safari Mac
 * IE 10+
-* Android 4
+* Android 4.4+, Chrome for Android 44+
+* iOS Safari 7+
 
 Although some components will work in IE9, [grids](http://semantic-ui.com/collections/grid.html) and other [flexbox](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes) components are not supported by IE9 and may not appear correctly.
 

@@ -466,44 +466,77 @@
 }
 
 /*--------------
-   Hoverable
+     Fixed
 ---------------*/
 
-.ui.selectable.table tbody tr:hover {
+.ui.fixed.table {
+  table-layout: fixed;
+}
+
+.ui.fixed.table th,
+.ui.fixed.table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/*--------------
+   Selectable
+---------------*/
+
+.ui.selectable.table tbody tr:hover,
+.ui.table tbody tr td.selectable:hover {
   background: @selectableBackground !important;
   color: @selectableTextColor !important;
 }
-.ui.selectable.inverted.table tbody tr:hover {
+.ui.selectable.inverted.table tbody tr:hover,
+.ui.inverted.table tbody tr td.selectable:hover {
   background: @selectableInvertedBackground !important;
   color: @selectableInvertedTextColor !important;
 }
 
+/* Selectable Cell Link */
+.ui.table tbody tr td.selectable {
+  padding: 0em;
+}
+.ui.table tbody tr td.selectable > a:not(.ui) {
+  display: block;
+  color: inherit;
+  padding: @cellVerticalPadding @cellHorizontalPadding;
+}
+
 /* Other States */
 .ui.selectable.table tr.error:hover,
+.ui.table tr td.selectable.error:hover,
 .ui.selectable.table tr:hover td.error {
   background: @errorBackgroundHover !important;
   color: @errorColorHover !important;
 }
 .ui.selectable.table tr.warning:hover,
+.ui.table tr td.selectable.warning:hover,
 .ui.selectable.table tr:hover td.warning {
   background: @warningBackgroundHover !important;
   color: @warningColorHover !important;
 }
 .ui.selectable.table tr.active:hover,
+.ui.table tr td.selectable.active:hover,
 .ui.selectable.table tr:hover td.active {
   background: @activeBackgroundColor !important;
   color: @activeColor !important;
 }
 .ui.selectable.table tr.positive:hover,
+.ui.table tr td.selectable.positive:hover,
 .ui.selectable.table tr:hover td.positive {
   background: @positiveBackgroundHover !important;
   color: @positiveColorHover !important;
 }
 .ui.selectable.table tr.negative:hover,
+.ui.table tr td.selectable.negative:hover,
 .ui.selectable.table tr:hover td.negative {
   background: @negativeBackgroundHover !important;
   color: @negativeColorHover !important;
 }
+
 
 
 /*-------------------
@@ -570,6 +603,10 @@
    Single Line
 ---------------*/
 
+.ui.table[class*="single line"],
+.ui.table [class*="single line"] {
+  white-space: nowrap;
+}
 .ui.table[class*="single line"],
 .ui.table [class*="single line"] {
   white-space: nowrap;

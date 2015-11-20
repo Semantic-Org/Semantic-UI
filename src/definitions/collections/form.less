@@ -89,10 +89,15 @@
 .ui.form input[type="tel"],
 .ui.form input[type="time"],
 .ui.form input[type="text"],
-.ui.form input[type="url"],
-.ui.form .ui.input {
-  width: 100%;
+.ui.form input[type="url"] {
+  width: @inputWidth;
   vertical-align: top;
+}
+
+/* Set max height on unusual input */
+.ui.form ::-webkit-datetime-edit,
+.ui.form ::-webkit-inner-spin-button {
+  height: @inputLineHeight;
 }
 
 .ui.form input:not([type]),
@@ -122,11 +127,6 @@
   border-radius: @inputBorderRadius;
   box-shadow: @inputBoxShadow;
   transition: @inputTransition;
-}
-
-/* Collapse Flex */
-.ui.form .ui.input > input {
-  width: 0px !important;
 }
 
 /* Text Area */
@@ -189,6 +189,7 @@
        Dropdown
 ---------------------*/
 
+/* Block */
 .ui.form .field > .selection.dropdown {
   width: 100%;
 }
@@ -196,21 +197,53 @@
   float: right;
 }
 
+/* Inline */
+.ui.form .inline.fields .field > .selection.dropdown,
 .ui.form .inline.field > .selection.dropdown {
   width: auto;
 }
+.ui.form .inline.fields .field > .selection.dropdown > .dropdown.icon,
 .ui.form .inline.field > .selection.dropdown > .dropdown.icon {
   float: none;
 }
 
-
 /*--------------------
-       Dividers
+       UI Input
 ---------------------*/
 
-.ui.form .divider {
-  clear: both;
-  margin: @dividerMargin;
+/* Block */
+.ui.form .field .ui.input,
+.ui.form .fields .field .ui.input,
+.ui.form .wide.field .ui.input {
+  width: 100%;
+}
+
+/* Inline  */
+.ui.form .inline.fields .field:not(.wide) .ui.input,
+.ui.form .inline.field:not(.wide) .ui.input {
+  width: auto;
+  vertical-align: middle;
+}
+
+/* Auto Input */
+.ui.form .fields .field .ui.input input,
+.ui.form .field .ui.input input {
+  width: auto;
+}
+
+/* Full Width Input */
+.ui.form .ten.fields .ui.input input,
+.ui.form .nine.fields .ui.input input,
+.ui.form .eight.fields .ui.input input,
+.ui.form .seven.fields .ui.input input,
+.ui.form .six.fields .ui.input input,
+.ui.form .five.fields .ui.input input,
+.ui.form .four.fields .ui.input input,
+.ui.form .three.fields .ui.input input,
+.ui.form .two.fields .ui.input input,
+.ui.form .wide.field .ui.input input {
+  flex: 1 0 auto;
+  width: 0px;
 }
 
 
@@ -234,13 +267,19 @@
 ---------------------*/
 
 .ui.form .field .prompt.label {
-  white-space: nowrap;
+  white-space: normal;
+  background: @promptBackground !important;
+  border: @promptBorder !important;
+  color: @promptTextColor !important;
 }
+.ui.form .inline.fields .field .prompt,
 .ui.form .inline.field .prompt {
-  margin: @inlineValidationMargin;
+  vertical-align: top;
+  margin: @inlinePromptMargin;
 }
+.ui.form .inline.fields .field .prompt:before,
 .ui.form .inline.field .prompt:before {
-  margin-top: @inlineValidationArrowOffset;
+  border-width: 0px 0px @inlinePromptBorderWidth @inlinePromptBorderWidth;
   bottom: auto;
   right: auto;
   top: 50%;
@@ -358,22 +397,10 @@
 ---------------------*/
 
 /* On Form */
-.ui.form.success .success.message {
+.ui.form.success .success.message:not(:empty) {
   display: block;
 }
-.ui.form.success .icon.success.message {
-  display: flex;
-}
-
-/*--------------------
-        Error
----------------------*/
-
-/* On Form */
-.ui.form.warning .warning.message {
-  display: block;
-}
-.ui.form.warning .icon.warning.message {
+.ui.form.success .icon.success.message:not(:empty) {
   display: flex;
 }
 
@@ -382,10 +409,22 @@
 ---------------------*/
 
 /* On Form */
-.ui.form.error .error.message {
+.ui.form.warning .warning.message:not(:empty) {
   display: block;
 }
-.ui.form.error .icon.error.message {
+.ui.form.warning .icon.warning.message:not(:empty) {
+  display: flex;
+}
+
+/*--------------------
+        Error
+---------------------*/
+
+/* On Form */
+.ui.form.error .error.message:not(:empty) {
+  display: block;
+}
+.ui.form.error .icon.error.message:not(:empty) {
   display: flex;
 }
 
@@ -541,6 +580,7 @@
 .ui.form .disabled.fields .field,
 .ui.form .disabled.field,
 .ui.form .field :disabled {
+  pointer-events: none;
   opacity: @disabledOpacity;
 }
 .ui.form .field.disabled label {
@@ -549,6 +589,7 @@
 .ui.form .field.disabled :disabled {
   opacity: 1;
 }
+
 
 /*--------------
     Loading
@@ -657,6 +698,25 @@
 .ui.inverted.form .ui.checkbox .box {
   color: @invertedLabelColor;
 }
+
+/* Inverted Field */
+.ui.inverted.form input:not([type]),
+.ui.inverted.form input[type="date"],
+.ui.inverted.form input[type="datetime-local"],
+.ui.inverted.form input[type="email"],
+.ui.inverted.form input[type="number"],
+.ui.inverted.form input[type="password"],
+.ui.inverted.form input[type="search"],
+.ui.inverted.form input[type="tel"],
+.ui.inverted.form input[type="time"],
+.ui.inverted.form input[type="text"],
+.ui.inverted.form input[type="url"] {
+  background: @invertedInputBackground;
+  border-color: @invertedInputBorderColor;
+  color: @invertedInputColor;
+  box-shadow: @invertedInputBoxShadow;
+}
+
 
 /*--------------------
      Field Groups
@@ -782,7 +842,6 @@
 
 
 /* Sizing Combinations */
-
 .ui.form .fields .wide.field {
   width: @oneWide;
   padding-left: (@gutterWidth / 2);
@@ -877,6 +936,16 @@
 }
 
 /*--------------------
+     Equal Width
+---------------------*/
+
+.ui[class*="equal width"].form .fields > .field,
+.ui.form [class*="equal width"].fields > .field {
+  width: 100%;
+  flex: 1 1 auto;
+}
+
+/*--------------------
     Inline Fields
 ---------------------*/
 
@@ -914,10 +983,8 @@
 /* Inline Input */
 .ui.form .inline.fields .field > input,
 .ui.form .inline.fields .field > select,
-.ui.form .inline.fields .field > .ui.input,
 .ui.form .inline.field > input,
-.ui.form .inline.field > select,
-.ui.form .inline.field > .ui.input {
+.ui.form .inline.field > select {
   display: inline-block;
   width: auto;
 
@@ -927,7 +994,6 @@
   vertical-align: middle;
   font-size: @inlineInputSize;
 }
-
 
 /* Label */
 .ui.form .inline.fields .field > :first-child,
@@ -945,8 +1011,7 @@
   align-items: center;
 }
 .ui.form .inline.fields .wide.field > input,
-.ui.form .inline.fields .wide.field > select,
-.ui.form .inline.fields .wide.field > .ui.input {
+.ui.form .inline.fields .wide.field > select {
   width: 100%;
 }
 

@@ -88,6 +88,7 @@
 .ui.dropdown > .dropdown.icon {
   position: relative;
   width: auto;
+  font-size: @dropdownIconSize;
   margin: @dropdownIconMargin;
 }
 .ui.dropdown .menu > .item .dropdown.icon {
@@ -625,7 +626,7 @@ select.ui.dropdown {
 .ui.multiple.dropdown > .label {
   user-select: none;
   display: inline-block;
-  vertical-align: baseline;
+  vertical-align: top;
   white-space: normal;
   font-size: @labelSize;
   padding: @labelPadding;
@@ -1312,5 +1313,22 @@ select.ui.dropdown {
   left: auto;
   right: @pointingArrowDistanceFromEdge;
 }
+
+/* Upward pointing */
+.ui.upward.pointing.dropdown > .menu,
+.ui.upward.top.pointing.dropdown > .menu {
+  top: auto;
+  bottom: 100%;
+  margin: 0em 0em @pointingMenuDistance;
+  border-radius: @pointingUpwardMenuBorderRadius;
+}
+.ui.upward.pointing.dropdown > .menu:after,
+.ui.upward.top.pointing.dropdown > .menu:after {
+  top: 100%;
+  bottom: auto;
+  box-shadow: @pointingUpwardArrowBoxShadow;
+  margin: @pointingArrowOffset 0em 0em;
+}
+
 
 .loadUIOverrides();

@@ -97,7 +97,6 @@ $.fn.embed = function(parameters) {
           events: function() {
             if( module.has.placeholder() ) {
               module.debug('Adding placeholder events');
-              console.log($module, selector.placeholder);
               $module
                 .on('click' + eventNamespace, selector.placeholder, module.createAndShow)
                 .on('click' + eventNamespace, selector.icon, module.createAndShow)
@@ -132,7 +131,6 @@ $.fn.embed = function(parameters) {
         createEmbed: function(url) {
           module.refresh();
           url = url || module.get.url();
-          console.log(url);
           $embed = $('<div/>')
             .addClass(className.embed)
             .html( module.generate.embed(url) )
@@ -143,7 +141,6 @@ $.fn.embed = function(parameters) {
         },
 
         createAndShow: function() {
-          console.log('cands');
           module.createEmbed();
           module.show();
         },
@@ -630,7 +627,7 @@ $.fn.embed.settings = {
   templates: {
     iframe : function(url, parameters) {
       return ''
-        + '<iframe src="' + url + '?=' + parameters + '"'
+        + '<iframe src="' + url + '?' + parameters + '"'
         + ' width="100%" height="100%"'
         + ' frameborder="0" scrolling="no" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
       ;
@@ -659,4 +656,4 @@ $.fn.embed.settings = {
 
 
 
-})( jQuery, window , document );
+})( jQuery, window, document );

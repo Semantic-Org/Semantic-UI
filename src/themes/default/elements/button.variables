@@ -18,7 +18,6 @@
 @verticalPadding: @inputVerticalPadding;
 @horizontalPadding: 1.5em;
 
-
 /* Text */
 @textTransform: none;
 @tapColor: transparent;
@@ -26,7 +25,7 @@
 @fontWeight: bold;
 @textColor: rgba(0, 0, 0, 0.6);
 @textShadow: none;
-@invertedTextShadow: none;
+@invertedTextShadow: @textShadow;
 @borderRadius: @defaultBorderRadius;
 @verticalAlign: baseline;
 
@@ -45,7 +44,7 @@
 ;
 
 /* Icon */
-@iconHeight: @relativeSmall;
+@iconHeight: @relativeTiny;
 @iconOpacity: 0.8;
 @iconDistance: @relative6px;
 @iconColor: '';
@@ -160,6 +159,16 @@
 /* Icon */
 @iconButtonOpacity: 0.9;
 
+/* Labeled */
+@labeledLabelFontSize: @medium;
+@labeledLabelAlign: center;
+@labeledLabelPadding: '';
+@labeledLabelFontSize: @relativeMedium;
+@labeledLabelBorderColor: @borderColor;
+@labeledLabelBorderOffset: -@borderBoxShadowWidth;
+@labeledTagLabelSize: 1.85em; /* hypotenuse of triangle */
+@labeledIconMargin: 0em;
+
 /* Labeled Icon */
 @labeledIconWidth: 1em + (@verticalPadding * 2);
 @labeledIconBackgroundColor: rgba(0, 0, 0, 0.05);
@@ -169,6 +178,7 @@
 
 @labeledIconLeftShadow: -1px 0px 0px 0px @labeledIconBorder inset;
 @labeledIconRightShadow: 1px 0px 0px 0px @labeledIconBorder inset;
+
 
 /* Inverted */
 @invertedBorderSize: 2px;
@@ -181,7 +191,7 @@
 @basicBorderRadius: @borderRadius;
 @basicBorderSize: 1px;
 @basicTextColor: @textColor;
-@basicColoredBorderSize: 2px;
+@basicColoredBorderSize: 1px;
 
 @basicBackground: transparent none;
 @basicFontWeight: normal;

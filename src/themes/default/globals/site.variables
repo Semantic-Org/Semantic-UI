@@ -30,6 +30,7 @@
 /* The size of page text  */
 @fontSize : 14px;
 
+
 /*-------------------
     Border Radius
 --------------------*/
@@ -77,6 +78,16 @@
 
 /* Line Height Default For Inputs in Browser */
 @inputLineHeight: 1.2142em;
+
+/*-------------------
+    Focused Input
+--------------------*/
+
+/* Used on inputs, textarea etc */
+@focusedFormBorderColor: #85B7D9;
+
+/* Used on dropdowns, other larger blocks */
+@focusedFormMutedBorderColor: #96C8DA;
 
 /*-------------------
         Sizes
@@ -249,8 +260,6 @@
 @purpleTextColor : @purple;
 @pinkTextColor   : @pink;
 @brownTextColor  : @brown;
-
-
 
 /*-------------------
      Alpha Colors
