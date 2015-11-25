@@ -95,6 +95,10 @@ i.icon.remove.from.calendar:before { content: "\f272"; }
 i.icon.delete.calendar:before { content: "\f273"; }
 i.icon.checked.calendar:before { content: "\f274"; }
 i.icon.industry:before { content: "\f275"; }
+i.icon.shopping.bag:before { content: "\f290"; }
+i.icon.shopping.basket:before { content: "\f291"; }
+i.icon.hashtag:before { content: "\f292"; }
+i.icon.percent:before { content: "\f295"; }
 
 /* User Actions */
 i.icon.wait:before { content: "\f017"; }
@@ -370,7 +374,6 @@ i.icon.battery.quarter:before { content: "\f243"; }
 i.icon.battery.empty:before { content: "\f244"; }
 i.icon.television:before { content: "\f26c"; }
 
-
 /* File System */
 i.icon.file.outline:before { content: "\f016"; }
 i.icon.folder:before { content: "\f07b"; }
@@ -403,6 +406,9 @@ i.icon.rss.square:before { content: "\f143"; }
 i.icon.openid:before { content: "\f19b"; }
 i.icon.database:before { content: "\f1c0"; }
 i.icon.server:before { content: "\f233"; }
+i.icon.usb:before { content: "\f287"; }
+i.icon.bluetooth:before { content: "\f293"; }
+i.icon.bluetooth.alternative:before { content: "\f294"; }
 
 /* Rating */
 i.icon.heart:before { content: "\f004"; }
@@ -440,6 +446,10 @@ i.icon.unmute:before { content: "\f130"; }
 i.icon.mute:before { content: "\f131"; }
 i.icon.video.play:before { content: "\f144"; }
 i.icon.closed.captioning:before { content: "\f20a"; }
+i.icon.pause.circle:before { content: "\f28b"; }
+i.icon.pause.circle.outline:before { content: "\f28c"; }
+i.icon.stop.circle:before { content: "\f28d"; }
+i.icon.stop.circle.outline:before { content: "\f28e"; }
 
 /* Map, Locations, & Transportation */
 i.icon.marker:before { content: "\f041"; }
@@ -541,6 +551,7 @@ i.icon.paypal.card:before { content: "\f1f4"; }
 i.icon.stripe:before { content: "\f1f5"; }
 i.icon.japan.credit.bureau:before { content: "\f24b"; }
 i.icon.diners.club:before { content: "\f24c"; }
+i.icon.credit.card.alternative:before { content: "\f283"; }
 
 /* Networks and Websites*/
 i.icon.twitter.square:before { content: "\f081"; }
@@ -663,6 +674,14 @@ i.icon.houzz:before { content: "\f27c"; }
 i.icon.vimeo:before { content: "\f27d"; }
 i.icon.black.tie:before { content: "\f27e"; }
 i.icon.fonticons:before { content: "\f280"; }
+i.icon.reddit.alien:before { content: "\f281"; }
+i.icon.microsoft.edge:before { content: "\f282"; }
+i.icon.codiepie:before { content: "\f284"; }
+i.icon.modx:before { content: "\f285"; }
+i.icon.fort.awesome:before { content: "\f286"; }
+i.icon.product.hunt:before { content: "\f288"; }
+i.icon.mixcloud:before { content: "\f289"; }
+i.icon.scribd:before { content: "\f28a"; }
 
 /*******************************
             Aliases
@@ -863,3 +882,5 @@ i.icon.calendar.check:before { content: "\f274"; }
 i.icon.factory:before { content: "\f275"; }
 i.icon.muted.user:before { content: "\f27a"; }
 i.icon.muted.user.outline:before { content: "\f27b"; }
+i.icon.edge:before { content: "\f282"; }
+i.icon.ms.edge:before { content: "\f282"; }
