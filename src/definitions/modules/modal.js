@@ -242,15 +242,20 @@ $.fn.modal = function(parameters) {
               isInDOM   = $.contains(document.documentElement, event.target)
             ;
             if(!isInModal && isInDOM) {
-              module.debug('Dimmer clicked, hiding all modals');
-              if( module.is.active() ) {
-                module.remove.clickaway();
-                if(settings.allowMultiple) {
-                  module.hide();
+              if(settings.closable) {
+                module.debug('Dimmer clicked, hiding all modals');
+                if( module.is.active() ) {
+                  module.remove.clickaway();
+                  if(settings.allowMultiple) {
+                    module.hide();
+                  }
+                  else {
+                    module.hideAll();
+                  }
                 }
-                else {
-                  module.hideAll();
-                }
+              }
+              else {
+                module.debug('Dimmer clicked, but closable is set to false');
               }
             }
           },
@@ -494,11 +499,9 @@ $.fn.modal = function(parameters) {
             $module.removeClass(className.active);
           },
           clickaway: function() {
-            if(settings.closable) {
-              $dimmer
-                .off('click' + elementNamespace)
-              ;
-            }
+            $dimmer
+              .off('click' + elementNamespace)
+            ;
           },
           bodyStyle: function() {
             if($body.attr('style') === '') {
@@ -579,11 +582,9 @@ $.fn.modal = function(parameters) {
             }
           },
           clickaway: function() {
-            if(settings.closable) {
-              $dimmer
-                .on('click' + elementNamespace, module.event.click)
-              ;
-            }
+            $dimmer
+              .on('click' + elementNamespace, module.event.click)
+            ;
           },
           screenHeight: function() {
             if( module.can.fit() ) {
