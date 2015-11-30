@@ -841,7 +841,7 @@ $.fn.popup = function(parameters) {
                   module.remove.attempts();
                   module.remove.loading();
                   module.reset();
-                  settings.onUnplaceable.call(element);
+                  settings.onUnplaceable.call($popup, element);
                   return false;
                 }
               }
