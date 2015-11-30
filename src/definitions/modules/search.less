@@ -275,7 +275,40 @@
 *******************************/
 
 /*--------------
-    Categories
+    Selection
+---------------*/
+
+.ui.search.selection .prompt {
+  border-radius: @selectionPromptBorderRadius;
+}
+
+/* Remove input */
+.ui.search.selection > .icon.input > .remove.icon {
+  pointer-events: none;
+  position: absolute;
+  left: auto;
+  opacity: 0;
+  color: @selectionCloseIconColor;
+  top: @selectionCloseTop;
+  right: @selectionCloseRight;
+  transition: @selectionCloseTransition;
+}
+.ui.search.selection > .icon.input > .active.remove.icon {
+  cursor: pointer;
+  opacity: @selectionCloseIconOpacity;
+  pointer-events: auto;
+}
+.ui.search.selection > .icon.input:not([class*="left icon"]) > .icon ~ .remove.icon {
+  right: @selectionCloseIconInputRight;
+}
+.ui.search.selection > .icon.input > .remove.icon:hover {
+  opacity: @selectionCloseIconHoverOpacity;
+  color: @selectionCloseIconHoverColor;
+}
+
+
+/*--------------
+    Category
 ---------------*/
 
 .ui.category.search .results {

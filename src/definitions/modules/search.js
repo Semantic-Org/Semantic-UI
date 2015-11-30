@@ -46,6 +46,8 @@ $.fn.search = function(parameters) {
 
         $module         = $(this),
         $prompt         = $module.find(selector.prompt),
+        $input          = $module.find(selector.input),
+        $remove         = $module.find(selector.remove),
         $searchButton   = $module.find(selector.searchButton),
         $results        = $module.find(selector.results),
         $result         = $module.find(selector.result),
@@ -105,6 +107,11 @@ $.fn.search = function(parameters) {
               .on('mouseup'   + eventNamespace, selector.results, module.event.result.mouseup)
               .on('click'     + eventNamespace, selector.result,  module.event.result.click)
             ;
+            if(module.is.searchSelection()) {
+              $module
+                .on('click' + eventNamespace, selector.remove, module.event.remove.click)
+              ;
+            }
           }
         },
 
@@ -137,9 +144,17 @@ $.fn.search = function(parameters) {
               pageLostFocus = (document.activeElement === this)
             ;
             if(!pageLostFocus && !module.resultsClicked) {
+              if( settings.forceSelection && module.is.searchSelection() ) {
+                module.set.value( module.get.selectedValue() );
+              }
               module.cancel.query();
               module.remove.focus();
               module.timer = setTimeout(module.hideResults, settings.hideDelay);
+            }
+          },
+          remove: {
+            click: function() {
+              module.clear.selectedValue();
             }
           },
           result: {
@@ -174,7 +189,7 @@ $.fn.search = function(parameters) {
               }
               module.hideResults();
               if(value) {
-                module.set.value(value);
+                module.set.selectedValue(value);
               }
               if(href) {
                 module.verbose('Opening search link found in result', $link);
@@ -209,7 +224,9 @@ $.fn.search = function(parameters) {
           // search shortcuts
           if(keyCode == keys.escape) {
             module.verbose('Escape key pressed, blurring search field');
-            module.trigger.blur();
+            $prompt
+              .trigger('blur')
+            ;
           }
           if( module.is.visible() ) {
             if(keyCode == keys.enter) {
@@ -298,28 +315,20 @@ $.fn.search = function(parameters) {
         },
 
         is: {
+          input : function() {
+            $module.is('input');
+          },
           empty: function() {
             return ($results.html() === '');
+          },
+          searchSelection: function() {
+            return $module.hasClass(className.selection);
           },
           visible: function() {
             return ($results.filter(':visible').length > 0);
           },
           focused: function() {
             return ($prompt.filter(':focus').length > 0);
-          }
-        },
-
-        trigger: {
-          blur: function() {
-            var
-              events        = document.createEvent('HTMLEvents'),
-              promptElement = $prompt[0]
-            ;
-            if(promptElement) {
-              module.verbose('Triggering native blur event');
-              events.initEvent('blur', false, false);
-              promptElement.dispatchEvent(events);
-            }
           }
         },
 
@@ -334,6 +343,12 @@ $.fn.search = function(parameters) {
                   : 'keyup'
             ;
             return inputEvent;
+          },
+          selectedValue: function() {
+            return ($input.length > 0)
+              ? $input.val() || ''
+              : $module.data(metadata.value) || ''
+            ;
           },
           value: function() {
             return $prompt.val();
@@ -362,7 +377,7 @@ $.fn.search = function(parameters) {
               $.each(results, function(index, category) {
                 if($.isArray(category.results)) {
                   result = module.search.object(value, category.results, lookupFields)[0];
-                  // don't continue searching if a result is found
+                  // dont continue searching if a result is found
                   if(result) {
                     return false;
                   }
@@ -378,6 +393,9 @@ $.fn.search = function(parameters) {
         },
 
         set: {
+          clearable: function() {
+            $remove.addClass(className.active);
+          },
           focus: function() {
             $module.addClass(className.focus);
           },
@@ -389,6 +407,21 @@ $.fn.search = function(parameters) {
             $prompt
               .val(value)
             ;
+          },
+          selectedValue: function(value) {
+            if($input.length > 0) {
+              $input.val(value);
+            }
+            else {
+              $module.data(metadata.value, value);
+            }
+            if(value === '') {
+              module.remove.clearable();
+            }
+            else {
+              module.set.clearable();
+            }
+            module.set.value(value);
           },
           type: function(type) {
             type = type || settings.type;
@@ -402,6 +435,9 @@ $.fn.search = function(parameters) {
         },
 
         remove: {
+          clearable: function() {
+            $remove.removeClass(className.active);
+          },
           loading: function() {
             $module.removeClass(className.loading);
           },
@@ -436,8 +472,8 @@ $.fn.search = function(parameters) {
               else {
                 module.error(error.source);
               }
+              settings.onSearchQuery.call(element, searchTerm);
             }
-            settings.onSearchQuery.call(element, searchTerm);
           }
           else {
             module.hideResults();
@@ -612,10 +648,19 @@ $.fn.search = function(parameters) {
               numCharacters = searchTerm.length
             ;
             return (numCharacters >= settings.minCharacters);
+          },
+          selectedValue: function() {
+            return module.get.selectedValue()
+              ? true
+              : false
+            ;
           }
         },
 
         clear: {
+          selectedValue: function() {
+            module.set.selectedValue('');
+          },
           cache: function(value) {
             var
               cache = $module.data(metadata.cache)
@@ -1075,6 +1120,9 @@ $.fn.search.settings = {
   searchFullText : true,
   // whether to include fuzzy results in local search
 
+  forceSelection : true,
+  // whether to remove unmatched input values from a selection search
+
   automatic      : true,
   // whether to add events to prompt automatically
 
@@ -1111,6 +1159,7 @@ $.fn.search.settings = {
     focus   : 'focus',
     loading : 'loading',
     results : 'results',
+    selection: 'selection',
     pressed : 'down'
   },
 
@@ -1128,7 +1177,8 @@ $.fn.search.settings = {
   metadata: {
     cache   : 'cache',
     results : 'results',
-    result  : 'result'
+    result  : 'result',
+    value   : 'value'
   },
 
   regExp: {
@@ -1146,18 +1196,19 @@ $.fn.search.settings = {
     price           : 'price',       // result price
     results         : 'results',     // array of results (standard)
     title           : 'title',       // result title
-    url             : 'url',         // result url
     action          : 'action',      // "view more" object name
     actionText      : 'text',        // "view more" text
     actionURL       : 'url'          // "view more" url
   },
 
   selector : {
-    prompt       : '.prompt',
-    searchButton : '.search.button',
-    results      : '.results',
     category     : '.category',
+    input        : '> input[type="hidden"]',
+    prompt       : '.prompt',
+    remove       : '> .icon.input > .remove.icon',
     result       : '.result',
+    results      : '.results',
+    searchButton : '.search.button',
     title        : '.title, .name'
   },
 
@@ -1224,8 +1275,8 @@ $.fn.search.settings = {
 
             // each item inside category
             $.each(category.results, function(index, result) {
-              if(result[fields.url]) {
-                html  += '<a class="result" href="' + result[fields.url] + '">';
+              if(response[fields.url]) {
+                html  += '<a class="result" href="' + response[fields.url] + '">';
               }
               else {
                 html  += '<a class="result">';
@@ -1275,8 +1326,8 @@ $.fn.search.settings = {
 
         // each result
         $.each(response[fields.results], function(index, result) {
-          if(result[fields.url]) {
-            html  += '<a class="result" href="' + result[fields.url] + '">';
+          if(response[fields.url]) {
+            html  += '<a class="result" href="' + response[fields.url] + '">';
           }
           else {
             html  += '<a class="result">';
@@ -1317,4 +1368,4 @@ $.fn.search.settings = {
   }
 };
 
-})( jQuery, window, document );
+})( jQuery, window , document );
