@@ -841,6 +841,7 @@ $.fn.popup = function(parameters) {
                   module.remove.attempts();
                   module.remove.loading();
                   module.reset();
+                  settings.onUnplaceable.call(element);
                   return false;
                 }
               }
@@ -1243,6 +1244,9 @@ $.fn.popup.settings = {
 
   // callback before hide animation
   onHide       : function(){},
+
+  // callback when popup cannot be positioned in visible screen
+  onUnplaceable: function(){},
 
   // callback after hide animation
   onHidden     : function(){},
