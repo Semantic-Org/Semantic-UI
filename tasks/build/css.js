@@ -21,6 +21,7 @@ var
   print        = require('gulp-print'),
   rename       = require('gulp-rename'),
   replace      = require('gulp-replace'),
+  runSequence  = require('run-sequence'),
 
   // config
   config       = require('../config/user'),
@@ -47,7 +48,8 @@ module.exports = function(callback) {
   var
     stream,
     compressedStream,
-    uncompressedStream
+    uncompressedStream,
+    completeCount = 0
   ;
 
   console.info('Building CSS');
@@ -55,6 +57,12 @@ module.exports = function(callback) {
   if( !install.isSetup() ) {
     console.error('Cannot build files. Run "gulp install" to set-up Semantic');
     return;
+  }
+
+  function complete() {
+    if (++completeCount === 2) {
+      callback()
+    }
   }
 
   // unified css stream
@@ -82,7 +90,7 @@ module.exports = function(callback) {
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
     .on('end', function() {
-      gulp.start('package uncompressed css');
+      runSequence('package uncompressed css', complete);
     })
   ;
 
@@ -97,8 +105,7 @@ module.exports = function(callback) {
     .pipe(gulp.dest(output.compressed))
     .pipe(print(log.created))
     .on('end', function() {
-      gulp.start('package compressed css');
-      callback();
+      runSequence('package compressed css', complete);
     })
   ;
 
