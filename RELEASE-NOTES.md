@@ -3,6 +3,7 @@
 ### Version 2.1.7 Nov 29, 2015
 
 **Bug Fixes**
+-**Popup** - Fixed issue with `onEnable` callback being defined with name `onEnabled` and `onDisable` with `onDisabled` in default settings, causing an error. To preserve backwards compatibility, the mispelled callback name has been left, but the bug has been fixed. #3148
 -**Popup** - Adds `onUnplaceable` callback when element cannot be place in visible screen #3388
 -**Sidebar** - Sidebar no longer includes `transform` rules on child elements, this was causing layout issues in some cases (for example dropdowns in sidebars) #3306
 -**Sidebar** - Fixed css rule issue causing `very thin` sidebar to not work #3300
