@@ -3,7 +3,6 @@
 ### Version 2.1.7 Nov 29, 2015
 
 **Bug Fixes**
-
 -**Popup** - Adds `onUnplaceable` callback when element cannot be place in visible screen
 
 ### Version 2.1.6 - Nov 6, 2015
