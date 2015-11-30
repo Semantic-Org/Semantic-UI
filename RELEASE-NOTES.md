@@ -3,7 +3,9 @@
 ### Version 2.1.7 Nov 29, 2015
 
 **Bug Fixes**
--**Popup** - Adds `onUnplaceable` callback when element cannot be place in visible screen
+-**Popup** - Adds `onUnplaceable` callback when element cannot be place in visible screen #3388
+-**Sidebar** - Sidebar no longer includes `transform` rules on child elements, this was causing layout issues in some cases (for example dropdowns in sidebars) #3306
+-**Sidebar** - Fixed css rule issue causing `very thin` sidebar to not work #3300
 
 ### Version 2.1.6 - Nov 6, 2015
 
