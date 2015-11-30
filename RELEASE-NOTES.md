@@ -3,6 +3,7 @@
 ### Version 2.1.7 Nov 29, 2015
 
 **Bug Fixes**
+-**Search** - Search now correctly hides menu when an error message inside results is clicked. #3039
 -**Popup** - Adds `onUnplaceable` callback when element cannot be place in visible screen #3388
 -**Sidebar** - Sidebar no longer includes `transform` rules on child elements, this was causing layout issues in some cases (for example dropdowns in sidebars) #3306
 -**Sidebar** - Fixed css rule issue causing `very thin` sidebar to not work #3300
