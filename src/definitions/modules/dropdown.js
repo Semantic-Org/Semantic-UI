@@ -229,15 +229,6 @@ $.fn.dropdown = function(parameters) {
         },
 
         select: {
-          firstUnfiltered: function() {
-            module.verbose('Selecting first non-filtered element');
-            module.remove.selectedItem();
-            $item
-              .not(selector.unselectable)
-                .eq(0)
-                .addClass(className.selected)
-            ;
-          },
           nextAvailable: function($selected) {
             $selected = $selected.eq(0);
             var
@@ -606,7 +597,6 @@ $.fn.dropdown = function(parameters) {
               if(module.is.multiple()) {
                 module.filterActive();
               }
-              module.select.firstUnfiltered();
               if( module.has.allResultsFiltered() ) {
                 if( settings.onNoResults.call(element, searchTerm) ) {
                   if(!settings.allowAdditions) {
