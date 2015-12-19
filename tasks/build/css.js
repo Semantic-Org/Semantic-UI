@@ -28,6 +28,13 @@ var
   tasks        = require('../config/tasks'),
   install      = require('../config/project/install'),
 
+  maybeCallback = function() {
+    if (completeCount === 1) {
+      callback();
+    }
+    completeCount++;
+  },
+
   // shorthand
   globs        = config.globs,
   assets       = config.paths.assets,
@@ -59,12 +66,6 @@ module.exports = function(callback) {
     return;
   }
 
-  function complete() {
-    if (++completeCount === 2) {
-      callback()
-    }
-  }
-
   // unified css stream
   stream = gulp.src(source.definitions + '/**/' + globs.components + '.less')
     .pipe(plumber(settings.plumber.less))
@@ -90,7 +91,7 @@ module.exports = function(callback) {
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
     .on('end', function() {
-      runSequence('package uncompressed css', complete);
+      runSequence('package uncompressed css', maybeCallback);
     })
   ;
 
@@ -105,7 +106,7 @@ module.exports = function(callback) {
     .pipe(gulp.dest(output.compressed))
     .pipe(print(log.created))
     .on('end', function() {
-      runSequence('package compressed css', complete);
+      runSequence('package compressed css', maybeCallback);
     })
   ;
 
