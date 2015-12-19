@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 2.1.6
+ * # Semantic UI - 2.1.7
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -9,7 +9,7 @@
  *
  */
 /*!
- * # Semantic UI 2.1.6 - Site
+ * # Semantic UI 2.1.7 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -497,7 +497,7 @@ $.extend($.expr[ ":" ], {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.1.6 - Form Validation
+ * # Semantic UI 2.1.7 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2015,7 +2015,7 @@ $.fn.form.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.1.6 - Accordion
+ * # Semantic UI 2.1.7 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2612,7 +2612,7 @@ $.extend( $.easing, {
 
 
 /*!
- * # Semantic UI 2.1.6 - Checkbox
+ * # Semantic UI 2.1.7 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2881,7 +2881,7 @@ $.fn.checkbox = function(parameters) {
           }
           module.debug('Enabling checkbox');
           module.set.enabled();
-          settings.onEnable.call(input);
+          settings.onEnabled.call(input);
         },
 
         disable: function() {
@@ -2891,7 +2891,7 @@ $.fn.checkbox = function(parameters) {
           }
           module.debug('Disabling checkbox');
           module.set.disabled();
-          settings.onDisable.call(input);
+          settings.onDisabled.call(input);
         },
 
         get: {
@@ -3394,8 +3394,8 @@ $.fn.checkbox.settings = {
   onDeterminate       : function() {},
   onIndeterminate     : function() {},
 
-  onEnabled           : function(){},
-  onDisabled          : function(){},
+  onEnable            : function(){},
+  onDisable           : function(){},
 
   className       : {
     checked       : 'checked',
@@ -3422,7 +3422,7 @@ $.fn.checkbox.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.1.6 - Dimmer
+ * # Semantic UI 2.1.7 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -4115,7 +4115,7 @@ $.fn.dimmer.settings = {
 
 })( jQuery, window, document );
 /*!
- * # Semantic UI 2.1.6 - Dropdown
+ * # Semantic UI 2.1.7 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7558,7 +7558,7 @@ $.fn.dropdown.settings.templates = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.1.6 - Video
+ * # Semantic UI 2.1.7 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8218,7 +8218,7 @@ $.fn.embed.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.1.6 - Modal
+ * # Semantic UI 2.1.7 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9111,7 +9111,7 @@ $.fn.modal.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.1.6 - Nag
+ * # Semantic UI 2.1.7 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9598,7 +9598,7 @@ $.fn.nag.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.1.6 - Popup
+ * # Semantic UI 2.1.7 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10440,6 +10440,7 @@ $.fn.popup = function(parameters) {
                   module.remove.attempts();
                   module.remove.loading();
                   module.reset();
+                  settings.onUnplaceable.call($popup, element);
                   return false;
                 }
               }
@@ -10610,13 +10611,13 @@ $.fn.popup = function(parameters) {
             return $module.hasClass(className.active);
           },
           animating: function() {
-            return ( $popup && $popup.hasClass(className.animating) );
+            return ($popup !== undefined && $popup.hasClass(className.animating) );
           },
           fluid: function() {
-            return ( $popup && $popup.hasClass(className.fluid));
+            return ($popup !== undefined && $popup.hasClass(className.fluid));
           },
           visible: function() {
-            return $popup && $popup.hasClass(className.visible);
+            return ($popup !== undefined && $popup.hasClass(className.visible));
           },
           dropdown: function() {
             return $module.hasClass(className.dropdown);
@@ -10843,6 +10844,9 @@ $.fn.popup.settings = {
   // callback before hide animation
   onHide       : function(){},
 
+  // callback when popup cannot be positioned in visible screen
+  onUnplaceable: function(){},
+
   // callback after hide animation
   onHidden     : function(){},
 
@@ -11008,7 +11012,7 @@ $.fn.popup.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.1.6 - Progress
+ * # Semantic UI 2.1.7 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11803,7 +11807,7 @@ $.fn.progress.settings = {
 
 })( jQuery, window, document );
 /*!
- * # Semantic UI 2.1.6 - Rating
+ * # Semantic UI 2.1.7 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12279,7 +12283,7 @@ $.fn.rating.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.1.6 - Search
+ * # Semantic UI 2.1.7 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12414,12 +12418,29 @@ $.fn.search = function(parameters) {
           },
           blur: function(event) {
             var
-              pageLostFocus = (document.activeElement === this)
+              pageLostFocus = (document.activeElement === this),
+              callback      = function() {
+                module.cancel.query();
+                module.remove.focus();
+                module.timer = setTimeout(module.hideResults, settings.hideDelay);
+              }
             ;
-            if(!pageLostFocus && !module.resultsClicked) {
-              module.cancel.query();
-              module.remove.focus();
-              module.timer = setTimeout(module.hideResults, settings.hideDelay);
+            if(pageLostFocus) {
+              return;
+            }
+            if(module.resultsClicked) {
+              module.debug('Determining if user action caused search to close');
+              $module
+                .one('click', selector.results, function(event) {
+                  if( !module.is.animating() && !module.is.hidden() ) {
+                    callback();
+                  }
+                })
+              ;
+            }
+            else {
+              module.debug('Input blurred without user action, closing results');
+              callback();
             }
           },
           result: {
@@ -12578,6 +12599,12 @@ $.fn.search = function(parameters) {
         },
 
         is: {
+          animating: function() {
+            return $results.hasClass(className.animating);
+          },
+          hidden: function() {
+            return $results.hasClass(className.hidden);
+          },
           empty: function() {
             return ($results.html() === '');
           },
@@ -13386,12 +13413,14 @@ $.fn.search.settings = {
   onResultsClose : function(){},
 
   className: {
-    active  : 'active',
-    empty   : 'empty',
-    focus   : 'focus',
-    loading : 'loading',
-    results : 'results',
-    pressed : 'down'
+    animating : 'animating',
+    active    : 'active',
+    empty     : 'empty',
+    focus     : 'focus',
+    hidden    : 'hidden',
+    loading   : 'loading',
+    results   : 'results',
+    pressed   : 'down'
   },
 
   error : {
@@ -13600,7 +13629,7 @@ $.fn.search.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.1.6 - Shape
+ * # Semantic UI 2.1.7 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14476,7 +14505,7 @@ $.fn.shape.settings = {
 
 })( jQuery, window, document );
 /*!
- * # Semantic UI 2.1.6 - Sidebar
+ * # Semantic UI 2.1.7 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15499,7 +15528,7 @@ $.fn.sidebar.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.1.6 - Sticky
+ * # Semantic UI 2.1.7 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -16406,7 +16435,7 @@ $.fn.sticky.settings = {
 
 })( jQuery, window, document );
 /*!
- * # Semantic UI 2.1.6 - Tab
+ * # Semantic UI 2.1.7 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17305,7 +17334,7 @@ $.fn.tab.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.1.6 - Transition
+ * # Semantic UI 2.1.7 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -18368,7 +18397,7 @@ $.fn.transition.settings = {
 
   // possible errors
   error: {
-    noAnimation : 'There is no css animation matching the one you specified. Please make sure your css is vendor prefixed, and you have included transition css.',
+    noAnimation : 'Element is no longer attached to DOM. Unable to animate.',
     repeated    : 'That animation is already occurring, cancelling repeated animation',
     method      : 'The method you called is not defined',
     support     : 'This browser does not support CSS animations'
@@ -18380,7 +18409,7 @@ $.fn.transition.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.1.6 - API
+ * # Semantic UI 2.1.7 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -18594,12 +18623,12 @@ $.api = $.fn.api = function(parameters) {
 
           // replace variables
           url = module.add.urlData( url );
-
           // missing url parameters
           if( !url && !module.is.mocked()) {
             return;
           }
 
+          requestSettings.url = settings.base + url;
 
           // look for jQuery ajax parameters in settings
           ajaxSettings = $.extend(true, {}, settings, {
@@ -18661,7 +18690,7 @@ $.api = $.fn.api = function(parameters) {
             return $module.is('form') || $context.is('form');
           },
           mocked: function() {
-            return (settings.mockResponse || settings.mockResponseAsync);
+            return (settings.mockResponse || settings.mockResponseAsync || settings.response || settings.responseAsync);
           },
           input: function() {
             return $module.is('input');
@@ -18973,9 +19002,11 @@ $.api = $.fn.api = function(parameters) {
           mockedXHR: function () {
             var
               // xhr does not simulate these properties of xhr but must return them
-              textStatus  = false,
-              status      = false,
-              httpMessage = false,
+              textStatus     = false,
+              status         = false,
+              httpMessage    = false,
+              responder      = settings.mockResponse      || settings.response,
+              asyncResponder = settings.mockResponseAsync || settings.responseAsync,
               asyncCallback,
               response,
               mockedXHR
@@ -18987,19 +19018,19 @@ $.api = $.fn.api = function(parameters) {
               .fail(module.event.xhr.fail)
             ;
 
-            if(settings.mockResponse) {
-              if( $.isFunction(settings.mockResponse) ) {
-                module.debug('Using mocked callback returning response', settings.mockResponse);
-                response = settings.mockResponse.call(context, settings);
+            if(responder) {
+              if( $.isFunction(responder) ) {
+                module.debug('Using specified synchronous callback', responder);
+                response = responder.call(context, requestSettings);
               }
               else {
-                module.debug('Using specified response', settings.mockResponse);
-                response = settings.mockResponse;
+                module.debug('Using settings specified response', responder);
+                response = responder;
               }
               // simulating response
               mockedXHR.resolveWith(context, [ response, textStatus, { responseText: response }]);
             }
-            else if( $.isFunction(settings.mockResponseAsync) ) {
+            else if( $.isFunction(asyncResponder) ) {
               asyncCallback = function(response) {
                 module.debug('Async callback returned response', response);
 
@@ -19010,8 +19041,8 @@ $.api = $.fn.api = function(parameters) {
                   mockedXHR.rejectWith(context, [{ responseText: response }, status, httpMessage]);
                 }
               };
-              module.debug('Using async mocked response', settings.mockResponseAsync);
-              settings.mockResponseAsync.call(context, settings, asyncCallback);
+              module.debug('Using specified async response callback', asyncResponder);
+              asyncResponder.call(context, requestSettings, asyncCallback);
             }
             return mockedXHR;
           },
@@ -19103,8 +19134,8 @@ $.api = $.fn.api = function(parameters) {
               module.error(error.noReturnedValue);
             }
             return (runSettings !== undefined)
-              ? runSettings
-              : settings
+              ? $.extend(true, {}, runSettings)
+              : $.extend(true, {}, settings)
             ;
           },
           urlEncodedValue: function(value) {
@@ -19447,6 +19478,10 @@ $.api.settings = {
   mockResponse      : false,
   mockResponseAsync : false,
 
+  // aliases for mock
+  response          : false,
+  responseAsync     : false,
+
   // callbacks before request
   beforeSend  : function(settings) { return settings; },
   beforeXHR   : function(xhr) {},
@@ -19517,7 +19552,7 @@ $.api.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.1.6 - State
+ * # Semantic UI 2.1.7 - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20213,7 +20248,7 @@ $.fn.state.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.1.6 - Visibility
+ * # Semantic UI 2.1.7 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *

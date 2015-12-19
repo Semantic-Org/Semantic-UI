@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Sidebar
+ * # Semantic UI 2.1.7 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -23,7 +23,7 @@
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   -webkit-transition: none;
-          transition: none;
+  transition: none;
   will-change: transform;
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
@@ -41,8 +41,6 @@
 .ui.sidebar > * {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  -webkit-transform: rotateZ(0deg);
-          transform: rotateZ(0deg);
 }
 
 /*--------------
@@ -114,7 +112,9 @@ body.pushable {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   -webkit-transition: -webkit-transform 500ms ease;
-          transition: transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
   will-change: transform;
   z-index: 101;
 }
@@ -130,7 +130,9 @@ body.pushable {
   overflow: hidden;
   min-height: 100%;
   -webkit-transition: -webkit-transform 500ms ease;
-          transition: transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
   z-index: 2;
 }
 body.pushable > .pusher {
@@ -155,7 +157,7 @@ body.pushable > .pusher {
   overflow: hidden;
   opacity: 0;
   -webkit-transition: opacity 500ms;
-          transition: opacity 500ms;
+  transition: opacity 500ms;
   will-change: opacity;
   z-index: 1000;
 }
@@ -272,13 +274,13 @@ html.ios body {
 
 
 /* Left / Right */
-.ui[class*="very thin"].left.sidebar,
-.ui[class*="very thin"].right.sidebar {
-  width: 60px;
-}
 .ui.thin.left.sidebar,
 .ui.thin.right.sidebar {
   width: 150px;
+}
+.ui[class*="very thin"].left.sidebar,
+.ui[class*="very thin"].right.sidebar {
+  width: 60px;
 }
 .ui.left.sidebar,
 .ui.right.sidebar {
@@ -294,15 +296,15 @@ html.ios body {
 }
 
 /* Left Visible */
-.ui.visible[class*="very thin"].left.sidebar ~ .fixed,
-.ui.visible[class*="very thin"].left.sidebar ~ .pusher {
-  -webkit-transform: translate3d(60px, 0, 0);
-          transform: translate3d(60px, 0, 0);
-}
 .ui.visible.thin.left.sidebar ~ .fixed,
 .ui.visible.thin.left.sidebar ~ .pusher {
   -webkit-transform: translate3d(150px, 0, 0);
           transform: translate3d(150px, 0, 0);
+}
+.ui.visible[class*="very thin"].left.sidebar ~ .fixed,
+.ui.visible[class*="very thin"].left.sidebar ~ .pusher {
+  -webkit-transform: translate3d(60px, 0, 0);
+          transform: translate3d(60px, 0, 0);
 }
 .ui.visible.wide.left.sidebar ~ .fixed,
 .ui.visible.wide.left.sidebar ~ .pusher {
@@ -316,15 +318,15 @@ html.ios body {
 }
 
 /* Right Visible */
-.ui.visible[class*="very thin"].right.sidebar ~ .fixed,
-.ui.visible[class*="very thin"].right.sidebar ~ .pusher {
-  -webkit-transform: translate3d(-60px, 0, 0);
-          transform: translate3d(-60px, 0, 0);
-}
 .ui.visible.thin.right.sidebar ~ .fixed,
 .ui.visible.thin.right.sidebar ~ .pusher {
   -webkit-transform: translate3d(-150px, 0, 0);
           transform: translate3d(-150px, 0, 0);
+}
+.ui.visible[class*="very thin"].right.sidebar ~ .fixed,
+.ui.visible[class*="very thin"].right.sidebar ~ .pusher {
+  -webkit-transform: translate3d(-60px, 0, 0);
+          transform: translate3d(-60px, 0, 0);
 }
 .ui.visible.wide.right.sidebar ~ .fixed,
 .ui.visible.wide.right.sidebar ~ .pusher {
@@ -375,7 +377,9 @@ html.ios body {
 .animating.ui.overlay.sidebar,
 .ui.visible.overlay.sidebar {
   -webkit-transition: -webkit-transform 500ms ease;
-          transition: transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
 }
 
 /* End - Sidebar */
@@ -412,7 +416,9 @@ html.ios body {
 /* Initial */
 .ui.push.sidebar {
   -webkit-transition: -webkit-transform 500ms ease;
-          transition: transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
   z-index: 102;
 }
 
@@ -457,7 +463,9 @@ html.ios body {
   -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
   -webkit-transition: -webkit-transform 500ms ease;
-          transition: transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
 }
 
 /*--------------
@@ -491,7 +499,9 @@ html.ios body {
 /* Animation */
 .ui.animating.slide.along.sidebar {
   -webkit-transition: -webkit-transform 500ms ease;
-          transition: transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
 }
 
 /* End */
@@ -531,7 +541,9 @@ html.ios body {
 /* Animation */
 .ui.animating.slide.out.sidebar {
   -webkit-transition: -webkit-transform 500ms ease;
-          transition: transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
 }
 
 /* End */
@@ -548,7 +560,9 @@ html.ios body {
 /* Initial */
 .ui.scale.down.sidebar {
   -webkit-transition: -webkit-transform 500ms ease;
-          transition: transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
   z-index: 102;
 }
 
@@ -595,7 +609,9 @@ html.ios body {
 /* Animation */
 .ui.animating.scale.down > .visible.ui.sidebar {
   -webkit-transition: -webkit-transform 500ms ease;
-          transition: transform 500ms ease;
+  transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
+  transition: transform 500ms ease, -webkit-transform 500ms ease;
 }
 .ui.visible.scale.down.sidebar ~ .pusher,
 .ui.animating.scale.down.sidebar ~ .pusher {

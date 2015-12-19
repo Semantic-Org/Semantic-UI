@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Button
+ * # Semantic UI 2.1.7 - Button
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -40,7 +40,7 @@
       -ms-user-select: none;
           user-select: none;
   -webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
-          transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
   will-change: '';
   -webkit-tap-highlight-color: transparent;
 }
@@ -125,7 +125,7 @@
   opacity: 1;
   pointer-events: auto;
   -webkit-transition: all 0s linear, opacity 0.1s ease;
-          transition: all 0s linear, opacity 0.1s ease;
+  transition: all 0s linear, opacity 0.1s ease;
 }
 .ui.loading.button:before {
   position: absolute;
@@ -241,7 +241,7 @@
 .ui.animated.button .visible.content,
 .ui.animated.button .hidden.content {
   -webkit-transition: right 0.3s ease 0s;
-          transition: right 0.3s ease 0s;
+  transition: right 0.3s ease 0s;
 }
 .ui.animated.button .visible.content {
   left: auto;
@@ -268,7 +268,9 @@
 .ui.vertical.animated.button .visible.content,
 .ui.vertical.animated.button .hidden.content {
   -webkit-transition: top 0.3s ease, -webkit-transform 0.3s ease;
-          transition: top 0.3s ease, transform 0.3s ease;
+  transition: top 0.3s ease, -webkit-transform 0.3s ease;
+  transition: top 0.3s ease, transform 0.3s ease;
+  transition: top 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 .ui.vertical.animated.button .visible.content {
   -webkit-transform: translateY(0%);
@@ -298,7 +300,9 @@
 .ui.fade.animated.button .visible.content,
 .ui.fade.animated.button .hidden.content {
   -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
-          transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 .ui.fade.animated.button .visible.content {
   left: auto;
@@ -608,7 +612,7 @@
   opacity: 0.8;
   margin: 0em 0.42857143em 0em -0.21428571em;
   -webkit-transition: opacity 0.1s ease;
-          transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
   vertical-align: '';
   color: '';
 }

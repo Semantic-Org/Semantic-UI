@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Checkbox
+ * # Semantic UI 2.1.7 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -70,8 +70,10 @@
   content: '';
   background: #FFFFFF;
   border-radius: 0.21428571rem;
-  -webkit-transition: border 0.1s ease, opacity 0.1s ease, -webkit-transform 0.1s ease, box-shadow 0.1s ease;
-          transition: border 0.1s ease, opacity 0.1s ease, transform 0.1s ease, box-shadow 0.1s ease;
+  -webkit-transition: border 0.1s ease, opacity 0.1s ease, box-shadow 0.1s ease, -webkit-transform 0.1s ease;
+  transition: border 0.1s ease, opacity 0.1s ease, box-shadow 0.1s ease, -webkit-transform 0.1s ease;
+  transition: border 0.1s ease, opacity 0.1s ease, transform 0.1s ease, box-shadow 0.1s ease;
+  transition: border 0.1s ease, opacity 0.1s ease, transform 0.1s ease, box-shadow 0.1s ease, -webkit-transform 0.1s ease;
   border: 1px solid #D4D4D5;
 }
 
@@ -90,8 +92,10 @@
   text-align: center;
   opacity: 0;
   color: rgba(0, 0, 0, 0.87);
-  -webkit-transition: border 0.1s ease, opacity 0.1s ease, -webkit-transform 0.1s ease, box-shadow 0.1s ease;
-          transition: border 0.1s ease, opacity 0.1s ease, transform 0.1s ease, box-shadow 0.1s ease;
+  -webkit-transition: border 0.1s ease, opacity 0.1s ease, box-shadow 0.1s ease, -webkit-transform 0.1s ease;
+  transition: border 0.1s ease, opacity 0.1s ease, box-shadow 0.1s ease, -webkit-transform 0.1s ease;
+  transition: border 0.1s ease, opacity 0.1s ease, transform 0.1s ease, box-shadow 0.1s ease;
+  transition: border 0.1s ease, opacity 0.1s ease, transform 0.1s ease, box-shadow 0.1s ease, -webkit-transform 0.1s ease;
 }
 
 /*--------------
@@ -104,7 +108,7 @@
 .ui.checkbox + label {
   color: rgba(0, 0, 0, 0.87);
   -webkit-transition: color 0.1s ease;
-          transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 
 /* Outside */
@@ -388,7 +392,7 @@
           transform: none;
   border-radius: 500rem;
   -webkit-transition: background 0.3s ease;
-          transition: background 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 /* Handle */
@@ -411,7 +415,7 @@
           transform: none;
   border-radius: 500rem;
   -webkit-transition: left 0.3s ease;
-          transition: left 0.3s ease;
+  transition: left 0.3s ease;
 }
 
 /* Focus */
@@ -515,7 +519,7 @@
   left: 0em;
   border-radius: 500rem;
   -webkit-transition: background 0.3s ease, left 0.3s ease;
-          transition: background 0.3s ease, left 0.3s ease;
+  transition: background 0.3s ease, left 0.3s ease;
 }
 .ui.toggle.checkbox input ~ .box:after,
 .ui.toggle.checkbox input ~ label:after {

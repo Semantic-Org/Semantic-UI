@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Flag
+ * # Semantic UI 2.1.7 - Flag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -32,7 +32,7 @@ i.flag:not(.icon) {
 i.flag:not(.icon):before {
   display: inline-block;
   content: '';
-  background: url("../themes/default/assets/images/flags.png") no-repeat 0px 0px;
+  background: url("../themes/default/assets/images/flags.png") no-repeat -108px -1976px;
   width: 16px;
   height: 11px;
 }

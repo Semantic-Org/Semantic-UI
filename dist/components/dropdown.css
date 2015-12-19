@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Dropdown
+ * # Semantic UI 2.1.7 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21,7 +21,7 @@
   outline: none;
   text-align: left;
   -webkit-transition: box-shadow 0.1s ease, width 0.1s ease;
-          transition: box-shadow 0.1s ease, width 0.1s ease;
+  transition: box-shadow 0.1s ease, width 0.1s ease;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
@@ -54,7 +54,7 @@
   border: 1px solid rgba(34, 36, 38, 0.15);
   border-radius: 0.28571429rem;
   -webkit-transition: opacity 0.1s ease;
-          transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
   z-index: 11;
   will-change: transform, opacity;
 }
@@ -97,7 +97,7 @@
 .ui.dropdown > .text {
   display: inline-block;
   -webkit-transition: none;
-          transition: none;
+  transition: none;
 }
 
 /*--------------
@@ -349,6 +349,7 @@
   white-space: normal;
   outline: 0;
   -webkit-transform: rotateZ(0deg);
+      -ms-transform: rotate(0deg);
           transform: rotateZ(0deg);
   min-width: 14em;
   min-height: 2.7142em;
@@ -360,7 +361,7 @@
   border: 1px solid rgba(34, 36, 38, 0.15);
   border-radius: 0.28571429rem;
   -webkit-transition: box-shadow 0.1s ease, width 0.1s ease;
-          transition: box-shadow 0.1s ease, width 0.1s ease;
+  transition: box-shadow 0.1s ease, width 0.1s ease;
 }
 .ui.selection.dropdown.visible,
 .ui.selection.dropdown.active {
@@ -385,7 +386,7 @@ select.ui.dropdown {
   right: 1em;
   opacity: 0.8;
   -webkit-transition: opacity 0.1s ease;
-          transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
 }
 
 /* Compact */
@@ -409,7 +410,7 @@ select.ui.dropdown {
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
   box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
   -webkit-transition: opacity 0.1s ease;
-          transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
 }
 .ui.selection.dropdown .menu:after,
 .ui.selection.dropdown .menu:before {
@@ -824,7 +825,7 @@ select.ui.dropdown {
 
 .ui.loading.dropdown > .text {
   -webkit-transition: none;
-          transition: none;
+  transition: none;
 }
 
 /* Used To Check Position */
@@ -1110,7 +1111,7 @@ select.ui.dropdown {
   width: 0;
   height: 0;
   -webkit-transition: opacity 0.1s ease;
-          transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
 }
 .ui.simple.active.dropdown,
 .ui.simple.dropdown:hover {

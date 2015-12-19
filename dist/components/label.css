@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Label
+ * # Semantic UI 2.1.7 - Label
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -28,7 +28,7 @@
   border: 0px solid transparent;
   border-radius: 0.28571429rem;
   -webkit-transition: background 0.1s ease;
-          transition: background 0.1s ease;
+  transition: background 0.1s ease;
 }
 .ui.label:first-child {
   margin-left: 0em;
@@ -48,7 +48,7 @@ a.ui.label {
   color: inherit;
   opacity: 0.5;
   -webkit-transition: 0.1s opacity ease;
-          transition: 0.1s opacity ease;
+  transition: 0.1s opacity ease;
 }
 .ui.label > a:hover {
   opacity: 1;
@@ -88,7 +88,7 @@ a.ui.label {
   font-size: 0.92857143em;
   opacity: 0.5;
   -webkit-transition: background 0.1s ease;
-          transition: background 0.1s ease;
+  transition: background 0.1s ease;
 }
 .ui.label > .delete.icon:hover {
   opacity: 1;
@@ -178,7 +178,7 @@ a.ui.label {
   padding-right: 1.5em;
   border-radius: 0em 0.28571429rem 0.28571429rem 0em;
   -webkit-transition: none;
-          transition: none;
+  transition: none;
 }
 .ui.tag.labels .label:before,
 .ui.tag.label:before {
@@ -194,7 +194,7 @@ a.ui.label {
   width: 1.56em;
   height: 1.56em;
   -webkit-transition: none;
-          transition: none;
+  transition: none;
 }
 .ui.tag.labels .label:after,
 .ui.tag.label:after {
@@ -226,7 +226,7 @@ a.ui.label {
   height: 4em;
   z-index: 1;
   -webkit-transition: border-color 0.1s ease;
-          transition: border-color 0.1s ease;
+  transition: border-color 0.1s ease;
 }
 
 /* Icon Label */
@@ -248,7 +248,7 @@ a.ui.label {
   border-left: 0em solid transparent;
   border-right-color: inherit;
   -webkit-transition: border-color 0.1s ease;
-          transition: border-color 0.1s ease;
+  transition: border-color 0.1s ease;
 }
 .ui.corner.label .icon {
   cursor: default;
@@ -1148,7 +1148,7 @@ a.ui.basic.label:hover {
   width: 0.6666em;
   height: 0.6666em;
   -webkit-transition: background 0.1s ease;
-          transition: background 0.1s ease;
+  transition: background 0.1s ease;
 }
 
 /*--- Above ---*/

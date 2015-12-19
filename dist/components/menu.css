@@ -95,7 +95,7 @@
   color: rgba(0, 0, 0, 0.87);
   font-weight: normal;
   -webkit-transition: background 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
-          transition: background 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
+  transition: background 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
 }
 .ui.menu > .item:first-child {
   border-radius: 0.28571429rem 0px 0px 0.28571429rem;
@@ -261,7 +261,7 @@
   font-weight: normal !important;
   box-shadow: none !important;
   -webkit-transition: none !important;
-          transition: none !important;
+  transition: none !important;
 }
 .ui.menu .ui.dropdown .menu > .item:hover {
   background: rgba(0, 0, 0, 0.05) !important;
@@ -661,7 +661,8 @@ Floated Menu / Item
 }
 
 /* Coupling with segment for attachment */
-.ui.tabular.menu + .bottom.attached.segment {
+.ui.tabular.menu + .attached:not(.top).segment,
+.ui.tabular.menu + .attached:not(.top).segment + .attached:not(.top).segment {
   border-top: none;
   margin: 0px;
   width: 100%;
@@ -813,7 +814,7 @@ Floated Menu / Item
   margin: 0em 0.35714286em;
   background: none;
   -webkit-transition: color 0.1s ease;
-          transition: color 0.1s ease;
+  transition: color 0.1s ease;
   border-radius: 0.28571429rem;
 }
 
@@ -937,7 +938,7 @@ Floated Menu / Item
   padding: 0.85714286em 1.14285714em;
   border-bottom-width: 2px;
   -webkit-transition: color 0.1s ease;
-          transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 
 /* Item Types */
@@ -1056,7 +1057,7 @@ Floated Menu / Item
   font-weight: normal;
   color: rgba(0, 0, 0, 0.6);
   -webkit-transition: opacity 0.1s ease;
-          transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
 }
 
 /* Border */
@@ -1817,7 +1818,7 @@ Floated Menu / Item
   border-right: 1px solid #D4D4D5;
   z-index: 2;
   -webkit-transition: background 0.1s ease;
-          transition: background 0.1s ease;
+  transition: background 0.1s ease;
 }
 .ui.vertical.pointing.menu .item:after {
   position: absolute;

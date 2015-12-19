@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Nag
+ * # Semantic UI 2.1.7 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -32,7 +32,7 @@
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
   -webkit-transition: 0.2s background ease;
-          transition: 0.2s background ease;
+  transition: 0.2s background ease;
 }
 a.ui.nag {
   cursor: pointer;
@@ -52,7 +52,7 @@ a.ui.nag {
   margin: -0.5em 0em 0em;
   color: #FFFFFF;
   -webkit-transition: opacity 0.2s ease;
-          transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 

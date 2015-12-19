@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Search
+ * # Semantic UI 2.1.7 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -33,7 +33,7 @@
   color: rgba(0, 0, 0, 0.87);
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
-          transition: background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
+  transition: background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, border-color 0.1s ease;
 }
 .ui.search .prompt {
   border-radius: 500rem;
@@ -254,7 +254,40 @@
 
 
 /*--------------
-    Categories
+    Selection
+---------------*/
+
+.ui.search.selection .prompt {
+  border-radius: 0.28571429rem;
+}
+
+/* Remove input */
+.ui.search.selection > .icon.input > .remove.icon {
+  pointer-events: none;
+  position: absolute;
+  left: auto;
+  opacity: 0;
+  color: '';
+  top: 0em;
+  right: 0em;
+  -webkit-transition: color 0.1s ease, opacity 0.1s ease;
+  transition: color 0.1s ease, opacity 0.1s ease;
+}
+.ui.search.selection > .icon.input > .active.remove.icon {
+  cursor: pointer;
+  opacity: 0.8;
+  pointer-events: auto;
+}
+.ui.search.selection > .icon.input:not([class*="left icon"]) > .icon ~ .remove.icon {
+  right: 1.85714em;
+}
+.ui.search.selection > .icon.input > .remove.icon:hover {
+  opacity: 1;
+  color: #DB2828;
+}
+
+/*--------------
+    Category
 ---------------*/
 
 .ui.category.search .results {
@@ -267,7 +300,7 @@
   box-shadow: none;
   border-bottom: 1px solid rgba(34, 36, 38, 0.1);
   -webkit-transition: background 0.1s ease, border-color 0.1s ease;
-          transition: background 0.1s ease, border-color 0.1s ease;
+  transition: background 0.1s ease, border-color 0.1s ease;
 }
 
 /* Last Category */
@@ -290,7 +323,7 @@
   border-left: 1px solid rgba(34, 36, 38, 0.15);
   border-bottom: 1px solid rgba(34, 36, 38, 0.1);
   -webkit-transition: background 0.1s ease, border-color 0.1s ease;
-          transition: background 0.1s ease, border-color 0.1s ease;
+  transition: background 0.1s ease, border-color 0.1s ease;
   padding: 0.85714286em 1.14285714em;
 }
 .ui.category.search > .results .category:last-child .result:last-child {

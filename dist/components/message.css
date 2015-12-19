@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Message
+ * # Semantic UI 2.1.7 - Message
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -23,7 +23,7 @@
   line-height: 1.4285em;
   color: rgba(0, 0, 0, 0.87);
   -webkit-transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
-          transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
+  transition: opacity 0.1s ease, color 0.1s ease, background 0.1s ease, box-shadow 0.1s ease;
   border-radius: 0.28571429rem;
   box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.22) inset, 0px 0px 0px 0px rgba(0, 0, 0, 0);
 }
@@ -112,7 +112,7 @@
   right: 0.5em;
   opacity: 0.7;
   -webkit-transition: opacity 0.1s ease;
-          transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
 }
 .ui.message > .close.icon:hover {
   opacity: 1;

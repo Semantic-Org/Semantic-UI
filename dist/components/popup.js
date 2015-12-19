@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Popup
+ * # Semantic UI 2.1.7 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -841,6 +841,7 @@ $.fn.popup = function(parameters) {
                   module.remove.attempts();
                   module.remove.loading();
                   module.reset();
+                  settings.onUnplaceable.call($popup, element);
                   return false;
                 }
               }
@@ -1011,13 +1012,13 @@ $.fn.popup = function(parameters) {
             return $module.hasClass(className.active);
           },
           animating: function() {
-            return ( $popup && $popup.hasClass(className.animating) );
+            return ($popup !== undefined && $popup.hasClass(className.animating) );
           },
           fluid: function() {
-            return ( $popup && $popup.hasClass(className.fluid));
+            return ($popup !== undefined && $popup.hasClass(className.fluid));
           },
           visible: function() {
-            return $popup && $popup.hasClass(className.visible);
+            return ($popup !== undefined && $popup.hasClass(className.visible));
           },
           dropdown: function() {
             return $module.hasClass(className.dropdown);
@@ -1243,6 +1244,9 @@ $.fn.popup.settings = {
 
   // callback before hide animation
   onHide       : function(){},
+
+  // callback when popup cannot be positioned in visible screen
+  onUnplaceable: function(){},
 
   // callback after hide animation
   onHidden     : function(){},
