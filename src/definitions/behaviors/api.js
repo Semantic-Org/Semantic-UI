@@ -212,9 +212,7 @@ $.api = $.fn.api = function(parameters) {
           }
 
           // replace variables
-          console.log(url);
           url = module.add.urlData( url );
-          console.log(url);
           // missing url parameters
           if( !url && !module.is.mocked()) {
             return;
