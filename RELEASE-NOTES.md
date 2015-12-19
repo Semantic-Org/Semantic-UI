@@ -11,6 +11,8 @@
 -**Build Tools** - CSS build will now correctly call callback after both packaged files are created (compressed and uncompressed) Thanks @youngjay #3405
 -**Flag** - A flag with no country set will no longer display an incorrect country flag. Thanks @space-alien #3333
 -**Form** - Fixed issue where text would turn transparent inside a `loading form` #3122
+-**Menu** - Fixed `1px` offset when `attached segment` follows `tabular menu` (max of 2 consecutive segments) #3479
+-**Header** - `sub header` used inside a header now correctly forces `block` styling #3020
 -**Popup** - Fixed `is visible`, `is animating`, and `is fluid` to always return `true/false` and not the DOM element. #2781
 -**Popup** - Fixed issue with `onEnable` callback being defined with name `onEnabled` and `onDisable` with `onDisabled` in default settings, causing an error. To preserve backwards compatibility, the mispelled callback name has been left, but the bug has been fixed. #3148
 -**Search** - Search now correctly hides menu when an error message inside results is clicked. #3039
