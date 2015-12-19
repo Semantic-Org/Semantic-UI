@@ -8,15 +8,16 @@
 -**Popup** - Adds `onUnplaceable` callback when element cannot be place in visible screen #3388
 
 **Bug Fixes**
--**Flag** - A flag with no country set will no longer display an incorrect country flag. Thanks @space-alien #3333
--**Popup** - Fixed `is visible`, `is animating`, and `is fluid` to always return `true/false` and not the DOM element. #2781
 -**Build Tools** - CSS build will now correctly call callback after both packaged files are created (compressed and uncompressed) Thanks @youngjay #3405
--**Search** - Search now correctly hides menu when an error message inside results is clicked. #3039
--**Sidebar** - Sidebar no longer includes `transform` rules on child elements, this was causing layout issues in some cases (for example dropdowns in sidebars) #3306
--**Sidebar** - Fixed css rule issue causing `very thin` sidebar to not work #3300
--**Sticky** - Renames variables used to account for scroll offset internally for greater code clarity
--**Popup** - Fixed issue with `onEnable` callback being defined with name `onEnabled` and `onDisable` with `onDisabled` in default settings, causing an error. To preserve backwards compatibility, the mispelled callback name has been left, but the bug has been fixed. #3148
+-**Flag** - A flag with no country set will no longer display an incorrect country flag. Thanks @space-alien #3333
 -**Form** - Fixed issue where text would turn transparent inside a `loading form` #3122
+-**Popup** - Fixed `is visible`, `is animating`, and `is fluid` to always return `true/false` and not the DOM element. #2781
+-**Popup** - Fixed issue with `onEnable` callback being defined with name `onEnabled` and `onDisable` with `onDisabled` in default settings, causing an error. To preserve backwards compatibility, the mispelled callback name has been left, but the bug has been fixed. #3148
+-**Search** - Search now correctly hides menu when an error message inside results is clicked. #3039
+-**Sidebar** - Fixed css rule issue causing `very thin` sidebar to not work #3300
+-**Sidebar** - Sidebar no longer includes `transform` rules on child elements, this was causing layout issues in some cases (for example dropdowns in sidebars) #3306
+-**Sticky** - Renames variables used to account for scroll offset internally for greater code clarity
+-**Transition** - Fixes `noAnimation` error to more reasonably announce that the element is "not in the DOM" #3040
 
 ### Version 2.1.6 - Nov 6, 2015
 
