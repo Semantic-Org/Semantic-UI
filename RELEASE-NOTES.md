@@ -9,6 +9,7 @@
 
 **Bug Fixes**
 -**Flag** - A flag with no country set will no longer display an incorrect country flag. Thanks @space-alien #3333
+-**Popup** - Fixed `is visible`, `is animating`, and `is fluid` to always return `true/false` and not the DOM element. #2781
 -**Build Tools** - CSS build will now correctly call callback after both packaged files are created (compressed and uncompressed) Thanks @youngjay #3405
 -**Search** - Search now correctly hides menu when an error message inside results is clicked. #3039
 -**Sidebar** - Sidebar no longer includes `transform` rules on child elements, this was causing layout issues in some cases (for example dropdowns in sidebars) #3306

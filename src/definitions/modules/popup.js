@@ -1012,13 +1012,13 @@ $.fn.popup = function(parameters) {
             return $module.hasClass(className.active);
           },
           animating: function() {
-            return ( $popup && $popup.hasClass(className.animating) );
+            return ($popup !== undefined && $popup.hasClass(className.animating) );
           },
           fluid: function() {
-            return ( $popup && $popup.hasClass(className.fluid));
+            return ($popup !== undefined && $popup.hasClass(className.fluid));
           },
           visible: function() {
-            return $popup && $popup.hasClass(className.visible);
+            return ($popup !== undefined && $popup.hasClass(className.visible));
           },
           dropdown: function() {
             return $module.hasClass(className.dropdown);
