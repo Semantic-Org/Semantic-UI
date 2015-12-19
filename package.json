@@ -60,6 +60,11 @@
     "gulp-debug": "*",
     "gulp-git": "*",
     "gulp-tap": "*",
+    "karma": "x.x.x",
+    "karma-coverage": "~0.x.x",
+    "karma-jasmine": "~0.1.0",
+    "karma-phantomjs-launcher": "x.x.x",
+    "karma-spec-reporter": "x.x.x",
     "merge-stream": "*"
   }
 }
