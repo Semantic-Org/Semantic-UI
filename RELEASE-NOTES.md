@@ -1,8 +1,10 @@
 ## RELEASE NOTES
 
-### Version 2.1.7 Nov 29, 2015
+### Version 2.1.7 Dec 19, 2015
 
 **Bug Fixes**
+-**Flag** - A flag with no country set will no longer display an incorrect country flag. Thanks @space-alien #3333
+-**Build Tools** -
 -**Search** - Search now correctly hides menu when an error message inside results is clicked. #3039
 -**Popup** - Adds `onUnplaceable` callback when element cannot be place in visible screen #3388
 -**Sidebar** - Sidebar no longer includes `transform` rules on child elements, this was causing layout issues in some cases (for example dropdowns in sidebars) #3306
