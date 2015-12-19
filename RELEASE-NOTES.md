@@ -1,25 +1,26 @@
 ## RELEASE NOTES
 
 ### Version 2.1.7 Dec 19, 2015
+[Closed Issues List](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.7+is%3Aclosed)
 
 **Enhancements**
--***API** - All responses fulfilled with settings (like `mockResponse`) will now receive a settings object with all values resolved. For example `url` will be `/user/2/` and not `user/{id}` in the callback. - #3466
--**API** - API now allows the use of settings `response` and `responseAsync` to replace `mockResponse` and `mockResponseAsync`. The use of "mock" may not represent the most common use case which is providing a response from a third party source. (These changes are purely cosmetic and no underlying behavior has changed) - #3491
--**Popup** - Adds `onUnplaceable` callback when element cannot be place in visible screen #3388
+-***API** - All responses fulfilled with settings (like `mockResponse`) will now receive a settings object with all values resolved. For example `url` will be `/user/2/` and not `user/{id}` in the callback. - [#3466](https://github.com/Semantic-Org/Semantic-UI/issues/3466)
+-**API** - API now allows the use of settings `response` and `responseAsync` to replace `mockResponse` and `mockResponseAsync`. The use of "mock" may not represent the most common use case which is providing a response from a third party source. (These changes are purely cosmetic and no underlying behavior has changed) - [#3491](https://github.com/Semantic-Org/Semantic-UI/issues/3491)
+-**Popup** - Adds `onUnplaceable` callback when element cannot be place in visible screen [#3388](https://github.com/Semantic-Org/Semantic-UI/issues/3388)
 
 **Bug Fixes**
--**Build Tools** - CSS build will now correctly call callback after both packaged files are created (compressed and uncompressed) Thanks @youngjay #3405
--**Flag** - A flag with no country set will no longer display an incorrect country flag. Thanks @space-alien #3333
--**Form** - Fixed issue where text would turn transparent inside a `loading form` #3122
--**Menu** - Fixed `1px` offset when `attached segment` follows `tabular menu` (max of 2 consecutive segments) #3479
--**Header** - `sub header` used inside a header now correctly forces `block` styling #3020
--**Popup** - Fixed `is visible`, `is animating`, and `is fluid` to always return `true/false` and not the DOM element. #2781
--**Popup** - Fixed issue with `onEnable` callback being defined with name `onEnabled` and `onDisable` with `onDisabled` in default settings, causing an error. To preserve backwards compatibility, the mispelled callback name has been left, but the bug has been fixed. #3148
--**Search** - Search now correctly hides menu when an error message inside results is clicked. #3039
--**Sidebar** - Fixed css rule issue causing `very thin` sidebar to not work #3300
--**Sidebar** - Sidebar no longer includes `transform` rules on child elements, this was causing layout issues in some cases (for example dropdowns in sidebars) #3306
+-**Build Tools** - CSS build will now correctly call callback after both packaged files are created (compressed and uncompressed) Thanks @youngjay [#3405](https://github.com/Semantic-Org/Semantic-UI/issues/3405)
+-**Flag** - A flag with no country set will no longer display an incorrect country flag. Thanks @space-alien [#3333](https://github.com/Semantic-Org/Semantic-UI/issues/3333)
+-**Form** - Fixed issue where text would turn transparent inside a `loading form` [#3122](https://github.com/Semantic-Org/Semantic-UI/issues/3122)
+-**Menu** - Fixed `1px` offset when `attached segment` follows `tabular menu` (max of 2 consecutive segments) [#3479](https://github.com/Semantic-Org/Semantic-UI/issues/3479)
+-**Header** - `sub header` used inside a header now correctly forces `block` styling [#3020](https://github.com/Semantic-Org/Semantic-UI/issues/3020)
+-**Popup** - Fixed `is visible`, `is animating`, and `is fluid` to always return `true/false` and not the DOM element. [#2781](https://github.com/Semantic-Org/Semantic-UI/issues/2781)
+-**Popup** - Fixed issue with `onEnable` callback being defined with name `onEnabled` and `onDisable` with `onDisabled` in default settings, causing an error. To preserve backwards compatibility, the mispelled callback name has been left, but the bug has been fixed. [#3148](https://github.com/Semantic-Org/Semantic-UI/issues/3148)
+-**Search** - Search now correctly hides menu when an error message inside results is clicked. [#3039](https://github.com/Semantic-Org/Semantic-UI/issues/3039)
+-**Sidebar** - Fixed css rule issue causing `very thin` sidebar to not work [#3300](https://github.com/Semantic-Org/Semantic-UI/issues/3300)
+-**Sidebar** - Sidebar no longer includes `transform` rules on child elements, this was causing layout issues in some cases (for example dropdowns in sidebars) [#3306](https://github.com/Semantic-Org/Semantic-UI/issues/3306)
 -**Sticky** - Renames variables used to account for scroll offset internally for greater code clarity
--**Transition** - Fixes `noAnimation` error to more reasonably announce that the element is "not in the DOM" #3040
+-**Transition** - Fixes `noAnimation` error to more reasonably announce that the element is "not in the DOM" [#3040](https://github.com/Semantic-Org/Semantic-UI/issues/3040)
 
 ### Version 2.1.6 - Nov 6, 2015
 
