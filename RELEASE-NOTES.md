@@ -2,13 +2,18 @@
 
 ### Version 2.1.7 Dec 19, 2015
 
+**Enhancements**
+-***API** - All responses fulfilled with settings (like `mockResponse`) will now receive a settings object with all values resolved. For example `url` will be `/user/2/` and not `user/{id}` in the callback. - #3466
+-**API** - API now allows the use of settings `response` and `responseAsync` to replace `mockResponse` and `mockResponseAsync`. The use of "mock" may not represent the most common use case which is providing a response from a third party source. (These changes are purely cosmetic and no underlying behavior has changed) - #3491
+-**Popup** - Adds `onUnplaceable` callback when element cannot be place in visible screen #3388
+
 **Bug Fixes**
 -**Flag** - A flag with no country set will no longer display an incorrect country flag. Thanks @space-alien #3333
--**Build Tools** -
+-**Build Tools** - CSS build will now correctly call callback after both packaged files are created (compressed and uncompressed) Thanks @youngjay #3405
 -**Search** - Search now correctly hides menu when an error message inside results is clicked. #3039
--**Popup** - Adds `onUnplaceable` callback when element cannot be place in visible screen #3388
 -**Sidebar** - Sidebar no longer includes `transform` rules on child elements, this was causing layout issues in some cases (for example dropdowns in sidebars) #3306
 -**Sidebar** - Fixed css rule issue causing `very thin` sidebar to not work #3300
+-**Sticky** - Renames variables used to account for scroll offset internally for greater code clarity
 -**Popup** - Fixed issue with `onEnable` callback being defined with name `onEnabled` and `onDisable` with `onDisabled` in default settings, causing an error. To preserve backwards compatibility, the mispelled callback name has been left, but the bug has been fixed. #3148
 -**Form** - Fixed issue where text would turn transparent inside a `loading form` #3122
 
