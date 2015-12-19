@@ -29,10 +29,10 @@ var
   install      = require('../config/project/install'),
 
   maybeCallback = function() {
-    if (completeCount === 1) {
+    tasksCompleted++;
+    if(tasksCompleted === 2) {
       callback();
     }
-    completeCount++;
   },
 
   // shorthand
@@ -56,7 +56,7 @@ module.exports = function(callback) {
     stream,
     compressedStream,
     uncompressedStream,
-    completeCount = 0
+    tasksCompleted = 0
   ;
 
   console.info('Building CSS');
