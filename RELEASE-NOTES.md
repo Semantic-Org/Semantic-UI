@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 2.1.7 Dec 19, 2015
+### Version 2.1.7 - Dec 19, 2015
 [Closed Issues List](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.7+is%3Aclosed)
 
 **Enhancements**
