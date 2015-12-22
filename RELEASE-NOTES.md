@@ -6,7 +6,7 @@
 **Enhancements**
 - **API** - All responses fulfilled with settings (like `mockResponse`) will now receive a settings object with all values resolved. For example `url` will be `/user/2/` and not `user/{id}` in the callback. - [#3466](https://github.com/Semantic-Org/Semantic-UI/issues/3466)
 - **API** - API now allows the use of settings `response` and `responseAsync` to replace `mockResponse` and `mockResponseAsync`. The use of "mock" may not represent the most common use case which is providing a response from a third party source. (These changes are purely cosmetic and no underlying behavior has changed) - [#3491](https://github.com/Semantic-Org/Semantic-UI/issues/3491)
-- **Popup** - Adds `onUnplaceable` callback when element cannot be place in visible screen [#3388](https://github.com/Semantic-Org/Semantic-UI/issues/3388)
+- **Popup** - Adds `onUnplaceable` callback when element cannot be placed in visible screen [#3388](https://github.com/Semantic-Org/Semantic-UI/issues/3388)
 
 **Bug Fixes**
 - **Build Tools** - CSS build will now correctly call callback after both packaged files are created (compressed and uncompressed) Thanks @youngjay [#3405](https://github.com/Semantic-Org/Semantic-UI/issues/3405)
