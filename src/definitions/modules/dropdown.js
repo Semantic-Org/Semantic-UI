@@ -2781,6 +2781,7 @@ $.fn.dropdown = function(parameters) {
               calculations
             ;
             $currentMenu.addClass(className.loading);
+            $currentMenu.removeClass(className.hidden);
             calculations = {
               context: {
                 scrollTop : $context.scrollTop(),
