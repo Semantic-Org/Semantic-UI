@@ -31,7 +31,7 @@ var when = {
 
   // install
   hasConfig: function() {
-    return requireDotFile('semantic.json');
+    return requireDotFile('semantic.json', process.cwd());
   },
 
   allowOverwrite: function(questions) {
