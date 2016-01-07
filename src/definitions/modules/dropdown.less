@@ -1160,6 +1160,33 @@ select.ui.dropdown {
 }
 
 
+/*-------------------
+       Attached
+--------------------*/
+
+/* Singular */
+.ui.attached.dropdown {
+  display: block;
+  width: ~"calc(100% + 2px)";
+  left: -1px;
+  border-radius: 0em;
+}
+
+/* Top / Bottom */
+.ui.attached.top.dropdown {
+  margin-bottom: -1px;
+  z-index: 1;
+  border-radius: @borderRadius @borderRadius 0em 0em;
+}
+.ui.attached.bottom.dropdown {
+  margin-top: -1px;
+  border-radius: 0em 0em @borderRadius @borderRadius;
+}
+.ui.attached.dropdown + .ui.attached.segment:not(.top) {
+  border-top: 1px solid @borderColor;
+}
+
+
 /*--------------
     Floating
 ---------------*/
