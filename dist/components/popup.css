@@ -25,10 +25,10 @@
   min-width: -moz-min-content;
   min-width: min-content;
   z-index: 1900;
-  border: 1px solid #D4D4D5;
+  border: 1px solid #d4d4d5;
   line-height: 1.4285em;
   max-width: 250px;
-  background: #FFFFFF;
+  background: #ffffff;
   padding: 0.833em 1em;
   font-weight: normal;
   font-style: normal;
@@ -51,7 +51,7 @@
   content: '';
   width: 0.75em;
   height: 0.75em;
-  background: #FFFFFF;
+  background: #ffffff;
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
@@ -225,26 +225,26 @@
 
 /* Arrow Color By Location */
 .ui.bottom.popup:before {
-  background: #FFFFFF;
+  background: #ffffff;
 }
 .ui.right.center.popup:before,
 .ui.left.center.popup:before {
-  background: #FFFFFF;
+  background: #ffffff;
 }
 .ui.top.popup:before {
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 /* Inverted Arrow Color */
 .ui.inverted.bottom.popup:before {
-  background: #1B1C1D;
+  background: #1b1c1d;
 }
 .ui.inverted.right.center.popup:before,
 .ui.inverted.left.center.popup:before {
-  background: #1B1C1D;
+  background: #1b1c1d;
 }
 .ui.inverted.top.popup:before {
-  background: #1B1C1D;
+  background: #1b1c1d;
 }
 
 
@@ -327,17 +327,17 @@
 
 /* Inverted colors  */
 .ui.inverted.popup {
-  background: #1B1C1D;
-  color: #FFFFFF;
+  background: #1b1c1d;
+  color: #ffffff;
   border: none;
   box-shadow: none;
 }
 .ui.inverted.popup .header {
   background-color: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .ui.inverted.popup:before {
-  background-color: #1B1C1D;
+  background-color: #1b1c1d;
   box-shadow: none !important;
 }
 
