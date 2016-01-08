@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Item
+ * # Semantic UI 2.1.7 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -33,7 +33,7 @@
   border-radius: 0rem;
   box-shadow: none;
   -webkit-transition: box-shadow 0.1s ease;
-          transition: box-shadow 0.1s ease;
+  transition: box-shadow 0.1s ease;
   z-index: '';
 }
 .ui.items > .item a {
@@ -233,7 +233,7 @@
 .ui.items > .item > .content a:not(.ui) {
   color: '';
   -webkit-transition: color 0.1s ease;
-          transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 .ui.items > .item > .content a:not(.ui):hover {
   color: '';
@@ -268,7 +268,7 @@
   cursor: pointer;
   opacity: 0.75;
   -webkit-transition: color 0.1s ease;
-          transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 .ui.items > .item > .content .favorite.icon:hover {
   opacity: 1;
@@ -286,7 +286,7 @@
   cursor: pointer;
   opacity: 0.75;
   -webkit-transition: color 0.1s ease;
-          transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 .ui.items > .item > .content .like.icon:hover {
   opacity: 1;
@@ -312,7 +312,7 @@
   color: rgba(0, 0, 0, 0.4);
   box-shadow: none;
   -webkit-transition: color 0.1s ease;
-          transition: color 0.1s ease;
+  transition: color 0.1s ease;
   border-top: none;
 }
 .ui.items > .item .extra > * {

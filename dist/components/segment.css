@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Segment
+ * # Semantic UI 2.1.7 - Segment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -413,7 +413,7 @@
   text-shadow: none !important;
   color: transparent !important;
   -webkit-transition: all 0s linear;
-          transition: all 0s linear;
+  transition: all 0s linear;
 }
 .ui.loading.segment:before {
   position: absolute;

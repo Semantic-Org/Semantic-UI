@@ -28,13 +28,6 @@ var
   tasks        = require('../config/tasks'),
   install      = require('../config/project/install'),
 
-  maybeCallback = function() {
-    tasksCompleted++;
-    if(tasksCompleted === 2) {
-      callback();
-    }
-  },
-
   // shorthand
   globs        = config.globs,
   assets       = config.paths.assets,
@@ -53,10 +46,17 @@ require('../collections/internal')(gulp);
 module.exports = function(callback) {
 
   var
+    tasksCompleted = 0,
+    maybeCallback  = function() {
+      tasksCompleted++;
+      if(tasksCompleted === 2) {
+        callback();
+      }
+    },
+
     stream,
     compressedStream,
-    uncompressedStream,
-    tasksCompleted = 0
+    uncompressedStream
   ;
 
   console.info('Building CSS');

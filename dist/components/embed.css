@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Video
+ * # Semantic UI 2.1.7 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -88,7 +88,7 @@
   background: radial-gradient(transparent 45%, rgba(0, 0, 0, 0.3));
   opacity: 0.5;
   -webkit-transition: opacity 0.5s ease;
-          transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 .ui.embed > .icon:before {
   position: absolute;
@@ -102,7 +102,7 @@
   font-size: 6rem;
   text-shadow: 0px 2px 10px rgba(34, 36, 38, 0.2);
   -webkit-transition: opacity 0.5s ease, color 0.5s ease;
-          transition: opacity 0.5s ease, color 0.5s ease;
+  transition: opacity 0.5s ease, color 0.5s ease;
   z-index: 10;
 }
 

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Input
+ * # Semantic UI 2.1.7 - Input
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -47,7 +47,7 @@
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
   -webkit-transition: box-shadow 0.1s ease, border-color 0.1s ease;
-          transition: box-shadow 0.1s ease, border-color 0.1s ease;
+  transition: box-shadow 0.1s ease, border-color 0.1s ease;
   box-shadow: none;
 }
 
@@ -252,7 +252,7 @@
   opacity: 0.5;
   border-radius: 0em 0.28571429rem 0.28571429rem 0em;
   -webkit-transition: opacity 0.3s ease;
-          transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 .ui.icon.input > i.icon:not(.link) {
   pointer-events: none;
