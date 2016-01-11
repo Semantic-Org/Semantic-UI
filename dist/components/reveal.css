@@ -25,7 +25,7 @@
   left: 0em !important;
   z-index: 3 !important;
   -webkit-transition: all 0.5s ease 0.1s;
-  transition: all 0.5s ease 0.1s;
+          transition: all 0.5s ease 0.1s;
 }
 .ui.reveal > .hidden.content {
   position: relative !important;
@@ -59,9 +59,7 @@
   float: left;
   margin: 0em;
   -webkit-transition: -webkit-transform 0.5s ease 0.1s;
-  transition: -webkit-transform 0.5s ease 0.1s;
-  transition: transform 0.5s ease 0.1s;
-  transition: transform 0.5s ease 0.1s, -webkit-transform 0.5s ease 0.1s;
+          transition: transform 0.5s ease 0.1s;
 }
 .ui.slide.reveal > .visible.content {
   position: relative !important;
@@ -169,9 +167,7 @@
   float: left;
   margin: 0em;
   -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1) 0.1s;
-  transition: -webkit-transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1) 0.1s;
-  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1) 0.1s;
-  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1) 0.1s, -webkit-transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1) 0.1s;
+          transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1) 0.1s;
 }
 .ui.move.reveal > .visible.content {
   position: relative !important;
