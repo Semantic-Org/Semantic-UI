@@ -106,13 +106,13 @@ module.exports = function(callback) {
       }
       else if(isPackagedTheme) {
         console.log('Change detected in packaged theme');
-        lessPath = lessPath.replace(tasks.regExp.theme, source.definitions);
         lessPath = util.replaceExtension(file.path, '.less');
+        lessPath = lessPath.replace(tasks.regExp.theme, source.definitions);
       }
       else if(isSiteTheme) {
         console.log('Change detected in site theme');
-        lessPath = lessPath.replace(source.site, source.definitions);
         lessPath = util.replaceExtension(file.path, '.less');
+        lessPath = lessPath.replace(source.site, source.definitions);
       }
       else if(isDefinition) {
         console.log('Change detected in definition');
