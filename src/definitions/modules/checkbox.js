@@ -187,7 +187,11 @@ $.fn.checkbox = function(parameters) {
               keyCode = {
                 enter  : 13,
                 space  : 32,
-                escape : 27
+                escape : 27,
+                left   : 37,
+                up     : 38,
+                right  : 39,
+                down   : 40
               }
             ;
             if(key == keyCode.escape) {
@@ -198,6 +202,18 @@ $.fn.checkbox = function(parameters) {
             else if(!event.ctrlKey && ( key == keyCode.space || key == keyCode.enter) ) {
               module.verbose('Enter/space key pressed, toggling checkbox');
               module.toggle();
+              shortcutPressed = true;
+            }
+            else if(module.is.radio() && ( key == keyCode.left || key == keyCode.up || key == keyCode.right || key == keyCode.down) ) {
+              var delta = key == keyCode.left || key == keyCode.up ? -1 : 1;
+              var radios = module.get.radios();
+              if(radios.length > 1) {
+                var checkIndex = (radios.index($module) + delta + radios.length) % radios.length;
+                var checkModule = $(radios[checkIndex]).data(moduleNamespace);
+                if(checkModule) {
+                  checkModule.check();
+                }
+              }
               shortcutPressed = true;
             }
             else {
