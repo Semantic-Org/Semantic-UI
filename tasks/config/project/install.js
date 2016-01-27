@@ -416,7 +416,7 @@ module.exports = {
           {
             name: 'Yes',
             value: true
-          },
+          }
         ]
       },
       {
@@ -730,7 +730,7 @@ module.exports = {
 
     /* Rename Files */
     rename: {
-      json : { extname : '.json' },
+      json : { extname : '.json' }
     },
 
     /* Copy Install Folders */
@@ -750,6 +750,17 @@ module.exports = {
         preserveFiles     : true
       }
 
+    }
+  },
+
+  // Detect whether there is a semantic.json configuration and that the auto-install option is set to True
+  // Returns the semantic.json configuration
+  autoInstall: function() {
+    var config = when.hasConfig();
+    if (config && config['auto-install']) {
+      return when.hasConfig();
+    } else {
+      return false;
     }
   }
 
