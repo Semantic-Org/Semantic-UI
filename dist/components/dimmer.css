@@ -34,7 +34,7 @@
   -webkit-animation-duration: 0.5s;
           animation-duration: 0.5s;
   -webkit-transition: background-color 0.5s linear;
-  transition: background-color 0.5s linear;
+          transition: background-color 0.5s linear;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -56,7 +56,7 @@
 .ui.dimmer > .content > * {
   display: table-cell;
   vertical-align: middle;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* Loose Coupling */
@@ -119,8 +119,8 @@ body.dimmable > .dimmer {
 .blurring.dimmable > :not(.dimmer) {
   -webkit-filter: blur(0px) grayscale(0);
           filter: blur(0px) grayscale(0);
-  -webkit-transition: 800ms filter ease;
-  transition: 800ms filter ease;
+  -webkit-transition: 800ms -webkit-filter ease, 800ms filter ease;
+          transition: 800ms filter ease;
 }
 .blurring.dimmed.dimmable > :not(.dimmer) {
   -webkit-filter: blur(5px) grayscale(0.7);
@@ -154,7 +154,7 @@ body.dimmable > .dimmer {
   background-color: rgba(255, 255, 255, 0.85);
 }
 .ui.inverted.dimmer > .content > * {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /*--------------

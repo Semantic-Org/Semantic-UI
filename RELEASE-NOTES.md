@@ -1,5 +1,14 @@
 ## RELEASE NOTES
 
+### Version 2.1.8 - Jan 7, 2016
+
+**Critical Fix**
+- **Install** - This fixes a regression causing users with NPM `2` from using Semantic UI, caused by removing the deprecated `peerDependencies` which are necessary for NPM2 install to function correctly. [#3511](https://github.com/Semantic-Org/Semantic-UI/issues/3511)
+
+**Minor Fix**
+- **Flag** - Adds Scotland and Wales flag [#3494](https://github.com/Semantic-Org/Semantic-UI/issues/3494) **Thanks @edumucelli**
+- **Install** - Fixes post-install scripts not exiting with correct return values [#3515](https://github.com/Semantic-Org/Semantic-UI/issues/3515) **Thanks @Jeff-Tian**
+
 ### Version 2.1.7 - Dec 19, 2015
 [Closed Issues List](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aissue+milestone%3A2.1.7+is%3Aclosed)
 
