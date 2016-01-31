@@ -29,7 +29,7 @@ module.exports = function(callback) {
 
   if( !install.isSetup() ) {
     console.error('Cannot find semantic.json. Run "gulp install" to set-up Semantic');
-    return;
+    return 1;
   }
 
   // check for right-to-left (RTL) language
