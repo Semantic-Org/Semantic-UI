@@ -383,10 +383,11 @@ $.fn.dimmer = function(parameters) {
             var
               color      = $dimmer.css('background-color'),
               colorArray = color.split(','),
+              isRGB      = (colorArray && colorArray.length == 3),
               isRGBA     = (colorArray && colorArray.length == 4)
             ;
             opacity    = settings.opacity === 0 ? 0 : settings.opacity || opacity;
-            if(isRGBA) {
+            if(isRGB || isRGBA) {
               colorArray[3] = opacity + ')';
               color         = colorArray.join(',');
             }
