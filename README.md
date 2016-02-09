@@ -16,7 +16,7 @@ Key Features
 * Built with EM values for responsive design
 * Flexbox friendly
 
-Semantic allows developers to design and build beautiful websites super fast. Its **concise HTML**, **intuitive JavaScript**, and **simplified debugging** makes frontend development a delightful experience. Semantic is responsively designed allowing your websites to scale beautifully on multiple devices. Production ready and partnered with frameworks such as **React**, **Angular**, **Meteor**, and **Ember**, you can integrate Semantic with any of these frameworks to organize your UI layer alongside your application logic.
+Semantic allows developers to build beautiful websites super fast. Its **concise HTML**, **intuitive JavaScript**, and **simplified debugging** makes frontend development a delightful experience. Semantic is responsively designed allowing your website to scale on multiple devices. Production ready and partnered with frameworks such as **React**, **Angular**, **Meteor**, and **Ember**, means you can integrate Semantic with any of these frameworks to organize your UI layer alongside your application logic.
 
 ## 2.1 Release
 
