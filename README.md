@@ -22,7 +22,7 @@ Key Features
 
 *You already know how to write clean and tidy CSS right? Why write it from scratch? You have the right to be lazy. Use Semantic UI's prewritten components to your advantage and maximize your productivity!*
 
-Integrating Semantic UI into your workflow will increase your productivity and efficiency by shortening developing time. This includes removing the hassle of coding cross-browser concerns, implementing grid systems, configuring responsive design and so on. **Use Semantic UI to quickly build out prototypes and polish your final interation.** Experience complete design freedom with Semantic UI and you will be rewarded with a remarkable an admirable user interface.
+Integrating Semantic UI into your workflow will increase your productivity and efficiency by shortening developing time. This includes removing the hassle of coding cross-browser concerns, implementing grid systems, configuring responsive design and so on. **Use Semantic UI to quickly build out prototypes as well as polish your final interation.** Experience complete design freedom with Semantic UI and you will be rewarded with a remarkable an admirable user interface.
 
 ## 2.1 Release
 
