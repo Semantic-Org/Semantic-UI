@@ -20,7 +20,7 @@ Key Features
 
 Simply put, use Semantic UI to quickly facilitate the development of a theme for your project. Create beautiful and responsive layouts with HTML utilizing a host of exiciting key features and continuous improvements. Semantic UI lets you focus more on designing rather than programming. No need to reinvent the wheel as a solid foundation has already be layed out. Design your UI once then deploy your code everywhere.
 
-Integrating Semantic UI into your workflow will increase your productivity and efficiency by shortening developing time. Which includes removing the hassle of coding cross-browser concerns, implementing responsive design
+Integrating Semantic UI into your workflow will increase your productivity and efficiency by shortening developing time. This includes removing the hassle of coding cross-browser concerns, implementing responsive design
 
 Experience complete design freedom.
 
