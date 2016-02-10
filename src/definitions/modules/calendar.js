@@ -462,18 +462,18 @@
 
           get: {
             date: function () {
-              return $module.data(metadata.date);
+              return $module.data(metadata.date) || null;
             },
             focusDate: function () {
-              return $module.data(metadata.focusDate);
+              return $module.data(metadata.focusDate) || null;
             },
             startDate: function () {
               var startModule = module.get.calendarModule(settings.startCalendar);
-              return startModule ? startModule.get.date() : $module.data(metadata.startDate);
+              return (startModule ? startModule.get.date() : $module.data(metadata.startDate)) || null;
             },
             endDate: function () {
               var endModule = module.get.calendarModule(settings.endCalendar);
-              return endModule ? endModule.get.date() : $module.data(metadata.endDate);
+              return (endModule ? endModule.get.date() : $module.data(metadata.endDate)) || null;
             },
             mode: function () {
               //only returns valid modes for the current settings
