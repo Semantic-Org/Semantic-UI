@@ -16,6 +16,14 @@ Key Features
 * Built with EM values for responsive design
 * Flexbox friendly
 
+## What to Use Semantic UI for and When to Use It
+
+**Simply put, use Semantic UI to quickly facilitate the development of a theme for your project.** Create beautiful and responsive layouts with HTML utilizing a host of exiciting key features and continuous improvements. Semantic UI lets you focus more on designing rather than programming. No need to reinvent the wheel as a solid foundation has already been layed out. Design your UI once then deploy your code everywhere.
+
+Integrating Semantic UI into your workflow will increase your productivity and efficiency by shortening developing time. This includes removing the hassle of coding to mitigate cross-browser inconsistencies, implementing grid systems, configuring responsive design and much more. **Use Semantic UI to quickly build out prototypes as well as polish your final interation.** Experience complete design freedom with Semantic UI and you will be rewarded with a remarkable an admirable user interface.
+
+*Remember, you have the right to be lazy! Use Semantic UI's prewritten components to your advantage and maximize your productivity!*
+
 ## 2.1 Release
 
 Semantic UI `2.1` is now available. Read up on [what's new](http://www.semantic-ui.com/introduction/new.html) in the docs.
