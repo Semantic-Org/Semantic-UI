@@ -1184,20 +1184,21 @@ $.fn.dropdown = function(parameters) {
 
                 // left arrow (hide sub-menu)
                 if(pressedKey == keys.leftArrow) {
-
-                  isSubMenuItem = ($parentMenu[0] !== $menu[0]);
-
-                  if(isSubMenuItem) {
-                    module.verbose('Left key pressed, closing sub-menu');
-                    module.animate.hide(false,  $parentMenu);
-                    $selectedItem
-                      .removeClass(className.selected)
-                    ;
-                    $parentMenu
-                      .closest(selector.item)
-                        .addClass(className.selected)
-                    ;
-                    event.preventDefault();
+                  if(hasSelectedItem) {
+                    isSubMenuItem = ($parentMenu[0] !== $menu[0]);
+      
+                    if(isSubMenuItem) {
+                      module.verbose('Left key pressed, closing sub-menu');
+                      module.animate.hide(false,  $parentMenu);
+                      $selectedItem
+                        .removeClass(className.selected)
+                      ;
+                      $parentMenu
+                        .closest(selector.item)
+                          .addClass(className.selected)
+                      ;
+                      event.preventDefault();
+                    }  
                   }
                 }
 
