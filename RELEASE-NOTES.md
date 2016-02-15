@@ -2,18 +2,22 @@
 
 ### Version 2.1.9 - Feb 15, 2016
 
-
 **Bugs**
 - **Dropdown** - Fixed issue where dropdowns with sub-menus would not properly activate on mobile #3183
 - **API** - Fixes bug where `beforeSend` would not correctly cancel request when `return false;` is used in callback. #3660
 - **Modal** - Fixes issue where RGB values set for dimmer `background-color` werent being correctly interpreted #3665 **Thanks @larsbo**
 - **Form** - Fixed use of deprecated `size()` method in `prompt` #3655 **Thanks @SimonArdrey**
 -**Table** - Fixed issue where `striped selectable` table would not correctly show hover color on striped rows
+-**Segment/Message** - Fixed issue where `top attached message` would have no border when attached to `segment` #3619
 
 **Enhancements**
-- **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation]() for how to use. #3616 **Thanks @algorithme**
+- **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation](http://www.semantic-ui.com/introduction/advanced-usage.html#Auto-Install) for how to use. #3616 **Thanks @algorithme**
 -**Table** - Added more granular variablaes for controlling style on first column in a `definition table`
 
+**Docs**
+-**Form** - Added example of using custom rules with form
+-**Build Tools** - Added explanation of using SUI with CI, and auto-install in "recipes" section.
+-**Build Tools** - Added explanation of how to build RTL in "recipes" section
 
 ### Version 2.1.8 - Jan 7, 2016
 
