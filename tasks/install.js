@@ -191,14 +191,17 @@ if(manager.name == 'NPM') {
 
 gulp.task('run setup', function() {
 
-  return gulp
-    .src('gulpfile.js')
-    .pipe(prompt.prompt(questions.setup, function(setupAnswers) {
-      // hoist
-      answers = setupAnswers;
-    }))
-  ;
-
+  // If auto-install is switched on, we skip the configuration section and simply reuse the configuration from semantic.json
+  if (install.autoInstall()) {
+    answers = install.autoInstall();
+  } else {
+    return gulp
+        .src('gulpfile.js')
+        .pipe(prompt.prompt(questions.setup, function(setupAnswers) {
+          // hoist
+          answers = setupAnswers;
+        }));
+  }
 });
 
 gulp.task('create install files', function(callback) {
@@ -414,17 +417,23 @@ gulp.task('clean up install', function() {
     console.log('');
   }
 
-  return gulp
-    .src('gulpfile.js')
-    .pipe(prompt.prompt(questions.cleanup, function(answers) {
-      if(answers.cleanup == 'yes') {
-        del(install.setupFiles);
-      }
-      if(answers.build == 'yes') {
-        gulp.start('build');
-      }
-    }))
-  ;
+  // If auto-install is switched on, we skip the configuration section and simply build the dependencies
+  if (install.autoInstall()) {
+    return gulp.start('build');
+  } else {
+    return gulp
+        .src('gulpfile.js')
+        .pipe(prompt.prompt(questions.cleanup, function(answers) {
+          if(answers.cleanup == 'yes') {
+            del(install.setupFiles);
+          }
+          if(answers.build == 'yes') {
+            gulp.start('build');
+          }
+        }));
+  }
+
+
 });
 
 runSequence(
