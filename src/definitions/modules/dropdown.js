@@ -971,8 +971,9 @@ $.fn.dropdown = function(parameters) {
             mouseenter: function(event) {
               var
                 $target        = $(event.target),
-                $subMenu       = $(this).children(selector.menu),
-                $otherMenus    = $(this).siblings(selector.item).children(selector.menu),
+                $item          = $(this),
+                $subMenu       = $item.children(selector.menu),
+                $otherMenus    = $item.siblings(selector.item).children(selector.menu),
                 hasSubMenu     = ($subMenu.length > 0),
                 isBubbledEvent = ($subMenu.find($target).length > 0)
               ;
