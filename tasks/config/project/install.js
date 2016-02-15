@@ -82,6 +82,14 @@ module.exports = {
     return when.hasConfig();
   },
 
+  // detect whether there is a semantic.json configuration and that the auto-install option is set to true
+  shouldAutoInstall: function() {
+    var
+      config = when.hasConfig()
+    ;
+    return config['autoInstall'];
+  },
+
   // checks if files are in a PM directory
   getPackageManager: function(directory) {
     var
@@ -751,17 +759,5 @@ module.exports = {
       }
 
     }
-  },
-
-  // Detect whether there is a semantic.json configuration and that the auto-install option is set to True
-  // Returns the semantic.json configuration
-  autoInstall: function() {
-    var config = when.hasConfig();
-    if (config && config['auto-install']) {
-      return when.hasConfig();
-    } else {
-      return false;
-    }
   }
-
 };
