@@ -193,6 +193,8 @@ $.api = $.fn.api = function(parameters) {
           // call beforesend and get any settings changes
           requestSettings = module.get.settings();
 
+          console.log(requestSettings);
+
           // check if before send cancelled request
           if(requestSettings === false) {
             module.cancelled = true;
@@ -722,6 +724,9 @@ $.api = $.fn.api = function(parameters) {
             }
             if(runSettings === undefined) {
               module.error(error.noReturnedValue);
+            }
+            if(runSettings === false) {
+              return runSettings;
             }
             return (runSettings !== undefined)
               ? $.extend(true, {}, runSettings)
