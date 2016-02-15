@@ -80,14 +80,14 @@
           justify-content: center;
   margin: 0em 0em;
   padding: 1.14285714em 2em;
-  background: #FFFFFF;
+  background: #ffffff;
   color: rgba(0, 0, 0, 0.87);
   box-shadow: none;
   border-radius: 0em;
   border: none;
   border-right: 1px solid rgba(34, 36, 38, 0.15);
   -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
-  transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+          transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
 }
 
 /* Arrow */
@@ -99,14 +99,14 @@
   top: 50%;
   right: 0%;
   border: medium none;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   width: 1.14285714em;
   height: 1.14285714em;
   border-style: solid;
   border-color: rgba(34, 36, 38, 0.15);
   border-width: 0px 1px 1px 0px;
   -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
-  transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+          transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
   -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
       -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
           transform: translateY(-50%) translateX(50%) rotate(-45deg);
@@ -355,7 +355,7 @@
 .ui.steps .link.step:hover,
 .ui.steps a.step:hover::after,
 .ui.steps a.step:hover {
-  background: #F9FAFB;
+  background: #f9fafb;
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -364,20 +364,20 @@
 .ui.steps .link.step:active,
 .ui.steps a.step:active::after,
 .ui.steps a.step:active {
-  background: #F3F4F5;
+  background: #f3f4f5;
   color: rgba(0, 0, 0, 0.9);
 }
 
 /* Active */
 .ui.steps .step.active {
   cursor: auto;
-  background: #F3F4F5;
+  background: #f3f4f5;
 }
 .ui.steps .step.active:after {
-  background: #F3F4F5;
+  background: #f3f4f5;
 }
 .ui.steps .step.active .title {
-  color: #4183C4;
+  color: #4183c4;
 }
 .ui.ordered.steps .step.active:before,
 .ui.steps .active.step .icon {
@@ -404,20 +404,20 @@
 .ui.steps a.active.step:hover::after,
 .ui.steps a.active.step:hover {
   cursor: pointer;
-  background: #DCDDDE;
+  background: #dcddde;
   color: rgba(0, 0, 0, 0.87);
 }
 
 /* Completed */
 .ui.steps .step.completed > .icon:before,
 .ui.ordered.steps .step.completed:before {
-  color: #21BA45;
+  color: #21ba45;
 }
 
 /* Disabled */
 .ui.steps .disabled.step {
   cursor: auto;
-  background: #FFFFFF;
+  background: #ffffff;
   pointer-events: none;
 }
 .ui.steps .disabled.step,
@@ -426,7 +426,7 @@
   color: rgba(40, 40, 40, 0.3);
 }
 .ui.steps .disabled.step:after {
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 

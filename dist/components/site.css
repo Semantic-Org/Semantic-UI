@@ -27,7 +27,7 @@ body {
   padding: 0px;
   overflow-x: hidden;
   min-width: 320px;
-  background: #FFFFFF;
+  background: #ffffff;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.4285em;
@@ -103,7 +103,7 @@ p:last-child {
 --------------------*/
 
 a {
-  color: #4183C4;
+  color: #4183c4;
   text-decoration: none;
 }
 a:hover {
@@ -119,15 +119,15 @@ a:hover {
 
 /* Site */
 ::-webkit-selection {
-  background-color: #CCE2FF;
+  background-color: #cce2ff;
   color: rgba(0, 0, 0, 0.87);
 }
 ::-moz-selection {
-  background-color: #CCE2FF;
+  background-color: #cce2ff;
   color: rgba(0, 0, 0, 0.87);
 }
 ::selection {
-  background-color: #CCE2FF;
+  background-color: #cce2ff;
   color: rgba(0, 0, 0, 0.87);
 }
 

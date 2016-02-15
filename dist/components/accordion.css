@@ -64,10 +64,8 @@
   margin: 0em 0.25rem 0em 0rem;
   padding: 0em;
   font-size: 1em;
-  -webkit-transition: opacity 0.1s ease, -webkit-transform 0.1s ease;
-  transition: opacity 0.1s ease, -webkit-transform 0.1s ease;
-  transition: transform 0.1s ease, opacity 0.1s ease;
-  transition: transform 0.1s ease, opacity 0.1s ease, -webkit-transform 0.1s ease;
+  -webkit-transition: -webkit-transform 0.1s ease, opacity 0.1s ease;
+          transition: transform 0.1s ease, opacity 0.1s ease;
   vertical-align: baseline;
   -webkit-transform: none;
       -ms-transform: none;
@@ -131,7 +129,7 @@
 .ui.styled.accordion,
 .ui.styled.accordion .accordion {
   border-radius: 0.28571429rem;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15), 0px 0px 0px 1px rgba(34, 36, 38, 0.15);
 }
 .ui.styled.accordion .title,
@@ -142,7 +140,7 @@
   font-weight: bold;
   border-top: 1px solid rgba(34, 36, 38, 0.15);
   -webkit-transition: background 0.1s ease, color 0.1s ease;
-  transition: background 0.1s ease, color 0.1s ease;
+          transition: background 0.1s ease, color 0.1s ease;
 }
 .ui.styled.accordion > .title:first-child,
 .ui.styled.accordion .accordion .title:first-child {

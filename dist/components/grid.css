@@ -1142,17 +1142,17 @@
 .ui.celled.grid {
   width: 100%;
   margin: 1em 0em;
-  box-shadow: 0px 0px 0px 1px #D4D4D5;
+  box-shadow: 0px 0px 0px 1px #d4d4d5;
 }
 .ui.celled.grid > .row {
   width: 100% !important;
   margin: 0em;
   padding: 0em;
-  box-shadow: 0px -1px 0px 0px #D4D4D5;
+  box-shadow: 0px -1px 0px 0px #d4d4d5;
 }
 .ui.celled.grid > .column:not(.row),
 .ui.celled.grid > .row > .column {
-  box-shadow: -1px 0px 0px 0px #D4D4D5;
+  box-shadow: -1px 0px 0px 0px #d4d4d5;
 }
 .ui.celled.grid > .column:first-child,
 .ui.celled.grid > .row > .column:first-child {
@@ -1356,88 +1356,88 @@
 .ui.grid > .red.row,
 .ui.grid > .red.column,
 .ui.grid > .row > .red.column {
-  background-color: #DB2828 !important;
-  color: #FFFFFF;
+  background-color: #db2828 !important;
+  color: #ffffff;
 }
 
 /* Orange */
 .ui.grid > .orange.row,
 .ui.grid > .orange.column,
 .ui.grid > .row > .orange.column {
-  background-color: #F2711C !important;
-  color: #FFFFFF;
+  background-color: #f2711c !important;
+  color: #ffffff;
 }
 
 /* Yellow */
 .ui.grid > .yellow.row,
 .ui.grid > .yellow.column,
 .ui.grid > .row > .yellow.column {
-  background-color: #FBBD08 !important;
-  color: #FFFFFF;
+  background-color: #fbbd08 !important;
+  color: #ffffff;
 }
 
 /* Olive */
 .ui.grid > .olive.row,
 .ui.grid > .olive.column,
 .ui.grid > .row > .olive.column {
-  background-color: #B5CC18 !important;
-  color: #FFFFFF;
+  background-color: #b5cc18 !important;
+  color: #ffffff;
 }
 
 /* Green */
 .ui.grid > .green.row,
 .ui.grid > .green.column,
 .ui.grid > .row > .green.column {
-  background-color: #21BA45 !important;
-  color: #FFFFFF;
+  background-color: #21ba45 !important;
+  color: #ffffff;
 }
 
 /* Teal */
 .ui.grid > .teal.row,
 .ui.grid > .teal.column,
 .ui.grid > .row > .teal.column {
-  background-color: #00B5AD !important;
-  color: #FFFFFF;
+  background-color: #00b5ad !important;
+  color: #ffffff;
 }
 
 /* Blue */
 .ui.grid > .blue.row,
 .ui.grid > .blue.column,
 .ui.grid > .row > .blue.column {
-  background-color: #2185D0 !important;
-  color: #FFFFFF;
+  background-color: #2185d0 !important;
+  color: #ffffff;
 }
 
 /* Violet */
 .ui.grid > .violet.row,
 .ui.grid > .violet.column,
 .ui.grid > .row > .violet.column {
-  background-color: #6435C9 !important;
-  color: #FFFFFF;
+  background-color: #6435c9 !important;
+  color: #ffffff;
 }
 
 /* Purple */
 .ui.grid > .purple.row,
 .ui.grid > .purple.column,
 .ui.grid > .row > .purple.column {
-  background-color: #A333C8 !important;
-  color: #FFFFFF;
+  background-color: #a333c8 !important;
+  color: #ffffff;
 }
 
 /* Pink */
 .ui.grid > .pink.row,
 .ui.grid > .pink.column,
 .ui.grid > .row > .pink.column {
-  background-color: #E03997 !important;
-  color: #FFFFFF;
+  background-color: #e03997 !important;
+  color: #ffffff;
 }
 
 /* Brown */
 .ui.grid > .brown.row,
 .ui.grid > .brown.column,
 .ui.grid > .row > .brown.column {
-  background-color: #A5673F !important;
-  color: #FFFFFF;
+  background-color: #a5673f !important;
+  color: #ffffff;
 }
 
 /* Grey */
@@ -1445,15 +1445,15 @@
 .ui.grid > .grey.column,
 .ui.grid > .row > .grey.column {
   background-color: #767676 !important;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 /* Black */
 .ui.grid > .black.row,
 .ui.grid > .black.column,
 .ui.grid > .row > .black.column {
-  background-color: #1B1C1D !important;
-  color: #FFFFFF;
+  background-color: #1b1c1d !important;
+  color: #ffffff;
 }
 
 /*----------------------
@@ -1523,7 +1523,7 @@
   
 /* Celled Reversed */
   .ui[class*="mobile reversed"].celled.grid > .row > .column:first-child {
-    box-shadow: -1px 0px 0px 0px #D4D4D5;
+    box-shadow: -1px 0px 0px 0px #d4d4d5;
   }
   .ui[class*="mobile reversed"].celled.grid > .row > .column:last-child {
     box-shadow: none;
@@ -1569,7 +1569,7 @@
   
 /* Celled Reversed */
   .ui[class*="tablet reversed"].celled.grid > .row > .column:first-child {
-    box-shadow: -1px 0px 0px 0px #D4D4D5;
+    box-shadow: -1px 0px 0px 0px #d4d4d5;
   }
   .ui[class*="tablet reversed"].celled.grid > .row > .column:last-child {
     box-shadow: none;
@@ -1615,7 +1615,7 @@
   
 /* Celled Reversed */
   .ui[class*="computer reversed"].celled.grid > .row > .column:first-child {
-    box-shadow: -1px 0px 0px 0px #D4D4D5;
+    box-shadow: -1px 0px 0px 0px #d4d4d5;
   }
   .ui[class*="computer reversed"].celled.grid > .row > .column:last-child {
     box-shadow: none;
