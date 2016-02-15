@@ -369,7 +369,7 @@ $.fn.form = function(parameters) {
             }
             if(requiresName) {
               $label = $field.closest(selector.group).find('label').eq(0);
-              name = ($label.size() == 1)
+              name = ($label.length == 1)
                 ? $label.text()
                 : $field.prop('placeholder') || settings.text.unspecifiedField
               ;
