@@ -324,8 +324,8 @@ $.fn.dropdown = function(parameters) {
                 module.set.multiple();
               }
               if ($input.prop('disabled')) {
-                module.debug('Disabling dropdown')
-                $module.addClass(className.disabled)
+                module.debug('Disabling dropdown');
+                $module.addClass(className.disabled);
               }
               $input
                 .removeAttr('class')
@@ -970,17 +970,20 @@ $.fn.dropdown = function(parameters) {
           item: {
             mouseenter: function(event) {
               var
-                $subMenu    = $(this).children(selector.menu),
-                $otherMenus = $(this).siblings(selector.item).children(selector.menu)
+                $target        = $(event.target),
+                $subMenu       = $(this).children(selector.menu),
+                $otherMenus    = $(this).siblings(selector.item).children(selector.menu),
+                hasSubMenu     = ($subMenu.length > 0),
+                isBubbledEvent = ($subMenu.find($target).length > 0)
               ;
-              if( $subMenu.length > 0 ) {
+              if( !isBubbledEvent && hasSubMenu ) {
                 clearTimeout(module.itemTimer);
                 module.itemTimer = setTimeout(function() {
                   module.verbose('Showing sub-menu', $subMenu);
                   $.each($otherMenus, function() {
                     module.animate.hide(false, $(this));
                   });
-                  module.animate.show(false,  $subMenu);
+                  module.animate.show(false, $subMenu);
                 }, settings.delay.show);
                 event.preventDefault();
               }
@@ -993,7 +996,7 @@ $.fn.dropdown = function(parameters) {
                 clearTimeout(module.itemTimer);
                 module.itemTimer = setTimeout(function() {
                   module.verbose('Hiding sub-menu', $subMenu);
-                  module.animate.hide(false,  $subMenu);
+                  module.animate.hide(false, $subMenu);
                 }, settings.delay.hide);
               }
             },
@@ -1189,7 +1192,7 @@ $.fn.dropdown = function(parameters) {
 
                   if(isSubMenuItem) {
                     module.verbose('Left key pressed, closing sub-menu');
-                    module.animate.hide(false,  $parentMenu);
+                    module.animate.hide(false, $parentMenu);
                     $selectedItem
                       .removeClass(className.selected)
                     ;
@@ -1205,7 +1208,7 @@ $.fn.dropdown = function(parameters) {
                 if(pressedKey == keys.rightArrow) {
                   if(hasSubMenu) {
                     module.verbose('Right key pressed, opening sub-menu');
-                    module.animate.show(false,  $subMenu);
+                    module.animate.show(false, $subMenu);
                     $selectedItem
                       .removeClass(className.selected)
                     ;

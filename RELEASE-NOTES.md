@@ -1,5 +1,17 @@
 ## RELEASE NOTES
 
+### Version 2.1.9 - Feb 15, 2016
+
+**Bugs**
+-**Dropdown** - Fixed issue where dropdowns with sub-menus would not properly activate on mobile #3183
+-**API** - Fixes bug where `beforeSend` would not correctly cancel request when `return false;` is used in callback. #3660
+
+
+
+**Enhancements**
+
+
+
 ### Version 2.1.8 - Jan 7, 2016
 
 **Critical Fix**
