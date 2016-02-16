@@ -141,7 +141,7 @@ $.api = $.fn.api = function(parameters) {
             response = sessionStorage.getItem(url);
             module.debug('Using cached response', url, response);
             response = module.decode.json(response);
-            return false;
+            return response;
           }
         },
         write: {
@@ -233,7 +233,6 @@ $.api = $.fn.api = function(parameters) {
 
           module.debug('Querying URL', ajaxSettings.url);
           module.verbose('Using AJAX settings', ajaxSettings);
-
           if(settings.cache === 'local' && module.read.cachedResponse(url)) {
             module.debug('Response returned from local cache');
             module.request = module.create.request();
@@ -752,7 +751,7 @@ $.api = $.fn.api = function(parameters) {
               if( module.is.input() ) {
                 data.value = $module.val();
               }
-              else if( !module.is.form() ) {
+              else if( module.is.form() ) {
 
               }
               else {

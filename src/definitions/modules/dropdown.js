@@ -260,7 +260,11 @@ $.fn.dropdown = function(parameters) {
           api: function() {
             var
               apiSettings = {
-                debug : settings.debug,
+                debug   : settings.debug,
+                urlData : {
+                  value : module.get.value(),
+                  query : module.get.query()
+                },
                 on    : false
               }
             ;
@@ -652,9 +656,10 @@ $.fn.dropdown = function(parameters) {
         queryRemote: function(query, callback) {
           var
             apiSettings = {
-              errorDuration        : false,
-              throttle             : settings.throttle,
-              urlData              : {
+              errorDuration : false,
+              cache         : 'local',
+              throttle      : settings.throttle,
+              urlData       : {
                 query: query
               },
               onError: function() {
