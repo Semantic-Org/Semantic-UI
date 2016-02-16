@@ -12,12 +12,14 @@
 
 **Enhancements**
 - **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation](http://www.semantic-ui.com/introduction/advanced-usage.html#Auto-Install) for how to use. #3616 **Thanks @algorithme**
+-**Site** `@px` and `@relativepx` i.e. `@relative12px` which can be used to return EM value of pixels are now extended to `@relative40px`
 -**Table** - Added more granular variablaes for controlling style on first column in a `definition table`
 
 **Docs**
 -**Form** - Added example of using custom rules with form
 -**Build Tools** - Added explanation of using SUI with CI, and auto-install in "recipes" section.
 -**Build Tools** - Added explanation of how to build RTL in "recipes" section
+-**Layouts**  - Added "attached" example showing content attached to other content
 
 ### Version 2.1.8 - Jan 7, 2016
 

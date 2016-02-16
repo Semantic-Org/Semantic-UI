@@ -400,6 +400,32 @@
 @12px         : unit( (12 / @emSize), rem);
 @13px         : unit( (13 / @emSize), rem);
 @14px         : unit( (14 / @emSize), rem);
+@15px         : unit( (15 / @emSize), rem);
+@16px         : unit( (16 / @emSize), rem);
+@17px         : unit( (17 / @emSize), rem);
+@18px         : unit( (18 / @emSize), rem);
+@19px         : unit( (19 / @emSize), rem);
+@20px         : unit( (20 / @emSize), rem);
+@21px         : unit( (21 / @emSize), rem);
+@22px         : unit( (22 / @emSize), rem);
+@23px         : unit( (23 / @emSize), rem);
+@24px         : unit( (24 / @emSize), rem);
+@25px         : unit( (25 / @emSize), rem);
+@26px         : unit( (26 / @emSize), rem);
+@27px         : unit( (27 / @emSize), rem);
+@28px         : unit( (28 / @emSize), rem);
+@29px         : unit( (29 / @emSize), rem);
+@30px         : unit( (30 / @emSize), rem);
+@31px         : unit( (31 / @emSize), rem);
+@32px         : unit( (32 / @emSize), rem);
+@33px         : unit( (33 / @emSize), rem);
+@34px         : unit( (34 / @emSize), rem);
+@35px         : unit( (35 / @emSize), rem);
+@36px         : unit( (36 / @emSize), rem);
+@37px         : unit( (37 / @emSize), rem);
+@38px         : unit( (38 / @emSize), rem);
+@39px         : unit( (39 / @emSize), rem);
+@40px         : unit( (40 / @emSize), rem);
 
 @relative1px  : unit( (1 / @emSize), em);
 @relative2px  : unit( (2 / @emSize), em);
@@ -415,6 +441,32 @@
 @relative12px : unit( (12 / @emSize), em);
 @relative13px : unit( (13 / @emSize), em);
 @relative14px : unit( (14 / @emSize), em);
+@relative15px : unit( (15 / @emSize), em);
+@relative16px : unit( (16 / @emSize), em);
+@relative17px : unit( (17 / @emSize), em);
+@relative18px : unit( (18 / @emSize), em);
+@relative19px : unit( (19 / @emSize), em);
+@relative20px : unit( (20 / @emSize), em);
+@relative21px : unit( (21 / @emSize), em);
+@relative22px : unit( (22 / @emSize), em);
+@relative23px : unit( (23 / @emSize), em);
+@relative24px : unit( (24 / @emSize), em);
+@relative25px : unit( (25 / @emSize), em);
+@relative26px : unit( (26 / @emSize), em);
+@relative27px : unit( (27 / @emSize), em);
+@relative28px : unit( (28 / @emSize), em);
+@relative29px : unit( (29 / @emSize), em);
+@relative30px : unit( (30 / @emSize), em);
+@relative31px : unit( (31 / @emSize), em);
+@relative32px : unit( (32 / @emSize), em);
+@relative33px : unit( (33 / @emSize), em);
+@relative34px : unit( (34 / @emSize), em);
+@relative35px : unit( (35 / @emSize), em);
+@relative36px : unit( (36 / @emSize), em);
+@relative37px : unit( (37 / @emSize), em);
+@relative38px : unit( (38 / @emSize), em);
+@relative39px : unit( (39 / @emSize), em);
+@relative40px : unit( (40 / @emSize), em);
 
 /*-------------------
        Icons
