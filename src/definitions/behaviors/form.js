@@ -261,9 +261,12 @@ $.fn.form = function(parameters) {
           field: {
             keydown: function(event) {
               var
-                $field  = $(this),
-                key     = event.which,
-                keyCode = {
+                $field       = $(this),
+                key          = event.which,
+                isInput      = $field.is(selector.input),
+                isCheckbox   = $field.is(selector.checkbox),
+                isInDropdown = ($field.closest(selector.uiDropdown).length > 0),
+                keyCode      = {
                   enter  : 13,
                   escape : 27
                 }
@@ -274,7 +277,7 @@ $.fn.form = function(parameters) {
                   .blur()
                 ;
               }
-              if(!event.ctrlKey && key == keyCode.enter && $field.is(selector.input) && $field.not(selector.checkbox).length > 0 ) {
+              if(!event.ctrlKey && key == keyCode.enter && isInput && !isInDropdown && !isCheckbox) {
                 if(!keyHeldDown) {
                   $field
                     .one('keyup' + eventNamespace, module.event.field.keyup)
