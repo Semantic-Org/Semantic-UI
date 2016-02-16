@@ -1300,7 +1300,7 @@ $.fn.dropdown = function(parameters) {
               }
             }
             else {
-              if( module.is.selection() && !module.is.search() ) {
+              if( !module.is.search() ) {
                 module.set.selectedLetter( String.fromCharCode(pressedKey) );
               }
             }
