@@ -2,6 +2,10 @@
 
 ### Version 2.1.9 - Feb 15, 2016
 
+**Major Enhancements**
+- **Dropdown** - All dropdowns, not just `selection dropdown`, will now select the first `menu item` that starts with a pressed keyboard key, for example "N" will select "New"
+- **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation](http://www.semantic-ui.com/introduction/advanced-usage.html#Auto-Install) for how to use. #3616 **Thanks @algorithme**
+
 **Bugs**
 - **Dropdown** - Fixed issue where dropdowns with sub-menus would not properly activate on mobile #3183
 - **API** - Fixes bug where `beforeSend` would not correctly cancel request when `return false;` is used in callback. #3660
@@ -16,7 +20,6 @@
 **Grid** - Fixed issue where `centered` content would cause `justified` content to appear aligned left. #3496
 
 **Enhancements**
-- **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation](http://www.semantic-ui.com/introduction/advanced-usage.html#Auto-Install) for how to use. #3616 **Thanks @algorithme**
 -**Site** `@px` and `@relativepx` i.e. `@relative12px` which can be used to return EM value of pixels are now extended to `@relative40px`
 -**Tabs** - Added option `deactivate`, defaults to `siblings` which will only deactivate tab activators that are DOM siblings elements to the activating element. Setting it to <code>'all'</code> will deactivate any other tab element initialized at the same time.
 -**Table** - Added more granular variablaes for controlling style on first column in a `definition table`
