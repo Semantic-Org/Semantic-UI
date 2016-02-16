@@ -18,6 +18,7 @@
 **Enhancements**
 - **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation](http://www.semantic-ui.com/introduction/advanced-usage.html#Auto-Install) for how to use. #3616 **Thanks @algorithme**
 -**Site** `@px` and `@relativepx` i.e. `@relative12px` which can be used to return EM value of pixels are now extended to `@relative40px`
+-**Tabs** - Added option `deactivate`, defaults to `siblings` which will only deactivate tab activators that are DOM siblings elements to the activating element. Setting it <code>false</code> will deactivate any other tab element initialized at the same time.
 -**Table** - Added more granular variablaes for controlling style on first column in a `definition table`
 
 **Docs**
