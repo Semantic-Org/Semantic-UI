@@ -10,6 +10,7 @@
 -**Table** - Fixed issue where `striped selectable` table would not correctly show hover color on striped rows
 -**Segment/Message** - Fixed issue where `top attached message` would have no border when attached to `segment` #3619
 -**Divider** - Fixed issue where descenders like "g" would be cut off in `horizontal divider` #3585
+-**Popup** - Fixed issue where checking `instanceof SVGGraphicsElement` caused error in IE11 #3043
 
 **Enhancements**
 - **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation](http://www.semantic-ui.com/introduction/advanced-usage.html#Auto-Install) for how to use. #3616 **Thanks @algorithme**
