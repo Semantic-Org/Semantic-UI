@@ -13,6 +13,7 @@
 -**Popup** - Fixed issue where checking `instanceof SVGGraphicsElement` caused error in IE11 #3043
 -**Form Validation / Dropdown** - Fixed issue where using "enter" key in a `search dropdown` could cause a form to be submitted #3676
 -**Button** - Fixes issue where `right icon` like `right arrow icon` would have additional margin inside an `icon button` #3525
+**Grid** - Fixed issue where `centered` content would cause `justified` content to appear aligned left. #3496
 
 **Enhancements**
 - **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation](http://www.semantic-ui.com/introduction/advanced-usage.html#Auto-Install) for how to use. #3616 **Thanks @algorithme**
