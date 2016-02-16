@@ -193,8 +193,6 @@ $.api = $.fn.api = function(parameters) {
           // call beforesend and get any settings changes
           requestSettings = module.get.settings();
 
-          console.log(requestSettings);
-
           // check if before send cancelled request
           if(requestSettings === false) {
             module.cancelled = true;
