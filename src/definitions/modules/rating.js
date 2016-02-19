@@ -48,6 +48,7 @@ $.fn.rating = function(parameters) {
         $module         = $(this),
         $icon           = $module.find(selector.icon),
 
+        initialLoad,
         module
       ;
 
@@ -66,7 +67,9 @@ $.fn.rating = function(parameters) {
           else {
             module.disable();
           }
+          module.set.initialLoad();
           module.set.rating( module.get.initialRating() );
+          module.remove.initialLoad();
           module.instantiate();
         },
 
@@ -170,6 +173,9 @@ $.fn.rating = function(parameters) {
             $module
               .off(eventNamespace)
             ;
+          },
+          initialLoad: function() {
+            initialLoad = false;
           }
         },
 
@@ -187,6 +193,12 @@ $.fn.rating = function(parameters) {
           $module
             .addClass(className.disabled)
           ;
+        },
+
+        is: {
+          initialLoad: function() {
+            return initialLoad;
+          }
         },
 
         get: {
@@ -236,7 +248,12 @@ $.fn.rating = function(parameters) {
                   .addClass(className.active)
               ;
             }
-            settings.onRate.call(element, rating);
+            if(!module.is.initialLoad()) {
+              settings.onRate.call(element, rating);
+            }
+          },
+          initialLoad: function() {
+            initialLoad = true;
           }
         },
 
@@ -431,6 +448,8 @@ $.fn.rating.settings = {
   interactive   : true,
   maxRating     : 4,
   clearable     : 'auto',
+
+  fireOnInit    : false,
 
   onRate        : function(rating){},
 
