@@ -846,7 +846,7 @@ $.fn.transition = function() {
           }
         },
         debug: function() {
-          if(settings.debug) {
+          if(!settings.silent && settings.debug) {
             if(settings.performance) {
               module.performance.log(arguments);
             }
@@ -857,7 +857,7 @@ $.fn.transition = function() {
           }
         },
         verbose: function() {
-          if(settings.verbose && settings.debug) {
+          if(!settings.silent && settings.verbose && settings.debug) {
             if(settings.performance) {
               module.performance.log(arguments);
             }
@@ -868,8 +868,10 @@ $.fn.transition = function() {
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
-          module.error.apply(console, arguments);
+          if(!settings.silent) {
+            module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
+            module.error.apply(console, arguments);
+          }
         },
         performance: {
           log: function(message) {
@@ -1000,6 +1002,9 @@ $.fn.transition.settings = {
 
   // module info
   name          : 'Transition',
+
+  // hide all output from this component regardless of other settings
+  silent        : false,
 
   // debug content outputted to console
   debug         : false,

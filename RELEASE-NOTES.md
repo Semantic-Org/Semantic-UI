@@ -15,8 +15,14 @@
 **Bugs**
 - **Dropdown** - Fixed issue where `apiSettings` was not defaulting to use `cache: 'local'` as specified in the docs
 - **Dropdown** - Fixed issue where dropdowns with sub-menus would not properly activate on mobile #3183
+- **Form** - Fixed issue where grouped `fields` and `field` would cause different margin collapse, making `fields` include larger gaps between content #3717
+- **Menu** - Fixed issue with `stackable` menu where `left/right` `menu` or `item` would incorrectly be floated when stacked. #3604
 - **Modal** - Fixes issue where RGB values set for dimmer `background-color` werent being correctly interpreted #3665 **Thanks @larsbo**
 - **Form** - Fixed use of deprecated `size()` method in `prompt` #3655 **Thanks @SimonArdrey**
+- **List** - Fixed issue where `relaxed` and `very relaxed` lists included unnecessary padding on the first and last items #3710
+- **List** - Fixed issue where divided lists had unnecessary padding on first and last items, in both horizontal and vertical layouts #3710
+- **List** - Fixed issue where bullets would be affected by font weight #3715
+- **Rating** - Fixed issue where rating would fire `onRate` when rating is initialized #3712
 -**Table** - Fixed issue where `striped selectable` table would not correctly show hover color on striped rows
 -**Segment/Message** - Fixed issue where `top attached message` would have no border when attached to `segment` #3619
 -**Popup** - Fixed issue where checking `instanceof SVGGraphicsElement` caused error in IE11 #3043
@@ -25,6 +31,7 @@
 
 **Enhancements**
 -**Dropdown** - Using API with dropdown will now
+-**Rating** - Added new setting `fireOnInit` for rating, which defaults to `false`. When set to true `onRate` will fire when rating is initialized #3712
 -**Site** `@px` and `@relativepx` i.e. `@relative12px` which can be used to return EM value of pixels are now extended to `@relative40px`
 -**Tabs** - Added option `deactivate`, defaults to `siblings` which will only deactivate tab activators that are DOM siblings elements to the activating element. Setting it to <code>'all'</code> will deactivate any other tab element initialized at the same time.
 -**Table** - Added more granular variablaes for controlling style on first column in a `definition table`
