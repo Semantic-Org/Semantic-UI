@@ -732,12 +732,16 @@ ol.ui.horizontal.list li:before,
 .ui.divided.horizontal.list {
   margin-left: 0em;
 }
+.ui.divided.horizontal.list > .item:not(:first-child) {
+  padding-left: @horizontalDividedSpacing;
+}
+.ui.divided.horizontal.list > .item:not(:last-child) {
+  padding-right: @horizontalDividedSpacing;
+}
 .ui.divided.horizontal.list > .item {
   border-top: none;
   border-left: @dividedBorder;
   margin: 0em;
-  padding-left: @horizontalDividedSpacing;
-  padding-right: @horizontalDividedSpacing;
   line-height: @horizontalDividedLineHeight;
 }
 .ui.horizontal.divided.list > .item:first-child {
@@ -845,31 +849,34 @@ ol.ui.horizontal.list li:before,
        Relaxed
 --------------------*/
 
-.ui.relaxed.list:not(.horizontal) > .item {
+.ui.relaxed.list:not(.horizontal) > .item:not(:first-child) {
   padding-top: @relaxedItemVerticalPadding;
+}
+.ui.relaxed.list:not(.horizontal) > .item:not(:last-child) {
   padding-bottom: @relaxedItemVerticalPadding;
 }
-.ui.relaxed.list:not(.horizontal) .list > .item {
-  padding-top: @relaxedChildItemVerticalPadding;
-  padding-bottom: @relaxedChildItemVerticalPadding;
-}
-.ui.horizontal.relaxed.list > .item {
+.ui.horizontal.relaxed.list .list > .item:not(:first-child),
+.ui.horizontal.relaxed.list > .item:not(:first-child) {
   padding-left: @relaxedHorizontalPadding;
+}
+.ui.horizontal.relaxed.list .list > .item:not(:last-child),
+.ui.horizontal.relaxed.list > .item:not(:last-child) {
   padding-right: @relaxedHorizontalPadding;
 }
 
 /* Very Relaxed */
-.ui[class*="very relaxed"].list:not(.horizontal) > .item {
+.ui[class*="very relaxed"].list:not(.horizontal) > .item:not(:first-child) {
   padding-top: @veryRelaxedItemVerticalPadding;
+}
+.ui[class*="very relaxed"].list:not(.horizontal) > .item:not(:last-child) {
   padding-bottom: @veryRelaxedItemVerticalPadding;
 }
-.ui[class*="very relaxed"].list:not(.horizontal) .list > .item {
-  padding-top: @veryRelaxedChildItemVerticalPadding;
-  padding-bottom: @veryRelaxedChildItemVerticalPadding;
-}
-.ui.horizontal[class*="very relaxed"].list .list > .item,
-.ui.horizontal[class*="very relaxed"].list > .item {
+.ui.horizontal[class*="very relaxed"].list .list > .item:not(:first-child),
+.ui.horizontal[class*="very relaxed"].list > .item:not(:first-child) {
   padding-left: @veryRelaxedHorizontalPadding;
+}
+.ui.horizontal[class*="very relaxed"].list .list > .item:not(:last-child),
+.ui.horizontal[class*="very relaxed"].list > .item:not(:last-child) {
   padding-right: @veryRelaxedHorizontalPadding;
 }
 
