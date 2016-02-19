@@ -56,7 +56,7 @@
 
 .ui.form .fields .field {
   clear: both;
-  margin: @fieldMargin;
+  margin: 0em;
 }
 
 
@@ -750,6 +750,7 @@
 .ui.form .fields {
   display: flex;
   flex-direction: row;
+  margin: @fieldMargin;
 }
 .ui.form .fields > .field {
   flex: 0 1 auto;
@@ -925,7 +926,6 @@
   .ui.form .fields > .fifteen.wide.field,
   .ui.form .fields > .sixteen.wide.field {
     width: @oneColumn !important;
-    margin: @fieldMargin;
     padding-left: 0%;
     padding-right: 0%;
   }
