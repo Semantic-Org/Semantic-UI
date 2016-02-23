@@ -15,6 +15,7 @@
 
 **Bugs**
 - **Dropdown** - Fixed issue where `apiSettings` was not defaulting to use `cache: 'local'` as specified in the docs
+- **Dropdown** - Fixed issue where long dropdown text entry with `allowAdditions` would cause input to mistakingly drop to next line early #3743
 - **Dropdown** - Fixed issue where dropdowns with sub-menus would not properly activate on mobile #3183
 - **Form** - Fixed issue where grouped `fields` and `field` would cause different margin collapse, making `fields` include larger gaps between content #3717
 - **Menu** - Fixed issue with `stackable` menu where `left/right` `menu` or `item` would incorrectly be floated when stacked. #3604

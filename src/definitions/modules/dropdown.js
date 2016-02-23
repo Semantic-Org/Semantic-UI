@@ -2243,6 +2243,9 @@ $.fn.dropdown = function(parameters) {
               return;
             }
             module.debug('Setting selected menu item to', $selectedItem);
+            if(module.is.multiple()) {
+              module.remove.searchWidth();
+            }
             if(module.is.single()) {
               module.remove.activeItem();
               module.remove.selectedItem();
@@ -2548,6 +2551,9 @@ $.fn.dropdown = function(parameters) {
           },
           message: function() {
             $menu.children(selector.message).remove();
+          },
+          searchWidth: function() {
+            $search.css('width', '');
           },
           searchTerm: function() {
             module.verbose('Cleared search term');
