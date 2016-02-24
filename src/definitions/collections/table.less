@@ -268,7 +268,8 @@
 }
 
 /* Highlight Defining Column */
-.ui.definition.table tr td:first-child {
+.ui.definition.table tr td:first-child:not(.ignored),
+.ui.definition.table tr td.definition {
   background: @definitionColumnBackground;
   font-weight: @definitionColumnFontWeight;
   color: @definitionColumnColor;
