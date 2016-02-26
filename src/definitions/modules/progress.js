@@ -93,8 +93,8 @@ $.fn.progress = function(parameters) {
         },
 
         complete: function() {
-          module.remove.progressPoll();
           if(module.percent === undefined || module.percent < 100) {
+            module.remove.progressPoll();
             module.set.percent(100);
           }
         },
@@ -327,7 +327,10 @@ $.fn.progress = function(parameters) {
         remove: {
           progressPoll: function() {
             module.verbose('Removing progress poll timer');
-            delete module.progressPoll;
+            if(module.progressPoll) {
+              clearTimeout(module.progressPoll);
+              delete module.progressPoll;
+            }
           },
           nextValue: function() {
             module.verbose('Removing progress value stored for next update');
@@ -459,6 +462,7 @@ $.fn.progress = function(parameters) {
               else {
                 module.verbose('Reached 100% removing active state');
                 module.remove.active();
+                module.remove.progressPoll();
               }
             }
             else if(percent > 0) {
