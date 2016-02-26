@@ -3,6 +3,7 @@
 ### Version 2.1.9 - Feb 15, 2016
 
 **Major Enhancements**
+- **Progress** - Progress now uses a polling interval for updates. Rapidly updating the progress bar over a period quicker than the animation duration (for example with xhr `onprogress` events say every 50ms) will now appear smooth as butter.
 - **Modules** - Added new setting `silent` to all modules which allows you to disable **all** console output including errors. This can be useful for preventing known errors, like a popup which cannot place itself on screen, or `sticky` content which initializes before it is visible #3713
 - **Dropdown** - All dropdowns, not just `selection dropdown`, will now select the first `menu item` that starts with a pressed keyboard key, for example "N" will select "New"
 - **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation](http://www.semantic-ui.com/introduction/advanced-usage.html#Auto-Install) for how to use. #3616 **Thanks @algorithme**
@@ -26,27 +27,28 @@
 - **List** - Fixed issue where divided lists had unnecessary padding on first and last items, in both horizontal and vertical layouts #3710
 - **List** - Fixed issue where bullets would be affected by font weight #3715
 - **Rating** - Fixed issue where rating would not fire `onRate` when rating is initialized #3712
--**Table** - Fixed issue where `striped selectable` table would not correctly show hover color on striped rows
--**Segment/Message** - Fixed issue where `top attached message` would have no border when attached to `segment` #3619
--**Popup** - Fixed issue where checking `instanceof SVGGraphicsElement` caused error in IE11 #3043
--**Button** - Fixes issue where `right icon` like `right arrow icon` would have additional margin inside an `icon button` #3525
+- **Table** - Fixed issue where `striped selectable` table would not correctly show hover color on striped rows
+- **Segment/Message** - Fixed issue where `top attached message` would have no border when attached to `segment` #3619
+- **Popup** - Fixed issue where checking `instanceof SVGGraphicsElement` caused error in IE11 #3043
+- **Button** - Fixes issue where `right icon` like `right arrow icon` would have additional margin inside an `icon button` #3525
 **Grid** - Fixed issue where `centered` content would cause `justified` content to appear aligned left. #3496
 
 **Enhancements**
 
--**Dropdown** - Using API with dropdown will now
--**Rating** - Added new setting `fireOnInit` for rating, which defaults to `false`. When set to true `onRate` will fire when rating is initialized #3712
--**Site** `@px` and `@relativepx` i.e. `@relative12px` which can be used to return EM value of pixels are now extended to `@relative40px`
--**Tabs** - Added option `deactivate`, defaults to `siblings` which will only deactivate tab activators that are DOM siblings elements to the activating element. Setting it to <code>'all'</code> will deactivate any other tab element initialized at the same time.
--**Table** - `definition table` now supports `ignored` variation to force a `first-child` to ignore its default definition stylings
--**Table-- `definition table` now supports `definition` variation to specify definition styles on an element that is not `:first-child`
+- **Dropdown** - Using API with dropdown will now
+- **Rating** - Added new setting `fireOnInit` for rating, which defaults to `false`. When set to true `onRate` will fire when rating is initialized #3712
+- **Site** `@px` and `@relativepx` i.e. `@relative12px` which can be used to return EM value of pixels are now extended to `@relative40px`
+- **Tabs** - Added option `deactivate`, defaults to `siblings` which will only deactivate tab activators that are DOM siblings elements to the activating element. Setting it to <code>'all'</code> will deactivate any other tab element initialized at the same time.
+- **Progress* - Added `onLabelUpdate` callback, this can be used to specify the exact text that should appear on the actual progress update, perhaps based on some external conditions
+- **Table** - `definition table` now supports `ignored` variation to force a `first-child` to ignore its default definition stylings
+- **Table-- `definition table` now supports `definition` variation to specify definition styles on an element that is not `:first-child`
 -**Table** - Added more granular variables for controlling style on first column in a `definition table`
 
 **Docs**
--**Form** - Added example of using custom rules with form
--**Build Tools** - Added explanation of using SUI with CI, and auto-install in "recipes" section.
--**Build Tools** - Added explanation of how to build RTL in "recipes" section
--**Layouts**  - Added "attached" example showing content attached to other content
+- **Form** - Added example of using custom rules with form
+- **Build Tools** - Added explanation of using SUI with CI, and auto-install in "recipes" section.
+- **Build Tools** - Added explanation of how to build RTL in "recipes" section
+- **Layouts**  - Added "attached" example showing content attached to other content
 
 ### Version 2.1.8 - Jan 7, 2016
 

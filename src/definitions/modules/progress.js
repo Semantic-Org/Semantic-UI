@@ -93,6 +93,7 @@ $.fn.progress = function(parameters) {
         },
 
         complete: function() {
+          module.remove.progressPoll();
           if(module.percent === undefined || module.percent < 100) {
             module.set.percent(100);
           }
@@ -199,6 +200,9 @@ $.fn.progress = function(parameters) {
         },
 
         has: {
+          progressPoll: function() {
+            return module.progressPoll;
+          },
           total: function() {
             return (module.get.total() !== false);
           }
@@ -223,10 +227,16 @@ $.fn.progress = function(parameters) {
               .replace('{left}', left)
               .replace('{percent}', percent)
             ;
-            module.debug('Adding variables to progress bar text', templateText);
+            module.verbose('Adding variables to progress bar text', templateText);
             return templateText;
           },
 
+          updateInterval: function() {
+            if(settings.updateInterval == 'auto') {
+              return settings.duration;
+            }
+            return settings.updateInterval;
+          },
 
           randomValue: function() {
             module.debug('Generating random increment percentage');
@@ -287,6 +297,15 @@ $.fn.progress = function(parameters) {
           }
         },
 
+        create: {
+          progressPoll: function() {
+            module.progressPoll = setTimeout(function() {
+              module.update.toNextValue();
+              module.remove.progressPoll();
+            }, module.get.updateInterval());
+          },
+        },
+
         is: {
           success: function() {
             return $module.hasClass(className.success);
@@ -306,6 +325,14 @@ $.fn.progress = function(parameters) {
         },
 
         remove: {
+          progressPoll: function() {
+            module.verbose('Removing progress poll timer');
+            delete module.progressPoll;
+          },
+          nextValue: function() {
+            module.verbose('Removing progress value stored for next update');
+            delete module.nextValue;
+          },
           state: function() {
             module.verbose('Removing stored state');
             delete module.total;
@@ -414,7 +441,8 @@ $.fn.progress = function(parameters) {
             text = text || '';
             if(text) {
               text = module.get.text(text);
-              module.debug('Setting label to text', text);
+              module.verbose('Setting label to text', text);
+              text = settings.onLabelUpdate(text, module.value, module.total);
               $label.text(text);
             }
           },
@@ -447,11 +475,11 @@ $.fn.progress = function(parameters) {
               $progress.text( module.get.text(text) );
             }
             else if(settings.label == 'ratio' && module.total) {
-              module.debug('Adding ratio to bar label');
+              module.verbose('Adding ratio to bar label');
               $progress.text( module.get.text(settings.text.ratio) );
             }
             else if(settings.label == 'percent') {
-              module.debug('Adding percentage to bar label');
+              module.verbose('Adding percentage to bar label');
               $progress.text( module.get.text(settings.text.percent) );
             }
           },
@@ -518,13 +546,41 @@ $.fn.progress = function(parameters) {
             module.value = value;
           },
           progress: function(value) {
+            if(!module.has.progressPoll()) {
+              module.debug('First update in progress update interval, immediately updating', value);
+              module.update.progress(value);
+              module.create.progressPoll();
+            }
+            else {
+              module.debug('Updated within interval, setting next update to use new value', value);
+              module.set.nextValue(value);
+            }
+          },
+          nextValue: function(value) {
+            module.nextValue = value;
+          }
+        },
+
+        update: {
+          toNextValue: function() {
+            let
+              nextValue = module.nextValue
+            ;
+            if(nextValue) {
+              module.debug('Update interval complete using last updated value', nextValue);
+              module.update.progress(nextValue);
+              module.remove.nextValue();
+            }
+          },
+          progress: function(value) {
             var
-              numericValue = module.get.numericValue(value),
+              numericValue   = module.get.numericValue(value),
               percentComplete
             ;
             if(numericValue === false) {
               module.error(error.nonNumeric, value);
             }
+            console.log(value, module.get.total());
             if( module.has.total() ) {
               module.set.value(numericValue);
               percentComplete = (numericValue / module.total) * 100;
@@ -723,7 +779,6 @@ $.fn.progress.settings = {
   name         : 'Progress',
   namespace    : 'progress',
 
-  silent       : false,
   debug        : false,
   verbose      : false,
   performance  : true,
@@ -733,25 +788,30 @@ $.fn.progress.settings = {
     max : 5
   },
 
-  duration     : 300,
+  duration       : 300,
 
-  autoSuccess  : true,
-  showActivity : true,
-  limitValues  : true,
+  updateInterval : 'auto',
 
-  label        : 'percent',
-  precision    : 0,
-  framerate    : (1000 / 30), /// 30 fps
+  autoSuccess    : true,
+  showActivity   : true,
+  limitValues    : true,
 
-  percent      : false,
-  total        : false,
-  value        : false,
+  label          : 'percent',
+  precision      : 0,
+  framerate      : (1000 / 30), /// 30 fps
 
-  onChange     : function(percent, value, total){},
-  onSuccess    : function(total){},
-  onActive     : function(value, total){},
-  onError      : function(value, total){},
-  onWarning    : function(value, total){},
+  percent        : false,
+  total          : false,
+  value          : false,
+
+  onLabelUpdate : function(text, value, total){
+    return text;
+  },
+  onChange      : function(percent, value, total){},
+  onSuccess     : function(total){},
+  onActive      : function(value, total){},
+  onError       : function(value, total){},
+  onWarning     : function(value, total){},
 
   error    : {
     method     : 'The method you called is not defined.',
