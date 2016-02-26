@@ -580,7 +580,6 @@ $.fn.progress = function(parameters) {
             if(numericValue === false) {
               module.error(error.nonNumeric, value);
             }
-            console.log(value, module.get.total());
             if( module.has.total() ) {
               module.set.value(numericValue);
               percentComplete = (numericValue / module.total) * 100;
