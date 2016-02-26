@@ -445,7 +445,6 @@ $.fn.progress = function(parameters) {
             if(text) {
               text = module.get.text(text);
               module.verbose('Setting label to text', text);
-              text = settings.onLabelUpdate(text, module.value, module.total);
               $label.text(text);
             }
           },
@@ -496,6 +495,7 @@ $.fn.progress = function(parameters) {
             module.remove.warning();
             module.remove.error();
             module.remove.success();
+            text = settings.onLabelUpdate('active', text, module.value, module.total);
             if(text) {
               module.set.label(text);
             }
@@ -509,6 +509,7 @@ $.fn.progress = function(parameters) {
             module.remove.warning();
             module.remove.error();
             module.complete();
+            text = settings.onLabelUpdate('success', text, module.value, module.total);
             if(text) {
               module.set.label(text);
             }
@@ -522,6 +523,7 @@ $.fn.progress = function(parameters) {
             module.remove.success();
             module.remove.error();
             module.complete();
+            text = settings.onLabelUpdate('warning', text, module.value, module.total);
             if(text) {
               module.set.label(text);
             }
@@ -535,6 +537,7 @@ $.fn.progress = function(parameters) {
             module.remove.success();
             module.remove.warning();
             module.complete();
+            text = settings.onLabelUpdate('error', text, module.value, module.total);
             if(text) {
               module.set.label(text);
             }
@@ -782,6 +785,7 @@ $.fn.progress.settings = {
   name         : 'Progress',
   namespace    : 'progress',
 
+  silent       : false,
   debug        : false,
   verbose      : false,
   performance  : true,
@@ -807,7 +811,7 @@ $.fn.progress.settings = {
   total          : false,
   value          : false,
 
-  onLabelUpdate : function(text, value, total){
+  onLabelUpdate : function(state, text, value, total){
     return text;
   },
   onChange      : function(percent, value, total){},
