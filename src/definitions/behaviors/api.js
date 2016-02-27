@@ -226,6 +226,7 @@ $.api = $.fn.api = function(parameters) {
             data       : data,
             url        : settings.base + url,
             beforeSend : settings.beforeXHR,
+            xhr        : module.modify.xhr,
             success    : function() {},
             failure    : function() {},
             complete   : function() {}
@@ -326,6 +327,31 @@ $.api = $.fn.api = function(parameters) {
           },
           complete: function() {
             return (module.request && (module.request.state() == 'resolved' || module.request.state() == 'rejected') );
+          }
+        },
+
+        modify: {
+          xhr: function() {
+            var
+              xhr = $.ajaxSettings.xhr()
+            ;
+            if(settings.onDownloadProgress) {
+              module.debug('Download progress callback defined, adding to request', settings.onDownloadProgress);
+              xhr.addEventListener('onprogress', module.event.progress.download);
+            }
+            if(settings.onUploadProgress) {
+              if(!xhr.upload) {
+                module.error(error.noUpload);
+              }
+              else {
+                module.debug('Upload progress callback defined, adding to request', settings.onUploadProgress);
+                xhr.upload.addEventListener('onprogress', module.event.progress.upload);
+              }
+            }
+            return (settings.xhr)
+              ? settings.xhr.apply(this)
+              : xhr
+            ;
           }
         },
 
@@ -458,6 +484,20 @@ $.api = $.fn.api = function(parameters) {
               event.preventDefault();
             }
           },
+          progress: {
+            download: function(event) {
+              var
+                progress = module.get.progressFromEvent(event)
+              ;
+              settings.onDownloadProgress.apply(this, progress, event);
+            },
+            upload: function(event) {
+              var
+                progress = module.get.progressFromEvent(event)
+              ;
+              settings.onUploadProgress.apply(this, progress, event);
+            }
+          },
           xhr: {
             always: function() {
               // nothing special
@@ -512,7 +552,7 @@ $.api = $.fn.api = function(parameters) {
                   module.request.rejectWith(context, [xhr, 'error', status, httpMessage]);
                 }
               }, timeLeft);
-            }
+            },
           },
           request: {
             done: function(response, xhr) {
@@ -553,7 +593,7 @@ $.api = $.fn.api = function(parameters) {
               else if(status == 'invalid') {
                 module.debug('JSON did not pass success test. A server-side error has most likely occurred', response);
               }
-              else if(status == 'error')  {
+              else if(status == 'error') {
                 if(xhr !== undefined) {
                   module.debug('XHR produced a server error', status, httpMessage);
                   // make sure we have an error to display to console
@@ -683,12 +723,90 @@ $.api = $.fn.api = function(parameters) {
               : false
             ;
           },
+          progressFromEvent: function(event) {
+            if(!event.lengthComputable) {
+              return;
+            }
+            var
+              progress    = {},
+              totalBytes  = event.total,
+              loadedBytes = (event.loaded > event.total)
+                ? event.total
+                : event.loaded,
+              loaded      = module.get.humanFileSize(loadedBytes, {
+                unit    : fileSizeUnit,
+                asArray : true
+              }),
+              total       = module.get.humanFileSize(totalBytes, {
+                unit    : fileSizeUnit,
+                asArray : true
+              })
+            ;
+            if(loadedBytes > totalBytes) {
+              loadedBytes = totalBytes;
+            }
+            progress = {
+              loaded : {
+                bytes   : event.loaded,
+                display : loaded[0] + ' ' + loaded[1],
+                value   : loaded[0],
+                unit    : loaded[1]
+              },
+              total: {
+                bytes   : event.total,
+                display : total[0] + ' ' +  total[1],
+                value   : total[0],
+                unit    : total[1]
+              }
+            };
+            module.debug('Calculating progress from event', progress);
+            return progress;
+          },
           errorFromRequest: function(response, status, httpMessage) {
             return ($.isPlainObject(response) && response.error !== undefined)
               ? response.error // use json error message
               : (settings.error[status] !== undefined) // use server error message
                 ? settings.error[status]
                 : httpMessage
+            ;
+          },
+          humanFileSize: function(bytes) {
+            let
+              threshold     = 1024,
+              units         = [
+                'kb',
+                'mb',
+                'gb',
+                'tb',
+                'pb'
+              ],
+              precision = 0,
+              amount,
+              unit
+            ;
+            if(Math.abs(bytes) < threshold) {
+              return bytes + ' bytes';
+            }
+            $.each(units, function(index, unit) {
+              bytes = bytes / threshold;
+              if(settings.unit && unit == settings.unit) {
+                return false;
+              }
+              else if(Math.abs(bytes) <= threshold) {
+                return false;
+              }
+              // grow precision to a max of 2 decimal
+              if(precision < 2) {
+                precision++;
+              }
+            });
+            amount = (settings.precision)
+              ? bytes.toFixed(settings.precision)
+              : bytes.toFixed(precision)
+            ;
+            return (settings.asArray)
+              ? [amount, unit]
+              : amount + ' ' + unit
             ;
           },
           request: function() {
@@ -1089,6 +1207,12 @@ $.api.settings = {
   // after request
   onResponse  : false, // function(response) { },
 
+  // returns normalized event for xhr transmission progress
+  onUploadProgress: function(progress, progressEvent) {},
+
+  // returns normalized event for xhr response progress
+  onDownloadProgress: function(progress, progressEvent) {},
+
   // response was successful, if JSON passed validation
   onSuccess   : function(response, $module) {},
 
@@ -1117,6 +1241,7 @@ $.api.settings = {
     missingAction     : 'API action used but no url was defined',
     missingSerialize  : 'jquery-serialize-object is required to add form data to an existing data object',
     missingURL        : 'No URL specified for api event',
+    noUpload          : 'Upload progress event specified, but no upload is present in this request.',
     noReturnedValue   : 'The beforeSend callback must return a settings object, beforeSend ignored.',
     noStorage         : 'Caching responses locally requires session storage',
     parseError        : 'There was an error parsing your request',
