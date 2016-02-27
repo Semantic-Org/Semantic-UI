@@ -8,6 +8,7 @@
 - **Modules** - Using `setting` on a setting that is an object literal, for example `error: {}` will now extend the existing object instead of replacing it.
 - **Dropdown** - All dropdowns, not just `selection dropdown`, will now select the first `menu item` that starts with a pressed keyboard key, for example "N" will select "New"
 - **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation](http://www.semantic-ui.com/introduction/advanced-usage.html#Auto-Install) for how to use. #3616 **Thanks @algorithme**
+- **Icons** -  50+ new icons+ are included. Icons now use the latest Font Awesome `4.5.0` Icons. Thanks @davegandy!
 
 **Critical Bugs**
 - **API** - Fixed bug causing `cache: 'local'` not to return the localstorage cached results in some cases
