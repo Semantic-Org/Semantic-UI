@@ -77,8 +77,8 @@ i.icon.options:before { content: "\f1de"; }
 i.icon.text.telephone:before { content: "\f1e4"; }
 i.icon.find:before { content: "\f1e5"; }
 i.icon.wifi:before { content: "\f1eb"; }
-i.icon.alarm.slash:before { content: "\f1f6"; }
-i.icon.alarm.slash.outline:before { content: "\f1f7"; }
+i.icon.alarm.mute:before { content: "\f1f6"; }
+i.icon.alarm.mute.outline:before { content: "\f1f7"; }
 i.icon.copyright:before { content: "\f1f9"; }
 i.icon.at:before { content: "\f1fa"; }
 i.icon.eyedropper:before { content: "\f1fb"; }
@@ -368,9 +368,9 @@ i.icon.keyboard:before { content: "\f11c"; }
 i.icon.plug:before { content: "\f1e6"; }
 i.icon.trash:before { content: "\f1f8"; }
 i.icon.battery.full:before { content: "\f240"; }
-i.icon.battery.three.quarters:before { content: "\f241"; }
-i.icon.battery.half:before { content: "\f242"; }
-i.icon.battery.quarter:before { content: "\f243"; }
+i.icon.battery.high:before { content: "\f241"; }
+i.icon.battery.medium:before { content: "\f242"; }
+i.icon.battery.low:before { content: "\f243"; }
 i.icon.battery.empty:before { content: "\f244"; }
 i.icon.television:before { content: "\f26c"; }
 
@@ -857,8 +857,11 @@ i.icon.yc:before { content: "\f23b"; }
 i.icon.ycombinator:before { content: "\f23b"; }
 i.icon.battery.four:before { content: "\f240"; }
 i.icon.battery.three:before { content: "\f241"; }
+i.icon.battery.three.quarters:before { content: "\f241"; }
 i.icon.battery.two:before { content: "\f242"; }
+i.icon.battery.half:before { content: "\f242"; }
 i.icon.battery.one:before { content: "\f243"; }
+i.icon.battery.quarter:before { content: "\f243"; }
 i.icon.battery.zero:before { content: "\f244"; }
 i.icon.i.cursor:before { content: "\f246"; }
 i.icon.jcb:before { content: "\f24b"; }
