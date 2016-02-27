@@ -263,9 +263,6 @@ $.fn.tab = function(parameters) {
         },
 
         set: {
-          activeTab($tab) {
-
-          },
           auto: function() {
             var
               url = (typeof settings.path == 'string')
@@ -667,7 +664,12 @@ $.fn.tab = function(parameters) {
             $.extend(true, settings, name);
           }
           else if(value !== undefined) {
-            settings[name] = value;
+            if($.isPlainObject(settings[name])) {
+              $.extend(true, settings[name], value);
+            }
+            else {
+              settings[name] = value;
+            }
           }
           else {
             return settings[name];
