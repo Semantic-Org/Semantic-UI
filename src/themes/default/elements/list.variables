@@ -162,6 +162,7 @@
 @bulletOpacity: 1;
 @bulletCharacter: '•';
 @bulletColor: inherit;
+@bulletLinkColor: @textColor;
 @bulletVerticalAlign: top;
 @bulletChildDistance: @bulletDistance;
 

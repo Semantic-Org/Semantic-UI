@@ -572,6 +572,12 @@ ul.ui.list li:before,
   vertical-align: @bulletVerticalAlign;
 }
 
+ul.ui.list li:before,
+.ui.bulleted.list .list > a.item:before,
+.ui.bulleted.list > a.item:before {
+  color: @bulletLinkColor;
+}
+
 ul.ui.list ul,
 .ui.bulleted.list .list {
   padding-left: @bulletChildDistance;
