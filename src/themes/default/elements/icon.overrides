@@ -85,8 +85,12 @@ i.icon.eyedropper:before { content: "\f1fb"; }
 i.icon.paint.brush:before { content: "\f1fc"; }
 i.icon.heartbeat:before { content: "\f21e"; }
 i.icon.mouse.pointer:before { content: "\f245"; }
+i.icon.hourglass.empty:before { content: "\f250"; }
+i.icon.hourglass.start:before { content: "\f251"; }
+i.icon.hourglass.half:before { content: "\f252"; }
+i.icon.hourglass.end:before { content: "\f253"; }
+i.icon.hourglass.full:before { content: "\f254"; }
 i.icon.hand.pointer:before { content: "\f25a"; }
-i.icon.hand.peace:before { content: "\f25b"; }
 i.icon.trademark:before { content: "\f25c"; }
 i.icon.registered:before { content: "\f25d"; }
 i.icon.creative.commons:before { content: "\f25e"; }
@@ -157,13 +161,8 @@ i.icon.remove.user:before { content: "\f235"; }
 i.icon.object.group:before { content: "\f247"; }
 i.icon.object.ungroup:before { content: "\f248"; }
 i.icon.clone:before { content: "\f24d"; }
-i.icon.hand.rock:before { content: "\f255"; }
-i.icon.hand.paper:before { content: "\f256"; }
-i.icon.hand.scissors:before { content: "\f257"; }
-i.icon.hand.lizard:before { content: "\f258"; }
-i.icon.hand.spock:before { content: "\f259"; }
-i.icon.commenting:before { content: "\f27a"; }
-i.icon.commenting.outline:before { content: "\f27b"; }
+i.icon.talk:before { content: "\f27a"; }
+i.icon.talk.outline:before { content: "\f27b"; }
 
 /* Messages */
 i.icon.help.circle:before { content: "\f059"; }
@@ -252,11 +251,12 @@ i.icon.diamond:before { content: "\f219"; }
 i.icon.sticky.note:before { content: "\f249"; }
 i.icon.sticky.note.outline:before { content: "\f24a"; }
 i.icon.law:before { content: "\f24e"; }
-i.icon.hourglass.empty:before { content: "\f250"; }
-i.icon.hourglass.start:before { content: "\f251"; }
-i.icon.hourglass.half:before { content: "\f252"; }
-i.icon.hourglass.end:before { content: "\f253"; }
-i.icon.hourglass.full:before { content: "\f254"; }
+i.icon.hand.peace:before { content: "\f25b"; }
+i.icon.hand.rock:before { content: "\f255"; }
+i.icon.hand.paper:before { content: "\f256"; }
+i.icon.hand.scissors:before { content: "\f257"; }
+i.icon.hand.lizard:before { content: "\f258"; }
+i.icon.hand.spock:before { content: "\f259"; }
 i.icon.tv:before { content: "\f26c"; }
 
 /* Shapes */
@@ -887,7 +887,7 @@ i.icon.calendar.minus:before { content: "\f272"; }
 i.icon.calendar.times:before { content: "\f273"; }
 i.icon.calendar.check:before { content: "\f274"; }
 i.icon.factory:before { content: "\f275"; }
-i.icon.muted.user:before { content: "\f27a"; }
-i.icon.muted.user.outline:before { content: "\f27b"; }
+i.icon.commenting:before { content: "\f27a"; }
+i.icon.commenting.outline:before { content: "\f27b"; }
 i.icon.edge:before { content: "\f282"; }
 i.icon.ms.edge:before { content: "\f282"; }
