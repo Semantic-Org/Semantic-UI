@@ -668,7 +668,7 @@ i.icon.firefox:before { content: "\f269"; }
 i.icon.opera:before { content: "\f26a"; }
 i.icon.internet.explorer:before { content: "\f26b"; }
 i.icon.contao:before { content: "\f26d"; }
-i.icon.five.hundred.pixels:before { content: "\f26e"; }
+i.icon.\35 00px:before { content: "\f26e"; }
 i.icon.amazon:before { content: "\f270"; }
 i.icon.houzz:before { content: "\f27c"; }
 i.icon.vimeo:before { content: "\f27d"; }
@@ -874,7 +874,7 @@ i.icon.hand.victory:before { content: "\f25b"; }
 i.icon.tm:before { content: "\f25c"; }
 i.icon.r.circle:before { content: "\f25d"; }
 i.icon.tv:before { content: "\f26c"; }
-i.icon.500px:before { content: "\f26e"; }
+i.icon.five.hundred.pixels:before { content: "\f26e"; }
 i.icon.calendar.plus:before { content: "\f271"; }
 i.icon.calendar.minus:before { content: "\f272"; }
 i.icon.calendar.times:before { content: "\f273"; }
