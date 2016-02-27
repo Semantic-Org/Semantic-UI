@@ -257,6 +257,7 @@ i.icon.hourglass.start:before { content: "\f251"; }
 i.icon.hourglass.half:before { content: "\f252"; }
 i.icon.hourglass.end:before { content: "\f253"; }
 i.icon.hourglass.full:before { content: "\f254"; }
+i.icon.television:before { content: "\f26c"; }
 
 /* Shapes */
 i.icon.crosshairs:before { content: "\f05b"; }
@@ -355,26 +356,27 @@ i.icon.arrow.circle.outline.right:before { content: "\f18e"; }
 i.icon.arrow.circle.outline.left:before { content: "\f190"; }
 i.icon.toggle.left:before { content: "\f191"; }
 
+/* Mobile */
+i.icon.tablet:before { content: "\f10a"; }
+i.icon.mobile:before { content: "\f10b"; }
+i.icon.battery.full:before { content: "\f240"; }
+i.icon.battery.high:before { content: "\f241"; }
+i.icon.battery.medium:before { content: "\f242"; }
+i.icon.battery.low:before { content: "\f243"; }
+i.icon.battery.empty:before { content: "\f244"; }
+
 /* Computer */
 i.icon.power:before { content: "\f011"; }
 i.icon.trash.outline:before { content: "\f014"; }
 i.icon.disk.outline:before { content: "\f0a0"; }
 i.icon.desktop:before { content: "\f108"; }
 i.icon.laptop:before { content: "\f109"; }
-i.icon.tablet:before { content: "\f10a"; }
-i.icon.mobile:before { content: "\f10b"; }
 i.icon.game:before { content: "\f11b"; }
 i.icon.keyboard:before { content: "\f11c"; }
 i.icon.plug:before { content: "\f1e6"; }
-i.icon.trash:before { content: "\f1f8"; }
-i.icon.battery.full:before { content: "\f240"; }
-i.icon.battery.high:before { content: "\f241"; }
-i.icon.battery.medium:before { content: "\f242"; }
-i.icon.battery.low:before { content: "\f243"; }
-i.icon.battery.empty:before { content: "\f244"; }
-i.icon.television:before { content: "\f26c"; }
 
 /* File System */
+i.icon.trash:before { content: "\f1f8"; }
 i.icon.file.outline:before { content: "\f016"; }
 i.icon.folder:before { content: "\f07b"; }
 i.icon.folder.open:before { content: "\f07c"; }
