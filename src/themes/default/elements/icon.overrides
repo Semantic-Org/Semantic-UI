@@ -251,13 +251,13 @@ i.icon.calculator:before { content: "\f1ec"; }
 i.icon.diamond:before { content: "\f219"; }
 i.icon.sticky.note:before { content: "\f249"; }
 i.icon.sticky.note.outline:before { content: "\f24a"; }
-i.icon.balance.scale:before { content: "\f24e"; }
+i.icon.law:before { content: "\f24e"; }
 i.icon.hourglass.empty:before { content: "\f250"; }
 i.icon.hourglass.start:before { content: "\f251"; }
 i.icon.hourglass.half:before { content: "\f252"; }
 i.icon.hourglass.end:before { content: "\f253"; }
 i.icon.hourglass.full:before { content: "\f254"; }
-i.icon.television:before { content: "\f26c"; }
+i.icon.tv:before { content: "\f26c"; }
 
 /* Shapes */
 i.icon.crosshairs:before { content: "\f05b"; }
@@ -869,16 +869,18 @@ i.icon.i.cursor:before { content: "\f246"; }
 i.icon.jcb:before { content: "\f24b"; }
 i.icon.japan.credit.bureau.card:before { content: "\f24b"; }
 i.icon.diners.club.card:before { content: "\f24c"; }
+i.icon.balance:before { content: "\f24e"; }
 i.icon.hourglass.outline:before { content: "\f250"; }
 i.icon.hourglass.zero:before { content: "\f250"; }
 i.icon.hourglass.one:before { content: "\f251"; }
 i.icon.hourglass.two:before { content: "\f252"; }
 i.icon.hourglass.three:before { content: "\f253"; }
 i.icon.hourglass.four:before { content: "\f254"; }
+i.icon.grab { content: "\f255"; }
 i.icon.hand.victory:before { content: "\f25b"; }
 i.icon.tm:before { content: "\f25c"; }
 i.icon.r.circle:before { content: "\f25d"; }
-i.icon.tv:before { content: "\f26c"; }
+i.icon.television { content: "\f26c"; }
 i.icon.five.hundred.pixels:before { content: "\f26e"; }
 i.icon.calendar.plus:before { content: "\f271"; }
 i.icon.calendar.minus:before { content: "\f272"; }
