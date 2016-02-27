@@ -17,23 +17,25 @@
 -**Divider** - Fixed issue where descenders like "g" would be cut off in `horizontal divider` #3585
 
 **Bugs**
+**Grid** - Fixed issue where `centered` content would cause `justified` content to appear aligned left. #3496
+- **Button** - Fixes issue where `right icon` like `right arrow icon` would have additional margin inside an `icon button` #3525
 - **Checkbox** - Fixed a chrome issue where radio buttons may receive `indeterminate` styles when user has not yet interacted with the page
 - **Dropdown** - Fixed issue where `apiSettings` was not defaulting to use `cache: 'local'` as specified in the docs
-- **Dropdown** - Fixed issue where long dropdown text entry with `allowAdditions` would cause input to mistakingly drop to next line early #3743
 - **Dropdown** - Fixed issue where dropdowns with sub-menus would not properly activate on mobile #3183
+- **Dropdown** - Fixed issue where long dropdown text entry with `allowAdditions` would cause input to mistakingly drop to next line early #3743
 - **Form** - Fixed issue where grouped `fields` and `field` would cause different margin collapse, making `fields` include larger gaps between content #3717
+- **Form** - Fixed use of deprecated `size()` method in `prompt` #3655 **Thanks @SimonArdrey**
+- **Input** - Fixes issue with `dropdown` or button on the left side of an `action` input not properly rounding
+- **List** - Fixed issue where `relaxed` and `very relaxed` lists included unnecessary padding on the first and last items #3710
+- **List** - Fixed issue where bullets would be affected by font weight, or whether the list item was a link #3715 #3721
+- **List** - Fixed issue where divided lists had unnecessary padding on first and last items, in both horizontal and vertical layouts #3710
 - **Menu** - Fixed issue with `stackable` menu where `left/right` `menu` or `item` would incorrectly be floated when stacked. #3604
 - **Modal** - Fixes issue where RGB values set for dimmer `background-color` werent being correctly interpreted #3665 **Thanks @larsbo**
-- **Form** - Fixed use of deprecated `size()` method in `prompt` #3655 **Thanks @SimonArdrey**
-- **List** - Fixed issue where `relaxed` and `very relaxed` lists included unnecessary padding on the first and last items #3710
-- **List** - Fixed issue where divided lists had unnecessary padding on first and last items, in both horizontal and vertical layouts #3710
-- **List** - Fixed issue where bullets would be affected by font weight, or whether the list item was a link #3715 #3721
-- **Rating** - Fixed issue where rating would not fire `onRate` when rating is initialized #3712
-- **Table** - Fixed issue where `striped selectable` table would not correctly show hover color on striped rows
-- **Segment/Message** - Fixed issue where `top attached message` would have no border when attached to `segment` #3619
 - **Popup** - Fixed issue where checking `instanceof SVGGraphicsElement` caused error in IE11 #3043
-- **Button** - Fixes issue where `right icon` like `right arrow icon` would have additional margin inside an `icon button` #3525
-**Grid** - Fixed issue where `centered` content would cause `justified` content to appear aligned left. #3496
+- **Rating** - Fixed issue where rating would not fire `onRate` when rating is initialized #3712
+- **Segment/Message** - Fixed issue where `top attached message` would have no border when attached to `segment` #3619
+- **Statistic** - Fixes issue where statistic would receive incorrect size when using `tiny` `large` etc inside a statistic group #3116
+- **Table** - Fixed issue where `striped selectable` table would not correctly show hover color on striped rows
 
 **Enhancements**
 
