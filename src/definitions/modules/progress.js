@@ -150,13 +150,6 @@ $.fn.progress = function(parameters) {
             incrementValue = incrementValue || 1;
 
             newValue       = startValue + incrementValue;
-            maxValue       = module.get.total();
-
-            module.debug('Incrementing value', startValue, newValue, maxValue);
-            if(newValue > maxValue ) {
-              module.debug('Value cannot increment above total', maxValue);
-              newValue = maxValue;
-            }
           }
           else {
             startValue     = module.get.percent();
@@ -164,13 +157,9 @@ $.fn.progress = function(parameters) {
 
             newValue       = startValue + incrementValue;
             maxValue       = 100;
-
             module.debug('Incrementing percentage by', startValue, newValue);
-            if(newValue > maxValue ) {
-              module.debug('Value cannot increment above 100 percent');
-              newValue = maxValue;
-            }
           }
+          newValue = module.get.normalizedValue(newValue);
           module.set.progress(newValue);
         },
         decrement: function(decrementValue) {
@@ -191,11 +180,7 @@ $.fn.progress = function(parameters) {
             newValue       =  startValue - decrementValue;
             module.debug('Decrementing percentage by', decrementValue, startValue);
           }
-
-          if(newValue < 0) {
-            module.debug('Value cannot decrement below 0');
-            newValue = 0;
-          }
+          newValue = module.get.normalizedValue(newValue);
           module.set.progress(newValue);
         },
 
@@ -229,6 +214,22 @@ $.fn.progress = function(parameters) {
             ;
             module.verbose('Adding variables to progress bar text', templateText);
             return templateText;
+          },
+
+          normalizedValue: function(value) {
+            if(value < 0) {
+              module.debug('Value cannot decrement below 0');
+              return 0;
+            }
+            if(module.has.total() && value > module.total) {
+              module.debug('Value cannot increment above total', module.total);
+              return module.total;
+            }
+            else if(value > 100 ) {
+              module.debug('Value cannot increment above 100 percent');
+              return 100;
+            }
+            return value;
           },
 
           updateInterval: function() {
@@ -502,15 +503,19 @@ $.fn.progress = function(parameters) {
             settings.onActive.call(element, module.value, module.total);
           },
           success : function(text) {
-            text = text || settings.text.success;
+            text = text || settings.text.success || settings.text.active;
             module.debug('Setting success state');
             $module.addClass(className.success);
             module.remove.active();
             module.remove.warning();
             module.remove.error();
             module.complete();
-            text = settings.onLabelUpdate('success', text, module.value, module.total);
-            if(text) {
+            if(settings.text.success) {
+              text = settings.onLabelUpdate('success', text, module.value, module.total);
+              module.set.label(text);
+            }
+            else {
+              text = settings.onLabelUpdate('active', text, module.value, module.total);
               module.set.label(text);
             }
             settings.onSuccess.call(element, module.total);
@@ -581,20 +586,21 @@ $.fn.progress = function(parameters) {
           },
           progress: function(value) {
             var
-              numericValue   = module.get.numericValue(value),
               percentComplete
             ;
-            if(numericValue === false) {
+            value = module.get.numericValue(value);
+            if(value === false) {
               module.error(error.nonNumeric, value);
             }
+            value = module.get.normalizedValue(value);
             if( module.has.total() ) {
-              module.set.value(numericValue);
-              percentComplete = (numericValue / module.total) * 100;
+              module.set.value(value);
+              percentComplete = (value / module.total) * 100;
               module.debug('Calculating percent complete from total', percentComplete);
               module.set.percent( percentComplete );
             }
             else {
-              percentComplete = numericValue;
+              percentComplete = value;
               module.debug('Setting value to exact percentage value', percentComplete);
               module.set.percent( percentComplete );
             }
