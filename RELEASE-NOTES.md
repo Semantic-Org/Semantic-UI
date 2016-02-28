@@ -13,7 +13,7 @@
 **Critical Bugs**
 - **API** - Fixed bug causing `cache: 'local'` not to return the localstorage cached results in some cases
 - **API** - Fixes bug where `beforeSend` would not correctly cancel request when `return false;` is used in callback. #3660
-- **Dropdown** - Fixed bug where `search selection` would not let you move back in an entered search string with left arrow #3596
+- **Dropdown** - Fixed bug where `search selection` would not let you move back in an entered search string with left arrow #3596 **Thanks @Sanjo**
 -**Form Validation / Dropdown** - Fixed issue where using "enter" key in a `search dropdown` could cause a form to be submitted #3676
 -**Divider** - Fixed issue where descenders like "g" would be cut off in `horizontal divider` #3585
 
