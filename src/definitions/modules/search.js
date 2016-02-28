@@ -292,7 +292,6 @@ $.fn.search = function(parameters) {
                 debug             : false,
                 on                : false,
                 cache             : true,
-                interruptRequests : true,
                 action            : 'search',
                 urlData           : {
                   query : searchTerm
