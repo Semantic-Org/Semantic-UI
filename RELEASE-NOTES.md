@@ -17,7 +17,8 @@
 -**Divider** - Fixed issue where descenders like "g" would be cut off in `horizontal divider` #3585
 
 **Bugs**
-**Grid** - Fixed issue where `centered` content would cause `justified` content to appear aligned left. #3496
+- **API** - Fixed bug where using `onResponse` with `dataType` other than JSON or JSONP would cause an error. (Not allowing plain text responses to be translated) #3653
+- **Grid** - Fixed issue where `centered` content would cause `justified` content to appear aligned left. #3496
 - **Button** - Fixes issue where `right icon` like `right arrow icon` would have additional margin inside an `icon button` #3525
 - **Checkbox** - Fixed a chrome issue where radio buttons may receive `indeterminate` styles when user has not yet interacted with the page
 - **Dropdown** - Fixed issue where `apiSettings` was not defaulting to use `cache: 'local'` as specified in the docs

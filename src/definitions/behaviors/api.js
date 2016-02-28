@@ -275,6 +275,9 @@ $.api = $.fn.api = function(parameters) {
           disabled: function() {
             return ($module.filter(selector.disabled).length > 0);
           },
+          expectingJSON: function() {
+            return settings.dataType !== 'json' && settings.dataType !== 'jsonp';
+          },
           form: function() {
             return $module.is('form') || $context.is('form');
           },
@@ -298,7 +301,7 @@ $.api = $.fn.api = function(parameters) {
             }
           },
           validResponse: function(response) {
-            if( (settings.dataType !== 'json' && settings.dataType !== 'jsonp') || !$.isFunction(settings.successTest) ) {
+            if( (!module.is.expectingJSON()) || !$.isFunction(settings.successTest) ) {
               module.verbose('Response is not JSON, skipping validation', settings.successTest, response);
               return true;
             }
@@ -468,7 +471,9 @@ $.api = $.fn.api = function(parameters) {
                 elapsedTime        = (new Date().getTime() - requestStartTime),
                 timeLeft           = (settings.loadingDuration - elapsedTime),
                 translatedResponse = ( $.isFunction(settings.onResponse) )
-                  ? settings.onResponse.call(context, $.extend(true, {}, response))
+                  ? module.is.expectingJSON()
+                    ? settings.onResponse.call(context, $.extend(true, {}, response))
+                    : settings.onResponse.call(conetxt, response)
                   : false
               ;
               timeLeft = (timeLeft > 0)
@@ -677,7 +682,7 @@ $.api = $.fn.api = function(parameters) {
         get: {
           responseFromXHR: function(xhr) {
             return $.isPlainObject(xhr)
-              ? (settings.dataType == 'json' || settings.dataType == 'jsonp')
+              ? (module.is.expectingJSON())
                 ? module.decode.json(xhr.responseText)
                 : xhr.responseText
               : false
