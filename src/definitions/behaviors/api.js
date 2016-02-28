@@ -288,7 +288,10 @@ $.api = $.fn.api = function(parameters) {
             return $module.is('input');
           },
           loading: function() {
-            return (module.request && module.request.state() == 'pending');
+            return (module.request)
+              ? (module.request.state() == 'pending')
+              : false
+            ;
           },
           abortedRequest: function(xhr) {
             if(xhr && xhr.readyState !== undefined && xhr.readyState === 0) {
@@ -554,11 +557,12 @@ $.api = $.fn.api = function(parameters) {
               if(status == 'aborted') {
                 module.debug('XHR Aborted (Most likely caused by page navigation or CORS Policy)', status, httpMessage);
                 settings.onAbort.call(context, status, $module, xhr);
+                return true;
               }
               else if(status == 'invalid') {
                 module.debug('JSON did not pass success test. A server-side error has most likely occurred', response);
               }
-              else if(status == 'error')  {
+              else if(status == 'error') {
                 if(xhr !== undefined) {
                   module.debug('XHR produced a server error', status, httpMessage);
                   // make sure we have an error to display to console
