@@ -289,7 +289,7 @@ $.fn.search = function(parameters) {
           api: function(searchTerm) {
             var
               apiSettings = {
-                debug             : false,
+                debug             : settings.debug,
                 on                : false,
                 cache             : true,
                 action            : 'search',
