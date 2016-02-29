@@ -14,7 +14,9 @@
 - **API** - Fixed bug causing `cache: 'local'` not to return the localstorage cached results in some cases
 - **API** - Fixes bug where `beforeSend` would not correctly cancel request when `return false;` is used in callback. #3660
 - **Dropdown** - Fixed bug where `search selection` would not let you move back in an entered search string with left arrow #3596 **Thanks @Sanjo**
+-**Form Validation** - Fixed issue where revalidating a field `on:blur` could cause fields not yet interacted with to be validated #3606
 -**Form Validation / Dropdown** - Fixed issue where using "enter" key in a `search dropdown` could cause a form to be submitted #3676
+-**Search** - Fixed issue where a previous unfinished XHR query aborting would cause the next query to fail #2779
 -**Divider** - Fixed issue where descenders like "g" would be cut off in `horizontal divider` #3585
 
 **Bugs**

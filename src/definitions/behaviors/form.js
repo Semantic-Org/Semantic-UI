@@ -299,7 +299,9 @@ $.fn.form = function(parameters) {
               ;
               if( $fieldGroup.hasClass(className.error) ) {
                 module.debug('Revalidating field', $field, validationRules);
-                module.validate.form.call(module, event, true);
+                if(validationRules) {
+                  module.validate.field( validationRules );
+                }
               }
               else if(settings.on == 'blur' || settings.on == 'change') {
                 if(validationRules) {
@@ -310,13 +312,14 @@ $.fn.form = function(parameters) {
             change: function(event) {
               var
                 $field      = $(this),
-                $fieldGroup = $field.closest($group)
+                $fieldGroup = $field.closest($group),
+                validationRules = module.get.validation($field)
               ;
               if(settings.on == 'change' || ( $fieldGroup.hasClass(className.error) && settings.revalidate) ) {
                 clearTimeout(module.timer);
                 module.timer = setTimeout(function() {
                   module.debug('Revalidating field', $field,  module.get.validation($field));
-                  module.validate.form.call(module, event, true);
+                  module.validate.field( validationRules );
                 }, settings.delay);
               }
             }
