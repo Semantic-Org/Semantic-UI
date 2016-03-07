@@ -257,7 +257,9 @@
 
 /* Dropdown Icon */
 @multipleSelectionDropdownIconMargin: 0em -@labelHorizontalPadding 0em 0em;
-@multipleSelectionDropdownIconPadding: 0.5em;
+@multipleSelectionDropdownIconPadding: '';
+
+@multipleSelectionSearchAfterLabelDistance: @relative2px;
 
 /* Selection Label */
 @labelSize: @relativeMedium;

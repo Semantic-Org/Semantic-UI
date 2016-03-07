@@ -462,6 +462,11 @@ select.ui.dropdown {
   word-wrap: normal;
 }
 
+/* User Item */
+.ui.selection.dropdown .menu > .hidden.addition.item {
+  display: none;
+}
+
 /* Hover */
 .ui.selection.dropdown:hover {
   border-color: @selectionHoverBorderColor;
@@ -515,6 +520,16 @@ select.ui.dropdown {
 .ui.active.selection.dropdown {
   border-bottom-left-radius: @selectionVisibleConnectingBorder !important;
   border-bottom-right-radius: @selectionVisibleConnectingBorder !important;
+}
+
+/* Empty Connecting Border */
+.ui.active.empty.selection.dropdown {
+  border-radius: @selectionBorderRadius !important;
+  box-shadow: @selectionBoxShadow !important;
+}
+.ui.active.empty.selection.dropdown .menu {
+  border: none !important;
+  box-shadow: none !important;
 }
 
 /*--------------
@@ -648,6 +663,9 @@ select.ui.dropdown {
   max-width: 100%;
   margin: @multipleSelectionChildMargin;
   line-height: @multipleSelectionChildLineHeight;
+}
+.ui.multiple.dropdown > .label ~ input.search {
+  margin-left: @multipleSelectionSearchAfterLabelDistance;
 }
 .ui.multiple.dropdown > .label ~ .text {
   display: none;

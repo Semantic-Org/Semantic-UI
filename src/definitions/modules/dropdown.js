@@ -191,6 +191,9 @@ $.fn.dropdown = function(parameters) {
                   .addClass(className.addition)
                   .addClass(className.item)
                 ;
+                if(settings.hideAdditions) {
+                  $userChoice.addClass(className.hidden);
+                }
                 $userChoices = ($userChoices === undefined)
                   ? $userChoice
                   : $userChoices.add($userChoice)
@@ -235,6 +238,7 @@ $.fn.dropdown = function(parameters) {
             module.remove.selectedItem();
             $item
               .not(selector.unselectable)
+              .not(selector.addition + selector.hidden)
                 .eq(0)
                 .addClass(className.selected)
             ;
@@ -614,7 +618,14 @@ $.fn.dropdown = function(parameters) {
               module.select.firstUnfiltered();
               if( module.has.allResultsFiltered() ) {
                 if( settings.onNoResults.call(element, searchTerm) ) {
-                  if(!settings.allowAdditions) {
+                  if(settings.allowAdditions) {
+                    if(settings.hideAdditions) {
+                      module.verbose('User addition with no menu, setting empty style');
+                      module.set.empty();
+                      module.hideMenu();
+                    }
+                  }
+                  else {
                     module.verbose('All items filtered, showing message', searchTerm);
                     module.add.message(message.noResults);
                   }
@@ -625,6 +636,7 @@ $.fn.dropdown = function(parameters) {
                 }
               }
               else {
+                module.remove.empty();
                 module.remove.message();
               }
               if(settings.allowAdditions) {
@@ -2030,6 +2042,9 @@ $.fn.dropdown = function(parameters) {
               $text.removeClass(className.filtered);
             }
           },
+          empty: function() {
+            $module.addClass(className.empty);
+          },
           loading: function() {
             $module.addClass(className.loading);
           },
@@ -2434,9 +2449,6 @@ $.fn.dropdown = function(parameters) {
               $addition.remove();
               return;
             }
-            $item
-              .removeClass(className.selected)
-            ;
             if(hasUserSuggestion) {
               html = settings.templates.addition( module.add.variables(message.addResult, value) );
               $addition
@@ -2444,7 +2456,6 @@ $.fn.dropdown = function(parameters) {
                 .attr('data-' + metadata.value, value)
                 .attr('data-' + metadata.text, value)
                 .removeClass(className.filtered)
-                .addClass(className.selected)
               ;
               module.verbose('Replacing user suggestion with new value', $addition);
             }
@@ -2452,9 +2463,15 @@ $.fn.dropdown = function(parameters) {
               $addition = module.create.userChoice(value);
               $addition
                 .prependTo($menu)
-                .addClass(className.selected)
               ;
               module.verbose('Adding item choice to menu corresponding with user choice addition', $addition);
+            }
+            if(!settings.hideAdditions || module.is.allFiltered()) {
+              $addition
+                .addClass(className.selected)
+                .siblings()
+                .removeClass(className.selected)
+              ;
             }
           },
           variables: function(message, term) {
@@ -2528,6 +2545,9 @@ $.fn.dropdown = function(parameters) {
           activeLabel: function() {
             $module.find(selector.label).removeClass(className.active);
           },
+          empty: function() {
+            $module.removeClass(className.empty);
+          },
           loading: function() {
             $module.removeClass(className.loading);
           },
@@ -2554,6 +2574,7 @@ $.fn.dropdown = function(parameters) {
             else {
               $item.removeClass(className.filtered);
             }
+            module.remove.empty();
           },
           optionValue: function(value) {
             var
@@ -2778,7 +2799,10 @@ $.fn.dropdown = function(parameters) {
             return (settings.maxSelections && module.get.selectionCount() >= settings.maxSelections);
           },
           allResultsFiltered: function() {
-            return ($item.filter(selector.unselectable).length === $item.length);
+            let
+              $normalResults = $item.not(selector.addition)
+            ;
+            return ($normalResults.filter(selector.unselectable).length === $normalResults.length);
           },
           query: function() {
             return (module.get.query() !== '');
@@ -3293,7 +3317,9 @@ $.fn.dropdown.settings = {
   sortSelect             : false,      // sort selection on init
 
   forceSelection         : true,       // force a choice on blur with search selection
+
   allowAdditions         : false,      // whether multiple select should allow user added values
+  hideAdditions          : true,       // whether or not to hide special message prompting a user they can enter a value
 
   maxSelections          : false,      // When set to a number limits the number of selections to this count
   useLabels              : true,       // whether multiple select should filter currently active selections from choices
@@ -3308,7 +3334,7 @@ $.fn.dropdown.settings = {
   transition             : 'auto',     // auto transition will slide down or up based on direction
   duration               : 200,        // duration of transition
 
-  glyphWidth             : 1.0714,     // widest glyph width in em (W is 1.0714 em) used to calculate multiselect input width
+  glyphWidth             : 1.037,     // widest glyph width in em (W is 1.037 em) used to calculate multiselect input width
 
   // label settings on multi-select
   label: {
@@ -3397,6 +3423,7 @@ $.fn.dropdown.settings = {
   selector : {
     addition     : '.addition',
     dropdown     : '.ui.dropdown',
+    hidden       : '.hidden',
     icon         : '> .dropdown.icon',
     input        : '> input[type="hidden"], > select',
     item         : '.item',
@@ -3416,6 +3443,7 @@ $.fn.dropdown.settings = {
     addition    : 'addition',
     animating   : 'animating',
     disabled    : 'disabled',
+    empty       : 'empty',
     dropdown    : 'ui dropdown',
     filtered    : 'filtered',
     hidden      : 'hidden transition',
