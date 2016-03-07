@@ -29,6 +29,7 @@
 - **Dropdown** - Fixed issue where long dropdown text entry with `allowAdditions` would cause input to mistakingly drop to next line early #3743
 - **Form** - Fixed issue where grouped `fields` and `field` would cause different margin collapse, making `fields` include larger gaps between content #3717
 - **Form** - Fixed use of deprecated `size()` method in `prompt` #3655 **Thanks @SimonArdrey**
+- **Icon** - Fixed issue where sizes smaller tham `small` were using with `rem` #3782
 - **Input** - Fixes issue with `dropdown` or button on the left side of an `action` input not properly rounding
 - **List** - Fixed issue where `relaxed` and `very relaxed` lists included unnecessary padding on the first and last items #3710
 - **List** - Fixed issue where bullets would be affected by font weight, or whether the list item was a link #3715 #3721
@@ -42,7 +43,6 @@
 - **Table** - Fixed issue where `striped selectable` table would not correctly show hover color on striped rows
 
 **Enhancements**
-
 - **Dropdown** - Using API with dropdown will now
 - **Rating** - Added new setting `fireOnInit` for rating, which defaults to `false`. When set to true `onRate` will fire when rating is initialized #3712
 - **Site** `@px` and `@relativepx` i.e. `@relative12px` which can be used to return EM value of pixels are now extended to `@relative40px`
