@@ -148,7 +148,6 @@ $.fn.progress = function(parameters) {
           if( module.has.total() ) {
             startValue     = module.get.value();
             incrementValue = incrementValue || 1;
-
             newValue       = startValue + incrementValue;
           }
           else {
@@ -221,9 +220,11 @@ $.fn.progress = function(parameters) {
               module.debug('Value cannot decrement below 0');
               return 0;
             }
-            if(module.has.total() && value > module.total) {
-              module.debug('Value cannot increment above total', module.total);
-              return module.total;
+            if(module.has.total()) {
+              if(value > module.total) {
+                module.debug('Value cannot increment above total', module.total);
+                return module.total;
+              }
             }
             else if(value > 100 ) {
               module.debug('Value cannot increment above 100 percent');
@@ -291,7 +292,7 @@ $.fn.progress = function(parameters) {
             return module.percent || 0;
           },
           value: function() {
-            return module.value || 0;
+            return module.nextValue || module.value || 0;
           },
           total: function() {
             return module.total || false;
@@ -309,7 +310,7 @@ $.fn.progress = function(parameters) {
 
         is: {
           complete: function() {
-            module.is.success() || module.is.warning() || module.is.error();
+            return module.is.success() || module.is.warning() || module.is.error();
           },
           success: function() {
             return $module.hasClass(className.success);

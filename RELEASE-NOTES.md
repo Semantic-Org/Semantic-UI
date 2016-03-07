@@ -59,6 +59,8 @@
 -**Table** - More granular variables for controlling style on first column in a `definition table`
 
 **Docs**
+- **Progress** - Added new examples to progress
+- **Progress** - Added all available behaviors with progress
 - **Form** - Added example of using custom rules with form
 - **Build Tools** - Added explanation of using SUI with CI, and auto-install in "recipes" section.
 - **Build Tools** - Added explanation of how to build RTL in "recipes" section
