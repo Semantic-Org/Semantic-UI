@@ -3,7 +3,7 @@
 ### Version 2.2.0 - Feb 15, 2016
 
 **Major Enhancements**
-- **Dropdown** - Added new setting for search selection `hideAdditions` this will remove showing user additions inside the menu, making for a more intuitive adding process
+- **Dropdown** - Added new setting for search selection `hideAdditions` this will remove showing user additions inside the menu, making for a more intuitive adding process. Dropdowns now have a new state `empty` which will format an active dropdown with empty results. #3791
 - **Icons** -  50+ new icons+ are included. Icons now use the latest Font Awesome `4.5.0` Icons. Thanks @BreadMaker for the PR and @davegandy for the font!
 - **Progress** - Progress now uses a polling interval for updates. Rapidly updating the progress bar over a period quicker than the animation duration (for example with xhr `onprogress` events say every 50ms) will now appear smooth as butter.
 - **Modules** - Added new setting `silent` to all modules which allows you to disable **all** console output including errors. This can be useful for preventing known errors, like a popup which cannot place itself on screen, or `sticky` content which initializes before it is visible #3713
