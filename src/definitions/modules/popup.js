@@ -370,6 +370,11 @@ $.fn.popup = function(parameters) {
             return true;
           }
         },
+        supports: {
+          SVG: function() {
+            return (typeof SVGGraphicsElement === undefined);
+          }
+        },
         animate: {
           show: function(callback) {
             callback = $.isFunction(callback) ? callback : function(){};
@@ -697,7 +702,7 @@ $.fn.popup = function(parameters) {
             popup  = calculations.popup;
             parent = calculations.parent;
 
-            if(target.width === 0 && target.height === 0 && SVGGraphicsElement && !(target.element instanceof SVGGraphicsElement)) {
+            if(target.width === 0 && target.height === 0 && !module.is.SVG(target.element)) {
               module.debug('Popup target is hidden, no action taken');
               return false;
             }
@@ -1007,6 +1012,9 @@ $.fn.popup = function(parameters) {
             else {
               return false;
             }
+          },
+          svg: function(element) {
+            return module.supports.SVG() && (element instanceof SVGGraphicsElement);
           },
           active: function() {
             return $module.hasClass(className.active);
