@@ -1015,8 +1015,6 @@ $.fn.dropdown = function(parameters) {
                 }, settings.delay.hide);
               }
             },
-            touchend: function() {
-            },
             click: function (event) {
               var
                 $choice        = $(this),
@@ -1030,9 +1028,14 @@ $.fn.dropdown = function(parameters) {
                 isBubbledEvent = ($subMenu.find($target).length > 0)
               ;
               if(!isBubbledEvent && (!hasSubMenu || settings.allowCategorySelection)) {
+                if(module.is.searchSelection()) {
+                  if(settings.allowAdditions) {
+                    module.remove.userAddition();
+                  }
+                  module.remove.searchTerm();
+                }
                 if(!settings.useLabels) {
                   module.remove.filteredItem();
-                  module.remove.searchTerm();
                   module.set.scrollPosition($choice);
                 }
                 module.determine.selectAction.call(this, text, value);
@@ -1528,7 +1531,7 @@ $.fn.dropdown = function(parameters) {
               isEmptyMultiselect = ($.isArray(value) && value.length === 1 && value[0] === '')
             ;
             // prevents placeholder element from being selected when multiple
-            return (value == undefined || isEmptyMultiselect)
+            return (value === undefined || isEmptyMultiselect)
               ? ''
               : value
             ;
@@ -2576,6 +2579,9 @@ $.fn.dropdown = function(parameters) {
             module.verbose('Cleared search term');
             $search.val('');
             module.set.filtered();
+          },
+          userAddition: function() {
+            $item.filter(selector.addition).remove();
           },
           selected: function(value, $selectedItem) {
             $selectedItem = (settings.allowAdditions)
