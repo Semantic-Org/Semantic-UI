@@ -36,6 +36,7 @@
 - **List** - Fixed issue where bullets would be affected by font weight, or whether the list item was a link #3715 #3721
 - **List** - Fixed issue where divided lists had unnecessary padding on first and last items, in both horizontal and vertical layouts #3710
 - **Menu** - Fixed issue with `stackable` menu where `left/right` `menu` or `item` would incorrectly be floated when stacked. #3604
+- **Menu** - Fixed issue where `@dividerSize` was not being used in `vertical menu` #3781
 - **Modal** - Fixes issue where RGB values set for dimmer `background-color` werent being correctly interpreted #3665 **Thanks @larsbo**
 - **Popup** - Fixed issue where checking `instanceof SVGGraphicsElement` caused error in IE11 #3043
 - **Rating** - Fixed issue where rating would not fire `onRate` when rating is initialized #3712
