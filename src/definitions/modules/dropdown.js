@@ -1523,13 +1523,14 @@ $.fn.dropdown = function(parameters) {
             var
               value = ($input.length > 0)
                 ? $input.val()
-                : $module.data(metadata.value)
+                : $module.data(metadata.value),
+              isEmptyMultiselect = ($.isArray(value) && value.length === 1 && value[0] === '')
             ;
             // prevents placeholder element from being selected when multiple
-            if($.isArray(value) && value.length === 1 && value[0] === '') {
-              return '';
-            }
-            return value;
+            return (value == undefined || isEmptyMultiselect)
+              ? ''
+              : value
+            ;
           },
           values: function() {
             var

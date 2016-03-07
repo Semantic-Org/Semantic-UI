@@ -3,9 +3,9 @@
 ### Version 2.1.9 - Feb 15, 2016
 
 **Major Enhancements**
+- **All UI** - Using `setting` on a setting that is an object literal, for example `error: {}` will now extend the existing object instead of replacing it.
 - **Progress** - Progress now uses a polling interval for updates. Rapidly updating the progress bar over a period quicker than the animation duration (for example with xhr `onprogress` events say every 50ms) will now appear smooth as butter.
 - **Modules** - Added new setting `silent` to all modules which allows you to disable **all** console output including errors. This can be useful for preventing known errors, like a popup which cannot place itself on screen, or `sticky` content which initializes before it is visible #3713
-- **Modules** - Using `setting` on a setting that is an object literal, for example `error: {}` will now extend the existing object instead of replacing it.
 - **Dropdown** - All dropdowns, not just `selection dropdown`, will now select the first `menu item` that starts with a pressed keyboard key, for example "N" will select "New"
 - **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation](http://www.semantic-ui.com/introduction/advanced-usage.html#Auto-Install) for how to use. #3616 **Thanks @algorithme**
 - **Icons** -  50+ new icons+ are included. Icons now use the latest Font Awesome `4.5.0` Icons. Thanks @BreadMaker for the PR and @davegandy for the font!
@@ -24,6 +24,7 @@
 - **Grid** - Fixed issue where `centered` content would cause `justified` content to appear aligned left. #3496
 - **Button** - Fixes issue where `right icon` like `right arrow icon` would have additional margin inside an `icon button` #3525
 - **Checkbox** - Fixed a chrome issue where radio buttons may receive `indeterminate` styles when user has not yet interacted with the page
+- **Dropdown** - Fixed issue where `get value` would not return correct value when value was blank #3766
 - **Dropdown** - Fixed issue where `apiSettings` was not defaulting to use `cache: 'local'` as specified in the docs
 - **Dropdown** - Fixed issue where dropdowns with sub-menus would not properly activate on mobile #3183
 - **Dropdown** - Fixed issue where long dropdown text entry with `allowAdditions` would cause input to mistakingly drop to next line early #3743
