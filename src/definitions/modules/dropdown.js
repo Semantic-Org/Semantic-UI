@@ -73,6 +73,7 @@ $.fn.dropdown = function(parameters) {
 
         initialLoad,
         pageLostFocus,
+        willRefocus,
         elementNamespace,
         id,
         selectObserver,
@@ -527,10 +528,10 @@ $.fn.dropdown = function(parameters) {
             }
             if( module.is.searchSelection() ) {
               $module
+                .on('mousedown' + eventNamespace, module.event.mousedown)
                 .on('mousedown' + eventNamespace, selector.menu,   module.event.menu.mousedown)
                 .on('mouseup'   + eventNamespace, selector.menu,   module.event.menu.mouseup)
                 .on('click'     + eventNamespace, selector.icon,   module.event.icon.click)
-                .on('click'     + eventNamespace, selector.search, module.show)
                 .on('focus'     + eventNamespace, selector.search, module.event.search.focus)
                 .on('blur'      + eventNamespace, selector.search, module.event.search.blur)
                 .on('click'     + eventNamespace, selector.text,   module.event.text.focus)
@@ -837,9 +838,15 @@ $.fn.dropdown = function(parameters) {
               module.hide();
             }
           },
-          // prevents focus callback from occurring on mousedown
           mousedown: function() {
-            activated = true;
+            if(module.is.searchSelection()) {
+              // prevent menu hiding on immediate re-focus
+              willRefocus = true;
+            }
+            else {
+              // prevents focus callback from occurring on mousedown
+              activated = true;
+            }
           },
           mouseup: function() {
             activated = false;
@@ -852,28 +859,30 @@ $.fn.dropdown = function(parameters) {
               }
               if(settings.showOnFocus) {
                 module.search();
-                module.show();
               }
             },
             blur: function(event) {
               pageLostFocus = (document.activeElement === this);
-              if(!itemActivated && !pageLostFocus) {
-                if(module.is.multiple()) {
-                  module.remove.activeLabel();
-                  module.hide();
+              if(!willRefocus) {
+                if(!itemActivated && !pageLostFocus) {
+                  if(module.is.multiple()) {
+                    module.remove.activeLabel();
+                    module.hide();
+                  }
+                  else if(settings.forceSelection) {
+                    module.forceSelection();
+                  }
+                  else {
+                    module.hide();
+                  }
                 }
-                else if(settings.forceSelection) {
-                  module.forceSelection();
-                }
-                else {
-                  module.hide();
+                else if(pageLostFocus) {
+                  if(settings.forceSelection) {
+                    module.forceSelection();
+                  }
                 }
               }
-              else if(pageLostFocus) {
-                if(settings.forceSelection) {
-                  module.forceSelection();
-                }
-              }
+              willRefocus = false;
             }
           },
           icon: {
