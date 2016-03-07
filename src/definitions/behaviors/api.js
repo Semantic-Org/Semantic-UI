@@ -655,7 +655,7 @@ $.api = $.fn.api = function(parameters) {
               .done(module.event.xhr.done)
               .fail(module.event.xhr.fail)
             ;
-            module.verbose('Created server request', xhr);
+            module.verbose('Created server request', xhr, ajaxSettings);
             return xhr;
           }
         },

@@ -1,16 +1,16 @@
 ## RELEASE NOTES
 
-### Version 2.1.9 - Feb 15, 2016
+### Version 2.2.0 - Feb 15, 2016
 
 **Major Enhancements**
-- **All UI** - Using `setting` on a setting that is an object literal, for example `error: {}` will now extend the existing object instead of replacing it.
+- **Icons** -  50+ new icons+ are included. Icons now use the latest Font Awesome `4.5.0` Icons. Thanks @BreadMaker for the PR and @davegandy for the font!
 - **Progress** - Progress now uses a polling interval for updates. Rapidly updating the progress bar over a period quicker than the animation duration (for example with xhr `onprogress` events say every 50ms) will now appear smooth as butter.
 - **Modules** - Added new setting `silent` to all modules which allows you to disable **all** console output including errors. This can be useful for preventing known errors, like a popup which cannot place itself on screen, or `sticky` content which initializes before it is visible #3713
 - **Dropdown** - All dropdowns, not just `selection dropdown`, will now select the first `menu item` that starts with a pressed keyboard key, for example "N" will select "New"
 - **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation](http://www.semantic-ui.com/introduction/advanced-usage.html#Auto-Install) for how to use. #3616 **Thanks @algorithme**
-- **Icons** -  50+ new icons+ are included. Icons now use the latest Font Awesome `4.5.0` Icons. Thanks @BreadMaker for the PR and @davegandy for the font!
 
 **Critical Bugs**
+- **All UI** - Using `setting` on a setting that is an object literal, for example `error: {}` will now extend the existing object instead of replacing it.
 - **API** - `beforeSend` would not correctly cancel request when `return false;` is used in callback. #3660
 - **API** - `cache: 'local'` would not return the localstorage cached results in some cases
 - **Dropdown** - `search selection` would not let you move back in an entered search string with left arrow #3596 **Thanks @Sanjo**
@@ -52,6 +52,7 @@
 - **Rating** - Added new setting `fireOnInit` for rating, which defaults to `false`. When set to true `onRate` will fire when rating is initialized #3712
 - **Site** `@px` and `@relativepx` i.e. `@relative12px` which can be used to return EM value of pixels are now extended to `@relative40px`
 - **Tabs** - Added new option `deactivate`, defaults to `siblings` which will only deactivate tab activators that are DOM siblings elements to the activating element. Setting it to <code>'all'</code> will deactivate any other tab element initialized at the same time.
+- **Progress* - Added progress `is complete` for returning whether success, warning, or error conditions are met
 - **Progress* - Added `onLabelUpdate` callback, this can be used to specify the exact text that should appear on the actual progress update, perhaps based on some external conditions
 - **Table** - `definition table` now supports `ignored` variation to force a `first-child` to ignore its default definition stylings
 - **Table-- `definition table` now supports `definition` variation to specify definition styles on an element that is not `:first-child`
