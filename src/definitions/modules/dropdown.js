@@ -1788,6 +1788,9 @@ $.fn.dropdown = function(parameters) {
               module.set.text(defaultText);
             }
           },
+          placeholderText: function() {
+            module.set.placeholderText();
+          },
           defaultValue: function() {
             var
               defaultValue = module.get.defaultValue()

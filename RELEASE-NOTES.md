@@ -43,7 +43,7 @@
 - **Table** - Fixed issue where `striped selectable` table would not correctly show hover color on striped rows
 
 **Enhancements**
-- **Dropdown** - Using API with dropdown will now
+- **Dropdown** - Added new convenience method `restore placeholder text`
 - **Rating** - Added new setting `fireOnInit` for rating, which defaults to `false`. When set to true `onRate` will fire when rating is initialized #3712
 - **Site** `@px` and `@relativepx` i.e. `@relative12px` which can be used to return EM value of pixels are now extended to `@relative40px`
 - **Tabs** - Added option `deactivate`, defaults to `siblings` which will only deactivate tab activators that are DOM siblings elements to the activating element. Setting it to <code>'all'</code> will deactivate any other tab element initialized at the same time.
