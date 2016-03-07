@@ -276,7 +276,7 @@ $.api = $.fn.api = function(parameters) {
             return ($module.filter(selector.disabled).length > 0);
           },
           expectingJSON: function() {
-            return settings.dataType !== 'json' && settings.dataType !== 'jsonp';
+            return settings.dataType === 'json' || settings.dataType === 'jsonp';
           },
           form: function() {
             return $module.is('form') || $context.is('form');
