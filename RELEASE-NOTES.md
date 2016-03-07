@@ -22,6 +22,7 @@
 **Bugs**
 - **API** - Using `onResponse` with `dataType` other than JSON or JSONP would cause an error. (Not allowing plain text responses to be translated) #3653
 - **Button** - `right icon` like `right arrow icon` would have additional margin inside an `icon button` #3525
+- **Button** - Fixed issue where `disabled loading button` would not remove `pointer-events` #2933
 - **Checkbox** - Radio buttons received `indeterminate` styles when user has not yet interacted with the page in Chrome
 - **Dropdown** - `apiSettings` was not defaulting to use `cache: 'local'` as specified in the docs
 - **Dropdown** - `get value` would not return correct value when value was blank #3766
