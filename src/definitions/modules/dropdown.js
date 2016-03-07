@@ -1033,6 +1033,9 @@ $.fn.dropdown = function(parameters) {
                     module.remove.userAddition();
                   }
                   module.remove.searchTerm();
+                  if(!module.is.focusedOnSearch()) {
+                    module.focusSearch();
+                  }
                 }
                 if(!settings.useLabels) {
                   module.remove.filteredItem();

@@ -11,49 +11,50 @@
 - **Icons** -  50+ new icons+ are included. Icons now use the latest Font Awesome `4.5.0` Icons. Thanks @BreadMaker for the PR and @davegandy for the font!
 
 **Critical Bugs**
-- **API** - Fixed bug causing `cache: 'local'` not to return the localstorage cached results in some cases
-- **API** - Fixes bug where `beforeSend` would not correctly cancel request when `return false;` is used in callback. #3660
-- **Dropdown** - Fixed bug where `search selection` would not let you move back in an entered search string with left arrow #3596 **Thanks @Sanjo**
--**Form Validation** - Fixed issue where revalidating a field `on:blur` could cause fields not yet interacted with to be validated #3606
--**Form Validation / Dropdown** - Fixed issue where using "enter" key in a `search dropdown` could cause a form to be submitted #3676
--**Search** - Fixed issue where a previous unfinished XHR query aborting would cause the next query to fail #2779
--**Divider** - Fixed issue where descenders like "g" would be cut off in `horizontal divider` #3585
+- **API** - `beforeSend` would not correctly cancel request when `return false;` is used in callback. #3660
+- **API** - `cache: 'local'` would not return the localstorage cached results in some cases
+- **Dropdown** - `search selection` would not let you move back in an entered search string with left arrow #3596 **Thanks @Sanjo**
+-**Divider** - Descenders like "g" are cut off in `horizontal divider` #3585
+-**Form Validation / Dropdown** - Using "enter" key in a `search dropdown` could cause a form to be submitted #3676
+-**Form Validation** - Revalidating a field `on: blur` could cause fields not yet interacted with to be validated #3606
+-**Search** - A previous unfinished XHR query aborting would cause the next query to fail #2779
 
 **Bugs**
-- **API** - Fixed bug where using `onResponse` with `dataType` other than JSON or JSONP would cause an error. (Not allowing plain text responses to be translated) #3653
-- **Grid** - Fixed issue where `centered` content would cause `justified` content to appear aligned left. #3496
-- **Button** - Fixes issue where `right icon` like `right arrow icon` would have additional margin inside an `icon button` #3525
-- **Checkbox** - Fixed a chrome issue where radio buttons may receive `indeterminate` styles when user has not yet interacted with the page
-- **Dropdown** - Fixed issue where `get value` would not return correct value when value was blank #3766
-- **Dropdown** - Fixed issue where `apiSettings` was not defaulting to use `cache: 'local'` as specified in the docs
-- **Dropdown** - Fixed issue where dropdowns with sub-menus would not properly activate on mobile #3183
-- **Dropdown** - Fixed issue where dropdown would open when an label delete x was clicked when not using `search selection` #3789
-- **Dropdown** - Fixed issue where long dropdown text entry with `allowAdditions` would cause input to mistakingly drop to next line early #3743
-- **Form** - Fixed issue where grouped `fields` and `field` would cause different margin collapse, making `fields` include larger gaps between content #3717
-- **Form** - Fixed use of deprecated `size()` method in `prompt` #3655 **Thanks @SimonArdrey**
-- **Icon** - Fixed issue where sizes smaller tham `small` were using with `rem` #3782
+- **API** - Using `onResponse` with `dataType` other than JSON or JSONP would cause an error. (Not allowing plain text responses to be translated) #3653
+- **Button** - `right icon` like `right arrow icon` would have additional margin inside an `icon button` #3525
+- **Checkbox** - Radio buttons received `indeterminate` styles when user has not yet interacted with the page in Chrome
+- **Dropdown** - `apiSettings` was not defaulting to use `cache: 'local'` as specified in the docs
+- **Dropdown** - `get value` would not return correct value when value was blank #3766
+- **Dropdown** - Dropdown would open when an label delete x was clicked when not using `search selection` #3789
+- **Dropdown** - Dropdowns with sub-menus would not properly activate on mobile #3183
+- **Dropdown** - Long dropdown text entry with `allowAdditions` would cause input to mistakingly drop to next line early #3743
+- **Dropdown** - Multi select would lose search input focus when clicking on a choice
+- **Form** - Grouped `fields` and `field` would cause different margin collapse, making `fields` include larger gaps between content #3717
+- **Form** - Remove deprecated `size()` method in `prompt` #3655 **Thanks @SimonArdrey**
+- **Grid** - `centered` content would cause `justified` content to appear aligned left. #3496
+- **Icon** - Sizes smaller tham `small` were using with `rem` #3782
 - **Input** - Fixes issue with `dropdown` or button on the left side of an `action` input not properly rounding
-- **List** - Fixed issue where `relaxed` and `very relaxed` lists included unnecessary padding on the first and last items #3710
-- **List** - Fixed issue where bullets would be affected by font weight, or whether the list item was a link #3715 #3721
-- **List** - Fixed issue where divided lists had unnecessary padding on first and last items, in both horizontal and vertical layouts #3710
-- **Menu** - Fixed issue with `stackable` menu where `left/right` `menu` or `item` would incorrectly be floated when stacked. #3604
-- **Menu** - Fixed issue where `@dividerSize` was not being used in `vertical menu` #3781
-- **Modal** - Fixes issue where RGB values set for dimmer `background-color` werent being correctly interpreted #3665 **Thanks @larsbo**
-- **Popup** - Fixed issue where checking `instanceof SVGGraphicsElement` caused error in IE11 #3043
-- **Rating** - Fixed issue where rating would not fire `onRate` when rating is initialized #3712
-- **Segment/Message** - Fixed issue where `top attached message` would have no border when attached to `segment` #3619
-- **Statistic** - Fixes issue where statistic would receive incorrect size when using `tiny` `large` etc inside a statistic group #3116
-- **Table** - Fixed issue where `striped selectable` table would not correctly show hover color on striped rows
+- **List** - `relaxed` and `very relaxed` lists included unnecessary padding on the first and last items #3710
+- **List** - Bullets would be affected by font weight, or whether the list item was a link #3715 #3721
+- **List** - Divided lists had unnecessary padding on first and last items, in both horizontal and vertical layouts #3710
+- **Menu** -  `stackable` menu with `left/right` `menu` or `item` would incorrectly be floated when stacked. #3604
+- **Menu** - `@dividerSize` was not being used in `vertical menu` #3781
+- **Modal** - RGB values set for dimmer `background-color` were not being correctly interpreted #3665 **Thanks @larsbo**
+- **Popup** - checking `instanceof SVGGraphicsElement` caused error in IE11 #3043
+- **Rating** - rating does not fire `onRate` when rating is initialized #3712
+- **Segment/Message** - `top attached message` has no border when attached to `segment` #3619
+- **Statistic** - statistic receives incorrect size when using `tiny` `large` etc inside a statistic group #3116
+- **Table** - `striped selectable` table would not correctly show hover color on striped rows
 
 **Enhancements**
 - **Dropdown** - Added new convenience method `restore placeholder text`
 - **Rating** - Added new setting `fireOnInit` for rating, which defaults to `false`. When set to true `onRate` will fire when rating is initialized #3712
 - **Site** `@px` and `@relativepx` i.e. `@relative12px` which can be used to return EM value of pixels are now extended to `@relative40px`
-- **Tabs** - Added option `deactivate`, defaults to `siblings` which will only deactivate tab activators that are DOM siblings elements to the activating element. Setting it to <code>'all'</code> will deactivate any other tab element initialized at the same time.
+- **Tabs** - Added new option `deactivate`, defaults to `siblings` which will only deactivate tab activators that are DOM siblings elements to the activating element. Setting it to <code>'all'</code> will deactivate any other tab element initialized at the same time.
 - **Progress* - Added `onLabelUpdate` callback, this can be used to specify the exact text that should appear on the actual progress update, perhaps based on some external conditions
 - **Table** - `definition table` now supports `ignored` variation to force a `first-child` to ignore its default definition stylings
 - **Table-- `definition table` now supports `definition` variation to specify definition styles on an element that is not `:first-child`
--**Table** - Added more granular variables for controlling style on first column in a `definition table`
+-**Table** - More granular variables for controlling style on first column in a `definition table`
 
 **Docs**
 - **Form** - Added example of using custom rules with form
