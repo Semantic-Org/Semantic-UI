@@ -371,7 +371,7 @@ $.fn.popup = function(parameters) {
           }
         },
         supports: {
-          SVG: function() {
+          svg: function() {
             return (typeof SVGGraphicsElement === undefined);
           }
         },
@@ -702,7 +702,7 @@ $.fn.popup = function(parameters) {
             popup  = calculations.popup;
             parent = calculations.parent;
 
-            if(target.width === 0 && target.height === 0 && !module.is.SVG(target.element)) {
+            if(target.width === 0 && target.height === 0 && !module.is.svg(target.element)) {
               module.debug('Popup target is hidden, no action taken');
               return false;
             }
@@ -1014,7 +1014,7 @@ $.fn.popup = function(parameters) {
             }
           },
           svg: function(element) {
-            return module.supports.SVG() && (element instanceof SVGGraphicsElement);
+            return module.supports.svg() && (element instanceof SVGGraphicsElement);
           },
           active: function() {
             return $module.hasClass(className.active);
