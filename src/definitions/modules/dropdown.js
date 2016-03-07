@@ -827,8 +827,13 @@ $.fn.dropdown = function(parameters) {
               $target = $(event.target)
             ;
             // focus search
-            if($target.is($module) && !module.is.focusedOnSearch()) {
-              module.focusSearch();
+            if($target.is($module)) {
+              if(!module.is.focusedOnSearch()) {
+                module.focusSearch();
+              }
+              else {
+                module.show();
+              }
             }
           },
           blur: function(event) {

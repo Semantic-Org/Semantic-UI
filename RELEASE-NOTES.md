@@ -28,7 +28,7 @@
 - **Dropdown** - Dropdown would open when an label delete x was clicked when not using `search selection` #3789
 - **Dropdown** - Dropdowns with sub-menus would not properly activate on mobile #3183
 - **Dropdown** - Long dropdown text entry with `allowAdditions` would cause input to mistakingly drop to next line early #3743
-- **Dropdown** - Multi select would lose search input focus when clicking on a choice
+- **Dropdown** - Seach selection would lose search input focus when clicking on a choice #3790
 - **Form** - Grouped `fields` and `field` would cause different margin collapse, making `fields` include larger gaps between content #3717
 - **Form** - Remove deprecated `size()` method in `prompt` #3655 **Thanks @SimonArdrey**
 - **Grid** - `centered` content would cause `justified` content to appear aligned left. #3496
@@ -47,6 +47,7 @@
 - **Table** - `striped selectable` table would not correctly show hover color on striped rows
 
 **Enhancements**
+- **Dropdown** - Added `1px` offset for current text so that the text position cursor does not overlap first pixel of text.
 - **Dropdown** - Added new convenience method `restore placeholder text`
 - **Rating** - Added new setting `fireOnInit` for rating, which defaults to `false`. When set to true `onRate` will fire when rating is initialized #3712
 - **Site** `@px` and `@relativepx` i.e. `@relative12px` which can be used to return EM value of pixels are now extended to `@relative40px`

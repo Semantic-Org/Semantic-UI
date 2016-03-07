@@ -44,6 +44,7 @@
 /* Text */
 @textLineHeight: 1em;
 @textLineHeightOffset: (@textLineHeight - 1em);
+@textCursorSpacing: 1px;
 
 /* Menu Item */
 @itemFontSize: @medium;
