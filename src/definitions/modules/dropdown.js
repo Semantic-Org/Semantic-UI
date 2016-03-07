@@ -1375,16 +1375,17 @@ $.fn.dropdown = function(parameters) {
           },
           eventOnElement: function(event, callback) {
             var
-              $target    = $(event.target),
-              $label     = $target.closest(selector.siblingLabel),
-              notOnLabel = ($module.find($label).length === 0),
-              notInMenu  = ($target.closest($menu).length === 0)
+              $target      = $(event.target),
+              $label       = $target.closest(selector.siblingLabel),
+              inVisibleDOM = document.contains(event.target),
+              notOnLabel   = ($module.find($label).length === 0),
+              notInMenu    = ($target.closest($menu).length === 0)
             ;
             callback = $.isFunction(callback)
               ? callback
               : function(){}
             ;
-            if(notOnLabel && notInMenu) {
+            if(inVisibleDOM && notOnLabel && notInMenu) {
               module.verbose('Triggering event', callback);
               callback();
               return true;

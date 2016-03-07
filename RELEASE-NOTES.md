@@ -27,6 +27,7 @@
 - **Dropdown** - Fixed issue where `get value` would not return correct value when value was blank #3766
 - **Dropdown** - Fixed issue where `apiSettings` was not defaulting to use `cache: 'local'` as specified in the docs
 - **Dropdown** - Fixed issue where dropdowns with sub-menus would not properly activate on mobile #3183
+- **Dropdown** - Fixed issue where dropdown would open when an label delete x was clicked when not using `search selection` #3789
 - **Dropdown** - Fixed issue where long dropdown text entry with `allowAdditions` would cause input to mistakingly drop to next line early #3743
 - **Form** - Fixed issue where grouped `fields` and `field` would cause different margin collapse, making `fields` include larger gaps between content #3717
 - **Form** - Fixed use of deprecated `size()` method in `prompt` #3655 **Thanks @SimonArdrey**
