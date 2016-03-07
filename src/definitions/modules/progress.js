@@ -308,6 +308,9 @@ $.fn.progress = function(parameters) {
         },
 
         is: {
+          complete: function() {
+            module.is.success() || module.is.warning() || module.is.error();
+          },
           success: function() {
             return $module.hasClass(className.success);
           },
