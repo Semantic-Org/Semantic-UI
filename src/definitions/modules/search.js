@@ -883,8 +883,8 @@ $.fn.search = function(parameters) {
         displayMessage: function(text, type) {
           type = type || 'standard';
           module.debug('Displaying message', text, type);
-          module.addResults( settings.templates.message(text, type) );
-          return settings.templates.message(text, type);
+          module.addResults( settings.templates.message(text, type, settings.error.noResultsHeader) );
+          return settings.templates.message(text, type, settings.error.noResultsHeader);
         },
 
         setting: function(name, value) {
@@ -1140,14 +1140,15 @@ $.fn.search.settings = {
   },
 
   error : {
-    source      : 'Cannot search. No source used, and Semantic API module was not included',
-    noResults   : 'Your search returned no results',
-    logging     : 'Error in debug logging, exiting.',
-    noEndpoint  : 'No search endpoint was specified',
-    noTemplate  : 'A valid template name was not specified.',
-    serverError : 'There was an issue querying the server.',
-    maxResults  : 'Results must be an array to use maxResults setting',
-    method      : 'The method you called is not defined.'
+    source          : 'Cannot search. No source used, and Semantic API module was not included',
+    noResultsHeader : 'No Results',
+    noResults       : 'Your search returned no results',
+    logging         : 'Error in debug logging, exiting.',
+    noEndpoint      : 'No search endpoint was specified',
+    noTemplate      : 'A valid template name was not specified.',
+    serverError     : 'There was an issue querying the server.',
+    maxResults      : 'Results must be an array to use maxResults setting',
+    method          : 'The method you called is not defined.'
   },
 
   metadata: {
@@ -1208,7 +1209,7 @@ $.fn.search.settings = {
       }
       return string;
     },
-    message: function(message, type) {
+    message: function(message, type, noResultsHeader) {
       var
         html = ''
       ;
@@ -1219,7 +1220,7 @@ $.fn.search.settings = {
         // message type
         if(type == 'empty') {
           html += ''
-            + '<div class="header">No Results</div class="header">'
+            + '<div class="header">' + noResultsHeader + '</div class="header">'
             + '<div class="description">' + message + '</div class="description">'
           ;
         }
