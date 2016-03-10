@@ -76,7 +76,7 @@ $.fn.popup = function(parameters) {
           module.debug('Initializing', $module);
           module.createID();
           module.bind.events();
-          if( !module.exists() && settings.preserve) {
+          if(!module.exists() && settings.preserve) {
             module.create();
           }
           module.instantiate();
@@ -380,6 +380,9 @@ $.fn.popup = function(parameters) {
             callback = $.isFunction(callback) ? callback : function(){};
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               module.set.visible();
+              if(settings.autoRemove) {
+                module.bind.autoRemoval();
+              }
               $popup
                 .transition({
                   animation  : settings.transition + ' in',
@@ -418,6 +421,9 @@ $.fn.popup = function(parameters) {
                     module.reset();
                     callback.call($popup, element);
                     settings.onHidden.call($popup, element);
+                    if(settings.autoRemove) {
+                      module.unbind.autoRemoval();
+                    }
                   }
                 })
               ;
@@ -933,6 +939,15 @@ $.fn.popup = function(parameters) {
               ;
             }
           },
+          autoRemoval: function() {
+            $module
+              .one('remove' + eventNamespace, function() {
+                module.hide(function() {
+                  module.removePopup();
+                });
+              })
+            ;
+          },
           close: function() {
             if(settings.hideOnScroll === true || (settings.hideOnScroll == 'auto' && settings.on != 'click'))   {
               $document
@@ -985,6 +1000,9 @@ $.fn.popup = function(parameters) {
                 .off('click' + elementNamespace)
               ;
             }
+          },
+          autoRemoval: function() {
+            $module.off('remove' + elementNamespace);
           }
         },
 
@@ -1261,6 +1279,9 @@ $.fn.popup.settings = {
 
   // callback after hide animation
   onHidden     : function(){},
+
+  // hides popup when triggering element is destroyed
+  autoRemove   : true,
 
   // when to show popup
   on           : 'hover',

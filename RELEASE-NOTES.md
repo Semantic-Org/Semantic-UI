@@ -3,6 +3,7 @@
 ### Version 2.2.0 - Feb 15, 2016
 
 **Major Enhancements**
+- **Popup** - Added new settings `autoRemove`, which is enabled by default. This will add special event listeners to auto hide a popup if the triggering element is removed from the DOM. This is useful in controlled DOM environments like Meteor/Ember/React to ensure a popup auto-hides itself when a page navigation or other DOM change occurs.
 - **Dropdown** - Added new setting for search selection `hideAdditions` this will remove showing user additions inside the menu, making for a more intuitive adding process. Dropdowns now have a new state `empty` which will format an active dropdown with empty results. #3791
 - **Icons** -  50+ new icons+ are included. Icons now use the latest Font Awesome `4.5.0` Icons. Thanks @BreadMaker for the PR and @davegandy for the font!
 - **Progress** - Progress now uses a polling interval for updates. Rapidly updating the progress bar over a period quicker than the animation duration (for example with xhr `onprogress` events say every 50ms) will now appear smooth as butter.
