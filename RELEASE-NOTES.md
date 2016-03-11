@@ -16,10 +16,10 @@
 - **API** - `beforeSend` would not correctly cancel request when `return false;` is used in callback. #3660
 - **API** - `cache: 'local'` would not return the localstorage cached results in some cases
 - **Dropdown** - `search selection` would not let you move back in an entered search string with left arrow #3596 **Thanks @Sanjo**
--**Divider** - Descenders like "g" are cut off in `horizontal divider` #3585
--**Form Validation / Dropdown** - Using "enter" key in a `search dropdown` could cause a form to be submitted #3676
--**Form Validation** - Revalidating a field `on: blur` could cause fields not yet interacted with to be validated #3606
--**Search** - A previous unfinished XHR query aborting would cause the next query to fail #2779
+- **Divider** - Descenders like "g" are cut off in `horizontal divider` #3585
+- **Form Validation / Dropdown** - Using "enter" key in a `search dropdown` could cause a form to be submitted #3676
+- **Form Validation** - Revalidating a field `on: blur` could cause fields not yet interacted with to be validated #3606
+- **Search** - A previous unfinished XHR query aborting would cause the next query to fail #2779
 
 **Bugs**
 - **API** - Using `onResponse` with `dataType` other than JSON or JSONP would cause an error. (Not allowing plain text responses to be translated) #3653
