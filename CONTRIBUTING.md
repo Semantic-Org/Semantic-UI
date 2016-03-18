@@ -12,9 +12,11 @@ Once you receive feedback through community channels you may find your question 
 
 ### Creating Bug Reports
 
+[Github Issues Tracker](https://github.com/Semantic-Org/Semantic-UI/issues) is used to track all upcoming milestones and changes to the project.
+
 **Please create a fork of this [jsfiddle](http://jsfiddle.net/efp8z6Ln/) to demonstrate bugs.**
 
-When submiting a bug report, please include a set of steps to reproduce the issue and any related information, browser, OS etc. If we can't see the issue then it will make solving things much more difficult.
+When submiting a bug report, include a set of steps to reproduce the issue and any related information, browser, OS etc. If we can't reproduce the issue then it will make solving things much more difficult.
 
 If your bug uses a third party framework like Ember, Meteor, or Angular. Be sure to submit the issue to their respective issues boards. If you are confident the bug is part of the 'vanilla' SUI release, keep in mind not all maintainers are familiar with all framework and a simple test case is greatly appreciated.
 
@@ -41,7 +43,6 @@ For example
 * [Validation] Add Rules for Zipcode Validation
 * [API] Add "onProgress" callback setting
 
-[Github Issues Tracker](https://github.com/Semantic-Org/Semantic-UI/issues) is used to track all upcoming milestones and changes to the project.
 
 ### Tracking Issue Progress
 
