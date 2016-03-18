@@ -22,11 +22,11 @@ If your bug uses a third party framework like Ember, Meteor, or Angular. Be sure
 
 If your bug is reproduced by a maintainer it will be asssigned the [`confirmed bug`](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aopen+is%3Aissue+label%3A%22Confirmed+Bug%22) tag. Browsing this tag is a good way to keep track of known issues with SUI.
 
-### Naming Issues
+#### Naming Issues
 
 Semantic UI boards use a special naming convention to help tag issue titles by the component the issue is related to. 
 
-#### Bugs
+##### Bugs
 Please tag titles in the format "[Component] *Sub-type* should do *correct behavior*". Please use standard [title case](http://www.titlecase.com) for titles, including the bracketed tag.
 
 For example
@@ -34,7 +34,7 @@ For example
 * [Validation] - E-mail Validation Should Handle Cyrillic
 * [Button] - Grouped Buttons Should Display Correctly on Mobile
 
-#### Enhancements
+##### Enhancements
 
 For new feature requests, you can use the format "[Component] Add *new feature*"
 
