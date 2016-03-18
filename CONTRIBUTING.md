@@ -25,7 +25,7 @@ If your bug is reproduced by a maintainer it will be asssigned the [`confirmed b
 Semantic UI boards use a special naming convention to help tag issue titles by the component the issue is related to. 
 
 #### Bugs
-Please tag titles in the format "[Component] (sub-type) should do (correct behavior)". Please use standard [title case](http://www.titlecase.com) for titles, including the bracketed tag.
+Please tag titles in the format "[Component] *Sub-type* should do *correct behavior*". Please use standard [title case](http://www.titlecase.com) for titles, including the bracketed tag.
 
 For example
 * [Dropdown] Multiple Selection Should Preserve "Set Selected" Order
@@ -34,7 +34,7 @@ For example
 
 #### Enhancements
 
-For new feature requests, you can use the format "[Component] Add (new feature)"
+For new feature requests, you can use the format "[Component] Add *new feature*"
 
 For example
 * [Dropdown] Add "Clearable" Setting
