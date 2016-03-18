@@ -294,6 +294,7 @@ i.icon.radio:before { content: "\f10c"; }
 i.icon.minus.square:before { content: "\f146"; }
 i.icon.minus.square.outline:before { content: "\f147"; }
 i.icon.check.square:before { content: "\f14a"; }
+i.icon.check.square.outline:before { content: "\f046"; }
 i.icon.selected.radio:before { content: "\f192"; }
 i.icon.plus.square.outline:before { content: "\f196"; }
 i.icon.toggle.off:before { content: "\f204"; }
