@@ -16,7 +16,7 @@ Key Features
 * Built with EM values for responsive design
 * Flexbox friendly
 
-Semantic allows developers to build beautiful websites fast, with **concise HTML**, **intuitive javascript**, and **simplified debugging** helping make front-end development a delightful experience. Semantic is responsively designed allowing your website to scale on multiple devices. Production ready and partnered with frameworks such as **React**, **Angular**, **Meteor**, and **Ember**, means you can integrate Semantic with any of these frameworks to organize your UI layer alongside your application logic.
+Semantic allows developers to build beautiful websites fast, with **concise HTML**, **intuitive javascript**, and **simplified debugging**, helping make front-end development a delightful experience. Semantic is responsively designed allowing your website to scale on multiple devices. Semantic is production ready and partnered with frameworks such as **React**, **Angular**, **Meteor**, and **Ember**, which means you can integrate it with any of these frameworks to organize your UI layer alongside your application logic.
 
 ## 2.1 Release
 
@@ -67,20 +67,20 @@ Please **do not post** usage questions to GitHub Issues. For these types of ques
 
 #### Submitting Bugs and Enhancements
 [GitHub Issues](https://github.com/Semantic-Org/Semantic-UI/issues) is for suggesting enhancements and reporting bugs. Before submiting a bug make sure you do the following:
-* Check out our [contributing guide](https://github.com/Semantic-Org/Semantic-UI/blob/master/CONTRIBUTING.md) for info on our release cycle
+* Check out our [contributing guide](https://github.com/Semantic-Org/Semantic-UI/blob/master/CONTRIBUTING.md) for info on our release cycle.
 * [Fork this boilerplate JSFiddle](http://jsfiddle.net/efp8z6Ln/) to create a test case for your bug. If a bug is apparent in the docs, that's ok as a test case, just make it clear exactly how to reproduce the issue. Only bugs that include a test case can be triaged.
 
 
 #### Pull Requests
 
-When adding pull requests be sure to merge into [next](https://github.com/Semantic-Org/Semantic-UI/tree/next) branch. If you need to demonstrate a fix in ``next`` release, you can use [this jsfiddle](http://jsfiddle.net/rduvhn8u/1/)
+When adding pull requests, be sure to merge into the [next](https://github.com/Semantic-Org/Semantic-UI/tree/next) branch. If you need to demonstrate a fix in ``next`` release, you can use [this jsfiddle](http://jsfiddle.net/rduvhn8u/1/)
 
 
 #### International
 
-* **Chinese** A Chinese mirror site is available at [http://www.semantic-ui.cn](http://www.semantic-ui.cn)
-* **Right-to-Left (RTL)** An RTL version can be created using our build tools by selecting `rtl` from the install script
-* **Translation** To help translate see the [Wiki Guide](https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs) for translations
+* **Chinese** A Chinese mirror site is available at [http://www.semantic-ui.cn](http://www.semantic-ui.cn).
+* **Right-to-Left (RTL)** An RTL version can be created using our build tools by selecting `rtl` from the install script.
+* **Translation** To help translate see the [Wiki Guide](https://github.com/Semantic-Org/Semantic-UI/wiki/Translating-Semantic-UI-Docs) for translations.
 
 #### Resources
 
