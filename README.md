@@ -53,8 +53,8 @@ Check out our [integration wiki](https://github.com/Semantic-Org/Semantic-UI/wik
 
 #### Browser Support
 
-* Last 2 Versions FF, Chrome, IE 10+, Safari Mac
-* IE 10+
+* Last 2 Versions FF, Chrome, Safari Mac
+* IE 11+
 * Android 4.4+, Chrome for Android 44+
 * iOS Safari 7+
 
