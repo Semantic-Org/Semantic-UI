@@ -8,7 +8,8 @@
  * http://opensource.org/licenses/MIT
  *
  */
-;(function ( $, window, document, undefined ) {
+
+;(function ($, window, document, undefined) {
 
 $.site = $.fn.site = function(parameters) {
   var
@@ -484,4 +485,4 @@ $.extend($.expr[ ":" ], {
 });
 
 
-})( jQuery, global, document );
+})( jQuery, window, document );

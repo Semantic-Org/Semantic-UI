@@ -13,12 +13,11 @@
 
 "use strict";
 
-var
-  global = (typeof window != 'undefined' && window.Math == Math)
-    ? window
-    : (typeof self != 'undefined' && self.Math == Math)
-      ? self
-      : Function('return this')()
+window = (typeof window != 'undefined' && window.Math == Math)
+  ? window
+  : (typeof self != 'undefined' && self.Math == Math)
+    ? self
+    : Function('return this')()
 ;
 
 $.fn.accordion = function(parameters) {
@@ -608,5 +607,5 @@ $.extend( $.easing, {
   }
 });
 
-})( jQuery, global, document );
+})( jQuery, window, document );
 

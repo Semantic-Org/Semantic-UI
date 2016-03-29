@@ -9,16 +9,15 @@
  *
  */
 
-;(function ( $, window, document, undefined ) {
+;(function ($, window, document, undefined) {
 
 "use strict";
 
-var
-  global = (typeof window != 'undefined' && window.Math == Math)
-    ? window
-    : (typeof self != 'undefined' && self.Math == Math)
-      ? self
-      : Function('return this')()
+window = (typeof window != 'undefined' && window.Math == Math)
+  ? window
+  : (typeof self != 'undefined' && self.Math == Math)
+    ? self
+    : Function('return this')()
 ;
 
 $.fn.state = function(parameters) {
@@ -707,4 +706,4 @@ $.fn.state.settings = {
 
 
 
-})( jQuery, global, document );
+})( jQuery, window, document );
