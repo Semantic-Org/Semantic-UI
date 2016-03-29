@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.7 - Nag
+ * # Semantic UI 2.1.8 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -482,5 +482,12 @@ $.fn.nag.settings = {
   onHide: function() {}
 
 };
+
+// Adds easing
+$.extend( $.easing, {
+  easeOutQuad: function (x, t, b, c, d) {
+    return -c *(t/=d)*(t-2) + b;
+  }
+});
 
 })( jQuery, window, document );

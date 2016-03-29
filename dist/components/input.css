@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.7 - Input
+ * # Semantic UI 2.1.8 - Input
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -42,12 +42,12 @@
   line-height: 1.2142em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   padding: 0.67861429em 1em;
-  background: #ffffff;
+  background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
   -webkit-transition: box-shadow 0.1s ease, border-color 0.1s ease;
-          transition: box-shadow 0.1s ease, border-color 0.1s ease;
+  transition: box-shadow 0.1s ease, border-color 0.1s ease;
   box-shadow: none;
 }
 
@@ -92,7 +92,7 @@
 .ui.input input:active,
 .ui.input.down input {
   border-color: rgba(0, 0, 0, 0.3);
-  background: #fafafa;
+  background: #FAFAFA;
   color: rgba(0, 0, 0, 0.87);
   box-shadow: none;
 }
@@ -137,8 +137,8 @@
 
 .ui.input.focus input,
 .ui.input input:focus {
-  border-color: #85b7d9;
-  background: #ffffff;
+  border-color: #85B7D9;
+  background: #FFFFFF;
   color: rgba(0, 0, 0, 0.8);
   box-shadow: none;
 }
@@ -160,9 +160,9 @@
 ---------------------*/
 
 .ui.input.error input {
-  background-color: #fff6f6;
-  border-color: #e0b4b4;
-  color: #9f3a38;
+  background-color: #FFF6F6;
+  border-color: #E0B4B4;
+  color: #9F3A38;
   box-shadow: none;
 }
 
@@ -220,7 +220,7 @@
 
 /* Transparent Inverted */
 .ui.transparent.inverted.input {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 .ui.transparent.inverted.input input {
   color: inherit;
@@ -252,7 +252,7 @@
   opacity: 0.5;
   border-radius: 0em 0.28571429rem 0.28571429rem 0em;
   -webkit-transition: opacity 0.3s ease;
-          transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 .ui.icon.input > i.icon:not(.link) {
   pointer-events: none;
@@ -327,7 +327,7 @@
   border-left-color: transparent;
 }
 .ui.labeled.input:not([class*="corner labeled"]) .label:first-child + input:focus {
-  border-left-color: #85b7d9;
+  border-left-color: #85B7D9;
 }
 
 /* Regular Label on Right */
@@ -341,7 +341,7 @@
   border-bottom-left-radius: 0px;
 }
 .ui[class*="right labeled"].input input:focus {
-  border-right-color: #85b7d9 !important;
+  border-right-color: #85B7D9 !important;
 }
 
 /* Corner Label */
@@ -429,7 +429,7 @@
 
 /* Input Focus */
 .ui.action.input:not([class*="left action"]) input:focus {
-  border-right-color: #85b7d9 !important;
+  border-right-color: #85B7D9 !important;
 }
 
 /* Button on Left */
@@ -451,7 +451,7 @@
 
 /* Input Focus */
 .ui[class*="left action"].input > input:focus {
-  border-left-color: #85b7d9 !important;
+  border-left-color: #85B7D9 !important;
 }
 
 /*--------------------

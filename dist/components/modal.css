@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.7 - Modal
+ * # Semantic UI 2.1.8 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21,11 +21,10 @@
   top: 50%;
   left: 50%;
   text-align: left;
-  background: #ffffff;
+  background: #FFFFFF;
   border: none;
   box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(0, 0, 0, 0.2);
   -webkit-transform-origin: 50% 25%;
-      -ms-transform-origin: 50% 25%;
           transform-origin: 50% 25%;
   border-radius: 0.28571429rem;
   -webkit-user-select: text;
@@ -62,7 +61,7 @@
   z-index: 1;
   opacity: 0.8;
   font-size: 1.25em;
-  color: #ffffff;
+  color: #FFFFFF;
   width: 2.25rem;
   height: 2.25rem;
   padding: 0.625rem 0rem 0rem 0rem;
@@ -78,7 +77,7 @@
 .ui.modal > .header {
   display: block;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  background: #ffffff;
+  background: #FFFFFF;
   margin: 0em;
   padding: 1.25rem 1.5rem;
   box-shadow: none;
@@ -101,7 +100,7 @@
   font-size: 1em;
   line-height: 1.4;
   padding: 1.5rem;
-  background: #ffffff;
+  background: #FFFFFF;
 }
 .ui.modal > .image.content {
   display: -webkit-box;
@@ -179,7 +178,7 @@
 ---------------*/
 
 .ui.modal > .actions {
-  background: #f9fafb;
+  background: #F9FAFB;
   padding: 1rem 1rem;
   border-top: 1px solid rgba(34, 36, 38, 0.15);
   text-align: right;
@@ -307,7 +306,7 @@
   border: none;
   border-radius: 0em;
   box-shadow: none !important;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 .ui.basic.modal > .header,
 .ui.basic.modal > .content,
@@ -315,7 +314,7 @@
   background-color: transparent;
 }
 .ui.basic.modal > .header {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 .ui.basic.modal > .close {
   top: 1rem;
@@ -331,7 +330,7 @@
 /* Tablet and Mobile */
 @media only screen and (max-width: 991px) {
   .ui.basic.modal > .close {
-    color: #ffffff;
+    color: #FFFFFF;
   }
 }
 
