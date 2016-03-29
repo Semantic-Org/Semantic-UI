@@ -436,7 +436,6 @@ $.fn.progress = function(parameters) {
             ;
             clearInterval(module.interval);
             $bar.one(transitionEnd + eventNamespace, animationCallback);
-            module.timer = setTimeout(animationCallback, settings.duration + 100);
             animating = true;
             module.interval = setInterval(module.set.labels, settings.framerate);
           },
@@ -459,7 +458,7 @@ $.fn.progress = function(parameters) {
               : module.percent
             ;
             if(percent === 100) {
-              if(settings.autoSuccess && !(module.is.warning() || module.is.error())) {
+              if(settings.autoSuccess && !(module.is.warning() || module.is.error() || module.is.success())) {
                 module.set.success();
                 module.debug('Automatically triggering success at 100%');
               }
@@ -504,7 +503,9 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
-            settings.onActive.call(element, module.value, module.total);
+            $bar.one(transitionEnd + eventNamespace, function() {
+              settings.onActive.call(element, module.value, module.total);
+            });
           },
           success : function(text) {
             text = text || settings.text.success || settings.text.active;
@@ -522,7 +523,9 @@ $.fn.progress = function(parameters) {
               text = settings.onLabelUpdate('active', text, module.value, module.total);
               module.set.label(text);
             }
-            settings.onSuccess.call(element, module.total);
+            $bar.one(transitionEnd + eventNamespace, function() {
+              settings.onSuccess.call(element, module.total);
+            });
           },
           warning : function(text) {
             text = text || settings.text.warning;
@@ -536,7 +539,9 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
-            settings.onWarning.call(element, module.value, module.total);
+            $bar.one(transitionEnd + eventNamespace, function() {
+              settings.onWarning.call(element, module.value, module.total);
+            });
           },
           error : function(text) {
             text = text || settings.text.error;
@@ -550,7 +555,9 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
-            settings.onError.call(element, module.value, module.total);
+            $bar.one(transitionEnd + eventNamespace, function() {
+              settings.onError.call(element, module.value, module.total);
+            });
           },
           transitionEvent: function() {
             transitionEnd = module.get.transitionEnd();
