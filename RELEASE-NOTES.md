@@ -24,6 +24,8 @@
 **Bugs**
 - **API** - Using `onResponse` with `dataType` other than JSON or JSONP would cause an error. (Not allowing plain text responses to be translated) #3653
 - **Button** - `right icon` like `right arrow icon` would have additional margin inside an `icon button` #3525
+- **Build Tools** - Fixed gulp help text incorrect for RTL tasks in build tools #3858
+- **Button** - Fixed typo in `green inverted button` #3873
 - **Button** - Fixed issue where `disabled loading button` would not remove `pointer-events` #2933
 - **Checkbox** - Radio buttons received `indeterminate` styles when user has not yet interacted with the page in Chrome
 - **Dropdown** - `apiSettings` was not defaulting to use `cache: 'local'` as specified in the docs
