@@ -44,6 +44,7 @@
 - **Menu** - `@dividerSize` was not being used in `vertical menu` #3781
 - **Modal** - RGB values set for dimmer `background-color` were not being correctly interpreted #3665 **Thanks @larsbo**
 - **Popup** - checking `instanceof SVGGraphicsElement` caused error in IE11 #3043
+- **Progress** - Progress `onSuccess`, `onError`, and `onWarning` callbacks now occur **after** the animation completes for the state change.
 - **Rating** - rating does not fire `onRate` when rating is initialized #3712
 - **Segment/Message** - `top attached message` has no border when attached to `segment` #3619
 - **Statistic** - statistic receives incorrect size when using `tiny` `large` etc inside a statistic group #3116
