@@ -16,10 +16,10 @@
 - **API** - `beforeSend` would not correctly cancel request when `return false;` is used in callback. #3660
 - **API** - `cache: 'local'` would not return the localstorage cached results in some cases
 - **Dropdown** - `search selection` would not let you move back in an entered search string with left arrow #3596 **Thanks @Sanjo**
--**Divider** - Descenders like "g" are cut off in `horizontal divider` #3585
--**Form Validation / Dropdown** - Using "enter" key in a `search dropdown` could cause a form to be submitted #3676
--**Form Validation** - Revalidating a field `on: blur` could cause fields not yet interacted with to be validated #3606
--**Search** - A previous unfinished XHR query aborting would cause the next query to fail #2779
+- **Divider** - Descenders like "g" are cut off in `horizontal divider` #3585
+- **Form Validation / Dropdown** - Using "enter" key in a `search dropdown` could cause a form to be submitted #3676
+- **Form Validation** - Revalidating a field `on: blur` could cause fields not yet interacted with to be validated #3606
+- **Search** - A previous unfinished XHR query aborting would cause the next query to fail #2779
 
 **Bugs**
 - **API** - Using `onResponse` with `dataType` other than JSON or JSONP would cause an error. (Not allowing plain text responses to be translated) #3653
@@ -56,8 +56,8 @@
 - **Rating** - Added new setting `fireOnInit` for rating, which defaults to `false`. When set to true `onRate` will fire when rating is initialized #3712
 - **Site** `@px` and `@relativepx` i.e. `@relative12px` which can be used to return EM value of pixels are now extended to `@relative40px`
 - **Tabs** - Added new option `deactivate`, defaults to `siblings` which will only deactivate tab activators that are DOM siblings elements to the activating element. Setting it to <code>'all'</code> will deactivate any other tab element initialized at the same time.
-- **Progress* - Added progress `is complete` for returning whether success, warning, or error conditions are met
-- **Progress* - Added `onLabelUpdate` callback, this can be used to specify the exact text that should appear on the actual progress update, perhaps based on some external conditions
+- **Progress** - Added progress `is complete` for returning whether success, warning, or error conditions are met
+- **Progress** - Added `onLabelUpdate` callback, this can be used to specify the exact text that should appear on the actual progress update, perhaps based on some external conditions
 - **Table** - `definition table` now supports `ignored` variation to force a `first-child` to ignore its default definition stylings
 - **Table-- `definition table` now supports `definition` variation to specify definition styles on an element that is not `:first-child`
 -**Table** - More granular variables for controlling style on first column in a `definition table`
