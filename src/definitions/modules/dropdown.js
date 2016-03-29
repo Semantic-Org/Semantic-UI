@@ -398,10 +398,6 @@ $.fn.dropdown = function(parameters) {
 
         refreshData: function() {
           module.verbose('Refreshing cached metadata');
-          $item
-            .removeData(metadata.text)
-            .removeData(metadata.value)
-          ;
           $module
             .removeData(metadata.defaultText)
             .removeData(metadata.defaultValue)
