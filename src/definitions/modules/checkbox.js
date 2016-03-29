@@ -13,6 +13,14 @@
 
 "use strict";
 
+var
+  global = (typeof window != 'undefined' && window.Math == Math)
+    ? window
+    : (typeof self != 'undefined' && self.Math == Math)
+      ? self
+      : Function('return this')()
+;
+
 $.fn.checkbox = function(parameters) {
   var
     $allModules    = $(this),
@@ -814,4 +822,4 @@ $.fn.checkbox.settings = {
 
 };
 
-})( jQuery, window, document );
+})( jQuery, global, document );
