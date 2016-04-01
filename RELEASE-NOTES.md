@@ -28,7 +28,9 @@
 - **Build Tools** - Fixed gulp help text incorrect for RTL tasks in build tools #3858
 - **Button** - Fixed typo in `green inverted button` #3873
 - **Button** - Fixed issue where `disabled loading button` would not remove `pointer-events` #2933
+- **Button/Dropdown** - Button dropdowns using `default text` no longer receive incorrect font styling for placeholder text
 - **Checkbox** - Radio buttons received `indeterminate` styles when user has not yet interacted with the page in Chrome
+- **Dropdown** - Fixed bug where using `action: 'hide'` could cause `text` value not to be passed to `onChange` callback
 - **Dropdown** - `apiSettings` was not defaulting to use `cache: 'local'` as specified in the docs
 - **Dropdown** - `get value` would not return correct value when value was blank #3766
 - **Dropdown** - Dropdown would open when an label delete x was clicked when not using `search selection` #3789
@@ -50,6 +52,7 @@
 - **Progress** - Progress `onSuccess`, `onError`, and `onWarning` callbacks now occur **after** the animation completes for the state change.
 - **Rating** - rating does not fire `onRate` when rating is initialized #3712
 - **Segment/Message** - `top attached message` has no border when attached to `segment` #3619
+- **Segment** - Fixed `segments` to not clip border radius when only a **single** segment is included
 - **Statistic** - statistic receives incorrect size when using `tiny` `large` etc inside a statistic group #3116
 - **Table** - `striped selectable` table would not correctly show hover color on striped rows
 

@@ -388,12 +388,14 @@ select.ui.dropdown {
 .ui.selection.dropdown > .dropdown.icon {
   cursor: pointer;
   position: absolute;
-  top: auto;
   width: auto;
+  height: auto;
+  line-height: @searchSelectionLineHeight;
+  top: @selectionVerticalPadding;
+  right: @selectionHorizontalPadding;
   z-index: @selectionIconZIndex;
   margin: @selectionIconMargin;
   padding: @selectionIconPadding;
-  right: @selectionHorizontalPadding;
   opacity: @selectionIconOpacity;
   transition: @selectionIconTransition;
 }
@@ -825,15 +827,14 @@ select.ui.dropdown {
      Default Text
 ----------------------*/
 
-.ui.dropdown > .default.text,
-.ui.default.dropdown > .text {
+.ui.dropdown:not(.button) > .default.text,
+.ui.default.dropdown:not(.button) > .text {
   color: @defaultTextColor;
 }
-.ui.dropdown:hover > .default.text,
-.ui.default.dropdown:hover > .text {
+.ui.dropdown:not(.button):hover > .default.text,
+.ui.default.dropdown:not(.button):hover > .text {
   color: @defaultTextHoverColor;
 }
-
 /*--------------------
         Loading
 ----------------------*/

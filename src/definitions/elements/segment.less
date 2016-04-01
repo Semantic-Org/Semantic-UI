@@ -321,6 +321,11 @@
   border-radius: 0em 0em @borderRadius @borderRadius;
 }
 
+/* Only */
+.ui.segments:not(.horizontal) > .segment:only-child {
+  border-radius: @borderRadius;
+}
+
 
 /* Nested Group */
 .ui.segments > .ui.segments {

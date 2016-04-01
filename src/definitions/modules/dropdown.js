@@ -402,6 +402,14 @@ $.fn.dropdown = function(parameters) {
             .removeData(metadata.text)
             .removeData(metadata.value)
           ;
+        },
+
+        clearData: function() {
+          module.verbose('Clearing metadata');
+          $item
+            .removeData(metadata.text)
+            .removeData(metadata.value)
+          ;
           $module
             .removeData(metadata.defaultText)
             .removeData(metadata.defaultValue)
@@ -540,6 +548,7 @@ $.fn.dropdown = function(parameters) {
             if( module.is.searchSelection() ) {
               $module
                 .on('mousedown' + eventNamespace, module.event.mousedown)
+                .on('mouseup'   + eventNamespace, module.event.mouseup)
                 .on('mousedown' + eventNamespace, selector.menu,   module.event.menu.mousedown)
                 .on('mouseup'   + eventNamespace, selector.menu,   module.event.menu.mouseup)
                 .on('click'     + eventNamespace, selector.icon,   module.event.icon.click)
@@ -874,7 +883,13 @@ $.fn.dropdown = function(parameters) {
             }
           },
           mouseup: function() {
-            activated = false;
+            if(module.is.searchSelection()) {
+              // prevent menu hiding on immediate re-focus
+              willRefocus = false;
+            }
+            else {
+              activated = false;
+            }
           },
           search: {
             focus: function() {
@@ -1463,7 +1478,7 @@ $.fn.dropdown = function(parameters) {
           },
 
           hide: function(text, value) {
-            module.set.value(value);
+            module.set.value(value, text);
             module.hideAndClear();
           }
 
