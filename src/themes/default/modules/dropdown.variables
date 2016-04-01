@@ -252,7 +252,7 @@
 @multipleSelectionChildVerticalMargin: (@searchSelectionVerticalPadding * (2/3));
 @multipleSelectionChildLeftMargin: (@inputHorizontalPadding - @multipleSelectionLeftPadding);
 @multipleSelectionChildMargin: @multipleSelectionChildVerticalMargin 0em @multipleSelectionChildVerticalMargin @multipleSelectionChildLeftMargin;
-@multipleSelectionChildLineHeight: @searchSelectionLineHeight;
+@multipleSelectionChildLineHeight: @relative17px;
 @multipleSelectionSearchStartWidth: (@glyphWidth * 2);
 
 /* Dropdown Icon */
