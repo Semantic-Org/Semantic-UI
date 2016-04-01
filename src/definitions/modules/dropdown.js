@@ -3325,10 +3325,10 @@ $.fn.dropdown.settings = {
 
 
   apiSettings            : false,
-  saveRemoteData         : true,      // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
-  throttle               : 200,       // How long to wait after last user input to search remotely
+  saveRemoteData         : true,       // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
+  throttle               : 200,        // How long to wait after last user input to search remotely
 
-  context                : window,      // Context to use when determining if on screen
+  context                : window,     // Context to use when determining if on screen
   direction              : 'auto',     // Whether dropdown should always open in one direction
   keepOnScreen           : true,       // Whether dropdown should check whether it is on screen before showing
 
@@ -3357,7 +3357,7 @@ $.fn.dropdown.settings = {
   transition             : 'auto',     // auto transition will slide down or up based on direction
   duration               : 200,        // duration of transition
 
-  glyphWidth             : 1.037,     // widest glyph width in em (W is 1.037 em) used to calculate multiselect input width
+  glyphWidth             : 1.037,      // widest glyph width in em (W is 1.037 em) used to calculate multiselect input width
 
   // label settings on multi-select
   label: {

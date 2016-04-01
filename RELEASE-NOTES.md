@@ -59,6 +59,7 @@
 - **Table** - `striped selectable` table would not correctly show hover color on striped rows
 
 **Enhancements**
+- **Site** - Added colored box shadow defaults. `ui message` now includes individual colored border shadows based on new site defaults.
 - **Dropdown** - Added `1px` offset for current text so that the text position cursor does not overlap first pixel of text.
 - **Dropdown** - Added new convenience method `restore placeholder text`
 - **Rating** - Added new setting `fireOnInit` for rating, which defaults to `false`. When set to true `onRate` will fire when rating is initialized #3712

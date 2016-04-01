@@ -261,6 +261,19 @@
 @pinkTextColor   : @pink;
 @brownTextColor  : @brown;
 
+/*--- Colored Border ---*/
+@redBorderColor    : @redTextColor;
+@orangeBorderColor : @orangeTextColor;
+@yellowBorderColor : @yellowTextColor;
+@oliveBorderColor  : @oliveTextColor;
+@greenBorderColor  : @greenTextColor;
+@tealBorderColor   : @tealTextColor;
+@blueBorderColor   : @blueTextColor;
+@violetBorderColor : @violetTextColor;
+@purpleBorderColor : @purpleTextColor;
+@pinkBorderColor   : @pinkTextColor;
+@brownBorderColor  : @brownTextColor;
+
 /*-------------------
      Alpha Colors
 --------------------*/
