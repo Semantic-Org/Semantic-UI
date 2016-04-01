@@ -92,11 +92,12 @@ module.exports = {
 
     config.paths.assets = {
       source       : '../../themes', // source asset path is always the same
-      uncompressed : '.' + path.sep + path.relative(config.paths.output.uncompressed, config.paths.output.themes).replace(/\\/g,'/'),
-      compressed   : '.' + path.sep + path.relative(config.paths.output.compressed, config.paths.output.themes).replace(/\\/g,'/'),
-      packaged     : '.' + path.sep + path.relative(config.paths.output.packaged, config.paths.output.themes).replace(/\\/g,'/')
+      uncompressed : '.' + path.sep + path.relative(config.paths.output.uncompressed, config.paths.output.themes).replace(/\\/g, '/'),
+      compressed   : '.' + path.sep + path.relative(config.paths.output.compressed, config.paths.output.themes).replace(/\\/g, '/'),
+      packaged     : '.' + path.sep + path.relative(config.paths.output.packaged, config.paths.output.themes).replace(/\\/g, '/')
     };
 
+    console.log(config.paths.assets);
 
     /*--------------
        Permission

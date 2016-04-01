@@ -69,6 +69,10 @@ module.exports = {
       silent : true
     },
 
+    concatCSS: {
+      rebaseUrls: false
+    },
+
     /* Comment Banners */
     header: {
       title      : release.title,
