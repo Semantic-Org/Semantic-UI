@@ -1228,7 +1228,7 @@ $.fn.dropdown = function(parameters) {
                 newIndex
               ;
               // visible menu keyboard shortcuts
-              if( module.is.visible() ) {
+              if( module.is.visible() || settings.allowAdditions ) {
 
                 // enter (select or open sub-menu)
                 if(pressedKey == keys.enter || delimiterPressed) {
@@ -2234,6 +2234,7 @@ $.fn.dropdown = function(parameters) {
           },
           value: function(value, text, $selected) {
             var
+              escapedValue = module.escape.value(value),
               hasInput     = ($input.length > 0),
               isAddition   = !module.has.value(value),
               currentValue = module.get.values(),
@@ -2254,10 +2255,10 @@ $.fn.dropdown = function(parameters) {
                 module.debug('Adding user option', value);
                 module.add.optionValue(value);
               }
-              module.debug('Updating input value', value, currentValue);
+              module.debug('Updating input value', escapedValue, currentValue);
               internalChange = true;
               $input
-                .val(value)
+                .val(escapedValue)
               ;
               if(settings.fireOnInit === false && module.is.initialLoad()) {
                 module.debug('Input native change event ignored on initial load');
@@ -2268,8 +2269,8 @@ $.fn.dropdown = function(parameters) {
               internalChange = false;
             }
             else {
-              module.verbose('Storing value in metadata', value, $input);
-              if(value !== currentValue) {
+              module.verbose('Storing value in metadata', escapedValue, $input);
+              if(escapedValue !== currentValue) {
                 $module.data(metadata.value, stringValue);
               }
             }
@@ -2377,17 +2378,18 @@ $.fn.dropdown = function(parameters) {
               $next  = module.is.searchSelection()
                 ? $search
                 : $text,
+              escapedValue = module.escape.value(value),
               $label
             ;
             $label =  $('<a />')
               .addClass(className.label)
-              .attr('data-value', value)
-              .html(templates.label(value, text))
+              .attr('data-value', escapedValue)
+              .html(templates.label(escapedValue, text))
             ;
-            $label = settings.onLabelCreate.call($label, value, text);
+            $label = settings.onLabelCreate.call($label, escapedValue, text);
 
             if(module.has.label(value)) {
-              module.debug('Label already exists, skipping', value);
+              module.debug('Label already exists, skipping', escapedValue);
               return;
             }
             if(settings.label.variation) {
@@ -2428,8 +2430,9 @@ $.fn.dropdown = function(parameters) {
           },
           optionValue: function(value) {
             var
-              $option   = $input.find('option[value="' + value + '"]'),
-              hasOption = ($option.length > 0)
+              escapedValue = module.escape.value(value),
+              $option      = $input.find('option[value="' + escapedValue + '"]'),
+              hasOption    = ($option.length > 0)
             ;
             if(hasOption) {
               return;
@@ -2437,14 +2440,14 @@ $.fn.dropdown = function(parameters) {
             // temporarily disconnect observer
             if(selectObserver) {
               selectObserver.disconnect();
-              module.verbose('Temporarily disconnecting mutation observer', value);
+              module.verbose('Temporarily disconnecting mutation observer', escapedValue);
             }
             if( module.is.single() ) {
               module.verbose('Removing previous user addition');
               $input.find('option.' + className.addition).remove();
             }
             $('<option/>')
-              .prop('value', value)
+              .prop('value', escapedValue)
               .addClass(className.addition)
               .html(value)
               .appendTo($input)
@@ -2601,8 +2604,9 @@ $.fn.dropdown = function(parameters) {
           },
           optionValue: function(value) {
             var
-              $option   = $input.find('option[value="' + value + '"]'),
-              hasOption = ($option.length > 0)
+              escapedValue = module.escape.value(value),
+              $option      = $input.find('option[value="' + escapedValue + '"]'),
+              hasOption    = ($option.length > 0)
             ;
             if(!hasOption || !$option.hasClass(className.addition)) {
               return;
@@ -2610,10 +2614,10 @@ $.fn.dropdown = function(parameters) {
             // temporarily disconnect observer
             if(selectObserver) {
               selectObserver.disconnect();
-              module.verbose('Temporarily disconnecting mutation observer', value);
+              module.verbose('Temporarily disconnecting mutation observer');
             }
             $option.remove();
-            module.verbose('Removing user addition as an <option>', value);
+            module.verbose('Removing user addition as an <option>', escapedValue);
             if(selectObserver) {
               selectObserver.observe($input[0], {
                 childList : true,
@@ -2814,9 +2818,10 @@ $.fn.dropdown = function(parameters) {
           },
           label: function(value) {
             var
-              $labels = $module.find(selector.label)
+              escapedValue = module.escape.value(value),
+              $labels      = $module.find(selector.label)
             ;
-            return ($labels.filter('[data-value="' + value +'"]').length > 0);
+            return ($labels.filter('[data-value="' + escapedValue +'"]').length > 0);
           },
           maxSelections: function() {
             return (settings.maxSelections && module.get.selectionCount() >= settings.maxSelections);
@@ -3124,6 +3129,26 @@ $.fn.dropdown = function(parameters) {
         },
 
         escape: {
+          value: function(value) {
+            let
+              multipleValues = $.isArray(value),
+              stringValue    = (typeof value === 'string'),
+              isUnparsable   = (!stringValue && !multipleValues),
+              hasQuotes      = (stringValue && value.search(regExp.quote) !== -1),
+              values         = []
+            ;
+            if(!module.has.selectInput() || isUnparsable || !hasQuotes) {
+              return value;
+            }
+            module.debug('Encoding quote values for use in select', value);
+            if(multipleValues) {
+              $.each(value, function(index, value){
+                values.push(value.replace(regExp.quote, '&quot;'));
+              });
+              return values;
+            }
+            return value.replace(regExp.quote, '&quot;');
+          },
           regExp: function(text) {
             text =  String(text);
             return text.replace(regExp.escape, '\\$&');
@@ -3411,6 +3436,7 @@ $.fn.dropdown.settings = {
 
   regExp : {
     escape   : /[-[\]{}()*+?.,\\^$|#\s]/g,
+    quote    : /"/g
   },
 
   metadata : {
