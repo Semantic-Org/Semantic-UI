@@ -256,7 +256,7 @@
 @multipleSelectionSearchStartWidth: (@glyphWidth * 2);
 
 /* Dropdown Icon */
-@multipleSelectionDropdownIconMargin: 0em -@labelHorizontalPadding 0em 0em;
+@multipleSelectionDropdownIconMargin: -@searchSelectionVerticalPadding -@labelHorizontalPadding 0em 0em;
 @multipleSelectionDropdownIconPadding: '';
 
 @multipleSelectionSearchAfterLabelDistance: @relative2px;
