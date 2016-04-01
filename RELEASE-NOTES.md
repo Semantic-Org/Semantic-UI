@@ -36,6 +36,7 @@
 - **Checkbox** - Radio buttons received `indeterminate` styles when user has not yet interacted with the page in Chrome
 - **Dropdown** - Fixed bug where using `action: 'hide'` could cause `text` value not to be passed to `onChange` callback
 - **Dropdown** - `apiSettings` was not defaulting to use `cache: 'local'` as specified in the docs
+- **Dropdown** - Fixed issue where values with `"` (double quotes) would not work with a dropdown using a select, because value would not be encoded as html entities
 - **Dropdown** - `get value` would not return correct value when value was blank #3766
 - **Dropdown** - Dropdown would open when an label delete x was clicked when not using `search selection` #3789
 - **Dropdown** - Dropdowns with sub-menus would not properly activate on mobile #3183
