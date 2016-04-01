@@ -54,6 +54,7 @@
 - **Rating** - rating does not fire `onRate` when rating is initialized #3712
 - **Segment/Message** - `top attached message` has no border when attached to `segment` #3619
 - **Segment** - Fixed `segments` to not clip border radius when only a **single** segment is included
+- **Step** - Fix incorrect bottom margin on `top attached steps`
 - **Statistic** - statistic receives incorrect size when using `tiny` `large` etc inside a statistic group #3116
 - **Table** - `striped selectable` table would not correctly show hover color on striped rows
 
