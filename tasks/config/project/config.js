@@ -97,8 +97,6 @@ module.exports = {
       packaged     : '.' + path.sep + path.relative(config.paths.output.packaged, config.paths.output.themes).replace(/\\/g, '/')
     };
 
-    console.log(config.paths.assets);
-
     /*--------------
        Permission
     ---------------*/
