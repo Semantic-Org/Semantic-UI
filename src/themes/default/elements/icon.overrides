@@ -523,7 +523,7 @@ i.icon.ordered.list:before { content: "\f0cb"; }
 i.icon.strikethrough:before { content: "\f0cc"; }
 i.icon.underline:before { content: "\f0cd"; }
 i.icon.paste:before { content: "\f0ea"; }
-i.icon.unlink:before { content: "\f127"; }
+i.icon.unlinkify:before { content: "\f127"; }
 i.icon.superscript:before { content: "\f12b"; }
 i.icon.subscript:before { content: "\f12c"; }
 i.icon.header:before { content: "\f1dc"; }
@@ -750,7 +750,7 @@ i.icon.globe:before { content: "\f0ac"; }
 i.icon.wrench:before { content: "\f0ad"; }
 i.icon.briefcase:before { content: "\f0b1"; }
 i.icon.group:before { content: "\f0c0"; }
-i.icon.link:before { content: "\f0c1"; }
+i.icon.linkify:before { content: "\f0c1"; }
 i.icon.chain:before { content: "\f0c1"; }
 i.icon.flask:before { content: "\f0c3"; }
 i.icon.sidebar:before { content: "\f0c9"; }

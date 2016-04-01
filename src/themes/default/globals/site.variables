@@ -98,7 +98,7 @@
   This ensures these "ratios" remain constant despite changes in EM
 */
 
-@miniSize        : (10 / 14);
+@miniSize        : (11 / 14);
 @tinySize        : (12 / 14);
 @smallSize       : (13 / 14);
 @mediumSize      : (14 / 14);
