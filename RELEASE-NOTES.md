@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 2.2.0 - Feb 15, 2016
+### Version 2.2.0 - XX XX, 2016
 
 **Major Enhancements**
 - **Webpack** - Modified all relative paths in project to prefix with `./` to make them webpack friendly (wont be misinterpreted as module)

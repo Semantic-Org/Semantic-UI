@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.7 - Popup
+ * # Semantic UI 2.1.8 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12,6 +12,13 @@
 ;(function ($, window, document, undefined) {
 
 "use strict";
+
+window = (typeof window != 'undefined' && window.Math == Math)
+  ? window
+  : (typeof self != 'undefined' && self.Math == Math)
+    ? self
+    : Function('return this')()
+;
 
 $.fn.popup = function(parameters) {
   var
@@ -76,7 +83,7 @@ $.fn.popup = function(parameters) {
           module.debug('Initializing', $module);
           module.createID();
           module.bind.events();
-          if( !module.exists() && settings.preserve) {
+          if(!module.exists() && settings.preserve) {
             module.create();
           }
           module.instantiate();
@@ -182,13 +189,18 @@ $.fn.popup = function(parameters) {
             }
           },
           hideGracefully: function(event) {
+            let
+              $target = $(event.target),
+              isInDOM = $.contains(document.documentElement, event.target),
+              inPopup = ($target.closest(selector.popup).length > 0)
+            ;
             // don't close on clicks inside popup
-            if(event && $(event.target).closest(selector.popup).length === 0) {
-              module.debug('Click occurred outside popup hiding popup');
-              module.hide();
+            if(event && (!isInDOM || inPopup)) {
+              module.debug('Click was inside popup, keeping popup open');
             }
             else {
-              module.debug('Click was inside popup, keeping popup open');
+              module.debug('Click occurred outside popup hiding popup');
+              module.hide();
             }
           }
         },
@@ -370,11 +382,19 @@ $.fn.popup = function(parameters) {
             return true;
           }
         },
+        supports: {
+          svg: function() {
+            return (typeof SVGGraphicsElement === undefined);
+          }
+        },
         animate: {
           show: function(callback) {
             callback = $.isFunction(callback) ? callback : function(){};
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               module.set.visible();
+              if(settings.autoRemove) {
+                module.bind.autoRemoval();
+              }
               $popup
                 .transition({
                   animation  : settings.transition + ' in',
@@ -413,6 +433,9 @@ $.fn.popup = function(parameters) {
                     module.reset();
                     callback.call($popup, element);
                     settings.onHidden.call($popup, element);
+                    if(settings.autoRemove) {
+                      module.unbind.autoRemoval();
+                    }
                   }
                 })
               ;
@@ -697,7 +720,7 @@ $.fn.popup = function(parameters) {
             popup  = calculations.popup;
             parent = calculations.parent;
 
-            if(target.width === 0 && target.height === 0 && !(target.element instanceof SVGGraphicsElement)) {
+            if(target.width === 0 && target.height === 0 && !module.is.svg(target.element)) {
               module.debug('Popup target is hidden, no action taken');
               return false;
             }
@@ -928,6 +951,15 @@ $.fn.popup = function(parameters) {
               ;
             }
           },
+          autoRemoval: function() {
+            $module
+              .one('remove' + eventNamespace, function() {
+                module.hide(function() {
+                  module.removePopup();
+                });
+              })
+            ;
+          },
           close: function() {
             if(settings.hideOnScroll === true || (settings.hideOnScroll == 'auto' && settings.on != 'click'))   {
               $document
@@ -980,6 +1012,9 @@ $.fn.popup = function(parameters) {
                 .off('click' + elementNamespace)
               ;
             }
+          },
+          autoRemoval: function() {
+            $module.off('remove' + elementNamespace);
           }
         },
 
@@ -1007,6 +1042,9 @@ $.fn.popup = function(parameters) {
             else {
               return false;
             }
+          },
+          svg: function(element) {
+            return module.supports.svg() && (element instanceof SVGGraphicsElement);
           },
           active: function() {
             return $module.hasClass(className.active);
@@ -1068,7 +1106,7 @@ $.fn.popup = function(parameters) {
           }
         },
         debug: function() {
-          if(settings.debug) {
+          if(!settings.silent && settings.debug) {
             if(settings.performance) {
               module.performance.log(arguments);
             }
@@ -1079,7 +1117,7 @@ $.fn.popup = function(parameters) {
           }
         },
         verbose: function() {
-          if(settings.verbose && settings.debug) {
+          if(!settings.silent && settings.verbose && settings.debug) {
             if(settings.performance) {
               module.performance.log(arguments);
             }
@@ -1090,8 +1128,10 @@ $.fn.popup = function(parameters) {
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
-          module.error.apply(console, arguments);
+          if(!settings.silent) {
+            module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
+            module.error.apply(console, arguments);
+          }
         },
         performance: {
           log: function(message) {
@@ -1225,6 +1265,7 @@ $.fn.popup.settings = {
   name         : 'Popup',
 
   // module settings
+  silent       : false,
   debug        : false,
   verbose      : false,
   performance  : true,
@@ -1250,6 +1291,9 @@ $.fn.popup.settings = {
 
   // callback after hide animation
   onHidden     : function(){},
+
+  // hides popup when triggering element is destroyed
+  autoRemove   : true,
 
   // when to show popup
   on           : 'hover',

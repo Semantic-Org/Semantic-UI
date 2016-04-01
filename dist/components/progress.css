@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.7 - Progress Bar
+ * # Semantic UI 2.1.8 - Progress Bar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -48,7 +48,7 @@
   background: #888888;
   border-radius: 0.28571429rem;
   -webkit-transition: width 0.1s ease, background-color 0.1s ease;
-          transition: width 0.1s ease, background-color 0.1s ease;
+  transition: width 0.1s ease, background-color 0.1s ease;
 }
 
 /* Percent Complete */
@@ -83,7 +83,7 @@
   margin-top: 0.2em;
   text-align: center;
   -webkit-transition: color 0.4s ease;
-          transition: color 0.4s ease;
+  transition: color 0.4s ease;
 }
 
 
@@ -95,25 +95,25 @@
 /* Indicating */
 .ui.indicating.progress[data-percent^="1"] .bar,
 .ui.indicating.progress[data-percent^="2"] .bar {
-  background-color: #d95c5c;
+  background-color: #D95C5C;
 }
 .ui.indicating.progress[data-percent^="3"] .bar {
-  background-color: #efbc72;
+  background-color: #EFBC72;
 }
 .ui.indicating.progress[data-percent^="4"] .bar,
 .ui.indicating.progress[data-percent^="5"] .bar {
-  background-color: #e6bb48;
+  background-color: #E6BB48;
 }
 .ui.indicating.progress[data-percent^="6"] .bar {
-  background-color: #ddc928;
+  background-color: #DDC928;
 }
 .ui.indicating.progress[data-percent^="7"] .bar,
 .ui.indicating.progress[data-percent^="8"] .bar {
-  background-color: #b4d95c;
+  background-color: #B4D95C;
 }
 .ui.indicating.progress[data-percent^="9"] .bar,
 .ui.indicating.progress[data-percent^="100"] .bar {
-  background-color: #66da81;
+  background-color: #66DA81;
 }
 
 /* Indicating Label */
@@ -150,7 +150,7 @@
 .ui.indicating.progress[data-percent="7"] .bar,
 .ui.indicating.progress[data-percent="8"] .bar,
 .ui.indicating.progress[data-percent="9"] .bar {
-  background-color: #d95c5c;
+  background-color: #D95C5C;
 }
 .ui.indicating.progress[data-percent="1"] .label,
 .ui.indicating.progress[data-percent="2"] .label,
@@ -166,7 +166,7 @@
 
 /* Indicating Success */
 .ui.indicating.progress.success .label {
-  color: #1a531b;
+  color: #1A531B;
 }
 
 
@@ -180,7 +180,7 @@
 ---------------*/
 
 .ui.progress.success .bar {
-  background-color: #21ba45 !important;
+  background-color: #21BA45 !important;
 }
 .ui.progress.success .bar,
 .ui.progress.success .bar::after {
@@ -188,7 +188,7 @@
           animation: none !important;
 }
 .ui.progress.success > .label {
-  color: #1a531b;
+  color: #1A531B;
 }
 
 /*--------------
@@ -196,7 +196,7 @@
 ---------------*/
 
 .ui.progress.warning .bar {
-  background-color: #f2c037 !important;
+  background-color: #F2C037 !important;
 }
 .ui.progress.warning .bar,
 .ui.progress.warning .bar::after {
@@ -204,7 +204,7 @@
           animation: none !important;
 }
 .ui.progress.warning > .label {
-  color: #794b02;
+  color: #794B02;
 }
 
 /*--------------
@@ -212,7 +212,7 @@
 ---------------*/
 
 .ui.progress.error .bar {
-  background-color: #db2828 !important;
+  background-color: #DB2828 !important;
 }
 .ui.progress.error .bar,
 .ui.progress.error .bar::after {
@@ -220,7 +220,7 @@
           animation: none !important;
 }
 .ui.progress.error > .label {
-  color: #912d2b;
+  color: #912D2B;
 }
 
 /*--------------
@@ -239,7 +239,7 @@
   left: 0px;
   right: 0px;
   bottom: 0px;
-  background: #ffffff;
+  background: #FFFFFF;
   border-radius: 0.28571429rem;
   -webkit-animation: progress-active 2s ease infinite;
           animation: progress-active 2s ease infinite;
@@ -296,19 +296,19 @@
   background: #888888;
 }
 .ui.inverted.progress .bar > .progress {
-  color: #f9fafb;
+  color: #F9FAFB;
 }
 .ui.inverted.progress > .label {
-  color: #ffffff;
+  color: #FFFFFF;
 }
 .ui.inverted.progress.success > .label {
-  color: #21ba45;
+  color: #21BA45;
 }
 .ui.inverted.progress.warning > .label {
-  color: #f2c037;
+  color: #F2C037;
 }
 .ui.inverted.progress.error > .label {
-  color: #db2828;
+  color: #DB2828;
 }
 
 /*--------------
@@ -367,90 +367,90 @@
 
 /* Red */
 .ui.red.progress .bar {
-  background-color: #db2828;
+  background-color: #DB2828;
 }
 .ui.red.inverted.progress .bar {
-  background-color: #ff695e;
+  background-color: #FF695E;
 }
 
 /* Orange */
 .ui.orange.progress .bar {
-  background-color: #f2711c;
+  background-color: #F2711C;
 }
 .ui.orange.inverted.progress .bar {
-  background-color: #ff851b;
+  background-color: #FF851B;
 }
 
 /* Yellow */
 .ui.yellow.progress .bar {
-  background-color: #fbbd08;
+  background-color: #FBBD08;
 }
 .ui.yellow.inverted.progress .bar {
-  background-color: #ffe21f;
+  background-color: #FFE21F;
 }
 
 /* Olive */
 .ui.olive.progress .bar {
-  background-color: #b5cc18;
+  background-color: #B5CC18;
 }
 .ui.olive.inverted.progress .bar {
-  background-color: #d9e778;
+  background-color: #D9E778;
 }
 
 /* Green */
 .ui.green.progress .bar {
-  background-color: #21ba45;
+  background-color: #21BA45;
 }
 .ui.green.inverted.progress .bar {
-  background-color: #2ecc40;
+  background-color: #2ECC40;
 }
 
 /* Teal */
 .ui.teal.progress .bar {
-  background-color: #00b5ad;
+  background-color: #00B5AD;
 }
 .ui.teal.inverted.progress .bar {
-  background-color: #6dffff;
+  background-color: #6DFFFF;
 }
 
 /* Blue */
 .ui.blue.progress .bar {
-  background-color: #2185d0;
+  background-color: #2185D0;
 }
 .ui.blue.inverted.progress .bar {
-  background-color: #54c8ff;
+  background-color: #54C8FF;
 }
 
 /* Violet */
 .ui.violet.progress .bar {
-  background-color: #6435c9;
+  background-color: #6435C9;
 }
 .ui.violet.inverted.progress .bar {
-  background-color: #a291fb;
+  background-color: #A291FB;
 }
 
 /* Purple */
 .ui.purple.progress .bar {
-  background-color: #a333c8;
+  background-color: #A333C8;
 }
 .ui.purple.inverted.progress .bar {
-  background-color: #dc73ff;
+  background-color: #DC73FF;
 }
 
 /* Pink */
 .ui.pink.progress .bar {
-  background-color: #e03997;
+  background-color: #E03997;
 }
 .ui.pink.inverted.progress .bar {
-  background-color: #ff8edf;
+  background-color: #FF8EDF;
 }
 
 /* Brown */
 .ui.brown.progress .bar {
-  background-color: #a5673f;
+  background-color: #A5673F;
 }
 .ui.brown.inverted.progress .bar {
-  background-color: #d67c1c;
+  background-color: #D67C1C;
 }
 
 /* Grey */
@@ -458,12 +458,12 @@
   background-color: #767676;
 }
 .ui.grey.inverted.progress .bar {
-  background-color: #dcddde;
+  background-color: #DCDDDE;
 }
 
 /* Black */
 .ui.black.progress .bar {
-  background-color: #1b1c1d;
+  background-color: #1B1C1D;
 }
 .ui.black.inverted.progress .bar {
   background-color: #545454;

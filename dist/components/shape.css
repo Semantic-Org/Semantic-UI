@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.7 - Shape
+ * # Semantic UI 2.1.8 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20,8 +20,10 @@
   display: inline-block;
   -webkit-perspective: 2000px;
           perspective: 2000px;
-  -webkit-transition: -webkit-transform 0.6s ease-in-out, left 0.6s ease-in-out, width 0.6s ease-in-out, height 0.6s ease-in-out;
-          transition: transform 0.6s ease-in-out, left 0.6s ease-in-out, width 0.6s ease-in-out, height 0.6s ease-in-out;
+  -webkit-transition: left 0.6s ease-in-out, width 0.6s ease-in-out, height 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+  transition: left 0.6s ease-in-out, width 0.6s ease-in-out, height 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+  transition: transform 0.6s ease-in-out, left 0.6s ease-in-out, width 0.6s ease-in-out, height 0.6s ease-in-out;
+  transition: transform 0.6s ease-in-out, left 0.6s ease-in-out, width 0.6s ease-in-out, height 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
 }
 .ui.shape .sides {
   -webkit-transform-style: preserve-3d;
@@ -51,7 +53,7 @@
   min-width: 15em;
   height: 15em;
   padding: 2em;
-  background-color: #e6e6e6;
+  background-color: #E6E6E6;
   color: rgba(0, 0, 0, 0.87);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
 }
@@ -125,12 +127,14 @@
   position: absolute;
 }
 .ui.shape.animating .sides {
-  -webkit-transition: -webkit-transform 0.6s ease-in-out, left 0.6s ease-in-out, width 0.6s ease-in-out, height 0.6s ease-in-out;
-          transition: transform 0.6s ease-in-out, left 0.6s ease-in-out, width 0.6s ease-in-out, height 0.6s ease-in-out;
+  -webkit-transition: left 0.6s ease-in-out, width 0.6s ease-in-out, height 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+  transition: left 0.6s ease-in-out, width 0.6s ease-in-out, height 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
+  transition: transform 0.6s ease-in-out, left 0.6s ease-in-out, width 0.6s ease-in-out, height 0.6s ease-in-out;
+  transition: transform 0.6s ease-in-out, left 0.6s ease-in-out, width 0.6s ease-in-out, height 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
 }
 .ui.shape.animating .side {
   -webkit-transition: opacity 0.6s ease-in-out;
-          transition: opacity 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out;
 }
 
 /*--------------
