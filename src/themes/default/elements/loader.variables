@@ -50,6 +50,7 @@
 @medium  : @32px;
 @large   : @48px;
 @big     : @52px;
+@huge    : @58px;
 @massive : @64px;
 
 @miniOffset: 0em 0em 0em -(@mini / 2);
@@ -58,6 +59,7 @@
 @mediumOffset: 0em 0em 0em -(@medium / 2);
 @largeOffset: 0em 0em 0em -(@large / 2);
 @bigOffset: 0em 0em 0em -(@big / 2);
+@hugeOffset: 0em 0em 0em -(@huge / 2);
 @massiveOffset: 0em 0em 0em -(@massive / 2);
 
 @tinyFontSize: @relativeTiny;
@@ -66,4 +68,5 @@
 @mediumFontSize: @relativeMedium;
 @largeFontSize: @relativeLarge;
 @bigFontSize: @relativeBig;
+@hugeFontSize: @relativeHuge;
 @massiveFontSize: @relativeMassive;
