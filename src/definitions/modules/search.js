@@ -793,11 +793,14 @@ $.fn.search = function(parameters) {
               return false;
             }
           }
-          $results
-            .html(html)
-          ;
-          if( module.can.show() ) {
+          if(html) {
+            $results
+              .html(html)
+            ;
             module.showResults();
+          }
+          else {
+            module.hideResults();
           }
         },
 
@@ -876,7 +879,7 @@ $.fn.search = function(parameters) {
               module.error(error.noTemplate, false);
             }
           }
-          else {
+          else if(settings.showNoResults) {
             html = module.displayMessage(error.noResults, 'empty');
           }
           settings.onResults.call(element, response);
@@ -1080,44 +1083,47 @@ $.fn.search.settings = {
   verbose        : false,
   performance    : true,
 
-  type           : 'standard',
   // template to use (specified in settings.templates)
+  type           : 'standard',
 
-  minCharacters  : 1,
   // minimum characters required to search
+  minCharacters  : 1,
 
-  apiSettings    : false,
   // API config
+  apiSettings    : false,
 
-  source         : false,
   // object to search
+  source         : false,
 
+  // fields to search
   searchFields   : [
     'title',
     'description'
   ],
-  // fields to search
 
-  displayField   : '',
   // field to display in standard results template
+  displayField   : '',
 
-  searchFullText : true,
   // whether to include fuzzy results in local search
+  searchFullText : true,
 
-  automatic      : true,
   // whether to add events to prompt automatically
+  automatic      : true,
 
-  hideDelay      : 0,
   // delay before hiding menu after blur
+  hideDelay      : 0,
 
-  searchDelay    : 200,
   // delay before searching
+  searchDelay    : 200,
 
-  maxResults     : 7,
   // maximum results returned from local
+  maxResults     : 7,
 
-  cache          : true,
   // whether to store lookups in local cache
+  cache          : true,
+
+  // whether no results errors should be shown
+  showNoResults  : true,
 
   // transition settings
   transition     : 'scale',
