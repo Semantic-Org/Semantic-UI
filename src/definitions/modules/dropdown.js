@@ -1432,7 +1432,7 @@ $.fn.dropdown = function(parameters) {
             var
               $target      = $(event.target),
               $label       = $target.closest(selector.siblingLabel),
-              inVisibleDOM = document.contains(event.target),
+              inVisibleDOM = document.body.contains(event.target),
               notOnLabel   = ($module.find($label).length === 0),
               notInMenu    = ($target.closest($menu).length === 0)
             ;
