@@ -811,9 +811,16 @@ $.fn.dropdown = function(parameters) {
           }
         },
 
-        focusSearch: function() {
+        focusSearch: function(skipHandler) {
           if( module.is.search() && !module.is.focusedOnSearch() ) {
-            $search[0].focus();
+            if(skipHandler) {
+              $module.off('focus' + eventNamespace, selector.search);
+              $search.focus();
+              $module.on('focus'  + eventNamespace, selector.search, module.event.search.focus)
+            }
+            else {
+              $search.focus();
+            }
           }
         },
 
@@ -1076,7 +1083,7 @@ $.fn.dropdown = function(parameters) {
                   }
                   module.remove.searchTerm();
                   if(!module.is.focusedOnSearch() && !(skipRefocus == true)) {
-                    module.focusSearch();
+                    module.focusSearch(true);
                   }
                 }
                 if(!settings.useLabels) {
