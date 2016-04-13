@@ -48,6 +48,7 @@
 - **Grid** - `centered` content would cause `justified` content to appear aligned left. #3496
 - **Icon** - Sizes smaller tham `small` were using with `rem` #3782
 - **Input** - Fixes issue with `dropdown` or button on the left side of an `action` input not properly rounding
+- **Input** - Fixed `:active` styles appearing on disabled input, when input is disabled using `disabled` property #3907
 - **List** - `relaxed` and `very relaxed` lists included unnecessary padding on the first and last items #3710
 - **List** - Bullets would be affected by font weight, or whether the list item was a link #3715 #3721
 - **List** - Divided lists had unnecessary padding on first and last items, in both horizontal and vertical layouts #3710
