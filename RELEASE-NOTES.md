@@ -21,6 +21,7 @@
 - **API** - `cache: 'local'` would not return the localstorage cached results in some cases
 - **Dropdown** - `search selection` would not let you move back in an entered search string with left arrow #3596 **Thanks @Sanjo**
 - **Divider** - Descenders like "g" are cut off in `horizontal divider` #3585
+- **Dropdown** - `forceSelection` will now automatically select values with multi dropdowns. When using `userAdditions` setting it will now automatically tokenize the current entered value
 - **Form Validation / Dropdown** - Using "enter" key in a `search dropdown` could cause a form to be submitted #3676
 - **Form Validation** - Revalidating a field `on: blur` could cause fields not yet interacted with to be validated #3606
 - **Rail** - Fixed incorrect width for `close rail` and `very close rail` caused by variable addition with mixed units `px` + `em` #3835
