@@ -235,7 +235,7 @@
 .ui.disabled.checkbox label,
 .ui.checkbox input[disabled] ~ .box:after,
 .ui.checkbox input[disabled] ~ label {
-  cursor: default;
+  cursor: default !important;
   opacity: 0.5;
   color: #000000;
 }

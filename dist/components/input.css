@@ -81,7 +81,8 @@
 .ui.input input[disabled] {
   opacity: 0.45;
 }
-.ui.disabled.input input {
+.ui.disabled.input input,
+.ui.input input[disabled] {
   pointer-events: none;
 }
 

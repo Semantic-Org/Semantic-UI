@@ -259,6 +259,7 @@ h5.ui.header .sub.header {
 }
 .ui.icon.header .content {
   display: block;
+  padding: 0em;
 }
 .ui.icon.header .circular.icon {
   font-size: 2em;

@@ -434,11 +434,11 @@ $.fn.dropdown = function(parameters) {
           ;
           if( module.can.show() && !module.is.active() ) {
             module.debug('Showing dropdown');
-            if(module.is.multiple() && !module.has.search() && module.is.allFiltered()) {
-              return true;
-            }
             if(module.has.message() && !(module.has.maxSelections() || module.has.allResultsFiltered()) ) {
               module.remove.message();
+            }
+            if(module.is.allFiltered()) {
+              return true;
             }
             if(settings.onShow.call(element) !== false) {
               module.animate.show(function() {
@@ -811,9 +811,16 @@ $.fn.dropdown = function(parameters) {
           }
         },
 
-        focusSearch: function() {
+        focusSearch: function(skipHandler) {
           if( module.is.search() && !module.is.focusedOnSearch() ) {
-            $search[0].focus();
+            if(skipHandler) {
+              $module.off('focus' + eventNamespace, selector.search);
+              $search.focus();
+              $module.on('focus'  + eventNamespace, selector.search, module.event.search.focus)
+            }
+            else {
+              $search.focus();
+            }
           }
         },
 
@@ -829,11 +836,17 @@ $.fn.dropdown = function(parameters) {
           if( module.has.query() ) {
             if(hasSelected) {
               module.debug('Forcing partial selection to selected item', $selectedItem);
-              module.event.item.click.call($selectedItem);
+              module.event.item.click.call($selectedItem, {}, true);
               return;
             }
             else {
-              module.remove.searchTerm();
+              if(settings.allowAdditions) {
+                module.set.selected(module.get.query());
+                module.remove.searchTerm();
+              }
+              else {
+                module.remove.searchTerm();
+              }
             }
           }
           module.hide();
@@ -905,11 +918,7 @@ $.fn.dropdown = function(parameters) {
               pageLostFocus = (document.activeElement === this);
               if(!willRefocus) {
                 if(!itemActivated && !pageLostFocus) {
-                  if(module.is.multiple()) {
-                    module.remove.activeLabel();
-                    module.hide();
-                  }
-                  else if(settings.forceSelection) {
+                  if(settings.forceSelection) {
                     module.forceSelection();
                   }
                   else {
@@ -1055,7 +1064,7 @@ $.fn.dropdown = function(parameters) {
                 }, settings.delay.hide);
               }
             },
-            click: function (event) {
+            click: function (event, skipRefocus) {
               var
                 $choice        = $(this),
                 $target        = (event)
@@ -1073,8 +1082,8 @@ $.fn.dropdown = function(parameters) {
                     module.remove.userAddition();
                   }
                   module.remove.searchTerm();
-                  if(!module.is.focusedOnSearch()) {
-                    module.focusSearch();
+                  if(!module.is.focusedOnSearch() && !(skipRefocus == true)) {
+                    module.focusSearch(true);
                   }
                 }
                 if(!settings.useLabels) {
@@ -1423,7 +1432,7 @@ $.fn.dropdown = function(parameters) {
             var
               $target      = $(event.target),
               $label       = $target.closest(selector.siblingLabel),
-              inVisibleDOM = document.contains(event.target),
+              inVisibleDOM = document.body.contains(event.target),
               notOnLabel   = ($module.find($label).length === 0),
               notInMenu    = ($target.closest($menu).length === 0)
             ;
@@ -1602,16 +1611,17 @@ $.fn.dropdown = function(parameters) {
               if(typeof values == 'string') {
                 values = [values];
               }
-              remoteValues = {};
               $.each(values, function(index, value) {
                 var
                   name = module.read.remoteData(value)
                 ;
                 module.verbose('Restoring value from session data', name, value);
-                remoteValues[value] = (name)
-                  ? name
-                  : value
-                ;
+                if(name) {
+                  if(!remoteValues) {
+                    remoteValues = {};
+                  }
+                  remoteValues[value] = name;
+                }
               });
             }
             return remoteValues;
@@ -1888,13 +1898,8 @@ $.fn.dropdown = function(parameters) {
           values: function() {
             // prevents callbacks from occuring on initial load
             module.set.initialLoad();
-            if(settings.apiSettings) {
-              if(settings.saveRemoteData) {
-                module.restore.remoteValues();
-              }
-              else {
-                module.clearValue();
-              }
+            if(settings.apiSettings && settings.saveRemoteData && module.get.remoteValues()) {
+              module.restore.remoteValues();
             }
             else {
               module.set.selected();
@@ -2751,6 +2756,7 @@ $.fn.dropdown = function(parameters) {
                   module.debug('Label remove callback cancelled removal');
                   return;
                 }
+                module.remove.message();
                 if(isUserValue) {
                   module.remove.value(stringValue);
                   module.remove.label(stringValue);
@@ -2827,7 +2833,7 @@ $.fn.dropdown = function(parameters) {
             return (settings.maxSelections && module.get.selectionCount() >= settings.maxSelections);
           },
           allResultsFiltered: function() {
-            let
+            var
               $normalResults = $item.not(selector.addition)
             ;
             return ($normalResults.filter(selector.unselectable).length === $normalResults.length);

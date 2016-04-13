@@ -6467,6 +6467,7 @@ h5.ui.header .sub.header {
 
 .ui.icon.header .content {
   display: block;
+  padding: 0em;
 }
 
 .ui.icon.header .circular.icon {
@@ -11262,7 +11263,8 @@ img.ui.bordered.image {
   opacity: 0.45;
 }
 
-.ui.disabled.input input {
+.ui.disabled.input input,
+.ui.input input[disabled] {
   pointer-events: none;
 }
 
@@ -28021,7 +28023,7 @@ a.ui.card:hover,
 .ui.disabled.checkbox label,
 .ui.checkbox input[disabled] ~ .box:after,
 .ui.checkbox input[disabled] ~ label {
-  cursor: default;
+  cursor: default !important;
   opacity: 0.5;
   color: #000000;
 }
@@ -29372,7 +29374,7 @@ select.ui.dropdown {
   padding: 0;
   max-width: 100%;
   margin: 0.45240952em 0em 0.45240952em 0.78571429em;
-  line-height: 1.2142em;
+  line-height: 1.21428571em;
 }
 
 .ui.multiple.dropdown > .label ~ input.search {
@@ -29396,7 +29398,7 @@ select.ui.dropdown {
   left: 0;
   padding: inherit;
   margin: 0.45240952em 0em 0.45240952em 0.78571429em;
-  line-height: 1.2142em;
+  line-height: 1.21428571em;
 }
 
 .ui.multiple.search.dropdown > .label ~ .text {
@@ -29411,7 +29413,7 @@ select.ui.dropdown {
   max-width: 100%;
   margin: 0.45240952em 0em 0.45240952em 0.78571429em;
   width: 2.2em;
-  line-height: 1.2142em;
+  line-height: 1.21428571em;
 }
 
 /*--------------
@@ -32427,6 +32429,7 @@ a.ui.nag {
   -webkit-transform-origin: center top;
   -ms-transform-origin: center top;
   transform-origin: center top;
+  white-space: normal;
   background: #FFFFFF;
   margin-top: 0.5em;
   width: 18em;

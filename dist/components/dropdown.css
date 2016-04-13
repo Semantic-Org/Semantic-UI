@@ -661,7 +661,7 @@ select.ui.dropdown {
   padding: 0;
   max-width: 100%;
   margin: 0.45240952em 0em 0.45240952em 0.78571429em;
-  line-height: 1.2142em;
+  line-height: 1.21428571em;
 }
 .ui.multiple.dropdown > .label ~ input.search {
   margin-left: 0.14285714em !important;
@@ -683,7 +683,7 @@ select.ui.dropdown {
   left: 0;
   padding: inherit;
   margin: 0.45240952em 0em 0.45240952em 0.78571429em;
-  line-height: 1.2142em;
+  line-height: 1.21428571em;
 }
 .ui.multiple.search.dropdown > .label ~ .text {
   display: none;
@@ -696,7 +696,7 @@ select.ui.dropdown {
   max-width: 100%;
   margin: 0.45240952em 0em 0.45240952em 0.78571429em;
   width: 2.2em;
-  line-height: 1.2142em;
+  line-height: 1.21428571em;
 }
 
 /*--------------
