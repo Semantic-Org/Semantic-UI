@@ -575,6 +575,14 @@ select.ui.dropdown {
   padding: @searchSelectionInputPadding;
 }
 
+/* Used to size multi select input to character width */
+.ui.search.selection.dropdown > span.sizer {
+  line-height: @searchSelectionLineHeight;
+  padding: @searchSelectionInputPadding;
+  display: none;
+  white-space: pre;
+}
+
 /* Active/Visible Search */
 .ui.search.dropdown.active > input.search,
 .ui.search.dropdown.visible > input.search {
