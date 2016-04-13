@@ -236,7 +236,12 @@ $.fn.dropdown = function(parameters) {
             : module.get.query()
           ;
           module.verbose('Searching for query', query);
-          module.filter(query);
+          if(module.has.minCharacters(query)) {
+            module.filter(query);
+          }
+          else {
+            module.hide();
+          }
         },
 
         select: {
@@ -2797,6 +2802,16 @@ $.fn.dropdown = function(parameters) {
           selectInput: function() {
             return ( $input.is('select') );
           },
+          minCharacters: function(searchTerm) {
+            if(settings.minCharacters) {
+              searchTerm = (searchTerm !== undefined)
+                ? String(searchTerm)
+                : String(module.get.query())
+              ;
+              return (searchTerm.length >= settings.minCharacters);
+            }
+            return true;
+          },
           firstLetter: function($item, letter) {
             var
               text,
@@ -3356,6 +3371,7 @@ $.fn.dropdown.settings = {
 
 
   apiSettings            : false,
+  minCharacters          : 1,          // Minimum characters required to trigger API call
   saveRemoteData         : true,       // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
   throttle               : 200,        // How long to wait after last user input to search remotely
 
