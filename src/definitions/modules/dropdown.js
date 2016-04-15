@@ -1243,19 +1243,30 @@ $.fn.dropdown = function(parameters) {
                 $visibleItems = ($selectedItem.length > 0)
                   ? $selectedItem.siblings(':not(.' + className.filtered +')').andSelf()
                   : $menu.children(':not(.' + className.filtered +')'),
-                $subMenu             = $selectedItem.children(selector.menu),
-                $parentMenu          = $selectedItem.closest(selector.menu),
-                inVisibleMenu        = ($parentMenu.hasClass(className.visible) || $parentMenu.hasClass(className.animating) || $parentMenu.parent(selector.menu).length > 0),
-                hasSubMenu           = ($subMenu.length> 0),
-                hasSelectedItem      = ($selectedItem.length > 0),
-                selectedIsSelectable = ($selectedItem.not(selector.unselectable).length > 0),
-                delimiterPressed     = (pressedKey == keys.delimiter && settings.allowAdditions && module.is.multiple()),
+                $subMenu              = $selectedItem.children(selector.menu),
+                $parentMenu           = $selectedItem.closest(selector.menu),
+                inVisibleMenu         = ($parentMenu.hasClass(className.visible) || $parentMenu.hasClass(className.animating) || $parentMenu.parent(selector.menu).length > 0),
+                hasSubMenu            = ($subMenu.length> 0),
+                hasSelectedItem       = ($selectedItem.length > 0),
+                selectedIsSelectable  = ($selectedItem.not(selector.unselectable).length > 0),
+                isAdditionWithoutMenu = (settings.allowAdditions && settings.hideAdditions && pressedKey == keys.enter && selectedIsSelectable),
+                delimiterPressed      = (pressedKey == keys.delimiter && settings.allowAdditions && module.is.multiple()),
                 $nextItem,
                 isSubMenuItem,
                 newIndex
               ;
+
+              // allow selection with menu closed
+              if(isAdditionWithoutMenu) {
+                module.verbose('Selecting item from keyboard shortcut', $selectedItem);
+                module.event.item.click.call($selectedItem, event);
+                if(module.is.searchSelection()) {
+                  module.remove.searchTerm();
+                }
+              }
+
               // visible menu keyboard shortcuts
-              if( module.is.visible() || settings.allowAdditions ) {
+              if( module.is.visible() ) {
 
                 // enter (select or open sub-menu)
                 if(pressedKey == keys.enter || delimiterPressed) {
