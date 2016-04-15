@@ -127,10 +127,6 @@
 @inputErrorFocusBorder: @negativeBorderColor;
 @inputErrorFocusBoxShadow: none;
 
-/* Placeholder */
-@inputPlaceholderColor: lighten(@inputColor, 55);
-@inputPlaceholderFocusColor: lighten(@inputColor, 35);
-
 /* Placeholder Error */
 @inputErrorPlaceholderColor: lighten(@formErrorColor, 40);
 @inputErrorPlaceholderFocusColor: lighten(@formErrorColor, 30);

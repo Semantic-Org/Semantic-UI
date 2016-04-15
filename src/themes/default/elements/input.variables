@@ -27,8 +27,6 @@
   border-color @defaultDuration @defaultEasing
 ;
 
-@inputColor: @textColor;
-
 /*-------------------
         Types
 --------------------*/
