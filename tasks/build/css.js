@@ -8,6 +8,7 @@ var
   // node dependencies
   console      = require('better-console'),
   fs           = require('fs'),
+  path         = require('path'),
 
   // gulp dependencies
   autoprefixer = require('gulp-autoprefixer'),
@@ -21,6 +22,7 @@ var
   print        = require('gulp-print'),
   rename       = require('gulp-rename'),
   replace      = require('gulp-replace'),
+  tap          = require('gulp-tap'),
   runSequence  = require('run-sequence'),
 
   // config
@@ -30,6 +32,7 @@ var
 
   // shorthand
   globs        = config.globs,
+  sections     = config.sections,
   assets       = config.paths.assets,
   output       = config.paths.output,
   source       = config.paths.source,
@@ -69,6 +72,27 @@ module.exports = function(callback) {
   // unified css stream
   stream = gulp.src(source.definitions + '/**/' + globs.components + '.less')
     .pipe(plumber(settings.plumber.less))
+    .pipe(tap(function(file) {
+      var componentName = path.basename(file.path, '.less');
+      if (componentName in sections) {
+        var selectedContent = [];
+        var regex, match;
+        var fileContent = file.contents.toString();
+
+        sections[componentName].forEach(function(section) {
+          regex = new RegExp('^/\\*[-*]+\\s+' + section +'[\\S\\s]+?(?=(/\\*[\\*-]+)|(\\s(?![\\S\\s])))', 'mi');
+          match = fileContent.match(regex);
+          if (match === null) throw new Error("Section " + section + " in " + componentName + " doesn't exist.");
+          selectedContent.push(match[0]);
+          fileContent = fileContent.substr(match.index + match[0].length);
+        });
+
+        if (!selectedContent[selectedContent.length - 1].trim().endsWith('.loadUIOverrides();')) {
+          selectedContent.push('.loadUIOverrides();');
+        }
+        file.contents = new Buffer(selectedContent.join('\n\n'));
+      }
+    }))
     .pipe(less(settings.less))
     .pipe(autoprefixer(settings.prefix))
     .pipe(replace(comments.variables.in, comments.variables.out))
