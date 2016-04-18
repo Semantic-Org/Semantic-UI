@@ -87,7 +87,7 @@ module.exports = function(callback) {
           fileContent = fileContent.substr(match.index + match[0].length);
         });
 
-        if (!selectedContent[selectedContent.length - 1].trim().endsWith('.loadUIOverrides();')) {
+        if (selectedContent[selectedContent.length - 1].trim().indexOf('.loadUIOverrides();') === -1) {
           selectedContent.push('.loadUIOverrides();');
         }
         file.contents = new Buffer(selectedContent.join('\n\n'));
