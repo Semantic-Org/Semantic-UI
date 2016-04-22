@@ -1174,7 +1174,7 @@ $.fn.form.settings = {
 
     // is most likely an email
     email: function(value){
-      return emailRegExp.test(value);
+      return $.fn.form.settings.regExp.email.test(value);
     },
 
     // value is most likely url
