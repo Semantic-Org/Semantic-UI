@@ -189,7 +189,7 @@ $.fn.popup = function(parameters) {
             }
           },
           hideGracefully: function(event) {
-            let
+            var
               $target = $(event.target),
               isInDOM = $.contains(document.documentElement, event.target),
               inPopup = ($target.closest(selector.popup).length > 0)

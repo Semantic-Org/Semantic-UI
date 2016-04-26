@@ -3154,7 +3154,7 @@ $.fn.dropdown = function(parameters) {
 
         escape: {
           value: function(value) {
-            let
+            var
               multipleValues = $.isArray(value),
               stringValue    = (typeof value === 'string'),
               isUnparsable   = (!stringValue && !multipleValues),
