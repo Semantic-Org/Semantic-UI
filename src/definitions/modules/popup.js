@@ -191,6 +191,11 @@ $.fn.popup = function(parameters) {
             }
           },
           hideGracefully: function(event) {
+            var
+              $target = $(event.target),
+              isInDOM = $.contains(document.documentElement, event.target),
+              inPopup = ($target.closest(selector.popup).length > 0)
+            ;
             // don't close on clicks inside popup
             if(event && $(event.target).closest(selector.popup).length === 0) {
               module.debug('Click occurred outside popup hiding popup');
