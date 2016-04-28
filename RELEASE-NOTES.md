@@ -28,6 +28,7 @@
 - **Form Validation** - Revalidating a field `on: blur` could cause fields not yet interacted with to be validated #3606
 - **Rail** - Fixed incorrect width for `close rail` and `very close rail` caused by variable addition with mixed units `px` + `em` #3835
 - **Search** - A previous unfinished XHR query aborting would cause the next query to fail #2779
+- **Video** - Fixed issue with `change` behavior not working properly when correctly to change videos.
 
 **Bugs**
 - **API** - Using `onResponse` with `dataType` other than JSON or JSONP would cause an error. (Not allowing plain text responses to be translated) #3653
@@ -47,6 +48,7 @@
 - **Dropdown** - Seach selection would lose search input focus when clicking on a choice #3790
 - **Form** - Grouped `fields` and `field` would cause different margin collapse, making `fields` include larger gaps between content #3717
 - **Form** - Remove deprecated `size()` method in `prompt` #3655 **Thanks @SimonArdrey**
+- **Grid** - Fixed issue where `vertically divided` grid would have top margin in first `row` group
 - **Grid** - `centered` content would cause `justified` content to appear aligned left. #3496
 - **Icon** - Sizes smaller tham `small` were using with `rem` #3782
 - **Input** - Fixes issue with `dropdown` or button on the left side of an `action` input not properly rounding

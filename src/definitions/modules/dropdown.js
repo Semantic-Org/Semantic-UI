@@ -1393,8 +1393,9 @@ $.fn.dropdown = function(parameters) {
                   event.preventDefault();
                 }
                 // down arrow (open menu)
-                if(pressedKey == keys.downArrow) {
+                if(pressedKey == keys.downArrow && !module.is.visible()) {
                   module.verbose('Down key pressed, showing dropdown');
+                  module.select.firstUnfiltered();
                   module.show();
                   event.preventDefault();
                 }
