@@ -864,6 +864,9 @@ $.fn.dropdown = function(parameters) {
               }
             }
           }
+          if(pageLostFocus) {
+            return;
+          }
           module.hide();
         },
 
@@ -877,20 +880,6 @@ $.fn.dropdown = function(parameters) {
           focus: function() {
             if(settings.showOnFocus && !activated && module.is.hidden() && !pageLostFocus) {
               module.show();
-            }
-          },
-          click: function(event) {
-            var
-              $target = $(event.target)
-            ;
-            // focus search
-            if($target.is($module)) {
-              if(!module.is.focusedOnSearch()) {
-                module.focusSearch();
-              }
-              else {
-                module.show();
-              }
             }
           },
           blur: function(event) {
@@ -917,6 +906,20 @@ $.fn.dropdown = function(parameters) {
             }
             else {
               activated = false;
+            }
+          },
+          click: function(event) {
+            var
+              $target = $(event.target)
+            ;
+            // focus search
+            if($target.is($module)) {
+              if(!module.is.focusedOnSearch()) {
+                module.focusSearch();
+              }
+              else {
+                module.show();
+              }
             }
           },
           search: {
@@ -3116,7 +3119,6 @@ $.fn.dropdown = function(parameters) {
               ? callback
               : function(){}
             ;
-            console.log(element, module.is.visible($currentMenu),  module.is.animating($currentMenu));
             if( module.is.visible($currentMenu) || module.is.animating($currentMenu) ) {
               module.verbose('Doing menu hide animation', $currentMenu);
 
