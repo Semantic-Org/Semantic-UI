@@ -148,7 +148,7 @@
 @selectionTextColor: @textColor;
 
 @selectionTextUnderlayIconOpacity: @disabledOpacity;
-@selectionTextUnderlayColor: @unselectedTextColor;
+@selectionTextUnderlayColor: @inputPlaceholderFocusColor;
 
 @selectionBoxShadow: none;
 @selectionBorderColor: @borderColor;
@@ -283,8 +283,8 @@
 @hoveredZIndex: @menuZIndex + 2;
 
 /* Default Text */
-@defaultTextColor: rgba(179, 179, 179, 0.7);
-@defaultTextHoverColor: rgba(179, 179, 179, 0.7);
+@defaultTextColor: @inputPlaceholderColor;
+@defaultTextFocusColor: @inputPlaceholderFocusColor;
 
 /* Loading */
 @loadingZIndex: -1;
