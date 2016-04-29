@@ -935,12 +935,6 @@ $.fn.dropdown = function(parameters) {
                 if(!itemActivated && !pageLostFocus) {
                   if(settings.forceSelection) {
                     module.forceSelection();
-                    if(!willRefocus) {
-                      module.hide();
-                    }
-                  }
-                  else {
-                    module.hide();
                   }
                 }
                 else if(pageLostFocus) {
@@ -3122,6 +3116,7 @@ $.fn.dropdown = function(parameters) {
               ? callback
               : function(){}
             ;
+            console.log(element, module.is.visible($currentMenu),  module.is.animating($currentMenu));
             if( module.is.visible($currentMenu) || module.is.animating($currentMenu) ) {
               module.verbose('Doing menu hide animation', $currentMenu);
 
