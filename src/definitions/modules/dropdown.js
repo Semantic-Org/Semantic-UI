@@ -3402,6 +3402,7 @@ $.fn.dropdown.settings = {
 
 
   apiSettings            : false,
+  selectOnArrows         : true,       // Whether selection should occur automatically when arrow keys are used
   minCharacters          : 0,          // Minimum characters required to trigger API call
   saveRemoteData         : true,       // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
   throttle               : 200,        // How long to wait after last user input to search remotely
