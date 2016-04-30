@@ -13074,11 +13074,16 @@ $.fn.search = function(parameters) {
               return false;
             }
           }
-          $results
-            .html(html)
-          ;
-          if( module.can.show() ) {
-            module.showResults();
+          if( html === '' ) {
+            module.hideResults();
+          }
+          else {
+            $results
+              .html(html)
+            ;
+            if ( module.can.show() ) {
+              module.showResults();
+            }
           }
         },
 
@@ -13158,7 +13163,9 @@ $.fn.search = function(parameters) {
             }
           }
           else {
-            html = module.displayMessage(error.noResults, 'empty');
+            if (settings.showNoResults) {
+              html = module.displayMessage(error.noResults, 'empty');
+            }
           }
           settings.onResults.call(element, response);
           return html;
@@ -13357,6 +13364,9 @@ $.fn.search.settings = {
   debug          : false,
   verbose        : false,
   performance    : true,
+
+  showNoResults  : true,
+  // whether 'Your search returned no results' message should be shown
 
   type           : 'standard',
   // template to use (specified in settings.templates)
