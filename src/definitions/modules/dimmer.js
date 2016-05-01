@@ -144,6 +144,9 @@ $.fn.dimmer = function(parameters) {
             $module
               .removeData(moduleNamespace)
             ;
+            $dimmable
+              .off(eventNamespace)
+            ;
           }
         },
 
@@ -206,6 +209,7 @@ $.fn.dimmer = function(parameters) {
             ? callback
             : function(){}
           ;
+          debugger;
           if( module.is.dimmed() || module.is.animating() ) {
             module.debug('Hiding dimmer', $dimmer);
             module.animate.hide(callback);

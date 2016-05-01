@@ -3,6 +3,7 @@
 ### Version 2.2.0 - XX XX, 2016
 
 **Major Enhancements**
+- **Popup** - Added new `tooltip` popup type that works **without javascript**. Tooltips can specify positioning and some variations using `data` attributes, and will handle positioning automatically with CSS only.
 - **Webpack** - Modified all relative paths in project to prefix with `./` to make them webpack friendly (wont be misinterpreted as module)
 - **Popup** - Added new setting `boundary` and `scrollContext. `boundary` lets you specify an element that the popup will try to position itself to be contained inside of. `scrollContext` lets you specify the element which when scrolled should hide the popup
 - **Popup** - Added new settings `autoRemove`, which is enabled by default. This will add special event listeners to auto hide a popup if the triggering element is removed from the DOM. This is useful in controlled DOM environments like Meteor/Ember/React to ensure a popup auto-hides itself when a page navigation or other DOM change occurs that may not trigger `mouseout`.
@@ -62,6 +63,7 @@
 - **Menu** -  `stackable` menu with `left/right` `menu` or `item` would incorrectly be floated when stacked. #3604
 - **Menu** - `@dividerSize` was not being used in `vertical menu` #3781
 - **Modal** - RGB values set for dimmer `background-color` were not being correctly interpreted #3665 **Thanks @larsbo**
+- **Modal/Dimmer** - Fixed issue with `destroy` not properly removing events from dimmer #3200
 - **Popup** - checking `instanceof SVGGraphicsElement` caused error in IE11 #3043
 - **Progress** - Progress `onSuccess`, `onError`, and `onWarning` callbacks now occur **after** the animation completes for the state change.
 - **Rating** - rating does not fire `onRate` when rating is initialized #3712
