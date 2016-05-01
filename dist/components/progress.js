@@ -601,7 +601,7 @@ $.fn.progress = function(parameters) {
 
         update: {
           toNextValue: function() {
-            let
+            var
               nextValue = module.nextValue
             ;
             if(nextValue) {

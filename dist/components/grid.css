@@ -1076,6 +1076,11 @@
   box-shadow: none;
 }
 
+/* No space on top of first row */
+.ui[class*="vertically divided"].grid > .row:first-child > .column {
+  margin-top: 0em;
+}
+
 /* Divided Row */
 .ui.grid > .divided.row > .column {
   box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
