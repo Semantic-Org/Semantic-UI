@@ -93,5 +93,6 @@
     "gulp-git": "*",
     "gulp-tap": "*",
     "merge-stream": "*"
-  }
+  },
+  "style": "dist/semantic.css"
 }
