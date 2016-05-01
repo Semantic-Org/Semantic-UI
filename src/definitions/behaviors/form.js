@@ -801,8 +801,11 @@ $.fn.form = function(parameters) {
           // takes a validation object and returns whether field passes validation
           field: function(field, fieldName) {
             var
-              identifier  = field.identifier || fieldName,
-              $field      = module.get.field(identifier),
+              identifier    = field.identifier || fieldName,
+              $field        = module.get.field(identifier),
+              $dependsField = (field.depends)
+                ? module.get.field(field.depends)
+                : false,
               fieldValid  = true,
               fieldErrors = []
             ;
@@ -816,6 +819,10 @@ $.fn.form = function(parameters) {
             }
             else if(field.optional && $.trim($field.val()) === ''){
               module.debug('Field is optional and empty. Skipping', identifier);
+              fieldValid = true;
+            }
+            else if(field.depends && $dependsField.length === 0 || $dependsField.val() === '') {
+              module.debug('Field depends on another value that is not present or empty. Skipping', $dependsField);
               fieldValid = true;
             }
             else if(field.rules !== undefined) {
