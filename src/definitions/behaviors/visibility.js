@@ -342,7 +342,7 @@ $.fn.visibility = function(parameters) {
                 position : 'fixed',
                 top      : settings.offset + 'px',
                 left     : 'auto',
-                zIndex   : '1'
+                zIndex   : settings.zIndex
               })
             ;
           },
@@ -1178,6 +1178,9 @@ $.fn.visibility.settings = {
 
   // special visibility type (image, fixed)
   type                   : false,
+
+  // z-index to use with visibility 'fixed'
+  zIndex                 : '1',
 
   // image only animation settings
   transition             : 'fade in',

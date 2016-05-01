@@ -5,6 +5,7 @@
 **Major Enhancements**
 - **Popup** - Added new `tooltip` popup type that works **without javascript**. Tooltips can specify positioning and some variations using `data` attributes, and will handle positioning automatically with CSS only.
 - **Webpack** - Modified all relative paths in project to prefix with `./` to make them webpack friendly (wont be misinterpreted as module)
+- **Form Validation** - Added ability for field validation to depend on other fields being filled out
 - **Popup** - Added new setting `boundary` and `scrollContext. `boundary` lets you specify an element that the popup will try to position itself to be contained inside of. `scrollContext` lets you specify the element which when scrolled should hide the popup
 - **Popup** - Added new settings `autoRemove`, which is enabled by default. This will add special event listeners to auto hide a popup if the triggering element is removed from the DOM. This is useful in controlled DOM environments like Meteor/Ember/React to ensure a popup auto-hides itself when a page navigation or other DOM change occurs that may not trigger `mouseout`.
 - **Dropdown** - Dropdown now changes user selection on keyboard shortcuts **immediately**, this will save the extra `enter` key press to confirm selection in most cases. To enable previous pre `2.2` selection style use the setting `selectOnShortcut: false`
@@ -88,6 +89,7 @@
 - **Table** - `definition table` now supports `ignored` variation to force a `first-child` to ignore its default definition stylings
 - **Table-- `definition table` now supports `definition` variation to specify definition styles on an element that is not `:first-child`
 -**Table** - More granular variables for controlling style on first column in a `definition table`
+-**Visibility** - Added `zIndex` setting for specifying zindex with `type: 'fixed'` #3370
 
 **Changes**
 - **Sizing** - `mini` the smallest size has been modified to align to `11px` instead of previous `10px` at base em size
