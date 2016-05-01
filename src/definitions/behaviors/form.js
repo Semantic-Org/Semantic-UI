@@ -235,6 +235,20 @@ $.fn.form = function(parameters) {
           bracketedRule: function(rule) {
             return (rule.type && rule.type.match(settings.regExp.bracket));
           },
+          empty: function($field) {
+            if(!$field || $field.length === 0) {
+              return true;
+            }
+            else if($field.is('input[type="checkbox"]')) {
+              return !$field.is(':checked');
+            }
+            else {
+              return module.is.blank($field);
+            }
+          },
+          blank: function($field) {
+            return $.trim($field.val()) === '';
+          },
           valid: function() {
             var
               allValid = true
@@ -817,11 +831,11 @@ $.fn.form = function(parameters) {
               module.debug('Field is disabled. Skipping', identifier);
               fieldValid = true;
             }
-            else if(field.optional && $.trim($field.val()) === ''){
-              module.debug('Field is optional and empty. Skipping', identifier);
+            else if(field.optional && module.is.blank($field)){
+              module.debug('Field is optional and blank. Skipping', identifier);
               fieldValid = true;
             }
-            else if(field.depends && $dependsField.length === 0 || $dependsField.val() === '') {
+            else if(field.depends && module.is.empty($dependsField)) {
               module.debug('Field depends on another value that is not present or empty. Skipping', $dependsField);
               fieldValid = true;
             }
