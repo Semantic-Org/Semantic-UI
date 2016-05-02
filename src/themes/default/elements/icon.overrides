@@ -1,5 +1,5 @@
-/*
- * Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
+/*!
+ * Font Awesome 4.6.1 by @davegandy - http://fontawesome.io - @fontawesome
  * License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 
@@ -174,6 +174,7 @@ i.icon.help:before { content: "\f128"; }
 i.icon.info:before { content: "\f129"; }
 i.icon.warning:before { content: "\f12a"; }
 i.icon.birthday:before {  content: "\f1fd"; }
+i.icon.help.circle.outline:before { content: "\f29c"; }
 
 /* Users */
 i.icon.user:before { content: "\f007"; }
@@ -200,6 +201,19 @@ i.icon.other.gender.vertical:before { content: "\f22a"; }
 i.icon.other.gender.horizontal:before { content: "\f22b"; }
 i.icon.neuter:before { content: "\f22c"; }
 i.icon.genderless:before { content: "\f22d"; }
+
+/* Accessibility */
+i.icon.universal.access:before { content: "\f29a"; }
+i.icon.alternative.wheelchair:before { content: "\f29b"; }
+i.icon.blind:before { content: "\f29d"; }
+i.icon.audio.description:before { content: "\f29e"; }
+i.icon.volume.control.phone:before { content: "\f2a0"; }
+i.icon.braille:before { content: "\f2a1"; }
+i.icon.assistive.listening.systems:before { content: "\f2a2"; }
+i.icon.american.sign.language.interpreting:before { content: "\f2a3"; }
+i.icon.deafness:before { content: "\f2a4"; }
+i.icon.sign.language:before { content: "\f2a7"; }
+i.icon.low.vision:before { content: "\f2a8"; }
 
 /* View Adjustment */
 i.icon.block.layout:before { content: "\f009"; }
@@ -684,6 +698,17 @@ i.icon.fort.awesome:before { content: "\f286"; }
 i.icon.product.hunt:before { content: "\f288"; }
 i.icon.mixcloud:before { content: "\f289"; }
 i.icon.scribd:before { content: "\f28a"; }
+i.icon.gitlab:before { content: "\f296"; }
+i.icon.wpbeginner:before { content: "\f297"; }
+i.icon.wpforms:before { content: "\f298"; }
+i.icon.envira:before { content: "\f299"; }
+i.icon.glide:before { content: "\f2a5"; }
+i.icon.glide.g:before { content: "\f2a6"; }
+i.icon.viadeo:before { content: "\f2a9"; }
+i.icon.viadeo.square:before { content: "\f2aa"; }
+i.icon.snapchat:before { content: "\f2ab"; }
+i.icon.snapchat.ghost:before { content: "\f2ac"; }
+i.icon.snapchat.square:before { content: "\f2ad"; }
 
 /*******************************
             Aliases
@@ -713,6 +738,7 @@ i.icon.point:before { content: "\f041"; }
 i.icon.tint:before { content: "\f043"; }
 i.icon.signup:before { content: "\f044"; }
 i.icon.plus.circle:before { content: "\f055"; }
+i.icon.question.circle:before { content: "\f059"; }
 i.icon.dont:before { content: "\f05e"; }
 i.icon.minimize:before { content: "\f066"; }
 i.icon.add:before { content: "\f067"; }
@@ -891,3 +917,11 @@ i.icon.commenting:before { content: "\f27a"; }
 i.icon.commenting.outline:before { content: "\f27b"; }
 i.icon.edge:before { content: "\f282"; }
 i.icon.ms.edge:before { content: "\f282"; }
+i.icon.wordpress.beginner:before { content: "\f297"; }
+i.icon.wordpress.forms:before { content: "\f298"; }
+i.icon.envira.gallery:before { content: "\f299"; }
+i.icon.question.circle.outline:before { content: "\f29c"; }
+i.icon.asl.interpreting:before { content: "\f2a3"; }
+i.icon.deaf:before { content: "\f2a4"; }
+i.icon.hard.of.hearing:before{ content: "\f2a4"; }
+i.icon.signing:before { content: "\f2a7"; }
