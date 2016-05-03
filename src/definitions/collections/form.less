@@ -18,7 +18,6 @@
 
 @import (multiple) '../../theme.config';
 
-
 /*******************************
             Elements
 *******************************/
@@ -750,7 +749,7 @@
 .ui.form .fields {
   display: flex;
   flex-direction: row;
-  margin: @fieldMargin;
+  margin: @fieldsMargin;
 }
 .ui.form .fields > .field {
   flex: 0 1 auto;
@@ -824,17 +823,8 @@
   .ui.form .ten.fields > .fields,
   .ui.form .ten.fields > .field {
     width: @oneColumn !important;
-    margin: @fieldMargin;
-    padding-left: 0%;
-    padding-right: 0%;
+    margin: @fieldsMargin;
   }
-}
-
-.ui.form .fields .field:first-child {
-  padding-left: 0%;
-}
-.ui.form .fields .field:last-child {
-  padding-right: 0%;
 }
 
 
@@ -843,12 +833,6 @@
   width: @oneWide;
   padding-left: (@gutterWidth / 2);
   padding-right: (@gutterWidth / 2);
-}
-.ui.form .fields .wide.field:first-child {
-  padding-left: 0%;
-}
-.ui.form .fields .wide.field:last-child {
-  padding-right: 0%;
 }
 
 .ui.form .one.wide.field {
@@ -926,8 +910,6 @@
   .ui.form .fields > .fifteen.wide.field,
   .ui.form .fields > .sixteen.wide.field {
     width: @oneColumn !important;
-    padding-left: 0%;
-    padding-right: 0%;
   }
 }
 
