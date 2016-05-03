@@ -75,6 +75,7 @@
 - **Table** - `striped selectable` table would not correctly show hover color on striped rows
 
 **Enhancements**
+- **API** - API responses that now fail a `successTest` callback will have their responses passed to error callbacks as a parameter.
 - **Button** - Added variables for configuring `disabled` background image and box shadow.
 - **Site** - Added colored box shadow defaults. `ui message` now includes individual colored border shadows based on new site defaults.
 - **Dropdown** - Adds new setting `minCharacters` which sets the minimum number of characters required to start filtering results #3886
@@ -85,6 +86,7 @@
 - **Tabs** - Added new option `deactivate`, defaults to `siblings` which will only deactivate tab activators that are DOM siblings elements to the activating element. Setting it to <code>'all'</code> will deactivate any other tab element initialized at the same time.
 - **Progress** - Added progress `is complete` for returning whether success, warning, or error conditions are met
 - **Progress** - Added `onLabelUpdate` callback, this can be used to specify the exact text that should appear on the actual progress update, perhaps based on some external conditions
+- **Shape** - Shape now lets you specify next side width using setting `width`, can use `next` or `initial` to specify whether it should use old or new side size **NEEDS DOCS**
 - **Site** - Added new `@inputColor` and `@inputPlaceholderColor` global variables that now control placeholder text styles across all components.
 - **Table** - `definition table` now supports `ignored` variation to force a `first-child` to ignore its default definition stylings
 - **Table-- `definition table` now supports `definition` variation to specify definition styles on an element that is not `:first-child`
