@@ -711,7 +711,11 @@ $.fn.dropdown = function(parameters) {
                     results.push(this);
                     return true;
                   }
-                  else if(settings.fullTextSearch && module.fuzzySearch(searchTerm, text)) {
+                  else if (settings.fullTextSearch === "exact" && module.exactSearch(searchTerm, text)) {
+                    results.push(this);
+                    return true;
+                  }
+                  else if (!settings.fullTextSearch === "exact" && settings.fullTextSearch && module.fuzzySearch(searchTerm, text)) {
                     results.push(this);
                     return true;
                   }
@@ -767,7 +771,15 @@ $.fn.dropdown = function(parameters) {
           }
           return true;
         },
+        exactSearch: function (query, term) {
+          query = query.toLowerCase();
+          term = term.toLowerCase();
 
+          if (term.indexOf(query) > -1) {
+             return true;
+          }
+          return false;
+        },
         filterActive: function() {
           if(settings.useLabels) {
             $item.filter('.' + className.active)
