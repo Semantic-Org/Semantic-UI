@@ -1,4 +1,4 @@
-/*!
+/*
  * Font Awesome 4.6.1 by @davegandy - http://fontawesome.io - @fontawesome
  * License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
@@ -701,7 +701,7 @@ i.icon.scribd:before { content: "\f28a"; }
 i.icon.gitlab:before { content: "\f296"; }
 i.icon.wpbeginner:before { content: "\f297"; }
 i.icon.wpforms:before { content: "\f298"; }
-i.icon.envira:before { content: "\f299"; }
+i.icon.envira.gallery:before { content: "\f299"; }
 i.icon.glide:before { content: "\f2a5"; }
 i.icon.glide.g:before { content: "\f2a6"; }
 i.icon.viadeo:before { content: "\f2a9"; }
@@ -919,8 +919,10 @@ i.icon.edge:before { content: "\f282"; }
 i.icon.ms.edge:before { content: "\f282"; }
 i.icon.wordpress.beginner:before { content: "\f297"; }
 i.icon.wordpress.forms:before { content: "\f298"; }
-i.icon.envira.gallery:before { content: "\f299"; }
+i.icon.envira:before { content: "\f299"; }
 i.icon.question.circle.outline:before { content: "\f29c"; }
+i.icon.als:before { content: "\f2a2"; }
+i.icon.ald:before { content: "\f2a2"; }
 i.icon.asl.interpreting:before { content: "\f2a3"; }
 i.icon.deaf:before { content: "\f2a4"; }
 i.icon.hard.of.hearing:before{ content: "\f2a4"; }
