@@ -29,6 +29,7 @@
 - **Divider** - Descenders like "g" are cut off in `horizontal divider` #3585
 - **Dropdown** - `forceSelection` will now automatically select values with multi dropdowns. When using `userAdditions` setting it will now automatically tokenize the current entered value
 - **Form Validation / Dropdown** - Using "enter" key in a `search dropdown` could cause a form to be submitted #3676
+- **Form** - Fixed issue with `(x) fields` and `equal width` fields where middle rows would be slightly smaller because they include both left and right padding in % width. (Edges only have one side padding). Field groups now use negative margins instead.
 - **Form Validation** - Fix issue with some foreign email addresses with extended charsets causing email validation to fail #3955 #3755
 - **Form Validation** - Revalidating a field `on: blur` could cause fields not yet interacted with to be validated #3606
 - **Rail** - Fixed incorrect width for `close rail` and `very close rail` caused by variable addition with mixed units `px` + `em` #3835
