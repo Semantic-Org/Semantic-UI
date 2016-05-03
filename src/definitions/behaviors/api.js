@@ -503,7 +503,7 @@ $.api = $.fn.api = function(parameters) {
                   module.request.resolveWith(context, [response, xhr]);
                 }
                 else {
-                  module.request.rejectWith(context, [xhr, 'invalid']);
+                  module.request.rejectWith(context, [xhr, 'invalid', response]);
                 }
               }, timeLeft);
             },
