@@ -1236,8 +1236,8 @@ $.fn.dropdown = function(parameters) {
                 hasSubMenu            = ($subMenu.length> 0),
                 hasSelectedItem       = ($selectedItem.length > 0),
                 selectedIsSelectable  = ($selectedItem.not(selector.unselectable).length > 0),
-                isAdditionWithoutMenu = (settings.allowAdditions && settings.hideAdditions && pressedKey == keys.enter && selectedIsSelectable),
                 delimiterPressed      = (pressedKey == keys.delimiter && settings.allowAdditions && module.is.multiple()),
+                isAdditionWithoutMenu = (settings.allowAdditions && settings.hideAdditions && (pressedKey == keys.enter || delimiterPressed) && selectedIsSelectable),
                 $nextItem,
                 isSubMenuItem,
                 newIndex
