@@ -921,6 +921,7 @@ i.icon.wordpress.beginner:before { content: "\f297"; }
 i.icon.wordpress.forms:before { content: "\f298"; }
 i.icon.envira:before { content: "\f299"; }
 i.icon.question.circle.outline:before { content: "\f29c"; }
+i.icon.assistive.listening.devices:before { content: "\f2a2"; }
 i.icon.als:before { content: "\f2a2"; }
 i.icon.ald:before { content: "\f2a2"; }
 i.icon.asl.interpreting:before { content: "\f2a3"; }
