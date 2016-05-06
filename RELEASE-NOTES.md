@@ -20,6 +20,7 @@
 - **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation](http://www.semantic-ui.com/introduction/advanced-usage.html#Auto-Install) for how to use. #3616 **Thanks @algorithme**
 - **Popup** - Fixed issue where clicking element inside popup removed from DOM (like clicking a multi select label) would cause popup to close #3887
 - **Search** - Search now includes a `showNoResults` setting for determining whether no results messages should be shown **NEEDS DOCS**
+- **Visibility** - Added `onFixed` and `onUnfixed` callbacks for visibility `type: 'fixed'` **NEEDS DOCS**
 
 **Critical Bugs**
 - **All UI** - Using `setting` on a setting that is an object literal, for example `error: {}` will now extend the existing object instead of replacing it.
@@ -52,6 +53,7 @@
 - **Dropdown** - Dropdowns with sub-menus would not properly activate on mobile #3183
 - **Dropdown** - Long dropdown text entry with `allowAdditions` would cause input to mistakingly drop to next line early #3743
 - **Dropdown** - Seach selection would lose search input focus when clicking on a choice #3790
+- **Embed** - `API` setting is now disabled by default
 - **Form** - Grouped `fields` and `field` would cause different margin collapse, making `fields` include larger gaps between content #3717
 - **Form** - Remove deprecated `size()` method in `prompt` #3655 **Thanks @SimonArdrey**
 - **Grid** - Fixed issue where `vertically divided` grid would have top margin in first `row` group

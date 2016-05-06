@@ -345,6 +345,7 @@ $.fn.visibility = function(parameters) {
                 zIndex   : settings.zIndex
               })
             ;
+            settings.onFixed.call(element);
           },
           image: function(src) {
             $module
@@ -763,6 +764,7 @@ $.fn.visibility = function(parameters) {
                 zIndex   : ''
               })
             ;
+            settings.onUnfixed.call(element);
           },
           occurred: function(callback) {
             if(callback) {
@@ -1204,6 +1206,10 @@ $.fn.visibility.settings = {
   onBottomVisibleReverse : false,
   onTopPassedReverse     : false,
   onBottomPassedReverse  : false,
+
+  // special callbacks for fixed position
+  onFixed                : function() {},
+  onUnfixed              : function() {},
 
   // utility callbacks
   onUpdate               : false, // disabled by default for performance
