@@ -93,8 +93,8 @@
 - **Site** - Added new `@inputColor` and `@inputPlaceholderColor` global variables that now control placeholder text styles across all components.
 - **Table** - `definition table` now supports `ignored` variation to force a `first-child` to ignore its default definition stylings
 - **Table** - `definition table` now supports `definition` variation to specify definition styles on an element that is not `:first-child`
--**Table** - More granular variables for controlling style on first column in a `definition table`
--**Visibility** - Added `zIndex` setting for specifying zindex with `type: 'fixed'` #3370
+- **Table** - More granular variables for controlling style on first column in a `definition table`
+- **Visibility** - Added `zIndex` setting for specifying zindex with `type: 'fixed'` #3370
 
 **Changes**
 - **Sizing** - `mini` the smallest size has been modified to align to `11px` instead of previous `10px` at base em size
