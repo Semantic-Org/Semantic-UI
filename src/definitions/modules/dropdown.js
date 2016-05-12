@@ -1332,7 +1332,7 @@ $.fn.dropdown = function(parameters) {
                       .addClass(className.selected)
                     ;
                     module.set.scrollPosition($nextItem);
-                    if(settings.selectOnShortcut && module.is.single()) {
+                    if(settings.selectOnKeydown && module.is.single()) {
                       module.set.selectedItem($nextItem);
                     }
                   }
@@ -1359,7 +1359,7 @@ $.fn.dropdown = function(parameters) {
                       .addClass(className.selected)
                     ;
                     module.set.scrollPosition($nextItem);
-                    if(settings.selectOnShortcut && module.is.single()) {
+                    if(settings.selectOnKeydown && module.is.single()) {
                       module.set.activeItem($nextItem);
                       module.set.selected(module.get.choiceValue($nextItem), $nextItem);
                     }
@@ -2071,7 +2071,7 @@ $.fn.dropdown = function(parameters) {
             $nextSelectedItem
               .addClass(className.selected)
             ;
-            if(settings.selectOnShortcut && module.is.single()) {
+            if(settings.selectOnKeydown && module.is.single()) {
               module.set.selectedItem($nextSelectedItem);
             }
             $menu
@@ -2260,7 +2260,7 @@ $.fn.dropdown = function(parameters) {
               module.set.scrollPosition($nextValue);
               $selectedItem.removeClass(className.selected);
               $nextValue.addClass(className.selected);
-              if(settings.selectOnShortcut && module.is.single()) {
+              if(settings.selectOnKeydown && module.is.single()) {
                 module.set.selectedItem($nextValue);
               }
             }
@@ -3417,7 +3417,7 @@ $.fn.dropdown.settings = {
 
 
   apiSettings            : false,
-  selectOnShortcut       : true,       // Whether selection should occur automatically when keyboard shortcuts used
+  selectOnKeydown        : true,       // Whether selection should occur automatically when keyboard shortcuts used
   minCharacters          : 0,          // Minimum characters required to trigger API call
   saveRemoteData         : true,       // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
   throttle               : 200,        // How long to wait after last user input to search remotely
