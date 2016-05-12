@@ -460,6 +460,9 @@ $.fn.dropdown = function(parameters) {
                 if( module.can.click() ) {
                   module.bind.intent();
                 }
+                if(module.has.menuSearch()) {
+                  module.focusSearch();
+                }
                 module.set.visible();
                 callback.call(element);
               });
@@ -827,11 +830,11 @@ $.fn.dropdown = function(parameters) {
         },
 
         focusSearch: function(skipHandler) {
-          if( module.is.search() && !module.is.focusedOnSearch() ) {
+          if( module.has.search() && !module.is.focusedOnSearch() ) {
             if(skipHandler) {
               $module.off('focus' + eventNamespace, selector.search);
               $search.focus();
-              $module.on('focus'  + eventNamespace, selector.search, module.event.search.focus)
+              $module.on('focus'  + eventNamespace, selector.search, module.event.search.focus);
             }
             else {
               $search.focus();
@@ -2833,6 +2836,9 @@ $.fn.dropdown = function(parameters) {
         },
 
         has: {
+          menuSearch: function() {
+            return (module.has.search() && $search.closest($menu).length > 0);
+          },
           search: function() {
             return ($search.length > 0);
           },
@@ -3546,7 +3552,7 @@ $.fn.dropdown.settings = {
     menu         : '.menu',
     message      : '.message',
     menuIcon     : '.dropdown.icon',
-    search       : 'input.search, .menu > .search > input',
+    search       : 'input.search, .menu > .search > input, .menu input.search',
     sizer        : '> input.sizer',
     text         : '> .text:not(.icon)',
     unselectable : '.disabled, .filtered'

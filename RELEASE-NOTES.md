@@ -82,6 +82,7 @@
 - **Site** - Added colored box shadow defaults. `ui message` now includes individual colored border shadows based on new site defaults.
 - **Dropdown** - Adds new setting `minCharacters` which sets the minimum number of characters required to start filtering results #3886
 - **Dropdown** - Added `1px` offset for current text so that the text position cursor does not overlap first pixel of text.
+- **Dropdown** - Dropdown will now automatically focus on `search` inside of a menu after it is opened.
 - **Dropdown** - Added new convenience method `restore placeholder text`
 - **Rating** - Added new setting `fireOnInit` for rating, which defaults to `false`. When set to true `onRate` will fire when rating is initialized #3712
 - **Site** `@px` and `@relativepx` i.e. `@relative12px` which can be used to return EM value of pixels are now extended to `@relative40px`
