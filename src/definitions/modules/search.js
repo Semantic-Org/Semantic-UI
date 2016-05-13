@@ -89,6 +89,20 @@ $.fn.search = function(parameters) {
           ;
         },
 
+        refresh: function() {
+          module.debug('Refreshing selector cache');
+          $prompt         = $module.find(selector.prompt);
+          $searchButton   = $module.find(selector.searchButton);
+          $category       = $module.find(selector.category);
+          $results        = $module.find(selector.results);
+          $result         = $module.find(selector.result);
+        },
+
+        refreshResults: function() {
+          $results = $module.find(selector.results);
+          $result  = $module.find(selector.result);
+        },
+
         bind: {
           events: function() {
             module.verbose('Binding events to search');
@@ -417,6 +431,13 @@ $.fn.search = function(parameters) {
             }
             return result || false;
           },
+        },
+
+        select: {
+          firstResult() {
+            module.verbose('Selecting first result');
+            $result.first().addClass(className.active);
+          }
         },
 
         set: {
@@ -797,6 +818,10 @@ $.fn.search = function(parameters) {
             $results
               .html(html)
             ;
+            module.refreshResults();
+            if(settings.selectFirstResult) {
+              module.select.firstResult();
+            }
             module.showResults();
           }
           else {
@@ -1075,25 +1100,28 @@ $.fn.search = function(parameters) {
 
 $.fn.search.settings = {
 
-  name           : 'Search',
-  namespace      : 'search',
+  name              : 'Search',
+  namespace         : 'search',
 
-  silent         : false,
-  debug          : false,
-  verbose        : false,
-  performance    : true,
+  silent            : false,
+  debug             : false,
+  verbose           : false,
+  performance       : true,
 
   // template to use (specified in settings.templates)
-  type           : 'standard',
+  type              : 'standard',
 
   // minimum characters required to search
-  minCharacters  : 1,
+  minCharacters     : 1,
+
+  // whether to select first result after searching automatically
+  selectFirstResult : false,
 
   // API config
-  apiSettings    : false,
+  apiSettings       : false,
 
   // object to search
-  source         : false,
+  source            : false,
 
   // fields to search
   searchFields   : [

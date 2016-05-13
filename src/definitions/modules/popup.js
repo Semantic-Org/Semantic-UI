@@ -251,7 +251,7 @@ $.fn.popup = function(parameters) {
           else if($target.next(selector.popup).length !== 0) {
             module.verbose('Pre-existing popup found');
             settings.inline = true;
-            settings.popups  = $target.next(selector.popup).data(metadata.activator, $module);
+            settings.popup  = $target.next(selector.popup).data(metadata.activator, $module);
             module.refresh();
             if(settings.hoverable) {
               module.bind.popup();

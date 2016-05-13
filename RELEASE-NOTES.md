@@ -8,7 +8,7 @@
 - **Form Validation** - Added ability for field validation to depend on other fields being filled out
 - **Popup** - Added new setting `boundary` and `scrollContext`. `boundary` lets you specify an element that the popup will try to position itself to be contained inside of. `scrollContext` lets you specify the element which when scrolled should hide the popup
 - **Popup** - Added new settings `autoRemove`, which is enabled by default. This will add special event listeners to auto hide a popup if the triggering element is removed from the DOM. This is useful in controlled DOM environments like Meteor/Ember/React to ensure a popup auto-hides itself when a page navigation or other DOM change occurs that may not trigger `mouseout`.
-- **Dropdown** - Dropdown now changes user selection on keyboard shortcuts **immediately**, this will save the extra `enter` key press to confirm selection in most cases. To enable previous pre `2.2` selection style use the setting `selectOnKeydown: false`
+- **Dropdown** - Dropdown now changes user selection on keyboard shortcuts **immediately**, this will save the extra `enter` key press to confirm selection in most cases. To enable previous pre `2.2` selection style use the setting `selectOnKeydown: false` NEEDS DOCS
 - **Dropdown** - Multiple select dropdown now sizes current dropdown input based on rendered width of a hidden element, not using an estimate based on character count. This means search will never break to a second line earlier than would normally fit in current line.
 - **Dropdown** - Added new setting for search selection `hideAdditions` this will remove showing user additions inside the menu, making for a more intuitive adding process. Dropdowns now have a new state `empty` which will format an active dropdown with empty results. #3791
 - **Dropdown** - Adds new `allowReselection` option to trigger `onChange` events even when reselecting same value ***NEEEDS DOCUMENTATION***
@@ -19,6 +19,7 @@
 - **Dropdown** - All dropdowns, not just `selection dropdown`, will now select the first `menu item` that starts with a pressed keyboard key, for example "N" will select "New"
 - **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation](http://www.semantic-ui.com/introduction/advanced-usage.html#Auto-Install) for how to use. #3616 **Thanks @algorithme**
 - **Popup** - Fixed issue where clicking element inside popup removed from DOM (like clicking a multi select label) would cause popup to close #3887
+- **Search** - Added a new option `selectFirstResult`, which defaults to `false`. Will automatically highlight first result on search
 - **Search** - Search now includes a `showNoResults` setting for determining whether no results messages should be shown **NEEDS DOCS**
 - **Visibility** - Added `onFixed` and `onUnfixed` callbacks for visibility `type: 'fixed'` **NEEDS DOCS**
 
@@ -72,6 +73,7 @@
 - **Progress** - Progress `onSuccess`, `onError`, and `onWarning` callbacks now occur **after** the animation completes for the state change.
 - **Rating** - rating does not fire `onRate` when rating is initialized #3712
 - **Segment/Message** - `top attached message` has no border when attached to `segment` #3619
+- **Search** - Added `refresh` behavior for search to refresh selector cache. Cache will automatically refresh after API results received
 - **Segment** - Fixed `segments` to not clip border radius when only a **single** segment is included
 - **Step** - Fix incorrect bottom margin on `top attached steps`
 - **Statistic** - statistic receives incorrect size when using `tiny` `large` etc inside a statistic group #3116
