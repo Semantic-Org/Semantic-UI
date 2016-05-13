@@ -19,7 +19,7 @@
 - **Dropdown** - All dropdowns, not just `selection dropdown`, will now select the first `menu item` that starts with a pressed keyboard key, for example "N" will select "New"
 - **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation](http://www.semantic-ui.com/introduction/advanced-usage.html#Auto-Install) for how to use. #3616 **Thanks @algorithme**
 - **Popup** - Fixed issue where clicking element inside popup removed from DOM (like clicking a multi select label) would cause popup to close #3887
-- **Search** - Added a new option `selectFirstResult`, which defaults to `false`. Will automatically highlight first result on search
+- **Search** - Added a new option `selectFirstResult`, which defaults to `false`. Will automatically highlight first result on search **NEEDS DOCS**
 - **Search** - Search now includes a `showNoResults` setting for determining whether no results messages should be shown **NEEDS DOCS**
 - **Visibility** - Added `onFixed` and `onUnfixed` callbacks for visibility `type: 'fixed'` **NEEDS DOCS**
 
