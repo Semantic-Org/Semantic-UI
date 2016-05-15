@@ -12,6 +12,7 @@
 - **Dropdown** - Multiple select dropdown now sizes current dropdown input based on rendered width of a hidden element, not using an estimate based on character count. This means search will never break to a second line earlier than would normally fit in current line.
 - **Dropdown** - Added new setting for search selection `hideAdditions` this will remove showing user additions inside the menu, making for a more intuitive adding process. Dropdowns now have a new state `empty` which will format an active dropdown with empty results. #3791
 - **Dropdown** - Adds new `allowReselection` option to trigger `onChange` events even when reselecting same value ***NEEEDS DOCUMENTATION***
+- **Dropdown** - Added `fullSearchSearch: 'exact'` setting, which requires exact matches for dropdown values #3085 #3994 **Thanks @ShawnCholeva**
 - **All UI** - All UI now include _all_ sizing variations, `mini`, `tiny`, `small`, `large`, `big`, `huge`, `massive`. Headers remain with only 5 sizes `small-huge` to match `H1-H5`
 - **Icons** -  Icons now use the latest Font Awesome `4.5.0` Icons. 50+ new icons+ are included. Thanks @BreadMaker for the PR and @davegandy for the font!
 - **Progress** - Progress now uses a polling interval for updates. Rapidly updating the progress bar over a period quicker than the animation duration (for example with xhr `onprogress` events say every 50ms) will now appear smooth as butter.
