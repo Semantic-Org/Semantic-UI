@@ -429,7 +429,17 @@
 .ui.raised.card {
   box-shadow: @raisedShadow;
 }
+.ui.raised.cards a.card:hover,
+.ui.link.cards .raised.card:hover,
+a.ui.raised.card:hover,
+.ui.link.raised.card:hover {
+  box-shadow: @raisedShadowHover;
+}
 
+.ui.raised.cards > .card,
+.ui.raised.card {
+  box-shadow: @raisedShadow;
+}
 /*-------------------
        Centered
 --------------------*/

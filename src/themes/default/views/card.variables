@@ -10,9 +10,6 @@
 @shadowDistance: 1px;
 @shadowBoxShadow: 0px @shadowDistance 3px 0px @solidBorderColor;
 
-/* Raised Shadow */
-@raisedShadow: @floatingShadow;
-
 /* Card */
 @fontFamily: @pageFont;
 @display: flex;
@@ -161,6 +158,17 @@
 @linkHoverBoxShadow:
   @shadowHoverBoxShadow,
   @borderShadow
+;
+
+
+/* Raised */
+@raisedShadow:
+  @borderShadow,
+  @floatingShadow
+;
+@raisedShadowHover:
+  @borderShadow,
+  @floatingShadowHover
 ;
 
 /* Card Count */
