@@ -62,6 +62,7 @@
 - **Dropdown** - Seach selection would lose search input focus when clicking on a choice #3790
 - **Embed** - `API` setting is now disabled by default
 - **Form** - Fix `equal width fields` sometimes not including right field spacing on mobile #3913
+- **Form Validation ** - Fixed issue where initializing form multiple times would not properly call `destroy` removing previous settings #3798
 - **Form** - Grouped `fields` and `field` would cause different margin collapse, making `fields` include larger gaps between content #3717
 - **Form** - Fixed issue where `inline` field was not being correctly inverted in color with `inverted form` #4004 #4005 **Thanks @tbracken**
 - **Form** - Remove deprecated `size()` method in `prompt` #3655 **Thanks @SimonArdrey**

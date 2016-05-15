@@ -81,6 +81,9 @@ $.fn.form = function(parameters) {
             module.invoke(query);
           }
           else {
+            if(instance !== undefined) {
+              instance.invoke('destroy');
+            }
             module.verbose('Initializing form validation', $module, settings);
             module.bindEvents();
             module.set.defaults();
