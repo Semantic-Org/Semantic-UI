@@ -47,6 +47,7 @@
 - **Button/Dropdown** - Button dropdowns using `default text` no longer receive incorrect font styling for placeholder text
 - **Checkbox** - Radio buttons received `indeterminate` styles when user has not yet interacted with the page in Chrome
 - **Dropdown** - Fixed bug where using `action: 'hide'` could cause `text` value not to be passed to `onChange` callback
+- **Dropdown** - Regenerated dropdown will no longer ignore `disabled` property #4010 **Thanks @eymengunay!**
 - **Dropdown** - `apiSettings` was not defaulting to use `cache: 'local'` as specified in the docs
 - **Dropdown** - Fixed issue where values with `"` (double quotes) would not work with a dropdown using a select, because value would not be encoded as html entities
 - **Dropdown** - `get value` would not return correct value when value was blank #3766
