@@ -326,6 +326,16 @@
 @secondaryTextShadow: @invertedTextShadow;
 @secondaryBoxShadow: @coloredBoxShadow;
 
+@positiveBackgroundImage: @coloredBackgroundImage;
+@positiveTextColor: @invertedTextColor;
+@positiveTextShadow: @invertedTextShadow;
+@positiveBoxShadow: @coloredBoxShadow;
+
+@negativeBackgroundImage: @coloredBackgroundImage;
+@negativeTextColor: @invertedTextColor;
+@negativeTextShadow: @invertedTextShadow;
+@negativeBoxShadow: @coloredBoxShadow;
+
 /* Compact */
 @compactVerticalPadding: (@verticalPadding * 0.75);
 @compactHorizontalPadding: (@horizontalPadding * 0.75);
