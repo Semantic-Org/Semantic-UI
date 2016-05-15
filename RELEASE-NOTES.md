@@ -80,6 +80,7 @@
 - **Popup** - checking `instanceof SVGGraphicsElement` caused error in IE11 #3043
 - **Progress** - Progress `onSuccess`, `onError`, and `onWarning` callbacks now occur **after** the animation completes for the state change.
 - **Rating** - rating does not fire `onRate` when rating is initialized #3712
+- **Rating** - Fixed `ui rating` to not used outlined star in basic variation, instead using a lighter filled in star for increased visibility #3730
 - **Segment/Message** - `top attached message` has no border when attached to `segment` #3619
 - **Search** - Fixed issue where `href` was not pulling correctly on search click when the `result` was an `a` itself. #3409
 - **Search** - Added `refresh` behavior for search to refresh selector cache. Cache will automatically refresh after API results received

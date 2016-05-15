@@ -22,7 +22,7 @@
 
 /* Empty Star */
 .ui.rating .icon:before {
-  content: '\f006';
+  content: '\f005';
 }
 /* Active Star */
 .ui.rating .active.icon:before {
