@@ -46,6 +46,7 @@
 - **Button** - Fixed issue where `disabled loading button` would not remove `pointer-events` #2933
 - **Button/Dropdown** - Button dropdowns using `default text` no longer receive incorrect font styling for placeholder text
 - **Checkbox** - Radio buttons received `indeterminate` styles when user has not yet interacted with the page in Chrome
+- **Dropdown** - Dropdowns no longer re-open on selection when nested inside of a `<label>` #3917
 - **Dropdown** - Fixed bug where using `action: 'hide'` could cause `text` value not to be passed to `onChange` callback
 - **Dropdown** - Regenerated dropdown will no longer ignore `disabled` property #4010 **Thanks @eymengunay!**
 - **Dropdown** - `apiSettings` was not defaulting to use `cache: 'local'` as specified in the docs
