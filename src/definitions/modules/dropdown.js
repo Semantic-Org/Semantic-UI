@@ -3564,10 +3564,12 @@ $.fn.dropdown.settings = {
 
   // property names for remote query
   fields: {
-    remoteValues : 'results', // grouping for api results
-    values       : 'values', // grouping for all dropdown values
-    name         : 'name',   // displayed dropdown text
-    value        : 'value'   // actual dropdown value
+    remoteValues : 'results',  // grouping for api results
+    values       : 'values',   // grouping for all dropdown values
+    disabled     : 'disabled', // whether value should be disabled
+    name         : 'name',     // displayed dropdown text
+    value        : 'value',    // actual dropdown value
+    text         : 'text'      // displayed text when selected
   },
 
   keys : {
@@ -3664,10 +3666,17 @@ $.fn.dropdown.settings.templates = {
       html   = ''
     ;
     $.each(values, function(index, option) {
-      html += (option.disabled)
-        ? '<div class="disabled item" data-value="' + option[fields.value] + '">' + option[fields.name] + '</div>'
-        : '<div class="item" data-value="' + option[fields.value] + '">' + option[fields.name] + '</div>'
+      var
+        maybeText = (option[fields.text])
+          ? 'data-text="' + option[fields.text] + '"'
+          : '',
+        maybeDisabled = (option[fields.disabled])
+          ? 'disabled '
+          : ''
       ;
+      html += '<div class="'+ maybeDisabled +'item" data-value="' + option[fields.value] + '"' + maybeText + '>'
+      html +=   option[fields.name];
+      html += '</div>';
     });
     return html;
   },

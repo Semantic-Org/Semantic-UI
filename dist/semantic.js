@@ -2937,6 +2937,8 @@ $.fn.checkbox = function(parameters) {
           }
           module.debug('Enabling checkbox');
           module.set.enabled();
+          settings.onEnable.call(input);
+          // preserve legacy callbacks
           settings.onEnabled.call(input);
         },
 
@@ -2947,6 +2949,8 @@ $.fn.checkbox = function(parameters) {
           }
           module.debug('Disabling checkbox');
           module.set.disabled();
+          settings.onDisable.call(input);
+          // preserve legacy callbacks
           settings.onDisabled.call(input);
         },
 
@@ -3460,6 +3464,10 @@ $.fn.checkbox.settings = {
 
   onEnable            : function(){},
   onDisable           : function(){},
+
+  // preserve mispelled callbacks (will be removed in 3.0)
+  onEnabled           : function(){},
+  onDisabled          : function(){},
 
   className       : {
     checked       : 'checked',
@@ -4334,37 +4342,48 @@ $.fn.dropdown = function(parameters) {
           $document
             .off(elementNamespace)
           ;
-          if(selectObserver) {
-            selectObserver.disconnect();
-          }
-          if(menuObserver) {
-            menuObserver.disconnect();
-          }
+          module.disconnect.menuObserver();
+          module.disconnect.selectObserver();
         },
 
         observeChanges: function() {
           if('MutationObserver' in window) {
-            selectObserver = new MutationObserver(function(mutations) {
-              module.debug('<select> modified, recreating menu');
-              module.setup.select();
-            });
-            menuObserver = new MutationObserver(function(mutations) {
-              module.debug('Menu modified, updating selector cache');
-              module.refresh();
-            });
+            selectObserver = new MutationObserver(module.event.select.mutation);
+            menuObserver   = new MutationObserver(module.event.menu.mutation);
+            module.debug('Setting up mutation observer', selectObserver, menuObserver);
+            module.observe.select();
+            module.observe.menu();
+          }
+        },
+
+        disconnect: {
+          menuObserver: function() {
+            if(menuObserver) {
+              menuObserver.disconnect();
+            }
+          },
+          selectObserver: function() {
+            if(menuObserver) {
+              menuObserver.disconnect();
+            }
+          }
+        },
+        observe: {
+          select: function() {
             if(module.has.input()) {
               selectObserver.observe($input[0], {
                 childList : true,
                 subtree   : true
               });
             }
+          },
+          menu: function() {
             if(module.has.menu()) {
               menuObserver.observe($menu[0], {
                 childList : true,
                 subtree   : true
               });
             }
-            module.debug('Setting up mutation observer', selectObserver, menuObserver);
           }
         },
 
@@ -5233,7 +5252,32 @@ $.fn.dropdown = function(parameters) {
               module.determine.eventInModule(event, module.hide);
             }
           },
+          select: {
+            mutation: function(mutations) {
+              module.debug('<select> modified, recreating menu');
+              module.setup.select();
+            }
+          },
           menu: {
+            mutation: function(mutations) {
+              var
+                mutation   = mutations[0],
+                $addedNode = mutation.addedNodes
+                  ? $(mutation.addedNodes[0])
+                  : $(false),
+                $removedNode = mutation.removedNodes
+                  ? $(mutation.removedNodes[0])
+                  : $(false),
+                $changedNodes  = $addedNode.add($removedNode),
+                isUserAddition = $changedNodes.is(selector.addition) || $changedNodes.closest(selector.addition).length > 0,
+                isMessage      = $changedNodes.is(selector.message)  || $changedNodes.closest(selector.message).length > 0
+              ;
+              if(isUserAddition || isMessage) {
+                return
+              }
+              module.debug('Menu modified, updating selector cache');
+              module.refresh();
+            },
             mousedown: function() {
               itemActivated = true;
             },
@@ -6691,10 +6735,7 @@ $.fn.dropdown = function(parameters) {
               return;
             }
             // temporarily disconnect observer
-            if(selectObserver) {
-              selectObserver.disconnect();
-              module.verbose('Temporarily disconnecting mutation observer', escapedValue);
-            }
+            module.disconnect.selectObserver();
             if( module.is.single() ) {
               module.verbose('Removing previous user addition');
               $input.find('option.' + className.addition).remove();
@@ -6706,12 +6747,7 @@ $.fn.dropdown = function(parameters) {
               .appendTo($input)
             ;
             module.verbose('Adding user addition as an <option>', value);
-            if(selectObserver) {
-              selectObserver.observe($input[0], {
-                childList : true,
-                subtree   : true
-              });
-            }
+            module.observe.select();
           },
           userSuggestion: function(value) {
             var
@@ -6729,13 +6765,17 @@ $.fn.dropdown = function(parameters) {
               return;
             }
             if(hasUserSuggestion) {
-              html = settings.templates.addition( module.add.variables(message.addResult, value) );
               $addition
-                .html(html)
                 .attr('data-' + metadata.value, value)
                 .attr('data-' + metadata.text, value)
                 .removeClass(className.filtered)
               ;
+              if(!settings.hideAdditions) {
+                html = settings.templates.addition( module.add.variables(message.addResult, value) );
+                $addition
+                  .html(html)
+                ;
+              }
               module.verbose('Replacing user suggestion with new value', $addition);
             }
             else {
@@ -7642,7 +7682,7 @@ $.fn.dropdown.settings = {
   forceSelection         : true,       // force a choice on blur with search selection
 
   allowAdditions         : false,      // whether multiple select should allow user added values
-  hideAdditions          : true,       // whether or not to hide special message prompting a user they can enter a value
+  hideAdditions          : false,       // whether or not to hide special message prompting a user they can enter a value
 
   maxSelections          : false,      // When set to a number limits the number of selections to this count
   useLabels              : true,       // whether multiple select should filter currently active selections from choices
@@ -10168,7 +10208,7 @@ $.fn.popup = function(parameters) {
               inPopup = ($target.closest(selector.popup).length > 0)
             ;
             // don't close on clicks inside popup
-            if(event && $(event.target).closest(selector.popup).length === 0) {
+            if(event && !inPopup && isInDOM) {
               module.debug('Click occurred outside popup hiding popup');
               module.hide();
             }

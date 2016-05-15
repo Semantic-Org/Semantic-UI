@@ -197,7 +197,7 @@ $.fn.popup = function(parameters) {
               inPopup = ($target.closest(selector.popup).length > 0)
             ;
             // don't close on clicks inside popup
-            if(event && $(event.target).closest(selector.popup).length === 0) {
+            if(event && !inPopup && isInDOM) {
               module.debug('Click occurred outside popup hiding popup');
               module.hide();
             }
