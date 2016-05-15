@@ -434,7 +434,7 @@ $.fn.search = function(parameters) {
         },
 
         select: {
-          firstResult() {
+          firstResult: function() {
             module.verbose('Selecting first result');
             $result.first().addClass(className.active);
           }
