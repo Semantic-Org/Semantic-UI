@@ -92,7 +92,7 @@
 - **Project** - NPM depenendencies have all been updated to latest stable releases
 - **Button** - Added variables for configuring `disabled` background image and box shadow.
 - **Site** - Added colored box shadow defaults. `ui message` now includes individual colored border shadows based on new site defaults.
-- **Card** - Added `raised` card variation **Thanks @yoris** #2955
+- **Card** - Added `raised` card variation **Thanks @yordis** #2955
 - **Dropdown** - Adds new setting `minCharacters` which sets the minimum number of characters required to start filtering results #3886
 - **Dropdown** - Added `1px` offset for current text so that the text position cursor does not overlap first pixel of text.
 - **Dropdown** - Dropdown will now automatically focus on `search` inside of a menu after it is opened.
