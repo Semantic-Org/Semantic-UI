@@ -7540,7 +7540,7 @@ i.icons .inverted.corner.icon {
 }
 
 /*
- * Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
+ * Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
  * License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 
@@ -8133,6 +8133,10 @@ i.icon.birthday:before {
   content: "\f1fd";
 }
 
+i.icon.help.circle.outline:before {
+  content: "\f29c";
+}
+
 /* Users */
 
 i.icon.user:before {
@@ -8223,6 +8227,52 @@ i.icon.neuter:before {
 
 i.icon.genderless:before {
   content: "\f22d";
+}
+
+/* Accessibility */
+
+i.icon.universal.access:before {
+  content: "\f29a";
+}
+
+i.icon.wheelchair:before {
+  content: "\f29b";
+}
+
+i.icon.blind:before {
+  content: "\f29d";
+}
+
+i.icon.audio.description:before {
+  content: "\f29e";
+}
+
+i.icon.volume.control.phone:before {
+  content: "\f2a0";
+}
+
+i.icon.braille:before {
+  content: "\f2a1";
+}
+
+i.icon.asl:before {
+  content: "\f2a3";
+}
+
+i.icon.assistive.listening.systems:before {
+  content: "\f2a2";
+}
+
+i.icon.deafness:before {
+  content: "\f2a4";
+}
+
+i.icon.sign.language:before {
+  content: "\f2a7";
+}
+
+i.icon.low.vision:before {
+  content: "\f2a8";
 }
 
 /* View Adjustment */
@@ -9561,7 +9611,7 @@ i.icon.twitter:before {
   content: "\f099";
 }
 
-i.icon.facebook:before {
+i.icon.facebook.f:before {
   content: "\f09a";
 }
 
@@ -10053,6 +10103,74 @@ i.icon.scribd:before {
   content: "\f28a";
 }
 
+i.icon.gitlab:before {
+  content: "\f296";
+}
+
+i.icon.wpbeginner:before {
+  content: "\f297";
+}
+
+i.icon.wpforms:before {
+  content: "\f298";
+}
+
+i.icon.envira.gallery:before {
+  content: "\f299";
+}
+
+i.icon.glide:before {
+  content: "\f2a5";
+}
+
+i.icon.glide.g:before {
+  content: "\f2a6";
+}
+
+i.icon.viadeo:before {
+  content: "\f2a9";
+}
+
+i.icon.viadeo.square:before {
+  content: "\f2aa";
+}
+
+i.icon.snapchat:before {
+  content: "\f2ab";
+}
+
+i.icon.snapchat.ghost:before {
+  content: "\f2ac";
+}
+
+i.icon.snapchat.square:before {
+  content: "\f2ad";
+}
+
+i.icon.pied.piper.hat:before {
+  content: "\f2ae";
+}
+
+i.icon.first.order:before {
+  content: "\f2b0";
+}
+
+i.icon.yoast:before {
+  content: "\f2b1";
+}
+
+i.icon.themeisle:before {
+  content: "\f2b2";
+}
+
+i.icon.google.plus.circle:before {
+  content: "\f2b3";
+}
+
+i.icon.font.awesome:before {
+  content: "\f2b4";
+}
+
 /*******************************
             Aliases
 *******************************/
@@ -10151,6 +10269,10 @@ i.icon.signup:before {
 
 i.icon.plus.circle:before {
   content: "\f055";
+}
+
+i.icon.question.circle:before {
+  content: "\f059";
 }
 
 i.icon.dont:before {
@@ -10693,6 +10815,10 @@ i.icon.asexual:before {
   content: "\f22d";
 }
 
+i.icon.facebook.official:before {
+  content: "\f230";
+}
+
 i.icon.user.plus:before {
   content: "\f234";
 }
@@ -10863,6 +10989,70 @@ i.icon.edge:before {
 
 i.icon.ms.edge:before {
   content: "\f282";
+}
+
+i.icon.wordpress.beginner:before {
+  content: "\f297";
+}
+
+i.icon.wordpress.forms:before {
+  content: "\f298";
+}
+
+i.icon.envira:before {
+  content: "\f299";
+}
+
+i.icon.question.circle.outline:before {
+  content: "\f29c";
+}
+
+i.icon.assistive.listening.devices:before {
+  content: "\f2a2";
+}
+
+i.icon.als:before {
+  content: "\f2a2";
+}
+
+i.icon.ald:before {
+  content: "\f2a2";
+}
+
+i.icon.asl.interpreting:before {
+  content: "\f2a3";
+}
+
+i.icon.deaf:before {
+  content: "\f2a4";
+}
+
+i.icon.american.sign.language.interpreting:before {
+  content: "\f2a3";
+}
+
+i.icon.hard.of.hearing:before {
+  content: "\f2a4";
+}
+
+i.icon.signing:before {
+  content: "\f2a7";
+}
+
+i.icon.new.pied.piper:before {
+  content: "\f2ae";
+}
+
+i.icon.theme.isle:before {
+  content: "\f2b2";
+}
+
+i.icon.google.plus.official:before {
+  content: "\f2b3";
+}
+
+i.icon.fa:before {
+  content: "\f2b4";
 }
 
 /*******************************
@@ -17599,7 +17789,12 @@ ol.ui.horizontal.list li:before,
 .ui.form .inverted.segment .ui.checkbox label,
 .ui.form .inverted.segment .ui.checkbox .box,
 .ui.inverted.form .ui.checkbox label,
-.ui.inverted.form .ui.checkbox .box {
+.ui.inverted.form .ui.checkbox .box,
+.ui.inverted.form .inline.fields > label,
+.ui.inverted.form .inline.fields .field > label,
+.ui.inverted.form .inline.fields .field > p,
+.ui.inverted.form .inline.field > label,
+.ui.inverted.form .inline.field > p {
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -17668,7 +17863,7 @@ ol.ui.horizontal.list li:before,
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  margin: 0em 0em 1em;
+  margin: 0em -0.5em 1em;
 }
 
 .ui.form .fields > .field {
@@ -17760,18 +17955,8 @@ ol.ui.horizontal.list li:before,
   .ui.form .ten.fields > .fields,
   .ui.form .ten.fields > .field {
     width: 100% !important;
-    margin: 0em 0em 1em;
-    padding-left: 0%;
-    padding-right: 0%;
+    margin: 0em -0.5em 1em;
   }
-}
-
-.ui.form .fields .field:first-child {
-  padding-left: 0%;
-}
-
-.ui.form .fields .field:last-child {
-  padding-right: 0%;
 }
 
 /* Sizing Combinations */
@@ -17780,14 +17965,6 @@ ol.ui.horizontal.list li:before,
   width: 6.25%;
   padding-left: 0.5em;
   padding-right: 0.5em;
-}
-
-.ui.form .fields .wide.field:first-child {
-  padding-left: 0%;
-}
-
-.ui.form .fields .wide.field:last-child {
-  padding-right: 0%;
 }
 
 .ui.form .one.wide.field {
@@ -17881,8 +18058,6 @@ ol.ui.horizontal.list li:before,
   .ui.form .fields > .fifteen.wide.field,
   .ui.form .fields > .sixteen.wide.field {
     width: 100% !important;
-    padding-left: 0%;
-    padding-right: 0%;
   }
 }
 

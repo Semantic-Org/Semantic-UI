@@ -689,7 +689,12 @@
 .ui.form .inverted.segment .ui.checkbox label,
 .ui.form .inverted.segment .ui.checkbox .box,
 .ui.inverted.form .ui.checkbox label,
-.ui.inverted.form .ui.checkbox .box {
+.ui.inverted.form .ui.checkbox .box,
+.ui.inverted.form .inline.fields > label,
+.ui.inverted.form .inline.fields .field > label,
+.ui.inverted.form .inline.fields .field > p,
+.ui.inverted.form .inline.field > label,
+.ui.inverted.form .inline.field > p {
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -754,7 +759,7 @@
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin: 0em 0em 1em;
+  margin: 0em -0.5em 1em;
 }
 .ui.form .fields > .field {
   -webkit-box-flex: 0;
@@ -833,16 +838,8 @@
   .ui.form .ten.fields > .fields,
   .ui.form .ten.fields > .field {
     width: 100% !important;
-    margin: 0em 0em 1em;
-    padding-left: 0%;
-    padding-right: 0%;
+    margin: 0em -0.5em 1em;
   }
-}
-.ui.form .fields .field:first-child {
-  padding-left: 0%;
-}
-.ui.form .fields .field:last-child {
-  padding-right: 0%;
 }
 
 /* Sizing Combinations */
@@ -850,12 +847,6 @@
   width: 6.25%;
   padding-left: 0.5em;
   padding-right: 0.5em;
-}
-.ui.form .fields .wide.field:first-child {
-  padding-left: 0%;
-}
-.ui.form .fields .wide.field:last-child {
-  padding-right: 0%;
 }
 .ui.form .one.wide.field {
   width: 6.25% !important;
@@ -932,8 +923,6 @@
   .ui.form .fields > .fifteen.wide.field,
   .ui.form .fields > .sixteen.wide.field {
     width: 100% !important;
-    padding-left: 0%;
-    padding-right: 0%;
   }
 }
 

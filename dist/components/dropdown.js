@@ -460,6 +460,9 @@ $.fn.dropdown = function(parameters) {
                 if( module.can.click() ) {
                   module.bind.intent();
                 }
+                if(module.has.menuSearch()) {
+                  module.focusSearch();
+                }
                 module.set.visible();
                 callback.call(element);
               });
@@ -827,11 +830,11 @@ $.fn.dropdown = function(parameters) {
         },
 
         focusSearch: function(skipHandler) {
-          if( module.is.search() && !module.is.focusedOnSearch() ) {
+          if( module.has.search() && !module.is.focusedOnSearch() ) {
             if(skipHandler) {
               $module.off('focus' + eventNamespace, selector.search);
               $search.focus();
-              $module.on('focus'  + eventNamespace, selector.search, module.event.search.focus)
+              $module.on('focus'  + eventNamespace, selector.search, module.event.search.focus);
             }
             else {
               $search.focus();
@@ -1006,6 +1009,9 @@ $.fn.dropdown = function(parameters) {
                   ? module.show
                   : module.toggle
               ;
+              if(module.is.bubbledLabelClick(event)) {
+                return;
+              }
               if( module.determine.eventOnElement(event, toggleBehavior) ) {
                 event.preventDefault();
               }
@@ -1236,8 +1242,8 @@ $.fn.dropdown = function(parameters) {
                 hasSubMenu            = ($subMenu.length> 0),
                 hasSelectedItem       = ($selectedItem.length > 0),
                 selectedIsSelectable  = ($selectedItem.not(selector.unselectable).length > 0),
-                isAdditionWithoutMenu = (settings.allowAdditions && settings.hideAdditions && pressedKey == keys.enter && selectedIsSelectable),
                 delimiterPressed      = (pressedKey == keys.delimiter && settings.allowAdditions && module.is.multiple()),
+                isAdditionWithoutMenu = (settings.allowAdditions && settings.hideAdditions && (pressedKey == keys.enter || delimiterPressed) && selectedIsSelectable),
                 $nextItem,
                 isSubMenuItem,
                 newIndex
@@ -1329,7 +1335,7 @@ $.fn.dropdown = function(parameters) {
                       .addClass(className.selected)
                     ;
                     module.set.scrollPosition($nextItem);
-                    if(settings.selectOnShortcut && module.is.single()) {
+                    if(settings.selectOnKeydown && module.is.single()) {
                       module.set.selectedItem($nextItem);
                     }
                   }
@@ -1356,7 +1362,7 @@ $.fn.dropdown = function(parameters) {
                       .addClass(className.selected)
                     ;
                     module.set.scrollPosition($nextItem);
-                    if(settings.selectOnShortcut && module.is.single()) {
+                    if(settings.selectOnKeydown && module.is.single()) {
                       module.set.activeItem($nextItem);
                       module.set.selected(module.get.choiceValue($nextItem), $nextItem);
                     }
@@ -2068,7 +2074,7 @@ $.fn.dropdown = function(parameters) {
             $nextSelectedItem
               .addClass(className.selected)
             ;
-            if(settings.selectOnShortcut && module.is.single()) {
+            if(settings.selectOnKeydown && module.is.single()) {
               module.set.selectedItem($nextSelectedItem);
             }
             $menu
@@ -2257,7 +2263,7 @@ $.fn.dropdown = function(parameters) {
               module.set.scrollPosition($nextValue);
               $selectedItem.removeClass(className.selected);
               $nextValue.addClass(className.selected);
-              if(settings.selectOnShortcut && module.is.single()) {
+              if(settings.selectOnKeydown && module.is.single()) {
                 module.set.selectedItem($nextValue);
               }
             }
@@ -2291,7 +2297,7 @@ $.fn.dropdown = function(parameters) {
               newValue
             ;
             if(hasInput) {
-              if(settings.allowReselection && stringValue == currentValue) {
+              if(!settings.allowReselection && stringValue == currentValue) {
                 module.verbose('Skipping value update already same value', value, currentValue);
                 if(!module.is.initialLoad()) {
                   return;
@@ -2833,6 +2839,9 @@ $.fn.dropdown = function(parameters) {
         },
 
         has: {
+          menuSearch: function() {
+            return (module.has.search() && $search.closest($menu).length > 0);
+          },
           search: function() {
             return ($search.length > 0);
           },
@@ -2913,6 +2922,9 @@ $.fn.dropdown = function(parameters) {
         is: {
           active: function() {
             return $module.hasClass(className.active);
+          },
+          bubbledLabelClick: function(event) {
+            return $(event.target).is('select, input') && $module.closest('label').length > 0;
           },
           alreadySetup: function() {
             return ($module.is('select') && $module.parent(selector.dropdown).length > 0  && $module.prev().length === 0);
@@ -3411,7 +3423,7 @@ $.fn.dropdown.settings = {
 
 
   apiSettings            : false,
-  selectOnShortcut       : true,       // Whether selection should occur automatically when keyboard shortcuts used
+  selectOnKeydown        : true,       // Whether selection should occur automatically when keyboard shortcuts used
   minCharacters          : 0,          // Minimum characters required to trigger API call
   saveRemoteData         : true,       // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
   throttle               : 200,        // How long to wait after last user input to search remotely
@@ -3546,7 +3558,7 @@ $.fn.dropdown.settings = {
     menu         : '.menu',
     message      : '.message',
     menuIcon     : '.dropdown.icon',
-    search       : 'input.search, .menu > .search > input',
+    search       : 'input.search, .menu > .search > input, .menu input.search',
     sizer        : '> input.sizer',
     text         : '> .text:not(.icon)',
     unselectable : '.disabled, .filtered'
@@ -3613,7 +3625,10 @@ $.fn.dropdown.settings.templates = {
       html   = ''
     ;
     $.each(values, function(index, option) {
-      html += '<div class="item" data-value="' + option[fields.value] + '">' + option[fields.name] + '</div>';
+      html += (option.disabled)
+        ? '<div class="disabled item" data-value="' + option[fields.value] + '">' + option[fields.name] + '</div>'
+        : '<div class="item" data-value="' + option[fields.value] + '">' + option[fields.name] + '</div>'
+      ;
     });
     return html;
   },

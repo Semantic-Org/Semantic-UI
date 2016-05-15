@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.0 - Video
+ * # Semantic UI 2.2.0 - Embed
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -685,7 +685,7 @@ $.fn.embed.settings = {
   },
 
   // NOT YET IMPLEMENTED
-  api     : true,
+  api     : false,
   onPause : function() {},
   onPlay  : function() {},
   onStop  : function() {}

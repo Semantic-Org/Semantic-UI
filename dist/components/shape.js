@@ -69,6 +69,11 @@ $.fn.shape = function(parameters) {
         $activeSide,
         $nextSide,
 
+        initial = {
+          width  : $module.width(),
+          height : $module.height()
+        },
+
         // standard module
         element       = this,
         instance      = $module.data(moduleNamespace),
@@ -252,14 +257,29 @@ $.fn.shape = function(parameters) {
                   : $clone.find(selector.side).first(),
               newSize = {}
             ;
-            module.set.currentStageSize();
             $activeSide.removeClass(className.active);
             $nextSide.addClass(className.active);
             $clone.insertAfter($module);
-            newSize = {
-              width  : $nextSide.outerWidth(true),
-              height : $nextSide.outerHeight(true)
-            };
+            if(settings.width == 'next') {
+              newSize.width = $nextSide.outerWidth(true);
+            }
+            else if(settings.width == 'initial') {
+              newSize.width = initial.width;
+            }
+            else {
+              newSize.width = settings.width;
+            }
+            if(settings.height == 'next') {
+              newSize.height = $nextSide.outerHeight(true);
+            }
+            else if(settings.height == 'initial') {
+              newSize.height = initial.height + 2;
+            }
+            else {
+              newSize.height = settings.height;
+            }
+            newSize.width  += settings.jitter;
+            newSize.height += settings.jitter;
             $clone.remove();
             $module
               .css(newSize)
@@ -850,6 +870,9 @@ $.fn.shape.settings = {
 
   // verbose debug output
   verbose    : false,
+
+  // fudge factor in pixels when swapping from 2d to 3d
+  jitter     : 1,
 
   // performance data output
   performance: true,

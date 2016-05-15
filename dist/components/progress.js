@@ -452,7 +452,16 @@ $.fn.progress = function(parameters) {
             clearInterval(module.interval);
             $bar.one(transitionEnd + eventNamespace, animationCallback);
             animating = true;
-            module.interval = setInterval(module.set.labels, settings.framerate);
+            module.interval = setInterval(function() {
+              let
+                isInDOM = $.contains(document.documentElement, element)
+              ;
+              if(!isInDOM) {
+                clearInterval(module.interval);
+                animating = false;
+              }
+              module.set.labels();
+            }, settings.framerate);
           },
           labels: function() {
             module.verbose('Setting both bar progress and outer label text');
