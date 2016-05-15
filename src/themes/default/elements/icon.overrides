@@ -575,7 +575,7 @@ i.icon.facebook.square:before { content: "\f082"; }
 i.icon.linkedin.square:before { content: "\f08c"; }
 i.icon.github.square:before { content: "\f092"; }
 i.icon.twitter:before { content: "\f099"; }
-i.icon.facebook:before { content: "\f09a"; }
+i.icon.facebook.f:before { content: "\f09a"; }
 i.icon.github:before { content: "\f09b"; }
 i.icon.pinterest:before { content: "\f0d2"; }
 i.icon.pinterest.square:before { content: "\f0d3"; }
@@ -880,6 +880,7 @@ i.icon.mars.stroke.vertical:before { content: "\f22a"; }
 i.icon.mars.horizontal:before { content: "\f22b"; }
 i.icon.mars.stroke.horizontal:before { content: "\f22b"; }
 i.icon.asexual:before { content: "\f22d"; }
+i.icon.facebook.official:before { content: "\f230"; }
 i.icon.user.plus:before { content: "\f234"; }
 i.icon.user.times:before { content: "\f235"; }
 i.icon.user.close:before { content: "\f235"; }
