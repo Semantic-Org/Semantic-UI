@@ -1052,7 +1052,6 @@ $.fn.dropdown = function(parameters) {
           },
           menu: {
             mutation: function(mutations) {
-              module.debug('Menu modified, updating selector cache');
               var
                 mutation   = mutations[0],
                 $addedNode = mutation.addedNodes
@@ -1068,6 +1067,7 @@ $.fn.dropdown = function(parameters) {
               if(isUserAddition || isMessage) {
                 return
               }
+              module.debug('Menu modified, updating selector cache');
               module.refresh();
             },
             mousedown: function() {
