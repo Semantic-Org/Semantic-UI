@@ -23,6 +23,7 @@
 - **Popup** - Fixed issue where clicking element inside popup removed from DOM (like clicking a multi select label) would cause popup to close #3887
 - **Search** - Added a new option `selectFirstResult`, which defaults to `false`. Will automatically highlight first result on search **NEEDS DOCS**
 - **Search** - Search now includes a `showNoResults` setting for determining whether no results messages should be shown **NEEDS DOCS**
+- **Tab** - Added new setting `cacheType`, can either be `html` or `response`. HTML (default) will cache resulting html after callbacks, `response` will cache the original respones so that it can be played back identically on future loads #2534
 - **Visibility** - Added `onFixed` and `onUnfixed` callbacks for visibility `type: 'fixed'` **NEEDS DOCS**
 
 **Critical Bugs**
