@@ -58,6 +58,7 @@
 - **Dropdown** - Long dropdown text entry with `allowAdditions` would cause input to mistakingly drop to next line early #3743
 - **Dropdown** - Seach selection would lose search input focus when clicking on a choice #3790
 - **Embed** - `API` setting is now disabled by default
+- **Form** - Fix `equal width fields` sometimes not including right field spacing on mobile #3913
 - **Form** - Grouped `fields` and `field` would cause different margin collapse, making `fields` include larger gaps between content #3717
 - **Form** - Fixed issue where `inline` field was not being correctly inverted in color with `inverted form` #4004 #4005 **Thanks @tbracken**
 - **Form** - Remove deprecated `size()` method in `prompt` #3655 **Thanks @SimonArdrey**

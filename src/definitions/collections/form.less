@@ -809,6 +809,9 @@
   .ui.form .fields {
     flex-wrap: wrap;
   }
+
+  .ui[class*="equal width"].form .fields > .field,
+  .ui.form [class*="equal width"].fields > .field,
   .ui.form .two.fields > .fields,
   .ui.form .two.fields > .field,
   .ui.form .three.fields > .fields,
@@ -828,7 +831,7 @@
   .ui.form .ten.fields > .fields,
   .ui.form .ten.fields > .field {
     width: @oneColumn !important;
-    margin: @fieldsMargin;
+    margin: 0em 0em @rowDistance;
   }
 }
 
@@ -915,6 +918,9 @@
   .ui.form .fields > .fifteen.wide.field,
   .ui.form .fields > .sixteen.wide.field {
     width: @oneColumn !important;
+  }
+  .ui.form .fields {
+    margin-bottom: 0em;
   }
 }
 
