@@ -82,6 +82,7 @@
 - **Table** - `striped selectable` table would not correctly show hover color on striped rows
 
 **Enhancements**
+- **Project** - NPM depenendencies have all been updated to latest stable releases
 - **Button** - Added variables for configuring `disabled` background image and box shadow.
 - **Site** - Added colored box shadow defaults. `ui message` now includes individual colored border shadows based on new site defaults.
 - **Dropdown** - Adds new setting `minCharacters` which sets the minimum number of characters required to start filtering results #3886
