@@ -455,7 +455,9 @@ $.fn.tab = function(parameters) {
                   'X-Remote': true
                 },
                 onSuccess : function(response) {
-                  module.cache.add(fullTabPath, response);
+                  if(settings.cacheType == 'response') {
+                    module.cache.add(fullTabPath, response);
+                  }
                   module.update.content(tabPath, response);
                   if(tabPath == activeTabPath) {
                     module.debug('Content loaded', tabPath);
@@ -466,6 +468,9 @@ $.fn.tab = function(parameters) {
                   }
                   settings.onFirstLoad.call($tab[0], tabPath, parameterArray, historyEvent);
                   settings.onLoad.call($tab[0], tabPath, parameterArray, historyEvent);
+                  if(settings.cacheType != 'response') {
+                    module.cache.add(fullTabPath, $tab.html());
+                  }
                 },
                 urlData: {
                   tab: fullTabPath
@@ -876,6 +881,7 @@ $.fn.tab.settings = {
 
   alwaysRefresh   : false,      // load tab content new every tab click
   cache           : true,       // cache the content requests to pull locally
+  cacheType       : 'response', // Whether to cache exact response, or to html cache contents after scripts execute
   ignoreFirstLoad : false,      // don't load remote content on first load
 
   apiSettings     : false,      // settings for api call
