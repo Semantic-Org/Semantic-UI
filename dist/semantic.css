@@ -17936,6 +17936,8 @@ ol.ui.horizontal.list li:before,
     flex-wrap: wrap;
   }
 
+  .ui[class*="equal width"].form .fields > .field,
+  .ui.form [class*="equal width"].fields > .field,
   .ui.form .two.fields > .fields,
   .ui.form .two.fields > .field,
   .ui.form .three.fields > .fields,
@@ -17955,7 +17957,7 @@ ol.ui.horizontal.list li:before,
   .ui.form .ten.fields > .fields,
   .ui.form .ten.fields > .field {
     width: 100% !important;
-    margin: 0em -0.5em 1em;
+    margin: 0em 0em 1em;
   }
 }
 
@@ -18058,6 +18060,10 @@ ol.ui.horizontal.list li:before,
   .ui.form .fields > .fifteen.wide.field,
   .ui.form .fields > .sixteen.wide.field {
     width: 100% !important;
+  }
+
+  .ui.form .fields {
+    margin-bottom: 0em;
   }
 }
 
