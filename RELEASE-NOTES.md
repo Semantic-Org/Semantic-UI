@@ -52,6 +52,7 @@
 - **Dropdown** - Fixed bug where using `action: 'hide'` could cause `text` value not to be passed to `onChange` callback
 - **Dropdown** - Regenerated dropdown will no longer ignore `disabled` property #4010 **Thanks @eymengunay!**
 - **Dropdown** - `apiSettings` was not defaulting to use `cache: 'local'` as specified in the docs
+- **Dropdown** - Fixed issue where value set using javascript DOM metadata would be cleared when a message or user addition triggered `refresh` #3879 #3622 **Thanks @mdehoog**
 - **Dropdown** - Fixed issue where values with `"` (double quotes) would not work with a dropdown using a select, because value would not be encoded as html entities
 - **Dropdown** - `get value` would not return correct value when value was blank #3766
 - **Dropdown** - Dropdown would open when an label delete x was clicked when not using `search selection` #3789
