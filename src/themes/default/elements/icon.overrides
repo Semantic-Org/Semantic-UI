@@ -709,6 +709,12 @@ i.icon.viadeo.square:before { content: "\f2aa"; }
 i.icon.snapchat:before { content: "\f2ab"; }
 i.icon.snapchat.ghost:before { content: "\f2ac"; }
 i.icon.snapchat.square:before { content: "\f2ad"; }
+i.icon.pied.piper.hat:before { content: "\f2ae"; }
+i.icon.first.order:before { content: "\f2b0"; }
+i.icon.yoast:before { content: "\f2b1"; }
+i.icon.themeisle:before { content: "\f2b2"; }
+i.icon.google.plus.circle:before { content: "\f2b3"; }
+i.icon.font.awesome:before { content: "\f2b4"; }
 
 /*******************************
             Aliases
@@ -928,3 +934,7 @@ i.icon.asl.interpreting:before { content: "\f2a3"; }
 i.icon.deaf:before { content: "\f2a4"; }
 i.icon.hard.of.hearing:before{ content: "\f2a4"; }
 i.icon.signing:before { content: "\f2a7"; }
+i.icon.new.pied.piper:before { content: "\f2ae"; }
+i.icon.theme.isle:before { content: "\f2b2"; }
+i.icon.google.plus.official:before { content: "\f2b3"; }
+i.icon.fa:before { content: "\f2b4"; }
