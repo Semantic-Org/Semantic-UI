@@ -57,6 +57,7 @@
 - **Dropdown** - Seach selection would lose search input focus when clicking on a choice #3790
 - **Embed** - `API` setting is now disabled by default
 - **Form** - Grouped `fields` and `field` would cause different margin collapse, making `fields` include larger gaps between content #3717
+- **Form** - Fixed issue where `inline` field was not being correctly inverted in color with `inverted form` #4004 #4005 **Thanks @tbracken**
 - **Form** - Remove deprecated `size()` method in `prompt` #3655 **Thanks @SimonArdrey**
 - **Grid** - Fixed issue where `vertically divided` grid would have top margin in first `row` group
 - **Grid** - `centered` content would cause `justified` content to appear aligned left. #3496
