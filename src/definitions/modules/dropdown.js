@@ -3619,7 +3619,10 @@ $.fn.dropdown.settings.templates = {
       html   = ''
     ;
     $.each(values, function(index, option) {
-      html += '<div class="item" data-value="' + option[fields.value] + '">' + option[fields.name] + '</div>';
+      html += (option.disabled)
+        ? '<div class="disabled item" data-value="' + option[fields.value] + '">' + option[fields.name] + '</div>'
+        : '<div class="item" data-value="' + option[fields.value] + '">' + option[fields.name] + '</div>'
+      ;
     });
     return html;
   },
