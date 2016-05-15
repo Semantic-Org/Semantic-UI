@@ -408,6 +408,10 @@ $.fn.dropdown = function(parameters) {
           module.refreshData();
         },
 
+        refreshItems: function() {
+          $item = $menu.find(selector.item);
+        },
+
         refreshSelectors: function() {
           module.verbose('Refreshing selector cache');
           $text   = $module.find(selector.text);
@@ -1065,10 +1069,13 @@ $.fn.dropdown = function(parameters) {
                 isMessage      = $changedNodes.is(selector.message)  || $changedNodes.closest(selector.message).length > 0
               ;
               if(isUserAddition || isMessage) {
-                return
+                module.debug('Updating item selector cache');
+                module.refreshItems();
               }
-              module.debug('Menu modified, updating selector cache');
-              module.refresh();
+              else {
+                module.debug('Menu modified, updating selector cache');
+                module.refresh();
+              }
             },
             mousedown: function() {
               itemActivated = true;
