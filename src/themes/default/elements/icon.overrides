@@ -204,13 +204,13 @@ i.icon.genderless:before { content: "\f22d"; }
 
 /* Accessibility */
 i.icon.universal.access:before { content: "\f29a"; }
-i.icon.alternative.wheelchair:before { content: "\f29b"; }
+i.icon.wheelchair:before { content: "\f29b"; }
 i.icon.blind:before { content: "\f29d"; }
 i.icon.audio.description:before { content: "\f29e"; }
 i.icon.volume.control.phone:before { content: "\f2a0"; }
 i.icon.braille:before { content: "\f2a1"; }
+i.icon.asl:before { content: "\f2a3"; }
 i.icon.assistive.listening.systems:before { content: "\f2a2"; }
-i.icon.american.sign.language.interpreting:before { content: "\f2a3"; }
 i.icon.deafness:before { content: "\f2a4"; }
 i.icon.sign.language:before { content: "\f2a7"; }
 i.icon.low.vision:before { content: "\f2a8"; }
@@ -933,6 +933,7 @@ i.icon.als:before { content: "\f2a2"; }
 i.icon.ald:before { content: "\f2a2"; }
 i.icon.asl.interpreting:before { content: "\f2a3"; }
 i.icon.deaf:before { content: "\f2a4"; }
+i.icon.american.sign.language.interpreting:before { content: "\f2a3"; }
 i.icon.hard.of.hearing:before{ content: "\f2a4"; }
 i.icon.signing:before { content: "\f2a7"; }
 i.icon.new.pied.piper:before { content: "\f2ae"; }
