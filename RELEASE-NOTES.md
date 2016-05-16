@@ -91,6 +91,7 @@
 - **Step** - Fix incorrect bottom margin on `top attached steps`
 - **Statistic** - statistic receives incorrect size when using `tiny` `large` etc inside a statistic group #3116
 - **Table** - `striped selectable` table would not correctly show hover color on striped rows
+- **Visibility** - Using `type: fixed` will now correctly remove all special classes and placeholder content on `destroy` #3548
 
 **Enhancements**
 - **Project** - NPM depenendencies have all been updated to latest stable releases

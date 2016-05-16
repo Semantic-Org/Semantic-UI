@@ -125,6 +125,10 @@ $.fn.visibility = function(parameters) {
           $context
             .off('scrollchange' + eventNamespace, module.event.scrollchange)
           ;
+          if(settings.type == 'fixed') {
+            module.resetFixed();
+            module.remove.placeholder();
+          }
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
@@ -389,8 +393,7 @@ $.fn.visibility = function(parameters) {
         refresh: function() {
           module.debug('Refreshing constants (width/height)');
           if(settings.type == 'fixed') {
-            module.remove.fixed();
-            module.remove.occurred();
+            module.resetFixed();
           }
           module.reset();
           module.save.position();
@@ -398,6 +401,11 @@ $.fn.visibility = function(parameters) {
             module.checkVisibility();
           }
           settings.onRefresh.call(element);
+        },
+
+        resetFixed: function () {
+          module.remove.fixed();
+          module.remove.occurred();
         },
 
         reset: function() {
@@ -765,6 +773,12 @@ $.fn.visibility = function(parameters) {
               })
             ;
             settings.onUnfixed.call(element);
+          },
+          placeholder: function() {
+            module.debug('Removing placeholder content');
+            if($placeholder) {
+              $placeholder.remove();
+            }
           },
           occurred: function(callback) {
             if(callback) {
