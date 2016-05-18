@@ -73,7 +73,7 @@ $.fn.popup = function(parameters) {
         element            = this,
         instance           = $module.data(moduleNamespace),
 
-        contextObserver,
+        documentObserver,
         elementNamespace,
         id,
         module
@@ -103,12 +103,12 @@ $.fn.popup = function(parameters) {
 
         observeChanges: function() {
           if('MutationObserver' in window) {
-            contextObserver = new MutationObserver(module.event.contextChanged);
-            contextObserver.observe($context[0], {
+            documentObserver = new MutationObserver(module.event.documentChanged);
+            documentObserver.observe(document, {
               childList : true,
               subtree   : true
             });
-            module.debug('Setting up mutation observer', contextObserver);
+            module.debug('Setting up mutation observer', documentObserver);
           }
         },
 
@@ -158,8 +158,8 @@ $.fn.popup = function(parameters) {
 
         destroy: function() {
           module.debug('Destroying previous module');
-          if(contextObserver) {
-            contextObserver.disconnect();
+          if(documentObserver) {
+            documentObserver.disconnect();
           }
           // remove element only if was created dynamically
           if($popup && !settings.preserve) {
@@ -206,7 +206,7 @@ $.fn.popup = function(parameters) {
               module.set.position();
             }
           },
-          contextChanged: function(mutations) {
+          documentChanged: function(mutations) {
             [].forEach.call(mutations, function(mutation) {
               if(mutation.removedNodes) {
                 [].forEach.call(mutation.removedNodes, function(node) {

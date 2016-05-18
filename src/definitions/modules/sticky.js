@@ -65,7 +65,7 @@ $.fn.sticky = function(parameters) {
 
         element         = this,
 
-        contextObserver,
+        documentObserver,
         observer,
         module
       ;
@@ -99,8 +99,8 @@ $.fn.sticky = function(parameters) {
         destroy: function() {
           module.verbose('Destroying previous instance');
           module.reset();
-          if(contextObserver) {
-            contextObserver.disconnect();
+          if(documentObserver) {
+            documentObserver.disconnect();
           }
           if(observer) {
             observer.disconnect();
@@ -116,13 +116,10 @@ $.fn.sticky = function(parameters) {
         },
 
         observeChanges: function() {
-          var
-            context = $context[0]
-          ;
           if('MutationObserver' in window) {
-            contextObserver = new MutationObserver(module.event.contextChanged);
-            observer        = new MutationObserver(module.event.changed);
-            contextObserver.observe($context[0], {
+            documentObserver = new MutationObserver(module.event.documentChanged);
+            observer         = new MutationObserver(module.event.changed);
+            documentObserver.observe(document, {
               childList : true,
               subtree   : true
             });
@@ -130,7 +127,7 @@ $.fn.sticky = function(parameters) {
               childList : true,
               subtree   : true
             });
-            observer.observe(context, {
+            observer.observe($context[0], {
               childList : true,
               subtree   : true
             });
@@ -189,7 +186,7 @@ $.fn.sticky = function(parameters) {
               module.refresh();
             }, 100);
           },
-          contextChanged: function(mutations) {
+          documentChanged: function(mutations) {
             [].forEach.call(mutations, function(mutation) {
               if(mutation.removedNodes) {
                 [].forEach.call(mutation.removedNodes, function(node) {
