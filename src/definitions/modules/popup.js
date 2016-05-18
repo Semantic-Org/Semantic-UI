@@ -73,6 +73,7 @@ $.fn.popup = function(parameters) {
         element            = this,
         instance           = $module.data(moduleNamespace),
 
+        contextObserver,
         elementNamespace,
         id,
         module
@@ -88,6 +89,7 @@ $.fn.popup = function(parameters) {
           if(!module.exists() && settings.preserve) {
             module.create();
           }
+          module.observeChanges();
           module.instantiate();
         },
 
@@ -98,6 +100,18 @@ $.fn.popup = function(parameters) {
             .data(moduleNamespace, instance)
           ;
         },
+
+        observeChanges: function() {
+          if('MutationObserver' in window) {
+            contextObserver = new MutationObserver(module.event.contextChanged);
+            contextObserver.observe($context[0], {
+              childList : true,
+              subtree   : true
+            });
+            module.debug('Setting up mutation observer', contextObserver);
+          }
+        },
+
 
         refresh: function() {
           if(settings.popup) {
@@ -153,9 +167,9 @@ $.fn.popup = function(parameters) {
           clearTimeout(module.hideTimer);
           clearTimeout(module.showTimer);
           // remove events
-          $window.off(elementNamespace);
+          module.unbind.close();
+          module.unbind.events();
           $module
-            .off(eventNamespace)
             .removeData(moduleNamespace)
           ;
         },
@@ -189,6 +203,18 @@ $.fn.popup = function(parameters) {
             if( module.is.visible() ) {
               module.set.position();
             }
+          },
+          contextMutation: function(mutations) {
+            [].forEach.call(mutations, function(mutation) {
+              if(mutation.removedNodes) {
+                [].forEach.call(mutation.removedNodes, function(node) {
+                  if(node == element || $(node).find(element).length > 0) {
+                    module.debug('Element removed from DOM, tearing down events');
+                    module.destroy();
+                  }
+                });
+              }
+            });
           },
           hideGracefully: function(event) {
             var
@@ -271,7 +297,7 @@ $.fn.popup = function(parameters) {
         },
 
         createID: function() {
-          id = (Math.random().toString(16) + '000000000').substr(2,8);
+          id = (Math.random().toString(16) + '000000000').substr(2, 8);
           elementNamespace = '.' + id;
           module.verbose('Creating unique id for element', id);
         },
@@ -335,7 +361,7 @@ $.fn.popup = function(parameters) {
             .each(function() {
               $(this)
                 .data(metadata.activator)
-                .popup('hide')
+                  .popup('hide')
               ;
             })
           ;
@@ -394,9 +420,6 @@ $.fn.popup = function(parameters) {
             callback = $.isFunction(callback) ? callback : function(){};
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               module.set.visible();
-              if(settings.autoRemove) {
-                module.bind.autoRemoval();
-              }
               $popup
                 .transition({
                   animation  : settings.transition + ' in',
@@ -435,9 +458,6 @@ $.fn.popup = function(parameters) {
                     module.reset();
                     callback.call($popup, element);
                     settings.onHidden.call($popup, element);
-                    if(settings.autoRemove) {
-                      module.unbind.autoRemoval();
-                    }
                   }
                 })
               ;
@@ -959,15 +979,6 @@ $.fn.popup = function(parameters) {
               ;
             }
           },
-          autoRemoval: function() {
-            $module
-              .one('remove' + eventNamespace, function() {
-                module.hide(function() {
-                  module.removePopup();
-                });
-              })
-            ;
-          },
           close: function() {
             if(settings.hideOnScroll === true || (settings.hideOnScroll == 'auto' && settings.on != 'click')) {
               $scrollContext
@@ -996,31 +1007,22 @@ $.fn.popup = function(parameters) {
         },
 
         unbind: {
-          close: function() {
-            if(settings.hideOnScroll === true || (settings.hideOnScroll == 'auto' && settings.on != 'click')) {
-              $document
-                .off('scroll' + elementNamespace, module.hide)
-              ;
-              $context
-                .off('scroll' + elementNamespace, module.hide)
-              ;
-            }
-            if(settings.on == 'hover' && openedWithTouch) {
-              $document
-                .off('touchstart' + elementNamespace)
-              ;
-              openedWithTouch = false;
-            }
-            if(settings.on == 'click' && settings.closable) {
-              module.verbose('Removing close event from document');
-              $document
-                .off('click' + elementNamespace)
-              ;
-            }
+          events: function() {
+            $window
+              .off(elementNamespace)
+            ;
+            $module
+              .off(eventNamespace)
+            ;
           },
-          autoRemoval: function() {
-            $module.off('remove' + elementNamespace);
-          }
+          close: function() {
+            $document
+              .off(elementNamespace)
+            ;
+            $scrollContext
+              .off(elementNamespace)
+            ;
+          },
         },
 
         has: {
@@ -1276,6 +1278,9 @@ $.fn.popup.settings = {
   performance    : true,
   namespace      : 'popup',
 
+  // whether it should use dom mutation observers
+  observeChanges : true,
+
   // callback only when element added to dom
   onCreate       : function(){},
 
@@ -1296,9 +1301,6 @@ $.fn.popup.settings = {
 
   // callback after hide animation
   onHidden       : function(){},
-
-  // hides popup when triggering element is destroyed
-  autoRemove     : true,
 
   // when to show popup
   on             : 'hover',

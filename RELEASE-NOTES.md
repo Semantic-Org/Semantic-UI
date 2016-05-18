@@ -7,7 +7,7 @@
 - **Webpack** - Modified all relative paths in project to prefix with `./` to make them webpack friendly (wont be misinterpreted as module)
 - **Form Validation** - Added ability for field validation to depend on other fields being filled out
 - **Popup** - Added new setting `boundary` and `scrollContext`. `boundary` lets you specify an element that the popup will try to position itself to be contained inside of. `scrollContext` lets you specify the element which when scrolled should hide the popup
-- **Popup** - Added new settings `autoRemove`, which is enabled by default. This will add special event listeners to auto hide a popup if the triggering element is removed from the DOM. This is useful in controlled DOM environments like Meteor/Ember/React to ensure a popup auto-hides itself when a page navigation or other DOM change occurs that may not trigger `mouseout`.
+- **Popup** - Added new settings `observeChanges`, which is enabled by default. This will add special mutation observers to trigger `destroy` when the element is removed from the document, preventing memory leaks.
 - **Dropdown** - Dropdown now changes user selection on keyboard shortcuts **immediately**, this will save the extra `enter` key press to confirm selection in most cases. To enable previous pre `2.2` selection style use the setting `selectOnKeydown: false` NEEDS DOCS
 - **Dropdown** - Multiple select dropdown now sizes current dropdown input based on rendered width of a hidden element, not using an estimate based on character count. This means search will never break to a second line earlier than would normally fit in current line.
 - **Button** - Added compatibility with `primary` `secondary` `positive` `negative` buttons with the `basic` styling variation. #3756
