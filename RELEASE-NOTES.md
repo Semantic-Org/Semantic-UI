@@ -2,42 +2,70 @@
 
 ### Version 2.2.0 - XX XX, 2016
 
-**Major Enhancements**
-- **Popup** - Added new `tooltip` popup type that works **without javascript**. Tooltips can specify positioning and some variations using `data` attributes, and will handle positioning automatically with CSS only.
-- **Webpack** - Modified all relative paths in project to prefix with `./` to make them webpack friendly (wont be misinterpreted as module)
-- **Form Validation** - Added ability for field validation to depend on other fields being filled out
-- **Popup** - Added new setting `boundary` and `scrollContext`. `boundary` lets you specify an element that the popup will try to position itself to be contained inside of. `scrollContext` lets you specify the element which when scrolled should hide the popup
-- **Popup** - Added new settings `observeChanges`, which is enabled by default. This will add special mutation observers to trigger `destroy` when the element is removed from the document, preventing memory leaks.
-- **Dropdown** - Dropdown now changes user selection on keyboard shortcuts **immediately**, this will save the extra `enter` key press to confirm selection in most cases. To enable previous pre `2.2` selection style use the setting `selectOnKeydown: false` NEEDS DOCS
-- **Dropdown** - Multiple select dropdown now sizes current dropdown input based on rendered width of a hidden element, not using an estimate based on character count. This means search will never break to a second line earlier than would normally fit in current line.
-- **Button** - Added compatibility with `primary` `secondary` `positive` `negative` buttons with the `basic` styling variation. #3756
-- **Dropdown** - Added new setting for search selection `hideAdditions` this will remove showing user additions inside the menu, making for a more intuitive adding process. Dropdowns now have a new state `empty` which will format an active dropdown with empty results. #3791
-- **Dropdown** - Adds new `allowReselection` option to trigger `onChange` events even when reselecting same value ***NEEEDS DOCUMENTATION***
-- **Dropdown** - Added `fullSearchSearch: 'exact'` setting, which requires exact matches for dropdown values #3085 #3994 **Thanks @ShawnCholeva**
+**New Features**
+- **Webpack** - All relative css paths are now webpack-compatible
+- **NPM** - NPM depenendencies have all been updated to latest stable releases
+- **All UI** - Components that use event handlers on `document`, `body`, or a `settings.context` now all use DOM mutation observers to detect removal and prevent memory leaks
 - **All UI** - All UI now include _all_ sizing variations, `mini`, `tiny`, `small`, `large`, `big`, `huge`, `massive`. Headers remain with only 5 sizes `small-huge` to match `H1-H5`
-- **Icons** -  Icons now use the latest Font Awesome `4.5.0` Icons. 50+ new icons+ are included. Thanks @BreadMaker for the PR and @davegandy for the font!
+- **Dropdown** - Dropdown now changes user selection on keyboard shortcuts immediately, this will save the extra `enter` key press to confirm selection in most cases. To enable previous pre `2.2` selection style use the setting `selectOnKeydown: false` NEEDS DOCS
+- **Dropdown** - Dropdown will now automatically focus on `search` inside of a dropdown menu after it is opened.
+- **Dropdown** - Multiple select dropdown now sizes current dropdown input based on rendered width of a hidden element, not using an estimate based on character count. This means search will never break to a second line earlier than would normally fit in current line.
 - **Progress** - Progress now uses a polling interval for updates. Rapidly updating the progress bar over a period quicker than the animation duration (for example with xhr `onprogress` events say every 50ms) will now appear smooth as butter.
-- **Modules** - Added new setting `silent` to all modules which allows you to disable **all** console output including errors. This can be useful for preventing known errors, like a popup which cannot place itself on screen, or `sticky` content which initializes before it is visible #3713
-- **Dropdown** - All dropdowns, not just `selection dropdown`, will now select the first `menu item` that starts with a pressed keyboard key, for example "N" will select "New"
-- **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation](http://www.semantic-ui.com/introduction/advanced-usage.html#Auto-Install) for how to use. #3616 **Thanks @algorithme**
-- **Popup** - Fixed issue where clicking element inside popup removed from DOM (like clicking a multi select label) would cause popup to close #3887
-- **Search** - Added a new option `selectFirstResult`, which defaults to `false`. Will automatically highlight first result on search **NEEDS DOCS**
-- **Search** - Search now includes a `showNoResults` setting for determining whether no results messages should be shown **NEEDS DOCS**
-- **Tab** - Added new setting `cacheType`, can either be `html` or `response` (default). HTML will cache resulting html after callbacks, `response` will cache the original response so that it can be played back identically on future loads #2534
-- **Visibility** - Added `onFixed` and `onUnfixed` callbacks for visibility `type: 'fixed'` **NEEDS DOCS**
 
-**Critical Bugs**
-- **All UI** - Using `setting` on a setting that is an object literal, for example `error: {}` will now extend the existing object instead of replacing it.
+**New UI Additions**
+- **All UI** - Added new setting `silent` to all modules which allows you to disable all console output including errors. This can be useful for preventing known errors, like a popup which cannot place itself on screen, or `sticky` content which initializes before it is visible #3713
+- **Card** - Added `raised` card variation **Thanks @yordis** #2955
+- **Dropdown** - All dropdowns, not just `selection dropdown`, will now select the first `menu item` that starts with a pressed keyboard key, for example "N" will select "New"
+- **Dropdown** - Adds new setting `minCharacters` which sets the minimum number of characters required to start filtering results #3886
+- **Icons** -  Icons now use the latest Font Awesome `4.5.0` Icons. 50+ new icons+ are included. Thanks @BreadMaker for the PR and @davegandy for the font!
+- **Popup** - Added new `tooltip` popup type that works without javascript. Tooltips can specify positioning and some variations using `data` attributes, and will handle positioning automatically with CSS only.
+- **Button** - Added compatibility with `primary` `secondary` `positive` `negative` buttons with the `basic` styling variation. #3756
+- **Dropdown** - Adds new `allowReselection` option to trigger `onChange` events even when reselecting same value ***NEEEDS DOCUMENTATION***
+- **Dropdown** - Added new setting for search selection `hideAdditions` this will remove showing user additions inside the menu, making for a more intuitive adding process. Dropdowns now have a new state `empty` which will format an active dropdown with empty results. #3791
+- **Dropdown** - Added `fullSearchSearch: 'exact'` setting, which requires exact matches for dropdown values #3085 #3994 **Thanks @ShawnCholeva**
+- **Table** - `definition table` now includes additional class names for forcing, or ignoring definition cell styles
+
+**New Settings**
+- **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation](http://www.semantic-ui.com/introduction/advanced-usage.html#Auto-Install) for how to use. #3616 **Thanks @algorithme**
+- **Popup** - Added new setting `boundary` and `scrollContext`. `boundary` lets you specify an element that the popup will try to position itself to be contained inside of. `scrollContext` lets you specify the element which when scrolled should hide the popup
+- **Form Validation** - Added `depends` validation rule setting which will only validate a field if another specified field is not empty
+- **Popup** - Added new settings `observeChanges`, which is enabled by default. This will add special mutation observers to trigger `destroy` when the element is removed from the document, preventing memory leaks.
+- **Visibility** - Added `onFixed` and `onUnfixed` callbacks for visibility `type: 'fixed'` **NEEDS DOCS**
+- **Tab** - Added new setting `cacheType`, can either be `html` or `response` (default). HTML will cache resulting html after callbacks, `response` will cache the original response so that it can be played back identically on future loads #2534
+- **Search** - Search now includes a `showNoResults` setting for determining whether no results messages should be shown **NEEDS DOCS**
+- **Search** - Added a new option `selectFirstResult`, which defaults to `false`. Will automatically highlight first result on search **NEEDS DOCS**
+- **Visibility** - Added `zIndex` setting for specifying zindex with `type: 'fixed'` #3370
+- **Progress** - Added `onLabelUpdate` callback, this can be used to specify the exact text that should appear on the actual progress update, perhaps based on some external conditions
+- **Rating** - Added new setting `fireOnInit` for rating, which defaults to `false`. When set to true `onRate` will fire when rating is initialized #3712
+- **Shape** - Shape now lets you specify next side width using setting `width`, can use `next` or `initial` to specify whether it should use old or new side size **NEEDS DOCS**
+- **Tabs** - Added new option `deactivate`, defaults to `siblings` which will only deactivate tab activators that are DOM siblings elements to the activating element. Setting it to <code>'all'</code> will deactivate any other tab element initialized at the same time.
+
+**New Behaviors**
+- **Dropdown** - Added new convenience method `restore placeholder text`
+- **Progress** - Added progress `is complete` for returning whether success, warning, or error conditions are met
+
+**CSS Enhancements**
+- **All UI** Extended variables which return exact pixel values in em (`@relativePX` and @px) up to 40px to allow for simple theming with exact values
+- **Button** - Added variables for configuring `disabled` background image and box shadow.
+- **Site** - Added colored box shadow defaults. `ui message` now includes individual colored border shadows based on new site defaults.
+- **Site** - Added new `@inputColor` and `@inputPlaceholderColor` global variables that now control placeholder text styles across all components.
+- **Table** - `definition table` now supports `ignored` variation to force a `first-child` to ignore its default definition stylings
+- **Table** - `definition table` now supports `definition` variation to specify definition styles on an element that is not `:first-child`
+
+**Critical Bug Fixes**
+- **All UI** - Using `component('setting, {})` to add multiple settings as an object literal, for example `error: {}`, will now deep extend the existing object instead of replacing it.
 - **API** - `beforeSend` would not correctly cancel request when `return false;` is used in callback. #3660
 - **API** - `cache: 'local'` would not return the localstorage cached results in some cases
 - **Dropdown** - `search selection` would not let you move back in an entered search string with left arrow #3596 **Thanks @Sanjo**
 - **Divider** - Descenders like "g" are cut off in `horizontal divider` #3585
 - **Dropdown** - `forceSelection` will now automatically select values with multi dropdowns. When using `userAdditions` setting it will now automatically tokenize the current entered value
+- **Dropdown** - Fixed issue where value set using javascript DOM metadata would be cleared when a message or user addition triggered `refresh` #3879 #3622 **Thanks @mdehoog**
 - **Form Validation / Dropdown** - Using "enter" key in a `search dropdown` could cause a form to be submitted #3676
 - **Form** - Fixed issue with `(x) fields` and `equal width` fields where middle rows would be slightly smaller because they include both left and right padding in % width. (Edges only have one side padding). Field groups now use negative margins instead.
 - **Form Validation** - Fix issue with some foreign email addresses with extended charsets causing email validation to fail #3955 #3755
 - **Form Validation** - Revalidating a field `on: blur` could cause fields not yet interacted with to be validated #3606
 - **Rail** - Fixed incorrect width for `close rail` and `very close rail` caused by variable addition with mixed units `px` + `em` #3835
+- **Popup** - Fixed issue where clicking element inside popup removed from DOM (like clicking a multi select label) would cause popup to close #3887
 - **Search** - A previous unfinished XHR query aborting would cause the next query to fail #2779
 - **Search** - Fixed an issue where `onResult` returning `false` would not prevent the search menu from hiding. Clicking on an empty results message will also no longer close the search results. #3856 #3870
 - **Video** - Fixed issue with `change` behavior not working properly when correctly to change videos.
@@ -56,7 +84,7 @@
 - **Dropdown** - Fixed bug where using `action: 'hide'` could cause `text` value not to be passed to `onChange` callback
 - **Dropdown** - Regenerated dropdown will no longer ignore `disabled` property #4010 **Thanks @eymengunay!**
 - **Dropdown** - `apiSettings` was not defaulting to use `cache: 'local'` as specified in the docs
-- **Dropdown** - Fixed issue where value set using javascript DOM metadata would be cleared when a message or user addition triggered `refresh` #3879 #3622 **Thanks @mdehoog**
+- **Dropdown** - Added `1px` offset for current text so that the blinking text position cursor does not overlap first pixel of underlayed text.
 - **Dropdown** - Fixed issue where values with `"` (double quotes) would not work with a dropdown using a select, because value would not be encoded as html entities
 - **Dropdown** - `get value` would not return correct value when value was blank #3766
 - **Dropdown** - Dropdown would open when an label delete x was clicked when not using `search selection` #3789
@@ -65,7 +93,7 @@
 - **Dropdown** - Seach selection would lose search input focus when clicking on a choice #3790
 - **Embed** - `API` setting is now disabled by default
 - **Form** - Fix `equal width fields` sometimes not including right field spacing on mobile #3913
-- **Form Validation ** - Fixed issue where initializing form multiple times would not properly call `destroy` removing previous settings #3798
+- **Form Validation** - Fixed issue where initializing form multiple times would not properly call `destroy` removing previous settings #3798
 - **Form** - Grouped `fields` and `field` would cause different margin collapse, making `fields` include larger gaps between content #3717
 - **Form** - Fixed issue where `inline` field was not being correctly inverted in color with `inverted form` #4004 #4005 **Thanks @tbracken**
 - **Form** - Remove deprecated `size()` method in `prompt` #3655 **Thanks @SimonArdrey**
@@ -93,27 +121,6 @@
 - **Statistic** - statistic receives incorrect size when using `tiny` `large` etc inside a statistic group #3116
 - **Table** - `striped selectable` table would not correctly show hover color on striped rows
 - **Visibility** - Using `type: fixed` will now correctly remove all special classes and placeholder content on `destroy` #3548
-
-**Enhancements**
-- **Project** - NPM depenendencies have all been updated to latest stable releases
-- **Button** - Added variables for configuring `disabled` background image and box shadow.
-- **Site** - Added colored box shadow defaults. `ui message` now includes individual colored border shadows based on new site defaults.
-- **Card** - Added `raised` card variation **Thanks @yordis** #2955
-- **Dropdown** - Adds new setting `minCharacters` which sets the minimum number of characters required to start filtering results #3886
-- **Dropdown** - Added `1px` offset for current text so that the text position cursor does not overlap first pixel of text.
-- **Dropdown** - Dropdown will now automatically focus on `search` inside of a menu after it is opened.
-- **Dropdown** - Added new convenience method `restore placeholder text`
-- **Rating** - Added new setting `fireOnInit` for rating, which defaults to `false`. When set to true `onRate` will fire when rating is initialized #3712
-- **Site** `@px` and `@relativepx` i.e. `@relative12px` which can be used to return EM value of pixels are now extended to `@relative40px`
-- **Tabs** - Added new option `deactivate`, defaults to `siblings` which will only deactivate tab activators that are DOM siblings elements to the activating element. Setting it to <code>'all'</code> will deactivate any other tab element initialized at the same time.
-- **Progress** - Added progress `is complete` for returning whether success, warning, or error conditions are met
-- **Progress** - Added `onLabelUpdate` callback, this can be used to specify the exact text that should appear on the actual progress update, perhaps based on some external conditions
-- **Shape** - Shape now lets you specify next side width using setting `width`, can use `next` or `initial` to specify whether it should use old or new side size **NEEDS DOCS**
-- **Site** - Added new `@inputColor` and `@inputPlaceholderColor` global variables that now control placeholder text styles across all components.
-- **Table** - `definition table` now supports `ignored` variation to force a `first-child` to ignore its default definition stylings
-- **Table** - `definition table` now supports `definition` variation to specify definition styles on an element that is not `:first-child`
-- **Table** - More granular variables for controlling style on first column in a `definition table`
-- **Visibility** - Added `zIndex` setting for specifying zindex with `type: 'fixed'` #3370
 
 **Changes**
 - **Sizing** - `mini` the smallest size has been modified to align to `11px` instead of previous `10px` at base em size
