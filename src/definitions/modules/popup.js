@@ -112,7 +112,6 @@ $.fn.popup = function(parameters) {
           }
         },
 
-
         refresh: function() {
           if(settings.popup) {
             $popup = $(settings.popup).eq(0);
@@ -159,6 +158,9 @@ $.fn.popup = function(parameters) {
 
         destroy: function() {
           module.debug('Destroying previous module');
+          if(contextObserver) {
+            contextObserver.disconnect();
+          }
           // remove element only if was created dynamically
           if($popup && !settings.preserve) {
             module.removePopup();
@@ -204,7 +206,7 @@ $.fn.popup = function(parameters) {
               module.set.position();
             }
           },
-          contextMutation: function(mutations) {
+          contextChanged: function(mutations) {
             [].forEach.call(mutations, function(mutation) {
               if(mutation.removedNodes) {
                 [].forEach.call(mutation.removedNodes, function(node) {

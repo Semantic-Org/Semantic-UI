@@ -68,6 +68,7 @@ $.fn.visibility = function(parameters) {
         element         = this,
         disabled        = false,
 
+        contextObserver,
         observer,
         module
       ;
@@ -118,11 +119,15 @@ $.fn.visibility = function(parameters) {
           if(observer) {
             observer.disconnect();
           }
+          if(contextObserver) {
+            contextObserver.disconnect();
+          }
           $window
             .off('load'   + eventNamespace, module.event.load)
             .off('resize' + eventNamespace, module.event.resize)
           ;
           $context
+            .off('scroll'       + eventNamespace, module.event.scroll)
             .off('scrollchange' + eventNamespace, module.event.scrollchange)
           ;
           if(settings.type == 'fixed') {
@@ -137,12 +142,11 @@ $.fn.visibility = function(parameters) {
 
         observeChanges: function() {
           if('MutationObserver' in window) {
-            observer = new MutationObserver(function(mutations) {
-              module.verbose('DOM tree modified, updating visibility calculations');
-              module.timer = setTimeout(function() {
-                module.verbose('DOM tree modified, updating sticky menu');
-                module.refresh();
-              }, 100);
+            contextObserver = new MutationObserver(module.event.contextChanged);
+            observer        = new MutationObserver(module.event.changed);
+            contextObserver.observe($context[0], {
+              childList : true,
+              subtree   : true
             });
             observer.observe(element, {
               childList : true,
@@ -173,6 +177,25 @@ $.fn.visibility = function(parameters) {
         },
 
         event: {
+          changed: function(mutations) {
+            module.verbose('DOM tree modified, updating visibility calculations');
+            module.timer = setTimeout(function() {
+              module.verbose('DOM tree modified, updating sticky menu');
+              module.refresh();
+            }, 100);
+          },
+          contextChanged: function(mutations) {
+            [].forEach.call(mutations, function(mutation) {
+              if(mutation.removedNodes) {
+                [].forEach.call(mutation.removedNodes, function(node) {
+                  if(node == element || $(node).find(element).length > 0) {
+                    module.debug('Element removed from DOM, tearing down events');
+                    module.destroy();
+                  }
+                });
+              }
+            });
+          },
           resize: function() {
             module.debug('Window resized');
             if(settings.refreshOnResize) {

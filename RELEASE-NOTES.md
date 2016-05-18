@@ -41,6 +41,7 @@
 - **Search** - A previous unfinished XHR query aborting would cause the next query to fail #2779
 - **Search** - Fixed an issue where `onResult` returning `false` would not prevent the search menu from hiding. Clicking on an empty results message will also no longer close the search results. #3856 #3870
 - **Video** - Fixed issue with `change` behavior not working properly when correctly to change videos.
+- **Sticky/Visibility** -  Added mutation observer to teardown element with `destroy` if removed from DOM context, fixing a possible memory leak
 
 **Bugs**
 - **API** - Using `onResponse` with `dataType` other than JSON or JSONP would cause an error. (Not allowing plain text responses to be translated) #3653
