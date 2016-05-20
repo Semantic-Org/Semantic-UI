@@ -17,7 +17,7 @@
 - **Card** - Added `raised` card variation **Thanks @yordis** #2955
 - **Dropdown** - All dropdowns, not just `selection dropdown`, will now select the first `menu item` that starts with a pressed keyboard key, for example "N" will select "New"
 - **Dropdown** - Adds new setting `minCharacters` which sets the minimum number of characters required to start filtering results #3886
-- **Icons** -  Icons now use the latest Font Awesome `4.5.0` Icons. 50+ new icons+ are included. Thanks @BreadMaker for the PR and @davegandy for the font!
+- **Icons** -  Icons now use the latest Font Awesome `4.6.3` Icons. 80+ new icons+ are included. Thanks @BreadMaker for the PR and @davegandy for the font!
 - **Popup** - Added new `tooltip` popup type that works without javascript. Tooltips can specify positioning and some variations using `data` attributes, and will handle positioning automatically with CSS only.
 - **Button** - Added compatibility with `primary` `secondary` `positive` `negative` buttons with the `basic` styling variation. #3756
 - **Dropdown** - Adds new `allowReselection` option to trigger `onChange` events even when reselecting same value ***NEEEDS DOCUMENTATION***
