@@ -24250,6 +24250,18 @@ Floated Menu / Item
 *******************************/
 
 /*-------------------
+       Raised
+--------------------*/
+
+.ui.raised.cards > .card {
+  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.08);
+}
+
+.ui.raised.card {
+  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.08);
+}
+
+/*-------------------
        Centered
 --------------------*/
 
