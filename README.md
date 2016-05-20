@@ -4,8 +4,7 @@
 
 [![Join the chat at https://gitter.im/Semantic-Org/Semantic-UI](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Semantic-Org/Semantic-UI?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![ProjectTalk Messageboard](http://www.projecttalk.io/images/gh_badge-3e578a9f437f841de7446bab9a49d103.svg?vsn=d)]
-(http://www.projecttalk.io/boards/Semantic-Org%2FSemantic-UI?utm_campaign=gh-badge&utm_medium=badge&utm_source=github)
+[![ProjectTalk Messageboard](http://www.projecttalk.io/images/gh_badge-3e578a9f437f841de7446bab9a49d103.svg?vsn=d)](http://www.projecttalk.io/boards/Semantic-Org%2FSemantic-UI?utm_campaign=gh-badge&utm_medium=badge&utm_source=github)
 
 Semantic is a UI framework designed for theming.
 
@@ -53,8 +52,8 @@ Check out our [integration wiki](https://github.com/Semantic-Org/Semantic-UI/wik
 
 #### Browser Support
 
-* Last 2 Versions FF, Chrome, IE 10+, Safari Mac
-* IE 10+
+* Last 2 Versions FF, Chrome, Safari Mac
+* IE 11+
 * Android 4.4+, Chrome for Android 44+
 * iOS Safari 7+
 
