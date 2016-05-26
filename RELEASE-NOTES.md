@@ -418,7 +418,7 @@ This release should fix bugs some may have encountered with `npm install semanti
 
 
 **Minor Enhancements**
-- **API** - All API callbacks now recieve `xhr` from API request as the third calback parameter
+- **API** - All API callbacks now recieve `xhr` from API request as the third callback parameter
 
 **Additional Fixes**
 - **Checkbox** - Fix checkbox "check" appearing italicized when included inside italicized text
