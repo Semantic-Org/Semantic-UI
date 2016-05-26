@@ -2,6 +2,6 @@
             Sticky
 *******************************/
 
-@transsssitionDuration: @defaultDuration;
+@transitionDuration: @defaultDuration;
 @transition: none;
 @zIndex: 800;
