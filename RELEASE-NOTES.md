@@ -188,7 +188,7 @@
 - **Sticky** - Fixes bug where sticky would stick at incorrect times when using a different scroll container than `body` and scrollTop is not 0 on page load.
 
 **Bugs**
-- **Divider/Step/Modal/AD** - Fixes 1px jump at `@mobileBreakpoint` caused by incorrect edge conditions in media query [#3180](https://github.com/Semantic-Org/Semantic-UI/issues/3180) **THanks @mdehoog**
+- **Divider/Step/Modal/AD** - Fixes 1px jump at `@mobileBreakpoint` caused by incorrect edge conditions in media query [#3180](https://github.com/Semantic-Org/Semantic-UI/issues/3180) **Thanks @mdehoog**
 - **Dimmer** - Dimmer can now works correctly with `opacity: 0` [#3167](https://github.com/Semantic-Org/Semantic-UI/issues/3167) **Thanks @mdehoog**
 - **Dropdown** - Fixed condition where focusing on dropdown would show a blank menu when "no results" was reached and the dropdown was refocused
 - **Dropdown** - Search dropdowns will now correctly filter by current search term on re-focus
@@ -736,7 +736,7 @@ This release should fix bugs some may have encountered with `npm install semanti
 - **API** - Fixed `loadingDuration` not correctly delaying requests when invoking with  `.api('query')`
 - **Build Tools** - Fixes issue with out of date minify dependency causing rules with `background: inherit;` to be removed.
 - **Button** - Fixed `attached buttons` 1px offset when attached to segment and menu (border vs box shadow border)
-- **Card** - IE11 now can correctly use  `flexbox` cards **THanks @Widcket**
+- **Card** - IE11 now can correctly use  `flexbox` cards **Thanks @Widcket**
 - **Checkbox** - Fix `disabled checkbox` sometimes displaying hand cursor
 - **Checkbox** - Fixes nested `dropdown` inside `checkbox` causing issues
 - **Checkbox** - Fix `:focus` styles only applying if checkbox is unchecked
