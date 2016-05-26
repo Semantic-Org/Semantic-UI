@@ -1983,7 +1983,7 @@ Some updates to docs formatting
 ### Version 0.9.4 - Nov 24, 2013
 
 **Fixes**
-- **Dropdown** - Fixes issue where falsey value (i.e. 0) could not be selected
+- **Dropdown** - Fixes issue where falsy value (i.e. 0) could not be selected
 - **Transition** - Fixes transition exists function from not being called
 - **Form** - Adds input type="url" to forms
 - **Sidebar** - Fixes right sidebars to correctly allow for sizing (Thanks DveMac)
@@ -1996,7 +1996,7 @@ Some updates to docs formatting
 ### Version 0.9.3 - Nov 17, 2013
 
 **Fixes**
-- **Dropdown** - Fixes "falsey" values (like 0) not being processed correctly
+- **Dropdown** - Fixes "falsy" values (like 0) not being processed correctly
 - **Segment** - Fixes segment text color when nested inside inverted segment
 - **Button** - Fixes improper active/visible state due to :not specificity (most noticeable in mousedown on a dropdown button)
 
