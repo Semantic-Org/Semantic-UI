@@ -4,7 +4,7 @@
 
 **New Features**
 - **Webpack** - All relative css paths are now webpack-compatible
-- **NPM** - NPM depenendencies have all been updated to latest stable releases
+- **NPM** - NPM dependencies have all been updated to latest stable releases
 - **All UI** - Components that use event handlers on `document`, `body`, or a `settings.context` now all use DOM mutation observers to detect removal and prevent memory leaks
 - **All UI** - All UI now include _all_ sizing variations, `mini`, `tiny`, `small`, `large`, `big`, `huge`, `massive`. Headers remain with only 5 sizes `small-huge` to match `H1-H5`
 - **Dropdown** - Dropdown now changes user selection on keyboard shortcuts immediately, this will save the extra `enter` key press to confirm selection in most cases. To enable previous pre `2.2` selection style use the setting `selectOnKeydown: false` **Documentation forthcoming**
