@@ -343,10 +343,10 @@
     }
   }
 
-  function setupInjectElementLoadListners(mutations){
+  function setupInjectElementLoadListeners(mutations){
     function addLoadListener(element){
       if (element.height === undefined || element.width === undefined || 0 === element.height || 0 === element.width){
-        log('Attach listerner to '+element.src);
+        log('Attach listener to '+element.src);
         addEventListener(element,'load', function imageLoaded(){
           sendSize('imageLoad','Image loaded');
         });
@@ -384,7 +384,7 @@
 
         observer = new MutationObserver(function(mutations) {
           sendSize('mutationObserver','mutationObserver: ' + mutations[0].target + ' ' + mutations[0].type);
-          setupInjectElementLoadListners(mutations); //Deal with WebKit asyncing image loading when tags are injected into the page
+          setupInjectElementLoadListeners(mutations); //Deal with WebKit asyncing image loading when tags are injected into the page
         });
 
       log('Enable MutationObserver');
