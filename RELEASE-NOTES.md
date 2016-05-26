@@ -1038,7 +1038,7 @@ This version backports several bugs that were being packed in `2.0` to `1.x`.
 
 **Bugs**
 - **Input** - Fix bug with vertical centering of `ui action input` inside `menu` due to `flexbox` changes
-- **Dropdown** - Fixes issue where dropdown would not open after restoring previus value on failed `search dropdown` search
+- **Dropdown** - Fixes issue where dropdown would not open after restoring previous value on failed `search dropdown` search
 - **Dropdown** - Fixes issue where dropdown would not open after restoring previous value on failed `search dropdown` search
 - **Grid** - Fixes specificity of grid `column` colors to not affect other elements with columns
 - **Icon** - Fix `clockwise rotated icon` causing `clockwise` icon to appear
