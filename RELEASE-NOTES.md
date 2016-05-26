@@ -485,7 +485,7 @@ This release should fix bugs some may have encountered with `npm install semanti
 - **Checkbox** - Updated `colored` theme to add new focus color variables.
 - **Popup** - `wide` and `very wide` popup will now limit themselves to normal popup widths on mobile so that they still appear on screen.
 - **Message** - Fixes `attached icon message` not using `flex`
-- **Sticky** - Fixed `sticky` content jumping from `fixed` to `bount bottom` when scroll position has surpassed bottom of container during page refresh.
+- **Sticky** - Fixed `sticky` content jumping from `fixed` to `bound bottom` when scroll position has surpassed bottom of container during page refresh.
 - **Sticky** - Sticky no longer uses `bottomPadding` to determine bottom edge of container.
 - **Steps** - Updated `basic` steps theme to appear correctly
 
