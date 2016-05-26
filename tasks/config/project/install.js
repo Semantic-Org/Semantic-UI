@@ -413,7 +413,7 @@ module.exports = {
       },
       {
         type: 'list',
-        name: 'changePermisions',
+        name: 'changePermissions',
         when: when.notAuto,
         message: 'Should we set permissions on outputted files?',
         choices: [
