@@ -90,7 +90,7 @@
 - **Dropdown** - Dropdown would open when an label delete x was clicked when not using `search selection` #3789
 - **Dropdown** - Dropdowns with sub-menus would not properly activate on mobile #3183
 - **Dropdown** - Long dropdown text entry with `allowAdditions` would cause input to mistakingly drop to next line early #3743
-- **Dropdown** - Seach selection would lose search input focus when clicking on a choice #3790
+- **Dropdown** - Search selection would lose search input focus when clicking on a choice #3790
 - **Embed** - `API` setting is now disabled by default
 - **Form** - Fix `equal width fields` sometimes not including right field spacing on mobile #3913
 - **Form Validation** - Fixed issue where initializing form multiple times would not properly call `destroy` removing previous settings #3798
