@@ -70,7 +70,7 @@
 
 
   function init(){
-    log('Initialising iFrame');
+    log('Initializing iFrame');
     readData();
     setMargin();
     setBodyStyle('background',bodyBackground);
