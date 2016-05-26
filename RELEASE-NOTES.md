@@ -712,7 +712,7 @@ This release should fix bugs some may have encountered with `npm install semanti
 - **Site** - All floating/raised variations now inherit from a global `@floatedShadow` making theming easier
 - **Sticky** - Sticky now internally caches current scroll position when `cantFit = true` to avoid getting DOM property  on scroll.
 - **Statistic** - Added new evenly divided group variation, for example `three statistics` shows 3 per row
-- **Statistic** - Statitic group now use `flex`. Styles have been updated.
+- **Statistic** - Statistic group now use `flex`. Styles have been updated.
 - **Steps** - Added `attached` steps, which can now be attached to other UI like `segment`
 - **Tabs** - Tab will now manually correct page scroll position when linking to an in-page anchor in a hidden tab
 - **Tabs** - Added new callbacks `onTabVisible` and `onRequest`
