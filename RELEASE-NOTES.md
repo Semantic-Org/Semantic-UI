@@ -2301,7 +2301,7 @@ Some updates to docs formatting
 ### Version 0.3.6 - Oct 7, 2013
 
 **Fixes**
-- Fixes popup position sometimes appearing off-stage on second apperance
+- Fixes popup position sometimes appearing off-stage on second appearance
 - Fixes popup positions top left, top right, bottom left, bottom right being flipped
 
 **Docs**
