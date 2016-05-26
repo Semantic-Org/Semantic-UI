@@ -2389,7 +2389,7 @@ Some updates to docs formatting
 
 **Updates**
 
-- Fixes issues with modal not swapping to absoultely positioned from fixed when content cannot fit in viewport
+- Fixes issues with modal not swapping to absolutely positioned from fixed when content cannot fit in viewport
 
 ### Version 0.2.2 - Sep 28, 2013
 
