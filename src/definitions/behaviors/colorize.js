@@ -51,7 +51,7 @@ $.fn.colorize = function(parameters) {
         width,
         height,
 
-        // shortucts
+        // shortcuts
         colors    = settings.colors,
         paths     = settings.paths,
         namespace = settings.namespace,
