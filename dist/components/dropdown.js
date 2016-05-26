@@ -1986,7 +1986,7 @@ $.fn.dropdown = function(parameters) {
             }
           },
           values: function() {
-            // prevents callbacks from occuring on initial load
+            // prevents callbacks from occurring on initial load
             module.set.initialLoad();
             if(settings.apiSettings && settings.saveRemoteData && module.get.remoteValues()) {
               module.restore.remoteValues();
