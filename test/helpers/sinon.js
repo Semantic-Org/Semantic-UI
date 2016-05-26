@@ -1671,7 +1671,7 @@ var sinon = (function (formatio) {
 
             var original = this;
             var fake = this._create();
-            fake.matchingAguments = args;
+            fake.matchingArguments = args;
             fake.parent = this;
             push.call(this.fakes, fake);
 
@@ -1695,7 +1695,7 @@ var sinon = (function (formatio) {
         },
 
         matches: function (args, strict) {
-            var margs = this.matchingAguments;
+            var margs = this.matchingArguments;
 
             if (margs.length <= args.length &&
                 sinon.deepEqual(margs, args.slice(0, margs.length))) {
