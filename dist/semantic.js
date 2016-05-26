@@ -19711,7 +19711,7 @@ $.api = $.fn.api = function(parameters) {
                 translatedResponse = ( $.isFunction(settings.onResponse) )
                   ? module.is.expectingJSON()
                     ? settings.onResponse.call(context, $.extend(true, {}, response))
-                    : settings.onResponse.call(conetxt, response)
+                    : settings.onResponse.call(context, response)
                   : false
               ;
               timeLeft = (timeLeft > 0)
