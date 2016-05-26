@@ -545,7 +545,7 @@
     }
 
     function isSizeChangeDetected(){
-      function checkTolarance(a,b){
+      function checkTolerance(a,b){
         var retVal = Math.abs(a-b) <= tolerance;
         return !retVal;
       }
@@ -553,8 +553,8 @@
       currentHeight = (undefined !== customHeight)  ? customHeight : getHeight[heightCalcMode]();
       currentWidth  = (undefined !== customWidth )  ? customWidth  : getWidth();
 
-      return  checkTolarance(height,currentHeight) ||
-          (calculateWidth && checkTolarance(width,currentWidth));
+      return  checkTolerance(height,currentHeight) ||
+          (calculateWidth && checkTolerance(width,currentWidth));
     }
 
     function isForceResizableEvent(){
