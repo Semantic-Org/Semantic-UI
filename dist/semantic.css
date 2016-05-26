@@ -20339,7 +20339,7 @@ ol.ui.horizontal.list li:before,
   }
 }
 
-/* Mobily Only */
+/* Mobile Only */
 
 @media only screen and (max-width: 767px) {
   .ui.grid > .doubling.row,
@@ -25891,7 +25891,7 @@ a.ui.card:hover,
       Doubling
 --------------------*/
 
-/* Mobily Only */
+/* Mobile Only */
 
 @media only screen and (max-width: 767px) {
   .ui.two.doubling.cards {
@@ -27108,7 +27108,7 @@ a.ui.card:hover,
   }
 }
 
-/* Mobily Only */
+/* Mobile Only */
 
 @media only screen and (max-width: 767px) {
   .ui.items > .item {
