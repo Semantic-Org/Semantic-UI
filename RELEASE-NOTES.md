@@ -2238,7 +2238,7 @@ Some updates to docs formatting
 
 **Fixes**
 - Minor Fixes caught with testing suite, related to ensuring proper destroy, init,
-- Minor fixes to edge cases with seting and retrieving internals/settings as default, init, or during run-time on some modules
+- Minor fixes to edge cases with setting and retrieving internals/settings as default, init, or during run-time on some modules
 
 ### Version 0.5.1 - Oct 11, 2013
 

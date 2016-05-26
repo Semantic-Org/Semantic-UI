@@ -13272,7 +13272,7 @@ $.fn.search = function(parameters) {
               searchHTML
             ;
             $.extend(true, apiSettings, settings.apiSettings);
-            module.verbose('Setuping up API request', apiSettings);
+            module.verbose('Setting up API request', apiSettings);
             $module.api(apiSettings);
           }
         },
