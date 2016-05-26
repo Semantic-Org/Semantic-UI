@@ -492,7 +492,7 @@ This release should fix bugs some may have encountered with `npm install semanti
 **Docs**
 - Fixed theme previews appearing incorrectly in all UI in docs. Regex parsing `.variable` files would ignore first variable after a comment.
 - Added individual examples of all form validation rules
-- Partial rewriite of sidebar documentation
+- Partial rewrite of sidebar documentation
 - Updated example in theme guide to include checkbox focus colors
 
 ### Version 2.0.3 - July 8, 2015
