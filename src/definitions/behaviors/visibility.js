@@ -9,9 +9,16 @@
  *
  */
 
-;(function ( $, window, document, undefined ) {
+;(function ($, window, document, undefined) {
 
 "use strict";
+
+window = (typeof window != 'undefined' && window.Math == Math)
+  ? window
+  : (typeof self != 'undefined' && self.Math == Math)
+    ? self
+    : Function('return this')()
+;
 
 $.fn.visibility = function(parameters) {
   var
@@ -61,6 +68,7 @@ $.fn.visibility = function(parameters) {
         element         = this,
         disabled        = false,
 
+        contextObserver,
         observer,
         module
       ;
@@ -111,13 +119,21 @@ $.fn.visibility = function(parameters) {
           if(observer) {
             observer.disconnect();
           }
+          if(contextObserver) {
+            contextObserver.disconnect();
+          }
           $window
             .off('load'   + eventNamespace, module.event.load)
             .off('resize' + eventNamespace, module.event.resize)
           ;
           $context
+            .off('scroll'       + eventNamespace, module.event.scroll)
             .off('scrollchange' + eventNamespace, module.event.scrollchange)
           ;
+          if(settings.type == 'fixed') {
+            module.resetFixed();
+            module.remove.placeholder();
+          }
           $module
             .off(eventNamespace)
             .removeData(moduleNamespace)
@@ -126,12 +142,11 @@ $.fn.visibility = function(parameters) {
 
         observeChanges: function() {
           if('MutationObserver' in window) {
-            observer = new MutationObserver(function(mutations) {
-              module.verbose('DOM tree modified, updating visibility calculations');
-              module.timer = setTimeout(function() {
-                module.verbose('DOM tree modified, updating sticky menu');
-                module.refresh();
-              }, 100);
+            contextObserver = new MutationObserver(module.event.contextChanged);
+            observer        = new MutationObserver(module.event.changed);
+            contextObserver.observe($context[0], {
+              childList : true,
+              subtree   : true
             });
             observer.observe(element, {
               childList : true,
@@ -162,6 +177,25 @@ $.fn.visibility = function(parameters) {
         },
 
         event: {
+          changed: function(mutations) {
+            module.verbose('DOM tree modified, updating visibility calculations');
+            module.timer = setTimeout(function() {
+              module.verbose('DOM tree modified, updating sticky menu');
+              module.refresh();
+            }, 100);
+          },
+          contextChanged: function(mutations) {
+            [].forEach.call(mutations, function(mutation) {
+              if(mutation.removedNodes) {
+                [].forEach.call(mutation.removedNodes, function(node) {
+                  if(node == element || $(node).find(element).length > 0) {
+                    module.debug('Element removed from DOM, tearing down events');
+                    module.destroy();
+                  }
+                });
+              }
+            });
+          },
           resize: function() {
             module.debug('Window resized');
             if(settings.refreshOnResize) {
@@ -335,9 +369,10 @@ $.fn.visibility = function(parameters) {
                 position : 'fixed',
                 top      : settings.offset + 'px',
                 left     : 'auto',
-                zIndex   : '1'
+                zIndex   : settings.zIndex
               })
             ;
+            settings.onFixed.call(element);
           },
           image: function(src) {
             $module
@@ -381,8 +416,7 @@ $.fn.visibility = function(parameters) {
         refresh: function() {
           module.debug('Refreshing constants (width/height)');
           if(settings.type == 'fixed') {
-            module.remove.fixed();
-            module.remove.occurred();
+            module.resetFixed();
           }
           module.reset();
           module.save.position();
@@ -392,8 +426,13 @@ $.fn.visibility = function(parameters) {
           settings.onRefresh.call(element);
         },
 
+        resetFixed: function () {
+          module.remove.fixed();
+          module.remove.occurred();
+        },
+
         reset: function() {
-          module.verbose('Reseting all cached values');
+          module.verbose('Resetting all cached values');
           if( $.isPlainObject(module.cache) ) {
             module.cache.screen = {};
             module.cache.element = {};
@@ -756,6 +795,13 @@ $.fn.visibility = function(parameters) {
                 zIndex   : ''
               })
             ;
+            settings.onUnfixed.call(element);
+          },
+          placeholder: function() {
+            module.debug('Removing placeholder content');
+            if($placeholder) {
+              $placeholder.remove();
+            }
           },
           occurred: function(callback) {
             if(callback) {
@@ -970,7 +1016,7 @@ $.fn.visibility = function(parameters) {
           }
         },
         debug: function() {
-          if(settings.debug) {
+          if(!settings.silent && settings.debug) {
             if(settings.performance) {
               module.performance.log(arguments);
             }
@@ -981,7 +1027,7 @@ $.fn.visibility = function(parameters) {
           }
         },
         verbose: function() {
-          if(settings.verbose && settings.debug) {
+          if(!settings.silent && settings.verbose && settings.debug) {
             if(settings.performance) {
               module.performance.log(arguments);
             }
@@ -992,8 +1038,10 @@ $.fn.visibility = function(parameters) {
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
-          module.error.apply(console, arguments);
+          if(!settings.silent) {
+            module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
+            module.error.apply(console, arguments);
+          }
         },
         performance: {
           log: function(message) {
@@ -1170,6 +1218,9 @@ $.fn.visibility.settings = {
   // special visibility type (image, fixed)
   type                   : false,
 
+  // z-index to use with visibility 'fixed'
+  zIndex                 : '10',
+
   // image only animation settings
   transition             : 'fade in',
   duration               : 1000,
@@ -1192,6 +1243,10 @@ $.fn.visibility.settings = {
   onBottomVisibleReverse : false,
   onTopPassedReverse     : false,
   onBottomPassedReverse  : false,
+
+  // special callbacks for fixed position
+  onFixed                : function() {},
+  onUnfixed              : function() {},
 
   // utility callbacks
   onUpdate               : false, // disabled by default for performance

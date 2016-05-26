@@ -70,7 +70,7 @@
 
 
   function init(){
-    log('Initialising iFrame');
+    log('Initializing iFrame');
     readData();
     setMargin();
     setBodyStyle('background',bodyBackground);
@@ -343,10 +343,10 @@
     }
   }
 
-  function setupInjectElementLoadListners(mutations){
+  function setupInjectElementLoadListeners(mutations){
     function addLoadListener(element){
       if (element.height === undefined || element.width === undefined || 0 === element.height || 0 === element.width){
-        log('Attach listerner to '+element.src);
+        log('Attach listener to '+element.src);
         addEventListener(element,'load', function imageLoaded(){
           sendSize('imageLoad','Image loaded');
         });
@@ -384,7 +384,7 @@
 
         observer = new MutationObserver(function(mutations) {
           sendSize('mutationObserver','mutationObserver: ' + mutations[0].target + ' ' + mutations[0].type);
-          setupInjectElementLoadListners(mutations); //Deal with WebKit asyncing image loading when tags are injected into the page
+          setupInjectElementLoadListeners(mutations); //Deal with WebKit asyncing image loading when tags are injected into the page
         });
 
       log('Enable MutationObserver');
@@ -545,7 +545,7 @@
     }
 
     function isSizeChangeDetected(){
-      function checkTolarance(a,b){
+      function checkTolerance(a,b){
         var retVal = Math.abs(a-b) <= tolerance;
         return !retVal;
       }
@@ -553,8 +553,8 @@
       currentHeight = (undefined !== customHeight)  ? customHeight : getHeight[heightCalcMode]();
       currentWidth  = (undefined !== customWidth )  ? customWidth  : getWidth();
 
-      return  checkTolarance(height,currentHeight) ||
-          (calculateWidth && checkTolarance(width,currentWidth));
+      return  checkTolerance(height,currentHeight) ||
+          (calculateWidth && checkTolerance(width,currentWidth));
     }
 
     function isForceResizableEvent(){
@@ -681,7 +681,7 @@
 
     function isInitMsg(){
       //test if this message is from a child below us. This is an ugly test, however, updating
-      //the message format would break backwards compatibity.
+      //the message format would break backwards compatibility.
       return event.data.split(':')[2] in {'true':1,'false':1};
     }
 

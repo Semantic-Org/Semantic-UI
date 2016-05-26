@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.7 - Visibility
+ * # Semantic UI 2.2.0 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9,9 +9,16 @@
  *
  */
 
-;(function ( $, window, document, undefined ) {
+;(function ($, window, document, undefined) {
 
 "use strict";
+
+window = (typeof window != 'undefined' && window.Math == Math)
+  ? window
+  : (typeof self != 'undefined' && self.Math == Math)
+    ? self
+    : Function('return this')()
+;
 
 $.fn.visibility = function(parameters) {
   var
@@ -335,9 +342,10 @@ $.fn.visibility = function(parameters) {
                 position : 'fixed',
                 top      : settings.offset + 'px',
                 left     : 'auto',
-                zIndex   : '1'
+                zIndex   : settings.zIndex
               })
             ;
+            settings.onFixed.call(element);
           },
           image: function(src) {
             $module
@@ -393,7 +401,7 @@ $.fn.visibility = function(parameters) {
         },
 
         reset: function() {
-          module.verbose('Reseting all cached values');
+          module.verbose('Resetting all cached values');
           if( $.isPlainObject(module.cache) ) {
             module.cache.screen = {};
             module.cache.element = {};
@@ -756,6 +764,7 @@ $.fn.visibility = function(parameters) {
                 zIndex   : ''
               })
             ;
+            settings.onUnfixed.call(element);
           },
           occurred: function(callback) {
             if(callback) {
@@ -970,7 +979,7 @@ $.fn.visibility = function(parameters) {
           }
         },
         debug: function() {
-          if(settings.debug) {
+          if(!settings.silent && settings.debug) {
             if(settings.performance) {
               module.performance.log(arguments);
             }
@@ -981,7 +990,7 @@ $.fn.visibility = function(parameters) {
           }
         },
         verbose: function() {
-          if(settings.verbose && settings.debug) {
+          if(!settings.silent && settings.verbose && settings.debug) {
             if(settings.performance) {
               module.performance.log(arguments);
             }
@@ -992,8 +1001,10 @@ $.fn.visibility = function(parameters) {
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
-          module.error.apply(console, arguments);
+          if(!settings.silent) {
+            module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
+            module.error.apply(console, arguments);
+          }
         },
         performance: {
           log: function(message) {
@@ -1170,6 +1181,9 @@ $.fn.visibility.settings = {
   // special visibility type (image, fixed)
   type                   : false,
 
+  // z-index to use with visibility 'fixed'
+  zIndex                 : '10',
+
   // image only animation settings
   transition             : 'fade in',
   duration               : 1000,
@@ -1192,6 +1206,10 @@ $.fn.visibility.settings = {
   onBottomVisibleReverse : false,
   onTopPassedReverse     : false,
   onBottomPassedReverse  : false,
+
+  // special callbacks for fixed position
+  onFixed                : function() {},
+  onUnfixed              : function() {},
 
   // utility callbacks
   onUpdate               : false, // disabled by default for performance

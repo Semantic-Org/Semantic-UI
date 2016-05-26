@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.7 - Step
+ * # Semantic UI 2.2.0 - Step
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -80,14 +80,14 @@
           justify-content: center;
   margin: 0em 0em;
   padding: 1.14285714em 2em;
-  background: #ffffff;
+  background: #FFFFFF;
   color: rgba(0, 0, 0, 0.87);
   box-shadow: none;
   border-radius: 0em;
   border: none;
   border-right: 1px solid rgba(34, 36, 38, 0.15);
   -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
-          transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+  transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
 }
 
 /* Arrow */
@@ -99,14 +99,14 @@
   top: 50%;
   right: 0%;
   border: medium none;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   width: 1.14285714em;
   height: 1.14285714em;
   border-style: solid;
   border-color: rgba(34, 36, 38, 0.15);
   border-width: 0px 1px 1px 0px;
   -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
-          transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+  transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
   -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
       -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
           transform: translateY(-50%) translateX(50%) rotate(-45deg);
@@ -355,7 +355,7 @@
 .ui.steps .link.step:hover,
 .ui.steps a.step:hover::after,
 .ui.steps a.step:hover {
-  background: #f9fafb;
+  background: #F9FAFB;
   color: rgba(0, 0, 0, 0.8);
 }
 
@@ -364,20 +364,20 @@
 .ui.steps .link.step:active,
 .ui.steps a.step:active::after,
 .ui.steps a.step:active {
-  background: #f3f4f5;
+  background: #F3F4F5;
   color: rgba(0, 0, 0, 0.9);
 }
 
 /* Active */
 .ui.steps .step.active {
   cursor: auto;
-  background: #f3f4f5;
+  background: #F3F4F5;
 }
 .ui.steps .step.active:after {
-  background: #f3f4f5;
+  background: #F3F4F5;
 }
 .ui.steps .step.active .title {
-  color: #4183c4;
+  color: #4183C4;
 }
 .ui.ordered.steps .step.active:before,
 .ui.steps .active.step .icon {
@@ -404,20 +404,20 @@
 .ui.steps a.active.step:hover::after,
 .ui.steps a.active.step:hover {
   cursor: pointer;
-  background: #dcddde;
+  background: #DCDDDE;
   color: rgba(0, 0, 0, 0.87);
 }
 
 /* Completed */
 .ui.steps .step.completed > .icon:before,
 .ui.ordered.steps .step.completed:before {
-  color: #21ba45;
+  color: #21BA45;
 }
 
 /* Disabled */
 .ui.steps .disabled.step {
   cursor: auto;
-  background: #ffffff;
+  background: #FFFFFF;
   pointer-events: none;
 }
 .ui.steps .disabled.step,
@@ -426,7 +426,7 @@
   color: rgba(40, 40, 40, 0.3);
 }
 .ui.steps .disabled.step:after {
-  background: #ffffff;
+  background: #FFFFFF;
 }
 
 
@@ -512,7 +512,7 @@
 /* Top */
 .ui.attached.steps {
   width: calc(100% +  2px ) !important;
-  margin: 0em -1px -1px;
+  margin: 0em -1px 0;
   max-width: calc(100% +  2px );
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
@@ -525,7 +525,7 @@
 
 /* Bottom */
 .ui.bottom.attached.steps {
-  margin: -1px -1px 0em;
+  margin: 0 -1px 0em;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 .ui.bottom.attached.steps .step:first-child {
@@ -590,17 +590,37 @@
        Sizes
 --------------------*/
 
-.ui.small.step,
-.ui.small.steps .step {
+.ui.mini.steps .step,
+.ui.mini.step {
+  font-size: 0.78571429rem;
+}
+.ui.tiny.steps .step,
+.ui.tiny.step {
+  font-size: 0.85714286rem;
+}
+.ui.small.steps .step,
+.ui.small.step {
   font-size: 0.92857143rem;
 }
-.ui.step,
-.ui.steps .step {
+.ui.steps .step,
+.ui.step {
   font-size: 1rem;
 }
-.ui.large.step,
-.ui.large.steps .step {
+.ui.large.steps .step,
+.ui.large.step {
   font-size: 1.14285714rem;
+}
+.ui.big.steps .step,
+.ui.big.step {
+  font-size: 1.28571429rem;
+}
+.ui.huge.steps .step,
+.ui.huge.step {
+  font-size: 1.42857143rem;
+}
+.ui.massive.steps .step,
+.ui.massive.step {
+  font-size: 1.71428571rem;
 }
 
 

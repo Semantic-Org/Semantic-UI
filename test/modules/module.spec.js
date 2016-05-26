@@ -176,7 +176,7 @@ function moduleTests(ui) {
 
       });
 
-      it("does not change other elements when re-initalized", function() {
+      it("does not change other elements when re-initialized", function() {
         $modules[module]();
 
         $oneModule[module]({

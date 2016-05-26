@@ -78,6 +78,278 @@
 *******************************/
 
 /*--------------
+    Tooltip
+---------------*/
+
+/* Content */
+[data-tooltip] {
+  position: relative;
+}
+
+/* Popup */
+[data-tooltip]:before {
+  content: attr(data-tooltip);
+  display: none;
+  position: absolute;
+  white-space: nowrap;
+  margin-bottom: @arrowOffset;
+
+  font-size: @tooltipFontStyle;
+
+  border: @tooltipBorder;
+  line-height: @tooltipLineHeight;
+  max-width: @tooltipMaxWidth;
+  background: @tooltipBackground;
+
+  padding: @tooltipPadding;
+  font-weight: @tooltipFontWeight;
+  font-style: @tooltipFontStyle;
+  color: @tooltipColor;
+
+  border-radius: @tooltipBorderRadius;
+  box-shadow: @tooltipBoxShadow;
+  z-index: 1;
+}
+
+/* Arrow */
+[data-tooltip]:after {
+  position: absolute;
+  display: none;
+  content: '';
+  font-size: @medium;
+  width: @arrowSize;
+  height: @arrowSize;
+
+  background: @tooltipArrowBackground;
+  transform: rotate(45deg);
+
+  z-index: @arrowZIndex;
+  box-shadow: @tooltipArrowBoxShadow;
+}
+
+/* Default Position (Top Center) */
+[data-tooltip]:not([data-position]):before {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 100%;
+  margin-bottom: @tooltipDistanceAway;
+}
+[data-tooltip]:not([data-position]):after {
+  top: auto;
+  right: auto;
+  bottom: 100%;
+  left: 50%;
+  background: @tooltipArrowBottomBackground;
+  margin-left: @arrowOffset;
+  margin-bottom: -@arrowOffset;
+}
+
+/* Hover */
+[data-tooltip]:hover::after,
+[data-tooltip]:hover::before {
+  display: block;
+}
+
+/*--------------
+    Inverted
+---------------*/
+
+/* Arrow */
+[data-tooltip][data-inverted]:after {
+  box-shadow: none !important;
+}
+
+/* Arrow Position */
+[data-tooltip][data-inverted]:after {
+  background: @invertedArrowBottomBackground;
+}
+
+/* Popup  */
+[data-tooltip][data-inverted]:before {
+  background: @tooltipInvertedBackground;
+  color: @tooltipInvertedColor;
+  border: @tooltipInvertedBorder;
+  box-shadow: @tooltipInvertedBoxShadow;
+}
+[data-tooltip][data-inverted]:before .header {
+  background-color: @tooltipInvertedHeaderBackground;
+  color: @tooltipInvertedHeaderColor;
+}
+
+/*--------------
+    Position
+---------------*/
+
+/* Top Center */
+[data-position="top center"][data-tooltip]:before {
+  top: auto;
+  right: auto;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%);
+  margin-bottom: @tooltipDistanceAway;
+}
+[data-position="top center"][data-tooltip]:after {
+  top: auto;
+  right: auto;
+  bottom: 100%;
+  left: 50%;
+  background: @tooltipArrowBottomBackground;
+  margin-left: @arrowOffset;
+  margin-bottom: -@arrowOffset;
+}
+
+/* Top Left */
+[data-position="top left"][data-tooltip]:before {
+  top: auto;
+  right: auto;
+  left: 0;
+  bottom: 100%;
+  margin-bottom: @tooltipDistanceAway;
+}
+[data-position="top left"][data-tooltip]:after {
+  top: auto;
+  right: auto;
+  bottom: 100%;
+  left: @arrowDistanceFromEdge;
+  background: @tooltipArrowBottomBackground;
+  margin-left: @arrowOffset;
+  margin-bottom: -@arrowOffset;
+}
+
+/* Top Right */
+[data-position="top right"][data-tooltip]:before {
+  top: auto;
+  left: auto;
+  right: 0;
+  bottom: 100%;
+  margin-bottom: @tooltipDistanceAway;
+}
+[data-position="top right"][data-tooltip]:after {
+  top: auto;
+  left: auto;
+  bottom: 100%;
+  right: @arrowDistanceFromEdge;
+  background: @tooltipArrowBottomBackground;
+  margin-left: @arrowOffset;
+  margin-bottom: -@arrowOffset;
+}
+
+
+/* Bottom Center */
+[data-position="bottom center"][data-tooltip]:before {
+  bottom: auto;
+  right: auto;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  margin-top: @tooltipDistanceAway;
+}
+[data-position="bottom center"][data-tooltip]:after {
+  bottom: auto;
+  right: auto;
+  top: 100%;
+  left: 50%;
+  background: @tooltipArrowBottomBackground;
+  margin-left: @arrowOffset;
+  margin-top: -@arrowOffset;
+}
+
+/* Bottom Left */
+[data-position="bottom left"][data-tooltip]:before {
+  left: 0;
+  top: 100%;
+  margin-top: @tooltipDistanceAway;
+}
+[data-position="bottom left"][data-tooltip]:after {
+  bottom: auto;
+  right: auto;
+  top: 100%;
+  left: @arrowDistanceFromEdge;
+  background: @tooltipArrowBottomBackground;
+  margin-left: @arrowOffset;
+  margin-top: -@arrowOffset;
+}
+
+/* Bottom Right */
+[data-position="bottom right"][data-tooltip]:before {
+  right: 0;
+  top: 100%;
+  margin-top: @tooltipDistanceAway;
+}
+[data-position="bottom right"][data-tooltip]:after {
+  bottom: auto;
+  left: auto;
+  top: 100%;
+  right: @arrowDistanceFromEdge;
+  background: @tooltipArrowBottomBackground;
+  margin-left: @arrowOffset;
+  margin-top: -@arrowOffset;
+}
+
+/* Left Center */
+[data-position="left center"][data-tooltip]:before {
+  right: 100%;
+  top: 50%;
+  margin-right: @tooltipDistanceAway;
+  transform: translateY(-50%);
+}
+[data-position="left center"][data-tooltip]:after {
+  right: 100%;
+  top: 50%;
+  margin-top: @arrowOffset;
+  margin-right: -@arrowOffset;
+}
+
+/* Right Center */
+[data-position="right center"][data-tooltip]:before {
+  left: 100%;
+  top: 50%;
+  margin-left: @tooltipDistanceAway;
+  transform: translateY(-50%);
+}
+[data-position="right center"][data-tooltip]:after {
+  left: 100%;
+  top: 50%;
+  margin-top: @arrowOffset;
+  margin-left: -@arrowOffset;
+}
+
+/* Arrow Color */
+[data-position~="bottom"][data-tooltip]:after {
+  background: @arrowTopBackground;
+  box-shadow: @bottomArrowBoxShadow;
+}
+[data-position="left center"][data-tooltip]:after {
+  background: @arrowCenterBackground;
+  box-shadow: @leftArrowBoxShadow;
+}
+[data-position="right center"][data-tooltip]:after {
+  background: @arrowCenterBackground;
+  box-shadow: @rightArrowBoxShadow;
+}
+[data-position~="top"][data-tooltip]:after {
+  background: @arrowBottomBackground;
+}
+
+/* Inverted Arrow Color */
+[data-inverted][data-position~="bottom"][data-tooltip]:after {
+  background: @invertedArrowTopBackground;
+  box-shadow: @bottomArrowBoxShadow;
+}
+[data-inverted][data-position="left center"][data-tooltip]:after {
+  background: @invertedArrowCenterBackground;
+  box-shadow: @leftArrowBoxShadow;
+}
+[data-inverted][data-position="right center"][data-tooltip]:after {
+  background: @invertedArrowCenterBackground;
+  box-shadow: @rightArrowBoxShadow;
+}
+[data-inverted][data-position~="top"][data-tooltip]:after {
+  background: @invertedArrowBottomBackground;
+}
+
+/*--------------
      Spacing
 ---------------*/
 
