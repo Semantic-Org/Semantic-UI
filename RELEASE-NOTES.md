@@ -418,7 +418,7 @@ This release should fix bugs some may have encountered with `npm install semanti
 
 
 **Minor Enhancements**
-- **API** - All API callbacks now recieve `xhr` from API request as the third callback parameter
+- **API** - All API callbacks now receive `xhr` from API request as the third callback parameter
 
 **Additional Fixes**
 - **Checkbox** - Fix checkbox "check" appearing italicized when included inside italicized text
@@ -451,7 +451,7 @@ This release should fix bugs some may have encountered with `npm install semanti
 
 **Additional Fixes**
 - **Dropdown** - `<select>` dropdowns initialized without `multiple` property set on `<select>` will now produce an error to alert users selection will not be preserved correctly. Related [#2573](https://github.com/Semantic-Org/Semantic-UI/issues/2573)
-- **Dropdown** - Dropdown `<option>` added with `userAddition` now recieve class name `addition` to distinguish from original `<select>` options. [#2573](https://github.com/Semantic-Org/Semantic-UI/issues/2573)
+- **Dropdown** - Dropdown `<option>` added with `userAddition` now receive class name `addition` to distinguish from original `<select>` options. [#2573](https://github.com/Semantic-Org/Semantic-UI/issues/2573)
 - **Dropdown** - User additions now have their `<option>` removed if a user deselects an addition. [#2573](https://github.com/Semantic-Org/Semantic-UI/issues/2573)
 
 ### Version 2.0.4 - July 17, 2015
