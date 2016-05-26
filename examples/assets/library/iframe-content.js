@@ -681,7 +681,7 @@
 
     function isInitMsg(){
       //test if this message is from a child below us. This is an ugly test, however, updating
-      //the message format would break backwards compatibity.
+      //the message format would break backwards compatibility.
       return event.data.split(':')[2] in {'true':1,'false':1};
     }
 

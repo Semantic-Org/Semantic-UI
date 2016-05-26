@@ -213,7 +213,7 @@
 
     function isMessageFromMetaParent(){
       //test if this message is from a parent above us. This is an ugly test, however, updating
-      //the message format would break backwards compatibity.
+      //the message format would break backwards compatibility.
       var retCode = messageData.type in {'true':1,'false':1,'undefined':1};
 
       if (retCode){
