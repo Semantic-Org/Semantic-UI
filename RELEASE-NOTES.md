@@ -157,7 +157,7 @@
 - **Menu** - Fixed `1px` offset when `attached segment` follows `tabular menu` (max of 2 consecutive segments) [#3479](https://github.com/Semantic-Org/Semantic-UI/issues/3479)
 - **Header** - `sub header` used inside a header now correctly forces `block` styling [#3020](https://github.com/Semantic-Org/Semantic-UI/issues/3020)
 - **Popup** - Fixed `is visible`, `is animating`, and `is fluid` to always return `true/false` and not the DOM element. [#2781](https://github.com/Semantic-Org/Semantic-UI/issues/2781)
-- **Popup** - Fixed issue with `onEnable` callback being defined with name `onEnabled` and `onDisable` with `onDisabled` in default settings, causing an error. To preserve backwards compatibility, the mispelled callback name has been left, but the bug has been fixed. [#3148](https://github.com/Semantic-Org/Semantic-UI/issues/3148)
+- **Popup** - Fixed issue with `onEnable` callback being defined with name `onEnabled` and `onDisable` with `onDisabled` in default settings, causing an error. To preserve backwards compatibility, the misspelled callback name has been left, but the bug has been fixed. [#3148](https://github.com/Semantic-Org/Semantic-UI/issues/3148)
 - **Search** - Search now correctly hides menu when an error message inside results is clicked. [#3039](https://github.com/Semantic-Org/Semantic-UI/issues/3039)
 - **Sidebar** - Fixed css rule issue causing `very thin` sidebar to not work [#3300](https://github.com/Semantic-Org/Semantic-UI/issues/3300)
 - **Sidebar** - Sidebar no longer includes `transform` rules on child elements, this was causing layout issues in some cases (for example dropdowns in sidebars) [#3306](https://github.com/Semantic-Org/Semantic-UI/issues/3306)

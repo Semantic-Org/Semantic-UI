@@ -803,7 +803,7 @@ $.fn.checkbox.settings = {
   onEnable            : function(){},
   onDisable           : function(){},
 
-  // preserve mispelled callbacks (will be removed in 3.0)
+  // preserve misspelled callbacks (will be removed in 3.0)
   onEnabled           : function(){},
   onDisabled          : function(){},
 
