@@ -179,7 +179,7 @@ define.amd = true;
         // contain already visited objects
         var objects1 = [],
             objects2 = [],
-        // contain pathes (position in the object structure)
+        // contain paths (position in the object structure)
         // of the already visited objects
         // indexes same as in objects arrays
             paths1 = [],
@@ -294,7 +294,7 @@ define.amd = true;
                 index1 = isObject1 ? getIndex(objects1, value1) : -1;
                 index2 = isObject2 ? getIndex(objects2, value2) : -1;
 
-                // determine the new pathes of the objects
+                // determine the new paths of the objects
                 // - for non cyclic objects the current path will be extended
                 //   by current property name
                 // - for cyclic objects the stored path is taken
@@ -310,7 +310,7 @@ define.amd = true;
                     return true;
                 }
 
-                // remember the current objects and their pathes
+                // remember the current objects and their paths
                 if (index1 === -1 && isObject1) {
                     objects1.push(value1);
                     paths1.push(newPath1);
