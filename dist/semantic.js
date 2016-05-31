@@ -2792,13 +2792,13 @@ $.fn.checkbox = function(parameters) {
 
         hide: {
           input: function() {
-            module.verbose('Modfying <input> z-index to be unselectable');
+            module.verbose('Modifying <input> z-index to be unselectable');
             $input.addClass(className.hidden);
           }
         },
         show: {
           input: function() {
-            module.verbose('Modfying <input> z-index to be selectable');
+            module.verbose('Modifying <input> z-index to be selectable');
             $input.removeClass(className.hidden);
           }
         },
@@ -3468,7 +3468,7 @@ $.fn.checkbox.settings = {
   onEnable            : function(){},
   onDisable           : function(){},
 
-  // preserve mispelled callbacks (will be removed in 3.0)
+  // preserve misspelled callbacks (will be removed in 3.0)
   onEnabled           : function(){},
   onDisabled          : function(){},
 
@@ -5934,7 +5934,7 @@ $.fn.dropdown = function(parameters) {
             ;
             if($choice) {
               if($choice.find(selector.menu).length > 0) {
-                module.verbose('Retreiving text of element with sub-menu');
+                module.verbose('Retrieving text of element with sub-menu');
                 $choice = $choice.clone();
                 $choice.find(selector.menu).remove();
                 $choice.find(selector.menuIcon).remove();
@@ -6015,7 +6015,7 @@ $.fn.dropdown = function(parameters) {
               module.debug('Retrieved and sorted values from select', select);
             }
             else {
-              module.debug('Retreived values from select', select);
+              module.debug('Retrieved values from select', select);
             }
             return select;
           },
@@ -6197,7 +6197,7 @@ $.fn.dropdown = function(parameters) {
             }
           },
           values: function() {
-            // prevents callbacks from occuring on initial load
+            // prevents callbacks from occurring on initial load
             module.set.initialLoad();
             if(settings.apiSettings && settings.saveRemoteData && module.get.remoteValues()) {
               module.restore.remoteValues();
@@ -9983,7 +9983,7 @@ $.fn.nag.settings = {
 
   namespace   : 'Nag',
 
-  // allows cookie to be overriden
+  // allows cookie to be overridden
   persist     : false,
 
   // set to zero to require manually dismissal, otherwise hides on its own
@@ -13272,7 +13272,7 @@ $.fn.search = function(parameters) {
               searchHTML
             ;
             $.extend(true, apiSettings, settings.apiSettings);
-            module.verbose('Setuping up API request', apiSettings);
+            module.verbose('Setting up API request', apiSettings);
             $module.api(apiSettings);
           }
         },
@@ -16937,7 +16937,7 @@ $.fn.sticky = function(parameters) {
         },
 
         reset: function() {
-          module.debug('Reseting elements position');
+          module.debug('Resetting elements position');
           module.unbind();
           module.unfix();
           module.resetCSS();
@@ -19711,7 +19711,7 @@ $.api = $.fn.api = function(parameters) {
                 translatedResponse = ( $.isFunction(settings.onResponse) )
                   ? module.is.expectingJSON()
                     ? settings.onResponse.call(context, $.extend(true, {}, response))
-                    : settings.onResponse.call(conetxt, response)
+                    : settings.onResponse.call(context, response)
                   : false
               ;
               timeLeft = (timeLeft > 0)
@@ -21507,7 +21507,7 @@ $.fn.visibility = function(parameters) {
         },
 
         reset: function() {
-          module.verbose('Reseting all cached values');
+          module.verbose('Resetting all cached values');
           if( $.isPlainObject(module.cache) ) {
             module.cache.screen = {};
             module.cache.element = {};

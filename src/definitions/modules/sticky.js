@@ -670,7 +670,7 @@ $.fn.sticky = function(parameters) {
         },
 
         reset: function() {
-          module.debug('Reseting elements position');
+          module.debug('Resetting elements position');
           module.unbind();
           module.unfix();
           module.resetCSS();

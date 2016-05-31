@@ -184,7 +184,7 @@
 
 @orderedInvertedCountColor: @invertedLightTextColor;
 
-/* Horizontal Ordereded */
+/* Horizontal Ordered */
 @horizontalOrderedCountDistance: 0.5em;
 
 /* Divided */

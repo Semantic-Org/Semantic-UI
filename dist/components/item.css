@@ -355,7 +355,7 @@
   }
 }
 
-/* Mobily Only */
+/* Mobile Only */
 @media only screen and (max-width: 767px) {
   .ui.items > .item {
     -webkit-box-orient: vertical;

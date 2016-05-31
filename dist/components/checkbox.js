@@ -127,13 +127,13 @@ $.fn.checkbox = function(parameters) {
 
         hide: {
           input: function() {
-            module.verbose('Modfying <input> z-index to be unselectable');
+            module.verbose('Modifying <input> z-index to be unselectable');
             $input.addClass(className.hidden);
           }
         },
         show: {
           input: function() {
-            module.verbose('Modfying <input> z-index to be selectable');
+            module.verbose('Modifying <input> z-index to be selectable');
             $input.removeClass(className.hidden);
           }
         },
@@ -803,7 +803,7 @@ $.fn.checkbox.settings = {
   onEnable            : function(){},
   onDisable           : function(){},
 
-  // preserve mispelled callbacks (will be removed in 3.0)
+  // preserve misspelled callbacks (will be removed in 3.0)
   onEnabled           : function(){},
   onDisabled          : function(){},
 

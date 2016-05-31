@@ -7036,7 +7036,7 @@ a.ui.inverted.grey.header:hover {
 }
 
 /*-------------------
-       Fittted
+       Fitted
 --------------------*/
 
 .ui.fitted.header {
@@ -9889,7 +9889,7 @@ i.icon.linux:before {
   content: "\f17c";
 }
 
-i.icon.dribbble:before {
+i.icon.dribble:before {
   content: "\f17d";
 }
 
@@ -15415,7 +15415,7 @@ ol.ui.horizontal.list li:before,
   transform-origin: bottom right;
 }
 
-.ui.rotate.active.reveal > .visible.conten,
+.ui.rotate.active.reveal > .visible.content,
 .ui.rotate.reveal:hover > .visible.content,
 .ui.rotate.right.active.reveal > .visible.content,
 .ui.rotate.right.reveal:hover > .visible.content {
@@ -20339,7 +20339,7 @@ ol.ui.horizontal.list li:before,
   }
 }
 
-/* Mobily Only */
+/* Mobile Only */
 
 @media only screen and (max-width: 767px) {
   .ui.grid > .doubling.row,
@@ -25891,7 +25891,7 @@ a.ui.card:hover,
       Doubling
 --------------------*/
 
-/* Mobily Only */
+/* Mobile Only */
 
 @media only screen and (max-width: 767px) {
   .ui.two.doubling.cards {
@@ -27108,7 +27108,7 @@ a.ui.card:hover,
   }
 }
 
-/* Mobily Only */
+/* Mobile Only */
 
 @media only screen and (max-width: 767px) {
   .ui.items > .item {

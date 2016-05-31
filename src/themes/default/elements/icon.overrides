@@ -602,7 +602,7 @@ i.icon.apple:before { content: "\f179"; }
 i.icon.windows:before { content: "\f17a"; }
 i.icon.android:before { content: "\f17b"; }
 i.icon.linux:before { content: "\f17c"; }
-i.icon.dribbble:before { content: "\f17d"; }
+i.icon.dribble:before { content: "\f17d"; }
 i.icon.skype:before { content: "\f17e"; }
 i.icon.foursquare:before { content: "\f180"; }
 i.icon.trello:before { content: "\f181"; }

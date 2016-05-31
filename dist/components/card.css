@@ -765,7 +765,7 @@ a.ui.card:hover,
 --------------------*/
 
 
-/* Mobily Only */
+/* Mobile Only */
 @media only screen and (max-width: 767px) {
   .ui.two.doubling.cards {
     margin-left: 0em;

@@ -1723,7 +1723,7 @@ $.fn.dropdown = function(parameters) {
             ;
             if($choice) {
               if($choice.find(selector.menu).length > 0) {
-                module.verbose('Retreiving text of element with sub-menu');
+                module.verbose('Retrieving text of element with sub-menu');
                 $choice = $choice.clone();
                 $choice.find(selector.menu).remove();
                 $choice.find(selector.menuIcon).remove();
@@ -1804,7 +1804,7 @@ $.fn.dropdown = function(parameters) {
               module.debug('Retrieved and sorted values from select', select);
             }
             else {
-              module.debug('Retreived values from select', select);
+              module.debug('Retrieved values from select', select);
             }
             return select;
           },
@@ -1986,7 +1986,7 @@ $.fn.dropdown = function(parameters) {
             }
           },
           values: function() {
-            // prevents callbacks from occuring on initial load
+            // prevents callbacks from occurring on initial load
             module.set.initialLoad();
             if(settings.apiSettings && settings.saveRemoteData && module.get.remoteValues()) {
               module.restore.remoteValues();
