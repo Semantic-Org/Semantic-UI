@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Item
+ * # Semantic UI 2.2.0 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -40,7 +40,9 @@
   border-radius: 0.28571429rem;
   box-shadow: 0px 1px 3px 0px #D4D4D5, 0px 0px 0px 1px #D4D4D5;
   -webkit-transition: box-shadow 0.1s ease, -webkit-transform 0.1s ease;
-          transition: box-shadow 0.1s ease, transform 0.1s ease;
+  transition: box-shadow 0.1s ease, -webkit-transform 0.1s ease;
+  transition: box-shadow 0.1s ease, transform 0.1s ease;
+  transition: box-shadow 0.1s ease, transform 0.1s ease, -webkit-transform 0.1s ease;
   z-index: '';
 }
 .ui.card {
@@ -297,7 +299,7 @@
 .ui.card > .content a:not(.ui) {
   color: '';
   -webkit-transition: color 0.1s ease;
-          transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 .ui.cards > .card > .content a:not(.ui):hover,
 .ui.card > .content a:not(.ui):hover {
@@ -360,7 +362,7 @@
   cursor: pointer;
   opacity: 0.75;
   -webkit-transition: color 0.1s ease;
-          transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 .ui.cards > .card > .content .star.icon:hover,
 .ui.card > .content .star.icon:hover {
@@ -381,7 +383,7 @@
   cursor: pointer;
   opacity: 0.75;
   -webkit-transition: color 0.1s ease;
-          transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 .ui.cards > .card > .content .like.icon:hover,
 .ui.card > .content .like.icon:hover {
@@ -416,7 +418,7 @@
   color: rgba(0, 0, 0, 0.4);
   box-shadow: none;
   -webkit-transition: color 0.1s ease;
-          transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 .ui.cards > .card > .extra a:not(.ui),
 .ui.card > .extra a:not(.ui) {
@@ -432,6 +434,25 @@
            Variations
 *******************************/
 
+
+/*-------------------
+       Raised
+--------------------*/
+
+.ui.raised.cards > .card,
+.ui.raised.card {
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+}
+.ui.raised.cards a.card:hover,
+.ui.link.cards .raised.card:hover,
+a.ui.raised.card:hover,
+.ui.link.raised.card:hover {
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 4px 0px rgba(34, 36, 38, 0.15), 0px 2px 10px 0px rgba(34, 36, 38, 0.25);
+}
+.ui.raised.cards > .card,
+.ui.raised.card {
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+}
 
 /*-------------------
        Centered
@@ -744,7 +765,7 @@ a.ui.card:hover,
 --------------------*/
 
 
-/* Mobily Only */
+/* Mobile Only */
 @media only screen and (max-width: 767px) {
   .ui.two.doubling.cards {
     margin-left: 0em;

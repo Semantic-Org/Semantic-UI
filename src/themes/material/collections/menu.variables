@@ -7,4 +7,4 @@
 @dividerSize: 0px;
 
 @itemVerticalPadding: @relativeLarge;
-@itemHorizontaPadding: @relativeLarge;
+@itemHorizontalPadding: @relativeLarge;

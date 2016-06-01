@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Shape
+ * # Semantic UI 2.2.0 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9,9 +9,16 @@
  *
  */
 
-;(function ( $, window, document, undefined ) {
+;(function ($, window, document, undefined) {
 
 "use strict";
+
+window = (typeof window != 'undefined' && window.Math == Math)
+  ? window
+  : (typeof self != 'undefined' && self.Math == Math)
+    ? self
+    : Function('return this')()
+;
 
 $.fn.shape = function(parameters) {
   var
@@ -61,6 +68,11 @@ $.fn.shape = function(parameters) {
         nextIndex = false,
         $activeSide,
         $nextSide,
+
+        initial = {
+          width  : $module.width(),
+          height : $module.height()
+        },
 
         // standard module
         element       = this,
@@ -245,14 +257,29 @@ $.fn.shape = function(parameters) {
                   : $clone.find(selector.side).first(),
               newSize = {}
             ;
-            module.set.currentStageSize();
             $activeSide.removeClass(className.active);
             $nextSide.addClass(className.active);
             $clone.insertAfter($module);
-            newSize = {
-              width  : $nextSide.outerWidth(true),
-              height : $nextSide.outerHeight(true)
-            };
+            if(settings.width == 'next') {
+              newSize.width = $nextSide.outerWidth(true);
+            }
+            else if(settings.width == 'initial') {
+              newSize.width = initial.width;
+            }
+            else {
+              newSize.width = settings.width;
+            }
+            if(settings.height == 'next') {
+              newSize.height = $nextSide.outerHeight(true);
+            }
+            else if(settings.height == 'initial') {
+              newSize.height = initial.height + 2;
+            }
+            else {
+              newSize.height = settings.height;
+            }
+            newSize.width  += settings.jitter;
+            newSize.height += settings.jitter;
             $clone.remove();
             $module
               .css(newSize)
@@ -650,7 +677,12 @@ $.fn.shape = function(parameters) {
             $.extend(true, settings, name);
           }
           else if(value !== undefined) {
-            settings[name] = value;
+            if($.isPlainObject(settings[name])) {
+              $.extend(true, settings[name], value);
+            }
+            else {
+              settings[name] = value;
+            }
           }
           else {
             return settings[name];
@@ -668,7 +700,7 @@ $.fn.shape = function(parameters) {
           }
         },
         debug: function() {
-          if(settings.debug) {
+          if(!settings.silent && settings.debug) {
             if(settings.performance) {
               module.performance.log(arguments);
             }
@@ -679,7 +711,7 @@ $.fn.shape = function(parameters) {
           }
         },
         verbose: function() {
-          if(settings.verbose && settings.debug) {
+          if(!settings.silent && settings.verbose && settings.debug) {
             if(settings.performance) {
               module.performance.log(arguments);
             }
@@ -690,8 +722,10 @@ $.fn.shape = function(parameters) {
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
-          module.error.apply(console, arguments);
+          if(!settings.silent) {
+            module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
+            module.error.apply(console, arguments);
+          }
         },
         performance: {
           log: function(message) {
@@ -828,11 +862,17 @@ $.fn.shape.settings = {
   // module info
   name : 'Shape',
 
+  // hide all debug content
+  silent     : false,
+
   // debug content outputted to console
   debug      : false,
 
   // verbose debug output
   verbose    : false,
+
+  // fudge factor in pixels when swapping from 2d to 3d
+  jitter     : 1,
 
   // performance data output
   performance: true,

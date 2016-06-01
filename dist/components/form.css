@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Form
+ * # Semantic UI 2.2.0 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -46,7 +46,7 @@
 }
 .ui.form .fields .field {
   clear: both;
-  margin: 0em 0em 1em;
+  margin: 0em;
 }
 
 /*--------------------
@@ -112,7 +112,7 @@
   border-radius: 0.28571429rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
-          transition: color 0.1s ease, border-color 0.1s ease;
+  transition: color 0.1s ease, border-color 0.1s ease;
 }
 
 /* Text Area */
@@ -128,7 +128,7 @@
   border-radius: 0.28571429rem;
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
-          transition: color 0.1s ease, border-color 0.1s ease;
+  transition: color 0.1s ease, border-color 0.1s ease;
   font-size: 1em;
   line-height: 1.2857;
   resize: vertical;
@@ -166,7 +166,7 @@
   padding: 0.62em 1em;
   color: rgba(0, 0, 0, 0.87);
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
-          transition: color 0.1s ease, border-color 0.1s ease;
+  transition: color 0.1s ease, border-color 0.1s ease;
 }
 
 /*--------------------
@@ -308,30 +308,30 @@
 
 /* browsers require these rules separate */
 .ui.form ::-webkit-input-placeholder {
-  color: rgba(140, 140, 140, 0.87);
+  color: rgba(191, 191, 191, 0.87);
 }
-.ui.form ::-ms-input-placeholder {
-  color: rgba(140, 140, 140, 0.87);
+.ui.form :-ms-input-placeholder {
+  color: rgba(191, 191, 191, 0.87);
 }
 .ui.form ::-moz-placeholder {
-  color: rgba(140, 140, 140, 0.87);
+  color: rgba(191, 191, 191, 0.87);
 }
 .ui.form :focus::-webkit-input-placeholder {
-  color: rgba(89, 89, 89, 0.87);
+  color: rgba(115, 115, 115, 0.87);
 }
-.ui.form :focus::-ms-input-placeholder {
-  color: rgba(89, 89, 89, 0.87);
+.ui.form :focus:-ms-input-placeholder {
+  color: rgba(115, 115, 115, 0.87);
 }
 .ui.form :focus::-moz-placeholder {
-  color: rgba(89, 89, 89, 0.87);
+  color: rgba(115, 115, 115, 0.87);
 }
 
 /* Error Placeholder */
 .ui.form .error ::-webkit-input-placeholder {
   color: #e7bdbc;
 }
-.ui.form .error ::-ms-input-placeholder {
-  color: #e7bdbc;
+.ui.form .error :-ms-input-placeholder {
+  color: #e7bdbc !important;
 }
 .ui.form .error ::-moz-placeholder {
   color: #e7bdbc;
@@ -339,8 +339,8 @@
 .ui.form .error :focus::-webkit-input-placeholder {
   color: #da9796;
 }
-.ui.form .error :focus::-ms-input-placeholder {
-  color: #da9796;
+.ui.form .error :focus:-ms-input-placeholder {
+  color: #da9796 !important;
 }
 .ui.form .error :focus::-moz-placeholder {
   color: #da9796;
@@ -590,11 +590,6 @@
   position: relative;
   cursor: default;
   point-events: none;
-  text-shadow: none !important;
-  color: transparent !important;
-  -webkit-transition: all 0s linear;
-          transition: all 0s linear;
-  z-index: 100;
 }
 .ui.loading.form:before {
   position: absolute;
@@ -694,7 +689,12 @@
 .ui.form .inverted.segment .ui.checkbox label,
 .ui.form .inverted.segment .ui.checkbox .box,
 .ui.inverted.form .ui.checkbox label,
-.ui.inverted.form .ui.checkbox .box {
+.ui.inverted.form .ui.checkbox .box,
+.ui.inverted.form .inline.fields > label,
+.ui.inverted.form .inline.fields .field > label,
+.ui.inverted.form .inline.fields .field > p,
+.ui.inverted.form .inline.field > label,
+.ui.inverted.form .inline.field > p {
   color: rgba(255, 255, 255, 0.9);
 }
 
@@ -759,6 +759,7 @@
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
+  margin: 0em -0.5em 1em;
 }
 .ui.form .fields > .field {
   -webkit-box-flex: 0;
@@ -818,6 +819,8 @@
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
   }
+  .ui[class*="equal width"].form .fields > .field,
+  .ui.form [class*="equal width"].fields > .field,
   .ui.form .two.fields > .fields,
   .ui.form .two.fields > .field,
   .ui.form .three.fields > .fields,
@@ -838,15 +841,7 @@
   .ui.form .ten.fields > .field {
     width: 100% !important;
     margin: 0em 0em 1em;
-    padding-left: 0%;
-    padding-right: 0%;
   }
-}
-.ui.form .fields .field:first-child {
-  padding-left: 0%;
-}
-.ui.form .fields .field:last-child {
-  padding-right: 0%;
 }
 
 /* Sizing Combinations */
@@ -854,12 +849,6 @@
   width: 6.25%;
   padding-left: 0.5em;
   padding-right: 0.5em;
-}
-.ui.form .fields .wide.field:first-child {
-  padding-left: 0%;
-}
-.ui.form .fields .wide.field:last-child {
-  padding-right: 0%;
 }
 .ui.form .one.wide.field {
   width: 6.25% !important;
@@ -936,9 +925,9 @@
   .ui.form .fields > .fifteen.wide.field,
   .ui.form .fields > .sixteen.wide.field {
     width: 100% !important;
-    margin: 0em 0em 1em;
-    padding-left: 0%;
-    padding-right: 0%;
+  }
+  .ui.form .fields {
+    margin-bottom: 0em;
   }
 }
 
@@ -1036,25 +1025,29 @@
         Sizes
 ---------------------*/
 
-
-/* Standard */
+.ui.mini.form {
+  font-size: 0.78571429rem;
+}
+.ui.tiny.form {
+  font-size: 0.85714286rem;
+}
 .ui.small.form {
   font-size: 0.92857143rem;
 }
-
-/* Medium */
 .ui.form {
   font-size: 1rem;
 }
-
-/* Large */
 .ui.large.form {
   font-size: 1.14285714rem;
 }
-
-/* Huge */
+.ui.big.form {
+  font-size: 1.28571429rem;
+}
 .ui.huge.form {
   font-size: 1.42857143rem;
+}
+.ui.massive.form {
+  font-size: 1.71428571rem;
 }
 
 

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Rating
+ * # Semantic UI 2.2.0 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -41,7 +41,7 @@
   width: 1.25em;
   height: auto;
   -webkit-transition: opacity 0.1s ease, background 0.1s ease, text-shadow 0.1s ease, color 0.1s ease;
-          transition: opacity 0.1s ease, background 0.1s ease, text-shadow 0.1s ease, color 0.1s ease;
+  transition: opacity 0.1s ease, background 0.1s ease, text-shadow 0.1s ease, color 0.1s ease;
 }
 
 
@@ -166,7 +166,7 @@
 *******************************/
 
 .ui.mini.rating {
-  font-size: 0.71428571rem;
+  font-size: 0.78571429rem;
 }
 .ui.tiny.rating {
   font-size: 0.85714286rem;
@@ -210,7 +210,7 @@
 
 /* Empty Star */
 .ui.rating .icon:before {
-  content: '\f006';
+  content: '\f005';
 }
 
 /* Active Star */

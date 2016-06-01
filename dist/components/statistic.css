@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Statistic
+ * # Semantic UI 2.2.0 - Statistic
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -490,85 +490,85 @@
 /* Mini */
 .ui.mini.statistics .statistic > .value,
 .ui.mini.statistic > .value {
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 }
 .ui.mini.horizontal.statistics .statistic > .value,
 .ui.mini.horizontal.statistic > .value {
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 }
 .ui.mini.statistics .statistic > .text.value,
 .ui.mini.statistic > .text.value {
-  font-size: 1rem;
+  font-size: 1rem !important;
 }
 
 /* Tiny */
 .ui.tiny.statistics .statistic > .value,
 .ui.tiny.statistic > .value {
-  font-size: 2rem;
+  font-size: 2rem !important;
 }
 .ui.tiny.horizontal.statistics .statistic > .value,
 .ui.tiny.horizontal.statistic > .value {
-  font-size: 2rem;
+  font-size: 2rem !important;
 }
 .ui.tiny.statistics .statistic > .text.value,
 .ui.tiny.statistic > .text.value {
-  font-size: 1rem;
+  font-size: 1rem !important;
 }
 
 /* Small */
 .ui.small.statistics .statistic > .value,
 .ui.small.statistic > .value {
-  font-size: 3rem;
+  font-size: 3rem !important;
 }
 .ui.small.horizontal.statistics .statistic > .value,
 .ui.small.horizontal.statistic > .value {
-  font-size: 2rem;
+  font-size: 2rem !important;
 }
 .ui.small.statistics .statistic > .text.value,
 .ui.small.statistic > .text.value {
-  font-size: 1rem;
+  font-size: 1rem !important;
 }
 
 /* Medium */
 .ui.statistics .statistic > .value,
 .ui.statistic > .value {
-  font-size: 4rem;
+  font-size: 4rem !important;
 }
 .ui.horizontal.statistics .statistic > .value,
 .ui.horizontal.statistic > .value {
-  font-size: 3rem;
+  font-size: 3rem !important;
 }
 .ui.statistics .statistic > .text.value,
 .ui.statistic > .text.value {
-  font-size: 2rem;
+  font-size: 2rem !important;
 }
 
 /* Large */
 .ui.large.statistics .statistic > .value,
 .ui.large.statistic > .value {
-  font-size: 5rem;
+  font-size: 5rem !important;
 }
 .ui.large.horizontal.statistics .statistic > .value,
 .ui.large.horizontal.statistic > .value {
-  font-size: 4rem;
+  font-size: 4rem !important;
 }
 .ui.large.statistics .statistic > .text.value,
 .ui.large.statistic > .text.value {
-  font-size: 2.5rem;
+  font-size: 2.5rem !important;
 }
 
 /* Huge */
 .ui.huge.statistics .statistic > .value,
 .ui.huge.statistic > .value {
-  font-size: 6rem;
+  font-size: 6rem !important;
 }
 .ui.huge.horizontal.statistics .statistic > .value,
 .ui.huge.horizontal.statistic > .value {
-  font-size: 5rem;
+  font-size: 5rem !important;
 }
 .ui.huge.statistics .statistic > .text.value,
 .ui.huge.statistic > .text.value {
-  font-size: 2.5rem;
+  font-size: 2.5rem !important;
 }
 
 

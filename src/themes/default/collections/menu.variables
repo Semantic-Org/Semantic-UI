@@ -438,8 +438,21 @@
   @attachedBoxShadow
 ;
 
+/* Resize large sizes */
+@mini: @11px;
+@tiny: @12px;
+@small: @13px;
+@large: @15px;
+@huge: @16px;
+@big: @17px;
+@massive: @18px;
+
 /* Sizes */
+@miniWidth: 9rem;
+@tinyWidth: 11rem;
 @smallWidth: 13rem;
 @mediumWidth: 15rem;
 @largeWidth: 18rem;
 @hugeWidth: 20rem;
+@bigWidth: 22rem;
+@massiveWidth: 25rem;

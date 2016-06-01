@@ -16,6 +16,9 @@
 /* Field */
 @fieldMargin: 0em 0em @rowDistance;
 
+/* Fields */
+@fieldsMargin: 0em -(@gutterWidth / 2) @rowDistance;
+
 /* Form Label */
 @labelDistance: @4px;
 @labelMargin: 0em 0em @labelDistance 0em;
@@ -126,10 +129,6 @@
 @inputErrorFocusColor: @negativeTextColor;
 @inputErrorFocusBorder: @negativeBorderColor;
 @inputErrorFocusBoxShadow: none;
-
-/* Placeholder */
-@inputPlaceholderColor: lighten(@inputColor, 55);
-@inputPlaceholderFocusColor: lighten(@inputColor, 35);
 
 /* Placeholder Error */
 @inputErrorPlaceholderColor: lighten(@formErrorColor, 40);

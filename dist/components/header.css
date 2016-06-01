@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Header
+ * # Semantic UI 2.2.0 - Header
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -215,7 +215,7 @@ h5.ui.header .sub.header {
   color: '';
 }
 .ui.small.sub.header {
-  font-size: 0.71428571em;
+  font-size: 0.78571429em;
 }
 .ui.sub.header {
   font-size: 0.85714286em;
@@ -259,6 +259,7 @@ h5.ui.header .sub.header {
 }
 .ui.icon.header .content {
   display: block;
+  padding: 0em;
 }
 .ui.icon.header .circular.icon {
   font-size: 2em;
@@ -600,7 +601,7 @@ a.ui.inverted.grey.header:hover {
 }
 
 /*-------------------
-       Fittted
+       Fitted
 --------------------*/
 
 .ui.fitted.header {
@@ -631,7 +632,7 @@ a.ui.inverted.grey.header:hover {
 
 .ui.block.header {
   background: #F3F4F5;
-  padding: 0.71428571rem 1rem;
+  padding: 0.78571429rem 1rem;
   box-shadow: none;
   border: 1px solid #D4D4D5;
   border-radius: 0.28571429rem;
@@ -658,7 +659,7 @@ a.ui.inverted.grey.header:hover {
 
 .ui.attached.header {
   background: #FFFFFF;
-  padding: 0.71428571rem 1rem;
+  padding: 0.78571429rem 1rem;
   margin-left: -1px;
   margin-right: -1px;
   box-shadow: none;

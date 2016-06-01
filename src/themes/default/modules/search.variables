@@ -114,6 +114,22 @@
             Types
 *******************************/
 
+/* Selection */
+@selectionPromptBorderRadius: @defaultBorderRadius;
+
+@selectionCloseTop: 0em;
+@selectionCloseTransition:
+  color @defaultDuration @defaultEasing,
+  opacity @defaultDuration @defaultEasing
+;
+@selectionCloseRight: 0em;
+@selectionCloseIconOpacity: 0.8;
+@selectionCloseIconColor: '';
+@selectionCloseIconHoverOpacity: 1;
+@selectionCloseIconHoverColor: @red;
+
+@selectionCloseIconInputRight: 1.85714em;
+
 /* Category */
 @categoryBackground: @darkWhite;
 @categoryBoxShadow: none;

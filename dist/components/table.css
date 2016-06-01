@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Table
+ * # Semantic UI 2.2.0 - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -45,7 +45,7 @@
 .ui.table th,
 .ui.table td {
   -webkit-transition: background 0.1s ease, color 0.1s ease;
-          transition: background 0.1s ease, color 0.1s ease;
+  transition: background 0.1s ease, color 0.1s ease;
 }
 
 /* Headers */
@@ -57,7 +57,7 @@
   background: #F9FAFB;
   text-align: inherit;
   color: rgba(0, 0, 0, 0.87);
-  padding: 0.92857143em 0.71428571em;
+  padding: 0.92857143em 0.78571429em;
   vertical-align: inherit;
   font-style: none;
   font-weight: bold;
@@ -88,7 +88,7 @@
   background: #F9FAFB;
   text-align: inherit;
   color: rgba(0, 0, 0, 0.87);
-  padding: 0.71428571em 0.71428571em;
+  padding: 0.78571429em 0.78571429em;
   vertical-align: middle;
   font-style: normal;
   font-weight: normal;
@@ -117,7 +117,7 @@
 
 /* Table Cells */
 .ui.table td {
-  padding: 0.71428571em 0.71428571em;
+  padding: 0.78571429em 0.78571429em;
   text-align: inherit;
 }
 
@@ -257,10 +257,17 @@
 }
 
 /* Highlight Defining Column */
-.ui.definition.table tr td:first-child {
+.ui.definition.table tr td:first-child:not(.ignored),
+.ui.definition.table tr td.definition {
   background: rgba(0, 0, 0, 0.03);
   font-weight: bold;
   color: rgba(0, 0, 0, 0.95);
+  text-transform: '';
+  box-shadow: '';
+  text-align: '';
+  font-size: 1em;
+  padding-left: '';
+  padding-right: '';
 }
 
 /* Fix 2nd Column */
@@ -488,7 +495,7 @@
 .ui.table tbody tr td.selectable > a:not(.ui) {
   display: block;
   color: inherit;
-  padding: 0.71428571em 0.71428571em;
+  padding: 0.78571429em 0.78571429em;
 }
 
 /* Other States */
@@ -583,6 +590,12 @@
 .ui.inverted.striped.table > tr:nth-child(2n),
 .ui.inverted.striped.table tbody tr:nth-child(2n) {
   background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Allow striped active hover */
+.ui.striped.selectable.selectable.selectable.table tbody tr.active:hover {
+  background: #EFEFEF !important;
+  color: rgba(0, 0, 0, 0.95) !important;
 }
 
 /*--------------

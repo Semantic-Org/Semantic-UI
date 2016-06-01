@@ -95,7 +95,7 @@
   color: rgba(0, 0, 0, 0.87);
   font-weight: normal;
   -webkit-transition: background 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
-          transition: background 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
+  transition: background 0.1s ease, box-shadow 0.1s ease, color 0.1s ease;
 }
 .ui.menu > .item:first-child {
   border-radius: 0.28571429rem 0px 0px 0.28571429rem;
@@ -150,8 +150,8 @@
   position: relative;
   top: 0em;
   margin: -0.5em 0em;
-  padding-bottom: 0.71428571em;
-  padding-top: 0.71428571em;
+  padding-bottom: 0.78571429em;
+  padding-top: 0.78571429em;
   font-size: 1em;
 }
 
@@ -254,14 +254,14 @@
   margin: 0;
   text-align: left;
   font-size: 1em !important;
-  padding: 0.71428571em 1.14285714em !important;
+  padding: 0.78571429em 1.14285714em !important;
   background: transparent !important;
   color: rgba(0, 0, 0, 0.87) !important;
   text-transform: none !important;
   font-weight: normal !important;
   box-shadow: none !important;
   -webkit-transition: none !important;
-          transition: none !important;
+  transition: none !important;
 }
 .ui.menu .ui.dropdown .menu > .item:hover {
   background: rgba(0, 0, 0, 0.05) !important;
@@ -339,17 +339,17 @@
   background: #999999;
   color: #FFFFFF;
   margin-left: 1em;
-  padding: 0.3em 0.71428571em;
+  padding: 0.3em 0.78571429em;
 }
 .ui.vertical.menu .item > .label {
   background: #999999;
   color: #FFFFFF;
   margin-top: -0.15em;
   margin-bottom: -0.15em;
-  padding: 0.3em 0.71428571em;
+  padding: 0.3em 0.78571429em;
 }
 .ui.menu .item > .floating.label {
-  padding: 0.3em 0.71428571em;
+  padding: 0.3em 0.78571429em;
 }
 
 /*--------------
@@ -565,8 +565,8 @@ Floated Menu / Item
   top: 0%;
   left: 0px;
   width: 100%;
-  background: rgba(34, 36, 38, 0.1);
   height: 1px;
+  background: rgba(34, 36, 38, 0.1);
 }
 .ui.vertical.menu .item:first-child:before {
   display: none !important;
@@ -661,7 +661,8 @@ Floated Menu / Item
 }
 
 /* Coupling with segment for attachment */
-.ui.tabular.menu + .bottom.attached.segment {
+.ui.tabular.menu + .attached:not(.top).segment,
+.ui.tabular.menu + .attached:not(.top).segment + .attached:not(.top).segment {
   border-top: none;
   margin: 0px;
   width: 100%;
@@ -809,11 +810,11 @@ Floated Menu / Item
           align-self: center;
   box-shadow: none;
   border: none;
-  padding: 0.71428571em 0.92857143em;
+  padding: 0.78571429em 0.92857143em;
   margin: 0em 0.35714286em;
   background: none;
   -webkit-transition: color 0.1s ease;
-          transition: color 0.1s ease;
+  transition: color 0.1s ease;
   border-radius: 0.28571429rem;
 }
 
@@ -937,7 +938,7 @@ Floated Menu / Item
   padding: 0.85714286em 1.14285714em;
   border-bottom-width: 2px;
   -webkit-transition: color 0.1s ease;
-          transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 
 /* Item Types */
@@ -1024,7 +1025,8 @@ Floated Menu / Item
 }
 
 /* Hover */
-.ui.secondary.inverted.pointing.menu .item:hover {
+.ui.secondary.inverted.pointing.menu .link.item:hover,
+.ui.secondary.inverted.pointing.menu a.item:hover {
   color: rgba(0, 0, 0, 0.95);
 }
 
@@ -1056,7 +1058,7 @@ Floated Menu / Item
   font-weight: normal;
   color: rgba(0, 0, 0, 0.6);
   -webkit-transition: opacity 0.1s ease;
-          transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
 }
 
 /* Border */
@@ -1273,6 +1275,14 @@ Floated Menu / Item
     width: 100%;
     background: rgba(34, 36, 38, 0.1);
     height: 1px;
+  }
+  .ui.stackable.menu .left.menu,
+  .ui.stackable.menu .left.item {
+    margin-right: 0 !important;
+  }
+  .ui.stackable.menu .right.menu,
+  .ui.stackable.menu .right.item {
+    margin-left: 0 !important;
   }
 }
 
@@ -1817,7 +1827,7 @@ Floated Menu / Item
   border-right: 1px solid #D4D4D5;
   z-index: 2;
   -webkit-transition: background 0.1s ease;
-          transition: background 0.1s ease;
+  transition: background 0.1s ease;
 }
 .ui.vertical.pointing.menu .item:after {
   position: absolute;
@@ -1938,6 +1948,22 @@ Floated Menu / Item
 ---------------*/
 
 
+/* Mini */
+.ui.mini.menu {
+  font-size: 0.78571429rem;
+}
+.ui.mini.vertical.menu {
+  width: 9rem;
+}
+
+/* Tiny */
+.ui.tiny.menu {
+  font-size: 0.85714286rem;
+}
+.ui.tiny.vertical.menu {
+  width: 11rem;
+}
+
 /* Small */
 .ui.small.menu {
   font-size: 0.92857143rem;
@@ -1956,7 +1982,7 @@ Floated Menu / Item
 
 /* Large */
 .ui.large.menu {
-  font-size: 1.14285714rem;
+  font-size: 1.07142857rem;
 }
 .ui.large.vertical.menu {
   width: 18rem;
@@ -1964,10 +1990,26 @@ Floated Menu / Item
 
 /* Huge */
 .ui.huge.menu {
-  font-size: 1.42857143rem;
+  font-size: 1.14285714rem;
 }
 .ui.huge.vertical.menu {
   width: 20rem;
+}
+
+/* Big */
+.ui.big.menu {
+  font-size: 1.21428571rem;
+}
+.ui.big.vertical.menu {
+  width: 22rem;
+}
+
+/* Massive */
+.ui.massive.menu {
+  font-size: 1.28571429rem;
+}
+.ui.massive.vertical.menu {
+  width: 25rem;
 }
 
 

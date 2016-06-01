@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.1.6 - Grid
+ * # Semantic UI 2.2.0 - Grid
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -980,9 +980,9 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
-.ui.centered.grid > .column:not(.aligned):not(.row),
-.ui.centered.grid > .row > .column:not(.aligned),
-.ui.grid .centered.row > .column:not(.aligned) {
+.ui.centered.grid > .column:not(.aligned):not(:justified):not(.row),
+.ui.centered.grid > .row > .column:not(.aligned):not(:justified),
+.ui.grid .centered.row > .column:not(.aligned):not(:justified) {
   text-align: left;
 }
 .ui.grid > .centered.column,
@@ -1074,6 +1074,11 @@
 .ui.divided.grid:not([class*="vertically divided"]) > .column:first-child,
 .ui.divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
   box-shadow: none;
+}
+
+/* No space on top of first row */
+.ui[class*="vertically divided"].grid > .row:first-child > .column {
+  margin-top: 0em;
 }
 
 /* Divided Row */
@@ -1722,7 +1727,7 @@
   }
 }
 
-/* Mobily Only */
+/* Mobile Only */
 @media only screen and (max-width: 767px) {
   .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {
