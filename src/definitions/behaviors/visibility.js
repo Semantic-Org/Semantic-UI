@@ -144,7 +144,7 @@ $.fn.visibility = function(parameters) {
           if('MutationObserver' in window) {
             contextObserver = new MutationObserver(module.event.contextChanged);
             observer        = new MutationObserver(module.event.changed);
-            contextObserver.observe($context[0], {
+            contextObserver.observe(document, {
               childList : true,
               subtree   : true
             });
