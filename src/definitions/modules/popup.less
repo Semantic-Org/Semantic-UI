@@ -1,4 +1,3 @@
-
 /*!
  * # Semantic UI - Popup
  * http://github.com/semantic-org/semantic-ui/
@@ -86,15 +85,29 @@
   position: relative;
 }
 
-/* Popup */
+/* Arrow */
 [data-tooltip]:before {
+  position: absolute;
+  content: '';
+  font-size: @medium;
+  width: @arrowSize;
+  height: @arrowSize;
+
+  background: @tooltipArrowBackground;
+  transform: rotate(-45deg);
+
+  z-index: @arrowZIndex;
+  box-shadow: @tooltipArrowBoxShadow;
+}
+
+/* Popup */
+[data-tooltip]:after {
   content: attr(data-tooltip);
-  display: none;
   position: absolute;
   white-space: nowrap;
   margin-bottom: @arrowOffset;
 
-  font-size: @tooltipFontStyle;
+  font-size: @tooltipFontSize;
 
   border: @tooltipBorder;
   line-height: @tooltipLineHeight;
@@ -108,46 +121,60 @@
 
   border-radius: @tooltipBorderRadius;
   box-shadow: @tooltipBoxShadow;
-  z-index: 1;
-}
-
-/* Arrow */
-[data-tooltip]:after {
-  position: absolute;
-  display: none;
-  content: '';
-  font-size: @medium;
-  width: @arrowSize;
-  height: @arrowSize;
-
-  background: @tooltipArrowBackground;
-  transform: rotate(45deg);
-
-  z-index: @arrowZIndex;
-  box-shadow: @tooltipArrowBoxShadow;
+  z-index: @tooltipZIndex;
 }
 
 /* Default Position (Top Center) */
 [data-tooltip]:not([data-position]):before {
+  top: auto;
+  right: auto;
+  bottom: 100%;
+  left: 50%;
+  background: @tooltipArrowTopBackground;
+  margin-left: @arrowOffset;
+  margin-bottom: -@arrowOffset;
+}
+[data-tooltip]:not([data-position]):after {
   left: 50%;
   transform: translateX(-50%);
   bottom: 100%;
   margin-bottom: @tooltipDistanceAway;
 }
-[data-tooltip]:not([data-position]):after {
-  top: auto;
-  right: auto;
-  bottom: 100%;
-  left: 50%;
-  background: @tooltipArrowBottomBackground;
-  margin-left: @arrowOffset;
-  margin-bottom: -@arrowOffset;
-}
 
-/* Hover */
-[data-tooltip]:hover::after,
-[data-tooltip]:hover::before {
-  display: block;
+/* Animation */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  pointer-events: none;
+  visibility: hidden;
+}
+[data-tooltip]:before {
+  opacity: 0;
+  transform: rotate(-45deg) scale(0) !important;
+  transform-origin: center top;
+  transition:
+    all @tooltipDuration @tooltipEasing
+  ;
+}
+[data-tooltip]:after {
+  opacity: 1;
+  transform: translateX(-50%) scale(0) !important;
+  transform-origin: center bottom;
+  transition:
+    all @tooltipDuration @tooltipEasing
+  ;
+}
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  pointer-events: auto;
+}
+[data-tooltip]:hover:before {
+  transform: rotate(-45deg) scale(1) !important;
+  opacity: 1;
+}
+[data-tooltip]:hover:after {
+  transform: translateX(-50%) scale(1) !important;
+  opacity: 1;
 }
 
 /*--------------
@@ -155,23 +182,23 @@
 ---------------*/
 
 /* Arrow */
-[data-tooltip][data-inverted]:after {
+[data-tooltip][data-inverted]:before {
   box-shadow: none !important;
 }
 
 /* Arrow Position */
-[data-tooltip][data-inverted]:after {
+[data-tooltip][data-inverted]:before {
   background: @invertedArrowBottomBackground;
 }
 
 /* Popup  */
-[data-tooltip][data-inverted]:before {
+[data-tooltip][data-inverted]:after {
   background: @tooltipInvertedBackground;
   color: @tooltipInvertedColor;
   border: @tooltipInvertedBorder;
   box-shadow: @tooltipInvertedBoxShadow;
 }
-[data-tooltip][data-inverted]:before .header {
+[data-tooltip][data-inverted]:after .header {
   background-color: @tooltipInvertedHeaderBackground;
   color: @tooltipInvertedHeaderColor;
 }
@@ -181,7 +208,7 @@
 ---------------*/
 
 /* Top Center */
-[data-position="top center"][data-tooltip]:before {
+[data-position="top center"][data-tooltip]:after {
   top: auto;
   right: auto;
   left: 50%;
@@ -189,55 +216,55 @@
   transform: translateX(-50%);
   margin-bottom: @tooltipDistanceAway;
 }
-[data-position="top center"][data-tooltip]:after {
+[data-position="top center"][data-tooltip]:before {
   top: auto;
   right: auto;
   bottom: 100%;
   left: 50%;
-  background: @tooltipArrowBottomBackground;
+  background: @tooltipArrowTopBackground;
   margin-left: @arrowOffset;
   margin-bottom: -@arrowOffset;
 }
 
 /* Top Left */
-[data-position="top left"][data-tooltip]:before {
+[data-position="top left"][data-tooltip]:after {
   top: auto;
   right: auto;
   left: 0;
   bottom: 100%;
   margin-bottom: @tooltipDistanceAway;
 }
-[data-position="top left"][data-tooltip]:after {
+[data-position="top left"][data-tooltip]:before {
   top: auto;
   right: auto;
   bottom: 100%;
   left: @arrowDistanceFromEdge;
-  background: @tooltipArrowBottomBackground;
+  background: @tooltipArrowTopBackground;
   margin-left: @arrowOffset;
   margin-bottom: -@arrowOffset;
 }
 
 /* Top Right */
-[data-position="top right"][data-tooltip]:before {
+[data-position="top right"][data-tooltip]:after {
   top: auto;
   left: auto;
   right: 0;
   bottom: 100%;
   margin-bottom: @tooltipDistanceAway;
 }
-[data-position="top right"][data-tooltip]:after {
+[data-position="top right"][data-tooltip]:before {
   top: auto;
   left: auto;
   bottom: 100%;
   right: @arrowDistanceFromEdge;
-  background: @tooltipArrowBottomBackground;
+  background: @tooltipArrowTopBackground;
   margin-left: @arrowOffset;
   margin-bottom: -@arrowOffset;
 }
 
 
 /* Bottom Center */
-[data-position="bottom center"][data-tooltip]:before {
+[data-position="bottom center"][data-tooltip]:after {
   bottom: auto;
   right: auto;
   left: 50%;
@@ -245,7 +272,7 @@
   transform: translateX(-50%);
   margin-top: @tooltipDistanceAway;
 }
-[data-position="bottom center"][data-tooltip]:after {
+[data-position="bottom center"][data-tooltip]:before {
   bottom: auto;
   right: auto;
   top: 100%;
@@ -256,12 +283,12 @@
 }
 
 /* Bottom Left */
-[data-position="bottom left"][data-tooltip]:before {
+[data-position="bottom left"][data-tooltip]:after {
   left: 0;
   top: 100%;
   margin-top: @tooltipDistanceAway;
 }
-[data-position="bottom left"][data-tooltip]:after {
+[data-position="bottom left"][data-tooltip]:before {
   bottom: auto;
   right: auto;
   top: 100%;
@@ -272,12 +299,12 @@
 }
 
 /* Bottom Right */
-[data-position="bottom right"][data-tooltip]:before {
+[data-position="bottom right"][data-tooltip]:after {
   right: 0;
   top: 100%;
   margin-top: @tooltipDistanceAway;
 }
-[data-position="bottom right"][data-tooltip]:after {
+[data-position="bottom right"][data-tooltip]:before {
   bottom: auto;
   left: auto;
   top: 100%;
@@ -288,13 +315,13 @@
 }
 
 /* Left Center */
-[data-position="left center"][data-tooltip]:before {
+[data-position="left center"][data-tooltip]:after {
   right: 100%;
   top: 50%;
   margin-right: @tooltipDistanceAway;
   transform: translateY(-50%);
 }
-[data-position="left center"][data-tooltip]:after {
+[data-position="left center"][data-tooltip]:before {
   right: 100%;
   top: 50%;
   margin-top: @arrowOffset;
@@ -302,13 +329,13 @@
 }
 
 /* Right Center */
-[data-position="right center"][data-tooltip]:before {
+[data-position="right center"][data-tooltip]:after {
   left: 100%;
   top: 50%;
   margin-left: @tooltipDistanceAway;
   transform: translateY(-50%);
 }
-[data-position="right center"][data-tooltip]:after {
+[data-position="right center"][data-tooltip]:before {
   left: 100%;
   top: 50%;
   margin-top: @arrowOffset;
@@ -316,36 +343,36 @@
 }
 
 /* Arrow Color */
-[data-position~="bottom"][data-tooltip]:after {
+[data-position~="bottom"][data-tooltip]:before {
   background: @arrowTopBackground;
   box-shadow: @bottomArrowBoxShadow;
 }
-[data-position="left center"][data-tooltip]:after {
+[data-position="left center"][data-tooltip]:before {
   background: @arrowCenterBackground;
   box-shadow: @leftArrowBoxShadow;
 }
-[data-position="right center"][data-tooltip]:after {
+[data-position="right center"][data-tooltip]:before {
   background: @arrowCenterBackground;
   box-shadow: @rightArrowBoxShadow;
 }
-[data-position~="top"][data-tooltip]:after {
+[data-position~="top"][data-tooltip]:before {
   background: @arrowBottomBackground;
 }
 
 /* Inverted Arrow Color */
-[data-inverted][data-position~="bottom"][data-tooltip]:after {
+[data-inverted][data-position~="bottom"][data-tooltip]:before {
   background: @invertedArrowTopBackground;
   box-shadow: @bottomArrowBoxShadow;
 }
-[data-inverted][data-position="left center"][data-tooltip]:after {
+[data-inverted][data-position="left center"][data-tooltip]:before {
   background: @invertedArrowCenterBackground;
   box-shadow: @leftArrowBoxShadow;
 }
-[data-inverted][data-position="right center"][data-tooltip]:after {
+[data-inverted][data-position="right center"][data-tooltip]:before {
   background: @invertedArrowCenterBackground;
   box-shadow: @rightArrowBoxShadow;
 }
-[data-inverted][data-position~="top"][data-tooltip]:after {
+[data-inverted][data-position~="top"][data-tooltip]:before {
   background: @invertedArrowBottomBackground;
 }
 
