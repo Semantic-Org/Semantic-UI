@@ -66,7 +66,7 @@ $.fn.rating = function(parameters) {
           else {
             module.disable();
           }
-          module.set.rating( module.get.initialRating() );
+          module.set.rating( module.get.initialRating(), true );
           module.instantiate();
         },
 
@@ -214,7 +214,7 @@ $.fn.rating = function(parameters) {
         },
 
         set: {
-          rating: function(rating) {
+          rating: function(rating, initialRating) {
             var
               ratingIndex = (rating - 1 >= 0)
                 ? (rating - 1)
@@ -236,7 +236,7 @@ $.fn.rating = function(parameters) {
                   .addClass(className.active)
               ;
             }
-            settings.onRate.call(element, rating);
+            settings.onRate.call(element, rating, initialRating);
           }
         },
 
