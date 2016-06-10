@@ -82,6 +82,7 @@ module.exports = {
 
     // modules
     'accordion',
+    'calendar',
     'checkbox',
     'dimmer',
     'dropdown',
