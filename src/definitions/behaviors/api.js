@@ -469,7 +469,7 @@ $.api = $.fn.api = function(parameters) {
                 elapsedTime        = (new Date().getTime() - requestStartTime),
                 timeLeft           = (settings.loadingDuration - elapsedTime),
                 translatedResponse = ( $.isFunction(settings.onResponse) )
-                  ? settings.onResponse.call(context, $.extend(true, {}, response))
+                  ? settings.onResponse.call(context, (settings.onResponseSendPlainText ? response : $.extend(true, {}, response) ) )
                   : false
               ;
               timeLeft = (timeLeft > 0)
@@ -1079,6 +1079,9 @@ $.api.settings = {
 
   // after request
   onResponse  : false, // function(response) { },
+
+  // send onResponse callback the plain text of the response rather than a hash
+  onResponseSendPlainText : false,
 
   // response was successful, if JSON passed validation
   onSuccess   : function(response, $module) {},
