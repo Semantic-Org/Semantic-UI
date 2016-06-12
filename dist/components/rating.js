@@ -251,7 +251,7 @@ $.fn.rating = function(parameters) {
               module.verbose('Setting current rating to', rating);
               $activeIcon
                 .prevAll()
-                .andSelf()
+                .addBack()
                   .addClass(className.active)
               ;
             }

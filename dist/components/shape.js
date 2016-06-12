@@ -69,11 +69,6 @@ $.fn.shape = function(parameters) {
         $activeSide,
         $nextSide,
 
-        initial = {
-          width  : $module.width(),
-          height : $module.height()
-        },
-
         // standard module
         element       = this,
         instance      = $module.data(moduleNamespace),
@@ -250,41 +245,34 @@ $.fn.shape = function(parameters) {
             var
               $clone      = $module.clone().addClass(className.loading),
               $activeSide = $clone.find('.' + settings.className.active),
+              newWidth    = (settings.width == 'next')
+                ? $nextSide.outerWidth(true)
+                : (settings.width == 'initial')
+                  ? $module.width()
+                  : settings.width,
+              newHeight    = (settings.height == 'next')
+                ? $nextSide.outerHeight(true)
+                : (settings.height == 'initial')
+                  ? $module.height()
+                  : settings.height,
               $nextSide   = (nextIndex)
                 ? $clone.find(selector.side).eq(nextIndex)
                 : ( $activeSide.next(selector.side).length > 0 )
                   ? $activeSide.next(selector.side)
-                  : $clone.find(selector.side).first(),
-              newSize = {}
+                  : $clone.find(selector.side).first()
             ;
             $activeSide.removeClass(className.active);
             $nextSide.addClass(className.active);
             $clone.insertAfter($module);
-            if(settings.width == 'next') {
-              newSize.width = $nextSide.outerWidth(true);
-            }
-            else if(settings.width == 'initial') {
-              newSize.width = initial.width;
-            }
-            else {
-              newSize.width = settings.width;
-            }
-            if(settings.height == 'next') {
-              newSize.height = $nextSide.outerHeight(true);
-            }
-            else if(settings.height == 'initial') {
-              newSize.height = initial.height + 2;
-            }
-            else {
-              newSize.height = settings.height;
-            }
-            newSize.width  += settings.jitter;
-            newSize.height += settings.jitter;
             $clone.remove();
-            $module
-              .css(newSize)
-            ;
-            module.verbose('Resizing stage to fit new content', newSize);
+            if(settings.width != 'auto') {
+              $module.css('width', newWidth + settings.jitter);
+              module.verbose('Specifying width during animation', newWidth);
+            }
+            if(settings.height != 'auto') {
+              $module.css('height', newHeight + settings.jitter);
+              module.verbose('Specifying height during animation', newHeight);
+            }
           },
 
           nextSide: function(selector) {
@@ -871,14 +859,20 @@ $.fn.shape.settings = {
   // verbose debug output
   verbose    : false,
 
-  // fudge factor in pixels when swapping from 2d to 3d
-  jitter     : 1,
+  // fudge factor in pixels when swapping from 2d to 3d (can be useful to correct rounding errors)
+  jitter     : 0,
 
   // performance data output
   performance: true,
 
   // event namespace
   namespace  : 'shape',
+
+  // width during animation, can be set to 'auto', initial', 'next' or pixel amount
+  width: 'initial',
+
+  // height during animation, can be set to 'auto', 'initial', 'next' or pixel amount
+  height: 'initial',
 
   // callback occurs on side change
   beforeChange : function() {},

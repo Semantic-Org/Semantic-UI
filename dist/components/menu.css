@@ -1101,6 +1101,8 @@ Floated Menu / Item
 }
 .ui.vertical.text.menu .item {
   margin: 0.57142857em 0em;
+  padding-left: 0em;
+  padding-right: 0em;
 }
 .ui.vertical.text.menu .item > i.icon {
   float: none;
@@ -1420,8 +1422,7 @@ Floated Menu / Item
 /*--- Pressed ---*/
 
 .ui.inverted.menu a.item:active,
-.ui.inverted.menu .link.item:active,
-.ui.inverted.menu a.item:active {
+.ui.inverted.menu .link.item:active {
   background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
 }
