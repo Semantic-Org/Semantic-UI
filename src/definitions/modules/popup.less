@@ -94,7 +94,7 @@
   height: @arrowSize;
 
   background: @tooltipArrowBackground;
-  transform: rotate(-45deg);
+  transform: rotate(45deg);
 
   z-index: @arrowZIndex;
   box-shadow: @tooltipArrowBoxShadow;
@@ -104,7 +104,6 @@
 [data-tooltip]:after {
   content: attr(data-tooltip);
   position: absolute;
-  white-space: nowrap;
   margin-bottom: @arrowOffset;
 
   font-size: @tooltipFontSize;
@@ -130,7 +129,7 @@
   right: auto;
   bottom: 100%;
   left: 50%;
-  background: @tooltipArrowTopBackground;
+  background: @tooltipArrowBottomBackground;
   margin-left: @arrowOffset;
   margin-bottom: -@arrowOffset;
 }
@@ -149,7 +148,7 @@
 }
 [data-tooltip]:before {
   opacity: 0;
-  transform: rotate(-45deg) scale(0) !important;
+  transform: rotate(45deg) scale(0) !important;
   transform-origin: center top;
   transition:
     all @tooltipDuration @tooltipEasing
@@ -169,7 +168,7 @@
   pointer-events: auto;
 }
 [data-tooltip]:hover:before {
-  transform: rotate(-45deg) scale(1) !important;
+  transform: rotate(45deg) scale(1) !important;
   opacity: 1;
 }
 [data-tooltip]:hover:after {
@@ -239,7 +238,6 @@
   right: auto;
   bottom: 100%;
   left: @arrowDistanceFromEdge;
-  background: @tooltipArrowTopBackground;
   margin-left: @arrowOffset;
   margin-bottom: -@arrowOffset;
 }
@@ -257,7 +255,6 @@
   left: auto;
   bottom: 100%;
   right: @arrowDistanceFromEdge;
-  background: @tooltipArrowTopBackground;
   margin-left: @arrowOffset;
   margin-bottom: -@arrowOffset;
 }
@@ -277,7 +274,6 @@
   right: auto;
   top: 100%;
   left: 50%;
-  background: @tooltipArrowBottomBackground;
   margin-left: @arrowOffset;
   margin-top: -@arrowOffset;
 }
@@ -293,7 +289,6 @@
   right: auto;
   top: 100%;
   left: @arrowDistanceFromEdge;
-  background: @tooltipArrowBottomBackground;
   margin-left: @arrowOffset;
   margin-top: -@arrowOffset;
 }
@@ -309,7 +304,6 @@
   left: auto;
   top: 100%;
   right: @arrowDistanceFromEdge;
-  background: @tooltipArrowBottomBackground;
   margin-left: @arrowOffset;
   margin-top: -@arrowOffset;
 }

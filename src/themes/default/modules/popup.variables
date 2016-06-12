@@ -74,10 +74,13 @@
 @tooltipColor: @color;
 @tooltipBorder: @border;
 @tooltipBoxShadow: @boxShadow;
-@tooltipMaxWidth: @maxWidth;
+@tooltipMaxWidth: none;
 @tooltipFontSize: @medium;
 @tooltipLineHeight: @lineHeight;
 @tooltipDistanceAway: @relative7px;
+@tooltipZIndex: 1;
+@tooltipDuration: @defaultDuration;
+@tooltipEasing: @defaultEasing;
 
 /* Inverted */
 @tooltipInvertedBackground: @invertedBackground;
@@ -90,9 +93,9 @@
 /* Arrow */
 @tooltipArrowBoxShadow: @arrowBoxShadow;
 @tooltipArrowBackground: @arrowBackground;
-@tooltipArrowTopBackground: @tooltipArrowBackground;
-@tooltipArrowCenterBackground: @tooltipArrowBackground;
-@tooltipArrowBottomBackground: @tooltipArrowBackground;
+@tooltipArrowTopBackground: @arrowTopBackground;
+@tooltipArrowCenterBackground: @arrowCenterBackground;
+@tooltipArrowBottomBackground: @arrowBottomBackground;
 
 /*-------------------
        Coupling
