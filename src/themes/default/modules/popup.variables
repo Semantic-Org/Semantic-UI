@@ -91,6 +91,7 @@
 @tooltipInvertedHeaderColor: @invertedHeaderColor;
 
 /* Arrow */
+@tooltipArrowOffset: -@2px;
 @tooltipArrowBoxShadow: @arrowBoxShadow;
 @tooltipArrowBackground: @arrowBackground;
 @tooltipArrowTopBackground: @arrowTopBackground;
