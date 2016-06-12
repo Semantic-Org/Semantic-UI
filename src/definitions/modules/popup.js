@@ -506,7 +506,9 @@ $.fn.popup = function(parameters) {
               targetPosition   = (settings.inline || (settings.popup && settings.movePopup))
                 ? $target.position()
                 : $target.offset(),
-              screenPosition = $boundary.offset() || { top: 0, left: 0 },
+              screenPosition = (isWindow)
+                ? { top: 0, left: 0 }
+                : $boundary.offset(),
               calculations   = {},
               scroll = (isWindow)
                 ? { top: $window.scrollTop(), left: $window.scrollLeft() }
