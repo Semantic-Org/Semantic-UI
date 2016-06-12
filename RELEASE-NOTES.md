@@ -3,6 +3,7 @@
 ### Version 2.2.0 - XX XX, 2016
 
 **New Features**
+- **jQuery** - Semantic UI is now fully compatible with jQuery `3.0`
 - **Webpack** - All relative css paths are now webpack-compatible
 - **NPM** - NPM dependencies have all been updated to latest stable releases
 - **All UI** - Components that use event handlers on `document`, `body`, or a `settings.context` now all use DOM mutation observers to detect removal and prevent memory leaks
