@@ -87,6 +87,7 @@
 
 /* Arrow */
 [data-tooltip]:before {
+  pointer-events: none;
   position: absolute;
   content: '';
   font-size: @medium;
@@ -102,6 +103,7 @@
 
 /* Popup */
 [data-tooltip]:after {
+  pointer-events: none;
   content: attr(data-tooltip);
   position: absolute;
   white-space: nowrap;
@@ -188,6 +190,15 @@
 [data-tooltip][data-position="bottom center"]:hover:after {
   transform: translateX(-50%) scale(1) !important;
 }
+[data-tooltip][data-position="left center"]:after,
+[data-tooltip][data-position="right center"]:after {
+  transform: translateY(-50%) scale(0) !important;
+}
+[data-tooltip][data-position="left center"]:hover:after,
+[data-tooltip][data-position="right center"]:hover:after {
+  transform: translateY(-50%) scale(1) !important;
+}
+
 
 /*--------------
     Inverted
@@ -388,6 +399,18 @@
 }
 [data-position~="bottom"][data-tooltip]:after {
   transform-origin: center top;
+}
+[data-position="left center"][data-tooltip]:before {
+  transform-origin: top center;
+}
+[data-position="left center"][data-tooltip]:after {
+  transform-origin: right center;
+}
+[data-position="right center"][data-tooltip]:before {
+  transform-origin: right center;
+}
+[data-position="right center"][data-tooltip]:after {
+  transform-origin: right center;
 }
 
 /*--------------
