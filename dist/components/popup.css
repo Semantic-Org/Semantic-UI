@@ -169,24 +169,14 @@
 }
 
 /* Animation Position */
-[data-tooltip]:after {
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
-}
-[data-tooltip]:hover:after {
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
-  opacity: 1;
-}
+[data-tooltip]:after,
 [data-tooltip][data-position="top center"]:after,
 [data-tooltip][data-position="bottom center"]:after {
   -webkit-transform: translateX(-50%) scale(0) !important;
       -ms-transform: translateX(-50%) scale(0) !important;
           transform: translateX(-50%) scale(0) !important;
 }
-[data-tooltip][data-position="top center"]:hover:after,
+[data-tooltip]:hover:after,
 [data-tooltip][data-position="bottom center"]:hover:after {
   -webkit-transform: translateX(-50%) scale(1) !important;
       -ms-transform: translateX(-50%) scale(1) !important;
@@ -203,6 +193,22 @@
   -webkit-transform: translateY(-50%) scale(1) !important;
       -ms-transform: translateY(-50%) scale(1) !important;
           transform: translateY(-50%) scale(1) !important;
+}
+[data-tooltip][data-position="top left"]:after,
+[data-tooltip][data-position="top right"]:after,
+[data-tooltip][data-position="bottom left"]:after,
+[data-tooltip][data-position="bottom right"]:after {
+  -webkit-transform: scale(0) !important;
+      -ms-transform: scale(0) !important;
+          transform: scale(0) !important;
+}
+[data-tooltip][data-position="top left"]:hover:after,
+[data-tooltip][data-position="top right"]:hover:after,
+[data-tooltip][data-position="bottom left"]:hover:after,
+[data-tooltip][data-position="bottom right"]:hover:after {
+  -webkit-transform: scale(1) !important;
+      -ms-transform: scale(1) !important;
+          transform: scale(1) !important;
 }
 
 /*--------------
