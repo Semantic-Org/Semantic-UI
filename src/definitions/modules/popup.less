@@ -175,18 +175,12 @@
 }
 
 /* Animation Position */
-[data-tooltip]:after {
-  transform: scale(0);
-}
-[data-tooltip]:hover:after {
-  transform: scale(1);
-  opacity: 1;
-}
+[data-tooltip]:after,
 [data-tooltip][data-position="top center"]:after,
 [data-tooltip][data-position="bottom center"]:after {
   transform: translateX(-50%) scale(0) !important;
 }
-[data-tooltip][data-position="top center"]:hover:after,
+[data-tooltip]:hover:after,
 [data-tooltip][data-position="bottom center"]:hover:after {
   transform: translateX(-50%) scale(1) !important;
 }
@@ -197,6 +191,18 @@
 [data-tooltip][data-position="left center"]:hover:after,
 [data-tooltip][data-position="right center"]:hover:after {
   transform: translateY(-50%) scale(1) !important;
+}
+[data-tooltip][data-position="top left"]:after,
+[data-tooltip][data-position="top right"]:after,
+[data-tooltip][data-position="bottom left"]:after,
+[data-tooltip][data-position="bottom right"]:after {
+  transform: scale(0) !important;
+}
+[data-tooltip][data-position="top left"]:hover:after,
+[data-tooltip][data-position="top right"]:hover:after,
+[data-tooltip][data-position="bottom left"]:hover:after,
+[data-tooltip][data-position="bottom right"]:hover:after {
+  transform: scale(1) !important;
 }
 
 
