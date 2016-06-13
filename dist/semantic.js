@@ -11969,7 +11969,7 @@ $.fn.progress = function(parameters) {
             $bar.one(transitionEnd + eventNamespace, animationCallback);
             animating = true;
             module.interval = setInterval(function() {
-              let
+              var
                 isInDOM = $.contains(document.documentElement, element)
               ;
               if(!isInDOM) {

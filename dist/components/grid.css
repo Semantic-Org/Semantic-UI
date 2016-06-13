@@ -1329,7 +1329,6 @@
 .ui.grid > .row > .justified.column {
   text-align: justify;
   -webkit-hyphens: auto;
-     -moz-hyphens: auto;
       -ms-hyphens: auto;
           hyphens: auto;
 }
