@@ -31,7 +31,10 @@ $.fn.visibility = function(parameters) {
     query          = arguments[0],
     methodInvoked  = (typeof query == 'string'),
     queryArguments = [].slice.call(arguments, 1),
-    returnedValue
+    returnedValue,
+
+    moduleCount    = $allModules.length,
+    loadedCount    = 0
   ;
 
   $allModules
@@ -295,7 +298,13 @@ $.fn.visibility = function(parameters) {
               settings.onOnScreen = function() {
                 module.debug('Image on screen', element);
                 module.precache(src, function() {
-                  module.set.image(src);
+                  module.set.image(src, function() {
+                    loadedCount++;
+                    if(loadedCount == moduleCount) {
+                      settings.onAllLoaded.call(this);
+                    }
+                    settings.onLoad.call(this);
+                  });
                 });
               };
             }
@@ -374,16 +383,16 @@ $.fn.visibility = function(parameters) {
             ;
             settings.onFixed.call(element);
           },
-          image: function(src) {
+          image: function(src, callback) {
             $module
               .attr('src', src)
             ;
             if(settings.transition) {
               if( $.fn.transition !== undefined ) {
-                $module.transition(settings.transition, settings.duration);
+                $module.transition(settings.transition, settings.duration, callback);
               }
               else {
-                $module.fadeIn(settings.duration);
+                $module.fadeIn(settings.duration, callback);
               }
             }
             else {
@@ -1243,6 +1252,10 @@ $.fn.visibility.settings = {
   onBottomVisibleReverse : false,
   onTopPassedReverse     : false,
   onBottomPassedReverse  : false,
+
+  // special callbacks for image
+  onLoad                 : function() {},
+  onAllLoaded            : function() {},
 
   // special callbacks for fixed position
   onFixed                : function() {},

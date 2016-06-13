@@ -32,6 +32,7 @@
 - **Form Validation** - Added `depends` validation rule setting which will only validate a field if another specified field is not empty
 - **Popup** - Added new settings `observeChanges`, which is enabled by default. This will add special mutation observers to trigger `destroy` when the element is removed from the document, preventing memory leaks.
 - **Visibility** - Added `onFixed` and `onUnfixed` callbacks for visibility `type: 'fixed'` **Documentation forthcoming**
+- **Visibility** - Added `onLoad` and `onAllLoaded` callback for `type: 'image'` visibility
 - **Tab** - Added new setting `cacheType`, can either be `html` or `response` (default). HTML will cache resulting html after callbacks, `response` will cache the original response so that it can be played back identically on future loads #2534
 - **Search** - Search now includes a `showNoResults` setting for determining whether no results messages should be shown **Documentation forthcoming**
 - **Search** - Added a new option `selectFirstResult`, which defaults to `false`. Will automatically highlight first result on search **Documentation forthcoming**
@@ -44,6 +45,7 @@
 **New Behaviors**
 - **Dropdown** - Added new convenience method `restore placeholder text`
 - **Progress** - Added progress `is complete` for returning whether success, warning, or error conditions are met
+- **Image** - `transition hidden image` now shows correctly as `visibility: hidden;` and not `display: none`. This will allow `offset` with `visibility` and `sticky` to work more seamlessly. `hidden image` will still remain `display: none;`
 
 **CSS Enhancements**
 - **All UI** Extended variables which return exact pixel values in em (`@relativePX` and @px) up to 40px to allow for simple theming with exact values
