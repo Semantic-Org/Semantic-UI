@@ -3,7 +3,6 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -2576,6 +2575,8 @@ $.fn.dropdown = function(parameters) {
             }
             if(hasUserSuggestion) {
               $addition
+                .data(metadata.value, value)
+                .data(metadata.text, value)
                 .attr('data-' + metadata.value, value)
                 .attr('data-' + metadata.text, value)
                 .removeClass(className.filtered)
@@ -2952,6 +2953,9 @@ $.fn.dropdown = function(parameters) {
             ;
             return ($normalResults.filter(selector.unselectable).length === $normalResults.length);
           },
+          userSuggestion: function() {
+            return ($menu.children(selector.addition).length > 0);
+          },
           query: function() {
             return (module.get.query() !== '');
           },
@@ -2995,7 +2999,7 @@ $.fn.dropdown = function(parameters) {
             return (document.activeElement === $search[0]);
           },
           allFiltered: function() {
-            return( (module.is.multiple() || module.has.search()) && !module.has.message() && module.has.allResultsFiltered() );
+            return( (module.is.multiple() || module.has.search()) && !module.has.userSuggestion && !module.has.message() && module.has.allResultsFiltered() );
           },
           hidden: function($subMenu) {
             return !module.is.visible($subMenu);
@@ -3492,7 +3496,7 @@ $.fn.dropdown.settings = {
   forceSelection         : true,       // force a choice on blur with search selection
 
   allowAdditions         : false,      // whether multiple select should allow user added values
-  hideAdditions          : false,       // whether or not to hide special message prompting a user they can enter a value
+  hideAdditions          : true,      // whether or not to hide special message prompting a user they can enter a value
 
   maxSelections          : false,      // When set to a number limits the number of selections to this count
   useLabels              : true,       // whether multiple select should filter currently active selections from choices
