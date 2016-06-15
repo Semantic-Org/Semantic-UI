@@ -2999,7 +2999,7 @@ $.fn.dropdown = function(parameters) {
             return (document.activeElement === $search[0]);
           },
           allFiltered: function() {
-            return( (module.is.multiple() || module.has.search()) && !module.has.userSuggestion && !module.has.message() && module.has.allResultsFiltered() );
+            return( (module.is.multiple() || module.has.search()) && !(settings.hideAdditions == false && module.has.userSuggestion()) && !module.has.message() && module.has.allResultsFiltered() );
           },
           hidden: function($subMenu) {
             return !module.is.visible($subMenu);
