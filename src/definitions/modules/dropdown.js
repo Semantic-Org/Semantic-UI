@@ -1455,7 +1455,7 @@ $.fn.dropdown = function(parameters) {
               }
             }
             else {
-              if( !module.is.search() ) {
+              if( !module.has.search() ) {
                 module.set.selectedLetter( String.fromCharCode(pressedKey) );
               }
             }
