@@ -719,14 +719,13 @@ $.api = $.fn.api = function(parameters) {
                 module.error(error.legacyParameters, runSettings.complete);
                 runSettings.onComplete = runSettings.complete;
               }
+              runSettings = $.extend(true, {}, runSettings);
             }
             if(runSettings === undefined) {
               module.error(error.noReturnedValue);
+              return $.extend(true, {}, settings)
             }
-            return (runSettings !== undefined)
-              ? $.extend(true, {}, runSettings)
-              : $.extend(true, {}, settings)
-            ;
+            return runSettings;
           },
           urlEncodedValue: function(value) {
             var
