@@ -538,14 +538,15 @@ $.fn.form = function(parameters) {
                 value      = $field.val(),
                 isCheckbox = $field.is(selector.checkbox),
                 isRadio    = $field.is(selector.radio),
-                isMultiple = (name.indexOf('[]') !== -1),
+                isMultiple = !!name.match(/\[.*\]$/),
+                multipleFieldIndex = isMultiple ? name.match(/\[(.*)\]$/)[1] : '',
                 isChecked  = (isCheckbox)
                   ? $field.is(':checked')
                   : false
               ;
               if(name) {
                 if(isMultiple) {
-                  name = name.replace('[]', '');
+                  name = name.replace(/\[.*\]$/, '');
                   if(!values[name]) {
                     values[name] = [];
                   }
@@ -558,7 +559,7 @@ $.fn.form = function(parameters) {
                     }
                   }
                   else {
-                    values[name].push(value);
+                    multipleFieldIndex ? values[name].push({index: multipleFieldIndex, value: value}) : values[name].push(value);
                   }
                 }
                 else {
