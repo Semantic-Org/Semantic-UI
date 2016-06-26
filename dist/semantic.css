@@ -17621,6 +17621,10 @@ ol.ui.horizontal.list li:before,
   display: block;
 }
 
+.ui.form.success .compact.success.message:not(:empty) {
+  display: inline-block;
+}
+
 .ui.form.success .icon.success.message:not(:empty) {
   display: -webkit-box;
   display: -webkit-flex;
@@ -17638,6 +17642,10 @@ ol.ui.horizontal.list li:before,
   display: block;
 }
 
+.ui.form.warning .compact.warning.message:not(:empty) {
+  display: inline-block;
+}
+
 .ui.form.warning .icon.warning.message:not(:empty) {
   display: -webkit-box;
   display: -webkit-flex;
@@ -17653,6 +17661,10 @@ ol.ui.horizontal.list li:before,
 
 .ui.form.error .error.message:not(:empty) {
   display: block;
+}
+
+.ui.form.error .compact.error.message:not(:empty) {
+  display: inline-block;
 }
 
 .ui.form.error .icon.error.message:not(:empty) {
