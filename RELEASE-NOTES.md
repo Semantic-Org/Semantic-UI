@@ -72,7 +72,7 @@
 - **Form** - Fixed issue with `(x) fields` and `equal width` fields where middle rows would be slightly smaller because they include both left and right padding in % width. (Edges only have one side padding). Field groups now use negative margins instead.
 - **Popup** - Fixed issue where clicking element inside popup removed from DOM (like clicking a multi select label) would cause popup to close #3887
 - **Rail** - Fixed incorrect width for `close rail` and `very close rail` caused by variable addition with mixed units `px` + `em` #3835
-- **Search** - A previous unfinished XHR query aborting would cause the next query to fail #2779
+- **Search** - Fixed bug where a previously XHR query could cause the next one to fail depending on the latency of the request #2779
 - **Search** - Fixed an issue where `onResult` returning `false` would not prevent the search menu from hiding. Clicking on an empty results message will also no longer close the search results. #3856 #3870
 - **Sticky/Visibility** -  Added mutation observer to teardown element with `destroy` if removed from DOM context, fixing a possible memory leak
 - **Video** - Fixed issue with `.video('change')` behavior not properly changing video.
