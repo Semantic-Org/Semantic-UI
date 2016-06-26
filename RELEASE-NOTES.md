@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 2.2.0 - XX XX, 2016
+### Version 2.2.0 - June 26, 2016
 
 **Project Features**
 - **jQuery** - Semantic UI is now fully compatible with jQuery `3.0`
@@ -14,7 +14,7 @@
 - **Button** - Added compatibility with `primary` `secondary` `positive` `negative` buttons with the `basic` styling variation. #3756
 - **Card** - Added `raised` card variation **Thanks @yordis** #2955
 - **Dropdown** - All dropdowns, not just `selection dropdown`, will now select the first `menu item` that starts with a pressed keyboard key, for example "N" will select "New"
-- **Dropdown** - Dropdown now changes user selection on keyboard shortcuts immediately, this will save the extra `enter` key press to confirm selection in most cases. To enable previous pre `2.2` selection style use the setting `selectOnKeydown: false` **Documentation forthcoming**
+- **Dropdown** - Dropdown now changes user selection on keyboard shortcuts immediately, this will save the extra `enter` key press to confirm selection in most cases. To enable previous pre `2.2` selection style use the setting `selectOnKeydown: false` 
 - **Dropdown** - Dropdown will now automatically focus on `search` inside of a dropdown menu after it is opened.
 - **Dropdown** - Multiple select dropdown now sizes current dropdown input based on rendered width of a hidden element, not using an estimate based on character count. This means search will never break to a second line earlier than would normally fit in current line.
 - **Icons** -  Icons now use the latest Font Awesome `4.6.3` Icons. 80+ new icons+ are included. Thanks @BreadMaker for the PR and @davegandy for the font!
@@ -26,7 +26,7 @@
 - **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation](http://www.semantic-ui.com/introduction/advanced-usage.html#Auto-Install) for how to use. #3616 **Thanks @algorithme**
 - **Dropdown** - Added `fullSearchSearch: 'exact'` setting, which requires exact matches for dropdown values #3085 #3994 **Thanks @ShawnCholeva**
 - **Dropdown** - Added new setting for search selection `hideAdditions` this will remove showing user additions inside the menu, making for a more intuitive adding process. Dropdowns now have a new state `empty` which will format an active dropdown with empty results. #3791
-- **Dropdown** - Adds new `allowReselection` option to trigger `onChange` events even when reselecting same value ***NEEEDS DOCUMENTATION***
+- **Dropdown** - Adds new `allowReselection` option to trigger `onChange` events even when reselecting same value 
 - **Dropdown** - Adds new setting `minCharacters` which sets the minimum number of characters required to start filtering results #3886
 
 - **Form Validation** - Added `depends` validation rule setting which will only validate a field if another specified field is not empty
@@ -34,12 +34,12 @@
 - **Popup** - Added new settings `observeChanges`, which is enabled by default. This will add special mutation observers to trigger `destroy` when the element is removed from the document, preventing memory leaks.
 - **Progress** - Added `onLabelUpdate` callback, this can be used to specify the exact text that should appear on the actual progress update, perhaps based on some external conditions
 - **Rating** - Added new setting `fireOnInit` for rating, which defaults to `false`. When set to true `onRate` will fire when rating is initialized #3712
-- **Search** - Added a new option `selectFirstResult`, which defaults to `false`. Will automatically highlight first result on search **Documentation forthcoming**
-- **Search** - Search now includes a `showNoResults` setting for determining whether no results messages should be shown **Documentation forthcoming**
-- **Shape** - Shape now lets you specify next side width using setting `width`, can use `next` or `initial` to specify whether it should use old or new side size **Documentation forthcoming**
+- **Search** - Added a new option `selectFirstResult`, which defaults to `false`. Will automatically highlight first result on search 
+- **Search** - Search now includes a `showNoResults` setting for determining whether no results messages should be shown 
+- **Shape** - Shape now lets you specify next side width using setting `width`, can use `next` or `initial` to specify whether it should use old or new side size 
 - **Tab** - Added new setting `cacheType`, can either be `html` or `response` (default). HTML will cache resulting html after callbacks, `response` will cache the original response so that it can be played back identically on future loads #2534
 - **Tab** - Added new option `deactivate`, defaults to `siblings` which will only deactivate tab activators that are DOM siblings elements to the activating element. Setting it to <code>'all'</code> will deactivate any other tab element initialized at the same time.
-- **Visibility** - Added `onFixed` and `onUnfixed` callbacks for visibility `type: 'fixed'` **Documentation forthcoming**
+- **Visibility** - Added `onFixed` and `onUnfixed` callbacks for visibility `type: 'fixed'` 
 - **Visibility** - Added `onLoad` and `onAllLoaded` callback for `type: 'image'` visibility
 - **Visibility** - Added `zIndex` setting for specifying zindex with `type: 'fixed'` #3370
 
@@ -114,6 +114,7 @@
 - **Menu** - `tabular menu` now has correct bottom margin #4167
 - **Menu** - `@dividerSize` was not being used in `vertical menu` #3781
 - **Menu** - `vertical text menu` no longer includes `left` or `right` padding, but will now sit flush with content.
+- **Message** - Fixes `compact message` appearing as `block` when inside a `form` #3343 **Thanks @bcroq**
 - **Modal** - RGB values set for dimmer `background-color` were not being correctly interpreted #3665 **Thanks @larsbo**
 - **Modal/Dimmer** - Fixed issue with `destroy` not properly removing events from dimmer #3200
 - **Popup** - checking `instanceof SVGGraphicsElement` caused error in IE11 #3043
