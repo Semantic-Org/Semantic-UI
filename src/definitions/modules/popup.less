@@ -108,7 +108,6 @@
   text-transform: none;
   text-align: left;
   white-space: nowrap;
-  margin-bottom: @tooltipArrowOffset;
 
   font-size: @tooltipFontSize;
 
@@ -134,8 +133,8 @@
   bottom: 100%;
   left: 50%;
   background: @tooltipArrowBottomBackground;
-  margin-left: @tooltipArrowOffset;
-  margin-bottom: -@tooltipArrowOffset;
+  margin-left: @tooltipArrowHorizontalOffset;
+  margin-bottom: -@tooltipArrowVerticalOffset;
 }
 [data-tooltip]:not([data-position]):after {
   left: 50%;
@@ -252,8 +251,8 @@
   bottom: 100%;
   left: 50%;
   background: @tooltipArrowTopBackground;
-  margin-left: @tooltipArrowOffset;
-  margin-bottom: -@tooltipArrowOffset;
+  margin-left: @tooltipArrowHorizontalOffset;
+  margin-bottom: -@tooltipArrowVerticalOffset;
 }
 
 /* Top Left */
@@ -269,8 +268,8 @@
   right: auto;
   bottom: 100%;
   left: @arrowDistanceFromEdge;
-  margin-left: @tooltipArrowOffset;
-  margin-bottom: -@tooltipArrowOffset;
+  margin-left: @tooltipArrowHorizontalOffset;
+  margin-bottom: -@tooltipArrowVerticalOffset;
 }
 
 /* Top Right */
@@ -286,8 +285,8 @@
   left: auto;
   bottom: 100%;
   right: @arrowDistanceFromEdge;
-  margin-left: @tooltipArrowOffset;
-  margin-bottom: -@tooltipArrowOffset;
+  margin-left: @tooltipArrowHorizontalOffset;
+  margin-bottom: -@tooltipArrowVerticalOffset;
 }
 
 
@@ -305,8 +304,8 @@
   right: auto;
   top: 100%;
   left: 50%;
-  margin-left: @tooltipArrowOffset;
-  margin-top: -@tooltipArrowOffset;
+  margin-left: @tooltipArrowHorizontalOffset;
+  margin-top: -@tooltipArrowVerticalOffset;
 }
 
 /* Bottom Left */
@@ -320,8 +319,8 @@
   right: auto;
   top: 100%;
   left: @arrowDistanceFromEdge;
-  margin-left: @tooltipArrowOffset;
-  margin-top: -@tooltipArrowOffset;
+  margin-left: @tooltipArrowHorizontalOffset;
+  margin-top: -@tooltipArrowVerticalOffset;
 }
 
 /* Bottom Right */
@@ -335,8 +334,8 @@
   left: auto;
   top: 100%;
   right: @arrowDistanceFromEdge;
-  margin-left: @tooltipArrowOffset;
-  margin-top: -@tooltipArrowOffset;
+  margin-left: @tooltipArrowVerticalOffset;
+  margin-top: -@tooltipArrowHorizontalOffset;
 }
 
 /* Left Center */
@@ -349,8 +348,8 @@
 [data-position="left center"][data-tooltip]:before {
   right: 100%;
   top: 50%;
-  margin-top: @tooltipArrowOffset;
-  margin-right: @tooltipArrowOffset;
+  margin-top: @tooltipArrowVerticalOffset;
+  margin-right: @tooltipArrowHorizontalOffset;
 }
 
 /* Right Center */
@@ -363,8 +362,8 @@
 [data-position="right center"][data-tooltip]:before {
   left: 100%;
   top: 50%;
-  margin-top: @tooltipArrowOffset;
-  margin-left: -@tooltipArrowOffset;
+  margin-top: @tooltipArrowHorizontalOffset;
+  margin-left: -@tooltipArrowVerticalOffset;
 }
 
 /* Arrow */
