@@ -3,7 +3,6 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -1297,7 +1296,7 @@ $.fn.dropdown = function(parameters) {
                 hasSelectedItem       = ($selectedItem.length > 0),
                 selectedIsSelectable  = ($selectedItem.not(selector.unselectable).length > 0),
                 delimiterPressed      = (pressedKey == keys.delimiter && settings.allowAdditions && module.is.multiple()),
-                isAdditionWithoutMenu = (settings.allowAdditions && settings.hideAdditions && (pressedKey == keys.enter || delimiterPressed) && selectedIsSelectable),
+                isAdditionWithoutMenu = (settings.allowAdditions && settings.hideAdditions && (pressedKey == keys.enter || delimiterPressed)),
                 $nextItem,
                 isSubMenuItem,
                 newIndex
@@ -1305,6 +1304,7 @@ $.fn.dropdown = function(parameters) {
 
               // allow selection with menu closed
               if(isAdditionWithoutMenu) {
+                $selectedItem = $menu.children(selector.addition);
                 module.verbose('Selecting item from keyboard shortcut', $selectedItem);
                 module.event.item.click.call($selectedItem, event);
                 if(module.is.searchSelection()) {
@@ -1456,7 +1456,7 @@ $.fn.dropdown = function(parameters) {
               }
             }
             else {
-              if( !module.is.search() ) {
+              if( !module.has.search() ) {
                 module.set.selectedLetter( String.fromCharCode(pressedKey) );
               }
             }
@@ -2571,11 +2571,14 @@ $.fn.dropdown = function(parameters) {
               return;
             }
             if(value === '' || alreadyHasValue) {
+              console.log('removing addition');
               $addition.remove();
               return;
             }
             if(hasUserSuggestion) {
               $addition
+                .data(metadata.value, value)
+                .data(metadata.text, value)
                 .attr('data-' + metadata.value, value)
                 .attr('data-' + metadata.text, value)
                 .removeClass(className.filtered)
@@ -2593,6 +2596,7 @@ $.fn.dropdown = function(parameters) {
               $addition
                 .prependTo($menu)
               ;
+              $item.add($addition);
               module.verbose('Adding item choice to menu corresponding with user choice addition', $addition);
             }
             if(!settings.hideAdditions || module.is.allFiltered()) {
@@ -2952,6 +2956,9 @@ $.fn.dropdown = function(parameters) {
             ;
             return ($normalResults.filter(selector.unselectable).length === $normalResults.length);
           },
+          userSuggestion: function() {
+            return ($menu.children(selector.addition).length > 0);
+          },
           query: function() {
             return (module.get.query() !== '');
           },
@@ -2995,7 +3002,7 @@ $.fn.dropdown = function(parameters) {
             return (document.activeElement === $search[0]);
           },
           allFiltered: function() {
-            return( (module.is.multiple() || module.has.search()) && !module.has.message() && module.has.allResultsFiltered() );
+            return( (module.is.multiple() || module.has.search()) && !(settings.hideAdditions == false && module.has.userSuggestion()) && !module.has.message() && module.has.allResultsFiltered() );
           },
           hidden: function($subMenu) {
             return !module.is.visible($subMenu);
@@ -3492,7 +3499,7 @@ $.fn.dropdown.settings = {
   forceSelection         : true,       // force a choice on blur with search selection
 
   allowAdditions         : false,      // whether multiple select should allow user added values
-  hideAdditions          : false,       // whether or not to hide special message prompting a user they can enter a value
+  hideAdditions          : true,      // whether or not to hide special message prompting a user they can enter a value
 
   maxSelections          : false,      // When set to a number limits the number of selections to this count
   useLabels              : true,       // whether multiple select should filter currently active selections from choices

@@ -3,7 +3,6 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -101,6 +100,7 @@
   -webkit-perspective: 2000px;
           perspective: 2000px;
   -webkit-transform-origin: center center;
+      -ms-transform-origin: center center;
           transform-origin: center center;
 }
 body.animating.in.dimmable,

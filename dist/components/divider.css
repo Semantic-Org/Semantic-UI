@@ -3,7 +3,6 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -93,6 +92,7 @@
   line-height: 0em;
   text-align: center;
   -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
           transform: translateX(-50%);
 }
 .ui.vertical.divider:before,
@@ -129,6 +129,7 @@
     top: 0;
     left: 0;
     -webkit-transform: none;
+        -ms-transform: none;
             transform: none;
   }
   .ui.stackable.grid .ui.vertical.divider:before,
