@@ -113,6 +113,7 @@
 - **List** - Bullets would be affected by font weight, or whether the list item was a link #3715 #3721
 - **List** - Divided lists had unnecessary padding on first and last items, in both horizontal and vertical layouts #3710
 - **Menu** -  `stackable` menu with `left/right` `menu` or `item` would incorrectly be floated when stacked. #3604
+- **Menu** - `tabular menu` now has correct bottom margin #4167
 - **Menu** - `@dividerSize` was not being used in `vertical menu` #3781
 - **Menu** - `vertical text menu` no longer includes `left` or `right` padding, but will now sit flush with content.
 - **Modal** - RGB values set for dimmer `background-color` were not being correctly interpreted #3665 **Thanks @larsbo**
