@@ -40,7 +40,7 @@
 - **Search** - Search now includes a `showNoResults` setting for determining whether no results messages should be shown **Documentation forthcoming**
 - **Shape** - Shape now lets you specify next side width using setting `width`, can use `next` or `initial` to specify whether it should use old or new side size **Documentation forthcoming**
 - **Tab** - Added new setting `cacheType`, can either be `html` or `response` (default). HTML will cache resulting html after callbacks, `response` will cache the original response so that it can be played back identically on future loads #2534
-- **Tabs** - Added new option `deactivate`, defaults to `siblings` which will only deactivate tab activators that are DOM siblings elements to the activating element. Setting it to <code>'all'</code> will deactivate any other tab element initialized at the same time.
+- **Tab** - Added new option `deactivate`, defaults to `siblings` which will only deactivate tab activators that are DOM siblings elements to the activating element. Setting it to <code>'all'</code> will deactivate any other tab element initialized at the same time.
 - **Visibility** - Added `onFixed` and `onUnfixed` callbacks for visibility `type: 'fixed'` **Documentation forthcoming**
 - **Visibility** - Added `onLoad` and `onAllLoaded` callback for `type: 'image'` visibility
 - **Visibility** - Added `zIndex` setting for specifying zindex with `type: 'fixed'` #3370
@@ -75,7 +75,7 @@
 - **Search** - A previous unfinished XHR query aborting would cause the next query to fail #2779
 - **Search** - Fixed an issue where `onResult` returning `false` would not prevent the search menu from hiding. Clicking on an empty results message will also no longer close the search results. #3856 #3870
 - **Sticky/Visibility** -  Added mutation observer to teardown element with `destroy` if removed from DOM context, fixing a possible memory leak
-- **Video** - Fixed issue with `change` behavior not working properly when correctly to change videos.
+- **Video** - Fixed issue with `.video('change')` behavior not properly changing video.
 
 **Bugs**
 - **API** - Using `onResponse` with `dataType` other than JSON or JSONP would cause an error. (Not allowing plain text responses to be translated) #3653
