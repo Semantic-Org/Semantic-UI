@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.0 - Segment
+ * # Semantic UI 2.2.1 - Segment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -134,7 +134,6 @@
 .ui.piled.segments:before,
 .ui.piled.segment:before {
   -webkit-transform: rotate(-1.2deg);
-      -ms-transform: rotate(-1.2deg);
           transform: rotate(-1.2deg);
   top: 0;
   z-index: -2;
@@ -142,7 +141,6 @@
 .ui.piled.segments:after,
 .ui.piled.segment:after {
   -webkit-transform: rotate(1.2deg);
-      -ms-transform: rotate(1.2deg);
           transform: rotate(1.2deg);
   top: 0;
   z-index: -1;

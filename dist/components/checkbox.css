@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.0 - Checkbox
+ * # Semantic UI 2.2.1 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -282,7 +282,6 @@
 .ui.radio.checkbox label:before {
   content: '';
   -webkit-transform: none;
-      -ms-transform: none;
           transform: none;
   width: 15px;
   height: 15px;
@@ -310,7 +309,6 @@
   height: 15px;
   border-radius: 500rem;
   -webkit-transform: scale(0.46666667);
-      -ms-transform: scale(0.46666667);
           transform: scale(0.46666667);
   background-color: rgba(0, 0, 0, 0.87);
 }
@@ -387,7 +385,6 @@
   width: 3.5rem;
   height: 0.21428571rem;
   -webkit-transform: none;
-      -ms-transform: none;
           transform: none;
   border-radius: 500rem;
   -webkit-transition: background 0.3s ease;
@@ -410,7 +407,6 @@
   top: -0.25rem;
   left: 0em;
   -webkit-transform: none;
-      -ms-transform: none;
           transform: none;
   border-radius: 500rem;
   -webkit-transition: left 0.3s ease;
@@ -491,7 +487,6 @@
   content: '';
   z-index: 1;
   -webkit-transform: none;
-      -ms-transform: none;
           transform: none;
   border: none;
   top: 0rem;

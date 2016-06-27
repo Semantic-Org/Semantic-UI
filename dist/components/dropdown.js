@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.0 - Dropdown
+ * # Semantic UI 2.2.1 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1296,15 +1296,13 @@ $.fn.dropdown = function(parameters) {
                 hasSelectedItem       = ($selectedItem.length > 0),
                 selectedIsSelectable  = ($selectedItem.not(selector.unselectable).length > 0),
                 delimiterPressed      = (pressedKey == keys.delimiter && settings.allowAdditions && module.is.multiple()),
-                isAdditionWithoutMenu = (settings.allowAdditions && settings.hideAdditions && (pressedKey == keys.enter || delimiterPressed)),
+                isAdditionWithoutMenu = (settings.allowAdditions && settings.hideAdditions && (pressedKey == keys.enter || delimiterPressed) && selectedIsSelectable),
                 $nextItem,
                 isSubMenuItem,
                 newIndex
               ;
-
               // allow selection with menu closed
               if(isAdditionWithoutMenu) {
-                $selectedItem = $menu.children(selector.addition);
                 module.verbose('Selecting item from keyboard shortcut', $selectedItem);
                 module.event.item.click.call($selectedItem, event);
                 if(module.is.searchSelection()) {
@@ -2571,7 +2569,6 @@ $.fn.dropdown = function(parameters) {
               return;
             }
             if(value === '' || alreadyHasValue) {
-              console.log('removing addition');
               $addition.remove();
               return;
             }
@@ -2596,7 +2593,6 @@ $.fn.dropdown = function(parameters) {
               $addition
                 .prependTo($menu)
               ;
-              $item.add($addition);
               module.verbose('Adding item choice to menu corresponding with user choice addition', $addition);
             }
             if(!settings.hideAdditions || module.is.allFiltered()) {
@@ -2606,6 +2602,7 @@ $.fn.dropdown = function(parameters) {
                 .removeClass(className.selected)
               ;
             }
+            module.refreshItems();
           },
           variables: function(message, term) {
             var

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.0 - Button
+ * # Semantic UI 2.2.1 - Button
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -273,7 +273,6 @@
 }
 .ui.vertical.animated.button .visible.content {
   -webkit-transform: translateY(0%);
-      -ms-transform: translateY(0%);
           transform: translateY(0%);
   right: auto;
 }
@@ -285,7 +284,6 @@
 .ui.vertical.animated.button:focus .visible.content,
 .ui.vertical.animated.button:hover .visible.content {
   -webkit-transform: translateY(200%);
-      -ms-transform: translateY(200%);
           transform: translateY(200%);
   right: auto;
 }
@@ -308,7 +306,6 @@
   right: auto;
   opacity: 1;
   -webkit-transform: scale(1);
-      -ms-transform: scale(1);
           transform: scale(1);
 }
 .ui.fade.animated.button .hidden.content {
@@ -316,7 +313,6 @@
   left: 0%;
   right: auto;
   -webkit-transform: scale(1.5);
-      -ms-transform: scale(1.5);
           transform: scale(1.5);
 }
 .ui.fade.animated.button:focus .visible.content,
@@ -325,7 +321,6 @@
   right: auto;
   opacity: 0;
   -webkit-transform: scale(0.75);
-      -ms-transform: scale(0.75);
           transform: scale(0.75);
 }
 .ui.fade.animated.button:focus .hidden.content,
@@ -334,7 +329,6 @@
   right: auto;
   opacity: 1;
   -webkit-transform: scale(1);
-      -ms-transform: scale(1);
           transform: scale(1);
 }
 
@@ -895,7 +889,6 @@
   top: 50%;
   text-align: center;
   -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
           transform: translateY(-50%);
 }
 .ui.labeled.icon.buttons .button > .icon {

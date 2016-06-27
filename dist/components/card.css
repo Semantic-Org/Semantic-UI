@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.0 - Item
+ * # Semantic UI 2.2.1 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -486,7 +486,6 @@ a.ui.raised.card:hover,
 a.ui.card,
 .ui.link.card {
   -webkit-transform: none;
-      -ms-transform: none;
           transform: none;
 }
 .ui.cards a.card:hover,
@@ -499,7 +498,6 @@ a.ui.card:hover,
   border: none;
   box-shadow: 0px 1px 3px 0px #BCBDBD, 0px 0px 0px 1px #D4D4D5;
   -webkit-transform: translateY(-3px);
-      -ms-transform: translateY(-3px);
           transform: translateY(-3px);
 }
 
