@@ -54,7 +54,7 @@
 - **Progress** - Added progress `is complete` for returning whether success, warning, or error conditions are met
 
 **CSS Enhancements**
-- **All UI** Extended variables which return exact pixel values in em (`@relativePX` and @px) up to 40px to allow for simple theming with exact values
+- **All UI** Extended variables which return exact pixel values in em (`@relativePX` and @px) up to 64px to allow for simple theming with exact values
 - **Button** - Added variables for configuring `disabled` background image and box shadow.
 - **Site** - Added colored box shadow defaults. `ui message` now includes individual colored border shadows based on new site defaults.
 - **Site** - Added new `@inputColor` and `@inputPlaceholderColor` global variables that now control placeholder text styles across all components.
