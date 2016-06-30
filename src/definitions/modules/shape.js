@@ -244,6 +244,11 @@ $.fn.shape = function(parameters) {
             var
               $clone      = $module.clone().addClass(className.loading),
               $activeSide = $clone.find('.' + settings.className.active),
+              $nextSide   = (nextIndex)
+                ? $clone.find(selector.side).eq(nextIndex)
+                : ( $activeSide.next(selector.side).length > 0 )
+                  ? $activeSide.next(selector.side)
+                  : $clone.find(selector.side).first(),
               newWidth    = (settings.width == 'next')
                 ? $nextSide.outerWidth(true)
                 : (settings.width == 'initial')
@@ -253,12 +258,7 @@ $.fn.shape = function(parameters) {
                 ? $nextSide.outerHeight(true)
                 : (settings.height == 'initial')
                   ? $module.height()
-                  : settings.height,
-              $nextSide   = (nextIndex)
-                ? $clone.find(selector.side).eq(nextIndex)
-                : ( $activeSide.next(selector.side).length > 0 )
-                  ? $activeSide.next(selector.side)
-                  : $clone.find(selector.side).first()
+                  : settings.height
             ;
             $activeSide.removeClass(className.active);
             $nextSide.addClass(className.active);
