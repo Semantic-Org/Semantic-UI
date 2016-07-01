@@ -1,9 +1,8 @@
 /*!
- * # Semantic UI 2.1.8 - Segment
+ * # Semantic UI 2.2.1 - Segment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -258,7 +257,7 @@
 
 .ui.raised.segments,
 .ui.raised.segment {
-  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.08);
+  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
 }
 
 
@@ -315,6 +314,11 @@
   margin-bottom: 0em;
   box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15), none;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
+}
+
+/* Only */
+.ui.segments:not(.horizontal) > .segment:only-child {
+  border-radius: 0.28571429rem;
 }
 
 /* Nested Group */
@@ -510,19 +514,19 @@
 
 /* Orange */
 .ui.orange.segment:not(.inverted) {
-  border-top: 2px solid #DA6619;
+  border-top: 2px solid #F2711C;
 }
 .ui.inverted.orange.segment {
-  background-color: #DA6619 !important;
+  background-color: #F2711C !important;
   color: #FFFFFF !important;
 }
 
 /* Yellow */
 .ui.yellow.segment:not(.inverted) {
-  border-top: 2px solid #FFD900;
+  border-top: 2px solid #FBBD08;
 }
 .ui.inverted.yellow.segment {
-  background-color: #FFD900 !important;
+  background-color: #FBBD08 !important;
   color: #FFFFFF !important;
 }
 
@@ -537,19 +541,19 @@
 
 /* Green */
 .ui.green.segment:not(.inverted) {
-  border-top: 2px solid #188130;
+  border-top: 2px solid #21BA45;
 }
 .ui.inverted.green.segment {
-  background-color: #188130 !important;
+  background-color: #21BA45 !important;
   color: #FFFFFF !important;
 }
 
 /* Teal */
 .ui.teal.segment:not(.inverted) {
-  border-top: 2px solid #158570;
+  border-top: 2px solid #00B5AD;
 }
 .ui.inverted.teal.segment {
-  background-color: #158570 !important;
+  background-color: #00B5AD !important;
   color: #FFFFFF !important;
 }
 
@@ -714,7 +718,7 @@
   box-shadow: none;
   border: 1px solid #D4D4D5;
 }
-.ui.attached + .ui.attached.segment:not(.top) {
+.ui.attached:not(.message) + .ui.attached.segment:not(.top) {
   border-top: none;
 }
 
@@ -741,6 +745,43 @@
 }
 .ui.segment[class*="bottom attached"]:last-child {
   margin-bottom: 0em;
+}
+
+/*-------------------
+        Size
+--------------------*/
+
+.ui.mini.segments .segment,
+.ui.mini.segment {
+  font-size: 0.78571429rem;
+}
+.ui.tiny.segments .segment,
+.ui.tiny.segment {
+  font-size: 0.85714286rem;
+}
+.ui.small.segments .segment,
+.ui.small.segment {
+  font-size: 0.92857143rem;
+}
+.ui.segments .segment,
+.ui.segment {
+  font-size: 1rem;
+}
+.ui.large.segments .segment,
+.ui.large.segment {
+  font-size: 1.14285714rem;
+}
+.ui.big.segments .segment,
+.ui.big.segment {
+  font-size: 1.28571429rem;
+}
+.ui.huge.segments .segment,
+.ui.huge.segment {
+  font-size: 1.42857143rem;
+}
+.ui.massive.segments .segment,
+.ui.massive.segment {
+  font-size: 1.71428571rem;
 }
 
 

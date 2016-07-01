@@ -84,6 +84,52 @@
   @floatingShadow
 ;
 
+/* Colors */
+@redBoxShadow:
+  0px 0px 0px @borderWidth @redBorderColor inset,
+  @shadowShadow
+;
+@orangeBoxShadow:
+  0px 0px 0px @borderWidth @orangeBorderColor inset,
+  @shadowShadow
+;
+@yellowBoxShadow:
+  0px 0px 0px @borderWidth @yellowBorderColor inset,
+  @shadowShadow
+;
+@oliveBoxShadow:
+  0px 0px 0px @borderWidth @oliveBorderColor inset,
+  @shadowShadow
+;
+@greenBoxShadow:
+  0px 0px 0px @borderWidth @greenBorderColor inset,
+  @shadowShadow
+;
+@tealBoxShadow:
+  0px 0px 0px @borderWidth @tealBorderColor inset,
+  @shadowShadow
+;
+@blueBoxShadow:
+  0px 0px 0px @borderWidth @blueBorderColor inset,
+  @shadowShadow
+;
+@violetBoxShadow:
+  0px 0px 0px @borderWidth @violetBorderColor inset,
+  @shadowShadow
+;
+@purpleBoxShadow:
+  0px 0px 0px @borderWidth @purpleBorderColor inset,
+  @shadowShadow
+;
+@pinkBoxShadow:
+  0px 0px 0px @borderWidth @pinkBorderColor inset,
+  @shadowShadow
+;
+@brownBoxShadow:
+  0px 0px 0px @borderWidth @brownBorderColor inset,
+  @shadowShadow
+;
+
 /* Warning / Positive / Negative / Info */
 @positiveBoxShadow:
   0px 0px 0px @borderWidth @positiveBorderColor inset,

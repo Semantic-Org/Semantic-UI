@@ -3,7 +3,6 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -207,7 +206,7 @@
   opacity: @disabledOpacity !important;
   background-image: none !important;
   box-shadow: none !important;
-  pointer-events: none;
+  pointer-events: none !important;
 }
 
 /* Basic Group With Disabled */
@@ -591,7 +590,11 @@
   vertical-align: @iconVerticalAlign;
   color: @iconColor;
 }
-.ui.button > .right.icon:not(.button) {
+
+.ui.button:not(.icon) > .icon:not(.button) {
+  margin: @iconMargin;
+}
+.ui.button:not(.icon) > .right.icon:not(.button) {
   margin: @rightIconMargin;
 }
 
@@ -1878,7 +1881,7 @@
 .ui.inverted.green.button.active,
 .ui.inverted.green.buttons .button:active,
 .ui.inverted.green.button:active {
-  box-shadlightOw: none !important;
+  box-shadow: none !important;
   color: @greenTextColor;
 }
 .ui.inverted.green.buttons .button:hover,
@@ -3051,15 +3054,16 @@
        Primary
 --------------------*/
 
+/*--- Standard ---*/
 .ui.primary.buttons .button,
 .ui.primary.button {
   background-color: @primaryColor;
   color: @primaryTextColor;
   text-shadow: @primaryTextShadow;
-  background-image: @primaryBackgroundImage;
+  background-image: @coloredBackgroundImage;
 }
 .ui.primary.button {
-  box-shadow: @primaryBoxShadow;
+  box-shadow: @coloredBoxShadow;
 }
 .ui.primary.buttons .button:hover,
 .ui.primary.button:hover {
@@ -3080,25 +3084,61 @@
   text-shadow: @primaryTextShadow;
 }
 .ui.primary.buttons .active.button,
-.ui.primary.active.button {
+.ui.primary.buttons .active.button:active,
+.ui.primary.active.button,
+.ui.primary.button .active.button:active {
   background-color: @primaryColorActive;
   color: @primaryTextColor;
   text-shadow: @primaryTextShadow;
+}
+
+/* Basic */
+.ui.basic.primary.buttons .button,
+.ui.basic.primary.button {
+  box-shadow: 0px 0px 0px @basicBorderSize @primaryColor inset !important;
+  color: @primaryColor !important;
+}
+.ui.basic.primary.buttons .button:hover,
+.ui.basic.primary.button:hover {
+  background: transparent !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @primaryColorHover inset !important;
+  color: @primaryColorHover !important;
+}
+.ui.basic.primary.buttons .button:focus,
+.ui.basic.primary.button:focus {
+  background: transparent !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @primaryColorFocus inset !important;
+  color: @primaryColorHover !important;
+}
+.ui.basic.primary.buttons .active.button,
+.ui.basic.primary.active.button {
+  background: transparent !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @primaryColorActive inset !important;
+  color: @primaryColorDown !important;
+}
+.ui.basic.primary.buttons .button:active,
+.ui.basic.primary.button:active {
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @primaryColorDown inset !important;
+  color: @primaryColorDown !important;
+}
+.ui.buttons:not(.vertical) > .basic.primary.button:not(:first-child) {
+  margin-left: -@basicColoredBorderSize;
 }
 
 /*-------------------
       Secondary
 --------------------*/
 
+/* Standard */
 .ui.secondary.buttons .button,
 .ui.secondary.button {
   background-color: @secondaryColor;
   color: @secondaryTextColor;
   text-shadow: @secondaryTextShadow;
-  background-image: @secondaryBackgroundImage;
+  background-image: @coloredBackgroundImage;
 }
 .ui.secondary.button {
-  box-shadow: @secondaryBoxShadow;
+  box-shadow: @coloredBoxShadow;
 }
 .ui.secondary.buttons .button:hover,
 .ui.secondary.button:hover {
@@ -3119,21 +3159,57 @@
   text-shadow: @secondaryTextShadow;
 }
 .ui.secondary.buttons .active.button,
-.ui.secondary.active.button {
+.ui.secondary.buttons .active.button:active,
+.ui.secondary.active.button,
+.ui.secondary.button .active.button:active {
   background-color: @secondaryColorActive;
   color: @secondaryTextColor;
   text-shadow: @secondaryTextShadow;
+}
+
+/* Basic */
+.ui.basic.secondary.buttons .button,
+.ui.basic.secondary.button {
+  box-shadow: 0px 0px 0px @basicBorderSize @secondaryColor inset !important;
+  color: @secondaryColor !important;
+}
+.ui.basic.secondary.buttons .button:hover,
+.ui.basic.secondary.button:hover {
+  background: transparent !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @secondaryColorHover inset !important;
+  color: @secondaryColorHover !important;
+}
+.ui.basic.secondary.buttons .button:focus,
+.ui.basic.secondary.button:focus {
+  background: transparent !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @secondaryColorFocus inset !important;
+  color: @secondaryColorHover !important;
+}
+.ui.basic.secondary.buttons .active.button,
+.ui.basic.secondary.active.button {
+  background: transparent !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @secondaryColorActive inset !important;
+  color: @secondaryColorDown !important;
+}
+.ui.basic.secondary.buttons .button:active,
+.ui.basic.secondary.button:active {
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @secondaryColorDown inset !important;
+  color: @secondaryColorDown !important;
+}
+.ui.buttons:not(.vertical) > .basic.primary.button:not(:first-child) {
+  margin-left: -@basicColoredBorderSize;
 }
 
 /*---------------
     Positive
 ----------------*/
 
+/* Standard */
 .ui.positive.buttons .button,
 .ui.positive.button {
-  background-color: @positiveColor !important;
-  color: @invertedTextColor;
-  text-shadow: @invertedTextShadow;
+  background-color: @positiveColor;
+  color: @positiveTextColor;
+  text-shadow: @positiveTextShadow;
   background-image: @coloredBackgroundImage;
 }
 .ui.positive.button {
@@ -3141,40 +3217,74 @@
 }
 .ui.positive.buttons .button:hover,
 .ui.positive.button:hover {
-  background-color: @positiveColorHover !important;
-  color: @invertedTextColor;
-  text-shadow: @invertedTextShadow;
+  background-color: @positiveColorHover;
+  color: @positiveTextColor;
+  text-shadow: @positiveTextShadow;
 }
 .ui.positive.buttons .button:focus,
 .ui.positive.button:focus {
-  background-color: @positiveColorFocus !important;
-  color: @invertedTextColor;
-  text-shadow: @invertedTextShadow;
+  background-color: @positiveColorFocus;
+  color: @positiveTextColor;
+  text-shadow: @positiveTextShadow;
 }
 .ui.positive.buttons .button:active,
 .ui.positive.button:active {
-  background-color: @positiveColorDown !important;
-  color: @invertedTextColor;
-  text-shadow: @invertedTextShadow;
+  background-color: @positiveColorDown;
+  color: @positiveTextColor;
+  text-shadow: @positiveTextShadow;
 }
 .ui.positive.buttons .active.button,
+.ui.positive.buttons .active.button:active,
 .ui.positive.active.button,
-.ui.positive.buttons .active.button:active {
+.ui.positive.button .active.button:active {
   background-color: @positiveColorActive;
-  color: @invertedTextColor;
-  text-shadow: @invertedTextShadow;
+  color: @positiveTextColor;
+  text-shadow: @positiveTextShadow;
 }
 
+/* Basic */
+.ui.basic.positive.buttons .button,
+.ui.basic.positive.button {
+  box-shadow: 0px 0px 0px @basicBorderSize @positiveColor inset !important;
+  color: @positiveColor !important;
+}
+.ui.basic.positive.buttons .button:hover,
+.ui.basic.positive.button:hover {
+  background: transparent !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @positiveColorHover inset !important;
+  color: @positiveColorHover !important;
+}
+.ui.basic.positive.buttons .button:focus,
+.ui.basic.positive.button:focus {
+  background: transparent !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @positiveColorFocus inset !important;
+  color: @positiveColorHover !important;
+}
+.ui.basic.positive.buttons .active.button,
+.ui.basic.positive.active.button {
+  background: transparent !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @positiveColorActive inset !important;
+  color: @positiveColorDown !important;
+}
+.ui.basic.positive.buttons .button:active,
+.ui.basic.positive.button:active {
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @positiveColorDown inset !important;
+  color: @positiveColorDown !important;
+}
+.ui.buttons:not(.vertical) > .basic.primary.button:not(:first-child) {
+  margin-left: -@basicColoredBorderSize;
+}
 
 /*---------------
      Negative
 ----------------*/
 
+/* Standard */
 .ui.negative.buttons .button,
 .ui.negative.button {
-  background-color: @negativeColor !important;
-  color: @invertedTextColor;
-  text-shadow: @invertedTextShadow;
+  background-color: @negativeColor;
+  color: @negativeTextColor;
+  text-shadow: @negativeTextShadow;
   background-image: @coloredBackgroundImage;
 }
 .ui.negative.button {
@@ -3182,28 +3292,62 @@
 }
 .ui.negative.buttons .button:hover,
 .ui.negative.button:hover {
-  background-color: @negativeColorHover !important;
-  color: @invertedTextColor;
-  text-shadow: @invertedTextShadow;
+  background-color: @negativeColorHover;
+  color: @negativeTextColor;
+  text-shadow: @negativeTextShadow;
 }
 .ui.negative.buttons .button:focus,
 .ui.negative.button:focus {
-  background-color: @negativeColorFocus !important;
-  color: @invertedTextColor;
-  text-shadow: @invertedTextShadow;
+  background-color: @negativeColorFocus;
+  color: @negativeTextColor;
+  text-shadow: @negativeTextShadow;
 }
 .ui.negative.buttons .button:active,
 .ui.negative.button:active {
-  background-color: @negativeColorDown !important;
-  color: @invertedTextColor;
-  text-shadow: @invertedTextShadow;
+  background-color: @negativeColorDown;
+  color: @negativeTextColor;
+  text-shadow: @negativeTextShadow;
 }
 .ui.negative.buttons .active.button,
+.ui.negative.buttons .active.button:active,
 .ui.negative.active.button,
-.ui.negative.buttons .active.button:active {
+.ui.negative.button .active.button:active {
   background-color: @negativeColorActive;
-  color: @invertedTextColor;
-  text-shadow: @invertedTextShadow;
+  color: @negativeTextColor;
+  text-shadow: @negativeTextShadow;
+}
+
+/* Basic */
+.ui.basic.negative.buttons .button,
+.ui.basic.negative.button {
+  box-shadow: 0px 0px 0px @basicBorderSize @negativeColor inset !important;
+  color: @negativeColor !important;
+}
+.ui.basic.negative.buttons .button:hover,
+.ui.basic.negative.button:hover {
+  background: transparent !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @negativeColorHover inset !important;
+  color: @negativeColorHover !important;
+}
+.ui.basic.negative.buttons .button:focus,
+.ui.basic.negative.button:focus {
+  background: transparent !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @negativeColorFocus inset !important;
+  color: @negativeColorHover !important;
+}
+.ui.basic.negative.buttons .active.button,
+.ui.basic.negative.active.button {
+  background: transparent !important;
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @negativeColorActive inset !important;
+  color: @negativeColorDown !important;
+}
+.ui.basic.negative.buttons .button:active,
+.ui.basic.negative.button:active {
+  box-shadow: 0px 0px 0px @basicColoredBorderSize @negativeColorDown inset !important;
+  color: @negativeColorDown !important;
+}
+.ui.buttons:not(.vertical) > .basic.primary.button:not(:first-child) {
+  margin-left: -@basicColoredBorderSize;
 }
 
 /*******************************

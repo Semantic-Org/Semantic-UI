@@ -3,15 +3,21 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 
-;(function ( $, window, document, undefined ) {
+;(function ($, window, document, undefined) {
 
 "use strict";
+
+window = (typeof window != 'undefined' && window.Math == Math)
+  ? window
+  : (typeof self != 'undefined' && self.Math == Math)
+    ? self
+    : Function('return this')()
+;
 
 $.fn.checkbox = function(parameters) {
   var
@@ -120,13 +126,13 @@ $.fn.checkbox = function(parameters) {
 
         hide: {
           input: function() {
-            module.verbose('Modfying <input> z-index to be unselectable');
+            module.verbose('Modifying <input> z-index to be unselectable');
             $input.addClass(className.hidden);
           }
         },
         show: {
           input: function() {
-            module.verbose('Modfying <input> z-index to be selectable');
+            module.verbose('Modifying <input> z-index to be selectable');
             $input.removeClass(className.hidden);
           }
         },
@@ -268,6 +274,8 @@ $.fn.checkbox = function(parameters) {
           }
           module.debug('Enabling checkbox');
           module.set.enabled();
+          settings.onEnable.call(input);
+          // preserve legacy callbacks
           settings.onEnabled.call(input);
         },
 
@@ -278,6 +286,8 @@ $.fn.checkbox = function(parameters) {
           }
           module.debug('Disabling checkbox');
           module.set.disabled();
+          settings.onDisable.call(input);
+          // preserve legacy callbacks
           settings.onDisabled.call(input);
         },
 
@@ -584,7 +594,12 @@ $.fn.checkbox = function(parameters) {
             $.extend(true, settings, name);
           }
           else if(value !== undefined) {
-            settings[name] = value;
+            if($.isPlainObject(settings[name])) {
+              $.extend(true, settings[name], value);
+            }
+            else {
+              settings[name] = value;
+            }
           }
           else {
             return settings[name];
@@ -602,7 +617,7 @@ $.fn.checkbox = function(parameters) {
           }
         },
         debug: function() {
-          if(settings.debug) {
+          if(!settings.silent && settings.debug) {
             if(settings.performance) {
               module.performance.log(arguments);
             }
@@ -613,7 +628,7 @@ $.fn.checkbox = function(parameters) {
           }
         },
         verbose: function() {
-          if(settings.verbose && settings.debug) {
+          if(!settings.silent && settings.verbose && settings.debug) {
             if(settings.performance) {
               module.performance.log(arguments);
             }
@@ -624,8 +639,10 @@ $.fn.checkbox = function(parameters) {
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
-          module.error.apply(console, arguments);
+          if(!settings.silent) {
+            module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
+            module.error.apply(console, arguments);
+          }
         },
         performance: {
           log: function(message) {
@@ -760,6 +777,7 @@ $.fn.checkbox.settings = {
   name                : 'Checkbox',
   namespace           : 'checkbox',
 
+  silent              : false,
   debug               : false,
   verbose             : true,
   performance         : true,
@@ -783,6 +801,10 @@ $.fn.checkbox.settings = {
 
   onEnable            : function(){},
   onDisable           : function(){},
+
+  // preserve misspelled callbacks (will be removed in 3.0)
+  onEnabled           : function(){},
+  onDisabled          : function(){},
 
   className       : {
     checked       : 'checked',

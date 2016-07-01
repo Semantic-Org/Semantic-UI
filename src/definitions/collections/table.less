@@ -3,7 +3,6 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -268,11 +267,19 @@
 }
 
 /* Highlight Defining Column */
-.ui.definition.table tr td:first-child {
+.ui.definition.table tr td:first-child:not(.ignored),
+.ui.definition.table tr td.definition {
   background: @definitionColumnBackground;
   font-weight: @definitionColumnFontWeight;
   color: @definitionColumnColor;
+  text-transform: @definitionColumnTextTransform;
+  box-shadow: @definitionColumnBoxShadow;
+  text-align: @definitionColumnTextAlign;
+  font-size: @definitionColumnFontSize;
+  padding-left: @definitionColumnHorizontalPadding;
+  padding-right: @definitionColumnHorizontalPadding;
 }
+
 
 /* Fix 2nd Column */
 .ui.definition.table thead:not(.full-width) th:nth-child(2) {
@@ -597,6 +604,12 @@
 .ui.inverted.striped.table > tr:nth-child(2n),
 .ui.inverted.striped.table tbody tr:nth-child(2n) {
   background-color: @invertedStripedBackground;
+}
+
+/* Allow striped active hover */
+.ui.striped.selectable.selectable.selectable.table tbody tr.active:hover {
+  background: @activeBackgroundHover !important;
+  color: @activeColorHover !important;
 }
 
 /*--------------

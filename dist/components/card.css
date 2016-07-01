@@ -1,9 +1,8 @@
 /*!
- * # Semantic UI 2.1.8 - Item
+ * # Semantic UI 2.2.1 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -439,11 +438,19 @@
        Raised
 --------------------*/
 
-.ui.raised.cards > .card {
-  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.08);
-}
+.ui.raised.cards > .card,
 .ui.raised.card {
-  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.08);
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+}
+.ui.raised.cards a.card:hover,
+.ui.link.cards .raised.card:hover,
+a.ui.raised.card:hover,
+.ui.link.raised.card:hover {
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 4px 0px rgba(34, 36, 38, 0.15), 0px 2px 10px 0px rgba(34, 36, 38, 0.25);
+}
+.ui.raised.cards > .card,
+.ui.raised.card {
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
 }
 
 /*-------------------
@@ -515,24 +522,24 @@ a.ui.card:hover,
 .ui.orange.cards > .card,
 .ui.cards > .orange.card,
 .ui.orange.card {
-  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #DA6619, 0px 1px 3px 0px #D4D4D5;
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #F2711C, 0px 1px 3px 0px #D4D4D5;
 }
 .ui.orange.cards > .card:hover,
 .ui.cards > .orange.card:hover,
 .ui.orange.card:hover {
-  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #cc5a0e, 0px 1px 3px 0px #BCBDBD;
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #f26202, 0px 1px 3px 0px #BCBDBD;
 }
 
 /* Yellow */
 .ui.yellow.cards > .card,
 .ui.cards > .yellow.card,
 .ui.yellow.card {
-  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #FFD900, 0px 1px 3px 0px #D4D4D5;
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #FBBD08, 0px 1px 3px 0px #D4D4D5;
 }
 .ui.yellow.cards > .card:hover,
 .ui.cards > .yellow.card:hover,
 .ui.yellow.card:hover {
-  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #e6c300, 0px 1px 3px 0px #BCBDBD;
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #eaae00, 0px 1px 3px 0px #BCBDBD;
 }
 
 /* Olive */
@@ -551,24 +558,24 @@ a.ui.card:hover,
 .ui.green.cards > .card,
 .ui.cards > .green.card,
 .ui.green.card {
-  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #188130, 0px 1px 3px 0px #D4D4D5;
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #21BA45, 0px 1px 3px 0px #D4D4D5;
 }
 .ui.green.cards > .card:hover,
 .ui.cards > .green.card:hover,
 .ui.green.card:hover {
-  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #107026, 0px 1px 3px 0px #BCBDBD;
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #16ab39, 0px 1px 3px 0px #BCBDBD;
 }
 
 /* Teal */
 .ui.teal.cards > .card,
 .ui.cards > .teal.card,
 .ui.teal.card {
-  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #158570, 0px 1px 3px 0px #D4D4D5;
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #00B5AD, 0px 1px 3px 0px #D4D4D5;
 }
 .ui.teal.cards > .card:hover,
 .ui.cards > .teal.card:hover,
 .ui.teal.card:hover {
-  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #0d7460, 0px 1px 3px 0px #BCBDBD;
+  box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #009c95, 0px 1px 3px 0px #BCBDBD;
 }
 
 /* Blue */
@@ -755,7 +762,7 @@ a.ui.card:hover,
 --------------------*/
 
 
-/* Mobily Only */
+/* Mobile Only */
 @media only screen and (max-width: 767px) {
   .ui.two.doubling.cards {
     margin-left: 0em;

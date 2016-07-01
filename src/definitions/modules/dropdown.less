@@ -3,7 +3,6 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -388,12 +387,14 @@ select.ui.dropdown {
 .ui.selection.dropdown > .dropdown.icon {
   cursor: pointer;
   position: absolute;
-  top: auto;
   width: auto;
+  height: auto;
+  line-height: @searchSelectionLineHeight;
+  top: @selectionVerticalPadding;
+  right: @selectionHorizontalPadding;
   z-index: @selectionIconZIndex;
   margin: @selectionIconMargin;
   padding: @selectionIconPadding;
-  right: @selectionHorizontalPadding;
   opacity: @selectionIconOpacity;
   transition: @selectionIconTransition;
 }
@@ -462,6 +463,11 @@ select.ui.dropdown {
   word-wrap: normal;
 }
 
+/* User Item */
+.ui.selection.dropdown .menu > .hidden.addition.item {
+  display: none;
+}
+
 /* Hover */
 .ui.selection.dropdown:hover {
   border-color: @selectionHoverBorderColor;
@@ -517,6 +523,16 @@ select.ui.dropdown {
   border-bottom-right-radius: @selectionVisibleConnectingBorder !important;
 }
 
+/* Empty Connecting Border */
+.ui.active.empty.selection.dropdown {
+  border-radius: @selectionBorderRadius !important;
+  box-shadow: @selectionBoxShadow !important;
+}
+.ui.active.empty.selection.dropdown .menu {
+  border: none !important;
+  box-shadow: none !important;
+}
+
 /*--------------
    Searchable
 ---------------*/
@@ -548,6 +564,7 @@ select.ui.dropdown {
 .ui.search.dropdown > .text {
   cursor: text;
   position: relative;
+  left: @textCursorSpacing;
   z-index: 3;
 }
 
@@ -555,6 +572,14 @@ select.ui.dropdown {
 .ui.search.selection.dropdown > input.search {
   line-height: @searchSelectionLineHeight;
   padding: @searchSelectionInputPadding;
+}
+
+/* Used to size multi select input to character width */
+.ui.search.selection.dropdown > span.sizer {
+  line-height: @searchSelectionLineHeight;
+  padding: @searchSelectionInputPadding;
+  display: none;
+  white-space: pre;
 }
 
 /* Active/Visible Search */
@@ -648,6 +673,9 @@ select.ui.dropdown {
   margin: @multipleSelectionChildMargin;
   line-height: @multipleSelectionChildLineHeight;
 }
+.ui.multiple.dropdown > .label ~ input.search {
+  margin-left: @multipleSelectionSearchAfterLabelDistance !important;
+}
 .ui.multiple.dropdown > .label ~ .text {
   display: none;
 }
@@ -723,6 +751,7 @@ select.ui.dropdown {
   z-index: @activeItemZIndex;
 }
 
+
 /*--------------------
         Hover
 ----------------------*/
@@ -738,20 +767,10 @@ select.ui.dropdown {
        Loading
 ---------------------*/
 
-/* Positioning */
-.ui.loading.dropdown > i.icon:before,
-.ui.loading.dropdown > i.icon:after {
-  left: 30% !important;
-}
 .ui.loading.dropdown > i.icon {
-  top: 50% !important;
+  height: @relative14px !important;
+  padding: @relative16px @relative15px !important;
 }
-.ui.multiple.loading.dropdown > i.icon:before,
-.ui.multiple.loading.dropdown > i.icon:after {
-  top: 0% !important;
-  left: 0% !important;
-}
-
 .ui.loading.dropdown > i.icon:before {
   position: absolute;
   content: '';
@@ -806,15 +825,14 @@ select.ui.dropdown {
      Default Text
 ----------------------*/
 
-.ui.dropdown > .default.text,
-.ui.default.dropdown > .text {
+.ui.dropdown:not(.button) > .default.text,
+.ui.default.dropdown:not(.button) > .text {
   color: @defaultTextColor;
 }
-.ui.dropdown:hover > .default.text,
-.ui.default.dropdown:hover > .text {
-  color: @defaultTextHoverColor;
+.ui.dropdown:not(.button) > input:focus + .default.text,
+.ui.default.dropdown:not(.button) > input:focus + .text {
+  color: @defaultTextFocusColor;
 }
-
 /*--------------------
         Loading
 ----------------------*/

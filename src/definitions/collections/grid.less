@@ -3,7 +3,6 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -952,9 +951,9 @@
   text-align: center;
   justify-content: center;
 }
-.ui.centered.grid > .column:not(.aligned):not(.row),
-.ui.centered.grid > .row > .column:not(.aligned),
-.ui.grid .centered.row > .column:not(.aligned) {
+.ui.centered.grid > .column:not(.aligned):not(:justified):not(.row),
+.ui.centered.grid > .row > .column:not(.aligned):not(:justified),
+.ui.grid .centered.row > .column:not(.aligned):not(:justified) {
   text-align: left;
 }
 
@@ -1046,11 +1045,19 @@
   margin-bottom: 0em;
 }
 
+
+
 /* No divider on first column on row */
 .ui.divided.grid:not([class*="vertically divided"]) > .column:first-child,
 .ui.divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
   box-shadow: none;
 }
+
+/* No space on top of first row */
+.ui[class*="vertically divided"].grid > .row:first-child > .column {
+  margin-top: 0em;
+}
+
 
 /* Divided Row */
 .ui.grid > .divided.row > .column {
@@ -1614,7 +1621,7 @@
   }
 }
 
-/* Mobily Only */
+/* Mobile Only */
 @media only screen and (max-width: @largestMobileScreen) {
   .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {

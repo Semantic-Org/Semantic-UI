@@ -1,9 +1,8 @@
 /*!
- * # Semantic UI 2.1.8 - Flag
+ * # Semantic UI 2.2.1 - Flag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -32,7 +31,7 @@ i.flag:not(.icon) {
 i.flag:not(.icon):before {
   display: inline-block;
   content: '';
-  background: url("../themes/default/assets/images/flags.png") no-repeat -108px -1976px;
+  background: url("./../themes/default/assets/images/flags.png") no-repeat -108px -1976px;
   width: 16px;
   height: 11px;
 }

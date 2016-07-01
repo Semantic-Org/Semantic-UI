@@ -1,9 +1,8 @@
 /*!
- * # Semantic UI 2.1.8 - Header
+ * # Semantic UI 2.2.1 - Header
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -215,7 +214,7 @@ h5.ui.header .sub.header {
   color: '';
 }
 .ui.small.sub.header {
-  font-size: 0.71428571em;
+  font-size: 0.78571429em;
 }
 .ui.sub.header {
   font-size: 0.85714286em;
@@ -259,6 +258,7 @@ h5.ui.header .sub.header {
 }
 .ui.icon.header .content {
   display: block;
+  padding: 0em;
 }
 .ui.icon.header .circular.icon {
   font-size: 2em;
@@ -343,13 +343,13 @@ a.ui.inverted.red.header:hover {
 /*--- Orange ---*/
 
 .ui.orange.header {
-  color: #DA6619 !important;
+  color: #F2711C !important;
 }
 a.ui.orange.header:hover {
-  color: #cc5a0e !important;
+  color: #f26202 !important;
 }
 .ui.orange.dividing.header {
-  border-bottom: 2px solid #DA6619;
+  border-bottom: 2px solid #F2711C;
 }
 
 /* Inverted */
@@ -383,13 +383,13 @@ a.ui.inverted.olive.header:hover {
 /*--- Yellow ---*/
 
 .ui.yellow.header {
-  color: #FFD900 !important;
+  color: #FBBD08 !important;
 }
 a.ui.yellow.header:hover {
-  color: #e6c300 !important;
+  color: #eaae00 !important;
 }
 .ui.yellow.dividing.header {
-  border-bottom: 2px solid #FFD900;
+  border-bottom: 2px solid #FBBD08;
 }
 
 /* Inverted */
@@ -403,13 +403,13 @@ a.ui.inverted.yellow.header:hover {
 /*--- Green ---*/
 
 .ui.green.header {
-  color: #188130 !important;
+  color: #21BA45 !important;
 }
 a.ui.green.header:hover {
-  color: #107026 !important;
+  color: #16ab39 !important;
 }
 .ui.green.dividing.header {
-  border-bottom: 2px solid #188130;
+  border-bottom: 2px solid #21BA45;
 }
 
 /* Inverted */
@@ -423,13 +423,13 @@ a.ui.inverted.green.header:hover {
 /*--- Teal ---*/
 
 .ui.teal.header {
-  color: #158570 !important;
+  color: #00B5AD !important;
 }
 a.ui.teal.header:hover {
-  color: #0d7460 !important;
+  color: #009c95 !important;
 }
 .ui.teal.dividing.header {
-  border-bottom: 2px solid #158570;
+  border-bottom: 2px solid #00B5AD;
 }
 
 /* Inverted */
@@ -600,7 +600,7 @@ a.ui.inverted.grey.header:hover {
 }
 
 /*-------------------
-       Fittted
+       Fitted
 --------------------*/
 
 .ui.fitted.header {
@@ -631,7 +631,7 @@ a.ui.inverted.grey.header:hover {
 
 .ui.block.header {
   background: #F3F4F5;
-  padding: 0.71428571rem 1rem;
+  padding: 0.78571429rem 1rem;
   box-shadow: none;
   border: 1px solid #D4D4D5;
   border-radius: 0.28571429rem;
@@ -658,7 +658,7 @@ a.ui.inverted.grey.header:hover {
 
 .ui.attached.header {
   background: #FFFFFF;
-  padding: 0.71428571rem 1rem;
+  padding: 0.78571429rem 1rem;
   margin-left: -1px;
   margin-right: -1px;
   box-shadow: none;

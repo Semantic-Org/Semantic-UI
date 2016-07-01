@@ -1,9 +1,8 @@
 /*!
- * # Semantic UI 2.1.8 - Search
+ * # Semantic UI 2.2.1 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -58,11 +57,12 @@
   left: 0%;
   -webkit-transform-origin: center top;
           transform-origin: center top;
+  white-space: normal;
   background: #FFFFFF;
   margin-top: 0.5em;
   width: 18em;
   border-radius: 0.28571429rem;
-  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.08);
+  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
   border: 1px solid #D4D4D5;
   z-index: 998;
 }
@@ -127,7 +127,7 @@
 }
 .ui.search > .results .result .price {
   float: right;
-  color: #188130;
+  color: #21BA45;
 }
 
 /*--------------
@@ -374,7 +374,7 @@
 ---------------*/
 
 .ui.mini.search {
-  font-size: 0.71428571em;
+  font-size: 0.78571429em;
 }
 .ui.small.search {
   font-size: 0.92857143em;
