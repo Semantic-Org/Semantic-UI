@@ -3,7 +3,6 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -17,7 +16,6 @@
 @element : 'form';
 
 @import (multiple) '../../theme.config';
-
 
 /*******************************
             Elements
@@ -56,7 +54,7 @@
 
 .ui.form .fields .field {
   clear: both;
-  margin: @fieldMargin;
+  margin: 0em;
 }
 
 
@@ -322,7 +320,7 @@
 .ui.form ::-webkit-input-placeholder {
   color: @inputPlaceholderColor;
 }
-.ui.form ::-ms-input-placeholder {
+.ui.form :-ms-input-placeholder {
   color: @inputPlaceholderColor;
 }
 .ui.form ::-moz-placeholder {
@@ -332,7 +330,7 @@
 .ui.form :focus::-webkit-input-placeholder {
   color: @inputPlaceholderFocusColor;
 }
-.ui.form :focus::-ms-input-placeholder {
+.ui.form :focus:-ms-input-placeholder {
   color: @inputPlaceholderFocusColor;
 }
 .ui.form :focus::-moz-placeholder {
@@ -343,8 +341,8 @@
 .ui.form .error ::-webkit-input-placeholder {
   color: @inputErrorPlaceholderColor;
 }
-.ui.form .error ::-ms-input-placeholder {
-  color: @inputErrorPlaceholderColor;
+.ui.form .error :-ms-input-placeholder {
+  color: @inputErrorPlaceholderColor !important;
 }
 .ui.form .error ::-moz-placeholder {
   color: @inputErrorPlaceholderColor;
@@ -353,8 +351,8 @@
 .ui.form .error :focus::-webkit-input-placeholder {
   color: @inputErrorPlaceholderFocusColor;
 }
-.ui.form .error :focus::-ms-input-placeholder {
-  color: @inputErrorPlaceholderFocusColor;
+.ui.form .error :focus:-ms-input-placeholder {
+  color: @inputErrorPlaceholderFocusColor !important;
 }
 .ui.form .error :focus::-moz-placeholder {
   color: @inputErrorPlaceholderFocusColor;
@@ -400,6 +398,9 @@
 .ui.form.success .success.message:not(:empty) {
   display: block;
 }
+.ui.form.success .compact.success.message:not(:empty) {
+  display: inline-block;
+}
 .ui.form.success .icon.success.message:not(:empty) {
   display: flex;
 }
@@ -412,6 +413,9 @@
 .ui.form.warning .warning.message:not(:empty) {
   display: block;
 }
+.ui.form.warning .compact.warning.message:not(:empty) {
+  display: inline-block;
+}
 .ui.form.warning .icon.warning.message:not(:empty) {
   display: flex;
 }
@@ -423,6 +427,9 @@
 /* On Form */
 .ui.form.error .error.message:not(:empty) {
   display: block;
+}
+.ui.form.error .compact.error.message:not(:empty) {
+  display: inline-block;
 }
 .ui.form.error .icon.error.message:not(:empty) {
   display: flex;
@@ -691,7 +698,12 @@
 .ui.form .inverted.segment .ui.checkbox label,
 .ui.form .inverted.segment .ui.checkbox .box,
 .ui.inverted.form .ui.checkbox label,
-.ui.inverted.form .ui.checkbox .box {
+.ui.inverted.form .ui.checkbox .box,
+.ui.inverted.form .inline.fields > label,
+.ui.inverted.form .inline.fields .field > label,
+.ui.inverted.form .inline.fields .field > p,
+.ui.inverted.form .inline.field > label,
+.ui.inverted.form .inline.field > p {
   color: @invertedLabelColor;
 }
 
@@ -750,6 +762,7 @@
 .ui.form .fields {
   display: flex;
   flex-direction: row;
+  margin: @fieldsMargin;
 }
 .ui.form .fields > .field {
   flex: 0 1 auto;
@@ -804,6 +817,9 @@
   .ui.form .fields {
     flex-wrap: wrap;
   }
+
+  .ui[class*="equal width"].form .fields > .field,
+  .ui.form [class*="equal width"].fields > .field,
   .ui.form .two.fields > .fields,
   .ui.form .two.fields > .field,
   .ui.form .three.fields > .fields,
@@ -823,17 +839,8 @@
   .ui.form .ten.fields > .fields,
   .ui.form .ten.fields > .field {
     width: @oneColumn !important;
-    margin: @fieldMargin;
-    padding-left: 0%;
-    padding-right: 0%;
+    margin: 0em 0em @rowDistance;
   }
-}
-
-.ui.form .fields .field:first-child {
-  padding-left: 0%;
-}
-.ui.form .fields .field:last-child {
-  padding-right: 0%;
 }
 
 
@@ -842,12 +849,6 @@
   width: @oneWide;
   padding-left: (@gutterWidth / 2);
   padding-right: (@gutterWidth / 2);
-}
-.ui.form .fields .wide.field:first-child {
-  padding-left: 0%;
-}
-.ui.form .fields .wide.field:last-child {
-  padding-right: 0%;
 }
 
 .ui.form .one.wide.field {
@@ -925,9 +926,9 @@
   .ui.form .fields > .fifteen.wide.field,
   .ui.form .fields > .sixteen.wide.field {
     width: @oneColumn !important;
-    margin: @fieldMargin;
-    padding-left: 0%;
-    padding-right: 0%;
+  }
+  .ui.form .fields {
+    margin-bottom: 0em;
   }
 }
 
@@ -1016,24 +1017,29 @@
         Sizes
 ---------------------*/
 
-/* Standard */
+.ui.mini.form {
+  font-size: @mini;
+}
+.ui.tiny.form {
+  font-size: @tiny;
+}
 .ui.small.form {
   font-size: @small;
 }
-
-/* Medium */
 .ui.form {
   font-size: @medium;
 }
-
-/* Large */
 .ui.large.form {
   font-size: @large;
 }
-
-/* Huge */
+.ui.big.form {
+  font-size: @big;
+}
 .ui.huge.form {
   font-size: @huge;
+}
+.ui.massive.form {
+  font-size: @massive;
 }
 
 .loadUIOverrides();

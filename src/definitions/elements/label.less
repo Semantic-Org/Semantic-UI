@@ -3,7 +3,6 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -140,7 +139,8 @@ a.ui.label {
 }
 
 /* Padding on next content after a label */
-.ui.top.attached.label:first-child + :not(.attached) {
+.ui.top.attached.label:first-child + :not(.attached),
+.ui.top.attached.label + [class*="right floated"] + * {
   margin-top: @attachedSegmentPadding !important;
 }
 .ui.bottom.attached.label:first-child ~ :last-child:not(.attached) {

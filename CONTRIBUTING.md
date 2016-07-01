@@ -20,7 +20,7 @@ When submiting a bug report, include a set of steps to reproduce the issue and a
 
 If your bug uses a third party framework like Ember, Meteor, or Angular. Be sure to submit the issue to their respective issues boards. If you are confident the bug is part of the 'vanilla' SUI release, keep in mind not all maintainers are familiar with all framework and a simple test case is greatly appreciated.
 
-If your bug is reproduced by a maintainer it will be asssigned the [`confirmed bug`](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aopen+is%3Aissue+label%3A%22Confirmed+Bug%22) tag. Browsing this tag is a good way to keep track of known issues with SUI.
+If your bug is reproduced by a maintainer it will be assigned the [`confirmed bug`](https://github.com/Semantic-Org/Semantic-UI/issues?q=is%3Aopen+is%3Aissue+label%3A%22Confirmed+Bug%22) tag. Browsing this tag is a good way to keep track of known issues with SUI.
 
 #### Naming Issues
 

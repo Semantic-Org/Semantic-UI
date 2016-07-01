@@ -26,7 +26,7 @@
 --------------------*/
 
 /* Placement */
-@arrowSize: 0.75em;
+@arrowSize: @relative10px;
 @arrowWidth: 1em;
 @arrowDistanceFromEdge: 1em;
 @boxArrowOffset: 0em;
@@ -35,8 +35,8 @@
 
 /* Header */
 @headerFontFamily: @headerFont;
-@headerFontSize: 1.125em;
-@headerDistance: 0.5em;
+@headerFontSize: @relativeLarge;
+@headerDistance: @relative7px;
 @headerLineHeight: 1.2;
 
 /* Content Border */
@@ -60,6 +60,44 @@
 @leftArrowBoxShadow: @arrowStroke -@arrowStroke 0px 0px @arrowColor;
 @rightArrowBoxShadow: -@arrowStroke @arrowStroke 0px 0px @arrowColor;
 @bottomArrowBoxShadow: -@arrowStroke -@arrowStroke 0px 0px @arrowColor;
+
+/*-------------------
+       Types
+--------------------*/
+
+/* Tooltip */
+@tooltipBackground: @background;
+@tooltipBorderRadius: @borderRadius;
+@tooltipPadding: @verticalPadding @horizontalPadding;
+@tooltipFontWeight: @fontWeight;
+@tooltipFontStyle: @fontStyle;
+@tooltipColor: @color;
+@tooltipBorder: @border;
+@tooltipBoxShadow: @boxShadow;
+@tooltipMaxWidth: none;
+@tooltipFontSize: @medium;
+@tooltipLineHeight: @lineHeight;
+@tooltipDistanceAway: @relative7px;
+@tooltipZIndex: 1;
+@tooltipDuration: @defaultDuration;
+@tooltipEasing: @defaultEasing;
+
+/* Inverted */
+@tooltipInvertedBackground: @invertedBackground;
+@tooltipInvertedColor: @invertedColor;
+@tooltipInvertedBorder: @invertedBorder;
+@tooltipInvertedBoxShadow: @invertedBoxShadow;
+@tooltipInvertedHeaderBackground: @invertedHeaderBackground;
+@tooltipInvertedHeaderColor: @invertedHeaderColor;
+
+/* Arrow */
+@tooltipArrowVerticalOffset: -@2px;
+@tooltipArrowHorizontalOffset: -@1px;
+@tooltipArrowBoxShadow: @arrowBoxShadow;
+@tooltipArrowBackground: @arrowBackground;
+@tooltipArrowTopBackground: @arrowTopBackground;
+@tooltipArrowCenterBackground: @arrowCenterBackground;
+@tooltipArrowBottomBackground: @arrowBottomBackground;
 
 /*-------------------
        Coupling

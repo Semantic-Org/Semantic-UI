@@ -1,9 +1,8 @@
 /*!
- * # Semantic UI 2.1.8 - Progress Bar
+ * # Semantic UI 2.2.1 - Progress Bar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -180,7 +179,7 @@
 ---------------*/
 
 .ui.progress.success .bar {
-  background-color: #188130 !important;
+  background-color: #21BA45 !important;
 }
 .ui.progress.success .bar,
 .ui.progress.success .bar::after {
@@ -302,7 +301,7 @@
   color: #FFFFFF;
 }
 .ui.inverted.progress.success > .label {
-  color: #188130;
+  color: #21BA45;
 }
 .ui.inverted.progress.warning > .label {
   color: #F2C037;
@@ -375,7 +374,7 @@
 
 /* Orange */
 .ui.orange.progress .bar {
-  background-color: #DA6619;
+  background-color: #F2711C;
 }
 .ui.orange.inverted.progress .bar {
   background-color: #FF851B;
@@ -383,7 +382,7 @@
 
 /* Yellow */
 .ui.yellow.progress .bar {
-  background-color: #FFD900;
+  background-color: #FBBD08;
 }
 .ui.yellow.inverted.progress .bar {
   background-color: #FFE21F;
@@ -399,7 +398,7 @@
 
 /* Green */
 .ui.green.progress .bar {
-  background-color: #188130;
+  background-color: #21BA45;
 }
 .ui.green.inverted.progress .bar {
   background-color: #2ECC40;
@@ -407,7 +406,7 @@
 
 /* Teal */
 .ui.teal.progress .bar {
-  background-color: #158570;
+  background-color: #00B5AD;
 }
 .ui.teal.inverted.progress .bar {
   background-color: #6DFFFF;

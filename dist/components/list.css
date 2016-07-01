@@ -1,9 +1,8 @@
 /*!
- * # Semantic UI 2.1.8 - List
+ * # Semantic UI 2.2.1 - List
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -557,11 +556,17 @@ ul.ui.list li:before,
   position: absolute;
   top: auto;
   left: auto;
+  font-weight: normal;
   margin-left: -1.25rem;
   content: '•';
   opacity: 1;
   color: inherit;
   vertical-align: top;
+}
+ul.ui.list li:before,
+.ui.bulleted.list .list > a.item:before,
+.ui.bulleted.list > a.item:before {
+  color: rgba(0, 0, 0, 0.87);
 }
 ul.ui.list ul,
 .ui.bulleted.list .list {
@@ -725,12 +730,16 @@ ol.ui.horizontal.list li:before,
 .ui.divided.horizontal.list {
   margin-left: 0em;
 }
+.ui.divided.horizontal.list > .item:not(:first-child) {
+  padding-left: 0.5em;
+}
+.ui.divided.horizontal.list > .item:not(:last-child) {
+  padding-right: 0.5em;
+}
 .ui.divided.horizontal.list > .item {
   border-top: none;
   border-left: 1px solid rgba(34, 36, 38, 0.15);
   margin: 0em;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
   line-height: 0.6;
 }
 .ui.horizontal.divided.list > .item:first-child {
@@ -837,31 +846,34 @@ ol.ui.horizontal.list li:before,
        Relaxed
 --------------------*/
 
-.ui.relaxed.list:not(.horizontal) > .item {
+.ui.relaxed.list:not(.horizontal) > .item:not(:first-child) {
   padding-top: 0.42857143em;
+}
+.ui.relaxed.list:not(.horizontal) > .item:not(:last-child) {
   padding-bottom: 0.42857143em;
 }
-.ui.relaxed.list:not(.horizontal) .list > .item {
-  padding-top: 0.21428571em;
-  padding-bottom: 0.21428571em;
-}
-.ui.horizontal.relaxed.list > .item {
+.ui.horizontal.relaxed.list .list > .item:not(:first-child),
+.ui.horizontal.relaxed.list > .item:not(:first-child) {
   padding-left: 1rem;
+}
+.ui.horizontal.relaxed.list .list > .item:not(:last-child),
+.ui.horizontal.relaxed.list > .item:not(:last-child) {
   padding-right: 1rem;
 }
 
 /* Very Relaxed */
-.ui[class*="very relaxed"].list:not(.horizontal) > .item {
+.ui[class*="very relaxed"].list:not(.horizontal) > .item:not(:first-child) {
   padding-top: 0.85714286em;
+}
+.ui[class*="very relaxed"].list:not(.horizontal) > .item:not(:last-child) {
   padding-bottom: 0.85714286em;
 }
-.ui[class*="very relaxed"].list:not(.horizontal) .list > .item {
-  padding-top: 0.28571429em;
-  padding-bottom: 0.28571429em;
-}
-.ui.horizontal[class*="very relaxed"].list .list > .item,
-.ui.horizontal[class*="very relaxed"].list > .item {
+.ui.horizontal[class*="very relaxed"].list .list > .item:not(:first-child),
+.ui.horizontal[class*="very relaxed"].list > .item:not(:first-child) {
   padding-left: 1.5rem;
+}
+.ui.horizontal[class*="very relaxed"].list .list > .item:not(:last-child),
+.ui.horizontal[class*="very relaxed"].list > .item:not(:last-child) {
   padding-right: 1.5rem;
 }
 
@@ -870,7 +882,7 @@ ol.ui.horizontal.list li:before,
 --------------------*/
 
 .ui.mini.list {
-  font-size: 0.71428571em;
+  font-size: 0.78571429em;
 }
 .ui.tiny.list {
   font-size: 0.85714286em;
@@ -895,7 +907,7 @@ ol.ui.horizontal.list li:before,
 }
 .ui.mini.horizontal.list .list > .item,
 .ui.mini.horizontal.list > .item {
-  font-size: 0.71428571rem;
+  font-size: 0.78571429rem;
 }
 .ui.tiny.horizontal.list .list > .item,
 .ui.tiny.horizontal.list > .item {

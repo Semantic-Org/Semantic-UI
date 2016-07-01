@@ -3,7 +3,6 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -79,17 +78,17 @@
 }
 
 /* Sizes */
-.ui.loader:before,
-.ui.loader:after {
-  width: @medium;
-  height: @medium;
-  margin: @mediumOffset;
-}
 .ui.mini.loader:before,
 .ui.mini.loader:after {
   width: @mini;
   height: @mini;
   margin: @miniOffset;
+}
+.ui.tiny.loader:before,
+.ui.tiny.loader:after {
+  width: @tiny;
+  height: @tiny;
+  margin: @tinyOffset;
 }
 .ui.small.loader:before,
 .ui.small.loader:after {
@@ -97,11 +96,35 @@
   height: @small;
   margin: @smallOffset;
 }
+.ui.loader:before,
+.ui.loader:after {
+  width: @medium;
+  height: @medium;
+  margin: @mediumOffset;
+}
 .ui.large.loader:before,
 .ui.large.loader:after {
   width: @large;
   height: @large;
   margin: @largeOffset;
+}
+.ui.big.loader:before,
+.ui.big.loader:after {
+  width: @big;
+  height: @big;
+  margin: @bigOffset;
+}
+.ui.huge.loader:before,
+.ui.huge.loader:after {
+  width: @huge;
+  height: @huge;
+  margin: @hugeOffset;
+}
+.ui.massive.loader:before,
+.ui.massive.loader:after {
+  width: @massive;
+  height: @massive;
+  margin: @massiveOffset;
 }
 
 /*-------------------
@@ -187,6 +210,12 @@
   height: @mini;
   font-size: @miniFontSize;
 }
+.ui.inverted.dimmer .ui.tiny.loader,
+.ui.tiny.loader {
+  width: @tiny;
+  height: @tiny;
+  font-size: @tinyFontSize;
+}
 .ui.inverted.dimmer .ui.small.loader,
 .ui.small.loader {
   width: @small;
@@ -199,17 +228,39 @@
   height: @medium;
   font-size: @mediumFontSize;
 }
-.ui.inverted.dimmer .ui.loader.large,
-.ui.loader.large {
+.ui.inverted.dimmer .ui.large.loader,
+.ui.large.loader {
   width: @large;
   height: @large;
   font-size: @largeFontSize;
+}
+.ui.inverted.dimmer .ui.big.loader,
+.ui.big.loader {
+  width: @big;
+  height: @big;
+  font-size: @bigFontSize;
+}
+.ui.inverted.dimmer .ui.huge.loader,
+.ui.huge.loader {
+  width: @huge;
+  height: @huge;
+  font-size: @hugeFontSize;
+}
+.ui.inverted.dimmer .ui.massive.loader,
+.ui.massive.loader {
+  width: @massive;
+  height: @massive;
+  font-size: @massiveFontSize;
 }
 
 /* Text Loader */
 .ui.mini.text.loader {
   min-width: @mini;
   padding-top: (@mini + @textDistance);
+}
+.ui.tiny.text.loader {
+  min-width: @tiny;
+  padding-top: (@tiny + @textDistance);
 }
 .ui.small.text.loader {
   min-width: @small;
@@ -222,6 +273,18 @@
 .ui.large.text.loader {
   min-width: @large;
   padding-top: (@large + @textDistance);
+}
+.ui.big.text.loader {
+  min-width: @big;
+  padding-top: (@big + @textDistance);
+}
+.ui.huge.text.loader {
+  min-width: @huge;
+  padding-top: (@huge + @textDistance);
+}
+.ui.massive.text.loader {
+  min-width: @massive;
+  padding-top: (@massive + @textDistance);
 }
 
 

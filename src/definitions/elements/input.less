@@ -3,7 +3,6 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -69,7 +68,7 @@
 .ui.input input::-moz-placeholder {
   color: @placeholderColor;
 }
-.ui.input input::-ms-input-placeholder {
+.ui.input input:-ms-input-placeholder {
   color: @placeholderColor;
 }
 
@@ -87,7 +86,8 @@
   opacity: @disabledOpacity;
 }
 
-.ui.disabled.input input {
+.ui.disabled.input input,
+.ui.input input[disabled] {
   pointer-events: none;
 }
 
@@ -162,8 +162,8 @@
 .ui.input input:focus::-moz-placeholder {
   color: @placeholderFocusColor;
 }
-.ui.input.focus input::-ms-input-placeholder,
-.ui.input input:focus::-ms-input-placeholder {
+.ui.input.focus input:-ms-input-placeholder,
+.ui.input input:focus:-ms-input-placeholder {
   color: @placeholderFocusColor;
 }
 
@@ -187,8 +187,8 @@
 .ui.input.error input::-moz-placeholder {
   color: @placeholderErrorColor;
 }
-.ui.input.error input::-ms-input-placeholder {
-  color: @placeholderErrorColor;
+.ui.input.error input:-ms-input-placeholder {
+  color: @placeholderErrorColor !important;
 }
 
 /* Focused Error Placeholder */
@@ -198,8 +198,8 @@
 .ui.input.error input:focus::-moz-placeholder {
   color: @placeholderErrorFocusColor;
 }
-.ui.input.error input:focus::-ms-input-placeholder {
-  color: @placeholderErrorFocusColor;
+.ui.input.error input:focus:-ms-input-placeholder {
+  color: @placeholderErrorFocusColor !important;
 }
 
 /*******************************
@@ -245,7 +245,7 @@
 .ui.transparent.inverted.input input::-moz-placeholder {
   color: @transparentInvertedPlaceholderColor;
 }
-.ui.transparent.inverted.input input::-ms-input-placeholder {
+.ui.transparent.inverted.input input:-ms-input-placeholder {
   color: @transparentInvertedPlaceholderColor;
 }
 
@@ -421,9 +421,9 @@
   border-bottom-right-radius: 0px !important;
   border-right-color: transparent !important;
 }
-.ui.action.input:not([class*="left action"]) > .dropdown,
-.ui.action.input:not([class*="left action"]) > .button,
-.ui.action.input:not([class*="left action"]) > .buttons > .button {
+.ui.action.input:not([class*="left action"]) > .dropdown:not(:first-child),
+.ui.action.input:not([class*="left action"]) > .button:not(:first-child),
+.ui.action.input:not([class*="left action"]) > .buttons:not(:first-child) > .button {
   border-radius: 0px;
 }
 .ui.action.input:not([class*="left action"]) > .dropdown:last-child,

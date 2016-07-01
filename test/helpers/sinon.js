@@ -179,7 +179,7 @@ define.amd = true;
         // contain already visited objects
         var objects1 = [],
             objects2 = [],
-        // contain pathes (position in the object structure)
+        // contain paths (position in the object structure)
         // of the already visited objects
         // indexes same as in objects arrays
             paths1 = [],
@@ -294,7 +294,7 @@ define.amd = true;
                 index1 = isObject1 ? getIndex(objects1, value1) : -1;
                 index2 = isObject2 ? getIndex(objects2, value2) : -1;
 
-                // determine the new pathes of the objects
+                // determine the new paths of the objects
                 // - for non cyclic objects the current path will be extended
                 //   by current property name
                 // - for cyclic objects the stored path is taken
@@ -310,7 +310,7 @@ define.amd = true;
                     return true;
                 }
 
-                // remember the current objects and their pathes
+                // remember the current objects and their paths
                 if (index1 === -1 && isObject1) {
                     objects1.push(value1);
                     paths1.push(newPath1);
@@ -1671,7 +1671,7 @@ var sinon = (function (formatio) {
 
             var original = this;
             var fake = this._create();
-            fake.matchingAguments = args;
+            fake.matchingArguments = args;
             fake.parent = this;
             push.call(this.fakes, fake);
 
@@ -1695,7 +1695,7 @@ var sinon = (function (formatio) {
         },
 
         matches: function (args, strict) {
-            var margs = this.matchingAguments;
+            var margs = this.matchingArguments;
 
             if (margs.length <= args.length &&
                 sinon.deepEqual(margs, args.slice(0, margs.length))) {
@@ -1708,16 +1708,16 @@ var sinon = (function (formatio) {
             var args = slice.call(arguments, 1);
             var formatter;
 
-            return (format || "").replace(/%(.)/g, function (match, specifyer) {
-                formatter = spyApi.formatters[specifyer];
+            return (format || "").replace(/%(.)/g, function (match, specifier) {
+                formatter = spyApi.formatters[specifier];
 
                 if (typeof formatter == "function") {
                     return formatter.call(null, spy, args);
-                } else if (!isNaN(parseInt(specifyer, 10))) {
-                    return sinon.format(args[specifyer - 1]);
+                } else if (!isNaN(parseInt(specifier, 10))) {
+                    return sinon.format(args[specifier - 1]);
                 }
 
-                return "%" + specifyer;
+                return "%" + specifier;
             });
         }
     };
@@ -4018,7 +4018,7 @@ if (typeof module !== 'undefined' && module.exports) {
 /**
  * The Sinon "server" mimics a web server that receives requests from
  * sinon.FakeXMLHttpRequest and provides an API to respond to those requests,
- * both synchronously and asynchronously. To respond synchronuously, canned
+ * both synchronously and asynchronously. To respond synchronously, canned
  * answers have to be provided upfront.
  *
  * @author Christian Johansen (christian@cjohansen.no)

@@ -27,8 +27,6 @@
   border-color @defaultDuration @defaultEasing
 ;
 
-@inputColor: @textColor;
-
 /*-------------------
         Types
 --------------------*/
@@ -66,8 +64,8 @@
 --------------------*/
 
 /* Placeholder */
-@placeholderColor: @unselectedTextColor;
-@placeholderFocusColor: @textColor;
+@placeholderColor: @inputPlaceholderColor;
+@placeholderFocusColor: @inputPlaceholderFocusColor;
 
 /* Down */
 @downBorderColor: rgba(0, 0, 0, 0.3);

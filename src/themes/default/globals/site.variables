@@ -76,6 +76,11 @@
 @inputHorizontalPadding : @relative14px;
 @inputPadding           : @inputVerticalPadding @inputHorizontalPadding;
 
+/* Input Text Color */
+@inputColor: @textColor;
+@inputPlaceholderColor: lighten(@inputColor, 75);
+@inputPlaceholderFocusColor: lighten(@inputColor, 45);
+
 /* Line Height Default For Inputs in Browser */
 @inputLineHeight: 1.2142em;
 
@@ -98,7 +103,7 @@
   This ensures these "ratios" remain constant despite changes in EM
 */
 
-@miniSize        : (10 / 14);
+@miniSize        : (11 / 14);
 @tinySize        : (12 / 14);
 @smallSize       : (13 / 14);
 @mediumSize      : (14 / 14);
@@ -261,6 +266,19 @@
 @pinkTextColor   : @pink;
 @brownTextColor  : @brown;
 
+/*--- Colored Border ---*/
+@redBorderColor    : @redTextColor;
+@orangeBorderColor : @orangeTextColor;
+@yellowBorderColor : @yellowTextColor;
+@oliveBorderColor  : @oliveTextColor;
+@greenBorderColor  : @greenTextColor;
+@tealBorderColor   : @tealTextColor;
+@blueBorderColor   : @blueTextColor;
+@violetBorderColor : @violetTextColor;
+@purpleBorderColor : @purpleTextColor;
+@pinkBorderColor   : @pinkTextColor;
+@brownBorderColor  : @brownTextColor;
+
 /*-------------------
      Alpha Colors
 --------------------*/
@@ -287,7 +305,7 @@
 ;
 @floatingShadow:
   0px 2px 4px 0px rgba(34, 36, 38, 0.12),
-  0px 2px 10px 0px rgba(34, 36, 38, 0.08)
+  0px 2px 10px 0px rgba(34, 36, 38, 0.15)
 ;
 
 /*******************************
@@ -371,50 +389,6 @@
 @absoluteBig     : unit( round(@bigSize * @emSize) / @emSize, rem);
 @absoluteHuge    : unit( round(@hugeSize * @emSize) / @emSize, rem);
 @absoluteMassive : unit( round(@massiveSize * @emSize) / @emSize, rem);
-
-
-/*-------------------
-  Exact Pixel Values
---------------------*/
-/*
-  These are used to specify exact pixel values in em
-  for things like borders that remain constantly
-  sized as emSize adjusts
-
-  Since there are many more sizes than names for sizes,
-  these are named by their original pixel values.
-
-*/
-
-@1px          : unit( (1 / @emSize), rem);
-@2px          : unit( (2 / @emSize), rem);
-@3px          : unit( (3 / @emSize), rem);
-@4px          : unit( (4 / @emSize), rem);
-@5px          : unit( (5 / @emSize), rem);
-@6px          : unit( (6 / @emSize), rem);
-@7px          : unit( (7 / @emSize), rem);
-@8px          : unit( (8 / @emSize), rem);
-@9px          : unit( (9 / @emSize), rem);
-@10px         : unit( (10 / @emSize), rem);
-@11px         : unit( (11 / @emSize), rem);
-@12px         : unit( (12 / @emSize), rem);
-@13px         : unit( (13 / @emSize), rem);
-@14px         : unit( (14 / @emSize), rem);
-
-@relative1px  : unit( (1 / @emSize), em);
-@relative2px  : unit( (2 / @emSize), em);
-@relative3px  : unit( (3 / @emSize), em);
-@relative4px  : unit( (4 / @emSize), em);
-@relative5px  : unit( (5 / @emSize), em);
-@relative6px  : unit( (6 / @emSize), em);
-@relative7px  : unit( (7 / @emSize), em);
-@relative8px  : unit( (8 / @emSize), em);
-@relative9px  : unit( (9 / @emSize), em);
-@relative10px : unit( (10 / @emSize), em);
-@relative11px : unit( (11 / @emSize), em);
-@relative12px : unit( (12 / @emSize), em);
-@relative13px : unit( (13 / @emSize), em);
-@relative14px : unit( (14 / @emSize), em);
 
 /*-------------------
        Icons
@@ -529,6 +503,150 @@
 @largestSmallMonitor : (@largeMonitorBreakpoint - 1px);
 @largestLargeMonitor : (@widescreenMonitorBreakpoint - 1px);
 
+
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+
+@1px  : unit( (1 / @emSize), rem);
+@2px  : unit( (2 / @emSize), rem);
+@3px  : unit( (3 / @emSize), rem);
+@4px  : unit( (4 / @emSize), rem);
+@5px  : unit( (5 / @emSize), rem);
+@6px  : unit( (6 / @emSize), rem);
+@7px  : unit( (7 / @emSize), rem);
+@8px  : unit( (8 / @emSize), rem);
+@9px  : unit( (9 / @emSize), rem);
+@10px : unit( (10 / @emSize), rem);
+@11px : unit( (11 / @emSize), rem);
+@12px : unit( (12 / @emSize), rem);
+@13px : unit( (13 / @emSize), rem);
+@14px : unit( (14 / @emSize), rem);
+@15px : unit( (15 / @emSize), rem);
+@16px : unit( (16 / @emSize), rem);
+@17px : unit( (17 / @emSize), rem);
+@18px : unit( (18 / @emSize), rem);
+@19px : unit( (19 / @emSize), rem);
+@20px : unit( (20 / @emSize), rem);
+@21px : unit( (21 / @emSize), rem);
+@22px : unit( (22 / @emSize), rem);
+@23px : unit( (23 / @emSize), rem);
+@24px : unit( (24 / @emSize), rem);
+@25px : unit( (25 / @emSize), rem);
+@26px : unit( (26 / @emSize), rem);
+@27px : unit( (27 / @emSize), rem);
+@28px : unit( (28 / @emSize), rem);
+@29px : unit( (29 / @emSize), rem);
+@30px : unit( (30 / @emSize), rem);
+@31px : unit( (31 / @emSize), rem);
+@32px : unit( (32 / @emSize), rem);
+@33px : unit( (33 / @emSize), rem);
+@34px : unit( (34 / @emSize), rem);
+@35px : unit( (35 / @emSize), rem);
+@36px : unit( (36 / @emSize), rem);
+@37px : unit( (37 / @emSize), rem);
+@38px : unit( (38 / @emSize), rem);
+@39px : unit( (39 / @emSize), rem);
+@40px : unit( (40 / @emSize), rem);
+@41px : unit( (41 / @emSize), rem);
+@42px : unit( (42 / @emSize), rem);
+@43px : unit( (43 / @emSize), rem);
+@44px : unit( (44 / @emSize), rem);
+@45px : unit( (45 / @emSize), rem);
+@46px : unit( (46 / @emSize), rem);
+@47px : unit( (47 / @emSize), rem);
+@48px : unit( (48 / @emSize), rem);
+@49px : unit( (49 / @emSize), rem);
+@50px : unit( (50 / @emSize), rem);
+@51px : unit( (51 / @emSize), rem);
+@52px : unit( (52 / @emSize), rem);
+@53px : unit( (53 / @emSize), rem);
+@54px : unit( (54 / @emSize), rem);
+@55px : unit( (55 / @emSize), rem);
+@56px : unit( (56 / @emSize), rem);
+@57px : unit( (57 / @emSize), rem);
+@58px : unit( (58 / @emSize), rem);
+@59px : unit( (59 / @emSize), rem);
+@60px : unit( (60 / @emSize), rem);
+@61px : unit( (61 / @emSize), rem);
+@62px : unit( (62 / @emSize), rem);
+@63px : unit( (63 / @emSize), rem);
+@64px : unit( (64 / @emSize), rem);
+
+@relative1px  : unit( (1 / @emSize), em);
+@relative2px  : unit( (2 / @emSize), em);
+@relative3px  : unit( (3 / @emSize), em);
+@relative4px  : unit( (4 / @emSize), em);
+@relative5px  : unit( (5 / @emSize), em);
+@relative6px  : unit( (6 / @emSize), em);
+@relative7px  : unit( (7 / @emSize), em);
+@relative8px  : unit( (8 / @emSize), em);
+@relative9px  : unit( (9 / @emSize), em);
+@relative10px : unit( (10 / @emSize), em);
+@relative11px : unit( (11 / @emSize), em);
+@relative12px : unit( (12 / @emSize), em);
+@relative13px : unit( (13 / @emSize), em);
+@relative14px : unit( (14 / @emSize), em);
+@relative15px : unit( (15 / @emSize), em);
+@relative16px : unit( (16 / @emSize), em);
+@relative17px : unit( (17 / @emSize), em);
+@relative18px : unit( (18 / @emSize), em);
+@relative19px : unit( (19 / @emSize), em);
+@relative20px : unit( (20 / @emSize), em);
+@relative21px : unit( (21 / @emSize), em);
+@relative22px : unit( (22 / @emSize), em);
+@relative23px : unit( (23 / @emSize), em);
+@relative24px : unit( (24 / @emSize), em);
+@relative25px : unit( (25 / @emSize), em);
+@relative26px : unit( (26 / @emSize), em);
+@relative27px : unit( (27 / @emSize), em);
+@relative28px : unit( (28 / @emSize), em);
+@relative29px : unit( (29 / @emSize), em);
+@relative30px : unit( (30 / @emSize), em);
+@relative31px : unit( (31 / @emSize), em);
+@relative32px : unit( (32 / @emSize), em);
+@relative33px : unit( (33 / @emSize), em);
+@relative34px : unit( (34 / @emSize), em);
+@relative35px : unit( (35 / @emSize), em);
+@relative36px : unit( (36 / @emSize), em);
+@relative37px : unit( (37 / @emSize), em);
+@relative38px : unit( (38 / @emSize), em);
+@relative39px : unit( (39 / @emSize), em);
+@relative40px : unit( (40 / @emSize), em);
+@relative41px : unit( (41 / @emSize), em);
+@relative42px : unit( (42 / @emSize), em);
+@relative43px : unit( (43 / @emSize), em);
+@relative44px : unit( (44 / @emSize), em);
+@relative45px : unit( (45 / @emSize), em);
+@relative46px : unit( (46 / @emSize), em);
+@relative47px : unit( (47 / @emSize), em);
+@relative48px : unit( (48 / @emSize), em);
+@relative49px : unit( (49 / @emSize), em);
+@relative50px : unit( (50 / @emSize), em);
+@relative51px : unit( (51 / @emSize), em);
+@relative52px : unit( (52 / @emSize), em);
+@relative53px : unit( (53 / @emSize), em);
+@relative54px : unit( (54 / @emSize), em);
+@relative55px : unit( (55 / @emSize), em);
+@relative56px : unit( (56 / @emSize), em);
+@relative57px : unit( (57 / @emSize), em);
+@relative58px : unit( (58 / @emSize), em);
+@relative59px : unit( (59 / @emSize), em);
+@relative60px : unit( (60 / @emSize), em);
+@relative61px : unit( (61 / @emSize), em);
+@relative62px : unit( (62 / @emSize), em);
+@relative63px : unit( (63 / @emSize), em);
+@relative64px : unit( (64 / @emSize), em);
+
 /* Columns */
 @oneWide        : (1 / @columnCount * 100%);
 @twoWide        : (2 / @columnCount * 100%);
@@ -580,6 +698,12 @@
 /*-------------------
         Hover
 --------------------*/
+
+/*---  Shadows  ---*/
+@floatingShadowHover:
+  0px 2px 4px 0px rgba(34, 36, 38, 0.15),
+  0px 2px 10px 0px rgba(34, 36, 38, 0.25)
+;
 
 /*---  Colors  ---*/
 @primaryColorHover    : saturate(darken(@primaryColor, 5), 10, relative);
