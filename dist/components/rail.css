@@ -78,7 +78,7 @@
 ---------------*/
 
 .ui.close.rail {
-  width: calc( 300px  +  1em );
+  width: 301px;
 }
 .ui.close.left.rail {
   padding: 0em 1em 0em 0em;
@@ -89,7 +89,7 @@
   margin: 0em 0em 0em 1em;
 }
 .ui.very.close.rail {
-  width: calc( 300px  +  0.5em );
+  width: 300.5px;
 }
 .ui.very.close.left.rail {
   padding: 0em 0.5em 0em 0em;
@@ -115,7 +115,7 @@
 ---------------*/
 
 .ui.mini.rail {
-  font-size: 0.78571429rem;
+  font-size: 0.71428571rem;
 }
 .ui.tiny.rail {
   font-size: 0.85714286rem;

@@ -62,7 +62,7 @@
   margin-top: 0.5em;
   width: 18em;
   border-radius: 0.28571429rem;
-  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.08);
   border: 1px solid #D4D4D5;
   z-index: 998;
 }
@@ -127,7 +127,7 @@
 }
 .ui.search > .results .result .price {
   float: right;
-  color: #21BA45;
+  color: #188130;
 }
 
 /*--------------
@@ -374,7 +374,7 @@
 ---------------*/
 
 .ui.mini.search {
-  font-size: 0.78571429em;
+  font-size: 0.71428571em;
 }
 .ui.small.search {
   font-size: 0.92857143em;
