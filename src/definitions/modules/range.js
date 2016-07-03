@@ -12,8 +12,6 @@ $.fn.range = function(parameters) {
 	var
 		$allModules    = $(this),
 
-		offset         = 10,
-
 		query          = arguments[0],
     methodInvoked  = (typeof query == 'string'),
     queryArguments = [].slice.call(arguments, 1)
@@ -44,10 +42,11 @@ $.fn.range = function(parameters) {
 
         reversed        = $module.hasClass('reversed'),
 
-				inner,
-				thumb,
-				trackLeft,
+				$thumb,
+        $track,
+				$trackFill,
 				precision,
+        offset,
 
 				module
 			;
@@ -60,32 +59,32 @@ $.fn.range = function(parameters) {
 
 				instantiate: function() {
 					instance = module;
-					$module
-						.data(moduleNamespace, module)
-					;
-					$(element).html("<div class='inner'><div class='track'></div><div class='track-fill'></div><div class='thumb'></div></div>");
-					inner = $(element).children('.inner')[0];
-					thumb = $(element).find('.thumb')[0];
-					trackLeft = $(element).find('.track-fill')[0];
+					$module.data(moduleNamespace, module);
+					$module.html("<div class='inner'><div class='track'></div><div class='track-fill'></div><div class='thumb'></div></div>");
+          $track = $module.find('.track');
+					$thumb = $module.find('.thumb');
+					$trackFill = $module.find('.track-fill');
+          offset = $thumb.width()/2;
 					// find precision of step, used in calculating the value
 					module.determinePrecision();
 					// set start location
 					module.setPositionBasedValue(settings.start);
 					// event listeners
-					$(element).find('.track, .thumb, .inner').on('mousedown', function(event) {
+					$module.find('.track, .thumb, .inner').on('mousedown', function(event) {
 						event.stopImmediatePropagation();
 						event.preventDefault();
 						$(this).closest(".range").trigger('mousedown', event);
 					});
-					$(element).find('.track, .thumb, .inner').on('touchstart', function(event) {
+					$module.find('.track, .thumb, .inner').on('touchstart', function(event) {
 						event.stopImmediatePropagation();
 						event.preventDefault();
 						$(this).closest(".range").trigger('touchstart', event);
 					});
-					$(element).on('mousedown', function(event, originalEvent) {
+					$module.on('mousedown', function(event, originalEvent) {
+            console.log('mousedown');
 						module.rangeMousedown(event, false, originalEvent);
 					});
-					$(element).on('touchstart', function(event, originalEvent) {
+					$module.on('touchstart', function(event, originalEvent) {
 						module.rangeMousedown(event, true, originalEvent);
 					});
 				},
@@ -112,6 +111,7 @@ $.fn.range = function(parameters) {
 					  range = settings.max - settings.min,
 					  difference = Math.round((ratio * range / step) * step)
           ;
+          console.log(difference + " : " + (ratio * range / step) * step);
 					// Use precision to avoid ugly Javascript floating point rounding issues
 					// (like 35 * .01 = 0.35000000000000003)
           difference = Math.round(difference * precision) / precision;
@@ -121,9 +121,9 @@ $.fn.range = function(parameters) {
 				determinePosition: function(value) {
 					var
             ratio = (value - settings.min) / (settings.max - settings.min),
-            trackPos = reversed ? $(inner).width() - ($(trackLeft).position().left + $(trackLeft).width()) : $(trackLeft).position().left
+            trackPos = reversed ? $track.width() - ($trackFill.position().left + $trackFill.width()) : $trackFill.position().left
           ;
-					return Math.round(ratio * $(inner).width()) + trackPos - offset;
+					return Math.round(ratio * $track.width()) + trackPos;
 				},
 
 				setValue: function(newValue) {
@@ -137,25 +137,26 @@ $.fn.range = function(parameters) {
 
 				setPosition: function(value) {
           if (reversed)
-            $(thumb).css({right: String(value) + 'px'});
+            $thumb.css({right: String(value - offset) + 'px'});
           else
-            $(thumb).css({left: String(value) + 'px'});
-					$(trackLeft).css({width: String(value + offset) + 'px'});
+            $thumb.css({left: String(value - offset) + 'px'});
+					$trackFill.css({width: String(value) + 'px'});
 				},
 
 				rangeMousedown: function(mdEvent, isTouch, originalEvent) {
-					if( !$(element).hasClass('disabled') ) {
+					if( !$module.hasClass('disabled') ) {
 						mdEvent.preventDefault();
             var
-              trackLeft = $(inner).offset().left,
-              trackWidth = $(inner).width(),
+              trackLeft = $track.position().left,
+              trackOffset = $track.offset().left,
+              trackWidth = $track.width(),
               trackStartPos = reversed ? trackLeft + trackWidth : trackLeft,
               trackEndPos = reversed ? trackLeft : trackLeft + trackWidth,
               pageX = isTouch ? originalEvent.originalEvent.touches[0].pageX : (typeof mdEvent.pageX != 'undefined') ? mdEvent.pageX : originalEvent.pageX,
-              newPos = reversed ? trackStartPos - pageX - offset : pageX - trackStartPos - offset,
+              newPos = reversed ? trackStartPos - pageX + trackOffset : pageX - trackOffset - trackStartPos,
               value
             ;
-						// if(pageX >= trackLeft && pageX <= trackLeft + trackWidth) {
+						// if(pageX >= trackFill && pageX <= trackFill + trackWidth) {
 						// 	value = module.setValueBasedPosition(newPos);
 						// }
 						var rangeMousemove = function(mmEvent) {
@@ -165,14 +166,14 @@ $.fn.range = function(parameters) {
 							} else {
 								pageX = mmEvent.pageX;
 							}
-              newPos = reversed ? trackStartPos - pageX - offset : pageX - trackStartPos - offset;
-							if(pageX >= trackLeft && pageX <= trackLeft + trackWidth) {
+              console.log(pageX);
+              newPos = reversed ? trackStartPos - pageX + trackOffset : pageX - trackOffset - trackStartPos;
+							if(pageX >= trackOffset && pageX <= trackOffset + trackWidth) {
 								value = module.setValueBasedPosition(newPos);
 							}
 						}
 						var rangeMouseup = function(muEvent) {
-              console.log('mouse up');
-              if(pageX >= trackLeft && pageX <= trackLeft + trackWidth) {
+              if(pageX >= trackOffset && pageX <= trackOffset + trackWidth) {
   							module.setValueMoveToValueBasedPosition(newPos);
   						}
               if(isTouch) {
@@ -197,8 +198,8 @@ $.fn.range = function(parameters) {
 
         setMaxPosition: function() {
           var
-            trackLeft = $(inner).offset().left,
-            trackWidth = $(inner).width(),
+            trackLeft = $track.position().left,
+            trackWidth = $track.width(),
             trackEndPos = reversed ? trackLeft : trackLeft + trackWidth
           ;
           module.setPosition(trackEndPos);
@@ -206,8 +207,8 @@ $.fn.range = function(parameters) {
 
         setMinPosition: function() {
           var
-            trackLeft = $(inner).offset().left,
-            trackWidth = $(inner).width(),
+            trackLeft = $track.position().left,
+            trackWidth = $track.width(),
             trackStartPos = reversed ? trackLeft + trackWidth : trackLeft
           ;
           module.setPosition(trackStartPos);
@@ -229,8 +230,8 @@ $.fn.range = function(parameters) {
 
         setValueMoveToValueBasedPosition: function(position) {
           var
-            trackLeft = $(inner).offset().left,
-            trackWidth = $(inner).width(),
+            trackLeft = $track.position().left,
+            trackWidth = $track.width(),
             trackStartPos = reversed ? trackLeft + trackWidth : trackLeft,
             trackEndPos = reversed ? trackLeft : trackLeft + trackWidth,
             value = module.determineValue(trackStartPos, trackEndPos, position),
@@ -242,15 +243,14 @@ $.fn.range = function(parameters) {
             value = settings.max;
           }
           pos = module.determinePosition(value);
-          console.log(pos + ' : ' + value);
           module.setValue(value);
           module.setPosition(pos);
         },
 
         setValueBasedPosition: function(position) {
           var
-            trackLeft = $(inner).offset().left,
-            trackWidth = $(inner).width(),
+            trackLeft = $track.position().left,
+            trackWidth = $track.width(),
             trackStartPos = reversed ? trackLeft + trackWidth : trackLeft,
             trackEndPos = reversed ? trackLeft : trackLeft + trackWidth,
             value = module.determineValue(trackStartPos, trackEndPos, position)
