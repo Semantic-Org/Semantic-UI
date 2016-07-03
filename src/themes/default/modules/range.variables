@@ -8,7 +8,7 @@
 
 @height        : 1.5em;
 @hoverPointer  : auto;
-@margin        : 1em;
+@padding       : 1em .5em;
 
 /* Track */
 @trackHeight        : .4em;
