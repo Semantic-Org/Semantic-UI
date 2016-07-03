@@ -1,0 +1,59 @@
+/*******************************
+        Range Variables
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+@height        : 1.5em;
+@hoverPointer  : auto;
+
+/* Track */
+@trackHeight        : .4em;
+@trackPositionTop   : (@height / 2) - (@trackHeight / 2);
+@background         : #ccc;
+@trackBorderRadius  : 4px;
+@trackColor         : @transparentBlack;
+
+/* Track Fill */
+@trackFillHeight        : @trackHeight;
+@trackFillColor         : @black;
+@trackFillBorderRadius  : @trackBorderRadius;
+
+/* Thumb */
+@thumbHeight              : @height;
+@thumbBorderRadius        : 100%;
+@thumbBackground          : @white @subtleGradient;
+@thumbShadow              : @subtleShadow, 0 0 0 1px @borderColor inset;
+@thumbTransitionDuration  : 0.3s;
+@thumbTransition          : background @thumbTransitionDuration @defaultEasing;
+
+/* Thumb Hover */
+@thumbHoverPointer    : pointer;
+@thumbHoverBackground : @whiteHover @subtleGradient;
+
+/*-------------------
+        States
+--------------------*/
+
+/* Disabled */
+@disabledOpactiy        : .5;
+@disabledTrackFillColor : @background;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Sizing */
+@smallHeight            : 1em;
+@smallTrackHeight       : 0.3em;
+@trackPositionTopSmall  : (@smallHeight / 2) - (@smallTrackHeight / 2);
+
+@largeHeight            : 2em;
+@largeTrackHeight       : 0.5em;
+@trackPositionTopLarge  : (@largeHeight / 2) - (@largeTrackHeight / 2);
+
+@bigHeight              : 2.5em;
+@bigTrackHeight         : 0.6em;
+@trackPositionTopBig    : (@bigHeight / 2) - (@bigTrackHeight / 2);

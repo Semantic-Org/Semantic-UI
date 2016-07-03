@@ -1,0 +1,256 @@
+ /*******************************
+             Theme
+ *******************************/
+
+ @type    : 'module';
+ @element : 'range';
+
+ @import (multiple) '../../theme.config';
+
+.ui.range {
+	width: 100%;
+	height: @height;
+}
+
+.ui.range .inner {
+	margin: 0 10px 0 10px;
+	height: @height;
+	position: relative;
+}
+
+.ui.range .inner:hover {
+	cursor: @hoverPointer;
+}
+
+.ui.range .inner .track {
+	position: absolute;
+	width: 100%;
+	height: @trackHeight;
+	border-radius: @trackBorderRadius;
+	top: @trackPositionTop;
+	left: 0;
+	background-color: @trackColor;
+}
+
+.ui.range .inner .track-fill {
+	position: absolute;
+	width: 0;
+	height: @trackFillHeight;
+	border-radius: @trackFillBorderRadius;
+	top: @trackPositionTop;
+	left: 0;
+	background-color: @trackFillColor;
+}
+
+.ui.range .inner .thumb {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: @thumbHeight;
+	width: @thumbHeight;
+	background: @thumbBackground;
+	border-radius: @thumbBorderRadius;
+	box-shadow: @thumbShadow;
+  transition: @thumbTransition;
+}
+
+.ui.range .inner .thumb:hover {
+  pointer: @thumbHoverPointer;
+  background: @thumbHoverBackground;
+}
+
+
+/*******************************
+            States
+*******************************/
+
+
+/*--------------
+     Disabled
+---------------*/
+
+.ui.range.disabled {
+	opacity: @disabledOpactiy;
+}
+
+.ui.range.disabled .inner:hover {
+	cursor: auto;
+}
+
+.ui.range.disabled .inner .track-fill {
+	background: @disabledTrackFillColor;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*--------------
+    Inverted
+---------------*/
+
+.ui.inverted.range .inner .track-fill {
+	background-color: @lightBlack;
+}
+
+.ui.inverted.range .inner .track {
+	background-color: @transparentWhite;
+}
+
+/*--------------
+     Colors
+---------------*/
+
+/* Red */
+.ui.red.range .inner .track-fill {
+	background-color: @red;
+}
+.ui.red.inverted.range .inner .track-fill {
+	background-color: @lightRed;
+}
+
+/* Orange */
+.ui.orange.range .inner .track-fill {
+	background-color: @orange;
+}
+.ui.orange.inverted.range .inner .track-fill {
+	background-color: @lightOrange;
+}
+
+/* Yellow */
+.ui.yellow.range .inner .track-fill {
+	background-color: @yellow;
+}
+.ui.yellow.inverted.range .inner .track-fill {
+	background-color: @lightYellow;
+}
+
+/* Olive */
+.ui.olive.range .inner .track-fill {
+	background-color: @olive;
+}
+.ui.olive.inverted.range .inner .track-fill {
+	background-color: @lightOlive;
+}
+
+/* Green */
+.ui.green.range .inner .track-fill {
+	background-color: @green;
+}
+.ui.green.inverted.range .inner .track-fill {
+	background-color: @lightGreen;
+}
+
+/* Teal */
+.ui.teal.range .inner .track-fill {
+	background-color: @teal;
+}
+.ui.teal.inverted.range .inner .track-fill {
+	background-color: @lightTeal;
+}
+
+/* Blue */
+.ui.blue.range .inner .track-fill {
+	background-color: @blue;
+}
+.ui.blue.inverted.range .inner .track-fill {
+	background-color: @lightBlue;
+}
+
+/* Violet */
+.ui.violet.range .inner .track-fill {
+	background-color: @violet;
+}
+.ui.violet.inverted.range .inner .track-fill {
+	background-color: @lightViolet;
+}
+
+/* Purple */
+.ui.purple.range .inner .track-fill {
+	background-color: @purple;
+}
+.ui.purple.inverted.range .inner .track-fill {
+	background-color: @lightPurple;
+}
+
+/* Pink */
+.ui.pink.range .inner .track-fill {
+	background-color: @pink;
+}
+.ui.pink.inverted.range .inner .track-fill {
+	background-color: @lightPink;
+}
+
+/* Brown */
+.ui.brown.range .inner .track-fill {
+	background-color: @brown;
+}
+.ui.brown.inverted.range .inner .track-fill {
+	background-color: @lightBrown;
+}
+
+/* Grey */
+.ui.grey.range .inner .track-fill {
+	background-color: @grey;
+}
+.ui.grey.inverted.range .inner .track-fill {
+	background-color: @lightGrey;
+}
+
+/* Black */
+.ui.black.range .inner .track-fill {
+	background-color: @black;
+}
+.ui.black.inverted.range .inner .track-fill {
+	background-color: @lightBlack;
+}
+
+/*--------------
+     Sizing
+---------------*/
+
+/* Small */
+.ui.range.small {
+  height: @smallHeight;
+}
+.ui.range.small .inner .thumb {
+  height: @smallHeight;
+  width: @smallHeight;
+}
+.ui.range.small .inner .track,
+.ui.range.small .inner .track-fill {
+  height: @smallTrackHeight;
+  top: @trackPositionTopSmall;
+}
+
+/* Large */
+.ui.range.large {
+  height: @largeHeight;
+}
+.ui.range.large .inner .thumb {
+  height: @largeHeight;
+  width: @largeHeight;
+}
+.ui.range.large .inner .track,
+.ui.range.large .inner .track-fill {
+  height: @largeTrackHeight;
+  top: @trackPositionTopLarge;
+}
+
+/* Big */
+.ui.range.big {
+  height: @bigHeight;
+}
+.ui.range.big .inner .thumb {
+  height: @bigHeight;
+  width: @bigHeight;
+}
+.ui.range.big .inner .track,
+.ui.range.big .inner .track-fill {
+  height: @bigTrackHeight;
+  top: @trackPositionTopBig;
+}
+
+.loadUIOverrides();

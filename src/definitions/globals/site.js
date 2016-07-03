@@ -448,6 +448,7 @@ $.site.settings = {
     'modal',
     'nag',
     'popup',
+    'range',
     'rating',
     'shape',
     'sidebar',
