@@ -1,8 +1,8 @@
 /*!
  * # Range slider for Semantic UI.
- * 
+ *
  */
- 
+
 ;(function ( $, window, document, undefined ) {
 
 "use strict";
@@ -11,17 +11,17 @@ $.fn.range = function(parameters) {
 
 	var
 		$allModules    = $(this),
-		
+
 		offset         = 10,
-		
+
 		query          = arguments[0],
     methodInvoked  = (typeof query == 'string'),
     queryArguments = [].slice.call(arguments, 1)
 	;
-	
+
   $allModules
     .each(function() {
-			
+
 			var
 				settings          = ( $.isPlainObject(parameters) )
 					? $.extend(true, {}, $.fn.range.settings, parameters)
@@ -41,21 +41,23 @@ $.fn.range = function(parameters) {
 
 				element         = this,
 				instance        = $module.data(moduleNamespace),
-				
+
+        reversed        = $module.hasClass('reversed'),
+
 				inner,
 				thumb,
 				trackLeft,
 				precision,
-				
+
 				module
 			;
-			
+
 			module = {
-				
+
 				initialize: function() {
 					module.instantiate();
 				},
-				
+
 				instantiate: function() {
 					instance = module;
 					$module
@@ -68,7 +70,7 @@ $.fn.range = function(parameters) {
 					// find precision of step, used in calculating the value
 					module.determinePrecision();
 					// set start location
-					module.setValuePosition(settings.start);
+					module.setPositionBasedValue(settings.start);
 					// event listeners
 					$(element).find('.track, .thumb, .inner').on('mousedown', function(event) {
 						event.stopImmediatePropagation();
@@ -87,7 +89,7 @@ $.fn.range = function(parameters) {
 						module.rangeMousedown(event, true, originalEvent);
 					});
 				},
-				
+
 				determinePrecision: function() {
 					var split = String(settings.step).split('.');
 					var decimalPlaces;
@@ -98,20 +100,30 @@ $.fn.range = function(parameters) {
 					}
 					precision = Math.pow(10, decimalPlaces);
 				},
-				
+
 				determineValue: function(startPos, endPos, currentPos) {
-					var ratio = (currentPos - startPos) / (endPos - startPos);
-					var range = settings.max - settings.min;
-					var difference = Math.round(ratio * range / step) * step;
+          if(reversed) {
+            var temp = startPos;
+            startPos = endPos;
+            endPos = temp;
+          }
+					var
+            ratio = (currentPos - startPos) / (endPos - startPos),
+					  range = settings.max - settings.min,
+					  difference = Math.round(ratio * range / step) * step
+          ;
 					// Use precision to avoid ugly Javascript floating point rounding issues
 					// (like 35 * .01 = 0.35000000000000003)
-					difference = Math.round(difference * precision) / precision;
+          difference = Math.round(difference * precision) / precision;
 					return difference + settings.min;
 				},
 
 				determinePosition: function(value) {
-					var ratio = (value - settings.min) / (settings.max - settings.min);
-					return Math.round(ratio * $(inner).width()) + $(trackLeft).position().left - offset;
+					var
+            ratio = (value - settings.min) / (settings.max - settings.min),
+            trackPos = reversed ? $(inner).width() - ($(trackLeft).position().left + $(trackLeft).width()) : $(trackLeft).position().left
+          ;
+					return Math.round(ratio * $(inner).width()) + trackPos - offset;
 				},
 
 				setValue: function(newValue) {
@@ -124,26 +136,28 @@ $.fn.range = function(parameters) {
 				},
 
 				setPosition: function(value) {
-					$(thumb).css({left: String(value) + 'px'});
+          if (reversed)
+            $(thumb).css({right: String(value) + 'px'});
+          else
+            $(thumb).css({left: String(value) + 'px'});
 					$(trackLeft).css({width: String(value + offset) + 'px'});
 				},
 
 				rangeMousedown: function(mdEvent, isTouch, originalEvent) {
 					if( !$(element).hasClass('disabled') ) {
 						mdEvent.preventDefault();
-						var left = $(inner).offset().left;
-						var right = left + $(inner).width();
-						var pageX;
-						if(isTouch) {
-							pageX = originalEvent.originalEvent.touches[0].pageX;
-						} else {
-							pageX = (typeof mdEvent.pageX != 'undefined') ? mdEvent.pageX : originalEvent.pageX;
-						}
-						var value = module.determineValue(left, right, pageX);
-						if(pageX >= left && pageX <= right) {
-							module.setPosition(pageX - left - offset);
-							module.setValue(value);
-						}
+            var
+              trackLeft = $(inner).offset().left,
+              trackWidth = $(inner).width(),
+              trackStartPos = reversed ? trackLeft + trackWidth : trackLeft,
+              trackEndPos = reversed ? trackLeft : trackLeft + trackWidth,
+              pageX = isTouch ? originalEvent.originalEvent.touches[0].pageX : (typeof mdEvent.pageX != 'undefined') ? mdEvent.pageX : originalEvent.pageX,
+              newPos = reversed ? trackStartPos - pageX - offset : pageX - trackStartPos - offset,
+              value
+            ;
+						// if(pageX >= trackLeft && pageX <= trackLeft + trackWidth) {
+						// 	value = module.setValueBasedPosition(newPos);
+						// }
 						var rangeMousemove = function(mmEvent) {
 							mmEvent.preventDefault();
 							if(isTouch) {
@@ -151,22 +165,24 @@ $.fn.range = function(parameters) {
 							} else {
 								pageX = mmEvent.pageX;
 							}
-							value = module.determineValue(left, right, pageX);
-							if(pageX >= left && pageX <= right) {
-								if(value >= settings.min && value <= settings.max) {
-									module.setPosition(pageX - left - offset);
-									module.setValue(value);
-								}
+              newPos = reversed ? trackStartPos - pageX - offset : pageX - trackStartPos - offset;
+							if(pageX >= trackLeft && pageX <= trackLeft + trackWidth) {
+								value = module.setValueBasedPosition(newPos);
 							}
 						}
 						var rangeMouseup = function(muEvent) {
-							if(isTouch) {
-								$(document).off('touchmove', rangeMousemove);
-								$(document).off('touchend', rangeMouseup);
-							} else {
-								$(document).off('mousemove', rangeMousemove);
-								$(document).off('mouseup', rangeMouseup);
-							}
+              console.log('mouse up');
+              if(pageX >= trackLeft && pageX <= trackLeft + trackWidth) {
+  							module.setValueMoveToValueBasedPosition(newPos);
+  						}
+              if(isTouch) {
+  							$(document).off('touchmove', rangeMousemove);
+  							$(document).off('touchend', rangeMouseup);
+  						}
+  						else {
+  							$(document).off('mousemove', rangeMousemove);
+  							$(document).off('mouseup', rangeMouseup);
+  						}
 						}
 						if(isTouch) {
 							$(document).on('touchmove', rangeMousemove);
@@ -178,25 +194,91 @@ $.fn.range = function(parameters) {
 						}
 					}
 				},
-				
-				setValuePosition: function(val) {
-					var position = module.determinePosition(val);
-					module.setPosition(position);
-					module.setValue(val);
+
+        setMaxPosition: function() {
+          var
+            trackLeft = $(inner).offset().left,
+            trackWidth = $(inner).width(),
+            trackEndPos = reversed ? trackLeft : trackLeft + trackWidth
+          ;
+          module.setPosition(trackEndPos);
+        },
+
+        setMinPosition: function() {
+          var
+            trackLeft = $(inner).offset().left,
+            trackWidth = $(inner).width(),
+            trackStartPos = reversed ? trackLeft + trackWidth : trackLeft
+          ;
+          module.setPosition(trackStartPos);
+        },
+
+				setPositionBasedValue: function(value) {
+          if(value >= settings.min && value <= settings.max) {
+            var position = module.determinePosition(value);
+            module.setPosition(position);
+            module.setValue(value);
+          } else if (value <= settings.min) {
+            module.setMinPosition();
+            module.setValue(settings.min);
+          } else {
+            module.setMaxPosition();
+            module.setValue(settings.max);
+          }
 				},
-				
+
+        setValueMoveToValueBasedPosition: function(position) {
+          var
+            trackLeft = $(inner).offset().left,
+            trackWidth = $(inner).width(),
+            trackStartPos = reversed ? trackLeft + trackWidth : trackLeft,
+            trackEndPos = reversed ? trackLeft : trackLeft + trackWidth,
+            value = module.determineValue(trackStartPos, trackEndPos, position),
+            pos
+          ;
+          if (value <= settings.min) {
+            value = settings.min;
+          } else if (value >= settings.max){
+            value = settings.max;
+          }
+          pos = module.determinePosition(value);
+          console.log(pos + ' : ' + value);
+          module.setValue(value);
+          module.setPosition(pos);
+        },
+
+        setValueBasedPosition: function(position) {
+          var
+            trackLeft = $(inner).offset().left,
+            trackWidth = $(inner).width(),
+            trackStartPos = reversed ? trackLeft + trackWidth : trackLeft,
+            trackEndPos = reversed ? trackLeft : trackLeft + trackWidth,
+            value = module.determineValue(trackStartPos, trackEndPos, position)
+          ;
+          if(value >= settings.min && value <= settings.max) {
+            module.setPosition(position);
+          } else if (value <= settings.min) {
+            module.setMinPosition();
+            value = settings.min;
+          } else {
+            module.setMaxPosition();
+            value = settings.max;
+          }
+          module.setValue(value);
+        },
+
 				invoke: function(query) {
 					switch(query) {
 						case 'set value':
 							if(queryArguments.length > 0) {
-								instance.setValuePosition(queryArguments[0]);
+								instance.setPositionBasedValue(queryArguments[0]);
 							}
 							break;
 					}
 				},
-			
+
 			};
-			
+
       if(methodInvoked) {
         if(instance === undefined) {
           module.initialize();
@@ -206,10 +288,10 @@ $.fn.range = function(parameters) {
       else {
         module.initialize();
       }
-			
+
     })
   ;
-  
+
   return this;
 
 };
@@ -224,7 +306,7 @@ $.fn.range.settings = {
 	step         : 1,
 	start        : 0,
 	input        : false,
-	
+
 	onChange     : function(value){},
 
 };
