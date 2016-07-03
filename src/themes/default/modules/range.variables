@@ -8,6 +8,7 @@
 
 @height        : 1.5em;
 @hoverPointer  : auto;
+@margin        : 1em;
 
 /* Track */
 @trackHeight        : .4em;
@@ -17,9 +18,12 @@
 @trackColor         : @transparentBlack;
 
 /* Track Fill */
-@trackFillHeight        : @trackHeight;
-@trackFillColor         : @black;
-@trackFillBorderRadius  : @trackBorderRadius;
+@trackFillHeight             : @trackHeight;
+@trackFillColor              : @black;
+@trackFillColorFocus         : @blackHover;
+@invertedTrackFillColor      : @lightBlack;
+@invertedTrackFillColorFocus : @lightBlackHover;
+@trackFillBorderRadius       : @trackBorderRadius;
 
 /* Thumb */
 @thumbHeight              : @height;
