@@ -108,7 +108,7 @@ $.fn.range = function(parameters) {
 					var
             ratio = (currentPos - startPos) / (endPos - startPos),
 					  range = settings.max - settings.min,
-					  difference = Math.round((ratio * range / step) * step)
+					  difference = Math.round(ratio * range / step) * step
           ;
 					// Use precision to avoid ugly Javascript floating point rounding issues
 					// (like 35 * .01 = 0.35000000000000003)

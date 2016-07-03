@@ -49,6 +49,12 @@
       Variations
 --------------------*/
 
+/* Hover */
+@hoverVarOpacity                 : 0;
+@hoverVarHoverOpacity            : 1;
+@hoverOpacityTransitionDuration  : 0.2s;
+@hoverOpacityTransition          : opacity @hoverOpacityTransitionDuration linear;
+
 /* Sizing */
 @smallHeight            : 1em;
 @smallTrackHeight       : 0.3em;
