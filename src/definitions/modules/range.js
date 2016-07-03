@@ -81,7 +81,6 @@ $.fn.range = function(parameters) {
 						$(this).closest(".range").trigger('touchstart', event);
 					});
 					$module.on('mousedown', function(event, originalEvent) {
-            console.log('mousedown');
 						module.rangeMousedown(event, false, originalEvent);
 					});
 					$module.on('touchstart', function(event, originalEvent) {
@@ -111,7 +110,6 @@ $.fn.range = function(parameters) {
 					  range = settings.max - settings.min,
 					  difference = Math.round((ratio * range / step) * step)
           ;
-          console.log(difference + " : " + (ratio * range / step) * step);
 					// Use precision to avoid ugly Javascript floating point rounding issues
 					// (like 35 * .01 = 0.35000000000000003)
           difference = Math.round(difference * precision) / precision;
@@ -166,7 +164,6 @@ $.fn.range = function(parameters) {
 							} else {
 								pageX = mmEvent.pageX;
 							}
-              console.log(pageX);
               newPos = reversed ? trackStartPos - pageX + trackOffset : pageX - trackOffset - trackStartPos;
 							if(pageX >= trackOffset && pageX <= trackOffset + trackWidth) {
 								value = module.setValueBasedPosition(newPos);
