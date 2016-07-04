@@ -71,7 +71,8 @@ $.fn.range = function(parameters) {
           module.debug('Initializing range slider', settings);
           isTouch = module.get.isTouch();
           module.setup.layout();
-          module.bind.events();
+          if(!module.is.disabled())
+            module.bind.events();
           module.read.metadata();
           module.read.settings();
 					module.instantiate();
@@ -167,7 +168,8 @@ $.fn.range = function(parameters) {
         event: {
           down: function(event, originalEvent) {
             event.preventDefault();
-            module.bind.documentEvents();
+            if(!module.is.disabled())
+              module.bind.documentEvents();
           },
           move: function(event, originalEvent) {
             event.preventDefault();
@@ -190,6 +192,12 @@ $.fn.range = function(parameters) {
             }
             module.unbind.documentEvents();
           },
+        },
+
+        is: {
+          disabled: function() {
+            return $module.hasClass(settings.className.disabled);
+          }
         },
 
         get: {
@@ -647,12 +655,13 @@ $.fn.range.settings = {
 	step           : 1,
 	start          : 0,
 	input          : false,
-  
+
   //the decimal place to round to if step is undefined
   decimalPlaces  : 2,
 
   className     : {
-    reversed : 'reversed'
+    reversed : 'reversed',
+    disabled : 'disabled'
   },
 
 	onChange     : function(value){},
