@@ -33,35 +33,35 @@
 
   <!--- Example CSS -->
   <style>
-  body {
-    padding: 1em;
-  }
-  .ui.menu {
-    margin: 3em 0em;
-  }
-  .ui.menu:last-child {
-    margin-bottom: 110px;
-  }
+    body {
+      padding: 1em;
+    }
+    .ui.menu {
+      margin: 3em 0em;
+    }
+    .ui.menu:last-child {
+      margin-bottom: 110px;
+    }
   </style>
 
   <!--- Example Javascript -->
   <script>
-  $(document)
-    .ready(function() {
-      $('.ui.menu .ui.dropdown').dropdown({
-        on: 'hover'
-      });
-      $('.ui.menu a.item')
-        .on('click', function() {
-          $(this)
-            .addClass('active')
-            .siblings()
-            .removeClass('active')
-          ;
-        })
-      ;
-    })
-  ;
+    $(document)
+            .ready(function() {
+              $('.ui.menu .ui.dropdown').dropdown({
+                on: 'hover'
+              });
+              $('.ui.menu a.item')
+                      .on('click', function() {
+                        $(this)
+                                .addClass('active')
+                                .siblings()
+                                .removeClass('active')
+                        ;
+                      })
+              ;
+            })
+    ;
   </script>
 </head>
 <body>
@@ -145,6 +145,32 @@
         <i class="search icon"></i>
         <input type="text" placeholder="Search">
         <button class="ui button">Submit</button>
+      </div>
+    </div>
+    <div class="ui dropdown item">
+      Dropdown Left<i class="dropdown icon"></i>
+      <div class="menu">
+        <a class="item">Link</a>
+        <a class="item">Link</a>
+        <div class="divider"></div>
+        <div class="header">Header</div>
+        <div class="item">
+          <i class="dropdown icon"></i>
+          Sub Menu
+          <div class="menu">
+            <a class="item">Link</a>
+            <div class="item">
+              <i class="dropdown icon"></i>
+              Sub Sub Menu
+              <div class="menu">
+                <a class="item">Link</a>
+                <a class="item">Link</a>
+              </div>
+            </div>
+            <a class="item">Link</a>
+          </div>
+        </div>
+        <a class="item">Link</a>
       </div>
     </div>
     <a class="item">Link</a>
