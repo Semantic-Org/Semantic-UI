@@ -1,4 +1,4 @@
-![Semantic](http://www.semantic-ui.com/images/logo.png)
+![Semantic](http://semantic-ui.com/images/logo.png)
 
 # Semantic UI
 
