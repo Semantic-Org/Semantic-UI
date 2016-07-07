@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.1 - Ad
+ * # Semantic UI 2.2.2 - Ad
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -249,6 +249,7 @@
   width: 100%;
   text-align: center;
   -webkit-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
   content: 'Ad';
   color: #FFFFFF;

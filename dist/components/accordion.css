@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.1 - Accordion
+ * # Semantic UI 2.2.2 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -69,6 +69,7 @@
   transition: transform 0.1s ease, opacity 0.1s ease, -webkit-transform 0.1s ease;
   vertical-align: baseline;
   -webkit-transform: none;
+      -ms-transform: none;
           transform: none;
 }
 
@@ -86,6 +87,7 @@
   float: right;
   margin: 0.21425em 0em 0em 1em;
   -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
           transform: rotate(180deg);
 }
 
@@ -103,10 +105,12 @@
 .ui.accordion .active.title .dropdown.icon,
 .ui.accordion .accordion .active.title .dropdown.icon {
   -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 .ui.accordion.menu .item .active.title > .dropdown.icon {
   -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 

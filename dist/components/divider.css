@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.1 - Divider
+ * # Semantic UI 2.2.2 - Divider
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -92,6 +92,7 @@
   line-height: 0em;
   text-align: center;
   -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
           transform: translateX(-50%);
 }
 .ui.vertical.divider:before,
@@ -128,6 +129,7 @@
     top: 0;
     left: 0;
     -webkit-transform: none;
+        -ms-transform: none;
             transform: none;
   }
   .ui.stackable.grid .ui.vertical.divider:before,
