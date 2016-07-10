@@ -27,7 +27,7 @@ $.fn.range = function(parameters) {
     query          = arguments[0],
     methodInvoked  = (typeof query == 'string'),
     queryArguments = [].slice.call(arguments, 1),
-
+    alphabet       = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
     returnedValue
   ;
 
@@ -42,7 +42,6 @@ $.fn.range = function(parameters) {
         className       = settings.className,
         metadata        = settings.metadata,
         namespace       = settings.namespace,
-        start           = settings.start,
         input           = settings.input,
         error           = settings.error,
 
@@ -53,11 +52,11 @@ $.fn.range = function(parameters) {
         $thumb,
         $track,
         $trackFill,
+        $labels,
 
         element         = this,
         instance        = $module.data(moduleNamespace),
 
-        reversed        = $module.hasClass(settings.className.reversed),
         offset,
         precision,
         isTouch,
@@ -97,13 +96,49 @@ $.fn.range = function(parameters) {
 
         setup: {
           layout: function() {
-            $module.html("<div class='inner'><div class='track'></div><div class='track-fill'></div><div class='thumb'></div></div>");
+            if($module.find('.inner').length == 0)
+              $module.append("<div class='inner'><div class='track'></div><div class='track-fill'></div><div class='thumb'></div></div>");
             precision = module.get.precision();
             $thumb = $module.find('.thumb');
             $track = $module.find('.track');
             $trackFill = $module.find('.track-fill');
             offset = $thumb.width()/2;
+            if(module.is.labeled()) {
+              $labels = $module.find('.labels:not(.auto)');
+              if($labels.length != 0) {
+                module.setup.customLabel();
+              } else {
+                module.setup.autoLabel();
+              }
+            }
           },
+          customLabel: function() {
+            var
+              $children   = $labels.find('.label'),
+              numChildren = $children.length,
+              ratio,
+              position
+            ;
+            $children.each(function(index) {
+              ratio = ((index+1)/(numChildren+1));
+              position = module.determine.positionFromRatio(ratio);
+              $(this).css(module.is.reversed() ? 'right' : 'left', position);
+            });
+          },
+          autoLabel: function() {
+            if(module.get.step() != 0) {
+              $labels = $module.find('.labels');
+              if($labels.length != 0)
+                $labels.empty()
+              else
+                $labels = $module.append('<ul class="auto labels"></ul>').find('.labels');
+              for(var i = 0; i <= module.get.numLabels(); i++) {
+                var $label = $('<li class="label">' + module.get.label(i+1) + '</li>');
+                $label.css(module.is.reversed() ? 'right' : 'left', module.determine.positionFromValue((i+1) * module.get.step()));
+                $labels.append($label);
+              }
+            }
+          }
         },
 
         bind: {
@@ -140,29 +175,19 @@ $.fn.range = function(parameters) {
 
         unbind: {
           events: function() {
-            $module.find('.track, .thumb, .inner').off('mousedown' + eventNamespace, function(event) {
-              event.stopImmediatePropagation();
-              event.preventDefault();
-              $(this).closest(".range").trigger('mousedown' + eventNamespace, event);
-              module.event.mousedown(event);
-            });
-            $module.find('.track, .thumb, .inner').off('touchstart' + eventNamespace, function(event) {
-              event.stopImmediatePropagation();
-              event.preventDefault();
-              $(this).closest(".range").trigger('touchstart' + eventNamespace, event);
-              module.event.touchstart(event);
-            });
-            $module.off('mousedown' + eventNamespace, module.event.down);
-            $module.off('touchstart' + eventNamespace, module.event.down);
+            $module.find('.track, .thumb, .inner').off('mousedown' + eventNamespace);
+            $module.find('.track, .thumb, .inner').off('touchstart' + eventNamespace);
+            $module.off('mousedown' + eventNamespace);
+            $module.off('touchstart' + eventNamespace);
           },
           documentEvents: function() {
             if(module.get.isTouch()) {
-              $(document).off('touchmove' + eventNamespace, module.event.move);
-              $(document).off('touchend' + eventNamespace, module.event.up);
+              $(document).off('touchmove' + eventNamespace);
+              $(document).off('touchend' + eventNamespace);
             }
             else {
-              $(document).off('mousemove' + eventNamespace, module.event.move);
-              $(document).off('mouseup' + eventNamespace, module.event.up);
+              $(document).off('mousemove' + eventNamespace);
+              $(document).off('mouseup' + eventNamespace);
             }
           },
         },
@@ -199,6 +224,12 @@ $.fn.range = function(parameters) {
         is: {
           disabled: function() {
             return $module.hasClass(settings.className.disabled);
+          },
+          labeled: function() {
+            return $module.hasClass(settings.className.labeled);
+          },
+          reversed: function() {
+            return $module.hasClass(settings.className.reversed);
           }
         },
 
@@ -221,10 +252,10 @@ $.fn.range = function(parameters) {
             return $track.position().left;
           },
           trackStartPos: function() {
-            return reversed ? module.get.trackLeft() + module.get.trackWidth() : module.get.trackLeft();
+            return module.is.reversed() ? module.get.trackLeft() + module.get.trackWidth() : module.get.trackLeft();
           },
           trackEndPos: function() {
-            return reversed ? module.get.trackLeft() : module.get.trackLeft() + module.get.trackWidth();
+            return module.is.reversed() ? module.get.trackLeft() : module.get.trackLeft() + module.get.trackWidth();
           },
           precision: function() {
             var
@@ -246,24 +277,44 @@ $.fn.range = function(parameters) {
             return precision;
           },
           min: function() {
-            return module.min || settings.min;
+            return settings.min;
           },
           max: function() {
-            return module.max || settings.max;
+            return settings.max;
           },
           step: function() {
-            return module.step || settings.step;
+            return settings.step;
           },
+          numLabels: function() {
+            var value = Math.round((module.get.max() - module.get.min()) / module.get.step()) - 2;
+            module.debug('Determined that their should be ' + value + ' labels');
+            return value
+          },
+          labelType: function() {
+            return settings.labelType;
+          },
+          label: function(value) {
+            switch (settings.labelType) {
+              case settings.labelTypes.number:
+                return value * module.get.step();
+              case settings.labelTypes.letter:
+                return alphabet[value-1];
+              case settings.labelTypes.none:
+                return '';
+              default:
+                return value;
+            }
+          }
         },
 
         determine: {
           pos: function(pagePos) {
-            return reversed ? module.get.trackStartPos() - pagePos + module.get.trackOffset() : pagePos - module.get.trackOffset() - module.get.trackStartPos();
+            return module.is.reversed() ? module.get.trackStartPos() - pagePos + module.get.trackOffset() : pagePos - module.get.trackOffset() - module.get.trackStartPos();
           },
           value: function(position) {
             var
-              startPos = reversed ? module.get.trackEndPos() : module.get.trackStartPos(),
-              endPos = reversed ? module.get.trackStartPos() : module.get.trackEndPos(),
+              startPos = module.is.reversed() ? module.get.trackEndPos() : module.get.trackStartPos(),
+              endPos = module.is.reversed() ? module.get.trackStartPos() : module.get.trackEndPos(),
               ratio = (position - startPos) / (endPos - startPos),
               range = module.get.max() - module.get.min(),
               step = module.get.step(),
@@ -275,7 +326,7 @@ $.fn.range = function(parameters) {
             // Use precision to avoid ugly Javascript floating point rounding issues
             // (like 35 * .01 = 0.35000000000000003)
             difference = Math.round(difference * precision) / precision;
-            module.verbose('Cutting ')
+            module.verbose('Cutting off additional decimal places')
             return difference - module.get.min();
           },
           positionFromValue: function(value) {
@@ -284,11 +335,21 @@ $.fn.range = function(parameters) {
               max = module.get.max(),
               trackWidth = module.get.trackWidth(),
               ratio = (value - min) / (max - min),
-              trackPos = reversed ? trackWidth - ($trackFill.position().left + $trackFill.width()) : $trackFill.position().left,
+              trackPos = module.is.reversed() ? trackWidth - ($trackFill.position().left + $trackFill.width()) : $trackFill.position().left,
               position = Math.round(ratio * trackWidth) + trackPos
             ;
             module.verbose('Determined position: ' + position + ' from value: ' + value);
             return position;
+          },
+          positionFromRatio: function(ratio) {
+            var
+              trackWidth = module.get.trackWidth(),
+              trackPos = module.is.reversed() ? trackWidth - ($trackFill.position().left + $trackFill.width()) : $trackFill.position().left,
+              step = module.get.step(),
+              position = Math.round(ratio * trackWidth) + trackPos,
+              adjustedPos = (step == 0) ? position : Math.round(position / step) * step
+            ;
+            return adjustedPos;
           },
           eventXPos: function(event, originalEvent) {
             return isTouch ? originalEvent.originalEvent.touches[0].pageX : (typeof event.pageX != 'undefined') ? event.pageX : originalEvent.pageX
@@ -303,17 +364,8 @@ $.fn.range = function(parameters) {
             settings.onChange.call(element, newValue);
             module.debug('Setting range value to ' + newValue);
           },
-          max: function(value) {
-            module.max = value;
-          },
-          min: function(value) {
-            module.min = value;
-          },
-          step: function(value) {
-            module.step = value;
-          },
           position: function(value) {
-            if (reversed)
+            if (module.is.reversed())
               $thumb.css({right: String(value - offset) + 'px'});
             else
               $thumb.css({left: String(value - offset) + 'px'});
@@ -385,10 +437,7 @@ $.fn.range = function(parameters) {
         remove : {
           state: function() {
             module.verbose('Removing stored state');
-            delete module.min;
-            delete module.max;
             delete module.value;
-            delete module.position;
           }
         },
 
@@ -396,10 +445,7 @@ $.fn.range = function(parameters) {
           metadata: function() {
             var
               data = {
-                value   : $module.data(metadata.value),
-                min     : $module.data(metadata.min),
-                max     : $module.data(metadata.max),
-                step    : $module.data(metadata.step),
+                value   : $module.data(metadata.value)
               }
             ;
             if(data.value) {
@@ -407,35 +453,8 @@ $.fn.range = function(parameters) {
               module.set.value(data.value);
               module.set.positionBasedValue(data.value);
             }
-            if(data.min) {
-              module.debug('Current min set from metadata', data.min);
-              module.set.value(data.min);
-              module.set.positionBasedValue(data.min);
-            }
-            if(data.max) {
-              module.debug('Current max set from metadata', data.max);
-              module.set.value(data.max);
-              module.set.positionBasedValue(data.max);
-            }
-            if(data.step) {
-              module.debug('Current step set from metadata', data.step);
-              module.set.value(data.step);
-              module.set.positionBasedValue(data.step);
-            }
           },
           settings: function() {
-            if(settings.min !== false) {
-              module.debug('Current min set in settings', settings.min);
-              module.set.min(settings.min);
-            }
-            if(settings.max !== false) {
-              module.debug('Current max set from settings', settings.max);
-              module.set.max(settings.max);
-            }
-            if(settings.step !== false) {
-              module.debug('Current step set from settings', settings.step);
-              module.set.step(settings.step);
-            }
             if(settings.start !== false) {
               module.debug('Start position set from settings', settings.start);
               module.set.positionBasedValue(settings.start);
@@ -645,10 +664,7 @@ $.fn.range.settings = {
   },
 
   metadata: {
-    value : 'value',
-    min   : 'min',
-    max   : 'max',
-    step  : 'step'
+    value : 'value'
   },
 
   min          : 0,
@@ -656,13 +672,21 @@ $.fn.range.settings = {
   step         : 1,
   start        : 0,
   input        : false,
+  labelType    : 'number',
 
   //the decimal place to round to if step is undefined
   decimalPlaces  : 2,
 
   className     : {
     reversed : 'reversed',
-    disabled : 'disabled'
+    disabled : 'disabled',
+    labeled  : 'labeled'
+  },
+
+  labelTypes    : {
+    number  : 'number',
+    none    : 'none',
+    letter  : 'letter'
   },
 
   onChange : function(value){},

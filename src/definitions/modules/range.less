@@ -10,11 +10,13 @@
 .ui.range {
   width: 100%;
   padding: @padding;
+  position: relative;
 }
 
 .ui.range .inner {
   height: @height;
   position: relative;
+  z-index: 2;
 }
 
 .ui.range .inner:hover {
@@ -94,9 +96,43 @@
   right: 0;
 }
 
+.ui.labeled.range.reversed > .labels .label {
+  transform: translate(-100%, -100%);
+}
+
 /*******************************
            Variations
 *******************************/
+
+/*--------------
+    Labeled
+---------------*/
+
+.ui.labeled.range > .labels {
+  height: @labelHeight;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.ui.labeled.range > .labels .label {
+  display: inline-flex;
+  position: absolute;
+  transform: translate(-50%, -100%);
+}
+
+.ui.labeled.range > .labels .label:after {
+  content: ' ';
+  height: @labelHeight;
+  width: @labelWidth;
+  background: @labelColor;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+}
 
 /*--------------
     Hover
@@ -479,6 +515,10 @@
   height: @smallTrackHeight;
   top: @trackPositionTopSmall;
 }
+.ui.small.labeled.range > .labels,
+.ui.small.labeled.range > .labels .label:after {
+  height: @smallLabelHeight;
+}
 
 /* Large */
 .ui.range.large .inner .thumb {
@@ -490,6 +530,10 @@
   height: @largeTrackHeight;
   top: @trackPositionTopLarge;
 }
+.ui.large.labeled.range > .labels,
+.ui.large.labeled.range > .labels .label:after {
+  height: @largeLabelHeight;
+}
 
 /* Big */
 .ui.range.big .inner .thumb {
@@ -500,6 +544,10 @@
 .ui.range.big .inner .track-fill {
   height: @bigTrackHeight;
   top: @trackPositionTopBig;
+}
+.ui.big.labeled.range > .labels,
+.ui.big.labeled.range > .labels .label:after {
+  height: @bigLabelHeight;
 }
 
 .loadUIOverrides();
