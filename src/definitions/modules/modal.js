@@ -623,22 +623,33 @@ $.fn.modal = function(parameters) {
             }
           },
           position: function() {
-            module.verbose('Centering modal on page', module.cache);
-            if(module.can.fit()) {
+            if(settings.align === 'top') {
+              module.verbose('Placing modal at top of page', module.cache);
               $module
                 .css({
-                  top: '',
-                  marginTop: -(module.cache.height / 2)
+                  top: 0,
+                  marginTop: ''
                 })
               ;
             }
             else {
-              $module
-                .css({
-                  marginTop : '',
-                  top       : $document.scrollTop()
-                })
-              ;
+              module.verbose('Centering modal on page', module.cache);
+              if (module.can.fit()) {
+                $module
+                  .css({
+                    top: '',
+                    marginTop: -(module.cache.height / 2)
+                  })
+                ;
+              }
+              else {
+                $module
+                  .css({
+                    marginTop: '',
+                    top: $document.scrollTop()
+                  })
+                ;
+              }
             }
           },
           undetached: function() {
@@ -900,7 +911,10 @@ $.fn.modal.settings = {
     blurring   : 'blurring',
     scrolling  : 'scrolling',
     undetached : 'undetached'
-  }
+  },
+
+  // align can be 'middle' or 'top'
+  align      : 'middle'
 };
 
 
