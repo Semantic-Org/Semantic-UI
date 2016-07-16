@@ -7,16 +7,22 @@
 
  @import (multiple) '../../theme.config';
 
-.ui.range {
+.ui.range:not(.vertical) {
   width: 100%;
   padding: @padding;
+}
+
+.ui.range {
   position: relative;
 }
 
 .ui.range .inner {
-  height: @height;
   position: relative;
   z-index: 2;
+}
+
+.ui.range:not(.vertical) .inner {
+  height: @height;
 }
 
 .ui.range .inner:hover {
@@ -25,28 +31,34 @@
 
 .ui.range .inner .track {
   position: absolute;
+  border-radius: @trackBorderRadius;
+  background-color: @trackColor;
+}
+
+.ui.range:not(.vertical) .inner .track {
   width: 100%;
   height: @trackHeight;
-  border-radius: @trackBorderRadius;
   top: @trackPositionTop;
   left: 0;
-  background-color: @trackColor;
 }
 
 .ui.range .inner .track-fill {
   position: absolute;
+  border-radius: @trackFillBorderRadius;
+  background-color: @trackFillColor;
+}
+
+.ui.range:not(.vertical) .inner .track-fill {
   width: 0;
   height: @trackFillHeight;
-  border-radius: @trackFillBorderRadius;
   top: @trackPositionTop;
   left: 0;
-  background-color: @trackFillColor;
 }
 
 .ui.range .inner .thumb {
   position: absolute;
-  top: 0;
   left: 0;
+  top: 0;
   height: @thumbHeight;
   width: @thumbHeight;
   background: @thumbBackground;
@@ -105,6 +117,45 @@
 *******************************/
 
 /*--------------
+    Vertical
+---------------*/
+
+.ui.range.vertical {
+  height: 100%;
+  padding: @verticalPadding;
+}
+
+.ui.range.vertical .inner {
+  width: @height;
+  height: 100%;
+}
+
+.ui.range.vertical .inner .track {
+  height: 100%;
+  width: @trackHeight;
+  left: @trackPositionTop;
+  top: 0;
+}
+
+.ui.range.vertical .inner .track-fill {
+  height: 0;
+  width: @trackFillHeight;
+  left: @trackPositionTop;
+  top: 0;
+}
+
+/* Vertical Reversed */
+.ui.range.vertical.reversed .inner .thumb {
+  top: auto;
+  bottom: 0;
+}
+
+.ui.range.vertical.reversed .inner .track-fill {
+  top: auto;
+  bottom: 0;
+}
+
+/*--------------
     Labeled
 ---------------*/
 
@@ -115,6 +166,9 @@
   padding: 0;
   position: absolute;
   top: 50%;
+}
+
+.ui.labeled.range:not(.vertical) > .labels {
   transform: translateY(-50%);
 }
 
@@ -132,6 +186,27 @@
   position: absolute;
   top: 100%;
   left: 50%;
+}
+
+/* Vertical Labels */
+
+.ui.labeled.vertical.range > .labels {
+  width: @labelHeight;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.ui.labeled.vertical.range > .labels .label {
+  transform: translate(-100%, -@labelWidth);
+}
+
+.ui.labeled.vertical.range > .labels .label:after {
+  width: @labelHeight;
+  height: @labelWidth;
+  left: 100%;
+  top: 50%;
 }
 
 /*--------------
@@ -510,17 +585,31 @@
   height: @smallHeight;
   width: @smallHeight;
 }
-.ui.range.small .inner {
+.ui.range.small:not(.vertical) .inner {
   height: @smallHeight;
 }
-.ui.range.small .inner .track,
-.ui.range.small .inner .track-fill {
+.ui.range.small:not(.vertical) .inner .track,
+.ui.range.small:not(.vertical) .inner .track-fill {
   height: @smallTrackHeight;
   top: @trackPositionTopSmall;
 }
-.ui.small.labeled.range > .labels,
-.ui.small.labeled.range > .labels .label:after {
+.ui.small.labeled.range:not(.vertical) > .labels,
+.ui.small.labeled.range:not(.vertical) > .labels .label:after {
   height: @smallLabelHeight;
+}
+
+/* Small Vertical */
+.ui.range.small.vertical .inner {
+  width: @smallHeight;
+}
+.ui.range.small.vertical .inner .track,
+.ui.range.small.vertical .inner .track-fill {
+  width: @smallTrackHeight;
+  left: @trackPositionTopSmall;
+}
+.ui.small.labeled.range.vertical > .labels,
+.ui.small.labeled.range.vertical > .labels .label:after {
+  width: @smallLabelHeight;
 }
 
 /* Large */
@@ -528,17 +617,31 @@
   height: @largeHeight;
   width: @largeHeight;
 }
-.ui.range.large .inner {
+.ui.range.large:not(.vertical) .inner {
   height: @largeHeight;
 }
-.ui.range.large .inner .track,
-.ui.range.large .inner .track-fill {
+.ui.range.large:not(.vertical) .inner .track,
+.ui.range.large:not(.vertical) .inner .track-fill {
   height: @largeTrackHeight;
   top: @trackPositionTopLarge;
 }
-.ui.large.labeled.range > .labels,
-.ui.large.labeled.range > .labels .label:after {
+.ui.large.labeled.range:not(.vertical) > .labels,
+.ui.large.labeled.range:not(.vertical) > .labels .label:after {
   height: @largeLabelHeight;
+}
+
+/* Large Vertical */
+.ui.range.large.vertical .inner {
+  width: @largeHeight;
+}
+.ui.range.large.vertical .inner .track,
+.ui.range.large.vertical .inner .track-fill {
+  width: @largeTrackHeight;
+  left: @trackPositionTopLarge;
+}
+.ui.large.labeled.range.vertical > .labels,
+.ui.large.labeled.range.vertical > .labels .label:after {
+  width: @largeLabelHeight;
 }
 
 /* Big */
@@ -546,17 +649,31 @@
   height: @bigHeight;
   width: @bigHeight;
 }
-.ui.range.big .inner {
+.ui.range.big:not(.vertical) .inner {
   height: @bigHeight;
 }
-.ui.range.big .inner .track,
-.ui.range.big .inner .track-fill {
+.ui.range.big:not(.vertical) .inner .track,
+.ui.range.big:not(.vertical) .inner .track-fill {
   height: @bigTrackHeight;
   top: @trackPositionTopBig;
 }
-.ui.big.labeled.range > .labels,
-.ui.big.labeled.range > .labels .label:after {
+.ui.big.labeled.range:not(.vertical) > .labels,
+.ui.big.labeled.range:not(.vertical) > .labels .label:after {
   height: @bigLabelHeight;
+}
+
+/* Big Vertical */
+.ui.range.big.vertical .inner {
+  width: @bigHeight;
+}
+.ui.range.big.vertical .inner .track,
+.ui.range.big.vertical .inner .track-fill {
+  width: @bigTrackHeight;
+  left: @trackPositionTopBig;
+}
+.ui.big.labeled.range.vertical > .labels,
+.ui.big.labeled.range.vertical > .labels .label:after {
+  width: @bigLabelHeight;
 }
 
 .loadUIOverrides();

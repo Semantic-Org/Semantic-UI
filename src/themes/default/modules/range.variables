@@ -49,6 +49,9 @@
       Variations
 --------------------*/
 
+/* Vertical */
+@verticalPadding    : .5em 1em;
+
 /* Labeled */
 @labelHeight  : @height;
 @labelWidth   : 1px;
