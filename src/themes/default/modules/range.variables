@@ -50,7 +50,7 @@
 --------------------*/
 
 /* Vertical */
-@verticalPadding    : .5em 1em;
+@verticalPadding : .5em 1em;
 
 /* Labeled */
 @labelHeight  : @height;

@@ -122,7 +122,14 @@ $.fn.range = function(parameters) {
             $children.each(function(index) {
               ratio = ((index+1)/(numChildren+1));
               position = module.determine.positionFromRatio(ratio);
-              $(this).css(module.is.reversed() ? 'right' : 'left', position);
+              var posDir =
+                module.is.vertical()
+                ?
+                module.is.reversed() ? 'bottom' : 'top'
+                :
+                module.is.reversed() ? 'right' : 'left'
+              ;
+              $(this).css(posDir, position);
             });
           },
           autoLabel: function() {
@@ -135,11 +142,12 @@ $.fn.range = function(parameters) {
               for(var i = 0; i <= module.get.numLabels(); i++) {
                 var
                   $label = $('<li class="label">' + module.get.label(i+1) + '</li>'),
-                  position = module.is.vertical()
-                            ?
-                            module.is.reversed() ? 'bottom' : 'top'
-                            :
-                            module.is.reversed() ? 'right' : 'left'
+                  position =
+                    module.is.vertical()
+                    ?
+                    module.is.reversed() ? 'bottom' : 'top'
+                    :
+                    module.is.reversed() ? 'right' : 'left'
                 ;
                 $label.css(position, module.determine.positionFromValue((i+1) * module.get.step()));
                 $labels.append($label);
