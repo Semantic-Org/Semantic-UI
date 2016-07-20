@@ -154,8 +154,8 @@ $.fn.dropdown = function(parameters) {
             }
           },
           selectObserver: function() {
-            if(menuObserver) {
-              menuObserver.disconnect();
+            if(selectObserver) {
+              selectObserver.disconnect();
             }
           }
         },
