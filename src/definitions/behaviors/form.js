@@ -557,6 +557,9 @@ $.fn.form = function(parameters) {
                       values[name].push(false);
                     }
                   }
+                  else if ( type == 'number' ) {
+                    values[name].push(parseFloat(value));
+                  }
                   else {
                     values[name].push(value);
                   }
@@ -574,6 +577,9 @@ $.fn.form = function(parameters) {
                     else {
                       values[name] = false;
                     }
+                  }
+                  else if ( type == 'number' ) {
+                    values[name] = parseFloat(value);
                   }
                   else {
                     values[name] = value;
