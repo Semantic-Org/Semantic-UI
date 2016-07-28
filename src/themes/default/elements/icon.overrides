@@ -753,7 +753,6 @@ i.icon.attention:before { content: "\f06a"; }
 i.icon.eye:before { content: "\f06e"; }
 i.icon.exclamation.triangle:before { content: "\f071"; }
 i.icon.shuffle:before { content: "\f074"; }
-i.icon.talk:before { content: "\f075"; }
 i.icon.chat:before { content: "\f075"; }
 i.icon.cart:before { content: "\f07a"; }
 i.icon.shopping.cart:before { content: "\f07a"; }
