@@ -45,6 +45,7 @@ $.fn.range = function(parameters) {
         input           = settings.input,
         error           = settings.error,
         keys            = settings.keys,
+        pageMultiplier  = settings.pageMultiplier,
 
         isHover         = false,
         eventNamespace  = '.' + namespace,
@@ -100,6 +101,9 @@ $.fn.range = function(parameters) {
 
         setup: {
           layout: function() {
+            if( $module.attr('tabindex') === undefined) {
+              $module.attr('tabindex', 0);
+            }
             if($module.find('.inner').length == 0)
               $module.append("<div class='inner'><div class='track'></div><div class='track-fill'></div><div class='thumb'></div></div>");
             precision = module.get.precision();
@@ -178,7 +182,7 @@ $.fn.range = function(parameters) {
           },
           keyboardEvents: function() {
             module.verbose('Binding keyboard events');
-            $(document).on('keydown' + eventNamespace, module.event.keydown);
+            $module.on('keydown' + eventNamespace, module.event.keydown);
           },
           mouseEvents: function() {
             module.verbose('Binding mouse events');
@@ -191,9 +195,11 @@ $.fn.range = function(parameters) {
             $module.on('mousedown' + eventNamespace, module.event.down);
             $module.on('mouseover' + eventNamespace, function() {
               isHover = true;
+              $module.focus();
             });
             $module.on('mouseout' + eventNamespace, function() {
               isHover = false;
+              $module.blur();
             });
           },
           touchEvents: function() {
@@ -269,7 +275,7 @@ $.fn.range = function(parameters) {
             module.unbind.slidingEvents();
           },
           keydown: function(event) {
-            if(module.is.hover()) {
+            if(module.is.focused()) {
               event.preventDefault();
               var
                 key = event.which,
@@ -301,38 +307,44 @@ $.fn.range = function(parameters) {
                   :
                   keys.rightArrow
               ;
-              if(key == downArrow || key == leftArrow || key == keys.pageDown) {
+              if(key == downArrow || key == leftArrow) {
                 module.backStep();
-              } else if(key == upArrow || key == rightArrow || key == keys.pageUp) {
+              } else if(key == upArrow || key == rightArrow) {
                 module.takeStep();
+              } else if (key == keys.pageDown) {
+                module.backStep(pageMultiplier);
+              } else if (key == keys.pageUp) {
+                module.takeStep(pageMultiplier);
               }
             }
           }
         },
 
-        takeStep: function() {
+        takeStep: function(multiplier) {
           var
+            multiplier = multiplier != undefined ? multiplier : 1,
             step = module.get.step(),
             currValue = module.get.value()
           ;
           module.verbose('Taking a step');
           if(step > 0)
-            module.set.positionBasedValue(currValue + step);
+            module.set.positionBasedValue(currValue + step * multiplier);
         },
 
-        backStep: function() {
+        backStep: function(multiplier) {
           var
+            multiplier = multiplier != undefined ? multiplier : 1,
             step = module.get.step(),
             currValue = module.get.value()
           ;
           module.verbose('Going back a step');
           if(step > 0)
-            module.set.positionBasedValue(currValue - step);
+            module.set.positionBasedValue(currValue - step * multiplier);
         },
 
         is: {
-          hover: function() {
-            return isHover;
+          focused: function() {
+            return $module.is(':focus');
           },
           disabled: function() {
             return $module.hasClass(settings.className.disabled);
@@ -815,6 +827,9 @@ $.fn.range.settings = {
 
   //the decimal place to round to if step is undefined
   decimalPlaces  : 2,
+
+  // page up/down multiplier. How many more times the steps to take on page up/down press
+  pageMultiplier : 2,
 
   className     : {
     reversed : 'reversed',
