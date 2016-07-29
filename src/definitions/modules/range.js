@@ -28,6 +28,13 @@ $.fn.range = function(parameters) {
     methodInvoked  = (typeof query == 'string'),
     queryArguments = [].slice.call(arguments, 1),
     alphabet       = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+
+    SINGLE_STEP     = 1,
+    BIG_STEP        = 2,
+    NO_STEP         = 0,
+    SINGLE_BACKSTEP = -1,
+    BIG_BACKSTEP    = -2,
+
     returnedValue
   ;
 
@@ -45,7 +52,6 @@ $.fn.range = function(parameters) {
         input           = settings.input,
         error           = settings.error,
         keys            = settings.keys,
-        pageMultiplier  = settings.pageMultiplier,
 
         isHover         = false,
         eventNamespace  = '.' + namespace,
@@ -174,6 +180,7 @@ $.fn.range = function(parameters) {
 
         bind: {
           events: function() {
+            module.bind.globalKeyboardEvents();
             module.bind.keyboardEvents();
             module.bind.mouseEvents();
             if(module.is.touch()) {
@@ -184,22 +191,22 @@ $.fn.range = function(parameters) {
             module.verbose('Binding keyboard events');
             $module.on('keydown' + eventNamespace, module.event.keydown);
           },
+          globalKeyboardEvents: function() {
+            $(document).on('keydown' + eventNamespace, module.event.activateFocus);
+          },
           mouseEvents: function() {
             module.verbose('Binding mouse events');
             $module.find('.track, .thumb, .inner').on('mousedown' + eventNamespace, function(event) {
               event.stopImmediatePropagation();
               event.preventDefault();
-              $(this).closest(".range").trigger('mousedown' + eventNamespace, event);
               module.event.down(event);
             });
             $module.on('mousedown' + eventNamespace, module.event.down);
-            $module.on('mouseover' + eventNamespace, function() {
+            $module.on('mouseenter' + eventNamespace, function(event) {
               isHover = true;
-              $module.focus();
             });
-            $module.on('mouseout' + eventNamespace, function() {
+            $module.on('mouseleave' + eventNamespace, function(event) {
               isHover = false;
-              $module.blur();
             });
           },
           touchEvents: function() {
@@ -207,7 +214,6 @@ $.fn.range = function(parameters) {
             $module.find('.track, .thumb, .inner').on('touchstart' + eventNamespace, function(event) {
               event.stopImmediatePropagation();
               event.preventDefault();
-              $(this).closest(".range").trigger('touchstart' + eventNamespace, event);
               module.event.down(event);
             });
             $module.on('touchstart' + eventNamespace, module.event.down);
@@ -230,10 +236,11 @@ $.fn.range = function(parameters) {
             $module.find('.track, .thumb, .inner').off('mousedown' + eventNamespace);
             $module.find('.track, .thumb, .inner').off('touchstart' + eventNamespace);
             $module.off('mousedown' + eventNamespace);
-            $module.off('mouseover' + eventNamespace);
-            $module.off('mouseout' + eventNamespace);
+            $module.off('mouseenter' + eventNamespace);
+            $module.off('mouseleave' + eventNamespace);
             $module.off('touchstart' + eventNamespace);
             $module.off('keydown' + eventNamespace);
+            $module.off('focusout' + eventNamespace);
           },
           slidingEvents: function() {
             if(module.is.touch()) {
@@ -274,50 +281,38 @@ $.fn.range = function(parameters) {
             }
             module.unbind.slidingEvents();
           },
-          keydown: function(event) {
+          keydown: function(event, first) {
             if(module.is.focused()) {
-              event.preventDefault();
-              var
-                key = event.which,
-                downArrow =
-                  module.is.vertical()
-                  ?
-                  module.is.reversed() ? keys.downArrow : keys.upArrow
-                  :
-                  keys.downArrow
-                ,
-                upArrow =
-                  module.is.vertical()
-                  ?
-                  module.is.reversed() ? keys.upArrow : keys.downArrow
-                  :
-                  keys.upArrow
-                ,
-                leftArrow =
-                  !module.is.vertical()
-                  ?
-                  module.is.reversed() ? keys.rightArrow : keys.leftArrow
-                  :
-                  keys.leftArrow
-                ,
-                rightArrow =
-                  !module.is.vertical()
-                  ?
-                  module.is.reversed() ? keys.leftArrow : keys.rightArrow
-                  :
-                  keys.rightArrow
-              ;
-              if(key == downArrow || key == leftArrow) {
-                module.backStep();
-              } else if(key == upArrow || key == rightArrow) {
-                module.takeStep();
-              } else if (key == keys.pageDown) {
-                module.backStep(pageMultiplier);
-              } else if (key == keys.pageUp) {
-                module.takeStep(pageMultiplier);
+              $(document).trigger(event);
+            }
+            if(first || module.is.focused()) {
+              var step = module.determine.keyMovement(event);
+              if(step != NO_STEP) {
+                event.preventDefault();
+                switch(step) {
+                  case SINGLE_STEP:
+                    module.takeStep();
+                    break;
+                  case BIG_STEP:
+                    module.takeStep(module.get.multiplier());
+                    break;
+                  case SINGLE_BACKSTEP:
+                    module.backStep();
+                    break;
+                  case BIG_BACKSTEP:
+                    module.backStep(module.get.multiplier());
+                    break;
+                }
               }
             }
-          }
+          },
+          activateFocus: function(event) {
+            if(!module.is.focused() && module.is.hover() && module.determine.keyMovement(event) != NO_STEP) {
+              event.preventDefault();
+              module.event.keydown(event, true);
+              $module.focus();
+            }
+          },
         },
 
         takeStep: function(multiplier) {
@@ -343,6 +338,9 @@ $.fn.range = function(parameters) {
         },
 
         is: {
+          hover: function() {
+            return isHover;
+          },
           focused: function() {
             return $module.is(':focus');
           },
@@ -358,7 +356,7 @@ $.fn.range = function(parameters) {
           vertical: function() {
             return $module.hasClass(settings.className.vertical);
           },
-          touch: function () {
+          touch: function() {
             return isTouch;
           },
         },
@@ -448,6 +446,9 @@ $.fn.range = function(parameters) {
           },
           value: function() {
             return value;
+          },
+          multiplier: function() {
+            return settings.pageMultiplier;
           }
         },
 
@@ -501,6 +502,49 @@ $.fn.range = function(parameters) {
             difference = Math.round(difference * precision) / precision;
             module.verbose('Cutting off additional decimal places')
             return difference - module.get.min();
+          },
+          keyMovement: function(event) {
+            var
+              key = event.which,
+              downArrow =
+                module.is.vertical()
+                ?
+                module.is.reversed() ? keys.downArrow : keys.upArrow
+                :
+                keys.downArrow
+              ,
+              upArrow =
+                module.is.vertical()
+                ?
+                module.is.reversed() ? keys.upArrow : keys.downArrow
+                :
+                keys.upArrow
+              ,
+              leftArrow =
+                !module.is.vertical()
+                ?
+                module.is.reversed() ? keys.rightArrow : keys.leftArrow
+                :
+                keys.leftArrow
+              ,
+              rightArrow =
+                !module.is.vertical()
+                ?
+                module.is.reversed() ? keys.leftArrow : keys.rightArrow
+                :
+                keys.rightArrow
+            ;
+            if(key == downArrow || key == leftArrow) {
+              return SINGLE_BACKSTEP;
+            } else if(key == upArrow || key == rightArrow) {
+              return SINGLE_STEP;
+            } else if (key == keys.pageDown) {
+              return BIG_BACKSTEP;
+            } else if (key == keys.pageUp) {
+              return BIG_STEP;
+            } else {
+              return NO_STEP;
+            }
           }
         },
 
