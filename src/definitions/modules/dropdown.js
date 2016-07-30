@@ -2076,6 +2076,7 @@ $.fn.dropdown = function(parameters) {
         clear: function() {
           if(module.is.multiple()) {
             module.remove.labels();
+            module.remove.activeItem();
           }
           else {
             module.remove.activeItem();
