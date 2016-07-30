@@ -27,6 +27,7 @@ $.fn.range = function(parameters) {
     query          = arguments[0],
     methodInvoked  = (typeof query == 'string'),
     queryArguments = [].slice.call(arguments, 1),
+
     alphabet       = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
 
     SINGLE_STEP     = 1,
@@ -49,7 +50,6 @@ $.fn.range = function(parameters) {
         className       = settings.className,
         metadata        = settings.metadata,
         namespace       = settings.namespace,
-        input           = settings.input,
         error           = settings.error,
         keys            = settings.keys,
 
@@ -58,7 +58,9 @@ $.fn.range = function(parameters) {
         moduleNamespace = 'module-' + namespace,
 
         $module         = $(this),
+        $currThumb,
         $thumb,
+        $secondThumb,
         $track,
         $trackFill,
         $labels,
@@ -68,6 +70,7 @@ $.fn.range = function(parameters) {
 
         value,
         position,
+        secondPos,
         offset,
         precision,
         isTouch,
@@ -81,11 +84,15 @@ $.fn.range = function(parameters) {
           module.debug('Initializing range slider', settings);
           isTouch = module.setup.testOutTouch();
           module.setup.layout();
+
           if(!module.is.disabled())
             module.bind.events();
+
           module.read.metadata();
           module.read.settings();
+
           module.instantiate();
+          settings.onChange.call(element, value);
         },
 
         instantiate: function() {
@@ -113,7 +120,13 @@ $.fn.range = function(parameters) {
             if($module.find('.inner').length == 0)
               $module.append("<div class='inner'><div class='track'></div><div class='track-fill'></div><div class='thumb'></div></div>");
             precision = module.get.precision();
-            $thumb = $module.find('.thumb');
+            $thumb = $module.find('.thumb:not(.second)');
+            $currThumb = $thumb;
+            if(module.is.doubled()) {
+              if($module.find('.thumb.second').length == 0)
+                $module.find('.inner').append("<div class='thumb second'></div>");
+              $secondThumb = $module.find('.thumb.second');
+            }
             $track = $module.find('.track');
             $trackFill = $module.find('.track-fill');
             offset = $thumb.width()/2;
@@ -257,6 +270,13 @@ $.fn.range = function(parameters) {
         event: {
           down: function(event, originalEvent) {
             event.preventDefault();
+            if(module.is.doubled()) {
+              var
+                eventPos = module.determine.eventPos(event, originalEvent),
+                newPos = module.determine.pos(eventPos)
+              ;
+              $currThumb = module.determine.closestThumb(newPos);
+            }
             if(!module.is.disabled())
               module.bind.slidingEvents();
           },
@@ -267,7 +287,7 @@ $.fn.range = function(parameters) {
               newPos = module.determine.pos(eventPos)
             ;
             if (eventPos >= module.get.trackOffset() && eventPos <= module.get.trackOffset() + module.get.trackLength()) {
-              module.set.valueBasedPosition(newPos);
+              module.set.position(newPos);
             }
           },
           up: function(event, originalEvent) {
@@ -277,7 +297,7 @@ $.fn.range = function(parameters) {
               newPos = module.determine.pos(eventPos)
             ;
             if(eventPos >= module.get.trackOffset() && eventPos <= module.get.trackOffset() + module.get.trackLength()) {
-              module.set.valueMoveToValueBasedPosition(newPos);
+              module.set.value(module.determine.value(newPos));
             }
             module.unbind.slidingEvents();
           },
@@ -319,25 +339,28 @@ $.fn.range = function(parameters) {
           var
             multiplier = multiplier != undefined ? multiplier : 1,
             step = module.get.step(),
-            currValue = module.get.value()
+            currValue = module.get.currentThumbValue()
           ;
           module.verbose('Taking a step');
           if(step > 0)
-            module.set.positionBasedValue(currValue + step * multiplier);
+            module.set.value(currValue + step * multiplier);
         },
 
         backStep: function(multiplier) {
           var
             multiplier = multiplier != undefined ? multiplier : 1,
             step = module.get.step(),
-            currValue = module.get.value()
+            currValue = module.get.currentThumbValue()
           ;
           module.verbose('Going back a step');
           if(step > 0)
-            module.set.positionBasedValue(currValue - step * multiplier);
+            module.set.value(currValue - step * multiplier);
         },
 
         is: {
+          doubled: function() {
+            return $module.hasClass(settings.className.doubled);
+          },
           hover: function() {
             return isHover;
           },
@@ -437,24 +460,80 @@ $.fn.range = function(parameters) {
                 return value;
             }
           },
-          trackPos: function() {
-            if(module.is.vertical()) {
-              return module.is.reversed() ? module.get.trackLength() - ($trackFill.position().top + $trackFill.height()) : $trackFill.position().top;
-            } else {
-              return module.is.reversed() ? module.get.trackLength() - ($trackFill.position().left + $trackFill.width()) : $trackFill.position().left;
-            }
-          },
           value: function() {
             return value;
           },
+          currentThumbValue: function() {
+            if($currThumb.hasClass('second'))
+              return module.secondThumbVal;
+            return module.thumbVal;
+          },
+          thumbValue: function(which) {
+            switch(which) {
+              case 'first':
+                return module.thumbVal;
+              case 'second':
+              if(module.is.doubled())
+                return module.secondThumbVal;
+              else {
+                module.error(error.notdouble);
+                break;
+              }
+              default:
+                return module.thumbVal;
+            }
+          },
           multiplier: function() {
             return settings.pageMultiplier;
-          }
+          },
+          thumbPosition: function(which) {
+            switch(which) {
+              case 'first':
+                return position;
+              case 'second':
+                if(module.is.doubled())
+                  return secondThumbPosition;
+                else {
+                  module.error(error.notdouble);
+                  break;
+                }
+              default:
+                return position;
+            }
+          },
         },
 
         determine: {
           pos: function(pagePos) {
             return module.is.reversed() ? module.get.trackStartPos() - pagePos + module.get.trackOffset() : pagePos - module.get.trackOffset() - module.get.trackStartPos();
+          },
+          closestThumb: function(eventPos) {
+            var
+              thumbPos = parseFloat(module.determine.thumbPos($thumb)),
+              thumbDelta = Math.abs(eventPos - thumbPos),
+              secondThumbPos = parseFloat(module.determine.thumbPos($secondThumb)),
+              secondThumbDelta = Math.abs(eventPos - secondThumbPos)
+            ;
+            return thumbDelta <= secondThumbDelta ? $thumb : $secondThumb;
+          },
+          closestThumbPos: function(eventPos) {
+            var
+              thumbPos = parseFloat(module.determine.thumbPos($thumb)),
+              thumbDelta = Math.abs(eventPos - thumbPos),
+              secondThumbPos = parseFloat(module.determine.thumbPos($secondThumb)),
+              secondThumbDelta = Math.abs(eventPos - secondThumbPos)
+            ;
+            return thumbDelta <= secondThumbDelta ? thumbPos : secondThumbPos;
+          },
+          thumbPos: function($element) {
+            var pos =
+              module.is.vertical()
+              ?
+              module.is.reversed() ? $element.css('bottom') : $element.css('top')
+              :
+              module.is.reversed() ? $element.css('right') : $element.css('left')
+            ;
+            return pos;
           },
           positionFromValue: function(value) {
             var
@@ -462,8 +541,7 @@ $.fn.range = function(parameters) {
               max = module.get.max(),
               trackLength = module.get.trackLength(),
               ratio = (value - min) / (max - min),
-              trackPos = module.get.trackPos(),
-              position = Math.round(ratio * trackLength) + trackPos
+              position = Math.round(ratio * trackLength)
             ;
             module.verbose('Determined position: ' + position + ' from value: ' + value);
             return position;
@@ -471,9 +549,8 @@ $.fn.range = function(parameters) {
           positionFromRatio: function(ratio) {
             var
               trackLength = module.get.trackLength(),
-              trackPos = module.get.trackPos(),
               step = module.get.step(),
-              position = Math.round(ratio * trackLength) + trackPos,
+              position = Math.round(ratio * trackLength),
               adjustedPos = (step == 0) ? position : Math.round(position / step) * step
             ;
             return adjustedPos;
@@ -548,91 +625,126 @@ $.fn.range = function(parameters) {
           }
         },
 
+        handleNewValuePosition: function(val) {
+          var
+            min = module.get.min(),
+            max = module.get.max(),
+            newPos
+          ;
+          if(val >= min && val <= max) {
+            newPos = module.determine.positionFromValue(val);
+          } else if (val <= min) {
+            newPos = module.determine.positionFromValue(min);
+            val = min;
+          } else {
+            newPos = module.determine.positionFromValue(max);
+            val = max;
+          }
+          return newPos;
+        },
+
         set: {
           value: function(newValue) {
-            if(input) {
-              $(input).val(newValue);
-            }
-            value = newValue;
-            settings.onChange.call(element, newValue);
-            module.debug('Setting range value to ' + newValue);
+            module.update.value(newValue, function(value) {
+              settings.onChange.call(element, value);
+            });
           },
-          position: function(value) {
+          valueDouble: function(first, second) {
+            if(module.is.doubled()) {
+              module.thumbVal = first;
+              module.secondThumbVal = second;
+              position = module.handleNewValuePosition(module.thumbVal);
+              module.set.position(position, $thumb)
+              secondPos = module.handleNewValuePosition(module.secondThumbVal);
+              module.set.position(secondPos, $secondThumb);
+              value = Math.abs(module.thumbVal - module.secondThumbVal);
+            } else {
+              module.error(error.notdouble);
+            }
+          },
+          position: function(newPos, $element) {
+            var $targetThumb = $element != undefined ? $element : $currThumb;
+            if(module.is.doubled()) {
+              if(!$targetThumb.hasClass('second'))
+                position = newPos;
+              else
+                secondPos = newPos;
+            } else {
+              position = newPos;
+            }
+            var
+              bottomThumbValue,
+              trackPosValue,
+              trackFillWidth = module.is.doubled() ? Math.abs(position - secondPos) : newPos
+            ;
             if (module.is.vertical()) {
-              if (module.is.reversed())
-                $thumb.css({bottom: String(value - offset) + 'px'});
-              else
-                $thumb.css({top: String(value - offset) + 'px'});
-              $trackFill.css({height: String(value) + 'px'});
+              if (module.is.reversed()) {
+                $targetThumb.css({bottom: String(newPos - offset) + 'px'});
+                if(module.is.doubled())
+                  trackPosValue = {bottom: String(parseFloat(module.determine.closestThumbPos(0)) + offset) + 'px'};
+              }
+              else {
+                $targetThumb.css({top: String(newPos - offset) + 'px'});
+                if(module.is.doubled())
+                  trackPosValue = {top: String(parseFloat(module.determine.closestThumbPos(0)) + offset) + 'px'};
+              }
+              $trackFill.css(Object.assign({height: String(trackFillWidth) + 'px'}, trackPosValue));
             } else {
-              if (module.is.reversed())
-                $thumb.css({right: String(value - offset) + 'px'});
-              else
-                $thumb.css({left: String(value - offset) + 'px'});
-              $trackFill.css({width: String(value) + 'px'});
+              if (module.is.reversed()) {
+                $targetThumb.css({right: String(newPos - offset) + 'px'});
+                if(module.is.doubled())
+                  trackPosValue = {right: String(parseFloat(module.determine.closestThumbPos(0)) + offset) + 'px'};
+              }
+              else {
+                $targetThumb.css({left: String(newPos - offset) + 'px'});
+                if(module.is.doubled())
+                  trackPosValue = {left: String(parseFloat(module.determine.closestThumbPos(0)) + offset) + 'px'};
+              }
+              $trackFill.css(Object.assign({width: String(trackFillWidth) + 'px'}, trackPosValue));
             }
-            position = value;
-            module.debug('Setting range position to ' + value);
+            module.debug('Setting range position to ' + newPos);
           },
-          positionBasedValue: function(value) {
+        },
+
+        update: {
+          value: function(newValue, callback) {
             var
-              min = module.get.min(),
-              max = module.get.max(),
-              position
-            ;
-            if(value >= min && value <= max) {
-              position = module.determine.positionFromValue(value);
-            } else if (value <= min) {
-              position = module.determine.positionFromValue(min);
-              value = min;
-            } else {
-              position = module.determine.positionFromValue(max);
-              value = max;
-            }
-            module.set.position(position);
-            module.set.value(value);
-          },
-          valueMoveToValueBasedPosition: function(position) {
-            var
-              value = module.determine.value(position),
-              min = module.get.min(),
-              max = module.get.max(),
-              pos
-            ;
-            if (value <= min) {
-              value = min;
-            } else if (value >= max){
-              value = max;
-            }
-            pos = module.determine.positionFromValue(value);
-            module.set.value(value);
-            module.set.position(pos);
-          },
-          valueBasedPosition: function(position) {
-            var
-              value = module.determine.value(position),
               min = module.get.min(),
               max = module.get.max()
             ;
-            if(value >= min && value <= max) {
-              module.set.position(position);
-            } else if (value <= min) {
-              module.goto.min();
-              value = min;
-            } else {
-              module.goto.max();
-              value = max;
+            if (newValue <= min) {
+              newValue = min;
+            } else if(newValue >= max){
+              newValue = max;
             }
-            module.set.value(value);
-          },
+            if(!module.is.doubled()) {
+              position = module.handleNewValuePosition(newValue);
+              module.set.position(position);
+              value = newValue;
+              module.thumbVal = value;
+            } else {
+              var newPos = module.handleNewValuePosition(newValue);
+              if(!$currThumb.hasClass('second')) {
+                module.thumbVal = newValue;
+              }
+              else {
+                module.secondThumbVal = newValue;
+              }
+              module.set.position(newPos);
+              value = Math.abs(module.thumbVal - module.secondThumbVal);
+            }
+            module.debug('Setting range value to ' + value);
+            if(typeof callback === 'function')
+              callback(value);
+          }
         },
 
         goto: {
           max: function() {
-            module.set.positionBasedValue(module.get.max());
+            module.set.value(module.get.max());
           },
           min: function() {
-            module.set.positionBasedValue(module.get.min());
+            module.set.value(module.get.min());
           },
         },
 
@@ -640,19 +752,29 @@ $.fn.range = function(parameters) {
           metadata: function() {
             var
               data = {
-                value   : $module.data(metadata.value)
+                thumbVal        : $module.data(metadata.thumbVal),
+                secondThumbVal  : $module.data(metadata.secondThumbVal),
               }
             ;
-            if(data.value) {
-              module.debug('Current value set from metadata', data.value);
-              module.set.value(data.value);
-              module.set.positionBasedValue(data.value);
+            if(data.thumbVal) {
+              if(module.is.doubled() && data.secondThumbVal) {
+                module.debug('Current value set from metadata', data.thumbVal, data.secondThumbVal);
+                module.set.valueDouble(data.thumbVal, data.secondThumbVal);
+              } else {
+                module.debug('Current value set from metadata', data.thumbVal);
+                module.update.value(data.thumbVal);
+              }
             }
           },
           settings: function() {
             if(settings.start !== false) {
-              module.debug('Start position set from settings', settings.start);
-              module.set.positionBasedValue(settings.start);
+              if(module.is.doubled()) {
+                module.debug('Start position set from settings', settings.start, settings.doubleStart);
+                module.set.valueDouble(settings.start, settings.doubleStart);
+              } else {
+                module.debug('Start position set from settings', settings.start);
+                module.update.value(settings.start);
+              }
             }
           }
         },
@@ -855,18 +977,20 @@ $.fn.range.settings = {
   namespace    : 'range',
 
   error    : {
-    method : 'The method you called is not defined.',
+    method    : 'The method you called is not defined.',
+    notdouble : 'This slider is not a double slider'
   },
 
   metadata: {
-    value : 'value'
+    thumbVal        : 'thumbVal',
+    secondThumbVal  : 'secondThumbVal',
   },
 
   min          : 0,
   max          : 20,
   step         : 1,
   start        : 0,
-  input        : false,
+  doubleStart  : 1,
   labelType    : 'number',
 
   //the decimal place to round to if step is undefined
@@ -879,7 +1003,8 @@ $.fn.range.settings = {
     reversed : 'reversed',
     disabled : 'disabled',
     labeled  : 'labeled',
-    vertical : 'vertical'
+    vertical : 'vertical',
+    doubled   : 'double',
   },
 
   keys : {
