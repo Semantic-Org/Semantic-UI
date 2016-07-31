@@ -77,7 +77,7 @@
     "gulp-uglify": "^1.5.3",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
-    "jquery": "^2.2.3",
+    "jquery": "^2.2.3 || ^3.0.0",
     "map-stream": "^0.1.0",
     "merge-stream": "^1.0.0",
     "mkdirp": "^0.5.1",

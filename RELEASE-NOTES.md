@@ -7,6 +7,7 @@
 - **Dropdown** - Using `search selection` with `selectOnKeydown` will now highlight the partial search matching the currently keyboard selected value
 
 **Bugs**
+- **NPM** - Fixed `package.json` to allow either jQuery `2.x` or `3.x` #4254
 - **Button/Dropdown** - Fixed issue where `ui dropdown button` could have incorrect spacing for dropdown icon
 - **Button** - Fixed `vertical buttons` with only 1 button having incorrect border radius **Thanks @Denhai** #4107
 - **Grid** - Fixed issue where `(x) aligned column` inside a `(x) aligned row` would not properly apply the `column` alignment
