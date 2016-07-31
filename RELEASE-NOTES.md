@@ -14,6 +14,7 @@
 - **Dropdown** - Fixed typo causing selectObserver mutation observer not to disconnect **Thanks @Paklausk** #4311
 - **Form** - `input` styles now apply to `type="file"` **thanks @coldfire79** #4074
 - **Icon** - Fixes `talk` icon not working correctly **Thanks @anantogosh** #4354
+- **Transition** - Removed unreachable code **Thanks @basarat** #4225
 
 ### Version 2.2.2 - July 07, 2016
 
