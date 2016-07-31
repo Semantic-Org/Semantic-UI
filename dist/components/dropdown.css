@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.0 - Dropdown
+ * # Semantic UI 2.2.2 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -539,7 +539,7 @@ select.ui.dropdown {
   background: none transparent !important;
   border: none !important;
   box-shadow: none !important;
-  cursor: pointer;
+  cursor: text;
   top: 0em;
   left: 0em;
   width: 100%;

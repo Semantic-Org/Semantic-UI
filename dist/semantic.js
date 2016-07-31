@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 2.2.0
+ * # Semantic UI - 2.2.2
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -9,7 +9,7 @@
  *
  */
 /*!
- * # Semantic UI 2.2.0 - Site
+ * # Semantic UI 2.2.2 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -497,7 +497,7 @@ $.extend($.expr[ ":" ], {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - Form Validation
+ * # Semantic UI 2.2.2 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2050,7 +2050,7 @@ $.fn.form.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - Accordion
+ * # Semantic UI 2.2.2 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2661,7 +2661,7 @@ $.extend( $.easing, {
 
 
 /*!
- * # Semantic UI 2.2.0 - Checkbox
+ * # Semantic UI 2.2.2 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3493,7 +3493,7 @@ $.fn.checkbox.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - Dimmer
+ * # Semantic UI 2.2.2 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3577,6 +3577,7 @@ $.fn.dimmer = function(parameters) {
             else {
               $dimmer = module.create();
             }
+            module.set.variation();
           }
         },
 
@@ -3667,10 +3668,6 @@ $.fn.dimmer = function(parameters) {
           var
             $element = $( settings.template.dimmer() )
           ;
-          if(settings.variation) {
-            module.debug('Creating dimmer with variation', settings.variation);
-            $element.addClass(settings.variation);
-          }
           if(settings.dimmerName) {
             module.debug('Creating named dimmer', settings.dimmerName);
             $element.addClass(settings.dimmerName);
@@ -4205,7 +4202,7 @@ $.fn.dimmer.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - Dropdown
+ * # Semantic UI 2.2.2 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -5502,15 +5499,13 @@ $.fn.dropdown = function(parameters) {
                 hasSelectedItem       = ($selectedItem.length > 0),
                 selectedIsSelectable  = ($selectedItem.not(selector.unselectable).length > 0),
                 delimiterPressed      = (pressedKey == keys.delimiter && settings.allowAdditions && module.is.multiple()),
-                isAdditionWithoutMenu = (settings.allowAdditions && settings.hideAdditions && (pressedKey == keys.enter || delimiterPressed)),
+                isAdditionWithoutMenu = (settings.allowAdditions && settings.hideAdditions && (pressedKey == keys.enter || delimiterPressed) && selectedIsSelectable),
                 $nextItem,
                 isSubMenuItem,
                 newIndex
               ;
-
               // allow selection with menu closed
               if(isAdditionWithoutMenu) {
-                $selectedItem = $menu.children(selector.addition);
                 module.verbose('Selecting item from keyboard shortcut', $selectedItem);
                 module.event.item.click.call($selectedItem, event);
                 if(module.is.searchSelection()) {
@@ -6777,7 +6772,6 @@ $.fn.dropdown = function(parameters) {
               return;
             }
             if(value === '' || alreadyHasValue) {
-              console.log('removing addition');
               $addition.remove();
               return;
             }
@@ -6802,7 +6796,6 @@ $.fn.dropdown = function(parameters) {
               $addition
                 .prependTo($menu)
               ;
-              $item.add($addition);
               module.verbose('Adding item choice to menu corresponding with user choice addition', $addition);
             }
             if(!settings.hideAdditions || module.is.allFiltered()) {
@@ -6812,6 +6805,7 @@ $.fn.dropdown = function(parameters) {
                 .removeClass(className.selected)
               ;
             }
+            module.refreshItems();
           },
           variables: function(message, term) {
             var
@@ -7926,7 +7920,7 @@ $.fn.dropdown.settings.templates = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - Embed
+ * # Semantic UI 2.2.2 - Embed
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8623,7 +8617,7 @@ $.fn.embed.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - Modal
+ * # Semantic UI 2.2.2 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9531,7 +9525,7 @@ $.fn.modal.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - Nag
+ * # Semantic UI 2.2.2 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10039,7 +10033,7 @@ $.extend( $.easing, {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - Popup
+ * # Semantic UI 2.2.2 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11513,7 +11507,7 @@ $.fn.popup.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - Progress
+ * # Semantic UI 2.2.2 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12424,7 +12418,7 @@ $.fn.progress.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - Rating
+ * # Semantic UI 2.2.2 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12933,7 +12927,7 @@ $.fn.rating.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - Search
+ * # Semantic UI 2.2.2 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14332,7 +14326,7 @@ $.fn.search.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - Shape
+ * # Semantic UI 2.2.2 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14577,6 +14571,11 @@ $.fn.shape = function(parameters) {
             var
               $clone      = $module.clone().addClass(className.loading),
               $activeSide = $clone.find('.' + settings.className.active),
+              $nextSide   = (nextIndex)
+                ? $clone.find(selector.side).eq(nextIndex)
+                : ( $activeSide.next(selector.side).length > 0 )
+                  ? $activeSide.next(selector.side)
+                  : $clone.find(selector.side).first(),
               newWidth    = (settings.width == 'next')
                 ? $nextSide.outerWidth(true)
                 : (settings.width == 'initial')
@@ -14586,12 +14585,7 @@ $.fn.shape = function(parameters) {
                 ? $nextSide.outerHeight(true)
                 : (settings.height == 'initial')
                   ? $module.height()
-                  : settings.height,
-              $nextSide   = (nextIndex)
-                ? $clone.find(selector.side).eq(nextIndex)
-                : ( $activeSide.next(selector.side).length > 0 )
-                  ? $activeSide.next(selector.side)
-                  : $clone.find(selector.side).first()
+                  : settings.height
             ;
             $activeSide.removeClass(className.active);
             $nextSide.addClass(className.active);
@@ -14640,9 +14634,12 @@ $.fn.shape = function(parameters) {
             }
             if( !module.is.animating()) {
               module.debug('Flipping up', $nextSide);
+              var
+                transform = module.get.transform.up()
+              ;
               module.set.stageSize();
               module.stage.above();
-              module.animate( module.get.transform.up() );
+              module.animate(transform);
             }
             else {
               module.queue('flip up');
@@ -14656,9 +14653,12 @@ $.fn.shape = function(parameters) {
             }
             if( !module.is.animating()) {
               module.debug('Flipping down', $nextSide);
+              var
+                transform = module.get.transform.down()
+              ;
               module.set.stageSize();
               module.stage.below();
-              module.animate( module.get.transform.down() );
+              module.animate(transform);
             }
             else {
               module.queue('flip down');
@@ -14672,9 +14672,12 @@ $.fn.shape = function(parameters) {
             }
             if( !module.is.animating()) {
               module.debug('Flipping left', $nextSide);
+              var
+                transform = module.get.transform.left()
+              ;
               module.set.stageSize();
               module.stage.left();
-              module.animate(module.get.transform.left() );
+              module.animate(transform);
             }
             else {
               module.queue('flip left');
@@ -14688,9 +14691,12 @@ $.fn.shape = function(parameters) {
             }
             if( !module.is.animating()) {
               module.debug('Flipping right', $nextSide);
+              var
+                transform = module.get.transform.right()
+              ;
               module.set.stageSize();
               module.stage.right();
-              module.animate(module.get.transform.right() );
+              module.animate(transform);
             }
             else {
               module.queue('flip right');
@@ -15242,7 +15248,7 @@ $.fn.shape.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - Sidebar
+ * # Semantic UI 2.2.2 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -16279,7 +16285,7 @@ $.fn.sidebar.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - Sticky
+ * # Semantic UI 2.2.2 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17216,7 +17222,7 @@ $.fn.sticky.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - Tab
+ * # Semantic UI 2.2.2 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -18145,7 +18151,7 @@ $.fn.tab.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - Transition
+ * # Semantic UI 2.2.2 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -19236,7 +19242,7 @@ $.fn.transition.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - API
+ * # Semantic UI 2.2.2 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20404,7 +20410,7 @@ $.api.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - State
+ * # Semantic UI 2.2.2 - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21113,7 +21119,7 @@ $.fn.state.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.0 - Visibility
+ * # Semantic UI 2.2.2 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *
