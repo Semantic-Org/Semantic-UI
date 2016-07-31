@@ -1414,8 +1414,7 @@ $.fn.dropdown = function(parameters) {
                     ;
                     module.set.scrollPosition($nextItem);
                     if(settings.selectOnKeydown && module.is.single()) {
-                      module.set.activeItem($nextItem);
-                      module.set.selected(module.get.choiceValue($nextItem), $nextItem);
+                      module.set.selectedItem($nextItem);
                     }
                   }
                   event.preventDefault();
@@ -2218,6 +2217,12 @@ $.fn.dropdown = function(parameters) {
               $item.addClass(className.active);
             }
           },
+          partialSearch: function(text) {
+            var
+              length = module.get.query().length
+            ;
+            $search.val( text.substr(0 , length));
+          },
           scrollPosition: function($item, forceScroll) {
             var
               edgeTolerance = 5,
@@ -2291,6 +2296,7 @@ $.fn.dropdown = function(parameters) {
           selectedItem: function($item) {
             module.debug('Setting user selection to item', $item);
             module.remove.activeItem();
+            module.set.partialSearch(module.get.choiceText($item));
             module.set.activeItem($item);
             module.set.selected(module.get.choiceValue($item), $item);
           },
