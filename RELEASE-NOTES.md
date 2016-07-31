@@ -9,6 +9,7 @@
 - **Menu** - Fixed issue where `dropdown` in `vertical menu` would not correctly open `upward` when no space below **Thanks @gdaunton** #4150 #4156
 - **Dropdown** - `dropdown icon` no longer relies on stopping event propagation. This means using the dropdown icon will now cause other dropdowns to correctly hide. #3998
 - **Dropdown** - Fixes `action: select` not working correctly since `2.2` due to incorrect use of new function signature. #4183
+- **Dropdown** - Fixed typo causing selectObserver mutation observer not to disconnect **Thanks @Paklausk** #4311
 
 ### Version 2.2.2 - July 07, 2016
 
