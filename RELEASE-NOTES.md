@@ -5,6 +5,7 @@
 **Enhancements**
 - **Form Validation** - Bracketed notation can now be omitted for rules, instead passing in bracketed values with the `value` parameter #3313
 - **Dropdown** - Using `search selection` with `selectOnKeydown` will now highlight the partial search matching the currently keyboard selected value
+- **Modal** - Modal now includes setting to enable/disable keyboard shortcuts
 
 **Bugs**
 - **NPM** - Fixed `package.json` to allow either jQuery `2.x` or `3.x` #4254
