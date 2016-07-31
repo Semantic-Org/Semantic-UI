@@ -1554,8 +1554,19 @@ $.fn.dropdown = function(parameters) {
           },
 
           select: function(text, value, element) {
-            // mimics action.activate but does not select text
-            module.action.activate.call(element);
+            value = (value !== undefined)
+              ? value
+              : text
+            ;
+            if( module.can.activate( $(element) ) ) {
+              module.set.value(value, $(element));
+              if(module.is.multiple() && !module.is.allFiltered()) {
+                return;
+              }
+              else {
+                module.hideAndClear();
+              }
+            }
           },
 
           combo: function(text, value, element) {

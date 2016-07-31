@@ -4,6 +4,7 @@
 
 **Bugs**
 - **Dropdown** - `dropdown icon` no longer relies on stopping event propagation. This means using the dropdown icon will now cause other dropdowns to correctly hide. #3998
+- **Dropdown** - Fixes `action: select` not working correctly since `2.2` due to incorrect use of new function signature.
 
 ### Version 2.2.2 - July 07, 2016
 
