@@ -1027,7 +1027,6 @@ $.fn.range.settings = {
   },
 
   onChange : function(value){},
-  onMove   : function(value){},
 };
 
 
