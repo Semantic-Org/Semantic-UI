@@ -9,6 +9,7 @@
 **Bugs**
 - **Button/Dropdown** - Fixed issue where `ui dropdown button` could have incorrect spacing for dropdown icon
 - **Button** - Fixed `vertical buttons` with only 1 button having incorrect border radius **Thanks @Denhai** #4107
+- **Grid** - Fixed issue where `(x) aligned column` inside a `(x) aligned row` would not properly apply the `column` alignment
 - **Form** - Fixed issue where `disabled fields` with radio inputs would not correctly dim the label **Thanks @louwers** #4366
 - **Menu** - Fixed issue where `dropdown` in `vertical menu` would not correctly open `upward` when no space below **Thanks @gdaunton** #4150 #4156
 - **Dropdown** - Using `search selection with `selectOnKeydown` and text content that includes html, will not apply html content (like images) to the text until dropdown blur, making sure that content can align correctly with the partial search content of the search input (which cannot include HTML)
