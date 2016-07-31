@@ -10,6 +10,7 @@
 - **Dropdown** - `dropdown icon` no longer relies on stopping event propagation. This means using the dropdown icon will now cause other dropdowns to correctly hide. #3998
 - **Dropdown** - Fixes `action: select` not working correctly since `2.2` due to incorrect use of new function signature. #4183
 - **Dropdown** - Fixed typo causing selectObserver mutation observer not to disconnect **Thanks @Paklausk** #4311
+- **Form** - `input` styles now apply to `type="file"` **thanks @coldfire79** #4074
 
 ### Version 2.2.2 - July 07, 2016
 
