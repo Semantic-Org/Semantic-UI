@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 2.2.3 - July 31, 2016
+
+**Bugs**
+- **Dropdown** - `dropdown icon` no longer relies on stopping event propagation. This means using the dropdown icon will now cause other dropdowns to correctly hide. #3998
+
 ### Version 2.2.2 - July 07, 2016
 
 **Bugs**
