@@ -18,6 +18,9 @@
 - **Transition** - Removed unreachable code **Thanks @basarat** #4225
 - **Grid** - Fixed alignment in `centered justified grid** **Thanks @bretto36** #4224
 
+**Themes**
+- **Material** - Fixed paths to `Roboto` google font to use `https` **Thanks @AndyR207** #4051
+
 ### Version 2.2.2 - July 07, 2016
 
 **Bugs**
