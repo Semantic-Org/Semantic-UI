@@ -7,6 +7,7 @@
 
 **Bugs**
 - **Menu** - Fixed issue where `dropdown` in `vertical menu` would not correctly open `upward` when no space below **Thanks @gdaunton** #4150 #4156
+- **Dropdown** - Fixed issue where dropdown `clear` would not remove active state when `useLabels: true` and multiple dropdown #4275 #4366 **Thanks vinh123456789**
 - **Dropdown** - `dropdown icon` no longer relies on stopping event propagation. This means using the dropdown icon will now cause other dropdowns to correctly hide. #3998
 - **Dropdown** - Fixes `action: select` not working correctly since `2.2` due to incorrect use of new function signature. #4183
 - **Dropdown** - Fixed typo causing selectObserver mutation observer not to disconnect **Thanks @Paklausk** #4311

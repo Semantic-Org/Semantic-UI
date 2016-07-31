@@ -2082,7 +2082,7 @@ $.fn.dropdown = function(parameters) {
         },
 
         clear: function() {
-          if(module.is.multiple()) {
+          if(module.is.multiple() && settings.useLabels) {
             module.remove.labels();
           }
           else {
