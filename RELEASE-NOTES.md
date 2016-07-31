@@ -6,6 +6,7 @@
 - **Form Validation** - Bracketed notation can now be omitted for rules, instead passing in bracketed values with the `value` parameter #3313
 
 **Bugs**
+- **Menu** - Fixed issue where `dropdown` in `vertical menu` would not correctly open `upward` when no space below **Thanks @gdaunton** #4150 #4156
 - **Dropdown** - `dropdown icon` no longer relies on stopping event propagation. This means using the dropdown icon will now cause other dropdowns to correctly hide. #3998
 - **Dropdown** - Fixes `action: select` not working correctly since `2.2` due to incorrect use of new function signature. #4183
 
