@@ -19,6 +19,7 @@
 - **Dropdown** - Fixes `action: select` not working correctly since `2.2` due to incorrect use of new function signature. #4183
 - **Dropdown** - Fixed typo causing selectObserver mutation observer not to disconnect **Thanks @Paklausk** #4311
 - **Icon** - Fixed missing `dribbble` icon due to incorrect count of "b" (should be 3). #4185
+- **Icon** - Fixes `grab icon` and `television icon` not appearing correctly #4178
 - **Form** - `input` styles now apply to `type="file"` **thanks @coldfire79** #4074
 - **Icon** - Fixes `talk` icon not working correctly **Thanks @anantogosh** #4354
 - **Transition** - Removed unreachable code **Thanks @basarat** #4225

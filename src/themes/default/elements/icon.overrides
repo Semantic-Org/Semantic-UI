@@ -602,7 +602,7 @@ i.icon.apple:before { content: "\f179"; }
 i.icon.windows:before { content: "\f17a"; }
 i.icon.android:before { content: "\f17b"; }
 i.icon.linux:before { content: "\f17c"; }
-i.icon.dribbble:before { content: "\f17d"; }
+i.icon.dribble:before { content: "\f17d"; }
 i.icon.skype:before { content: "\f17e"; }
 i.icon.foursquare:before { content: "\f180"; }
 i.icon.trello:before { content: "\f181"; }
@@ -833,7 +833,6 @@ i.icon.rouble:before { content: "\f158"; }
 i.icon.rub:before { content: "\f158"; }
 i.icon.krw:before { content: "\f159"; }
 i.icon.btc:before { content: "\f15a"; }
-i.icon.dribble:before { content: "\f17d"; }
 i.icon.gratipay:before { content: "\f184"; }
 i.icon.zip:before { content: "\f187"; }
 i.icon.dot.circle.outline:before { content: "\f192"; }
@@ -909,11 +908,11 @@ i.icon.hourglass.one:before { content: "\f251"; }
 i.icon.hourglass.two:before { content: "\f252"; }
 i.icon.hourglass.three:before { content: "\f253"; }
 i.icon.hourglass.four:before { content: "\f254"; }
-i.icon.grab { content: "\f255"; }
+i.icon.grab:before { content: "\f255"; }
 i.icon.hand.victory:before { content: "\f25b"; }
 i.icon.tm:before { content: "\f25c"; }
 i.icon.r.circle:before { content: "\f25d"; }
-i.icon.television { content: "\f26c"; }
+i.icon.television:before { content: "\f26c"; }
 i.icon.five.hundred.pixels:before { content: "\f26e"; }
 i.icon.calendar.plus:before { content: "\f271"; }
 i.icon.calendar.minus:before { content: "\f272"; }
