@@ -152,7 +152,7 @@ module.exports = {
     concatMinify: {
       processImport       : false,
       restructuring       : false,
-      keepSpecialComments : 1,
+      keepSpecialComments : false,
       roundingPrecision   : -1,
     },
 
