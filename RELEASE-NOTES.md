@@ -6,6 +6,7 @@
 - **Form Validation** - Bracketed notation can now be omitted for rules, instead passing in bracketed values with the `value` parameter #3313
 
 **Bugs**
+- **Button** - Fixed `vertical buttons` with only 1 button having incorrect border radius **Thanks @Denhai** #4107
 - **Form** - Fixed issue where `disabled fields` with radio inputs would not correctly dim the label **Thanks @louwers** #4366
 - **Menu** - Fixed issue where `dropdown` in `vertical menu` would not correctly open `upward` when no space below **Thanks @gdaunton** #4150 #4156
 - **Dropdown** - Fixed issue where dropdown `clear` would not remove active state when `useLabels: true` and multiple dropdown #4275 #4366 **Thanks vinh123456789**
