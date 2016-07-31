@@ -15,6 +15,7 @@
 - **Form** - `input` styles now apply to `type="file"` **thanks @coldfire79** #4074
 - **Icon** - Fixes `talk` icon not working correctly **Thanks @anantogosh** #4354
 - **Transition** - Removed unreachable code **Thanks @basarat** #4225
+- **Grid** - Fixed alignment in `centered justified grid** **Thanks @bretto36** #4224
 
 ### Version 2.2.2 - July 07, 2016
 
