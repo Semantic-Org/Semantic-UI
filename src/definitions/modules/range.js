@@ -287,7 +287,10 @@ $.fn.range = function(parameters) {
               newPos = module.determine.pos(eventPos)
             ;
             if (eventPos >= module.get.trackOffset() && eventPos <= module.get.trackOffset() + module.get.trackLength()) {
-              module.set.position(newPos);
+              if(module.get.step() == 0 || settings.smooth)
+                module.set.position(newPos);
+              else
+                module.set.value(module.determine.value(newPos));
             }
           },
           up: function(event, originalEvent) {
@@ -992,6 +995,7 @@ $.fn.range.settings = {
   start        : 0,
   doubleStart  : 1,
   labelType    : 'number',
+  smooth       : false,
 
   //the decimal place to round to if step is undefined
   decimalPlaces  : 2,
@@ -1023,7 +1027,7 @@ $.fn.range.settings = {
   },
 
   onChange : function(value){},
-
+  onMove   : function(value){},
 };
 
 
