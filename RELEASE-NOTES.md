@@ -2,9 +2,12 @@
 
 ### Version 2.2.3 - July 31, 2016
 
+**Enhancements**
+- **Form Validation** - Bracketed notation can now be omitted for rules, instead passing in bracketed values with the `value` parameter #3313
+
 **Bugs**
 - **Dropdown** - `dropdown icon` no longer relies on stopping event propagation. This means using the dropdown icon will now cause other dropdowns to correctly hide. #3998
-- **Dropdown** - Fixes `action: select` not working correctly since `2.2` due to incorrect use of new function signature.
+- **Dropdown** - Fixes `action: select` not working correctly since `2.2` due to incorrect use of new function signature. #4183
 
 ### Version 2.2.2 - July 07, 2016
 

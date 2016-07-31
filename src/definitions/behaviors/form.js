@@ -886,7 +886,6 @@ $.fn.form = function(parameters) {
               ? ''
               : $.trim(value + '')
             ;
-            console.log(rule, ancillary);
             return ruleFunction.call($field, value, ancillary);
           }
         },
