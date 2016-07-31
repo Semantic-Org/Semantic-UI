@@ -2581,9 +2581,6 @@ i.icon.exclamation.triangle:before {
 i.icon.shuffle:before {
   content: "\f074";
 }
-i.icon.talk:before {
-  content: "\f075";
-}
 i.icon.chat:before {
   content: "\f075";
 }
@@ -3049,7 +3046,7 @@ i.icon.hourglass.three:before {
 i.icon.hourglass.four:before {
   content: "\f254";
 }
-i.icon.grab {
+i.icon.grab:before {
   content: "\f255";
 }
 i.icon.hand.victory:before {
@@ -3061,7 +3058,7 @@ i.icon.tm:before {
 i.icon.r.circle:before {
   content: "\f25d";
 }
-i.icon.television {
+i.icon.television:before {
   content: "\f26c";
 }
 i.icon.five.hundred.pixels:before {
