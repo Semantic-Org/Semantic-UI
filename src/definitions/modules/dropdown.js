@@ -2083,12 +2083,12 @@ $.fn.dropdown = function(parameters) {
 
         clear: function() {
           if(module.is.multiple()) {
-            module.remove.labels();
+            module.remove.labels();            
           }
-          else {
-            module.remove.activeItem();
+          else {            
             module.remove.selectedItem();
           }
+          module.remove.activeItem();
           module.set.placeholderText();
           module.clearValue();
         },
