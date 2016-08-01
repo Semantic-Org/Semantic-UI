@@ -155,8 +155,16 @@ $.fn.range = function(parameters) {
               position
             ;
             $children.each(function(index) {
-              ratio = ((index+1)/(numChildren+1));
-              position = module.determine.positionFromRatio(ratio);
+              var
+                $child = $(this),
+                attrValue = $child.attr('data-value')
+              ;
+              if(attrValue) {
+                position = module.determine.positionFromValue(attrValue)
+              } else {
+                ratio = ((index+1)/(numChildren+1));
+                position = module.determine.positionFromRatio(ratio);
+              }
               var posDir =
                 module.is.vertical()
                 ?
@@ -542,6 +550,7 @@ $.fn.range = function(parameters) {
             var
               min = module.get.min(),
               max = module.get.max(),
+              value = value > max ? max : value < min ? min : value,
               trackLength = module.get.trackLength(),
               ratio = (value - min) / (max - min),
               position = Math.round(ratio * trackLength)
