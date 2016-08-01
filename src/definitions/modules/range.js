@@ -298,7 +298,7 @@ $.fn.range = function(parameters) {
               if(module.get.step() == 0 || settings.smooth)
                 module.set.position(newPos);
               else
-                module.set.value(module.determine.value(newPos));
+                module.update.value(module.determine.value(newPos));
             }
           },
           up: function(event, originalEvent) {
