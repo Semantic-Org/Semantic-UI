@@ -295,10 +295,14 @@ $.fn.range = function(parameters) {
               newPos = module.determine.pos(eventPos)
             ;
             if (eventPos >= module.get.trackOffset() && eventPos <= module.get.trackOffset() + module.get.trackLength()) {
-              if(module.get.step() == 0 || settings.smooth)
+              if(module.get.step() == 0 || settings.smooth) {
                 module.set.position(newPos);
-              else
-                module.update.value(module.determine.value(newPos));
+                settings.onMove.call(element, module.determine.value(newPos));
+              } else {
+                module.update.value(module.determine.value(newPos), function() {
+                  settings.onMove.call(element, value);
+                });
+              }
             }
           },
           up: function(event, originalEvent) {
@@ -1036,6 +1040,7 @@ $.fn.range.settings = {
   },
 
   onChange : function(value){},
+  onMove   : function(value){},
 };
 
 
