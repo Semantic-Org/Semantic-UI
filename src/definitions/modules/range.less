@@ -71,12 +71,12 @@
   transition: @thumbTransition;
 }
 
-.ui.range .inner .thumb:hover {
+.ui.range:not(.disabled) .inner .thumb:hover {
   pointer: @thumbHoverPointer;
   background: @thumbHoverBackground;
 }
 
-.ui.range:focus .inner .thumb {
+.ui.range:not(.disabled):focus .inner .thumb {
   background: @thumbHoverBackground;
 }
 
@@ -226,7 +226,7 @@
   transition: @hoverOpacityTransition;
 }
 
-.ui.hover.range:hover .inner .thumb, .ui.hover.range:focus .inner .thumb {
+.ui.hover.range:not(.disabled):hover .inner .thumb, .ui.hover.range:not(.disabled):focus .inner .thumb {
   opacity: @hoverVarHoverOpacity;
 }
 
