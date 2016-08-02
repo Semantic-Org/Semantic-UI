@@ -163,5 +163,79 @@ input::selection {
   color: @inputHighlightColor;
 }
 
+/*----------------------
+     Only (Device)
+-----------------------*/
+
+/* Mobile Only Hide */
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui[class*="tablet only"]:not(.mobile) {
+    display: none !important;
+  }
+  .ui[class*="computer only"]:not(.mobile) {
+    display: none !important;
+  }
+  .ui[class*="large screen only"]:not(.mobile) {
+    display: none !important;
+  }
+  .ui[class*="widescreen only"]:not(.mobile) {
+    display: none !important;
+  }
+}
+/* Tablet Only Hide */
+@media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
+  .ui[class*="mobile only"]:not(.tablet) {
+    display: none !important;
+  }
+  .ui[class*="computer only"]:not(.tablet) {
+    display: none !important;
+  }
+  .ui[class*="large screen only"]:not(.mobile) {
+    display: none !important;
+  }
+  .ui[class*="widescreen only"]:not(.mobile) {
+    display: none !important;
+  }
+}
+
+/* Computer Only Hide */
+@media only screen and (min-width: @computerBreakpoint) and (max-width: @largestSmallMonitor) {
+  .ui[class*="mobile only"]:not(.computer) {
+    display: none !important;
+  }
+  .ui[class*="tablet only"]:not(.computer) {
+    display: none !important;
+  }
+  .ui[class*="large screen only"]:not(.mobile) {
+    display: none !important;
+  }
+  .ui[class*="widescreen only"]:not(.mobile) {
+    display: none !important;
+  }
+}
+
+/* Large Screen Only Hide */
+@media only screen and (min-width: @largeMonitorBreakpoint) and (max-width: @largestLargeMonitor) {
+  .ui[class*="mobile only"]:not(.computer) {
+    display: none !important;
+  }
+  .ui[class*="tablet only"]:not(.computer) {
+    display: none !important;
+  }
+  .ui[class*="widescreen only"]:not(.mobile) {
+    display: none !important;
+  }
+}
+
+/* Widescreen Only Hide */
+@media only screen and (min-width: @widescreenMonitorBreakpoint) {
+  .ui[class*="mobile only"]:not(.computer) {
+    display: none !important;
+  }
+  .ui[class*="tablet only"]:not(.computer) {
+    display: none !important;
+  }
+}
+
 
 .loadUIOverrides();
