@@ -23,9 +23,14 @@
 - **Icon** - Fixed missing `dribbble` icon due to incorrect count of "b" (should be 3). #4185
 - **Icon** - Fixes `grab icon` and `television icon` not appearing correctly #4178
 - **Form** - `input` styles now apply to `type="file"` **thanks @coldfire79** #4074
+- **Popup/Menu** - Fixed issue where popup would not appear correctly when nested in menu in some ways.
 - **Icon** - Fixes `talk` icon not working correctly **Thanks @anantogosh** #4354
 - **Transition** - Removed unreachable code **Thanks @basarat** #4225
 - **Grid** - Fixed alignment in `centered justified grid** **Thanks @bretto36** #4224
+
+**Docs**
+- **Icons** - Fixed some duplicate icons (External) and mispelled icons (Dribbble)
+- **Popup** - Fixed popup in menu example
 
 **Themes**
 - **Material** - Fixed paths to `Roboto` google font to use `https` **Thanks @AndyR207** #4051
