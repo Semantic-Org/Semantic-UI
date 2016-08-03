@@ -448,7 +448,11 @@ $.fn.dropdown = function(parameters) {
 
         toggle: function() {
           module.verbose('Toggling menu visibility');
-          if( !module.is.active() ) {
+          if (settings.apiSettings && !module.is.active()) {
+            module.focusSearch();
+            module.search();
+          }
+          else if( !module.is.active() ) {
             module.show();
           }
           else {
