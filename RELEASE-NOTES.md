@@ -27,6 +27,7 @@
 - **Icon** - Fixes `talk` icon not working correctly **Thanks @anantogosh** #4354
 - **Transition** - Removed unreachable code **Thanks @basarat** #4225
 - **Grid** - Fixed alignment in `centered justified grid** **Thanks @bretto36** #4224
+- **Popup** - Fixed issue where `observeChanges: false` setting in popup would not prevent mutation observers
 
 **Docs**
 - **Icons** - Fixed some duplicate icons (External) and mispelled icons (Dribbble)
