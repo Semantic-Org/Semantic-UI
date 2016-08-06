@@ -74,6 +74,7 @@ $.fn.range = function(parameters) {
         offset,
         precision,
         isTouch,
+        sliderObserver,
 
         module
       ;
@@ -91,6 +92,7 @@ $.fn.range = function(parameters) {
           module.read.metadata();
           module.read.settings();
 
+          module.observeChanges();
           module.instantiate();
           settings.onChange.call(element, value);
         },
@@ -109,7 +111,24 @@ $.fn.range = function(parameters) {
           module.unbind.events();
           module.unbind.slidingEvents();
           $module.removeData(moduleNamespace);
+          module.disconnect.sliderObserver();
           instance = undefined;
+        },
+
+        observeChanges: function() {
+          if('MutationObserver' in window) {
+            sliderObserver = new MutationObserver(module.event.resize);
+            module.debug('Setting up mutation observer', sliderObserver);
+            module.observe.slider();
+          }
+        },
+
+        observe: {
+          slider: function() {
+            sliderObserver.observe($module[0], {
+              attributes: true,
+            });
+          },
         },
 
         setup: {
@@ -202,11 +221,15 @@ $.fn.range = function(parameters) {
         bind: {
           events: function() {
             module.bind.globalKeyboardEvents();
+            module.bind.resizeListener();
             module.bind.keyboardEvents();
             module.bind.mouseEvents();
             if(module.is.touch()) {
               module.bind.touchEvents();
             }
+          },
+          resizeListener: function() {
+            $(window).on('resize' + eventNamespace, module.event.resize);
           },
           keyboardEvents: function() {
             module.verbose('Binding keyboard events');
@@ -262,6 +285,7 @@ $.fn.range = function(parameters) {
             $module.off('touchstart' + eventNamespace);
             $module.off('keydown' + eventNamespace);
             $module.off('focusout' + eventNamespace);
+            $(window).off('resize' + eventNamespace);
           },
           slidingEvents: function() {
             if(module.is.touch()) {
@@ -276,6 +300,9 @@ $.fn.range = function(parameters) {
         },
 
         event: {
+          resize: function(event) {
+            module.resync();
+          },
           down: function(event, originalEvent) {
             event.preventDefault();
             if(module.is.doubled()) {
@@ -296,7 +323,7 @@ $.fn.range = function(parameters) {
             ;
             if (eventPos >= module.get.trackOffset() && eventPos <= module.get.trackOffset() + module.get.trackLength()) {
               if(module.get.step() == 0 || settings.smooth) {
-                module.set.position(newPos);
+                module.update.position(newPos);
                 settings.onMove.call(element, module.determine.value(newPos));
               } else {
                 module.update.value(module.determine.value(newPos), function() {
@@ -350,6 +377,13 @@ $.fn.range = function(parameters) {
           },
         },
 
+        resync: function() {
+          module.verbose('Resyncing thumb position based on value');
+          if(module.is.doubled()) {
+            module.update.position(module.determine.positionFromValue(module.secondThumbVal), $secondThumb);
+          }
+          module.update.position(module.determine.positionFromValue(module.thumbVal), $thumb);
+        },
         takeStep: function(multiplier) {
           var
             multiplier = multiplier != undefined ? multiplier : 1,
@@ -670,13 +704,58 @@ $.fn.range = function(parameters) {
               module.thumbVal = first;
               module.secondThumbVal = second;
               position = module.handleNewValuePosition(module.thumbVal);
-              module.set.position(position, $thumb)
+              module.update.position(position, $thumb)
               secondPos = module.handleNewValuePosition(module.secondThumbVal);
-              module.set.position(secondPos, $secondThumb);
+              module.update.position(secondPos, $secondThumb);
               value = Math.abs(module.thumbVal - module.secondThumbVal);
             } else {
               module.error(error.notdouble);
             }
+          },
+          position: function(position, which) {
+            switch (which) {
+              case 'first':
+                module.update.position(position);
+                break;
+              case 'second':
+                module.update.position(position, $secondThumb);
+                break;
+              default:
+                module.update.position(position);
+            }
+          }
+        },
+
+        update: {
+          value: function(newValue, callback) {
+            var
+              min = module.get.min(),
+              max = module.get.max()
+            ;
+            if (newValue <= min) {
+              newValue = min;
+            } else if(newValue >= max){
+              newValue = max;
+            }
+            if(!module.is.doubled()) {
+              position = module.handleNewValuePosition(newValue);
+              module.update.position(position);
+              value = newValue;
+              module.thumbVal = value;
+            } else {
+              var newPos = module.handleNewValuePosition(newValue);
+              if(!$currThumb.hasClass('second')) {
+                module.thumbVal = newValue;
+              }
+              else {
+                module.secondThumbVal = newValue;
+              }
+              module.update.position(newPos);
+              value = Math.abs(module.thumbVal - module.secondThumbVal);
+            }
+            module.debug('Setting range value to ' + value);
+            if(typeof callback === 'function')
+              callback(value);
           },
           position: function(newPos, $element) {
             var $targetThumb = $element != undefined ? $element : $currThumb;
@@ -720,39 +799,6 @@ $.fn.range = function(parameters) {
             }
             module.debug('Setting range position to ' + newPos);
           },
-        },
-
-        update: {
-          value: function(newValue, callback) {
-            var
-              min = module.get.min(),
-              max = module.get.max()
-            ;
-            if (newValue <= min) {
-              newValue = min;
-            } else if(newValue >= max){
-              newValue = max;
-            }
-            if(!module.is.doubled()) {
-              position = module.handleNewValuePosition(newValue);
-              module.set.position(position);
-              value = newValue;
-              module.thumbVal = value;
-            } else {
-              var newPos = module.handleNewValuePosition(newValue);
-              if(!$currThumb.hasClass('second')) {
-                module.thumbVal = newValue;
-              }
-              else {
-                module.secondThumbVal = newValue;
-              }
-              module.set.position(newPos);
-              value = Math.abs(module.thumbVal - module.secondThumbVal);
-            }
-            module.debug('Setting range value to ' + value);
-            if(typeof callback === 'function')
-              callback(value);
-          }
         },
 
         goto: {
