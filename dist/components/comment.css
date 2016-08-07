@@ -224,27 +224,10 @@
   -webkit-transition-delay: 0.1s;
           transition-delay: 0.1s;
 }
+
 .ui.minimal.comments .comment > .content:hover > .actions {
   opacity: 1;
 }
-
-/*--------------------
-       Sizes
----------------------*/
-
-.ui.small.comments {
-  font-size: 0.9em;
-}
-.ui.comments {
-  font-size: 1em;
-}
-.ui.large.comments {
-  font-size: 1.1em;
-}
-.ui.huge.comments {
-  font-size: 1.2em;
-}
-
 
 /*******************************
          Theme Overrides
