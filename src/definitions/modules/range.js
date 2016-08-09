@@ -222,7 +222,7 @@ $.fn.range = function(parameters) {
                     :
                     module.is.reversed() ? 'right' : 'left'
                 ;
-                $label.css(position, module.determine.positionFromValue((i+1) * module.get.step()));
+                $label.css(position, module.determine.positionFromValue((i+1) * module.get.step() + module.get.min()));
                 $labels.append($label);
               }
             }
@@ -512,9 +512,9 @@ $.fn.range = function(parameters) {
           label: function(value) {
             switch (settings.labelType) {
               case settings.labelTypes.number:
-                return value * module.get.step();
+                return (value * module.get.step()) + module.get.min();
               case settings.labelTypes.letter:
-                return alphabet[value-1];
+                return alphabet[(value-1)%26];
               case settings.labelTypes.none:
                 return '';
               default:
@@ -640,7 +640,7 @@ $.fn.range = function(parameters) {
             // (like 35 * .01 = 0.35000000000000003)
             difference = Math.round(difference * precision) / precision;
             module.verbose('Cutting off additional decimal places')
-            return difference - module.get.min();
+            return difference + module.get.min();
           },
           keyMovement: function(event) {
             var
