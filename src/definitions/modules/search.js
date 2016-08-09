@@ -394,10 +394,10 @@ $.fn.search = function(parameters) {
         get: {
           inputEvent: function() {
             var
-              prompt = $prompt[0],
-              inputEvent   = (prompt !== undefined && prompt.oninput !== undefined)
+              prompt     = $prompt[0],
+              inputEvent = (prompt != undefined && prompt.oninput != undefined)
                 ? 'input'
-                : (prompt !== undefined && prompt.onpropertychange !== undefined)
+                : (prompt != undefined && prompt.onpropertychange != undefined)
                   ? 'propertychange'
                   : 'keyup'
             ;
