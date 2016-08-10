@@ -5,9 +5,9 @@
 @width: 1em;
 @height: 1em;
 
-@small: 18px;
-@medium: 24px;
-@large: 48px;
-@big : 66px;
-@huge: 82px;
-@massive: 98px;
+@small: 13px;
+@medium: 16px;
+@large: 18px;
+@big : 20px;
+@huge: 28px;
+@massive: 32px;
