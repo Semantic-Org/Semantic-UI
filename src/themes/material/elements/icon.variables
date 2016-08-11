@@ -1,7 +1,3 @@
-@fontPath: '../../themes/innohead/assets/fonts';
-@fontName: 'MaterialIcons-Regular';
-@fallbackSRC: '';
-
 @width: 1em;
 @height: 1em;
 
