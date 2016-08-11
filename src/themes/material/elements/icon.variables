@@ -1,3 +1,5 @@
+@fontPath  : '../../themes/material/assets/fonts';
+
 @width: 1em;
 @height: 1em;
 
