@@ -618,11 +618,18 @@ $.fn.range = function(parameters) {
             return adjustedPos;
           },
           eventPos: function(event, originalEvent) {
-            if (module.is.vertical()) {
-              return module.is.touch() ? originalEvent.originalEvent.touches[0].pageY : (typeof event.pageY != 'undefined') ? event.pageY : originalEvent.pageY;
-            } else {
-              return module.is.touch() ? originalEvent.originalEvent.touches[0].pageX : (typeof event.pageX != 'undefined') ? event.pageX : originalEvent.pageX;
+            if(module.is.touch()) {
+              var
+                touchY = event.originalEvent.touches[0].pageY || event.originalEvent.changedTouches[0].pageY,
+                touchX = event.originalEvent.touches[0].pageX || event.originalEvent.changedTouches[0].pageX
+              ;
+              return module.is.vertical() ? touchY : touchX;
             }
+            var
+              clickY = event.pageY || originalEvent.pageY,
+              clickX = event.pageX || originalEvent.pageX
+            ;
+            return module.is.vertical() ? clickY : clickX;
           },
           value: function(position) {
             var
