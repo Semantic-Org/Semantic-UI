@@ -56,11 +56,11 @@
 @nag        : 'default';
 @popup      : 'default';
 @progress   : 'default';
-@range      : 'default';
 @rating     : 'default';
 @search     : 'default';
 @shape      : 'default';
 @sidebar    : 'default';
+@slider     : 'default';
 @sticky     : 'default';
 @tab        : 'default';
 @transition : 'default';
