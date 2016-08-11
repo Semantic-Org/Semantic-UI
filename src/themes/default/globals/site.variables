@@ -733,7 +733,7 @@
 @lightPinkHover       : saturate(darken(@lightPink, 5), 10, relative);
 @lightBrownHover      : saturate(darken(@lightBrown, 5), 10, relative);
 @lightGreyHover       : saturate(darken(@lightGrey, 5), 10, relative);
-@lightBlackHover      : saturate(darken(@fullBlack, 5), 10, relative);
+@lightBlackHover      : saturate(darken(@lightBlack, 5), 10, relative);
 
 /*---  Emotive  ---*/
 @positiveColorHover   : saturate(darken(@positiveColor, 5), 10, relative);
