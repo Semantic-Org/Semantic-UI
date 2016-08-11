@@ -9,6 +9,7 @@
 - **Modal** - Modal will now focus first tabable element, not just `input` #4370
 
 **Bugs**
+- **Comments** - Adds missing sizes (mini, tiny etc) #4408
 - **NPM** - Fixed `package.json` to allow either jQuery `2.x` or `3.x` #4254
 - **Button/Dropdown** - Fixed issue where `ui dropdown button` could have incorrect spacing for dropdown icon
 - **Form/Segment** - Fix typo causing `pointer-events: none` no to work on `loading segment` and `loading form`
