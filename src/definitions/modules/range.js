@@ -36,6 +36,10 @@ $.fn.range = function(parameters) {
     SINGLE_BACKSTEP = -1,
     BIG_BACKSTEP    = -2,
 
+    // used to manage docuemnt bound events.
+    // Use this so that we can distinguish between which document events are bound to which range.
+    currentRange    = 0,
+
     returnedValue
   ;
 
@@ -68,6 +72,8 @@ $.fn.range = function(parameters) {
         element         = this,
         instance        = $module.data(moduleNamespace),
 
+        docuementEventIdentifier,
+
         value,
         position,
         secondPos,
@@ -83,6 +89,10 @@ $.fn.range = function(parameters) {
 
         initialize: function() {
           module.debug('Initializing range slider', settings);
+
+          currentRange += 1;
+          docuementEventIdentifier = currentRange;
+
           isTouch = module.setup.testOutTouch();
           module.setup.layout();
 
@@ -247,7 +257,7 @@ $.fn.range = function(parameters) {
             $module.on('keydown' + eventNamespace, module.event.keydown);
           },
           globalKeyboardEvents: function() {
-            $(document).on('keydown' + eventNamespace, module.event.activateFocus);
+            $(document).on('keydown' + eventNamespace + docuementEventIdentifier, module.event.activateFocus);
           },
           mouseEvents: function() {
             module.verbose('Binding mouse events');
@@ -274,6 +284,7 @@ $.fn.range = function(parameters) {
             $module.on('touchstart' + eventNamespace, module.event.down);
           },
           slidingEvents: function() {
+            // these don't need the identifier because we only ever want one of them to be registered with document
             module.verbose('Binding page wide events while handle is being draged');
             if(module.is.touch()) {
               $(document).on('touchmove' + eventNamespace, module.event.move);
@@ -297,13 +308,13 @@ $.fn.range = function(parameters) {
             $module.off('keydown' + eventNamespace);
             $module.off('focusout' + eventNamespace);
             $(window).off('resize' + eventNamespace);
+            $(document).off('keydown' + eventNamespace + docuementEventIdentifier, module.event.activateFocus);
           },
           slidingEvents: function() {
             if(module.is.touch()) {
               $(document).off('touchmove' + eventNamespace);
               $(document).off('touchend' + eventNamespace);
-            }
-            else {
+            } else {
               $(document).off('mousemove' + eventNamespace);
               $(document).off('mouseup' + eventNamespace);
             }
@@ -620,8 +631,8 @@ $.fn.range = function(parameters) {
           eventPos: function(event, originalEvent) {
             if(module.is.touch()) {
               var
-                touchY = event.originalEvent.touches[0].pageY || event.originalEvent.changedTouches[0].pageY,
-                touchX = event.originalEvent.touches[0].pageX || event.originalEvent.changedTouches[0].pageX
+                touchY = event.changedTouches[0].pageY || event.touches[0].pageY,
+                touchX = event.changedTouches[0].pageX || event.touches[0].pageX
               ;
               return module.is.vertical() ? touchY : touchX;
             }
