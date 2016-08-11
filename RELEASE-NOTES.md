@@ -11,6 +11,7 @@
 **Bugs**
 - **NPM** - Fixed `package.json` to allow either jQuery `2.x` or `3.x` #4254
 - **Button/Dropdown** - Fixed issue where `ui dropdown button` could have incorrect spacing for dropdown icon
+- **Form/Segment** - Fix typo causing `pointer-events: none` no to work on `loading segment` and `loading form`
 - **Button** - Fixed `vertical buttons` with only 1 button having incorrect border radius **Thanks @Denhai** #4107
 - **Grid** - Fixed issue where `(x) aligned column` inside a `(x) aligned row` would not properly apply the `column` alignment
 - **Form** - Fixed issue where `disabled fields` with radio inputs would not correctly dim the label **Thanks @louwers** #4366
