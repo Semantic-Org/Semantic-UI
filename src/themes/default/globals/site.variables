@@ -425,7 +425,7 @@
 --------------------*/
 
 @facebookColor   : #3B5998;
-@twitterColor    : #0084B4;
+@twitterColor    : #55acee;
 @googlePlusColor : #DC4A38;
 @linkedInColor   : #1F88BE;
 @youtubeColor    : #CC181E;
