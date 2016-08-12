@@ -196,6 +196,8 @@ gulp.task('run setup', function() {
     answers = {
       overwrite : 'yes',
       install   : 'auto',
+      useRoot   : true,
+      semanticRoot : currentConfig.base      
     };
   }
   else {
