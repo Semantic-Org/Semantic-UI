@@ -387,7 +387,7 @@ gulp.task('create install files', function(callback) {
     ;
 
     // adjust variables in theme.less
-    if( fs.existsSync(files.config) ) {
+    if( fs.existsSync(installPaths.config) ) {
       console.info('Extending config file (semantic.json)', installPaths.config);
       return gulp.src(installPaths.config)
         .pipe(plumber())
