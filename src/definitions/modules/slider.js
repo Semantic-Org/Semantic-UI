@@ -14,7 +14,7 @@ window = (typeof window != 'undefined' && window.Math == Math)
     : Function('return this')()
 ;
 
-$.fn.range = function(parameters) {
+$.fn.slider = function(parameters) {
 
   var
     $allModules    = $(this),
@@ -72,7 +72,7 @@ $.fn.range = function(parameters) {
         element         = this,
         instance        = $module.data(moduleNamespace),
 
-        docuementEventIdentifier,
+        documentEventID,
 
         value,
         position,
@@ -91,13 +91,14 @@ $.fn.range = function(parameters) {
           module.debug('Initializing range slider', settings);
 
           currentRange += 1;
-          docuementEventIdentifier = currentRange;
+          documentEventID = currentRange;
 
           isTouch = module.setup.testOutTouch();
           module.setup.layout();
 
-          if(!module.is.disabled())
+          if(!module.is.disabled()) {
             module.bind.events();
+          }
 
           module.read.metadata();
           module.read.settings();
@@ -154,8 +155,9 @@ $.fn.range = function(parameters) {
             if( $module.attr('tabindex') === undefined) {
               $module.attr('tabindex', 0);
             }
-            if($module.find('.inner').length == 0)
+            if($module.find('.inner').length == 0) {
               $module.append("<div class='inner'><div class='track'></div><div class='track-fill'></div><div class='thumb'></div></div>");
+            }
             precision = module.get.precision();
             $thumb = $module.find('.thumb:not(.second)');
             $currThumb = $thumb;
@@ -257,7 +259,7 @@ $.fn.range = function(parameters) {
             $module.on('keydown' + eventNamespace, module.event.keydown);
           },
           globalKeyboardEvents: function() {
-            $(document).on('keydown' + eventNamespace + docuementEventIdentifier, module.event.activateFocus);
+            $(document).on('keydown' + eventNamespace + documentEventID, module.event.activateFocus);
           },
           mouseEvents: function() {
             module.verbose('Binding mouse events');
@@ -308,7 +310,7 @@ $.fn.range = function(parameters) {
             $module.off('keydown' + eventNamespace);
             $module.off('focusout' + eventNamespace);
             $(window).off('resize' + eventNamespace);
-            $(document).off('keydown' + eventNamespace + docuementEventIdentifier, module.event.activateFocus);
+            $(document).off('keydown' + eventNamespace + documentEventID, module.event.activateFocus);
           },
           slidingEvents: function() {
             if(module.is.touch()) {
@@ -1058,15 +1060,15 @@ $.fn.range = function(parameters) {
 
 };
 
-$.fn.range.settings = {
+$.fn.slider.settings = {
 
   silent       : false,
   debug        : false,
   verbose      : false,
   performance  : true,
 
-  name         : 'Range',
-  namespace    : 'range',
+  name         : 'Slider',
+  namespace    : 'slider',
 
   error    : {
     method    : 'The method you called is not defined.',
@@ -1078,13 +1080,13 @@ $.fn.range.settings = {
     secondThumbVal  : 'secondThumbVal',
   },
 
-  min          : 0,
-  max          : 20,
-  step         : 1,
-  start        : 0,
-  doubleStart  : 1,
-  labelType    : 'number',
-  smooth       : false,
+  min            : 0,
+  max            : 20,
+  step           : 1,
+  start          : 0,
+  doubleStart    : 1,
+  labelType      : 'number',
+  smooth         : false,
 
   //the decimal place to round to if step is undefined
   decimalPlaces  : 2,
@@ -1092,12 +1094,16 @@ $.fn.range.settings = {
   // page up/down multiplier. How many more times the steps to take on page up/down press
   pageMultiplier : 2,
 
+  selector: {
+
+  }
+
   className     : {
     reversed : 'reversed',
     disabled : 'disabled',
     labeled  : 'labeled',
     vertical : 'vertical',
-    doubled   : 'double',
+    doubled  : 'double',
   },
 
   keys : {
