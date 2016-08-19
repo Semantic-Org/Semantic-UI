@@ -100,7 +100,6 @@
   -webkit-perspective: 2000px;
           perspective: 2000px;
   -webkit-transform-origin: center center;
-      -ms-transform-origin: center center;
           transform-origin: center center;
 }
 body.animating.in.dimmable,

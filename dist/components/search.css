@@ -56,7 +56,6 @@
   top: 100%;
   left: 0%;
   -webkit-transform-origin: center top;
-      -ms-transform-origin: center top;
           transform-origin: center top;
   white-space: normal;
   background: #FFFFFF;
