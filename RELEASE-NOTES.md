@@ -1,5 +1,12 @@
 ## RELEASE NOTES
 
+### Version 2.2.2 - July 07, 2016
+
+**Bugs**
+- **Shape** - Fixed issue where shape was animating incorrectly when using jQuery 3.0, due to secret changes in how `width` are calculated on elements with `transform`
+- **Dropdown** - Fixed "pointer" cursor appearing in hitbox above search input in `search selection`, now all input area will appear with "text" input cursor
+- **Dimmer/Modal** - Fixed a bug which could cause a modal's dimmer to not obey `inverted: true` or `blurring: true` when initializing modals with *then afterwards* without either setting.
+
 ### Version 2.2.1 - June 27, 2016
 
 **Bugs**

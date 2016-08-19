@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.1 - Dimmer
+ * # Semantic UI 2.2.2 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -83,6 +83,7 @@ $.fn.dimmer = function(parameters) {
             else {
               $dimmer = module.create();
             }
+            module.set.variation();
           }
         },
 
@@ -173,10 +174,6 @@ $.fn.dimmer = function(parameters) {
           var
             $element = $( settings.template.dimmer() )
           ;
-          if(settings.variation) {
-            module.debug('Creating dimmer with variation', settings.variation);
-            $element.addClass(settings.variation);
-          }
           if(settings.dimmerName) {
             module.debug('Creating named dimmer', settings.dimmerName);
             $element.addClass(settings.dimmerName);

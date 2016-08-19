@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.1 - Search
+ * # Semantic UI 2.2.2 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -56,6 +56,7 @@
   top: 100%;
   left: 0%;
   -webkit-transform-origin: center top;
+      -ms-transform-origin: center top;
           transform-origin: center top;
   white-space: normal;
   background: #FFFFFF;

@@ -1,4 +1,4 @@
-![Semantic](http://www.semantic-ui.com/images/logo.png)
+![Semantic](http://semantic-ui.com/images/logo.png)
 
 # Semantic UI
 
@@ -22,6 +22,12 @@ Semantic allows developers to build beautiful websites fast, with **concise HTML
 Semantic UI `2.2` is now available (June 2016). Read up on [what's new](http://www.semantic-ui.com/introduction/new.html) in the docs.
 
 Migration info from `1.x` can be found in the [2.0 release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md#version-200---march-xx-2015)
+
+## User Support
+
+Please help us keep the issue tracker organized. For all questions that do not include a specific [jsfiddle test case](http://jsfiddle.net/efp8z6Ln/) (bug reports), or feature request please use our user forums at [http://forums.semantic-ui.com](http://forums.semantic-ui.com) to discuss. 
+
+Visit our [contributing guide](https://github.com/Semantic-Org/Semantic-UI/blob/master/CONTRIBUTING.md) for more on what should be posted to GitHub Issues.
 
 ## Install
 

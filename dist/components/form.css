@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.1 - Form
+ * # Semantic UI 2.2.2 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -961,7 +961,6 @@
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
-              -ms-grid-row-align: center;
           align-items: center;
 }
 .ui.form .inline.fields .field {

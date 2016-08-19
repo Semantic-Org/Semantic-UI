@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.1 - Modal
+ * # Semantic UI 2.2.2 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -24,6 +24,7 @@
   border: none;
   box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(0, 0, 0, 0.2);
   -webkit-transform-origin: 50% 25%;
+      -ms-transform-origin: 50% 25%;
           transform-origin: 50% 25%;
   border-radius: 0.28571429rem;
   -webkit-user-select: text;
