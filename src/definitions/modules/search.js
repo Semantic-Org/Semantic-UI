@@ -44,6 +44,7 @@ $.fn.search = function(parameters) {
         regExp          = settings.regExp,
         fields          = settings.fields,
         selector        = settings.selector,
+        text            = settings.text,
         error           = settings.error,
         namespace       = settings.namespace,
 
@@ -917,7 +918,7 @@ $.fn.search = function(parameters) {
             }
           }
           else if(settings.showNoResults) {
-            html = module.displayMessage(error.noResults, 'empty');
+            html = module.displayMessage(text.noResults, 'empty');
           }
           settings.onResults.call(element, response);
           return html;
@@ -1191,6 +1192,13 @@ $.fn.search.settings = {
     pressed   : 'down'
   },
 
+  text: {
+    noResults: {
+      header: 'No Results',
+      message: 'Your search returned no results'
+    }
+  },
+
   error : {
     source      : 'Cannot search. No source used, and Semantic API module was not included',
     noResults   : 'Your search returned no results',
@@ -1272,8 +1280,8 @@ $.fn.search.settings = {
         // message type
         if(type == 'empty') {
           html += ''
-            + '<div class="header">No Results</div class="header">'
-            + '<div class="description">' + message + '</div class="description">'
+            + '<div class="header">' + message.header + '</div class="header">'
+            + '<div class="description">' + message.message + '</div class="description">'
           ;
         }
         else {
