@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.2 - Form
+ * # Semantic UI 2.2.3 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -604,7 +604,7 @@
 .ui.loading.form {
   position: relative;
   cursor: default;
-  point-events: none;
+  pointer-events: none;
 }
 .ui.loading.form:before {
   position: absolute;

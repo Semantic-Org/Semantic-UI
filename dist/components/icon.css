@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.2 - Icon
+ * # Semantic UI 2.2.3 - Icon
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -119,13 +119,15 @@ i.fitted.icon {
          Link
 --------------------*/
 
-i.link.icon {
+i.link.icon,
+i.link.icons {
   cursor: pointer;
   opacity: 0.8;
   -webkit-transition: opacity 0.1s ease;
   transition: opacity 0.1s ease;
 }
-i.link.icon:hover {
+i.link.icon:hover,
+i.link.icons:hover {
   opacity: 1 !important;
 }
 

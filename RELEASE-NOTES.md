@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 2.2.3 - July 31, 2016
+### Version 2.2.3 - August 21, 2016
 
 **Enhancements**
 - **Form Validation** - Bracketed notation can now be omitted for rules, instead passing in bracketed values with the `value` parameter #3313

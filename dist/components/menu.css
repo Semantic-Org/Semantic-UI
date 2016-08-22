@@ -212,17 +212,6 @@
 }
 
 /*--------------
-     Popup
----------------*/
-
-.ui.menu .ui.popup {
-  display: none;
-}
-.ui.menu .ui.visible.popup {
-  display: block;
-}
-
-/*--------------
     Dropdowns
 ---------------*/
 

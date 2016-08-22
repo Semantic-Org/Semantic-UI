@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.2 - Popup
+ * # Semantic UI 2.2.3 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -88,7 +88,9 @@ $.fn.popup = function(parameters) {
           if(!module.exists() && settings.preserve) {
             module.create();
           }
-          module.observeChanges();
+          if(settings.observeChanges) {
+            module.observeChanges();
+          }
           module.instantiate();
         },
 
