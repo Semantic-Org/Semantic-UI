@@ -1,9 +1,12 @@
 ## RELEASE NOTES
 
-### Version 2.2.4 - August 21, 2016
+### Version 2.2.4 - August 25, 2016
 
 **Critical Bug**
-- **Search** - Fixed issue where keyboard navigation for search was broken in `2.2.3` due to regression #4469
+- **Search** - Fixed issue where keyboard navigation for search was broken in `2.2.3` due to regression [#4469](https://github.com/Semantic-Org/Semantic-UI/issues/4469)
+
+**Bugs**
+- **Build Tools** - Removed unnecessary `gulp-minify-css` package from deps [#4463](https://github.com/Semantic-Org/Semantic-UI/issues/4463)
 
 **Enhancements**
 - **Message** - Added additional variables for `@padding`
