@@ -1,5 +1,13 @@
 ## RELEASE NOTES
 
+### Version 2.2.4 - August 21, 2016
+
+**Critical Bug**
+- **Search** - Fixed issue where keyboard navigation for search was broken in `2.2.3` due to regression #4469
+
+**Enhancements**
+- **Message** - Added additional variables for `@padding`
+
 ### Version 2.2.3 - August 21, 2016
 
 **Enhancements**
