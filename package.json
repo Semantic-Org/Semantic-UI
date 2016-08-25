@@ -34,7 +34,6 @@
     "gulp-help": "*",
     "gulp-if": "*",
     "gulp-less": "*",
-    "gulp-minify-css": "*",
     "gulp-notify": "*",
     "gulp-plumber": "*",
     "gulp-print": "*",
