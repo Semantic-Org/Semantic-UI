@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 2.2.4 - August 21, 2016
+
+**Bugs**
+- **Search** - Fixed bug where pressing "up arrow" with no selected results would select bottom result
+
 ### Version 2.2.3 - August 21, 2016
 
 **Enhancements**
