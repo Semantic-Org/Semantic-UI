@@ -90,6 +90,13 @@ module.exports = {
     return config['autoInstall'];
   },
 
+  shouldBuild: function() {
+    var
+      config = when.hasConfig()
+      ;
+    return config['build'];
+  },
+
   // checks if files are in a PM directory
   getPackageManager: function(directory) {
     var

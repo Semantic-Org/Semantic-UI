@@ -197,8 +197,7 @@ gulp.task('run setup', function() {
       overwrite : 'yes',
       install   : 'auto',
       useRoot   : true,
-      semanticRoot : currentConfig.base,
-      build     : 'true'
+      semanticRoot : currentConfig.base
     };
   }
   else {
@@ -431,7 +430,8 @@ gulp.task('clean up install', function() {
 
   // If auto-install is switched on, we skip the configuration section and simply build the dependencies
   if(install.shouldAutoInstall()) {
-    if (answers.build == 'yes') {
+    console.log(answers)
+    if (install.shouldBuild()) {
       gulp.start('build');
     }
   }
