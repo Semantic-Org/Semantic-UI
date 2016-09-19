@@ -197,7 +197,8 @@ gulp.task('run setup', function() {
       overwrite : 'yes',
       install   : 'auto',
       useRoot   : true,
-      semanticRoot : currentConfig.base      
+      semanticRoot : currentConfig.base,
+      build     : 'true'
     };
   }
   else {
@@ -430,7 +431,9 @@ gulp.task('clean up install', function() {
 
   // If auto-install is switched on, we skip the configuration section and simply build the dependencies
   if(install.shouldAutoInstall()) {
-    return gulp.start('build');
+    if (answers.build == 'yes') {
+      gulp.start('build');
+    }
   }
   else {
     return gulp
@@ -445,8 +448,6 @@ gulp.task('clean up install', function() {
       }))
     ;
   }
-
-
 });
 
 runSequence(
