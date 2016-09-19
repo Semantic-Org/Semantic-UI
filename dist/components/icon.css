@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.2 - Icon
+ * # Semantic UI 2.2.4 - Icon
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -119,13 +119,15 @@ i.fitted.icon {
          Link
 --------------------*/
 
-i.link.icon {
+i.link.icon,
+i.link.icons {
   cursor: pointer;
   opacity: 0.8;
   -webkit-transition: opacity 0.1s ease;
   transition: opacity 0.1s ease;
 }
-i.link.icon:hover {
+i.link.icon:hover,
+i.link.icons:hover {
   opacity: 1 !important;
 }
 
@@ -2581,9 +2583,6 @@ i.icon.exclamation.triangle:before {
 i.icon.shuffle:before {
   content: "\f074";
 }
-i.icon.talk:before {
-  content: "\f075";
-}
 i.icon.chat:before {
   content: "\f075";
 }
@@ -3049,7 +3048,7 @@ i.icon.hourglass.three:before {
 i.icon.hourglass.four:before {
   content: "\f254";
 }
-i.icon.grab {
+i.icon.grab:before {
   content: "\f255";
 }
 i.icon.hand.victory:before {
@@ -3061,7 +3060,7 @@ i.icon.tm:before {
 i.icon.r.circle:before {
   content: "\f25d";
 }
-i.icon.television {
+i.icon.television:before {
   content: "\f26c";
 }
 i.icon.five.hundred.pixels:before {

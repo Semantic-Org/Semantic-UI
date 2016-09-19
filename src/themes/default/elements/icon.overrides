@@ -753,7 +753,6 @@ i.icon.attention:before { content: "\f06a"; }
 i.icon.eye:before { content: "\f06e"; }
 i.icon.exclamation.triangle:before { content: "\f071"; }
 i.icon.shuffle:before { content: "\f074"; }
-i.icon.talk:before { content: "\f075"; }
 i.icon.chat:before { content: "\f075"; }
 i.icon.cart:before { content: "\f07a"; }
 i.icon.shopping.cart:before { content: "\f07a"; }
@@ -909,11 +908,11 @@ i.icon.hourglass.one:before { content: "\f251"; }
 i.icon.hourglass.two:before { content: "\f252"; }
 i.icon.hourglass.three:before { content: "\f253"; }
 i.icon.hourglass.four:before { content: "\f254"; }
-i.icon.grab { content: "\f255"; }
+i.icon.grab:before { content: "\f255"; }
 i.icon.hand.victory:before { content: "\f25b"; }
 i.icon.tm:before { content: "\f25c"; }
 i.icon.r.circle:before { content: "\f25d"; }
-i.icon.television { content: "\f26c"; }
+i.icon.television:before { content: "\f26c"; }
 i.icon.five.hundred.pixels:before { content: "\f26e"; }
 i.icon.calendar.plus:before { content: "\f271"; }
 i.icon.calendar.minus:before { content: "\f272"; }
