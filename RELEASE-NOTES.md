@@ -1,9 +1,13 @@
 ## RELEASE NOTES
 
-### Version 2.2.5
+### Version 2.2.5 - XX, X, 2016
 
-**Enhancements*
+**Bugs**
+- **Search** - Fixed issue where pressing "up" key when no results selected would cause bottom result to be selected
+
+**Enhancements**
 - **Progress** - Progress now includes transitionEnd failback for progress bar animations, this will prevent labels from continuing to be updated if the `transitionEnd` css callback does not fire correctly
+- **Transition** - You can now specify `data-display` to specify the final display state for an animation in cases that it is detected incorrectly (you can also pass in as a setting)
 
 ### Version 2.2.4 - August 25, 2016
 
