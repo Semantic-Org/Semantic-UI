@@ -15,7 +15,7 @@
 @type    : 'module';
 @element : 'checkbox';
 
-@import (multiple) '../../theme.config';
+@import (multiple) '../../theme.config.import.less';
 
 /*******************************
            Checkbox
@@ -500,6 +500,7 @@
   top: @toggleLaneVerticalOffset;
 
   background: @toggleLaneBackground;
+  box-shadow: @toggleLaneBoxShadow;
   width: @toggleLaneWidth;
   height: @toggleLaneHeight;
   border-radius: @toggleHandleRadius;
@@ -556,6 +557,7 @@
 .ui.toggle.checkbox input:checked ~ .box:after,
 .ui.toggle.checkbox input:checked ~ label:after {
   left: @toggleOnOffset;
+  box-shadow: @toggleOnHandleBoxShadow;
 }
 
 
