@@ -238,13 +238,15 @@ $.fn.search = function(parameters) {
         handleKeyboard: function(event) {
           var
             // force selector refresh
-            $result      = $module.find(selector.result),
-            $category    = $module.find(selector.category),
-            currentIndex = $result.index( $result.filter('.' + className.active) ),
-            resultSize   = $result.length,
+            $result         = $module.find(selector.result),
+            $category       = $module.find(selector.category),
+            $activeResult   = $result.filter('.' + className.active),
+            currentIndex    = $result.index( $activeResult ),
+            resultSize      = $result.length,
+            hasActiveResult = $activeResult.length > 0,
 
-            keyCode      = event.which,
-            keys         = {
+            keyCode         = event.which,
+            keys            = {
               backspace : 8,
               enter     : 13,
               escape    : 27,
@@ -267,7 +269,7 @@ $.fn.search = function(parameters) {
                 return false;
               }
             }
-            else if(keyCode == keys.upArrow) {
+            else if(keyCode == keys.upArrow && hasActiveResult) {
               module.verbose('Up key pressed, changing active result');
               newIndex = (currentIndex - 1 < 0)
                 ? currentIndex
