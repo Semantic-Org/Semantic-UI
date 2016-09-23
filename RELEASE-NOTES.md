@@ -4,6 +4,7 @@
 
 **Bugs**
 - **Search** - Fixed issue where pressing "up" key when no results selected would cause bottom result to be selected
+- **Search** - Fixed issue where input may attempt to refocus when element is immediately removed from browser's DOM after a result is clicked
 
 **Enhancements**
 - **Checkbox** - Adds additional variables for styling toggle checkbox on/off state

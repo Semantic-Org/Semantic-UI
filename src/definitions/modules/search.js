@@ -366,7 +366,14 @@ $.fn.search = function(parameters) {
             return $results.hasClass(className.hidden);
           },
           inMessage: function(event) {
-            return (event.target && $(event.target).closest(selector.message).length > 0);
+            if(!event.target) {
+              return;
+            }
+            var
+              $target = $(event.target),
+              isInDOM = $.contains(document.documentElement, event.target)
+            ;
+            return (isInDOM && $target.closest(selector.message).length > 0);
           },
           empty: function() {
             return ($results.html() === '');
