@@ -1191,7 +1191,6 @@ $.fn.form = function(parameters) {
           success: function() {
             $module
               .removeClass(className.error)
-              .addClass(className.success)
             ;
           },
           defaults: function () {
@@ -1210,7 +1209,6 @@ $.fn.form = function(parameters) {
           },
           error: function() {
             $module
-              .removeClass(className.success)
               .addClass(className.error)
             ;
           },
@@ -11699,6 +11697,24 @@ $.fn.progress = function(parameters) {
           }
         },
 
+        bind: {
+          transitionEnd: function(callback) {
+            var
+              transitionEnd = module.get.transitionEnd()
+            ;
+            $bar
+              .one(transitionEnd + eventNamespace, function(event) {
+                clearTimeout(module.failSafeTimer);
+                callback.call(this, event);
+              })
+            ;
+            module.failSafeTimer = setTimeout(function() {
+              $bar.triggerHandler(transitionEnd);
+            }, settings.duration + settings.failSafeDelay);
+            module.verbose('Adding fail safe timer', module.timer);
+          }
+        },
+
         increment: function(incrementValue) {
           var
             maxValue,
@@ -11995,7 +12011,7 @@ $.fn.progress = function(parameters) {
               }
             ;
             clearInterval(module.interval);
-            $bar.one(transitionEnd + eventNamespace, animationCallback);
+            module.bind.transitionEnd(animationCallback);
             animating = true;
             module.interval = setInterval(function() {
               var
@@ -12072,7 +12088,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
-            $bar.one(transitionEnd + eventNamespace, function() {
+            module.bind.transitionEnd(function() {
               settings.onActive.call(element, module.value, module.total);
             });
           },
@@ -12092,7 +12108,7 @@ $.fn.progress = function(parameters) {
               text = settings.onLabelUpdate('active', text, module.value, module.total);
               module.set.label(text);
             }
-            $bar.one(transitionEnd + eventNamespace, function() {
+            module.bind.transitionEnd(function() {
               settings.onSuccess.call(element, module.total);
             });
           },
@@ -12108,7 +12124,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
-            $bar.one(transitionEnd + eventNamespace, function() {
+            module.bind.transitionEnd(function() {
               settings.onWarning.call(element, module.value, module.total);
             });
           },
@@ -12124,7 +12140,7 @@ $.fn.progress = function(parameters) {
             if(text) {
               module.set.label(text);
             }
-            $bar.one(transitionEnd + eventNamespace, function() {
+            module.bind.transitionEnd(function() {
               settings.onError.call(element, module.value, module.total);
             });
           },
@@ -12401,6 +12417,9 @@ $.fn.progress.settings = {
   percent        : false,
   total          : false,
   value          : false,
+
+  // delay in ms for fail safe animation callback
+  failSafeDelay : 100,
 
   onLabelUpdate : function(state, text, value, total){
     return text;
@@ -13204,13 +13223,15 @@ $.fn.search = function(parameters) {
         handleKeyboard: function(event) {
           var
             // force selector refresh
-            $result      = $module.find(selector.result),
-            $category    = $module.find(selector.category),
-            currentIndex = $result.index( $result.filter('.' + className.active) ),
-            resultSize   = $result.length,
+            $result         = $module.find(selector.result),
+            $category       = $module.find(selector.category),
+            $activeResult   = $result.filter('.' + className.active),
+            currentIndex    = $result.index( $activeResult ),
+            resultSize      = $result.length,
+            hasActiveResult = $activeResult.length > 0,
 
-            keyCode      = event.which,
-            keys         = {
+            keyCode         = event.which,
+            keys            = {
               backspace : 8,
               enter     : 13,
               escape    : 27,
@@ -13233,7 +13254,7 @@ $.fn.search = function(parameters) {
                 return false;
               }
             }
-            else if(keyCode == keys.upArrow) {
+            else if(keyCode == keys.upArrow && hasActiveResult) {
               module.verbose('Up key pressed, changing active result');
               newIndex = (currentIndex - 1 < 0)
                 ? currentIndex
@@ -13330,7 +13351,14 @@ $.fn.search = function(parameters) {
             return $results.hasClass(className.hidden);
           },
           inMessage: function(event) {
-            return (event.target && $(event.target).closest(selector.message).length > 0);
+            if(!event.target) {
+              return;
+            }
+            var
+              $target = $(event.target),
+              isInDOM = $.contains(document.documentElement, event.target)
+            ;
+            return (isInDOM && $target.closest(selector.message).length > 0);
           },
           empty: function() {
             return ($results.html() === '');
@@ -16459,7 +16487,12 @@ $.fn.sticky = function(parameters) {
         },
 
         determineContainer: function() {
-          $container = $module.offsetParent();
+          if(settings.container) {
+            $container = $(settings.container);
+          }
+          else {
+            $container = $module.offsetParent();
+          }
         },
 
         determineContext: function() {
@@ -17206,6 +17239,7 @@ $.fn.sticky.settings = {
   pushing        : false,
 
   context        : false,
+  container      : false,
 
   // Context to watch scroll events
   scrollContext  : window,
@@ -18802,11 +18836,15 @@ $.fn.transition = function() {
               : duration
             ;
           },
-          displayType: function() {
+          displayType: function(shouldDetermine) {
+            shouldDetermine = (shouldDetermine !== undefined)
+              ? shouldDetermine
+              : true
+            ;
             if(settings.displayType) {
               return settings.displayType;
             }
-            if($module.data(metadata.displayType) === undefined) {
+            if(shouldDetermine && $module.data(metadata.displayType) === undefined) {
               // create fake element to determine display state
               module.can.transition(true);
             }
@@ -18863,13 +18901,13 @@ $.fn.transition = function() {
             var
               animation         = settings.animation,
               transitionExists  = module.get.transitionExists(animation),
+              displayType       = module.get.displayType(false),
               elementClass,
               tagName,
               $clone,
               currentAnimation,
               inAnimation,
-              directionExists,
-              displayType
+              directionExists
             ;
             if( transitionExists === undefined || forced) {
               module.verbose('Determining whether animation exists');
@@ -18889,16 +18927,18 @@ $.fn.transition = function() {
                 .addClass(className.inward)
                 .css('animationName')
               ;
-              displayType = $clone
-                .attr('class', elementClass)
-                .removeAttr('style')
-                .removeClass(className.hidden)
-                .removeClass(className.visible)
-                .show()
-                .css('display')
-              ;
-              module.verbose('Determining final display state', displayType);
-              module.save.displayType(displayType);
+              if(!displayType) {
+                displayType = $clone
+                  .attr('class', elementClass)
+                  .removeAttr('style')
+                  .removeClass(className.hidden)
+                  .removeClass(className.visible)
+                  .show()
+                  .css('display')
+                ;
+                module.verbose('Determining final display state', displayType);
+                module.save.displayType(displayType);
+              }
 
               $clone.remove();
               if(currentAnimation != inAnimation) {
