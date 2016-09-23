@@ -693,7 +693,6 @@ $.fn.form = function(parameters) {
           success: function() {
             $module
               .removeClass(className.error)
-              .addClass(className.success)
             ;
           },
           defaults: function () {
@@ -712,7 +711,6 @@ $.fn.form = function(parameters) {
           },
           error: function() {
             $module
-              .removeClass(className.success)
               .addClass(className.error)
             ;
           },
