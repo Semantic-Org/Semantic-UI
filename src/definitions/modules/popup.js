@@ -488,7 +488,7 @@ $.fn.popup = function(parameters) {
           },
           content: function() {
             $module.removeData(metadata.content);
-            return $module.data(metadata.content) || $module.attr('title') || settings.content;
+            return $module.data(metadata.content) || settings.content || $module.attr('title');
           },
           variation: function() {
             $module.removeData(metadata.variation);
