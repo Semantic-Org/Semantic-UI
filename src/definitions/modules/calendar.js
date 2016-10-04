@@ -681,13 +681,13 @@
                 isTimeOnly ? 0 : isYear ? 0 : date1.getMonth(),
                 isTimeOnly ? 1 : isYearOrMonth ? 1 : date1.getDate(),
                 !isHourOrMinute ? 0 : date1.getHours(),
-                !isMinute ? 0 : Math.floor(date1.getMinutes() / 5));
+                !isMinute ? 0 : 5 * Math.floor(date1.getMinutes() / 5));
               date2 = new Date(
                 isTimeOnly ? 2000 : date2.getFullYear(),
                 isTimeOnly ? 0 : isYear ? 0 : date2.getMonth(),
                 isTimeOnly ? 1 : isYearOrMonth ? 1 : date2.getDate(),
                 !isHourOrMinute ? 0 : date2.getHours(),
-                !isMinute ? 0 : Math.floor(date2.getMinutes() / 5));
+                !isMinute ? 0 : 5 * Math.floor(date2.getMinutes() / 5));
               return date2.getTime() - date1.getTime();
             },
             dateEqual: function (date1, date2, mode) {
@@ -699,6 +699,7 @@
                 minDate = startDate && settings.minDate ? new Date(Math.max(startDate, settings.minDate)) : startDate || settings.minDate;
                 maxDate = settings.maxDate;
               }
+              minDate = minDate && new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate(), minDate.getHours(), 5 * Math.ceil(minDate.getMinutes() / 5));
               return !(!date ||
               (minDate && module.helper.dateDiff(date, minDate, mode) > 0) ||
               (maxDate && module.helper.dateDiff(maxDate, date, mode) > 0));
@@ -709,6 +710,7 @@
                 minDate = startDate && settings.minDate ? new Date(Math.max(startDate, settings.minDate)) : startDate || settings.minDate;
                 maxDate = settings.maxDate;
               }
+              minDate = minDate && new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate(), minDate.getHours(), 5 * Math.ceil(minDate.getMinutes() / 5));
               var isTimeOnly = settings.type === 'time';
               return !date ? date :
                 (minDate && module.helper.dateDiff(date, minDate, 'minute') > 0) ?
