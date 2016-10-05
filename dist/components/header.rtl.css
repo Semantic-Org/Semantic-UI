@@ -1,0 +1,721 @@
+/*!
+ * # Semantic UI 2.2.4 - Header
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+/*******************************
+            Header
+*******************************/
+
+
+/* Standard */
+.ui.header {
+  border: none;
+  margin: calc(2rem -  0.14285em ) 0em 1rem;
+  padding: 0em 0em;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  line-height: 1.2857em;
+  text-transform: none;
+  color: rgba(0, 0, 0, 0.87);
+}
+.ui.header:first-child {
+  margin-top: -0.14285em;
+}
+.ui.header:last-child {
+  margin-bottom: 0em;
+}
+
+/*--------------
+   Sub Header
+---------------*/
+
+.ui.header .sub.header {
+  display: block;
+  font-weight: normal;
+  padding: 0em;
+  margin: 0em;
+  font-size: 1rem;
+  line-height: 1.2em;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/*--------------
+      Icon
+---------------*/
+
+.ui.header > .icon {
+  display: table-cell;
+  opacity: 1;
+  font-size: 1.5em;
+  padding-top: 0.14285em;
+  vertical-align: middle;
+}
+
+/* With Text Node */
+.ui.header .icon:only-child {
+  display: inline-block;
+  padding: 0em;
+  margin-left: 0.75rem;
+}
+
+/*-------------------
+        Image
+--------------------*/
+
+.ui.header > .image,
+.ui.header > img {
+  display: inline-block;
+  margin-top: 0.14285em;
+  width: 2.5em;
+  height: auto;
+  vertical-align: middle;
+}
+.ui.header > .image:only-child,
+.ui.header > img:only-child {
+  margin-left: 0.75rem;
+}
+
+/*--------------
+     Content
+---------------*/
+
+.ui.header .content {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* After Image */
+.ui.header > img + .content,
+.ui.header > .image + .content {
+  padding-right: 0.75rem;
+  vertical-align: middle;
+}
+
+/* After Icon */
+.ui.header > .icon + .content {
+  padding-right: 0.75rem;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/*--------------
+ Loose Coupling
+---------------*/
+
+.ui.header .ui.label {
+  font-size: '';
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* Positioning */
+.ui.header + p {
+  margin-top: 0em;
+}
+
+
+/*******************************
+            Types
+*******************************/
+
+
+/*--------------
+     Page
+---------------*/
+
+h1.ui.header {
+  font-size: 2rem;
+}
+h2.ui.header {
+  font-size: 1.714rem;
+}
+h3.ui.header {
+  font-size: 1.28rem;
+}
+h4.ui.header {
+  font-size: 1.071rem;
+}
+h5.ui.header {
+  font-size: 1rem;
+}
+
+/* Sub Header */
+h1.ui.header .sub.header {
+  font-size: 1.14285714rem;
+}
+h2.ui.header .sub.header {
+  font-size: 1.14285714rem;
+}
+h3.ui.header .sub.header {
+  font-size: 1rem;
+}
+h4.ui.header .sub.header {
+  font-size: 1rem;
+}
+h5.ui.header .sub.header {
+  font-size: 0.92857143rem;
+}
+
+/*--------------
+ Content Heading
+---------------*/
+
+.ui.huge.header {
+  min-height: 1em;
+  font-size: 2em;
+}
+.ui.large.header {
+  font-size: 1.714em;
+}
+.ui.medium.header {
+  font-size: 1.28em;
+}
+.ui.small.header {
+  font-size: 1.071em;
+}
+.ui.tiny.header {
+  font-size: 1em;
+}
+
+/* Sub Header */
+.ui.huge.header .sub.header {
+  font-size: 1.14285714rem;
+}
+.ui.large.header .sub.header {
+  font-size: 1.14285714rem;
+}
+.ui.header .sub.header {
+  font-size: 1rem;
+}
+.ui.small.header .sub.header {
+  font-size: 1rem;
+}
+.ui.tiny.header .sub.header {
+  font-size: 0.92857143rem;
+}
+
+/*--------------
+   Sub Heading
+---------------*/
+
+.ui.sub.header {
+  padding: 0em;
+  margin-bottom: 0.14285714rem;
+  font-weight: bold;
+  font-size: 0.85714286em;
+  text-transform: uppercase;
+  color: '';
+}
+.ui.small.sub.header {
+  font-size: 0.78571429em;
+}
+.ui.sub.header {
+  font-size: 0.85714286em;
+}
+.ui.large.sub.header {
+  font-size: 0.92857143em;
+}
+.ui.huge.sub.header {
+  font-size: 1em;
+}
+
+/*-------------------
+        Icon
+--------------------*/
+
+.ui.icon.header {
+  display: inline-block;
+  text-align: center;
+  margin: 2rem 0em 1rem;
+}
+.ui.icon.header:after {
+  content: '';
+  display: block;
+  height: 0px;
+  clear: both;
+  visibility: hidden;
+}
+.ui.icon.header:first-child {
+  margin-top: 0em;
+}
+.ui.icon.header .icon {
+  float: none;
+  display: block;
+  width: auto;
+  height: auto;
+  line-height: 1;
+  padding: 0em;
+  font-size: 3em;
+  margin: 0em auto 0.5rem;
+  opacity: 1;
+}
+.ui.icon.header .content {
+  display: block;
+  padding: 0em;
+}
+.ui.icon.header .circular.icon {
+  font-size: 2em;
+}
+.ui.icon.header .square.icon {
+  font-size: 2em;
+}
+.ui.block.icon.header .icon {
+  margin-bottom: 0em;
+}
+.ui.icon.header.aligned {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}
+
+
+/*******************************
+            States
+*******************************/
+
+.ui.disabled.header {
+  opacity: 0.45;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*-------------------
+      Inverted
+--------------------*/
+
+.ui.inverted.header {
+  color: #FFFFFF;
+}
+.ui.inverted.header .sub.header {
+  color: rgba(255, 255, 255, 0.8);
+}
+.ui.inverted.attached.header {
+  background: #545454 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #545454 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  box-shadow: none;
+  border-color: transparent;
+}
+.ui.inverted.block.header {
+  background: #545454 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  background: #545454 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+  box-shadow: none;
+}
+.ui.inverted.block.header {
+  border-bottom: none;
+}
+
+/*-------------------
+       Colors
+--------------------*/
+
+
+/*--- Red ---*/
+
+.ui.red.header {
+  color: #DB2828 !important;
+}
+a.ui.red.header:hover {
+  color: #d01919 !important;
+}
+.ui.red.dividing.header {
+  border-bottom: 2px solid #DB2828;
+}
+
+/* Inverted */
+.ui.inverted.red.header {
+  color: #FF695E !important;
+}
+a.ui.inverted.red.header:hover {
+  color: #ff5144 !important;
+}
+
+/*--- Orange ---*/
+
+.ui.orange.header {
+  color: #F2711C !important;
+}
+a.ui.orange.header:hover {
+  color: #f26202 !important;
+}
+.ui.orange.dividing.header {
+  border-bottom: 2px solid #F2711C;
+}
+
+/* Inverted */
+.ui.inverted.orange.header {
+  color: #FF851B !important;
+}
+a.ui.inverted.orange.header:hover {
+  color: #ff7701 !important;
+}
+
+/*--- Olive ---*/
+
+.ui.olive.header {
+  color: #B5CC18 !important;
+}
+a.ui.olive.header:hover {
+  color: #a7bd0d !important;
+}
+.ui.olive.dividing.header {
+  border-bottom: 2px solid #B5CC18;
+}
+
+/* Inverted */
+.ui.inverted.olive.header {
+  color: #D9E778 !important;
+}
+a.ui.inverted.olive.header:hover {
+  color: #d8ea5c !important;
+}
+
+/*--- Yellow ---*/
+
+.ui.yellow.header {
+  color: #FBBD08 !important;
+}
+a.ui.yellow.header:hover {
+  color: #eaae00 !important;
+}
+.ui.yellow.dividing.header {
+  border-bottom: 2px solid #FBBD08;
+}
+
+/* Inverted */
+.ui.inverted.yellow.header {
+  color: #FFE21F !important;
+}
+a.ui.inverted.yellow.header:hover {
+  color: #ffdf05 !important;
+}
+
+/*--- Green ---*/
+
+.ui.green.header {
+  color: #21BA45 !important;
+}
+a.ui.green.header:hover {
+  color: #16ab39 !important;
+}
+.ui.green.dividing.header {
+  border-bottom: 2px solid #21BA45;
+}
+
+/* Inverted */
+.ui.inverted.green.header {
+  color: #2ECC40 !important;
+}
+a.ui.inverted.green.header:hover {
+  color: #22be34 !important;
+}
+
+/*--- Teal ---*/
+
+.ui.teal.header {
+  color: #00B5AD !important;
+}
+a.ui.teal.header:hover {
+  color: #009c95 !important;
+}
+.ui.teal.dividing.header {
+  border-bottom: 2px solid #00B5AD;
+}
+
+/* Inverted */
+.ui.inverted.teal.header {
+  color: #6DFFFF !important;
+}
+a.ui.inverted.teal.header:hover {
+  color: #54ffff !important;
+}
+
+/*--- Blue ---*/
+
+.ui.blue.header {
+  color: #2185D0 !important;
+}
+a.ui.blue.header:hover {
+  color: #1678c2 !important;
+}
+.ui.blue.dividing.header {
+  border-bottom: 2px solid #2185D0;
+}
+
+/* Inverted */
+.ui.inverted.blue.header {
+  color: #54C8FF !important;
+}
+a.ui.inverted.blue.header:hover {
+  color: #3ac0ff !important;
+}
+
+/*--- Violet ---*/
+
+.ui.violet.header {
+  color: #6435C9 !important;
+}
+a.ui.violet.header:hover {
+  color: #5829bb !important;
+}
+.ui.violet.dividing.header {
+  border-bottom: 2px solid #6435C9;
+}
+
+/* Inverted */
+.ui.inverted.violet.header {
+  color: #A291FB !important;
+}
+a.ui.inverted.violet.header:hover {
+  color: #8a73ff !important;
+}
+
+/*--- Purple ---*/
+
+.ui.purple.header {
+  color: #A333C8 !important;
+}
+a.ui.purple.header:hover {
+  color: #9627ba !important;
+}
+.ui.purple.dividing.header {
+  border-bottom: 2px solid #A333C8;
+}
+
+/* Inverted */
+.ui.inverted.purple.header {
+  color: #DC73FF !important;
+}
+a.ui.inverted.purple.header:hover {
+  color: #d65aff !important;
+}
+
+/*--- Pink ---*/
+
+.ui.pink.header {
+  color: #E03997 !important;
+}
+a.ui.pink.header:hover {
+  color: #e61a8d !important;
+}
+.ui.pink.dividing.header {
+  border-bottom: 2px solid #E03997;
+}
+
+/* Inverted */
+.ui.inverted.pink.header {
+  color: #FF8EDF !important;
+}
+a.ui.inverted.pink.header:hover {
+  color: #ff74d8 !important;
+}
+
+/*--- Brown ---*/
+
+.ui.brown.header {
+  color: #A5673F !important;
+}
+a.ui.brown.header:hover {
+  color: #975b33 !important;
+}
+.ui.brown.dividing.header {
+  border-bottom: 2px solid #A5673F;
+}
+
+/* Inverted */
+.ui.inverted.brown.header {
+  color: #D67C1C !important;
+}
+a.ui.inverted.brown.header:hover {
+  color: #c86f11 !important;
+}
+
+/*--- Grey ---*/
+
+.ui.grey.header {
+  color: #767676 !important;
+}
+a.ui.grey.header:hover {
+  color: #838383 !important;
+}
+.ui.grey.dividing.header {
+  border-bottom: 2px solid #767676;
+}
+
+/* Inverted */
+.ui.inverted.grey.header {
+  color: #DCDDDE !important;
+}
+a.ui.inverted.grey.header:hover {
+  color: #cfd0d2 !important;
+}
+
+/*-------------------
+       Aligned
+--------------------*/
+
+.ui.left.aligned.header {
+  text-align: right;
+}
+.ui.right.aligned.header {
+  text-align: left;
+}
+.ui.centered.header,
+.ui.center.aligned.header {
+  text-align: center;
+}
+.ui.justified.header {
+  text-align: justify;
+}
+.ui.justified.header:after {
+  display: inline-block;
+  content: '';
+  width: 100%;
+}
+
+/*-------------------
+       Floated
+--------------------*/
+
+.ui.floated.header,
+.ui[class*="left floated"].header {
+  float: right;
+  margin-top: 0em;
+  margin-left: 0.5em;
+}
+.ui[class*="right floated"].header {
+  float: left;
+  margin-top: 0em;
+  margin-right: 0.5em;
+}
+
+/*-------------------
+       Fitted
+--------------------*/
+
+.ui.fitted.header {
+  padding: 0em;
+}
+
+/*-------------------
+      Dividing
+--------------------*/
+
+.ui.dividing.header {
+  padding-bottom: 0.21428571rem;
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+}
+.ui.dividing.header .sub.header {
+  padding-bottom: 0.21428571rem;
+}
+.ui.dividing.header .icon {
+  margin-bottom: 0em;
+}
+.ui.inverted.dividing.header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/*-------------------
+        Block
+--------------------*/
+
+.ui.block.header {
+  background: #F3F4F5;
+  padding: 0.78571429rem 1rem;
+  box-shadow: none;
+  border: 1px solid #D4D4D5;
+  border-radius: 0.28571429rem;
+}
+.ui.tiny.block.header {
+  font-size: 0.85714286rem;
+}
+.ui.small.block.header {
+  font-size: 0.92857143rem;
+}
+.ui.block.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+  font-size: 1rem;
+}
+.ui.large.block.header {
+  font-size: 1.14285714rem;
+}
+.ui.huge.block.header {
+  font-size: 1.42857143rem;
+}
+
+/*-------------------
+       Attached
+--------------------*/
+
+.ui.attached.header {
+  background: #FFFFFF;
+  padding: 0.78571429rem 1rem;
+  margin-right: -1px;
+  margin-left: -1px;
+  box-shadow: none;
+  border: 1px solid #D4D4D5;
+}
+.ui.attached.block.header {
+  background: #F3F4F5;
+}
+.ui.attached:not(.top):not(.bottom).header {
+  margin-top: 0em;
+  margin-bottom: 0em;
+  border-top: none;
+  border-radius: 0em;
+}
+.ui.top.attached.header {
+  margin-bottom: 0em;
+  border-radius: 0.28571429rem 0.28571429rem 0em 0em;
+}
+.ui.bottom.attached.header {
+  margin-top: 0em;
+  border-top: none;
+  border-radius: 0em 0em 0.28571429rem 0.28571429rem;
+}
+
+/* Attached Sizes */
+.ui.tiny.attached.header {
+  font-size: 0.85714286em;
+}
+.ui.small.attached.header {
+  font-size: 0.92857143em;
+}
+.ui.attached.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+  font-size: 1em;
+}
+.ui.large.attached.header {
+  font-size: 1.14285714em;
+}
+.ui.huge.attached.header {
+  font-size: 1.42857143em;
+}
+
+/*-------------------
+        Sizing
+--------------------*/
+
+.ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+  font-size: 1.28em;
+}
+
+
+/*******************************
+         Theme Overrides
+*******************************/
+
+
+
+/*******************************
+         Site Overrides
+*******************************/
+

@@ -1,0 +1,9 @@
+/*!
+ * # Semantic UI 2.2.4 - Sticky
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */.ui.sticky{position:static;-webkit-transition:none;transition:none;z-index:800}.ui.sticky.bound{position:absolute;right:auto;left:auto}.ui.sticky.fixed{position:fixed;right:auto;left:auto}.ui.sticky.bound.top,.ui.sticky.fixed.top{top:0;bottom:auto}.ui.sticky.bound.bottom,.ui.sticky.fixed.bottom{top:auto;bottom:0}.ui.native.sticky{position:-webkit-sticky;position:-moz-sticky;position:-ms-sticky;position:-o-sticky;position:sticky}

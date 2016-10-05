@@ -1,0 +1,152 @@
+/*!
+ * # Semantic UI 2.2.4 - Rail
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+/*******************************
+             Rails
+*******************************/
+
+.ui.rail {
+  position: absolute;
+  top: 0%;
+  width: 300px;
+  height: 100%;
+}
+.ui.left.rail {
+  right: auto;
+  left: 100%;
+  padding: 0em 0em 0em 2rem;
+  margin: 0em 0em 0em 2rem;
+}
+.ui.right.rail {
+  right: 100%;
+  left: auto;
+  padding: 0em 2rem 0em 0em;
+  margin: 0em 2rem 0em 0em;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*--------------
+     Internal
+---------------*/
+
+.ui.left.internal.rail {
+  right: 0%;
+  left: auto;
+  padding: 0em 2rem 0em 0em;
+  margin: 0em 2rem 0em 0em;
+}
+.ui.right.internal.rail {
+  right: auto;
+  left: 0%;
+  padding: 0em 0em 0em 2rem;
+  margin: 0em 0em 0em 2rem;
+}
+
+/*--------------
+    Dividing
+---------------*/
+
+.ui.dividing.rail {
+  width: 302.5px;
+}
+.ui.left.dividing.rail {
+  padding: 0em 0em 0em 2.5rem;
+  margin: 0em 0em 0em 2.5rem;
+  border-left: 1px solid rgba(34, 36, 38, 0.15);
+}
+.ui.right.dividing.rail {
+  border-right: 1px solid rgba(34, 36, 38, 0.15);
+  padding: 0em 2.5rem 0em 0em;
+  margin: 0em 2.5rem 0em 0em;
+}
+
+/*--------------
+    Distance
+---------------*/
+
+.ui.close.rail {
+  width: calc( 300px  +  1em );
+}
+.ui.close.left.rail {
+  padding: 0em 0em 0em 1em;
+  margin: 0em 0em 0em 1em;
+}
+.ui.close.right.rail {
+  padding: 0em 1em 0em 0em;
+  margin: 0em 1em 0em 0em;
+}
+.ui.very.close.rail {
+  width: calc( 300px  +  0.5em );
+}
+.ui.very.close.left.rail {
+  padding: 0em 0em 0em 0.5em;
+  margin: 0em 0em 0em 0.5em;
+}
+.ui.very.close.right.rail {
+  padding: 0em 0.5em 0em 0em;
+  margin: 0em 0.5em 0em 0em;
+}
+
+/*--------------
+    Attached
+---------------*/
+
+.ui.attached.left.rail,
+.ui.attached.right.rail {
+  padding: 0em;
+  margin: 0em;
+}
+
+/*--------------
+     Sizing
+---------------*/
+
+.ui.mini.rail {
+  font-size: 0.78571429rem;
+}
+.ui.tiny.rail {
+  font-size: 0.85714286rem;
+}
+.ui.small.rail {
+  font-size: 0.92857143rem;
+}
+.ui.rail {
+  font-size: 1rem;
+}
+.ui.large.rail {
+  font-size: 1.14285714rem;
+}
+.ui.big.rail {
+  font-size: 1.28571429rem;
+}
+.ui.huge.rail {
+  font-size: 1.42857143rem;
+}
+.ui.massive.rail {
+  font-size: 1.71428571rem;
+}
+
+
+/*******************************
+         Theme Overrides
+*******************************/
+
+
+
+/*******************************
+         Site Overrides
+*******************************/
+
