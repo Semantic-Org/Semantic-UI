@@ -1,9 +1,16 @@
 ## RELEASE NOTES
 
-### Version 2.2.5
+### Version 2.2.5 - XX, X, 2016
 
-**Enhancements*
+**Bugs**
+- **Search** - Fixed issue where pressing "up" key when no results selected would cause bottom result to be selected
+- **Search** - Fixed issue where input may attempt to refocus when element is immediately removed from browser's DOM after a result is clicked
+
+**Enhancements**
+- **Checkbox** - Adds additional variables for styling toggle checkbox on/off state
+-  **Sticky** - Adds `container` setting. This can be used to specify the offsetParent of the sticky element and avoid having to calculate on initialization (improving performance)
 - **Progress** - Progress now includes transitionEnd failback for progress bar animations, this will prevent labels from continuing to be updated if the `transitionEnd` css callback does not fire correctly
+- **Transition** - You can now specify `data-display` to specify the final display state for an animation in cases that it is detected incorrectly (you can also pass in as a setting)
 
 ### Version 2.2.4 - August 25, 2016
 
