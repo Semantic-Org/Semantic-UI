@@ -279,6 +279,12 @@
   width: 100%;
 }
 
+/* Menu Selection Dropdown */
+.ui.menu .ui.selection.dropdown.item {
+  background: none;
+  border: none;
+}
+
 /*--------------
      Labels
 ---------------*/
@@ -1156,7 +1162,9 @@
 }
 
 .ui.inverted.menu .item,
-.ui.inverted.menu .item > a:not(.ui) {
+.ui.inverted.menu .item > a:not(.ui),
+.ui.inverted.menu .ui.selection.dropdown.item>input.search,
+.ui.inverted.menu .ui.selection.visible.dropdown.item>.text:not(.default)  {
   color: @invertedTextColor;
 }
 
@@ -1210,7 +1218,9 @@
 }
 
 /*--- Active ---*/
-.ui.inverted.menu .active.item {
+.ui.inverted.menu .active.item,
+.ui.inverted.menu .ui.selection.dropdown.item>input.search:focus,
+.ui.inverted.menu .ui.selection.active.dropdown.item>.text:not(.default) {
   box-shadow: none !important;
   background: @invertedActiveBackground;
   color: @invertedActiveColor !important;
@@ -1218,6 +1228,9 @@
 .ui.inverted.vertical.menu .item .menu .active.item {
   background: @invertedSubMenuActiveBackground;
   color: @invertedSubMenuActiveColor;
+}
+.ui.inverted.menu .ui.selection.dropdown.item>input.search:focus + .text {
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 
 /*--- Pointers ---*/
