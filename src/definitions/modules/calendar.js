@@ -3,13 +3,21 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  */
 
 ;
 (function ($, window, document, undefined) {
+
+  "use strict";
+
+  window = (typeof window != 'undefined' && window.Math == Math)
+    ? window
+    : (typeof self != 'undefined' && self.Math == Math)
+    ? self
+    : Function('return this')()
+  ;
 
   $.fn.calendar = function (parameters) {
 
@@ -731,25 +739,33 @@
               $.extend(true, settings, name);
             }
             else if (value !== undefined) {
-              settings[name] = value;
+              if ($.isPlainObject(settings[name])) {
+                $.extend(true, settings[name], value);
+              }
+              else {
+                settings[name] = value;
+              }
             }
             else {
               return settings[name];
             }
           },
           internal: function (name, value) {
-            if ($.isPlainObject(name)) {
-              $.extend(true, module, name);
-            }
-            else if (value !== undefined) {
-              module[name] = value;
+            module.debug('Changing internal', name, value);
+            if (value !== undefined) {
+              if ($.isPlainObject(name)) {
+                $.extend(true, module, name);
+              }
+              else {
+                module[name] = value;
+              }
             }
             else {
               return module[name];
             }
           },
           debug: function () {
-            if (settings.debug) {
+            if (!settings.silent && settings.debug) {
               if (settings.performance) {
                 module.performance.log(arguments);
               }
@@ -760,7 +776,7 @@
             }
           },
           verbose: function () {
-            if (settings.verbose && settings.debug) {
+            if (!settings.silent && settings.verbose && settings.debug) {
               if (settings.performance) {
                 module.performance.log(arguments);
               }
@@ -771,8 +787,10 @@
             }
           },
           error: function () {
-            module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
-            module.error.apply(console, arguments);
+            if (!settings.silent) {
+              module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
+              module.error.apply(console, arguments);
+            }
           },
           performance: {
             log: function (message) {
@@ -906,6 +924,7 @@
     name: 'Calendar',
     namespace: 'calendar',
 
+    silent: false,
     debug: false,
     verbose: false,
     performance: false,
