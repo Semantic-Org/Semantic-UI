@@ -270,8 +270,10 @@
                   cell = $('<td/>').addClass(className.cell).appendTo(row);
                   cell.text(cellText);
                   cell.data(metadata.date, cellDate);
-                  var disabled = (isDay && cellDate.getMonth() !== month) || !module.helper.isDateInRange(cellDate, mode);
+                  var adjacent = isDay && cellDate.getMonth() !== month;
+                  var disabled = adjacent || !module.helper.isDateInRange(cellDate, mode);
                   var active = module.helper.dateEqual(cellDate, date, mode);
+                  cell.toggleClass(className.adjacentCell, adjacent);
                   cell.toggleClass(className.disabledCell, disabled);
                   cell.toggleClass(className.activeCell, active);
                   if (!isHour && !isMinute) {
@@ -1283,6 +1285,7 @@
       link: 'link',
       cell: 'link',
       disabledCell: 'disabled',
+      adjacentCell: 'adjacent',
       activeCell: 'active',
       rangeCell: 'range',
       focusCell: 'focus',
