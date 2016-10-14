@@ -138,7 +138,8 @@ module.exports = {
     minify: {
       processImport       : false,
       restructuring       : false,
-      keepSpecialComments : 1
+      keepSpecialComments : 1,
+      roundingPrecision   : -1,
     },
 
     /* Minified JS Settings */
@@ -151,7 +152,8 @@ module.exports = {
     concatMinify: {
       processImport       : false,
       restructuring       : false,
-      keepSpecialComments : false
+      keepSpecialComments : false,
+      roundingPrecision   : -1,
     },
 
     /* Minified Concat JS */
