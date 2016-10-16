@@ -352,6 +352,14 @@ $.fn.range = function(parameters) {
                   settings.onMove.call(element, value);
                 });
               }
+            } else if(eventPos >= module.get.trackOffset()) {
+              module.update.position(
+                module.determine.positionFromValue(module.get.max())
+              );
+            } else if(eventPos <= module.get.trackOffset() + module.get.trackLength()) {
+              module.update.position(
+                module.determine.positionFromValue(module.get.min())
+              );
             }
           },
           up: function(event, originalEvent) {
@@ -362,6 +370,10 @@ $.fn.range = function(parameters) {
             ;
             if(eventPos >= module.get.trackOffset() && eventPos <= module.get.trackOffset() + module.get.trackLength()) {
               module.set.value(module.determine.value(newPos));
+            } else if(eventPos >= module.get.trackOffset()) {
+              module.set.value(module.get.max());
+            } else if(eventPos <= module.get.trackOffset() + module.get.trackLength()) {
+              module.set.value(module.get.min());
             }
             module.unbind.slidingEvents();
           },
