@@ -138,6 +138,9 @@ $.fn.slider = function(parameters) {
           slider: function() {
             sliderObserver.observe($module[0], {
               attributes: true,
+              // It will be better if CSS style changes can be observed,
+              // see http://xml3d.org/xml3d/specification/styleobserver
+              attributeFilter: ['class', 'style']
             });
           },
         },
