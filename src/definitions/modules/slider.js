@@ -221,7 +221,7 @@ $.fn.slider = function(parameters) {
             if(module.get.step() != 0) {
               $labels = $module.find('.labels');
               if($labels.length != 0)
-                $labels.empty()
+                $labels.empty();
               else
                 $labels = $module.append('<ul class="auto labels"></ul>').find('.labels');
               for(var i = 0; i <= module.get.numLabels(); i++) {
@@ -566,7 +566,7 @@ $.fn.slider = function(parameters) {
                 return position;
               case 'second':
                 if(module.is.doubled())
-                  return secondThumbPosition;
+                  return secondPos;
                 else {
                   module.error(error.notdouble);
                   break;
@@ -659,7 +659,7 @@ $.fn.slider = function(parameters) {
             // Use precision to avoid ugly Javascript floating point rounding issues
             // (like 35 * .01 = 0.35000000000000003)
             difference = Math.round(difference * precision) / precision;
-            module.verbose('Cutting off additional decimal places')
+            module.verbose('Cutting off additional decimal places');
             return difference + module.get.min();
           },
           keyMovement: function(event) {
@@ -736,7 +736,7 @@ $.fn.slider = function(parameters) {
               module.thumbVal = first;
               module.secondThumbVal = second;
               position = module.handleNewValuePosition(module.thumbVal);
-              module.update.position(position, $thumb)
+              module.update.position(position, $thumb);
               secondPos = module.handleNewValuePosition(module.secondThumbVal);
               module.update.position(secondPos, $secondThumb);
               value = Math.abs(module.thumbVal - module.secondThumbVal);
@@ -1096,7 +1096,7 @@ $.fn.slider.settings = {
 
   selector: {
 
-  }
+  },
 
   className     : {
     reversed : 'reversed',
