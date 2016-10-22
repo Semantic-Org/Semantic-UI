@@ -165,8 +165,9 @@ $.fn.slider = function(parameters) {
             $thumb = $module.find('.thumb:not(.second)');
             $currThumb = $thumb;
             if(module.is.doubled()) {
-              if($module.find('.thumb.second').length == 0)
+              if($module.find('.thumb.second').length == 0) {
                 $module.find('.inner').append("<div class='thumb second'></div>");
+              }
               $secondThumb = $module.find('.thumb.second');
             }
             $track = $module.find('.track');
@@ -223,10 +224,12 @@ $.fn.slider = function(parameters) {
           autoLabel: function() {
             if(module.get.step() != 0) {
               $labels = $module.find('.labels');
-              if($labels.length != 0)
+              if($labels.length != 0) {
                 $labels.empty();
-              else
+              }
+              else {
                 $labels = $module.append('<ul class="auto labels"></ul>').find('.labels');
+              }
               for(var i = 0; i <= module.get.numLabels(); i++) {
                 var
                   $label = $('<li class="label">' + module.get.label(i+1) + '</li>'),
@@ -339,8 +342,9 @@ $.fn.slider = function(parameters) {
               ;
               $currThumb = module.determine.closestThumb(newPos);
             }
-            if(!module.is.disabled())
+            if(!module.is.disabled()) {
               module.bind.slidingEvents();
+            }
           },
           move: function(event, originalEvent) {
             event.preventDefault();
@@ -419,8 +423,9 @@ $.fn.slider = function(parameters) {
             currValue = module.get.currentThumbValue()
           ;
           module.verbose('Taking a step');
-          if(step > 0)
+          if(step > 0) {
             module.set.value(currValue + step * multiplier);
+          }
         },
 
         backStep: function(multiplier) {
@@ -430,8 +435,9 @@ $.fn.slider = function(parameters) {
             currValue = module.get.currentThumbValue()
           ;
           module.verbose('Going back a step');
-          if(step > 0)
+          if(step > 0) {
             module.set.value(currValue - step * multiplier);
+          }
         },
 
         is: {
@@ -541,8 +547,9 @@ $.fn.slider = function(parameters) {
             return value;
           },
           currentThumbValue: function() {
-            if($currThumb.hasClass('second'))
+            if($currThumb.hasClass('second')) {
               return module.secondThumbVal;
+            }
             return module.thumbVal;
           },
           thumbValue: function(which) {
@@ -550,8 +557,9 @@ $.fn.slider = function(parameters) {
               case 'first':
                 return module.thumbVal;
               case 'second':
-              if(module.is.doubled())
+              if(module.is.doubled()) {
                 return module.secondThumbVal;
+              }
               else {
                 module.error(error.notdouble);
                 break;
@@ -568,8 +576,9 @@ $.fn.slider = function(parameters) {
               case 'first':
                 return position;
               case 'second':
-                if(module.is.doubled())
+                if(module.is.doubled()) {
                   return secondPos;
+                }
                 else {
                   module.error(error.notdouble);
                   break;
@@ -658,7 +667,9 @@ $.fn.slider = function(parameters) {
               difference = (step == 0) ? value : Math.round(value / step) * step
             ;
             module.verbose('Determined value based upon position: ' + position + ' as: ' + value);
-            if(value != difference) module.verbose('Rounding value to closest step: ' + difference);
+            if(value != difference) {
+              module.verbose('Rounding value to closest step: ' + difference);
+            }
             // Use precision to avoid ugly Javascript floating point rounding issues
             // (like 35 * .01 = 0.35000000000000003)
             difference = Math.round(difference * precision) / precision;
@@ -789,16 +800,19 @@ $.fn.slider = function(parameters) {
               value = Math.abs(module.thumbVal - module.secondThumbVal);
             }
             module.debug('Setting range value to ' + value);
-            if(typeof callback === 'function')
+            if(typeof callback === 'function') {
               callback(value);
+            }
           },
           position: function(newPos, $element) {
             var $targetThumb = $element != undefined ? $element : $currThumb;
             if(module.is.doubled()) {
-              if(!$targetThumb.hasClass('second'))
+              if(!$targetThumb.hasClass('second')) {
                 position = newPos;
-              else
+              }
+              else {
                 secondPos = newPos;
+              }
             } else {
               position = newPos;
             }
@@ -810,25 +824,29 @@ $.fn.slider = function(parameters) {
             if (module.is.vertical()) {
               if (module.is.reversed()) {
                 $targetThumb.css({bottom: String(newPos - offset) + 'px'});
-                if(module.is.doubled())
+                if(module.is.doubled()) {
                   trackPosValue = {bottom: String(parseFloat(module.determine.closestThumbPos(0)) + offset) + 'px'};
+                }
               }
               else {
                 $targetThumb.css({top: String(newPos - offset) + 'px'});
-                if(module.is.doubled())
+                if(module.is.doubled()) {
                   trackPosValue = {top: String(parseFloat(module.determine.closestThumbPos(0)) + offset) + 'px'};
+                }
               }
               $trackFill.css(Object.assign({height: String(trackFillWidth) + 'px'}, trackPosValue));
             } else {
               if (module.is.reversed()) {
                 $targetThumb.css({right: String(newPos - offset) + 'px'});
-                if(module.is.doubled())
+                if(module.is.doubled()) {
                   trackPosValue = {right: String(parseFloat(module.determine.closestThumbPos(0)) + offset) + 'px'};
+                }
               }
               else {
                 $targetThumb.css({left: String(newPos - offset) + 'px'});
-                if(module.is.doubled())
+                if(module.is.doubled()) {
                   trackPosValue = {left: String(parseFloat(module.determine.closestThumbPos(0)) + offset) + 'px'};
+                }
               }
               $trackFill.css(Object.assign({width: String(trackFillWidth) + 'px'}, trackPosValue));
             }
