@@ -169,11 +169,13 @@
 
 .ui.labeled.slider > .labels {
   height: @labelHeight;
-  width: 100%;
+  width: auto;
   margin: 0;
   padding: 0;
   position: absolute;
   top: 50%;
+  left: 0;
+  right: 0;
 }
 
 .ui.labeled.slider:not(.vertical) > .labels {
@@ -200,9 +202,10 @@
 
 .ui.labeled.vertical.slider > .labels {
   width: @labelHeight;
-  height: 100%;
+  height: auto;
   left: 50%;
   top: 0;
+  bottom: 0;
   transform: translateX(-50%);
 }
 

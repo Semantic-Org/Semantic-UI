@@ -197,28 +197,22 @@ $.fn.slider = function(parameters) {
             var
               $children   = $labels.find('.label'),
               numChildren = $children.length,
-              ratio,
-              position
+              min         = module.get.min(),
+              max         = module.get.max(),
+              ratio
             ;
             $children.each(function(index) {
               var
-                $child = $(this),
+                $child    = $(this),
                 attrValue = $child.attr('data-value')
               ;
               if(attrValue) {
-                position = module.determine.positionFromValue(attrValue)
+                attrValue = attrValue > max ? max : attrValue < min ? min : attrValue;
+                ratio = (attrValue - min) / (max - min);
               } else {
-                ratio = ((index+1)/(numChildren+1));
-                position = module.determine.positionFromRatio(ratio);
+                ratio = (index + 1) / (numChildren + 1);
               }
-              var posDir =
-                module.is.vertical()
-                ?
-                module.is.reversed() ? 'bottom' : 'top'
-                :
-                module.is.reversed() ? 'right' : 'left'
-              ;
-              $(this).css(posDir, position);
+              module.update.labelPosition(ratio, $(this));
             });
           },
           autoLabel: function() {
@@ -230,17 +224,12 @@ $.fn.slider = function(parameters) {
               else {
                 $labels = $module.append('<ul class="auto labels"></ul>').find('.labels');
               }
-              for(var i = 0; i <= module.get.numLabels(); i++) {
+              for(var i = 1, len = module.get.numLabels(); i <= len; i++) {
                 var
-                  $label = $('<li class="label">' + module.get.label(i+1) + '</li>'),
-                  position =
-                    module.is.vertical()
-                    ?
-                    module.is.reversed() ? 'bottom' : 'top'
-                    :
-                    module.is.reversed() ? 'right' : 'left'
+                  $label = $('<li class="label">' + module.get.label(i) + '</li>'),
+                  ratio  = i / (len + 1)
                 ;
-                $label.css(position, module.determine.positionFromValue((i+1) * module.get.step() + module.get.min()));
+                module.update.labelPosition(ratio, $label);
                 $labels.append($label);
               }
             }
@@ -494,6 +483,24 @@ $.fn.slider = function(parameters) {
           },
           trackEndPos: function() {
             return module.is.reversed() ? module.get.trackLeft() : module.get.trackLeft() + module.get.trackLength();
+          },
+          trackStartMargin: function () {
+            var margin;
+            if (module.is.vertical()) {
+              margin = module.is.reversed() ? $module.css('padding-bottom') : $module.css('padding-top');
+            } else {
+              margin = module.is.reversed() ? $module.css('padding-right') : $module.css('padding-left');
+            }
+            return margin || '0px';
+          },
+          trackEndMargin: function () {
+            var margin;
+            if (module.is.vertical()) {
+              margin = module.is.reversed() ? $module.css('padding-top') : $module.css('padding-bottom');
+            } else {
+              margin = module.is.reversed() ? $module.css('padding-left') : $module.css('padding-right');
+            }
+            return margin || '0px';
           },
           precision: function() {
             var
@@ -852,6 +859,20 @@ $.fn.slider = function(parameters) {
             }
             module.debug('Setting range position to ' + newPos);
           },
+          labelPosition: function (ratio, $label) {
+            var
+              startMargin = module.get.trackStartMargin(),
+              endMargin   = module.get.trackEndMargin(),
+              posDir =
+                module.is.vertical()
+                ?
+                module.is.reversed() ? 'bottom' : 'top'
+                :
+                module.is.reversed() ? 'right' : 'left'
+            ;
+            var position = '(100% - ' + startMargin + ' - ' + endMargin + ') * ' + ratio;
+            $label.css(posDir, 'calc(' + position + ' + ' + startMargin + ')');
+          }
         },
 
         goto: {
