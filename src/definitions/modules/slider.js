@@ -159,7 +159,11 @@ $.fn.slider = function(parameters) {
               $module.attr('tabindex', 0);
             }
             if($module.find('.inner').length == 0) {
-              $module.append("<div class='inner'><div class='track'></div><div class='track-fill'></div><div class='thumb'></div></div>");
+              $module.append("<div class='inner'>"
+                             + "<div class='track'></div>"
+                             + "<div class='track-fill'></div>"
+                             + "<div class='thumb'></div>"
+                             + "</div>");
             }
             precision = module.get.precision();
             $thumb = $module.find('.thumb:not(.second)');
@@ -172,7 +176,7 @@ $.fn.slider = function(parameters) {
             }
             $track = $module.find('.track');
             $trackFill = $module.find('.track-fill');
-            offset = $thumb.width()/2;
+            offset = $thumb.width() / 2;
             module.setup.labels();
           },
           labels: function() {
@@ -533,7 +537,7 @@ $.fn.slider = function(parameters) {
               case settings.labelTypes.number:
                 return (value * module.get.step()) + module.get.min();
               case settings.labelTypes.letter:
-                return alphabet[(value-1)%26];
+                return alphabet[(value - 1) % 26];
               case settings.labelTypes.none:
                 return '';
               default:
@@ -544,23 +548,19 @@ $.fn.slider = function(parameters) {
             return value;
           },
           currentThumbValue: function() {
-            if($currThumb.hasClass('second')) {
-              return module.secondThumbVal;
-            }
-            return module.thumbVal;
+            return $currThumb.hasClass('second') ? module.secondThumbVal : module.thumbVal;
           },
           thumbValue: function(which) {
             switch(which) {
-              case 'first':
-                return module.thumbVal;
               case 'second':
-              if(module.is.doubled()) {
-                return module.secondThumbVal;
-              }
-              else {
-                module.error(error.notdouble);
-                break;
-              }
+                if(module.is.doubled()) {
+                  return module.secondThumbVal;
+                }
+                else {
+                  module.error(error.notdouble);
+                  break;
+                }
+              case 'first':
               default:
                 return module.thumbVal;
             }
@@ -570,8 +570,6 @@ $.fn.slider = function(parameters) {
           },
           thumbPosition: function(which) {
             switch(which) {
-              case 'first':
-                return position;
               case 'second':
                 if(module.is.doubled()) {
                   return secondPos;
@@ -580,15 +578,21 @@ $.fn.slider = function(parameters) {
                   module.error(error.notdouble);
                   break;
                 }
+              case 'first':
               default:
                 return position;
             }
-          },
+          }
         },
 
         determine: {
           pos: function(pagePos) {
-            return module.is.reversed() ? module.get.trackStartPos() - pagePos + module.get.trackOffset() : pagePos - module.get.trackOffset() - module.get.trackStartPos();
+            return module.is.reversed()
+              ?
+              module.get.trackStartPos() - pagePos + module.get.trackOffset()
+              :
+              pagePos - module.get.trackOffset() - module.get.trackStartPos()
+            ;
           },
           closestThumb: function(eventPos) {
             var
@@ -739,15 +743,12 @@ $.fn.slider = function(parameters) {
             max = module.get.max(),
             newPos
           ;
-          if(val >= min && val <= max) {
-            newPos = module.determine.positionFromValue(val);
-          } else if (val <= min) {
-            newPos = module.determine.positionFromValue(min);
+          if (val <= min) {
             val = min;
-          } else {
-            newPos = module.determine.positionFromValue(max);
+          } else if (val >= max) {
             val = max;
           }
+          newPos = module.determine.positionFromValue(val);
           return newPos;
         },
 
