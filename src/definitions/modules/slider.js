@@ -105,7 +105,7 @@ $.fn.slider = function(parameters) {
 
           // module.observeChanges();
           module.instantiate();
-          settings.onChange.call(element, value);
+          settings.onChange.call(element, value, module.thumbVal, module.secondThumbVal);
         },
 
         instantiate: function() {
@@ -340,10 +340,10 @@ $.fn.slider = function(parameters) {
             var value = module.determine.valueFromEvent(event, originalEvent);
             if(module.get.step() == 0 || settings.smooth) {
               module.update.position(value);
-              settings.onMove.call(element, value);
+              settings.onMove.call(element, value, module.thumbVal, module.secondThumbVal);
             } else {
-              module.update.value(value, function(value) {
-                settings.onMove.call(element, value);
+              module.update.value(value, function(value, thumbVal, secondThumbVal) {
+                settings.onMove.call(element, value, thumbVal, secondThumbVal);
               });
             }
           },
@@ -753,8 +753,8 @@ $.fn.slider = function(parameters) {
 
         set: {
           value: function(newValue) {
-            module.update.value(newValue, function(value) {
-              settings.onChange.call(element, value);
+            module.update.value(newValue, function(value, thumbVal, secondThumbVal) {
+              settings.onChange.call(element, value, thumbVal, secondThumbVal);
             });
           },
           valueDouble: function(first, second) {
@@ -764,7 +764,7 @@ $.fn.slider = function(parameters) {
               value = Math.abs(module.thumbVal - module.secondThumbVal);
               module.update.position(module.thumbVal, $thumb);
               module.update.position(module.secondThumbVal, $secondThumb);
-              settings.onChange.call(element, value);
+              settings.onChange.call(element, value, module.thumbVal, module.secondThumbVal);
             } else {
               module.error(error.notdouble);
             }
@@ -782,7 +782,7 @@ $.fn.slider = function(parameters) {
                 module.update.position(thumbVal, $thumb);
             }
             value = Math.abs(module.thumbVal - module.secondThumbVal);
-            settings.onChange.call(element, value);
+            settings.onChange.call(element, value, module.thumbVal, module.secondThumbVal);
           }
         },
 
@@ -812,7 +812,7 @@ $.fn.slider = function(parameters) {
             module.update.position(newValue);
             module.debug('Setting range value to ' + value);
             if(typeof callback === 'function') {
-              callback(value);
+              callback(value, module.thumbVal, module.secondThumbVal);
             }
           },
           position: function(newValue, $element) {
@@ -896,7 +896,7 @@ $.fn.slider = function(parameters) {
             var
               data = {
                 thumbVal        : $module.data(metadata.thumbVal),
-                secondThumbVal  : $module.data(metadata.secondThumbVal),
+                secondThumbVal  : $module.data(metadata.secondThumbVal)
               }
             ;
             if(data.thumbVal) {
@@ -1170,8 +1170,8 @@ $.fn.slider.settings = {
     letter  : 'letter'
   },
 
-  onChange : function(value){},
-  onMove   : function(value){},
+  onChange : function(value, thumbVal, secondThumbVal){},
+  onMove   : function(value, thumbVal, secondThumbVal){},
 };
 
 
