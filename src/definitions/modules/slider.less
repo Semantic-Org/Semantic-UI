@@ -208,7 +208,7 @@
 }
 
 .ui.labeled.vertical.slider > .labels .label {
-  transform: translate(-100%, -@labelWidth);
+  transform: translate(-100%, -50%); // translate(-100%, -@labelWidth);
 }
 
 .ui.labeled.vertical.slider > .labels .label:after {
@@ -216,6 +216,11 @@
   height: @labelWidth;
   left: 100%;
   top: 50%;
+}
+
+/* Vertical Reversed Labels */
+.ui.labeled.vertical.reversed.slider > .labels .label {
+  transform: translate(-100%, 50%);
 }
 
 /*--------------
