@@ -342,7 +342,7 @@ $.fn.slider = function(parameters) {
           move: function(event, originalEvent) {
             event.preventDefault();
             var value = module.determine.valueFromEvent(event, originalEvent);
-            if(module.get.step() == 0 || settings.smooth) {
+            if(module.get.step() == 0 || module.is.smooth()) {
               var
                 thumbVal = module.thumbVal,
                 secondThumbVal = module.secondThumbVal,
@@ -456,9 +456,12 @@ $.fn.slider = function(parameters) {
           vertical: function() {
             return $module.hasClass(settings.className.vertical);
           },
+          smooth: function() {
+            return settings.smooth || $module.hasClass(settings.className.smooth);
+          },
           touch: function() {
             return isTouch;
-          },
+          }
         },
 
         get: {
@@ -1182,7 +1185,8 @@ $.fn.slider.settings = {
     disabled : 'disabled',
     labeled  : 'labeled',
     vertical : 'vertical',
-    doubled  : 'double'
+    doubled  : 'double',
+    smooth   : 'smooth'
   },
 
   keys : {
