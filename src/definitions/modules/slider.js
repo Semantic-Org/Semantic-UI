@@ -343,8 +343,19 @@ $.fn.slider = function(parameters) {
             event.preventDefault();
             var value = module.determine.valueFromEvent(event, originalEvent);
             if(module.get.step() == 0 || settings.smooth) {
-              module.update.position(value);
-              settings.onMove.call(element, value, module.thumbVal, module.secondThumbVal);
+              var
+                thumbVal = module.thumbVal,
+                secondThumbVal = module.secondThumbVal,
+                thumbSmoothVal = module.determine.smoothValueFromEvent(event, originalEvent)
+              ;
+              if(!$currThumb.hasClass('second')) {
+                thumbVal = value;
+              } else {
+                secondThumbVal = value;
+              }
+              value = Math.abs(thumbVal - (secondThumbVal || 0));
+              module.update.position(thumbSmoothVal);
+              settings.onMove.call(element, value, thumbVal, secondThumbVal);
             } else {
               module.update.value(value, function(value, thumbVal, secondThumbVal) {
                 settings.onMove.call(element, value, thumbVal, secondThumbVal);
@@ -658,6 +669,24 @@ $.fn.slider = function(parameters) {
             }
             return value;
           },
+          smoothValueFromEvent: function(event, originalEvent) {
+            var
+              min = module.get.min(),
+              max = module.get.max(),
+              trackLength = module.get.trackLength(),
+              eventPos = module.determine.eventPos(event, originalEvent),
+              newPos = eventPos - module.get.trackOffset(),
+              ratio,
+              value
+            ;
+            newPos = newPos < 0 ? 0 : newPos > trackLength ? trackLength : newPos;
+            ratio = newPos / trackLength;
+            if (module.is.reversed()) {
+              ratio = 1 - ratio;
+            }
+            value = ratio * (max - min) + min;
+            return value;
+          },
           eventPos: function(event, originalEvent) {
             if(module.is.touch()) {
               var
@@ -782,7 +811,7 @@ $.fn.slider = function(parameters) {
                 module.thumbVal = thumbVal;
                 module.update.position(thumbVal, $thumb);
             }
-            value = Math.abs(module.thumbVal - module.secondThumbVal);
+            value = Math.abs(module.thumbVal - (module.secondThumbVal || 0));
             settings.onChange.call(element, value, module.thumbVal, module.secondThumbVal);
           }
         },
