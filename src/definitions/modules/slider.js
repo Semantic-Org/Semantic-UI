@@ -207,7 +207,7 @@ $.fn.slider = function(parameters) {
             ;
             $children.each(function(index) {
               var
-                $child    = $(this),
+                $child = $(this),
                 attrValue = $child.attr('data-value')
               ;
               if(attrValue) {
@@ -228,10 +228,10 @@ $.fn.slider = function(parameters) {
               else {
                 $labels = $module.append('<ul class="auto labels"></ul>').find('.labels');
               }
-              for(var i = 1, len = module.get.numLabels(); i <= len; i++) {
+              for(var i = 1, len = module.get.numLabels(); i < len; i++) {
                 var
                   $label = $('<li class="label">' + module.get.label(i) + '</li>'),
-                  ratio  = i / (len + 1)
+                  ratio  = i / len
                 ;
                 module.update.labelPosition(ratio, $label);
                 $labels.append($label);
@@ -525,9 +525,9 @@ $.fn.slider = function(parameters) {
             return settings.step;
           },
           numLabels: function() {
-            var value = Math.round((module.get.max() - module.get.min()) / module.get.step()) - 2;
+            var value = Math.round((module.get.max() - module.get.min()) / module.get.step());
             module.debug('Determined that their should be ' + value + ' labels');
-            return value
+            return value;
           },
           labelType: function() {
             return settings.labelType;
