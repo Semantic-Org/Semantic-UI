@@ -820,8 +820,8 @@ $.fn.slider = function(parameters) {
             var
               newPos = module.handleNewValuePosition(newValue),
               $targetThumb = $element != undefined ? $element : $currThumb,
-              thumbVal = module.thumbVal || 0,
-              secondThumbVal = module.secondThumbVal || 0
+              thumbVal = module.thumbVal || module.get.min(),
+              secondThumbVal = module.secondThumbVal || module.get.min()
             ;
             if(module.is.doubled()) {
               if(!$targetThumb.hasClass('second')) {
@@ -840,9 +840,9 @@ $.fn.slider = function(parameters) {
               thumbPosValue,
               min = module.get.min(),
               max = module.get.max(),
-              thumbPosPercent = 100 * newValue / (max - min),
-              trackStartPosPercent = 100 * Math.min(thumbVal, secondThumbVal) / (max - min),
-              trackEndPosPercent = 100 * (1 - Math.max(thumbVal, secondThumbVal) / (max - min))
+              thumbPosPercent = 100 * (newValue - min) / (max - min),
+              trackStartPosPercent = 100 * (Math.min(thumbVal, secondThumbVal) - min) / (max - min),
+              trackEndPosPercent = 100 * (1 - (Math.max(thumbVal, secondThumbVal) - min) / (max - min))
             ;
             if (module.is.vertical()) {
               if (module.is.reversed()) {
