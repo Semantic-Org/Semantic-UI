@@ -135,7 +135,12 @@ $.fn.sticky = function(parameters) {
         },
 
         determineContainer: function() {
-          $container = $module.offsetParent();
+          if(settings.container) {
+            $container = $(settings.container);
+          }
+          else {
+            $container = $module.offsetParent();
+          }
         },
 
         determineContext: function() {
@@ -882,6 +887,7 @@ $.fn.sticky.settings = {
   pushing        : false,
 
   context        : false,
+  container      : false,
 
   // Context to watch scroll events
   scrollContext  : window,

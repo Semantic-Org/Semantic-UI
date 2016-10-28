@@ -1813,7 +1813,6 @@ Floated Menu / Item
   top: 100%;
   left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
-      -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
           transform: translateX(-50%) translateY(-50%) rotate(45deg);
   background: none;
   margin: 0.5px 0em 0em;
@@ -1833,7 +1832,6 @@ Floated Menu / Item
   bottom: auto;
   left: auto;
   -webkit-transform: translateX(50%) translateY(-50%) rotate(45deg);
-      -ms-transform: translateX(50%) translateY(-50%) rotate(45deg);
           transform: translateX(50%) translateY(-50%) rotate(45deg);
   margin: 0em -0.5px 0em 0em;
   border: none;
