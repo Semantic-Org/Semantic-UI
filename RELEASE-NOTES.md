@@ -2,7 +2,7 @@
 
 ### Version 2.2.5
 
-**Enhancements*
+**Enhancements**
 - **Progress** - Progress now includes transitionEnd failback for progress bar animations, this will prevent labels from continuing to be updated if the `transitionEnd` css callback does not fire correctly
 
 ### Version 2.2.4 - August 25, 2016
