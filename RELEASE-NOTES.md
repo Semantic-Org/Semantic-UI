@@ -5,6 +5,7 @@
 **Bugs**
 - **Search** - Fixed issue where pressing "up" key when no results selected would cause bottom result to be selected
 - **Search** - Fixed issue where input may attempt to refocus when search element is immediately removed from browser's DOM after a result is clicked.
+- **Flat Theme** - Fixes inverted input color
 
 **Enhancements**
 - **Tab** - Added new tab cache type `DOM` which preserves the final DOM state after scripts rendering. This can be used to avoid re-running returned `<script>` tags on each cached read #2534
