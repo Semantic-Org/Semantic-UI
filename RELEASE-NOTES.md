@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 2.2.6 - October, 27, 2016
+
+**Bugs**
+-**Tab** - Hotfix for accidental use of ES6 `let`
+
 ### Version 2.2.5 - October, 27, 2016
 
 **Bugs**
