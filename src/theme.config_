@@ -80,7 +80,7 @@
 @themesFolder : 'themes';
 
 /* Path to site override folder */
-@siteFolder  : 'site';
+@siteFolder   : 'site/';
 
 
 /*******************************
