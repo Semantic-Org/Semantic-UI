@@ -1,9 +1,8 @@
 /*!
- * # Semantic UI 2.1.7 - Item
+ * # Semantic UI 2.2.6 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -33,7 +32,7 @@
   border-radius: 0rem;
   box-shadow: none;
   -webkit-transition: box-shadow 0.1s ease;
-          transition: box-shadow 0.1s ease;
+  transition: box-shadow 0.1s ease;
   z-index: '';
 }
 .ui.items > .item a {
@@ -233,7 +232,7 @@
 .ui.items > .item > .content a:not(.ui) {
   color: '';
   -webkit-transition: color 0.1s ease;
-          transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 .ui.items > .item > .content a:not(.ui):hover {
   color: '';
@@ -268,14 +267,14 @@
   cursor: pointer;
   opacity: 0.75;
   -webkit-transition: color 0.1s ease;
-          transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 .ui.items > .item > .content .favorite.icon:hover {
   opacity: 1;
-  color: #ffb70a;
+  color: #FFB70A;
 }
 .ui.items > .item > .content .active.favorite.icon {
-  color: #ffe623;
+  color: #FFE623;
 }
 
 /*-----Like----- */
@@ -286,14 +285,14 @@
   cursor: pointer;
   opacity: 0.75;
   -webkit-transition: color 0.1s ease;
-          transition: color 0.1s ease;
+  transition: color 0.1s ease;
 }
 .ui.items > .item > .content .like.icon:hover {
   opacity: 1;
-  color: #ff2733;
+  color: #FF2733;
 }
 .ui.items > .item > .content .active.like.icon {
-  color: #ff2733;
+  color: #FF2733;
 }
 
 /*----------------
@@ -312,7 +311,7 @@
   color: rgba(0, 0, 0, 0.4);
   box-shadow: none;
   -webkit-transition: color 0.1s ease;
-          transition: color 0.1s ease;
+  transition: color 0.1s ease;
   border-top: none;
 }
 .ui.items > .item .extra > * {
@@ -355,7 +354,7 @@
   }
 }
 
-/* Mobily Only */
+/* Mobile Only */
 @media only screen and (max-width: 767px) {
   .ui.items > .item {
     -webkit-box-orient: vertical;

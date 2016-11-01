@@ -3,7 +3,6 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -422,6 +421,25 @@
 *******************************/
 
 /*-------------------
+       Raised
+--------------------*/
+
+.ui.raised.cards > .card,
+.ui.raised.card {
+  box-shadow: @raisedShadow;
+}
+.ui.raised.cards a.card:hover,
+.ui.link.cards .raised.card:hover,
+a.ui.raised.card:hover,
+.ui.link.raised.card:hover {
+  box-shadow: @raisedShadowHover;
+}
+
+.ui.raised.cards > .card,
+.ui.raised.card {
+  box-shadow: @raisedShadow;
+}
+/*-------------------
        Centered
 --------------------*/
 
@@ -839,7 +857,7 @@ a.ui.card:hover,
       Doubling
 --------------------*/
 
-/* Mobily Only */
+/* Mobile Only */
 @media only screen and (max-width : @largestMobileScreen) {
   .ui.two.doubling.cards {
     margin-left: @oneCardOffset;

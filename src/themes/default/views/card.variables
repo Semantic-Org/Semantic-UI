@@ -160,6 +160,17 @@
   @borderShadow
 ;
 
+
+/* Raised */
+@raisedShadow:
+  @borderShadow,
+  @floatingShadow
+;
+@raisedShadowHover:
+  @borderShadow,
+  @floatingShadowHover
+;
+
 /* Card Count */
 @wideCardSpacing: 1em;
 @cardSpacing: 0.75em;

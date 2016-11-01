@@ -1,9 +1,8 @@
 /*!
- * # Semantic UI 2.1.7 - Table
+ * # Semantic UI 2.2.6 - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -18,7 +17,7 @@
 /* Prototype */
 .ui.table {
   width: 100%;
-  background: #ffffff;
+  background: #FFFFFF;
   margin: 1em 0em;
   border: 1px solid rgba(34, 36, 38, 0.15);
   box-shadow: none;
@@ -45,7 +44,7 @@
 .ui.table th,
 .ui.table td {
   -webkit-transition: background 0.1s ease, color 0.1s ease;
-          transition: background 0.1s ease, color 0.1s ease;
+  transition: background 0.1s ease, color 0.1s ease;
 }
 
 /* Headers */
@@ -54,10 +53,10 @@
 }
 .ui.table thead th {
   cursor: auto;
-  background: #f9fafb;
+  background: #F9FAFB;
   text-align: inherit;
   color: rgba(0, 0, 0, 0.87);
-  padding: 0.92857143em 0.71428571em;
+  padding: 0.92857143em 0.78571429em;
   vertical-align: inherit;
   font-style: none;
   font-weight: bold;
@@ -85,10 +84,10 @@
 .ui.table tfoot th {
   cursor: auto;
   border-top: 1px solid rgba(34, 36, 38, 0.15);
-  background: #f9fafb;
+  background: #F9FAFB;
   text-align: inherit;
   color: rgba(0, 0, 0, 0.87);
-  padding: 0.71428571em 0.71428571em;
+  padding: 0.78571429em 0.78571429em;
   vertical-align: middle;
   font-style: normal;
   font-weight: normal;
@@ -117,7 +116,7 @@
 
 /* Table Cells */
 .ui.table td {
-  padding: 0.71428571em 0.71428571em;
+  padding: 0.78571429em 0.78571429em;
   text-align: inherit;
 }
 
@@ -238,29 +237,36 @@
   background: transparent;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.4);
-  box-shadow: -1px -1px 0px 1px #ffffff;
+  box-shadow: -1px -1px 0px 1px #FFFFFF;
 }
 .ui.definition.table tfoot:not(.full-width) th:first-child {
   pointer-events: none;
   background: transparent;
   font-weight: rgba(0, 0, 0, 0.4);
   color: normal;
-  box-shadow: 1px 1px 0px 1px #ffffff;
+  box-shadow: 1px 1px 0px 1px #FFFFFF;
 }
 
 /* Remove Border */
 .ui.celled.definition.table thead:not(.full-width) th:first-child {
-  box-shadow: 0px -1px 0px 1px #ffffff;
+  box-shadow: 0px -1px 0px 1px #FFFFFF;
 }
 .ui.celled.definition.table tfoot:not(.full-width) th:first-child {
-  box-shadow: 0px 1px 0px 1px #ffffff;
+  box-shadow: 0px 1px 0px 1px #FFFFFF;
 }
 
 /* Highlight Defining Column */
-.ui.definition.table tr td:first-child {
+.ui.definition.table tr td:first-child:not(.ignored),
+.ui.definition.table tr td.definition {
   background: rgba(0, 0, 0, 0.03);
   font-weight: bold;
   color: rgba(0, 0, 0, 0.95);
+  text-transform: '';
+  box-shadow: '';
+  text-align: '';
+  font-size: 1em;
+  padding-left: '';
+  padding-right: '';
 }
 
 /* Fix 2nd Column */
@@ -286,12 +292,12 @@
 
 .ui.table tr.positive,
 .ui.table td.positive {
-  box-shadow: 0px 0px 0px #a3c293 inset;
+  box-shadow: 0px 0px 0px #A3C293 inset;
 }
 .ui.table tr.positive,
 .ui.table td.positive {
-  background: #fcfff5 !important;
-  color: #2c662d !important;
+  background: #FCFFF5 !important;
+  color: #2C662D !important;
 }
 
 /*--------------
@@ -300,12 +306,12 @@
 
 .ui.table tr.negative,
 .ui.table td.negative {
-  box-shadow: 0px 0px 0px #e0b4b4 inset;
+  box-shadow: 0px 0px 0px #E0B4B4 inset;
 }
 .ui.table tr.negative,
 .ui.table td.negative {
-  background: #fff6f6 !important;
-  color: #9f3a38 !important;
+  background: #FFF6F6 !important;
+  color: #9F3A38 !important;
 }
 
 /*--------------
@@ -314,12 +320,12 @@
 
 .ui.table tr.error,
 .ui.table td.error {
-  box-shadow: 0px 0px 0px #e0b4b4 inset;
+  box-shadow: 0px 0px 0px #E0B4B4 inset;
 }
 .ui.table tr.error,
 .ui.table td.error {
-  background: #fff6f6 !important;
-  color: #9f3a38 !important;
+  background: #FFF6F6 !important;
+  color: #9F3A38 !important;
 }
 
 /*--------------
@@ -328,12 +334,12 @@
 
 .ui.table tr.warning,
 .ui.table td.warning {
-  box-shadow: 0px 0px 0px #c9ba9b inset;
+  box-shadow: 0px 0px 0px #C9BA9B inset;
 }
 .ui.table tr.warning,
 .ui.table td.warning {
-  background: #fffaf3 !important;
-  color: #573a08 !important;
+  background: #FFFAF3 !important;
+  color: #573A08 !important;
 }
 
 /*--------------
@@ -346,7 +352,7 @@
 }
 .ui.table tr.active,
 .ui.table td.active {
-  background: #e0e0e0 !important;
+  background: #E0E0E0 !important;
   color: rgba(0, 0, 0, 0.87) !important;
 }
 
@@ -488,7 +494,7 @@
 .ui.table tbody tr td.selectable > a:not(.ui) {
   display: block;
   color: inherit;
-  padding: 0.71428571em 0.71428571em;
+  padding: 0.78571429em 0.78571429em;
 }
 
 /* Other States */
@@ -507,7 +513,7 @@
 .ui.selectable.table tr.active:hover,
 .ui.table tr td.selectable.active:hover,
 .ui.selectable.table tr:hover td.active {
-  background: #e0e0e0 !important;
+  background: #E0E0E0 !important;
   color: rgba(0, 0, 0, 0.87) !important;
 }
 .ui.selectable.table tr.positive:hover,
@@ -537,7 +543,7 @@
   width: calc(100% +  2px );
   max-width: calc(100% +  2px );
   box-shadow: none;
-  border: 1px solid #d4d4d5;
+  border: 1px solid #D4D4D5;
 }
 .ui.attached + .ui.attached.table:not(.top) {
   border-top: none;
@@ -585,6 +591,12 @@
   background-color: rgba(255, 255, 255, 0.05);
 }
 
+/* Allow striped active hover */
+.ui.striped.selectable.selectable.selectable.table tbody tr.active:hover {
+  background: #EFEFEF !important;
+  color: rgba(0, 0, 0, 0.95) !important;
+}
+
 /*--------------
    Single Line
 ---------------*/
@@ -605,101 +617,101 @@
 
 /* Red */
 .ui.red.table {
-  border-top: 0.2em solid #db2828;
+  border-top: 0.2em solid #DB2828;
 }
 .ui.inverted.red.table {
-  background-color: #db2828 !important;
-  color: #ffffff !important;
+  background-color: #DB2828 !important;
+  color: #FFFFFF !important;
 }
 
 /* Orange */
 .ui.orange.table {
-  border-top: 0.2em solid #f2711c;
+  border-top: 0.2em solid #F2711C;
 }
 .ui.inverted.orange.table {
-  background-color: #f2711c !important;
-  color: #ffffff !important;
+  background-color: #F2711C !important;
+  color: #FFFFFF !important;
 }
 
 /* Yellow */
 .ui.yellow.table {
-  border-top: 0.2em solid #fbbd08;
+  border-top: 0.2em solid #FBBD08;
 }
 .ui.inverted.yellow.table {
-  background-color: #fbbd08 !important;
-  color: #ffffff !important;
+  background-color: #FBBD08 !important;
+  color: #FFFFFF !important;
 }
 
 /* Olive */
 .ui.olive.table {
-  border-top: 0.2em solid #b5cc18;
+  border-top: 0.2em solid #B5CC18;
 }
 .ui.inverted.olive.table {
-  background-color: #b5cc18 !important;
-  color: #ffffff !important;
+  background-color: #B5CC18 !important;
+  color: #FFFFFF !important;
 }
 
 /* Green */
 .ui.green.table {
-  border-top: 0.2em solid #21ba45;
+  border-top: 0.2em solid #21BA45;
 }
 .ui.inverted.green.table {
-  background-color: #21ba45 !important;
-  color: #ffffff !important;
+  background-color: #21BA45 !important;
+  color: #FFFFFF !important;
 }
 
 /* Teal */
 .ui.teal.table {
-  border-top: 0.2em solid #00b5ad;
+  border-top: 0.2em solid #00B5AD;
 }
 .ui.inverted.teal.table {
-  background-color: #00b5ad !important;
-  color: #ffffff !important;
+  background-color: #00B5AD !important;
+  color: #FFFFFF !important;
 }
 
 /* Blue */
 .ui.blue.table {
-  border-top: 0.2em solid #2185d0;
+  border-top: 0.2em solid #2185D0;
 }
 .ui.inverted.blue.table {
-  background-color: #2185d0 !important;
-  color: #ffffff !important;
+  background-color: #2185D0 !important;
+  color: #FFFFFF !important;
 }
 
 /* Violet */
 .ui.violet.table {
-  border-top: 0.2em solid #6435c9;
+  border-top: 0.2em solid #6435C9;
 }
 .ui.inverted.violet.table {
-  background-color: #6435c9 !important;
-  color: #ffffff !important;
+  background-color: #6435C9 !important;
+  color: #FFFFFF !important;
 }
 
 /* Purple */
 .ui.purple.table {
-  border-top: 0.2em solid #a333c8;
+  border-top: 0.2em solid #A333C8;
 }
 .ui.inverted.purple.table {
-  background-color: #a333c8 !important;
-  color: #ffffff !important;
+  background-color: #A333C8 !important;
+  color: #FFFFFF !important;
 }
 
 /* Pink */
 .ui.pink.table {
-  border-top: 0.2em solid #e03997;
+  border-top: 0.2em solid #E03997;
 }
 .ui.inverted.pink.table {
-  background-color: #e03997 !important;
-  color: #ffffff !important;
+  background-color: #E03997 !important;
+  color: #FFFFFF !important;
 }
 
 /* Brown */
 .ui.brown.table {
-  border-top: 0.2em solid #a5673f;
+  border-top: 0.2em solid #A5673F;
 }
 .ui.inverted.brown.table {
-  background-color: #a5673f !important;
-  color: #ffffff !important;
+  background-color: #A5673F !important;
+  color: #FFFFFF !important;
 }
 
 /* Grey */
@@ -708,16 +720,16 @@
 }
 .ui.inverted.grey.table {
   background-color: #767676 !important;
-  color: #ffffff !important;
+  color: #FFFFFF !important;
 }
 
 /* Black */
 .ui.black.table {
-  border-top: 0.2em solid #1b1c1d;
+  border-top: 0.2em solid #1B1C1D;
 }
 .ui.inverted.black.table {
-  background-color: #1b1c1d !important;
-  color: #ffffff !important;
+  background-color: #1B1C1D !important;
+  color: #FFFFFF !important;
 }
 
 /*--------------
@@ -951,7 +963,7 @@
 /* Definition */
 .ui.inverted.definition.table tfoot:not(.full-width) th:first-child,
 .ui.inverted.definition.table thead:not(.full-width) th:first-child {
-  background: #ffffff;
+  background: #FFFFFF;
 }
 .ui.inverted.definition.table tr td:first-child {
   background: rgba(255, 255, 255, 0.02);

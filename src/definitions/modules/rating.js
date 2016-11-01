@@ -3,7 +3,6 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -12,6 +11,13 @@
 ;(function ($, window, document, undefined) {
 
 "use strict";
+
+window = (typeof window != 'undefined' && window.Math == Math)
+  ? window
+  : (typeof self != 'undefined' && self.Math == Math)
+    ? self
+    : Function('return this')()
+;
 
 $.fn.rating = function(parameters) {
   var
@@ -48,6 +54,7 @@ $.fn.rating = function(parameters) {
         $module         = $(this),
         $icon           = $module.find(selector.icon),
 
+        initialLoad,
         module
       ;
 
@@ -66,7 +73,9 @@ $.fn.rating = function(parameters) {
           else {
             module.disable();
           }
+          module.set.initialLoad();
           module.set.rating( module.get.initialRating() );
+          module.remove.initialLoad();
           module.instantiate();
         },
 
@@ -170,6 +179,9 @@ $.fn.rating = function(parameters) {
             $module
               .off(eventNamespace)
             ;
+          },
+          initialLoad: function() {
+            initialLoad = false;
           }
         },
 
@@ -187,6 +199,12 @@ $.fn.rating = function(parameters) {
           $module
             .addClass(className.disabled)
           ;
+        },
+
+        is: {
+          initialLoad: function() {
+            return initialLoad;
+          }
         },
 
         get: {
@@ -232,11 +250,16 @@ $.fn.rating = function(parameters) {
               module.verbose('Setting current rating to', rating);
               $activeIcon
                 .prevAll()
-                .andSelf()
+                .addBack()
                   .addClass(className.active)
               ;
             }
-            settings.onRate.call(element, rating);
+            if(!module.is.initialLoad()) {
+              settings.onRate.call(element, rating);
+            }
+          },
+          initialLoad: function() {
+            initialLoad = true;
           }
         },
 
@@ -246,7 +269,12 @@ $.fn.rating = function(parameters) {
             $.extend(true, settings, name);
           }
           else if(value !== undefined) {
-            settings[name] = value;
+            if($.isPlainObject(settings[name])) {
+              $.extend(true, settings[name], value);
+            }
+            else {
+              settings[name] = value;
+            }
           }
           else {
             return settings[name];
@@ -264,7 +292,7 @@ $.fn.rating = function(parameters) {
           }
         },
         debug: function() {
-          if(settings.debug) {
+          if(!settings.silent && settings.debug) {
             if(settings.performance) {
               module.performance.log(arguments);
             }
@@ -275,7 +303,7 @@ $.fn.rating = function(parameters) {
           }
         },
         verbose: function() {
-          if(settings.verbose && settings.debug) {
+          if(!settings.silent && settings.verbose && settings.debug) {
             if(settings.performance) {
               module.performance.log(arguments);
             }
@@ -286,8 +314,10 @@ $.fn.rating = function(parameters) {
           }
         },
         error: function() {
-          module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
-          module.error.apply(console, arguments);
+          if(!settings.silent) {
+            module.error = Function.prototype.bind.call(console.error, console, settings.name + ':');
+            module.error.apply(console, arguments);
+          }
         },
         performance: {
           log: function(message) {
@@ -423,6 +453,7 @@ $.fn.rating.settings = {
   name          : 'Rating',
   namespace     : 'rating',
 
+  slent         : false,
   debug         : false,
   verbose       : false,
   performance   : true,
@@ -431,6 +462,8 @@ $.fn.rating.settings = {
   interactive   : true,
   maxRating     : 4,
   clearable     : 'auto',
+
+  fireOnInit    : false,
 
   onRate        : function(rating){},
 
