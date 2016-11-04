@@ -12,6 +12,8 @@
 
 "use strict";
 
+/* @warn: start of OLX ID patch */
+
 window = (typeof window != 'undefined' && window.Math == Math)
   ? window
   : (typeof self != 'undefined' && self.Math == Math)
@@ -56,7 +58,8 @@ $.fn.dimmer = function(parameters) {
         $module = $(this),
         $dimmer,
         $dimmable,
-
+        $others = $("body > *:not(.ui.modals):not(script)"),
+        _desktopBreakpoint = 1025,
         element   = this,
         instance  = $module.data(moduleNamespace),
         module
@@ -236,21 +239,31 @@ $.fn.dimmer = function(parameters) {
               if(settings.opacity !== 'auto') {
                 module.set.opacity();
               }
-              $dimmer
-                .transition({
-                  animation   : settings.transition + ' in',
-                  queue       : false,
-                  duration    : module.get.duration(),
-                  useFailSafe : true,
-                  onStart     : function() {
-                    module.set.dimmed();
-                  },
-                  onComplete  : function() {
-                    module.set.active();
-                    callback();
-                  }
-                })
-              ;
+
+              // onStart
+              module.set.dimmed();
+
+              $dimmer.transition("show");
+
+              // onComplete
+              module.set.active();
+              callback();
+
+              // $dimmer
+              //   .transition({
+              //     animation   : settings.transition + ' in',
+              //     queue       : false,
+              //     duration    : module.get.duration(),
+              //     useFailSafe : true,
+              //     onStart     : function() {
+              //       module.set.dimmed();
+              //     },
+              //     onComplete  : function() {
+              //       module.set.active();
+              //       callback();
+              //     }
+              //   })
+              // ;
             }
             else {
               module.verbose('Showing dimmer animation with javascript');
@@ -280,21 +293,29 @@ $.fn.dimmer = function(parameters) {
             ;
             if(settings.useCSS && $.fn.transition !== undefined && $dimmer.transition('is supported')) {
               module.verbose('Hiding dimmer with css');
-              $dimmer
-                .transition({
-                  animation   : settings.transition + ' out',
-                  queue       : false,
-                  duration    : module.get.duration(),
-                  useFailSafe : true,
-                  onStart     : function() {
-                    module.remove.dimmed();
-                  },
-                  onComplete  : function() {
-                    module.remove.active();
-                    callback();
-                  }
-                })
-              ;
+              // onStart
+              module.remove.dimmed();
+
+              $dimmer.transition("hide");
+
+              // onComplete
+              module.remove.active();
+              callback();
+              // $dimmer
+              //   .transition({
+              //     animation   : settings.transition + ' out',
+              //     queue       : false,
+              //     duration    : module.get.duration(),
+              //     useFailSafe : true,
+              //     onStart     : function() {
+              //       module.remove.dimmed();
+              //     },
+              //     onComplete  : function() {
+              //       module.remove.active();
+              //       callback();
+              //     }
+              //   })
+              // ;
             }
             else {
               module.verbose('Hiding dimmer with javascript');
@@ -411,6 +432,16 @@ $.fn.dimmer = function(parameters) {
           },
           dimmed: function() {
             $dimmable.addClass(className.dimmed);
+
+            $others.each( function(i) {
+              if ( !$(this).hasClass( 'shown-desktop' ) ) {
+                $(this).hide();
+              } else {
+                if ( window.innerWidth < _desktopBreakpoint ) {
+                  $(this).hide();
+                }
+              }
+            });
           },
           pageDimmer: function() {
             $dimmer.addClass(className.pageDimmer);
@@ -434,6 +465,7 @@ $.fn.dimmer = function(parameters) {
           },
           dimmed: function() {
             $dimmable.removeClass(className.dimmed);
+            $others.show();
           },
           disabled: function() {
             $dimmer.removeClass(className.disabled);
@@ -704,5 +736,7 @@ $.fn.dimmer.settings = {
   }
 
 };
+
+/* @warn: end of OLX ID patch */
 
 })( jQuery, window, document );
