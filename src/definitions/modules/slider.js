@@ -103,7 +103,6 @@ $.fn.slider = function(parameters) {
           module.read.metadata();
           module.read.settings();
 
-          // module.observeChanges();
           module.instantiate();
           settings.onChange.call(element, value, module.thumbVal, module.secondThumbVal);
         },
@@ -122,35 +121,7 @@ $.fn.slider = function(parameters) {
           module.unbind.events();
           module.unbind.slidingEvents();
           $module.removeData(moduleNamespace);
-          // module.disconnect.sliderObserver();
           instance = undefined;
-        },
-
-        observeChanges: function() {
-          if('MutationObserver' in window) {
-            sliderObserver = new MutationObserver(module.event.resize);
-            module.debug('Setting up mutation observer', sliderObserver);
-            module.observe.slider();
-          }
-        },
-
-        observe: {
-          slider: function() {
-            sliderObserver.observe($module[0], {
-              attributes: true,
-              // It will be better if CSS style changes can be observed,
-              // see http://xml3d.org/xml3d/specification/styleobserver
-              attributeFilter: ['class', 'style']
-            });
-          },
-        },
-
-        disconnect: {
-          sliderObserver: function() {
-            if(sliderObserver) {
-              sliderObserver.disconnect();
-            }
-          }
         },
 
         setup: {
@@ -243,15 +214,11 @@ $.fn.slider = function(parameters) {
         bind: {
           events: function() {
             module.bind.globalKeyboardEvents();
-            // module.bind.resizeListener();
             module.bind.keyboardEvents();
             module.bind.mouseEvents();
             if(module.is.touch()) {
               module.bind.touchEvents();
             }
-          },
-          resizeListener: function() {
-            $(window).on('resize' + eventNamespace, module.event.resize);
           },
           keyboardEvents: function() {
             module.verbose('Binding keyboard events');
@@ -308,7 +275,6 @@ $.fn.slider = function(parameters) {
             $module.off('touchstart' + eventNamespace);
             $module.off('keydown' + eventNamespace);
             $module.off('focusout' + eventNamespace);
-            // $(window).off('resize' + eventNamespace);
             $(document).off('keydown' + eventNamespace + documentEventID, module.event.activateFocus);
           },
           slidingEvents: function() {
@@ -323,9 +289,6 @@ $.fn.slider = function(parameters) {
         },
 
         event: {
-          resize: function(event) {
-            module.resync();
-          },
           down: function(event, originalEvent) {
             event.preventDefault();
             if(module.is.doubled()) {
