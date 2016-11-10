@@ -2849,7 +2849,7 @@ $.fn.dropdown = function(parameters) {
           label: function(value, shouldAnimate) {
             var
               $labels       = $module.find(selector.label),
-              $removedLabel = $labels.filter('[data-value="' + value +'"]')
+              $removedLabel = $labels.filter('[data-value="' + value.replace(/\\/g, "\\\\") +'"]')
             ;
             module.verbose('Removing label', $removedLabel);
             $removedLabel.remove();
