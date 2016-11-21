@@ -1300,6 +1300,16 @@ $.fn.dropdown = function(parameters) {
                 isSubMenuItem,
                 newIndex
               ;
+
+              // stop the enter key from submitting the form
+              // if we're allowing the user to add options
+              if (pressedKey == keys.enter && settings.allowAdditions) {
+                if ($module.closest('form').length > 0) {
+                  module.verbose('Preventing form submission with enter');
+                  event.preventDefault();
+                }
+              }
+              
               // allow selection with menu closed
               if(isAdditionWithoutMenu) {
                 module.verbose('Selecting item from keyboard shortcut', $selectedItem);
