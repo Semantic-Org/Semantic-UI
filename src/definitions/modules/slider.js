@@ -48,8 +48,8 @@ $.fn.slider = function(parameters) {
 
       var
         settings        = ( $.isPlainObject(parameters) )
-          ? $.extend(true, {}, $.fn.range.settings, parameters)
-          : $.extend({}, $.fn.range.settings),
+          ? $.extend(true, {}, $.fn.slider.settings, parameters)
+          : $.extend({}, $.fn.slider.settings),
 
         className       = settings.className,
         metadata        = settings.metadata,
@@ -1096,7 +1096,7 @@ $.fn.slider.settings = {
 
   selector: {
 
-  }
+  },
 
   className     : {
     reversed : 'reversed',
