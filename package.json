@@ -88,9 +88,11 @@
   },
   "devDependencies": {
     "github": "*",
+    "gulp-babel": "^6.1.2",
     "gulp-concat-filenames": "*",
     "gulp-debug": "*",
     "gulp-git": "*",
+    "gulp-sourcemaps": "^1.9.1",
     "gulp-tap": "*",
     "merge-stream": "*"
   },
