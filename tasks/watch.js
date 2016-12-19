@@ -2,45 +2,47 @@
            Watch Task
 *******************************/
 
-var
-  gulp         = require('gulp-help')(require('gulp')),
+const
+  gulp             = require('gulp-help')(require('gulp')),
 
   // node dependencies
-  console      = require('better-console'),
-  fs           = require('fs'),
+  console          = require('better-console'),
+  fs               = require('fs'),
+  path             = require('path'),
 
   // gulp dependencies
-  autoprefixer = require('gulp-autoprefixer'),
-  chmod        = require('gulp-chmod'),
-  clone        = require('gulp-clone'),
-  gulpif       = require('gulp-if'),
-  less         = require('gulp-less'),
-  minifyCSS    = require('gulp-clean-css'),
-  plumber      = require('gulp-plumber'),
-  print        = require('gulp-print'),
-  rename       = require('gulp-rename'),
-  replace      = require('gulp-replace'),
-  uglify       = require('gulp-uglify'),
-  util         = require('gulp-util'),
-  watch        = require('gulp-watch'),
+  autoprefixer     = require('gulp-autoprefixer'),
+  babel            = require('gulp-babel'),
+  chmod            = require('gulp-chmod'),
+  clone            = require('gulp-clone'),
+  gulpif           = require('gulp-if'),
+  less             = require('gulp-less'),
+  plumber          = require('gulp-plumber'),
+  print            = require('gulp-print'),
+  rename           = require('gulp-rename'),
+  replace          = require('gulp-replace'),
+  sourcemaps       = require('gulp-sourcemaps')
+  uglify           = require('gulp-uglify'),
+  util             = require('gulp-util'),
+  watch            = require('gulp-watch'),
 
   // user config
-  config       = require('./config/user'),
+  config           = require('./config/user'),
 
   // task config
-  tasks        = require('./config/tasks'),
-  install      = require('./config/project/install'),
+  tasks            = require('./config/tasks'),
+  install          = require('./config/project/install'),
 
   // shorthand
-  globs        = config.globs,
-  assets       = config.paths.assets,
-  output       = config.paths.output,
-  source       = config.paths.source,
+  globs            = config.globs,
+  assets           = config.paths.assets,
+  output           = config.paths.output,
+  source           = config.paths.source,
 
-  banner       = tasks.banner,
-  comments     = tasks.regExp.comments,
-  log          = tasks.log,
-  settings     = tasks.settings
+  banner           = tasks.banner,
+  comments         = tasks.regExp.comments,
+  log              = tasks.log,
+  settings         = tasks.settings
 
 ;
 
@@ -85,6 +87,7 @@ module.exports = function(callback) {
 
       var
         lessPath,
+        sourcePath,
 
         stream,
         compressedStream,
@@ -132,6 +135,14 @@ module.exports = function(callback) {
         lessPath = file.path;
       }
 
+      // store source path for maps
+      if(lessPath) {
+        sourcePath = path.dirname(lessPath);
+      }
+      else {
+        sourcePath = path.dirname(file.path);
+      }
+
       /*--------------
          Create CSS
       ---------------*/
@@ -141,15 +152,16 @@ module.exports = function(callback) {
         // unified css stream
         stream = gulp.src(lessPath)
           .pipe(plumber(settings.plumber.less))
-          .pipe(less(settings.less))
           .pipe(print(log.created))
-          .pipe(replace(comments.variables.in, comments.variables.out))
-          .pipe(replace(comments.license.in, comments.license.out))
-          .pipe(replace(comments.large.in, comments.large.out))
-          .pipe(replace(comments.small.in, comments.small.out))
-          .pipe(replace(comments.tiny.in, comments.tiny.out))
-          .pipe(autoprefixer(settings.prefix))
-          .pipe(gulpif(config.hasPermission, chmod(config.permission)))
+
+          /*
+            These are removed until adequate sourcemap support for replace allows us to fix spacing
+          */
+          //.pipe(replace(comments.variables.in, comments.variables.out))
+          //.pipe(replace(comments.license.in, comments.license.out))
+          //.pipe(replace(comments.large.in, comments.large.out))
+          //.pipe(replace(comments.small.in, comments.small.out))
+          //.pipe(replace(comments.tiny.in, comments.tiny.out))
         ;
 
         // use 2 concurrent streams from same pipe
@@ -157,8 +169,11 @@ module.exports = function(callback) {
         compressedStream   = stream.pipe(clone());
 
         uncompressedStream
-          .pipe(plumber())
+          .pipe(sourcemaps.init(settings.sourcemaps))
+          .pipe(less(settings.less.uncompressed))
+          .pipe(sourcemaps.write('maps'))
           .pipe(replace(assets.source, assets.uncompressed))
+          .pipe(gulpif(config.hasPermission, chmod(config.permission)))
           .pipe(gulp.dest(output.uncompressed))
           .pipe(print(log.created))
           .on('end', function() {
@@ -167,10 +182,12 @@ module.exports = function(callback) {
         ;
 
         compressedStream = stream
-          .pipe(plumber())
-          .pipe(replace(assets.source, assets.compressed))
-          .pipe(minifyCSS(settings.minify))
+          .pipe(sourcemaps.init())
+          .pipe(less(settings.less.minify))
+          .pipe(autoprefixer(settings.prefix))
           .pipe(rename(settings.rename.minCSS))
+          .pipe(sourcemaps.write('maps'))
+          .pipe(replace(assets.source, assets.compressed))
           .pipe(gulp.dest(output.compressed))
           .pipe(print(log.created))
           .on('end', function() {
@@ -194,12 +211,14 @@ module.exports = function(callback) {
     ], function(file) {
       gulp.src(file.path)
         .pipe(plumber())
-        .pipe(replace(comments.license.in, comments.license.out))
-        .pipe(gulpif(config.hasPermission, chmod(config.permission)))
-        .pipe(gulp.dest(output.uncompressed))
         .pipe(print(log.created))
+        .pipe(replace(comments.license.in, comments.license.out))
+        .pipe(sourcemaps.init(settings.sourcemaps))
+        .pipe(gulp.dest(output.uncompressed))
         .pipe(uglify(settings.uglify))
         .pipe(rename(settings.rename.minJS))
+        .pipe(sourcemaps.write('maps'))
+        .pipe(gulpif(config.hasPermission, chmod(config.permission)))
         .pipe(gulp.dest(output.compressed))
         .pipe(print(log.created))
         .on('end', function() {

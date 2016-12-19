@@ -33,6 +33,7 @@ module.exports = {
     },
     output: {
       packaged     : 'dist/',
+      sourcemaps   : 'dist/sourcemaps/',
       uncompressed : 'dist/components/',
       compressed   : 'dist/components/',
       themes       : 'dist/themes/'

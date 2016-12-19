@@ -1,6 +1,6 @@
 {
   "name": "semantic-ui",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "title": "Semantic UI",
   "description": "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
   "homepage": "http://www.semantic-ui.com",
@@ -94,6 +94,8 @@
     "gulp-git": "*",
     "gulp-sourcemaps": "^1.9.1",
     "gulp-tap": "*",
+    "less-plugin-autoprefix": "^1.5.1",
+    "less-plugin-clean-css": "^1.5.1",
     "merge-stream": "*"
   },
   "style": "dist/semantic.css"

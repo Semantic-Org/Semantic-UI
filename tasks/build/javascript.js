@@ -2,7 +2,7 @@
           Build Task
 *******************************/
 
-var
+const
   gulp         = require('gulp'),
 
   // node dependencies
@@ -10,6 +10,7 @@ var
   fs           = require('fs'),
 
   // gulp dependencies
+  babel        = require('gulp-babel'),
   chmod        = require('gulp-chmod'),
   flatten      = require('gulp-flatten'),
   gulpif       = require('gulp-if'),
@@ -17,6 +18,7 @@ var
   print        = require('gulp-print'),
   rename       = require('gulp-rename'),
   replace      = require('gulp-replace'),
+  sourcemaps   = require('gulp-sourcemaps')
   uglify       = require('gulp-uglify'),
 
   // config
@@ -41,7 +43,7 @@ require('../collections/internal')(gulp);
 
 module.exports = function(callback) {
 
-  var
+  let
     stream,
     compressedStream,
     uncompressedStream

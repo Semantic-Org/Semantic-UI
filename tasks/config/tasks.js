@@ -1,7 +1,41 @@
-var
-  console = require('better-console'),
-  config  = require('./user'),
-  release = require('./project/release')
+const
+
+  console        = require('better-console'),
+  lessAutoPrefix = require('less-plugin-autoprefix'),
+  lessCleanCSS   = require('less-plugin-clean-css'),
+
+  // less plugin settings
+  lessSettings = {
+    autoprefix: {
+      browsers: [
+        'last 2 versions',
+        '> 1%',
+        'opera 12.1',
+        'bb 10',
+        'android 4'
+      ]
+    },
+    cleanCSS: {
+      minify: {
+        processImport       : true,
+        restructuring       : false,
+        keepSpecialComments : 1,
+        roundingPrecision   : -1,
+      },
+      concat: {
+        processImport       : true,
+        restructuring       : false,
+        keepSpecialComments : false,
+        roundingPrecision   : -1,
+      }
+    }
+  },
+  autoprefix     = new lessAutoPrefix(lessSettings.autoprefix),
+  cleanCSS         = new lessCleanCSS(lessSettings.cleanCSS.minify),
+  cleanCSSConcat   = new lessCleanCSS(lessSettings.cleanCSS.concat),
+
+  config           = require('./user'),
+  release          = require('./project/release')
 ;
 
 
@@ -69,6 +103,9 @@ module.exports = {
       silent : true
     },
 
+    concat: {
+    },
+
     concatCSS: {
       rebaseUrls: false
     },
@@ -115,15 +152,10 @@ module.exports = {
       }
     },
 
+
     /* What Browsers to Prefix */
     prefix: {
-      browsers: [
-        'last 2 versions',
-        '> 1%',
-        'opera 12.1',
-        'bb 10',
-        'android 4'
-      ]
+
     },
 
     /* File Renames */
@@ -134,26 +166,27 @@ module.exports = {
       rtlMinCSS : { extname : '.rtl.min.css' }
     },
 
-    /* Minified CSS Concat */
-    minify: {
-      processImport       : false,
-      restructuring       : false,
-      keepSpecialComments : 1,
-      roundingPrecision   : -1,
+    /* Less Compiler */
+    less: {
+      uncompressed: {
+        plugins: [autoprefix]
+      },
+      /*
+        Using both Autoprefixr and CleanCSS plugin causes sourcemaps to break
+        So we just use cleanCSS here
+      */
+      minify: {
+        plugins: [cleanCSS]
+      },
+      minifyConcat: {
+        plugins: [cleanCSSConcat]
+      }
     },
 
     /* Minified JS Settings */
     uglify: {
       mangle           : true,
       preserveComments : 'some'
-    },
-
-    /* Minified Concat CSS Settings */
-    concatMinify: {
-      processImport       : false,
-      restructuring       : false,
-      keepSpecialComments : false,
-      roundingPrecision   : -1,
     },
 
     /* Minified Concat JS */

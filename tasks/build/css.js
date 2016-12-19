@@ -2,7 +2,7 @@
           Build Task
 *******************************/
 
-var
+const
   gulp         = require('gulp'),
 
   // node dependencies
@@ -16,12 +16,13 @@ var
   flatten      = require('gulp-flatten'),
   gulpif       = require('gulp-if'),
   less         = require('gulp-less'),
-  minifyCSS    = require('gulp-clean-css'),
+  cleanCSS     = require('gulp-clean-css'),
   plumber      = require('gulp-plumber'),
   print        = require('gulp-print'),
   rename       = require('gulp-rename'),
   replace      = require('gulp-replace'),
   runSequence  = require('run-sequence'),
+  sourcemaps   = require('gulp-sourcemaps'),
 
   // config
   config       = require('../config/user'),
@@ -45,7 +46,7 @@ require('../collections/internal')(gulp);
 
 module.exports = function(callback) {
 
-  var
+  let
     tasksCompleted = 0,
     maybeCallback  = function() {
       tasksCompleted++;
@@ -69,13 +70,14 @@ module.exports = function(callback) {
   // unified css stream
   stream = gulp.src(source.definitions + '/**/' + globs.components + '.less')
     .pipe(plumber(settings.plumber.less))
-    .pipe(less(settings.less))
-    .pipe(autoprefixer(settings.prefix))
     .pipe(replace(comments.variables.in, comments.variables.out))
     .pipe(replace(comments.license.in, comments.license.out))
     .pipe(replace(comments.large.in, comments.large.out))
     .pipe(replace(comments.small.in, comments.small.out))
     .pipe(replace(comments.tiny.in, comments.tiny.out))
+    .pipe(sourcemaps.init(settings.sourcemaps))
+    .pipe(less(settings.less))
+    .pipe(autoprefixer(settings.prefix))
     .pipe(flatten())
   ;
 
@@ -100,7 +102,7 @@ module.exports = function(callback) {
     .pipe(plumber())
     .pipe(clone())
     .pipe(replace(assets.source, assets.compressed))
-    .pipe(minifyCSS(settings.minify))
+    .pipe(cleanCSS(settings.minify))
     .pipe(rename(settings.rename.minCSS))
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(gulp.dest(output.compressed))

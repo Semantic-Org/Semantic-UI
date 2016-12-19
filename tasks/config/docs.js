@@ -21,6 +21,7 @@ module.exports = {
       less         : '../docs/out/src/',
       metadata     : '../docs/out/',
       packaged     : '../docs/out/dist/',
+      sourcemaps   : '../docs/out/dist/sourcemaps/',
       uncompressed : '../docs/out/dist/components/',
       compressed   : '../docs/out/dist/components/',
       themes       : '../docs/out/dist/themes/'
