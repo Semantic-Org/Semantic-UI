@@ -7,12 +7,628 @@
  * http://opensource.org/licenses/MIT
  *
  */
+/*******************************
+            Theme
+*******************************/
+/*
 
+████████╗██╗  ██╗███████╗███╗   ███╗███████╗███████╗
+╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝██╔════╝
+   ██║   ███████║█████╗  ██╔████╔██║█████╗  ███████╗
+   ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝  ╚════██║
+   ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗███████║
+   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚══════╝
 
+*/
+/*******************************
+        Theme Selection
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+            Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+         Import Theme
+*******************************/
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+       Theme
+-------------------*/
+/*--------------------
+   Site Variables
+---------------------*/
+/* Default site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Packaged site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Component's site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Site theme site.variables */
+/*******************************
+     User Global Variables
+*******************************/
+/*-------------------
+ Component Variables
+---------------------*/
+/* Default */
+/*******************************
+          Transition
+*******************************/
+/* Packaged Theme */
+/*******************************
+          Transition
+*******************************/
+/* Site Theme */
+/*******************************
+    User Variable Overrides
+*******************************/
+/*******************************
+             Mix-ins
+*******************************/
+/*------------------
+       Fonts
+-------------------*/
+/*------------------
+     Overrides
+-------------------*/
+/* End Config */
 /*******************************
           Transitions
 *******************************/
-
 .transition {
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
@@ -23,39 +639,31 @@
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
 }
-
-
 /*******************************
             States
 *******************************/
-
-
 /* Animating */
 .animating.transition {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   visibility: visible !important;
 }
-
 /* Loading */
 .loading.transition {
   position: absolute;
   top: -99999px;
   left: -99999px;
 }
-
 /* Hidden */
 .hidden.transition {
   display: none;
   visibility: hidden;
 }
-
 /* Visible */
 .visible.transition {
   display: block !important;
   visibility: visible !important;
-  
-/*  backface-visibility: @backfaceVisibility;
+  /*  backface-visibility: @backfaceVisibility;
   transform: @use3DAcceleration;*/
 }
 /* Disabled */
@@ -63,22 +671,16 @@
   -webkit-animation-play-state: paused;
           animation-play-state: paused;
 }
-
-
 /*******************************
           Variations
 *******************************/
-
 .looping.transition {
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
 }
-
-
 /*******************************
           Transitions
 *******************************/
-
 /*
   Some transitions adapted from Animate CSS
   https://github.com/daneden/animate.css
@@ -86,11 +688,9 @@
   Additional transitions adapted from Glide
   by Nick Pettit - https://github.com/nickpettit/glide
 */
-
 /*--------------
      Browse
 ---------------*/
-
 .transition.browse {
   -webkit-animation-duration: 500ms;
           animation-duration: 500ms;
@@ -108,7 +708,6 @@
   -webkit-animation-name: browseOutRight;
           animation-name: browseOutRight;
 }
-
 /* In */
 @-webkit-keyframes browseIn {
   0% {
@@ -158,7 +757,6 @@
     z-index: 999;
   }
 }
-
 /* Out */
 @-webkit-keyframes browseOutLeft {
   0% {
@@ -244,11 +842,9 @@
     opacity: 0;
   }
 }
-
 /*--------------
      Drop
 ---------------*/
-
 .drop.transition {
   -webkit-transform-origin: top center;
           transform-origin: top center;
@@ -265,7 +861,6 @@
   -webkit-animation-name: dropOut;
           animation-name: dropOut;
 }
-
 /* Drop */
 @-webkit-keyframes dropIn {
   0% {
@@ -315,11 +910,9 @@
             transform: scale(0);
   }
 }
-
 /*--------------
       Fade
 ---------------*/
-
 .transition.fade.in {
   -webkit-animation-name: fadeIn;
           animation-name: fadeIn;
@@ -360,7 +953,6 @@
   -webkit-animation-name: fadeOutRight;
           animation-name: fadeOutRight;
 }
-
 /* In */
 @-webkit-keyframes fadeIn {
   0% {
@@ -474,7 +1066,6 @@
             transform: translateX(0%);
   }
 }
-
 /* Out */
 @-webkit-keyframes fadeOut {
   0% {
@@ -588,11 +1179,9 @@
             transform: translateX(-5%);
   }
 }
-
 /*--------------
      Flips
 ---------------*/
-
 .flip.transition.in,
 .flip.transition.out {
   -webkit-animation-duration: 600ms;
@@ -614,7 +1203,6 @@
   -webkit-animation-name: verticalFlipOut;
           animation-name: verticalFlipOut;
 }
-
 /* In */
 @-webkit-keyframes horizontalFlipIn {
   0% {
@@ -664,7 +1252,6 @@
     opacity: 1;
   }
 }
-
 /* Out */
 @-webkit-keyframes horizontalFlipOut {
   0% {
@@ -714,11 +1301,9 @@
     opacity: 0;
   }
 }
-
 /*--------------
       Scale
 ---------------*/
-
 .scale.transition.in {
   -webkit-animation-name: scaleIn;
           animation-name: scaleIn;
@@ -751,7 +1336,6 @@
             transform: scale(1);
   }
 }
-
 /* Out */
 @-webkit-keyframes scaleOut {
   0% {
@@ -777,12 +1361,9 @@
             transform: scale(0.9);
   }
 }
-
 /*--------------
       Fly
 ---------------*/
-
-
 /* Inward */
 .transition.fly {
   -webkit-animation-duration: 0.6s;
@@ -810,7 +1391,6 @@
   -webkit-animation-name: flyInRight;
           animation-name: flyInRight;
 }
-
 /* Outward */
 .transition.fly.out {
   -webkit-animation-name: flyOut;
@@ -832,7 +1412,6 @@
   -webkit-animation-name: flyOutRight;
           animation-name: flyOutRight;
 }
-
 /* In */
 @-webkit-keyframes flyIn {
   0% {
@@ -1084,7 +1663,6 @@
             transform: none;
   }
 }
-
 /* Out */
 @-webkit-keyframes flyOut {
   20% {
@@ -1236,11 +1814,9 @@
             transform: translate3d(2000px, 0, 0);
   }
 }
-
 /*--------------
      Slide
 ---------------*/
-
 .transition.slide.in,
 .transition[class*="slide down"].in {
   -webkit-animation-name: slideInY;
@@ -1291,7 +1867,6 @@
   -webkit-transform-origin: center left;
           transform-origin: center left;
 }
-
 /* In */
 @-webkit-keyframes slideInY {
   0% {
@@ -1341,7 +1916,6 @@
             transform: scaleX(1);
   }
 }
-
 /* Out */
 @-webkit-keyframes slideOutY {
   0% {
@@ -1391,11 +1965,9 @@
             transform: scaleX(0);
   }
 }
-
 /*--------------
      Swing
 ---------------*/
-
 .transition.swing {
   -webkit-animation-duration: 800ms;
           animation-duration: 800ms;
@@ -1449,7 +2021,6 @@
   -webkit-transform-origin: center left;
           transform-origin: center left;
 }
-
 /* In */
 @-webkit-keyframes swingInX {
   0% {
@@ -1547,7 +2118,6 @@
             transform: perspective(1000px) rotateY(0deg);
   }
 }
-
 /* Out */
 @-webkit-keyframes swingOutX {
   0% {
@@ -1645,17 +2215,12 @@
     opacity: 0;
   }
 }
-
-
 /*******************************
        Static Animations
 *******************************/
-
-
 /*--------------
     Emphasis
 ---------------*/
-
 .flash.transition {
   -webkit-animation-duration: 750ms;
           animation-duration: 750ms;
@@ -1692,7 +2257,6 @@
   -webkit-animation-name: jiggle;
           animation-name: jiggle;
 }
-
 /* Flash */
 @-webkit-keyframes flash {
   0%,
@@ -1716,7 +2280,6 @@
     opacity: 0;
   }
 }
-
 /* Shake */
 @-webkit-keyframes shake {
   0%,
@@ -1762,7 +2325,6 @@
             transform: translateX(10px);
   }
 }
-
 /* Bounce */
 @-webkit-keyframes bounce {
   0%,
@@ -1800,7 +2362,6 @@
             transform: translateY(-15px);
   }
 }
-
 /* Tada */
 @-webkit-keyframes tada {
   0% {
@@ -1858,7 +2419,6 @@
             transform: scale(1) rotate(0);
   }
 }
-
 /* Pulse */
 @-webkit-keyframes pulse {
   0% {
@@ -1894,7 +2454,6 @@
     opacity: 1;
   }
 }
-
 /* Rubberband */
 @-webkit-keyframes jiggle {
   0% {
@@ -1956,9 +2515,8 @@
             transform: scale3d(1, 1, 1);
   }
 }
-
-
 /*******************************
          Site Overrides
 *******************************/
 
+/*# sourceMappingURL=transition.css.map */

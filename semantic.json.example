@@ -2,6 +2,7 @@
   "base": "",
 
   "paths": {
+    "sourcemaps": ".",
     "source": {
       "config"      : "src/theme.config",
       "definitions" : "src/definitions/",

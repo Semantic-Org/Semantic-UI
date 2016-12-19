@@ -25,6 +25,7 @@ module.exports = {
 
   // folder paths
   paths: {
+    sourcemaps: '.',
     source: {
       config      : 'src/theme.config',
       definitions : 'src/definitions/',

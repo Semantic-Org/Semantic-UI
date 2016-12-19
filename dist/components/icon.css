@@ -7,16 +7,640 @@
  * http://opensource.org/licenses/MIT
  *
  */
+/*******************************
+            Theme
+*******************************/
+/*
 
+████████╗██╗  ██╗███████╗███╗   ███╗███████╗███████╗
+╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝██╔════╝
+   ██║   ███████║█████╗  ██╔████╔██║█████╗  ███████╗
+   ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝  ╚════██║
+   ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗███████║
+   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚══════╝
 
+*/
+/*******************************
+        Theme Selection
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+            Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+         Import Theme
+*******************************/
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+       Theme
+-------------------*/
+/*--------------------
+   Site Variables
+---------------------*/
+/* Default site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Packaged site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Component's site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Site theme site.variables */
+/*******************************
+     User Global Variables
+*******************************/
+/*-------------------
+ Component Variables
+---------------------*/
+/* Default */
 /*******************************
              Icon
 *******************************/
-
+/*-------------------
+   Icon Variables
+--------------------*/
+/* Variations */
+/* Packaged Theme */
+/*******************************
+             Icon
+*******************************/
+/*-------------------
+   Icon Variables
+--------------------*/
+/* Variations */
+/* Site Theme */
+/*******************************
+    User Variable Overrides
+*******************************/
+/*******************************
+             Mix-ins
+*******************************/
+/*------------------
+       Fonts
+-------------------*/
+/*------------------
+     Overrides
+-------------------*/
+/* End Config */
+/*******************************
+             Icon
+*******************************/
 @font-face {
   font-family: 'Icons';
-  src: url("./../themes/default/assets/fonts/icons.eot");
-  src: url("./../themes/default/assets/fonts/icons.eot?#iefix") format('embedded-opentype'), url("./../themes/default/assets/fonts/icons.woff2") format('woff2'), url("./../themes/default/assets/fonts/icons.woff") format('woff'), url("./../themes/default/assets/fonts/icons.ttf") format('truetype'), url("./../themes/default/assets/fonts/icons.svg#icons") format('svg');
+  src: url("../../themes/default/assets/fonts/icons.eot");
+  src: url("../../themes/default/assets/fonts/icons.eot?#iefix") format('embedded-opentype'), url("../../themes/default/assets/fonts/icons.woff2") format('woff2'), url("../../themes/default/assets/fonts/icons.woff") format('woff'), url("../../themes/default/assets/fonts/icons.ttf") format('truetype'), url("../../themes/default/assets/fonts/icons.svg#icons") format('svg');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -44,17 +668,12 @@ i.icon {
 i.icon:before {
   background: none !important;
 }
-
-
 /*******************************
              Types
 *******************************/
-
-
 /*--------------
     Loading
 ---------------*/
-
 i.icon.loading {
   height: 1em;
   line-height: 1;
@@ -81,12 +700,9 @@ i.icon.loading {
             transform: rotate(360deg);
   }
 }
-
-
 /*******************************
              States
 *******************************/
-
 i.icon.hover {
   opacity: 1 !important;
 }
@@ -99,26 +715,19 @@ i.emphasized.icon {
 i.disabled.icon {
   opacity: 0.45 !important;
 }
-
-
 /*******************************
            Variations
 *******************************/
-
-
 /*-------------------
         Fitted
 --------------------*/
-
 i.fitted.icon {
   width: auto;
   margin: 0em;
 }
-
 /*-------------------
          Link
 --------------------*/
-
 i.link.icon,
 i.link.icons {
   cursor: pointer;
@@ -130,11 +739,9 @@ i.link.icon:hover,
 i.link.icons:hover {
   opacity: 1 !important;
 }
-
 /*-------------------
       Circular
 --------------------*/
-
 i.circular.icon {
   border-radius: 500em !important;
   line-height: 1 !important;
@@ -147,11 +754,9 @@ i.circular.inverted.icon {
   border: none;
   box-shadow: none;
 }
-
 /*-------------------
       Flipped
 --------------------*/
-
 i.flipped.icon,
 i.horizontally.flipped.icon {
   -webkit-transform: scale(-1, 1);
@@ -161,11 +766,9 @@ i.vertically.flipped.icon {
   -webkit-transform: scale(1, -1);
           transform: scale(1, -1);
 }
-
 /*-------------------
       Rotated
 --------------------*/
-
 i.rotated.icon,
 i.right.rotated.icon,
 i.clockwise.rotated.icon {
@@ -177,11 +780,9 @@ i.counterclockwise.rotated.icon {
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
 }
-
 /*-------------------
       Bordered
 --------------------*/
-
 i.bordered.icon {
   line-height: 1;
   vertical-align: baseline;
@@ -194,12 +795,9 @@ i.bordered.inverted.icon {
   border: none;
   box-shadow: none;
 }
-
 /*-------------------
       Inverted
 --------------------*/
-
-
 /* Inverted Shapes */
 i.inverted.bordered.icon,
 i.inverted.circular.icon {
@@ -209,12 +807,9 @@ i.inverted.circular.icon {
 i.inverted.icon {
   color: #FFFFFF;
 }
-
 /*-------------------
        Colors
 --------------------*/
-
-
 /* Red */
 i.red.icon {
   color: #DB2828 !important;
@@ -227,7 +822,6 @@ i.inverted.circular.red.icon {
   background-color: #DB2828 !important;
   color: #FFFFFF !important;
 }
-
 /* Orange */
 i.orange.icon {
   color: #F2711C !important;
@@ -240,7 +834,6 @@ i.inverted.circular.orange.icon {
   background-color: #F2711C !important;
   color: #FFFFFF !important;
 }
-
 /* Yellow */
 i.yellow.icon {
   color: #FBBD08 !important;
@@ -253,7 +846,6 @@ i.inverted.circular.yellow.icon {
   background-color: #FBBD08 !important;
   color: #FFFFFF !important;
 }
-
 /* Olive */
 i.olive.icon {
   color: #B5CC18 !important;
@@ -266,7 +858,6 @@ i.inverted.circular.olive.icon {
   background-color: #B5CC18 !important;
   color: #FFFFFF !important;
 }
-
 /* Green */
 i.green.icon {
   color: #21BA45 !important;
@@ -279,7 +870,6 @@ i.inverted.circular.green.icon {
   background-color: #21BA45 !important;
   color: #FFFFFF !important;
 }
-
 /* Teal */
 i.teal.icon {
   color: #00B5AD !important;
@@ -292,7 +882,6 @@ i.inverted.circular.teal.icon {
   background-color: #00B5AD !important;
   color: #FFFFFF !important;
 }
-
 /* Blue */
 i.blue.icon {
   color: #2185D0 !important;
@@ -305,7 +894,6 @@ i.inverted.circular.blue.icon {
   background-color: #2185D0 !important;
   color: #FFFFFF !important;
 }
-
 /* Violet */
 i.violet.icon {
   color: #6435C9 !important;
@@ -318,7 +906,6 @@ i.inverted.circular.violet.icon {
   background-color: #6435C9 !important;
   color: #FFFFFF !important;
 }
-
 /* Purple */
 i.purple.icon {
   color: #A333C8 !important;
@@ -331,7 +918,6 @@ i.inverted.circular.purple.icon {
   background-color: #A333C8 !important;
   color: #FFFFFF !important;
 }
-
 /* Pink */
 i.pink.icon {
   color: #E03997 !important;
@@ -344,7 +930,6 @@ i.inverted.circular.pink.icon {
   background-color: #E03997 !important;
   color: #FFFFFF !important;
 }
-
 /* Brown */
 i.brown.icon {
   color: #A5673F !important;
@@ -357,7 +942,6 @@ i.inverted.circular.brown.icon {
   background-color: #A5673F !important;
   color: #FFFFFF !important;
 }
-
 /* Grey */
 i.grey.icon {
   color: #767676 !important;
@@ -370,7 +954,6 @@ i.inverted.circular.grey.icon {
   background-color: #767676 !important;
   color: #FFFFFF !important;
 }
-
 /* Black */
 i.black.icon {
   color: #1B1C1D !important;
@@ -383,11 +966,9 @@ i.inverted.circular.black.icon {
   background-color: #1B1C1D !important;
   color: #FFFFFF !important;
 }
-
 /*-------------------
         Sizes
 --------------------*/
-
 i.mini.icon,
 i.mini.icons {
   line-height: 1;
@@ -431,12 +1012,9 @@ i.massive.icons {
   vertical-align: middle;
   font-size: 8em;
 }
-
-
 /*******************************
             Groups
 *******************************/
-
 i.icons {
   display: inline-block;
   position: relative;
@@ -460,7 +1038,6 @@ i.icons .icon:first-child {
           transform: none;
   margin-right: 0.25rem;
 }
-
 /* Corner Icon */
 i.icons .corner.icon {
   top: auto;
@@ -479,8 +1056,6 @@ i.icons .inverted.corner.icon {
  * Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
  * License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
-
-
 /*******************************
 
 Semantic-UI integration of font-awesome :
@@ -503,14 +1078,9 @@ Icons that only have one style 'outline', 'square' etc do not require this class
 for instance `lemon icon` not `lemon outline icon` since there is only one lemon
 
 *******************************/
-
-
-
 /*******************************
             Icons
 *******************************/
-
-
 /* Web Content */
 i.icon.search:before {
   content: "\f002";
@@ -728,7 +1298,6 @@ i.icon.hashtag:before {
 i.icon.percent:before {
   content: "\f295";
 }
-
 /* User Actions */
 i.icon.wait:before {
   content: "\f017";
@@ -904,7 +1473,6 @@ i.icon.talk:before {
 i.icon.talk.outline:before {
   content: "\f27b";
 }
-
 /* Messages */
 i.icon.help.circle:before {
   content: "\f059";
@@ -936,7 +1504,6 @@ i.icon.birthday:before {
 i.icon.help.circle.outline:before {
   content: "\f29c";
 }
-
 /* Users */
 i.icon.user:before {
   content: "\f007";
@@ -959,7 +1526,6 @@ i.icon.child:before {
 i.icon.spy:before {
   content: "\f21b";
 }
-
 /* Gender & Sexuality */
 i.icon.female:before {
   content: "\f182";
@@ -1006,7 +1572,6 @@ i.icon.neuter:before {
 i.icon.genderless:before {
   content: "\f22d";
 }
-
 /* Accessibility */
 i.icon.universal.access:before {
   content: "\f29a";
@@ -1041,7 +1606,6 @@ i.icon.sign.language:before {
 i.icon.low.vision:before {
   content: "\f2a8";
 }
-
 /* View Adjustment */
 i.icon.block.layout:before {
   content: "\f009";
@@ -1070,7 +1634,6 @@ i.icon.maximize:before {
 i.icon.crop:before {
   content: "\f125";
 }
-
 /* Literal Objects */
 i.icon.cocktail:before {
   content: "\f000";
@@ -1207,7 +1770,6 @@ i.icon.hand.spock:before {
 i.icon.tv:before {
   content: "\f26c";
 }
-
 /* Shapes */
 i.icon.crosshairs:before {
   content: "\f05b";
@@ -1254,7 +1816,6 @@ i.icon.circle.notched:before {
 i.icon.circle.thin:before {
   content: "\f1db";
 }
-
 /* Item Selection */
 i.icon.checkmark:before {
   content: "\f00c";
@@ -1319,7 +1880,6 @@ i.icon.toggle.off:before {
 i.icon.toggle.on:before {
   content: "\f205";
 }
-
 /* Media */
 i.icon.film:before {
   content: "\f008";
@@ -1348,7 +1908,6 @@ i.icon.pie.chart:before {
 i.icon.line.chart:before {
   content: "\f201";
 }
-
 /* Pointers */
 i.icon.arrow.circle.outline.down:before {
   content: "\f01a";
@@ -1482,7 +2041,6 @@ i.icon.arrow.circle.outline.left:before {
 i.icon.toggle.left:before {
   content: "\f191";
 }
-
 /* Mobile */
 i.icon.tablet:before {
   content: "\f10a";
@@ -1505,7 +2063,6 @@ i.icon.battery.low:before {
 i.icon.battery.empty:before {
   content: "\f244";
 }
-
 /* Computer */
 i.icon.power:before {
   content: "\f011";
@@ -1531,7 +2088,6 @@ i.icon.keyboard:before {
 i.icon.plug:before {
   content: "\f1e6";
 }
-
 /* File System */
 i.icon.trash:before {
   content: "\f1f8";
@@ -1593,7 +2149,6 @@ i.icon.file.video.outline:before {
 i.icon.file.code.outline:before {
   content: "\f1c9";
 }
-
 /* Technologies */
 i.icon.qrcode:before {
   content: "\f029";
@@ -1634,7 +2189,6 @@ i.icon.bluetooth:before {
 i.icon.bluetooth.alternative:before {
   content: "\f294";
 }
-
 /* Rating */
 i.icon.heart:before {
   content: "\f004";
@@ -1675,7 +2229,6 @@ i.icon.thumbs.up:before {
 i.icon.thumbs.down:before {
   content: "\f165";
 }
-
 /* Audio */
 i.icon.music:before {
   content: "\f001";
@@ -1749,7 +2302,6 @@ i.icon.stop.circle:before {
 i.icon.stop.circle.outline:before {
   content: "\f28e";
 }
-
 /* Map, Locations, & Transportation */
 i.icon.marker:before {
   content: "\f041";
@@ -1844,7 +2396,6 @@ i.icon.map.outline:before {
 i.icon.map:before {
   content: "\f279";
 }
-
 /* Tables */
 i.icon.table:before {
   content: "\f0ce";
@@ -1879,7 +2430,6 @@ i.icon.sort.numeric.ascending:before {
 i.icon.sort.numeric.descending:before {
   content: "\f163";
 }
-
 /* Text Editor */
 i.icon.font:before {
   content: "\f031";
@@ -1968,7 +2518,6 @@ i.icon.paragraph:before {
 i.icon.text.cursor:before {
   content: "\f246";
 }
-
 /* Currency */
 i.icon.euro:before {
   content: "\f153";
@@ -2000,7 +2549,6 @@ i.icon.lira:before {
 i.icon.shekel:before {
   content: "\f20b";
 }
-
 /* Payment Options */
 i.icon.paypal:before {
   content: "\f1ed";
@@ -2471,12 +3019,9 @@ i.icon.google.plus.circle:before {
 i.icon.font.awesome:before {
   content: "\f2b4";
 }
-
-
 /*******************************
             Aliases
 *******************************/
-
 i.icon.like:before {
   content: "\f004";
 }
@@ -3134,9 +3679,8 @@ i.icon.google.plus.official:before {
 i.icon.fa:before {
   content: "\f2b4";
 }
-
-
 /*******************************
          Site Overrides
 *******************************/
 
+/*# sourceMappingURL=icon.css.map */

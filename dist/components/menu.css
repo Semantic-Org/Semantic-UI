@@ -8,20 +8,765 @@
  * http://opensource.org/licenses/MIT
  *
  */
+/*******************************
+            Theme
+*******************************/
+/*
 
+████████╗██╗  ██╗███████╗███╗   ███╗███████╗███████╗
+╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝██╔════╝
+   ██║   ███████║█████╗  ██╔████╔██║█████╗  ███████╗
+   ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝  ╚════██║
+   ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗███████║
+   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚══════╝
 
+*/
+/*******************************
+        Theme Selection
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+            Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+         Import Theme
+*******************************/
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+       Theme
+-------------------*/
+/*--------------------
+   Site Variables
+---------------------*/
+/* Default site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Packaged site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Component's site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Site theme site.variables */
+/*******************************
+     User Global Variables
+*******************************/
+/*-------------------
+ Component Variables
+---------------------*/
+/* Default */
+/*******************************
+             Menu
+*******************************/
+/*-------------------
+      Collection
+--------------------*/
+/* Menu */
+/* Menu Item */
+/* Divider */
+/* Sub Menu */
+/* Text Item */
+/*--------------
+    Elements
+---------------*/
+/* Icon */
+/* Dropdown Icon */
+/* Header */
+/* Vertical Icon */
+/* Vertical Header */
+/* Pointing Arrow */
+/*--------------
+    Couplings
+---------------*/
+/* Button */
+/* Input */
+/* Image */
+/* Label */
+/* Dropdown in Menu */
+/* Dropdown Variations */
+/*--------------
+     States
+---------------*/
+/* Hovered Item */
+/* Pressed Item */
+/* Active Item */
+/* Active Hovered Item */
+/* Selected Dropdown */
+/* Active Dropdown */
+/* Active Sub Menu */
+/*--------------
+     Types
+---------------*/
+/* Vertical */
+/* Secondary */
+/* Pointing */
+/* Inverted Secondary */
+/* Inverted Pointing */
+/* Tiered */
+/* Icon */
+/* Tabular */
+/* Pagination */
+/* Labeled Icon */
+/* Text */
+/*--------------
+   Variations
+---------------*/
+/* Inverted */
+/* Inverted Sub Menu */
+/* Inverted Hover */
+/* Pressed */
+/* Inverted Active */
+/* Inverted Active Hover  */
+/* Inverted Menu Divider */
+/* Inverted Colored */
+/* Fixed */
+/* Floated */
+/* Attached */
+/* Resize large sizes */
+/* Sizes */
+/* Packaged Theme */
+/*******************************
+             Menu
+*******************************/
+/*-------------------
+      Collection
+--------------------*/
+/* Menu */
+/* Menu Item */
+/* Divider */
+/* Sub Menu */
+/* Text Item */
+/*--------------
+    Elements
+---------------*/
+/* Icon */
+/* Dropdown Icon */
+/* Header */
+/* Vertical Icon */
+/* Vertical Header */
+/* Pointing Arrow */
+/*--------------
+    Couplings
+---------------*/
+/* Button */
+/* Input */
+/* Image */
+/* Label */
+/* Dropdown in Menu */
+/* Dropdown Variations */
+/*--------------
+     States
+---------------*/
+/* Hovered Item */
+/* Pressed Item */
+/* Active Item */
+/* Active Hovered Item */
+/* Selected Dropdown */
+/* Active Dropdown */
+/* Active Sub Menu */
+/*--------------
+     Types
+---------------*/
+/* Vertical */
+/* Secondary */
+/* Pointing */
+/* Inverted Secondary */
+/* Inverted Pointing */
+/* Tiered */
+/* Icon */
+/* Tabular */
+/* Pagination */
+/* Labeled Icon */
+/* Text */
+/*--------------
+   Variations
+---------------*/
+/* Inverted */
+/* Inverted Sub Menu */
+/* Inverted Hover */
+/* Pressed */
+/* Inverted Active */
+/* Inverted Active Hover  */
+/* Inverted Menu Divider */
+/* Inverted Colored */
+/* Fixed */
+/* Floated */
+/* Attached */
+/* Resize large sizes */
+/* Sizes */
+/* Site Theme */
+/*******************************
+    User Variable Overrides
+*******************************/
+/*******************************
+             Mix-ins
+*******************************/
+/*------------------
+       Fonts
+-------------------*/
+/*------------------
+     Overrides
+-------------------*/
+/* End Config */
 /*******************************
             Standard
 *******************************/
-
-
 /*--------------
       Menu
 ---------------*/
-
 .ui.menu {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   margin: 1rem 0em;
@@ -46,32 +791,25 @@
 .ui.menu:last-child {
   margin-bottom: 0rem;
 }
-
 /*--------------
     Sub-Menu
 ---------------*/
-
 .ui.menu .menu {
   margin: 0em;
 }
 .ui.menu:not(.vertical) > .menu {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
-
 /*--------------
       Item
 ---------------*/
-
 .ui.menu:not(.vertical) .item {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
 }
@@ -82,7 +820,6 @@
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   -webkit-user-select: none;
@@ -100,7 +837,6 @@
 .ui.menu > .item:first-child {
   border-radius: 0.28571429rem 0px 0px 0.28571429rem;
 }
-
 /* Border */
 .ui.menu .item:before {
   position: absolute;
@@ -111,11 +847,9 @@
   width: 1px;
   background: rgba(34, 36, 38, 0.1);
 }
-
 /*--------------
   Text Content
 ---------------*/
-
 .ui.menu .text.item > *,
 .ui.menu .item > a:not(.ui),
 .ui.menu .item > p:only-child {
@@ -131,21 +865,17 @@
 .ui.menu .item > p:last-child {
   margin-bottom: 0;
 }
-
 /*--------------
       Icons
 ---------------*/
-
 .ui.menu .item > i.icon {
   opacity: 0.9;
   float: none;
   margin: 0em 0.35714286em 0em 0em;
 }
-
 /*--------------
      Button
 ---------------*/
-
 .ui.menu:not(.vertical) .item > .button {
   position: relative;
   top: 0em;
@@ -154,32 +884,25 @@
   padding-top: 0.78571429em;
   font-size: 1em;
 }
-
 /*----------------
  Grid / Container
 -----------------*/
-
 .ui.menu > .grid,
 .ui.menu > .container {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: inherit;
-  -webkit-align-items: inherit;
       -ms-flex-align: inherit;
           align-items: inherit;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: inherit;
       -ms-flex-direction: inherit;
           flex-direction: inherit;
 }
-
 /*--------------
      Inputs
 ---------------*/
-
 .ui.menu .item > .input {
   width: 100%;
 }
@@ -193,11 +916,9 @@
   padding-top: 0.57142857em;
   padding-bottom: 0.57142857em;
 }
-
 /*--------------
      Header
 ---------------*/
-
 .ui.menu .header.item,
 .ui.vertical.menu .header.item {
   margin: 0em;
@@ -210,19 +931,15 @@
   font-size: 1em;
   font-weight: bold;
 }
-
 /*--------------
     Dropdowns
 ---------------*/
-
-
 /* Dropdown Icon */
 .ui.menu .item > i.dropdown.icon {
   padding: 0em;
   float: right;
   margin: 0em 0em 0em 1em;
 }
-
 /* Menu */
 .ui.menu .dropdown.item .menu {
   left: 0px;
@@ -233,11 +950,9 @@
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.08);
   -webkit-box-orient: vertical !important;
   -webkit-box-direction: normal !important;
-  -webkit-flex-direction: column !important;
       -ms-flex-direction: column !important;
           flex-direction: column !important;
 }
-
 /* Menu Items */
 .ui.menu .ui.dropdown .menu > .item {
   margin: 0;
@@ -274,25 +989,21 @@
   float: none;
   margin: 0em 0.75em 0em 0em;
 }
-
 /* Secondary */
 .ui.secondary.menu .dropdown.item > .menu,
 .ui.text.menu .dropdown.item > .menu {
   border-radius: 0.28571429rem;
   margin-top: 0.35714286em;
 }
-
 /* Pointing */
 .ui.menu .pointing.dropdown.item .menu {
   margin-top: 0.75em;
 }
-
 /* Inverted */
 .ui.inverted.menu .search.dropdown.item > .search,
 .ui.inverted.menu .search.dropdown.item > .text {
   color: rgba(255, 255, 255, 0.9);
 }
-
 /* Vertical */
 .ui.vertical.menu .dropdown.item > .icon {
   float: right;
@@ -319,16 +1030,13 @@
 .ui.vertical.menu .dropdown.active.item {
   box-shadow: none;
 }
-
 /* Evenly Divided */
 .ui.item.menu .dropdown .menu .item {
   width: 100%;
 }
-
 /*--------------
      Labels
 ---------------*/
-
 .ui.menu .item > .label {
   background: #999999;
   color: #FFFFFF;
@@ -345,11 +1053,9 @@
 .ui.menu .item > .floating.label {
   padding: 0.3em 0.78571429em;
 }
-
 /*--------------
      Images
 ---------------*/
-
 .ui.menu .item > img:not(.ui) {
   display: inline-block;
   vertical-align: middle;
@@ -361,18 +1067,12 @@
   max-width: 100%;
   width: auto;
 }
-
-
 /*******************************
           Coupling
 *******************************/
-
-
 /*--------------
      Sidebar
 ---------------*/
-
-
 /* Show vertical dividers below last */
 .ui.vertical.sidebar.menu > .item:first-child:before {
   display: block !important;
@@ -381,11 +1081,9 @@
   top: auto;
   bottom: 0px;
 }
-
 /*--------------
     Container
 ---------------*/
-
 @media only screen and (max-width: 767px) {
   .ui.menu > .ui.container {
     width: 100% !important;
@@ -398,17 +1096,12 @@
     border-left: 1px solid rgba(34, 36, 38, 0.1);
   }
 }
-
-
 /*******************************
              States
 *******************************/
-
-
 /*--------------
       Hover
 ---------------*/
-
 .ui.link.menu .item:hover,
 .ui.menu .dropdown.item:hover,
 .ui.menu .link.item:hover,
@@ -417,22 +1110,18 @@
   background: rgba(0, 0, 0, 0.03);
   color: rgba(0, 0, 0, 0.95);
 }
-
 /*--------------
      Pressed
 ---------------*/
-
 .ui.link.menu .item:active,
 .ui.menu .link.item:active,
 .ui.menu a.item:active {
   background: rgba(0, 0, 0, 0.03);
   color: rgba(0, 0, 0, 0.95);
 }
-
 /*--------------
      Active
 ---------------*/
-
 .ui.menu .active.item {
   background: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.95);
@@ -442,83 +1131,64 @@
 .ui.menu .active.item > i.icon {
   opacity: 1;
 }
-
 /*--------------
   Active Hover
 ---------------*/
-
 .ui.menu .active.item:hover,
 .ui.vertical.menu .active.item:hover {
   background-color: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.95);
 }
-
 /*--------------
      Disabled
 ---------------*/
-
 .ui.menu .item.disabled,
 .ui.menu .item.disabled:hover {
   cursor: default;
   background-color: transparent !important;
   color: rgba(40, 40, 40, 0.3);
 }
-
-
 /*******************************
              Types
 *******************************/
-
-
 /*------------------
 Floated Menu / Item
 -------------------*/
-
-
 /* Left Floated */
 .ui.menu:not(.vertical) .left.item,
 .ui.menu:not(.vertical) .left.menu {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   margin-right: auto !important;
 }
-
 /* Right Floated */
 .ui.menu:not(.vertical) .right.item,
 .ui.menu:not(.vertical) .right.menu {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   margin-left: auto !important;
 }
-
 /* Swapped Borders */
 .ui.menu .right.item::before,
 .ui.menu .right.menu > .item::before {
   right: auto;
   left: 0;
 }
-
 /*--------------
     Vertical
 ---------------*/
-
 .ui.vertical.menu {
   display: block;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
   background: #FFFFFF;
   box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
 }
-
 /*--- Item ---*/
-
 .ui.vertical.menu .item {
   display: block;
   background: none;
@@ -531,16 +1201,12 @@ Floated Menu / Item
 .ui.vertical.menu > .item:last-child {
   border-radius: 0px 0px 0.28571429rem 0.28571429rem;
 }
-
 /*--- Label ---*/
-
 .ui.vertical.menu .item > .label {
   float: right;
   text-align: center;
 }
-
 /*--- Icon ---*/
-
 .ui.vertical.menu .item > i.icon {
   width: 1.18em;
   float: right;
@@ -550,9 +1216,7 @@ Floated Menu / Item
   float: none;
   margin: 0em 0.5em 0em 0em;
 }
-
 /*--- Border ---*/
-
 .ui.vertical.menu .item:before {
   position: absolute;
   content: '';
@@ -565,9 +1229,7 @@ Floated Menu / Item
 .ui.vertical.menu .item:first-child:before {
   display: none !important;
 }
-
 /*--- Sub Menu ---*/
-
 .ui.vertical.menu .item > .menu {
   margin: 0.5em -1.14285714em 0em;
 }
@@ -584,7 +1246,6 @@ Floated Menu / Item
 .ui.vertical.menu .menu .item:before {
   display: none;
 }
-
 /* Vertical Active */
 .ui.vertical.menu .active.item {
   background: rgba(0, 0, 0, 0.05);
@@ -608,11 +1269,9 @@ Floated Menu / Item
   font-weight: bold;
   color: rgba(0, 0, 0, 0.95);
 }
-
 /*--------------
      Tabular
 ---------------*/
-
 .ui.tabular.menu {
   border-radius: 0em;
   box-shadow: none !important;
@@ -635,13 +1294,11 @@ Floated Menu / Item
 .ui.tabular.menu .item:before {
   display: none;
 }
-
 /* Hover */
 .ui.tabular.menu .item:hover {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.8);
 }
-
 /* Active */
 .ui.tabular.menu .active.item {
   background: none #FFFFFF;
@@ -653,7 +1310,6 @@ Floated Menu / Item
   box-shadow: none;
   border-radius: 0.28571429rem 0.28571429rem 0px 0px !important;
 }
-
 /* Coupling with segment for attachment */
 .ui.tabular.menu + .attached:not(.top).segment,
 .ui.tabular.menu + .attached:not(.top).segment + .attached:not(.top).segment {
@@ -668,7 +1324,6 @@ Floated Menu / Item
   width: calc(100% +  2px );
   left: -1px;
 }
-
 /* Bottom Vertical Tabular */
 .ui.bottom.tabular.menu {
   background: none transparent;
@@ -691,7 +1346,6 @@ Floated Menu / Item
   margin: -1px 0px 0px 0px;
   border-radius: 0px 0px 0.28571429rem 0.28571429rem !important;
 }
-
 /* Vertical Tabular (Left) */
 .ui.vertical.tabular.menu {
   background: none transparent;
@@ -714,7 +1368,6 @@ Floated Menu / Item
   margin: 0px -1px 0px 0px;
   border-radius: 0.28571429rem 0px 0px 0.28571429rem !important;
 }
-
 /* Vertical Right Tabular */
 .ui.vertical.right.tabular.menu {
   background: none transparent;
@@ -738,7 +1391,6 @@ Floated Menu / Item
   margin: 0px 0px 0px -1px;
   border-radius: 0px 0.28571429rem 0.28571429rem 0px !important;
 }
-
 /* Dropdown */
 .ui.tabular.menu .active.dropdown.item {
   margin-bottom: 0px;
@@ -747,15 +1399,12 @@ Floated Menu / Item
   border-top: 2px solid transparent;
   border-bottom: none;
 }
-
 /*--------------
    Pagination
 ---------------*/
-
 .ui.pagination.menu {
   margin: 0em;
   display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   vertical-align: middle;
@@ -776,7 +1425,6 @@ Floated Menu / Item
 .ui.pagination.menu .icon.item i.icon {
   vertical-align: top;
 }
-
 /* Active */
 .ui.pagination.menu .active.item {
   border-top: none;
@@ -785,11 +1433,9 @@ Floated Menu / Item
   color: rgba(0, 0, 0, 0.95);
   box-shadow: none;
 }
-
 /*--------------
    Secondary
 ---------------*/
-
 .ui.secondary.menu {
   background: none;
   margin-left: -0.35714286em;
@@ -798,12 +1444,11 @@ Floated Menu / Item
   border: none;
   box-shadow: none;
 }
-
 /* Item */
 .ui.secondary.menu .item {
-  -webkit-align-self: center;
-      -ms-flex-item-align: center;
-          align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   box-shadow: none;
   border: none;
   padding: 0.78571429em 0.92857143em;
@@ -813,24 +1458,20 @@ Floated Menu / Item
   transition: color 0.1s ease;
   border-radius: 0.28571429rem;
 }
-
 /* No Divider */
 .ui.secondary.menu .item:before {
   display: none !important;
 }
-
 /* Header */
 .ui.secondary.menu .header.item {
   border-radius: 0em;
   border-right: none;
   background: none transparent;
 }
-
 /* Image */
 .ui.secondary.menu .item > img:not(.ui) {
   margin: 0em;
 }
-
 /* Hover */
 .ui.secondary.menu .dropdown.item:hover,
 .ui.secondary.menu .link.item:hover,
@@ -838,7 +1479,6 @@ Floated Menu / Item
   background: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.95);
 }
-
 /* Active */
 .ui.secondary.menu .active.item {
   box-shadow: none;
@@ -846,14 +1486,12 @@ Floated Menu / Item
   color: rgba(0, 0, 0, 0.95);
   border-radius: 0.28571429rem;
 }
-
 /* Active Hover */
 .ui.secondary.menu .active.item:hover {
   box-shadow: none;
   background: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.95);
 }
-
 /* Inverted */
 .ui.secondary.inverted.menu .link.item,
 .ui.secondary.inverted.menu a.item {
@@ -869,7 +1507,6 @@ Floated Menu / Item
   background: rgba(255, 255, 255, 0.15);
   color: #ffffff !important;
 }
-
 /* Fix item margins */
 .ui.secondary.item.menu {
   margin-left: 0em;
@@ -881,7 +1518,6 @@ Floated Menu / Item
 .ui.secondary.attached.menu {
   box-shadow: none;
 }
-
 /* Sub Menu */
 .ui.vertical.secondary.menu .item:not(.dropdown) > .menu {
   margin: 0em -0.92857143em;
@@ -890,11 +1526,9 @@ Floated Menu / Item
   margin: 0em;
   padding: 0.5em 1.33333333em;
 }
-
 /*---------------------
    Secondary Vertical
 -----------------------*/
-
 .ui.secondary.vertical.menu > .item {
   border: none;
   margin: 0em 0em 0.35714286em;
@@ -903,21 +1537,17 @@ Floated Menu / Item
 .ui.secondary.vertical.menu > .header.item {
   border-radius: 0em;
 }
-
 /* Sub Menu */
 .ui.vertical.secondary.menu .item > .menu .item {
   background-color: transparent;
 }
-
 /* Inverted */
 .ui.secondary.inverted.menu {
   background-color: transparent;
 }
-
 /*---------------------
    Secondary Pointing
 -----------------------*/
-
 .ui.secondary.pointing.menu {
   margin-left: 0em;
   margin-right: 0em;
@@ -927,16 +1557,14 @@ Floated Menu / Item
   border-bottom-color: transparent;
   border-bottom-style: solid;
   border-radius: 0em;
-  -webkit-align-self: flex-end;
-      -ms-flex-item-align: end;
-          align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   margin: 0em 0em -2px;
   padding: 0.85714286em 1.14285714em;
   border-bottom-width: 2px;
   -webkit-transition: color 0.1s ease;
   transition: color 0.1s ease;
 }
-
 /* Item Types */
 .ui.secondary.pointing.menu .header.item {
   color: rgba(0, 0, 0, 0.85) !important;
@@ -947,7 +1575,6 @@ Floated Menu / Item
 .ui.secondary.pointing.menu .item:after {
   display: none;
 }
-
 /* Hover */
 .ui.secondary.pointing.menu .dropdown.item:hover,
 .ui.secondary.pointing.menu .link.item:hover,
@@ -955,7 +1582,6 @@ Floated Menu / Item
   background-color: transparent;
   color: rgba(0, 0, 0, 0.87);
 }
-
 /* Pressed */
 .ui.secondary.pointing.menu .dropdown.item:active,
 .ui.secondary.pointing.menu .link.item:active,
@@ -963,7 +1589,6 @@ Floated Menu / Item
   background-color: transparent;
   border-color: rgba(34, 36, 38, 0.15);
 }
-
 /* Active */
 .ui.secondary.pointing.menu .active.item {
   background-color: transparent;
@@ -972,18 +1597,15 @@ Floated Menu / Item
   font-weight: bold;
   color: rgba(0, 0, 0, 0.95);
 }
-
 /* Active Hover */
 .ui.secondary.pointing.menu .active.item:hover {
   border-color: #1B1C1D;
   color: rgba(0, 0, 0, 0.95);
 }
-
 /* Active Dropdown */
 .ui.secondary.pointing.menu .active.dropdown.item {
   border-color: transparent;
 }
-
 /* Vertical Pointing */
 .ui.secondary.vertical.pointing.menu {
   border-bottom-width: 0px;
@@ -999,12 +1621,10 @@ Floated Menu / Item
   margin: 0em -2px 0em 0em;
   border-right-width: 2px;
 }
-
 /* Vertical Active */
 .ui.secondary.vertical.pointing.menu .active.item {
   border-color: #1B1C1D;
 }
-
 /* Inverted */
 .ui.secondary.inverted.pointing.menu {
   border-color: rgba(255, 255, 255, 0.1);
@@ -1019,23 +1639,19 @@ Floated Menu / Item
 .ui.secondary.inverted.pointing.menu .header.item {
   color: #FFFFFF !important;
 }
-
 /* Hover */
 .ui.secondary.inverted.pointing.menu .link.item:hover,
 .ui.secondary.inverted.pointing.menu a.item:hover {
   color: rgba(0, 0, 0, 0.95);
 }
-
 /* Active */
 .ui.secondary.inverted.pointing.menu .active.item {
   border-color: #FFFFFF;
   color: #ffffff;
 }
-
 /*--------------
     Text Menu
 ---------------*/
-
 .ui.text.menu {
   background: none transparent;
   border-radius: 0px;
@@ -1046,9 +1662,9 @@ Floated Menu / Item
 .ui.text.menu .item {
   border-radius: 0px;
   box-shadow: none;
-  -webkit-align-self: center;
-      -ms-flex-item-align: center;
-          align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   margin: 0em 0em;
   padding: 0.35714286em 0.5em;
   font-weight: normal;
@@ -1056,13 +1672,11 @@ Floated Menu / Item
   -webkit-transition: opacity 0.1s ease;
   transition: opacity 0.1s ease;
 }
-
 /* Border */
 .ui.text.menu .item:before,
 .ui.text.menu .menu .item:before {
   display: none !important;
 }
-
 /* Header */
 .ui.text.menu .header.item {
   background-color: transparent;
@@ -1072,20 +1686,15 @@ Floated Menu / Item
   text-transform: uppercase;
   font-weight: bold;
 }
-
 /* Image */
 .ui.text.menu .item > img:not(.ui) {
   margin: 0em;
 }
-
 /*--- fluid text ---*/
-
 .ui.text.item.menu .item {
   margin: 0em;
 }
-
 /*--- vertical text ---*/
-
 .ui.vertical.text.menu {
   margin: 1em 0em;
 }
@@ -1107,7 +1716,6 @@ Floated Menu / Item
 .ui.vertical.text.menu .header.item {
   margin: 0.57142857em 0em 0.71428571em;
 }
-
 /* Vertical Sub Menu */
 .ui.vertical.text.menu .item:not(.dropdown) > .menu {
   margin: 0em;
@@ -1116,16 +1724,12 @@ Floated Menu / Item
   margin: 0em;
   padding: 0.5em 0em;
 }
-
 /*--- hover ---*/
-
 .ui.text.menu .item:hover {
   opacity: 1;
   background-color: transparent;
 }
-
 /*--- active ---*/
-
 .ui.text.menu .active.item {
   background-color: transparent;
   border: none;
@@ -1133,13 +1737,10 @@ Floated Menu / Item
   font-weight: normal;
   color: rgba(0, 0, 0, 0.95);
 }
-
 /*--- active hover ---*/
-
 .ui.text.menu .active.item:hover {
   background-color: transparent;
 }
-
 /* Disable Bariations */
 .ui.text.pointing.menu .active.item:after {
   box-shadow: none;
@@ -1147,7 +1748,6 @@ Floated Menu / Item
 .ui.text.attached.menu {
   box-shadow: none;
 }
-
 /* Inverted */
 .ui.inverted.text.menu,
 .ui.inverted.text.menu .item,
@@ -1155,48 +1755,39 @@ Floated Menu / Item
 .ui.inverted.text.menu .active.item {
   background-color: transparent !important;
 }
-
 /* Fluid */
 .ui.fluid.text.menu {
   margin-left: 0em;
   margin-right: 0em;
 }
-
 /*--------------
     Icon Only
 ---------------*/
-
-
 /* Vertical Menu */
 .ui.vertical.icon.menu {
   display: inline-block;
   width: auto;
 }
-
 /* Item */
 .ui.icon.menu .item {
   height: auto;
   text-align: center;
   color: #1B1C1D;
 }
-
 /* Icon */
 .ui.icon.menu .item > .icon:not(.dropdown) {
   margin: 0;
   opacity: 1;
 }
-
 /* Icon Gylph */
 .ui.icon.menu .icon:before {
   opacity: 1;
 }
-
 /* (x) Item Icon */
 .ui.menu .icon.item > .icon {
   width: auto;
   margin: 0em auto;
 }
-
 /* Vertical Icon */
 .ui.vertical.icon.menu .item > .icon:not(.dropdown) {
   display: block;
@@ -1204,32 +1795,25 @@ Floated Menu / Item
   margin: 0em auto;
   float: none;
 }
-
 /* Inverted */
 .ui.inverted.icon.menu .item {
   color: #FFFFFF;
 }
-
 /*--------------
    Labeled Icon
 ---------------*/
-
-
 /* Menu */
 .ui.labeled.icon.menu {
   text-align: center;
 }
-
 /* Item */
 .ui.labeled.icon.menu .item {
   min-width: 6em;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
-
 /* Icon */
 .ui.labeled.icon.menu .item > .icon:not(.dropdown) {
   height: 1em;
@@ -1237,27 +1821,20 @@ Floated Menu / Item
   font-size: 1.71428571em !important;
   margin: 0em auto 0.5rem !important;
 }
-
 /* Fluid */
 .ui.fluid.labeled.icon.menu > .item {
   min-width: 0em;
 }
-
-
 /*******************************
            Variations
 *******************************/
-
-
 /*--------------
     Stackable
 ---------------*/
-
 @media only screen and (max-width: 767px) {
   .ui.stackable.menu {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
   }
@@ -1283,14 +1860,10 @@ Floated Menu / Item
     margin-left: 0 !important;
   }
 }
-
 /*--------------
      Colors
 ---------------*/
-
-
 /*--- Standard Colors  ---*/
-
 .ui.menu .red.active.item,
 .ui.red.menu .active.item {
   border-color: #DB2828 !important;
@@ -1351,17 +1924,14 @@ Floated Menu / Item
   border-color: #767676 !important;
   color: #767676 !important;
 }
-
 /*--------------
     Inverted
 ---------------*/
-
 .ui.inverted.menu {
   border: 0px solid transparent;
   background: #1B1C1D;
   box-shadow: none;
 }
-
 /* Menu Item */
 .ui.inverted.menu .item,
 .ui.inverted.menu .item > a:not(.ui) {
@@ -1371,37 +1941,30 @@ Floated Menu / Item
 .ui.inverted.menu .item.menu {
   background: transparent;
 }
-
 /*--- Border ---*/
-
 .ui.inverted.menu .item:before {
   background: rgba(255, 255, 255, 0.08);
 }
 .ui.vertical.inverted.menu .item:before {
   background: rgba(255, 255, 255, 0.08);
 }
-
 /* Sub Menu */
 .ui.vertical.inverted.menu .menu .item,
 .ui.vertical.inverted.menu .menu .item a:not(.ui) {
   color: rgba(255, 255, 255, 0.5);
 }
-
 /* Header */
 .ui.inverted.menu .header.item {
   margin: 0em;
   background: transparent;
   box-shadow: none;
 }
-
 /* Disabled */
 .ui.inverted.menu .item.disabled,
 .ui.inverted.menu .item.disabled:hover {
   color: rgba(225, 225, 225, 0.3);
 }
-
 /*--- Hover ---*/
-
 .ui.link.inverted.menu .item:hover,
 .ui.inverted.menu .dropdown.item:hover,
 .ui.inverted.menu .link.item:hover,
@@ -1414,17 +1977,13 @@ Floated Menu / Item
   background: transparent;
   color: #ffffff;
 }
-
 /*--- Pressed ---*/
-
 .ui.inverted.menu a.item:active,
 .ui.inverted.menu .link.item:active {
   background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
 }
-
 /*--- Active ---*/
-
 .ui.inverted.menu .active.item {
   background: rgba(255, 255, 255, 0.15);
   color: #ffffff !important;
@@ -1439,9 +1998,7 @@ Floated Menu / Item
   box-shadow: none !important;
   border: none !important;
 }
-
 /*--- Active Hover ---*/
-
 .ui.inverted.menu .active.item:hover {
   background: rgba(255, 255, 255, 0.15);
   color: #FFFFFF !important;
@@ -1449,11 +2006,9 @@ Floated Menu / Item
 .ui.inverted.pointing.menu .active.item:hover:after {
   background: #3D3E3F !important;
 }
-
 /*--------------
      Floated
 ---------------*/
-
 .ui.floated.menu {
   float: left;
   margin: 0rem 0.5rem 0rem 0rem;
@@ -1465,12 +2020,9 @@ Floated Menu / Item
   float: right;
   margin: 0rem 0rem 0rem 0.5rem;
 }
-
 /*--------------
     Inverted
 ---------------*/
-
-
 /* Red */
 .ui.inverted.menu .red.active.item,
 .ui.inverted.red.menu {
@@ -1482,7 +2034,6 @@ Floated Menu / Item
 .ui.inverted.red.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
-
 /* Orange */
 .ui.inverted.menu .orange.active.item,
 .ui.inverted.orange.menu {
@@ -1494,7 +2045,6 @@ Floated Menu / Item
 .ui.inverted.orange.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
-
 /* Yellow */
 .ui.inverted.menu .yellow.active.item,
 .ui.inverted.yellow.menu {
@@ -1506,7 +2056,6 @@ Floated Menu / Item
 .ui.inverted.yellow.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
-
 /* Olive */
 .ui.inverted.menu .olive.active.item,
 .ui.inverted.olive.menu {
@@ -1518,7 +2067,6 @@ Floated Menu / Item
 .ui.inverted.olive.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
-
 /* Green */
 .ui.inverted.menu .green.active.item,
 .ui.inverted.green.menu {
@@ -1530,7 +2078,6 @@ Floated Menu / Item
 .ui.inverted.green.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
-
 /* Teal */
 .ui.inverted.menu .teal.active.item,
 .ui.inverted.teal.menu {
@@ -1542,7 +2089,6 @@ Floated Menu / Item
 .ui.inverted.teal.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
-
 /* Blue */
 .ui.inverted.menu .blue.active.item,
 .ui.inverted.blue.menu {
@@ -1554,7 +2100,6 @@ Floated Menu / Item
 .ui.inverted.blue.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
-
 /* Violet */
 .ui.inverted.menu .violet.active.item,
 .ui.inverted.violet.menu {
@@ -1566,7 +2111,6 @@ Floated Menu / Item
 .ui.inverted.violet.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
-
 /* Purple */
 .ui.inverted.menu .purple.active.item,
 .ui.inverted.purple.menu {
@@ -1578,7 +2122,6 @@ Floated Menu / Item
 .ui.inverted.purple.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
-
 /* Pink */
 .ui.inverted.menu .pink.active.item,
 .ui.inverted.pink.menu {
@@ -1590,7 +2133,6 @@ Floated Menu / Item
 .ui.inverted.pink.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
-
 /* Brown */
 .ui.inverted.menu .brown.active.item,
 .ui.inverted.brown.menu {
@@ -1602,7 +2144,6 @@ Floated Menu / Item
 .ui.inverted.brown.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
-
 /* Grey */
 .ui.inverted.menu .grey.active.item,
 .ui.inverted.grey.menu {
@@ -1614,11 +2155,9 @@ Floated Menu / Item
 .ui.inverted.grey.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
-
 /*--------------
      Fitted
 ---------------*/
-
 .ui.fitted.menu .item,
 .ui.fitted.menu .item .menu .item,
 .ui.menu .fitted.item {
@@ -1636,24 +2175,19 @@ Floated Menu / Item
   padding-left: 1.14285714em;
   padding-right: 1.14285714em;
 }
-
 /*--------------
    Borderless
 ---------------*/
-
 .ui.borderless.menu .item:before,
 .ui.borderless.menu .item .menu .item:before,
 .ui.menu .borderless.item:before {
   background: none !important;
 }
-
 /*-------------------
        Compact
 --------------------*/
-
 .ui.compact.menu {
   display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   margin: 0em;
@@ -1674,20 +2208,16 @@ Floated Menu / Item
 .ui.compact.vertical.menu .item:last-child::before {
   display: block;
 }
-
 /*-------------------
         Fluid
 --------------------*/
-
 .ui.menu.fluid,
 .ui.vertical.menu.fluid {
   width: 100% !important;
 }
-
 /*-------------------
       Evenly Sized
 --------------------*/
-
 .ui.item.menu,
 .ui.item.menu .item {
   width: 100%;
@@ -1697,7 +2227,6 @@ Floated Menu / Item
   margin-right: 0em !important;
   text-align: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
@@ -1737,11 +2266,9 @@ Floated Menu / Item
 .ui.menu.twelve.item .item {
   width: 8.333%;
 }
-
 /*--------------
      Fixed
 ---------------*/
-
 .ui.menu.fixed {
   position: fixed;
   z-index: 101;
@@ -1796,16 +2323,13 @@ Floated Menu / Item
   width: auto;
   height: 100%;
 }
-
 /* Coupling with Grid */
 .ui.fixed.menu + .ui.grid {
   padding-top: 2.75rem;
 }
-
 /*-------------------
        Pointing
 --------------------*/
-
 .ui.pointing.menu .item:after {
   visibility: hidden;
   position: absolute;
@@ -1838,7 +2362,6 @@ Floated Menu / Item
   border-top: 1px solid #D4D4D5;
   border-right: 1px solid #D4D4D5;
 }
-
 /* Active */
 .ui.pointing.menu .active.item:after {
   visibility: visible;
@@ -1846,13 +2369,11 @@ Floated Menu / Item
 .ui.pointing.menu .active.dropdown.item:after {
   visibility: hidden;
 }
-
 /* Don't double up pointers */
 .ui.pointing.menu .dropdown.active.item:after,
 .ui.pointing.menu .active.item .menu .active.item:after {
   display: none;
 }
-
 /* Colors */
 .ui.pointing.menu .active.item:hover:after {
   background-color: #F2F2F2;
@@ -1872,12 +2393,9 @@ Floated Menu / Item
 .ui.vertical.pointing.menu .menu .active.item:after {
   background-color: #FFFFFF;
 }
-
 /*--------------
     Attached
 ---------------*/
-
-
 /* Middle */
 .ui.attached.menu {
   top: 0px;
@@ -1891,7 +2409,6 @@ Floated Menu / Item
 .ui.attached + .ui.attached.menu:not(.top) {
   border-top: none;
 }
-
 /* Top */
 .ui[class*="top attached"].menu {
   bottom: 0px;
@@ -1903,7 +2420,6 @@ Floated Menu / Item
 .ui.menu[class*="top attached"]:first-child {
   margin-top: 0em;
 }
-
 /* Bottom */
 .ui[class*="bottom attached"].menu {
   bottom: 0px;
@@ -1916,7 +2432,6 @@ Floated Menu / Item
 .ui[class*="bottom attached"].menu:last-child {
   margin-bottom: 0em;
 }
-
 /* Attached Menu Item */
 .ui.top.attached.menu > .item:first-child {
   border-radius: 0.28571429rem 0em 0em 0em;
@@ -1924,7 +2439,6 @@ Floated Menu / Item
 .ui.bottom.attached.menu > .item:first-child {
   border-radius: 0em 0em 0em 0.28571429rem;
 }
-
 /* Tabular Attached */
 .ui.attached.menu:not(.tabular) {
   border: 1px solid #D4D4D5;
@@ -1937,12 +2451,9 @@ Floated Menu / Item
   margin-right: 0;
   width: 100%;
 }
-
 /*--------------
      Sizes
 ---------------*/
-
-
 /* Mini */
 .ui.mini.menu {
   font-size: 0.78571429rem;
@@ -1950,7 +2461,6 @@ Floated Menu / Item
 .ui.mini.vertical.menu {
   width: 9rem;
 }
-
 /* Tiny */
 .ui.tiny.menu {
   font-size: 0.85714286rem;
@@ -1958,7 +2468,6 @@ Floated Menu / Item
 .ui.tiny.vertical.menu {
   width: 11rem;
 }
-
 /* Small */
 .ui.small.menu {
   font-size: 0.92857143rem;
@@ -1966,7 +2475,6 @@ Floated Menu / Item
 .ui.small.vertical.menu {
   width: 13rem;
 }
-
 /* Medium */
 .ui.menu {
   font-size: 1rem;
@@ -1974,7 +2482,6 @@ Floated Menu / Item
 .ui.vertical.menu {
   width: 15rem;
 }
-
 /* Large */
 .ui.large.menu {
   font-size: 1.07142857rem;
@@ -1982,7 +2489,6 @@ Floated Menu / Item
 .ui.large.vertical.menu {
   width: 18rem;
 }
-
 /* Huge */
 .ui.huge.menu {
   font-size: 1.14285714rem;
@@ -1990,7 +2496,6 @@ Floated Menu / Item
 .ui.huge.vertical.menu {
   width: 20rem;
 }
-
 /* Big */
 .ui.big.menu {
   font-size: 1.21428571rem;
@@ -1998,7 +2503,6 @@ Floated Menu / Item
 .ui.big.vertical.menu {
   width: 22rem;
 }
-
 /* Massive */
 .ui.massive.menu {
   font-size: 1.28571429rem;
@@ -2006,15 +2510,11 @@ Floated Menu / Item
 .ui.massive.vertical.menu {
   width: 25rem;
 }
-
-
 /*******************************
          Theme Overrides
 *******************************/
-
-
-
 /*******************************
          Site Overrides
 *******************************/
 
+/*# sourceMappingURL=menu.css.map */

@@ -39,7 +39,7 @@ catch(error) {
 // extend user config with defaults
 gulpConfig = (!userConfig)
   ? extend(true, {}, defaults)
-  : extend(false, {}, defaults, userConfig)
+  : extend(true, {}, defaults, userConfig)
 ;
 
 /*******************************

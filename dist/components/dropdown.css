@@ -7,12 +7,764 @@
  * http://opensource.org/licenses/MIT
  *
  */
+/*******************************
+            Theme
+*******************************/
+/*
 
+████████╗██╗  ██╗███████╗███╗   ███╗███████╗███████╗
+╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝██╔════╝
+   ██║   ███████║█████╗  ██╔████╔██║█████╗  ███████╗
+   ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝  ╚════██║
+   ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗███████║
+   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚══════╝
 
+*/
+/*******************************
+        Theme Selection
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+            Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+         Import Theme
+*******************************/
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+       Theme
+-------------------*/
+/*--------------------
+   Site Variables
+---------------------*/
+/* Default site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Packaged site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Component's site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Site theme site.variables */
+/*******************************
+     User Global Variables
+*******************************/
+/*-------------------
+ Component Variables
+---------------------*/
+/* Default */
 /*******************************
             Dropdown
 *******************************/
-
+/*-------------------
+       Element
+--------------------*/
+/*-------------------
+       Content
+--------------------*/
+/* Icon */
+/* Current Text */
+/* Menu */
+/* Text */
+/* Menu Item */
+/* Sub Menu */
+/* Menu Header */
+/* Menu Divider */
+/* Menu Input */
+/* Menu Image */
+/* Item Sub-Element */
+/* Sub-Menu Dropdown Icon */
+/* Description */
+/* Message */
+/* Floated Content */
+/*-------------------
+        Types
+--------------------*/
+/*------------
+   Selection
+--------------*/
+/* <select> */
+/* Responsive */
+/* Derived */
+/* 1px / em size */
+/* Hover */
+/* Focus */
+/* Visible */
+/* Visible Hover */
+/*--------------
+     Search
+--------------*/
+/* Search Selection */
+/* Inline */
+/*--------------
+    Multiple
+--------------*/
+/* Split Actual Padding Between Child and Parent (allows for label spacing) */
+/* Child Elements */
+/* Dropdown Icon */
+/* Selection Label */
+/*-------------------
+       States
+--------------------*/
+/* Hovered */
+/* Default Text */
+/* Loading */
+/* Active Menu Item */
+/* Selected */
+/* Error */
+/*-------------------
+      Variations
+--------------------*/
+/* Scrolling */
+/* 0px / em size */
+/* Upward */
+/* Flyout Direction */
+/* Left */
+/* Simple */
+/* Floating */
+/* Pointing */
+/* Pointing Upward */
+/* Packaged Theme */
+/*******************************
+            Dropdown
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/*-------------------
+       Content
+--------------------*/
+/* Icon */
+/* Current Text */
+/* Menu */
+/* Text */
+/* Menu Item */
+/* Sub Menu */
+/* Menu Header */
+/* Menu Divider */
+/* Menu Input */
+/* Menu Image */
+/* Item Sub-Element */
+/* Sub-Menu Dropdown Icon */
+/* Description */
+/* Message */
+/* Floated Content */
+/*-------------------
+        Types
+--------------------*/
+/*------------
+   Selection
+--------------*/
+/* <select> */
+/* Responsive */
+/* Derived */
+/* 1px / em size */
+/* Hover */
+/* Focus */
+/* Visible */
+/* Visible Hover */
+/*--------------
+     Search
+--------------*/
+/* Search Selection */
+/* Inline */
+/*--------------
+    Multiple
+--------------*/
+/* Split Actual Padding Between Child and Parent (allows for label spacing) */
+/* Child Elements */
+/* Dropdown Icon */
+/* Selection Label */
+/*-------------------
+       States
+--------------------*/
+/* Hovered */
+/* Default Text */
+/* Loading */
+/* Active Menu Item */
+/* Selected */
+/* Error */
+/*-------------------
+      Variations
+--------------------*/
+/* Scrolling */
+/* 0px / em size */
+/* Upward */
+/* Flyout Direction */
+/* Left */
+/* Simple */
+/* Floating */
+/* Pointing */
+/* Pointing Upward */
+/* Site Theme */
+/*******************************
+    User Variable Overrides
+*******************************/
+/*******************************
+             Mix-ins
+*******************************/
+/*------------------
+       Fonts
+-------------------*/
+/*------------------
+     Overrides
+-------------------*/
+/* End Config */
+/*******************************
+            Dropdown
+*******************************/
 .ui.dropdown {
   cursor: pointer;
   position: relative;
@@ -23,17 +775,12 @@
   transition: box-shadow 0.1s ease, width 0.1s ease;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
-
 /*******************************
             Content
 *******************************/
-
-
 /*--------------
       Menu
 ---------------*/
-
 .ui.dropdown .menu {
   cursor: auto;
   position: absolute;
@@ -60,20 +807,16 @@
 .ui.dropdown .menu > * {
   white-space: nowrap;
 }
-
 /*--------------
   Hidden Input
 ---------------*/
-
 .ui.dropdown > input:not(.search):first-child,
 .ui.dropdown > select {
   display: none !important;
 }
-
 /*--------------
  Dropdown Icon
 ---------------*/
-
 .ui.dropdown > .dropdown.icon {
   position: relative;
   width: auto;
@@ -88,21 +831,17 @@
 .ui.dropdown .menu > .item .dropdown.icon + .text {
   margin-right: 1em;
 }
-
 /*--------------
       Text
 ---------------*/
-
 .ui.dropdown > .text {
   display: inline-block;
   -webkit-transition: none;
   transition: none;
 }
-
 /*--------------
     Menu Item
 ---------------*/
-
 .ui.dropdown .menu > .item {
   position: relative;
   cursor: pointer;
@@ -123,11 +862,9 @@
 .ui.dropdown .menu > .item:first-child {
   border-top-width: 0px;
 }
-
 /*--------------
   Floated Content
 ---------------*/
-
 .ui.dropdown > .text > [class*="right floated"],
 .ui.dropdown .menu .item > [class*="right floated"] {
   float: right !important;
@@ -146,11 +883,9 @@
 .ui.dropdown .menu .item > img.floated {
   margin-top: 0em;
 }
-
 /*--------------
   Menu Divider
 ---------------*/
-
 .ui.dropdown .menu > .header {
   margin: 1rem 0rem 0.75rem;
   padding: 0em 1.14285714rem;
@@ -167,7 +902,6 @@
 .ui.dropdown .menu > .input {
   width: auto;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   margin: 1.14285714rem 0.78571429rem;
@@ -185,22 +919,18 @@
   padding-top: 0.5em;
   padding-bottom: 0.5em;
 }
-
 /*-----------------
   Item Description
 -------------------*/
-
 .ui.dropdown > .text > .description,
 .ui.dropdown .menu > .item > .description {
   float: right;
   margin: 0em 0em 0em 1em;
   color: rgba(0, 0, 0, 0.4);
 }
-
 /*-----------------
        Message
 -------------------*/
-
 .ui.dropdown .menu > .message {
   padding: 0.78571429rem 1.14285714rem;
   font-weight: normal;
@@ -208,11 +938,9 @@
 .ui.dropdown .menu > .message:not(.ui) {
   color: rgba(0, 0, 0, 0.4);
 }
-
 /*--------------
     Sub Menu
 ---------------*/
-
 .ui.dropdown .menu .menu {
   top: 0% !important;
   left: 100% !important;
@@ -221,17 +949,13 @@
   border-radius: 0.28571429rem !important;
   z-index: 21 !important;
 }
-
 /* Hide Arrow */
 .ui.dropdown .menu .menu:after {
   display: none;
 }
-
 /*--------------
    Sub Elements
 ---------------*/
-
-
 /* Icons / Flags / Labels / Image */
 .ui.dropdown > .text > .icon,
 .ui.dropdown > .text > .label,
@@ -261,11 +985,9 @@
   float: none;
   margin-right: 0.78571429rem;
 }
-
 /*--------------
      Image
 ---------------*/
-
 .ui.dropdown > .text > img,
 .ui.dropdown > .text > .image,
 .ui.dropdown .menu > .item > .image,
@@ -275,29 +997,21 @@
   width: auto;
   max-height: 2em;
 }
-
-
 /*******************************
             Coupling
 *******************************/
-
-
 /*--------------
       Menu
 ---------------*/
-
-
 /* Remove Menu Item Divider */
 .ui.dropdown .ui.menu > .item:before,
 .ui.menu .ui.dropdown .menu > .item:before {
   display: none;
 }
-
 /* Prevent Menu Item Border */
 .ui.menu .ui.dropdown .menu .active.item {
   border-left: none;
 }
-
 /* Automatically float dropdown menu right on last menu item */
 .ui.menu .right.menu .dropdown:last-child .menu,
 .ui.menu .right.dropdown.item .menu,
@@ -305,22 +1019,16 @@
   left: auto;
   right: 0em;
 }
-
 /*--------------
       Label
 ---------------*/
-
-
 /* Dropdown Menu */
 .ui.label.dropdown .menu {
   min-width: 100%;
 }
-
 /*--------------
      Button
 ---------------*/
-
-
 /* No Margin On Icon Button */
 .ui.dropdown.icon.button > .dropdown.icon {
   margin: 0em;
@@ -328,18 +1036,12 @@
 .ui.button.dropdown .menu {
   min-width: 100%;
 }
-
-
 /*******************************
               Types
 *******************************/
-
-
 /*--------------
     Selection
 ---------------*/
-
-
 /* Displays like a select box */
 .ui.selection.dropdown {
   cursor: pointer;
@@ -388,12 +1090,10 @@ select.ui.dropdown {
   -webkit-transition: opacity 0.1s ease;
   transition: opacity 0.1s ease;
 }
-
 /* Compact */
 .ui.compact.selection.dropdown {
   min-width: 0px;
 }
-
 /*  Selection Menu */
 .ui.selection.dropdown .menu {
   overflow-x: hidden;
@@ -416,11 +1116,9 @@ select.ui.dropdown {
 .ui.selection.dropdown .menu:before {
   display: none;
 }
-
 /*--------------
     Message
 ---------------*/
-
 .ui.selection.dropdown .menu > .message {
   padding: 0.78571429rem 1.14285714rem;
 }
@@ -444,7 +1142,6 @@ select.ui.dropdown {
     max-height: 21.37142857rem;
   }
 }
-
 /* Menu Item */
 .ui.selection.dropdown .menu > .item {
   border-top: 1px solid #FAFAFA;
@@ -452,18 +1149,15 @@ select.ui.dropdown {
   white-space: normal;
   word-wrap: normal;
 }
-
 /* User Item */
 .ui.selection.dropdown .menu > .hidden.addition.item {
   display: none;
 }
-
 /* Hover */
 .ui.selection.dropdown:hover {
   border-color: rgba(34, 36, 38, 0.35);
   box-shadow: none;
 }
-
 /* Active */
 .ui.selection.active.dropdown {
   border-color: #96C8DA;
@@ -473,7 +1167,6 @@ select.ui.dropdown {
   border-color: #96C8DA;
   box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
 }
-
 /* Focus */
 .ui.selection.dropdown:focus {
   border-color: #96C8DA;
@@ -483,13 +1176,11 @@ select.ui.dropdown {
   border-color: #96C8DA;
   box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
 }
-
 /* Visible */
 .ui.selection.visible.dropdown > .text:not(.default) {
   font-weight: normal;
   color: rgba(0, 0, 0, 0.8);
 }
-
 /* Visible Hover */
 .ui.selection.active.dropdown:hover {
   border-color: #96C8DA;
@@ -499,20 +1190,17 @@ select.ui.dropdown {
   border-color: #96C8DA;
   box-shadow: 0px 2px 3px 0px rgba(34, 36, 38, 0.15);
 }
-
 /* Dropdown Icon */
 .ui.active.selection.dropdown > .dropdown.icon,
 .ui.visible.selection.dropdown > .dropdown.icon {
   opacity: 1;
   z-index: 3;
 }
-
 /* Connecting Border */
 .ui.active.selection.dropdown {
   border-bottom-left-radius: 0em !important;
   border-bottom-right-radius: 0em !important;
 }
-
 /* Empty Connecting Border */
 .ui.active.empty.selection.dropdown {
   border-radius: 0.28571429rem !important;
@@ -522,17 +1210,13 @@ select.ui.dropdown {
   border: none !important;
   box-shadow: none !important;
 }
-
 /*--------------
    Searchable
 ---------------*/
-
-
 /* Search Selection */
 .ui.search.dropdown {
   min-width: '';
 }
-
 /* Search Dropdown */
 .ui.search.dropdown > input.search {
   background: none transparent !important;
@@ -546,7 +1230,6 @@ select.ui.dropdown {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   padding: inherit;
 }
-
 /* Text Layering */
 .ui.search.dropdown > input.search {
   position: absolute;
@@ -558,13 +1241,11 @@ select.ui.dropdown {
   left: 1px;
   z-index: 3;
 }
-
 /* Search Selection */
 .ui.search.selection.dropdown > input.search {
   line-height: 1.2142em;
   padding: 0.67861429em 2.1em 0.67861429em 1em;
 }
-
 /* Used to size multi select input to character width */
 .ui.search.selection.dropdown > span.sizer {
   line-height: 1.2142em;
@@ -572,7 +1253,6 @@ select.ui.dropdown {
   display: none;
   white-space: pre;
 }
-
 /* Active/Visible Search */
 .ui.search.dropdown.active > input.search,
 .ui.search.dropdown.visible > input.search {
@@ -582,7 +1262,6 @@ select.ui.dropdown {
 .ui.search.dropdown.visible > .text {
   pointer-events: none;
 }
-
 /* Filtered Text */
 .ui.active.search.dropdown input.search:focus + .text .icon,
 .ui.active.search.dropdown input.search:focus + .text .flag {
@@ -591,7 +1270,6 @@ select.ui.dropdown {
 .ui.active.search.dropdown input.search:focus + .text {
   color: rgba(115, 115, 115, 0.87) !important;
 }
-
 /* Search Menu */
 .ui.search.dropdown .menu {
   overflow-x: hidden;
@@ -620,12 +1298,9 @@ select.ui.dropdown {
     max-height: 21.37142857rem;
   }
 }
-
 /*--------------
     Multiple
 ---------------*/
-
-
 /* Multiple Selection */
 .ui.multiple.dropdown {
   padding: 0.22620476em 2.1em 0.22620476em 0.35714286em;
@@ -633,13 +1308,11 @@ select.ui.dropdown {
 .ui.multiple.dropdown .menu {
   cursor: auto;
 }
-
 /* Multiple Search Selection */
 .ui.multiple.search.dropdown,
 .ui.multiple.search.dropdown > input.search {
   cursor: text;
 }
-
 /* Selection Label */
 .ui.multiple.dropdown > .label {
   -webkit-user-select: none;
@@ -654,13 +1327,11 @@ select.ui.dropdown {
   margin: 0.14285714rem 0.28571429rem 0.14285714rem 0em;
   box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
 }
-
 /* Dropdown Icon */
 .ui.multiple.dropdown .dropdown.icon {
   margin: '';
   padding: '';
 }
-
 /* Text */
 .ui.multiple.dropdown > .text {
   position: static;
@@ -675,12 +1346,9 @@ select.ui.dropdown {
 .ui.multiple.dropdown > .label ~ .text {
   display: none;
 }
-
 /*-----------------
   Multiple Search
 -----------------*/
-
-
 /* Prompt Text */
 .ui.multiple.search.dropdown > .text {
   display: inline-block;
@@ -694,7 +1362,6 @@ select.ui.dropdown {
 .ui.multiple.search.dropdown > .label ~ .text {
   display: none;
 }
-
 /* Search */
 .ui.multiple.search.dropdown > input.search {
   position: static;
@@ -704,11 +1371,9 @@ select.ui.dropdown {
   width: 2.2em;
   line-height: 1.21428571em;
 }
-
 /*--------------
      Inline
 ---------------*/
-
 .ui.inline.dropdown {
   cursor: pointer;
   display: inline-block;
@@ -726,18 +1391,12 @@ select.ui.dropdown {
   margin-top: 0.21428571em;
   border-radius: 0.28571429rem;
 }
-
-
 /*******************************
             States
 *******************************/
-
-
 /*--------------------
         Active
 ----------------------*/
-
-
 /* Menu Item Active */
 .ui.dropdown .menu .active.item {
   background: transparent;
@@ -746,23 +1405,18 @@ select.ui.dropdown {
   box-shadow: none;
   z-index: 12;
 }
-
 /*--------------------
         Hover
 ----------------------*/
-
-
 /* Menu Item Hover */
 .ui.dropdown .menu > .item:hover {
   background: rgba(0, 0, 0, 0.05);
   color: rgba(0, 0, 0, 0.95);
   z-index: 13;
 }
-
 /*--------------------
        Loading
 ---------------------*/
-
 .ui.loading.dropdown > i.icon {
   height: 1em !important;
   padding: 1.14285714em 1.07142857em !important;
@@ -796,7 +1450,6 @@ select.ui.dropdown {
   border-style: solid;
   border-width: 0.2em;
 }
-
 /* Coupling */
 .ui.loading.dropdown.button > i.icon:before,
 .ui.loading.dropdown.button > i.icon:after {
@@ -822,11 +1475,9 @@ select.ui.dropdown {
             transform: rotate(360deg);
   }
 }
-
 /*--------------------
      Default Text
 ----------------------*/
-
 .ui.dropdown:not(.button) > .default.text,
 .ui.default.dropdown:not(.button) > .text {
   color: rgba(191, 191, 191, 0.87);
@@ -835,40 +1486,31 @@ select.ui.dropdown {
 .ui.default.dropdown:not(.button) > input:focus + .text {
   color: rgba(115, 115, 115, 0.87);
 }
-
 /*--------------------
         Loading
 ----------------------*/
-
 .ui.loading.dropdown > .text {
   -webkit-transition: none;
   transition: none;
 }
-
 /* Used To Check Position */
 .ui.dropdown .loading.menu {
   display: block;
   visibility: hidden;
   z-index: -1;
 }
-
 /*--------------------
     Keyboard Select
 ----------------------*/
-
-
 /* Selected Item */
 .ui.dropdown.selected,
 .ui.dropdown .menu .selected.item {
   background: rgba(0, 0, 0, 0.03);
   color: rgba(0, 0, 0, 0.95);
 }
-
 /*--------------------
     Search Filtered
 ----------------------*/
-
-
 /* Filtered Item */
 .ui.dropdown > .filtered.text {
   visibility: hidden;
@@ -876,11 +1518,9 @@ select.ui.dropdown {
 .ui.dropdown .filtered.item {
   display: none !important;
 }
-
 /*--------------------
         Error
 ----------------------*/
-
 .ui.dropdown.error,
 .ui.dropdown.error > .text,
 .ui.dropdown.error > .default.text {
@@ -903,22 +1543,17 @@ select.ui.dropdown {
 .ui.multiple.selection.error.dropdown > .label {
   border-color: #E0B4B4;
 }
-
 /* Item Hover */
 .ui.dropdown.error > .menu > .item:hover {
   background-color: #FFF2F2;
 }
-
 /* Item Active */
 .ui.dropdown.error > .menu .active.item {
   background-color: #FDCFCF;
 }
-
 /*--------------------
         Disabled
 ----------------------*/
-
-
 /* Disabled */
 .ui.disabled.dropdown,
 .ui.dropdown .menu > .disabled.item {
@@ -926,23 +1561,16 @@ select.ui.dropdown {
   pointer-events: none;
   opacity: 0.45;
 }
-
-
 /*******************************
            Variations
 *******************************/
-
-
 /*--------------
     Direction
 ---------------*/
-
-
 /* Flyout Direction */
 .ui.dropdown .menu {
   left: 0px;
 }
-
 /* Default Side (Right) */
 .ui.dropdown .right.menu > .menu,
 .ui.dropdown .menu .right.menu {
@@ -950,7 +1578,6 @@ select.ui.dropdown {
   right: auto !important;
   border-radius: 0.28571429rem !important;
 }
-
 /* Left Flyout Menu */
 .ui.dropdown > .left.menu .menu,
 .ui.dropdown .menu .left.menu {
@@ -974,12 +1601,9 @@ select.ui.dropdown {
 .ui.dropdown .left.menu .item .dropdown.icon + .text {
   margin-left: 1em;
 }
-
 /*--------------
      Upward
 ---------------*/
-
-
 /* Upward Main Menu */
 .ui.upward.dropdown > .menu {
   top: auto;
@@ -987,13 +1611,11 @@ select.ui.dropdown {
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.08);
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
-
 /* Upward Sub Menu */
 .ui.dropdown .upward.menu {
   top: auto !important;
   bottom: 0 !important;
 }
-
 /* Active Upward */
 .ui.simple.upward.active.dropdown,
 .ui.simple.upward.dropdown:hover {
@@ -1002,7 +1624,6 @@ select.ui.dropdown {
 .ui.upward.dropdown.button:not(.pointing):not(.floating).active {
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
-
 /* Selection */
 .ui.upward.selection.dropdown .menu {
   border-top-width: 1px !important;
@@ -1012,18 +1633,15 @@ select.ui.dropdown {
 .ui.upward.selection.dropdown:hover {
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.05);
 }
-
 /* Active Upward */
 .ui.active.upward.selection.dropdown {
   border-radius: 0em 0em 0.28571429rem 0.28571429rem !important;
 }
-
 /* Visible Upward */
 .ui.upward.selection.dropdown.visible {
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.08);
   border-radius: 0em 0em 0.28571429rem 0.28571429rem !important;
 }
-
 /* Visible Hover Upward */
 .ui.upward.active.selection.dropdown:hover {
   box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.05);
@@ -1031,12 +1649,9 @@ select.ui.dropdown {
 .ui.upward.active.selection.dropdown:hover .menu {
   box-shadow: 0px -2px 3px 0px rgba(0, 0, 0, 0.08);
 }
-
 /*--------------
      Simple
 ---------------*/
-
-
 /*  Selection Menu */
 .ui.scrolling.dropdown .menu,
 .ui.dropdown .scrolling.menu {
@@ -1076,7 +1691,6 @@ select.ui.dropdown {
 .ui.dropdown > .visible.menu .scrolling.menu {
   display: block;
 }
-
 /* Scrollbar in IE */
 @media all and (-ms-high-contrast: none) {
   .ui.scrolling.dropdown .menu,
@@ -1108,12 +1722,9 @@ select.ui.dropdown {
     max-height: 20.57142857rem;
   }
 }
-
 /*--------------
      Simple
 ---------------*/
-
-
 /* Displays without javascript */
 .ui.simple.dropdown .menu:before,
 .ui.simple.dropdown .menu:after {
@@ -1158,16 +1769,13 @@ select.ui.dropdown {
   width: 0px;
   overflow: hidden;
 }
-
 /* Visible */
 .ui.simple.visible.dropdown > .menu {
   display: block;
 }
-
 /*--------------
       Fluid
 ---------------*/
-
 .ui.fluid.dropdown {
   display: block;
   width: 100%;
@@ -1176,11 +1784,9 @@ select.ui.dropdown {
 .ui.fluid.dropdown > .dropdown.icon {
   float: right;
 }
-
 /*--------------
     Floating
 ---------------*/
-
 .ui.floating.dropdown .menu {
   left: 0;
   right: auto;
@@ -1191,11 +1797,9 @@ select.ui.dropdown {
   margin-top: 0.5em !important;
   border-radius: 0.28571429rem !important;
 }
-
 /*--------------
      Pointing
 ---------------*/
-
 .ui.pointing.dropdown > .menu {
   top: 100%;
   margin-top: 0.78571429rem;
@@ -1220,7 +1824,6 @@ select.ui.dropdown {
   left: 50%;
   margin: 0em 0em 0em -0.25em;
 }
-
 /* Top Left Pointing */
 .ui.top.left.pointing.dropdown > .menu {
   top: 100%;
@@ -1244,7 +1847,6 @@ select.ui.dropdown {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-
 /* Top Right  Pointing */
 .ui.top.right.pointing.dropdown > .menu {
   top: 100%;
@@ -1261,7 +1863,6 @@ select.ui.dropdown {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-
 /* Left Pointing */
 .ui.left.pointing.dropdown > .menu {
   top: 0%;
@@ -1276,7 +1877,6 @@ select.ui.dropdown {
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
-
 /* Right Pointing */
 .ui.right.pointing.dropdown > .menu {
   top: 0%;
@@ -1292,7 +1892,6 @@ select.ui.dropdown {
   -webkit-transform: rotate(135deg);
           transform: rotate(135deg);
 }
-
 /* Bottom Pointing */
 .ui.bottom.pointing.dropdown > .menu {
   top: auto;
@@ -1309,13 +1908,11 @@ select.ui.dropdown {
   -webkit-transform: rotate(-135deg);
           transform: rotate(-135deg);
 }
-
 /* Reverse Sub-Menu Direction */
 .ui.bottom.pointing.dropdown > .menu .menu {
   top: auto !important;
   bottom: 0px !important;
 }
-
 /* Bottom Left */
 .ui.bottom.left.pointing.dropdown > .menu {
   left: 0%;
@@ -1325,7 +1922,6 @@ select.ui.dropdown {
   left: 1em;
   right: auto;
 }
-
 /* Bottom Right */
 .ui.bottom.right.pointing.dropdown > .menu {
   right: 0%;
@@ -1335,7 +1931,6 @@ select.ui.dropdown {
   left: auto;
   right: 1em;
 }
-
 /* Upward pointing */
 .ui.upward.pointing.dropdown > .menu,
 .ui.upward.top.pointing.dropdown > .menu {
@@ -1351,13 +1946,9 @@ select.ui.dropdown {
   box-shadow: 1px 1px 0px 1px rgba(34, 36, 38, 0.15);
   margin: -0.25em 0em 0em;
 }
-
-
 /*******************************
          Theme Overrides
 *******************************/
-
-
 /* Dropdown Carets */
 @font-face {
   font-family: 'Dropdown';
@@ -1382,7 +1973,6 @@ select.ui.dropdown {
 .ui.dropdown > .dropdown.icon:before {
   content: '\f0d7';
 }
-
 /* Sub Menu */
 .ui.dropdown .menu .item .dropdown.icon:before {
   content: '\f0da' /*rtl:'\f0d9'*/;
@@ -1391,7 +1981,6 @@ select.ui.dropdown {
 .ui.dropdown .left.menu .item .dropdown.icon:before {
   content: "\f0d9" /*rtl:"\f0da"*/;
 }
-
 /* Vertical Menu Dropdown */
 .ui.vertical.menu .dropdown.item > .dropdown.icon:before {
   content: "\f0da" /*rtl:"\f0d9"*/;
@@ -1410,9 +1999,8 @@ select.ui.dropdown {
   content: "\f0da";
 }
 */
-
-
 /*******************************
         User Overrides
 *******************************/
 
+/*# sourceMappingURL=dropdown.css.map */

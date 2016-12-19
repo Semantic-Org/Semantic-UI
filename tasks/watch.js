@@ -169,15 +169,15 @@ module.exports = function(callback) {
         compressedStream   = stream.pipe(clone());
 
         uncompressedStream
-          .pipe(sourcemaps.init(settings.sourcemaps))
+          .pipe(sourcemaps.init())
           .pipe(less(settings.less.uncompressed))
-          .pipe(sourcemaps.write('maps'))
+          .pipe(sourcemaps.write(config.paths.sourcemaps))
           .pipe(replace(assets.source, assets.uncompressed))
           .pipe(gulpif(config.hasPermission, chmod(config.permission)))
           .pipe(gulp.dest(output.uncompressed))
           .pipe(print(log.created))
           .on('end', function() {
-            gulp.start('package uncompressed css');
+            //gulp.start('package uncompressed css');
           })
         ;
 
@@ -186,7 +186,7 @@ module.exports = function(callback) {
           .pipe(less(settings.less.minify))
           .pipe(autoprefixer(settings.prefix))
           .pipe(rename(settings.rename.minCSS))
-          .pipe(sourcemaps.write('maps'))
+          .pipe(sourcemaps.write(config.paths.sourcemaps))
           .pipe(replace(assets.source, assets.compressed))
           .pipe(gulp.dest(output.compressed))
           .pipe(print(log.created))
@@ -213,11 +213,11 @@ module.exports = function(callback) {
         .pipe(plumber())
         .pipe(print(log.created))
         .pipe(replace(comments.license.in, comments.license.out))
-        .pipe(sourcemaps.init(settings.sourcemaps))
+        .pipe(sourcemaps.init())
         .pipe(gulp.dest(output.uncompressed))
         .pipe(uglify(settings.uglify))
         .pipe(rename(settings.rename.minJS))
-        .pipe(sourcemaps.write('maps'))
+        .pipe(sourcemaps.write(config.paths.sourcemaps))
         .pipe(gulpif(config.hasPermission, chmod(config.permission)))
         .pipe(gulp.dest(output.compressed))
         .pipe(print(log.created))

@@ -7,34 +7,726 @@
  * http://opensource.org/licenses/MIT
  *
  */
+/*******************************
+            Theme
+*******************************/
+/*
 
+████████╗██╗  ██╗███████╗███╗   ███╗███████╗███████╗
+╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝██╔════╝
+   ██║   ███████║█████╗  ██╔████╔██║█████╗  ███████╗
+   ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝  ╚════██║
+   ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗███████║
+   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚══════╝
 
+*/
+/*******************************
+        Theme Selection
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+            Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+         Import Theme
+*******************************/
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+       Theme
+-------------------*/
+/*--------------------
+   Site Variables
+---------------------*/
+/* Default site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Packaged site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Component's site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Site theme site.variables */
+/*******************************
+     User Global Variables
+*******************************/
+/*-------------------
+ Component Variables
+---------------------*/
+/* Default */
+/*******************************
+             Form
+*******************************/
+/*-------------------
+       Elements
+--------------------*/
+/* Form */
+/* Text */
+/* Field */
+/* Fields */
+/* Form Label */
+/* Input */
+/* Select */
+/* Text Area */
+/* Checkbox */
+/* Inline Validation Prompt */
+/*-------------------
+        States
+--------------------*/
+/* Focus */
+/* Input Focus */
+/* Text Area Focus */
+/* Disabled */
+/* Errored Input */
+/* AutoFill */
+/* Input Error */
+/* Dropdown Error */
+/* Focused Error */
+/* Placeholder Error */
+/* Loading Dimmer */
+/* Loading Spinner */
+/*-------------------
+        Types
+--------------------*/
+/* Required */
+/* Inverted */
+/*-------------------
+      Variations
+--------------------*/
+/* Grouped Fields */
+/* Inline */
+/*-------------------
+       Groups
+--------------------*/
+/* Packaged Theme */
+/*******************************
+             Form
+*******************************/
+/*-------------------
+       Elements
+--------------------*/
+/* Form */
+/* Text */
+/* Field */
+/* Fields */
+/* Form Label */
+/* Input */
+/* Select */
+/* Text Area */
+/* Checkbox */
+/* Inline Validation Prompt */
+/*-------------------
+        States
+--------------------*/
+/* Focus */
+/* Input Focus */
+/* Text Area Focus */
+/* Disabled */
+/* Errored Input */
+/* AutoFill */
+/* Input Error */
+/* Dropdown Error */
+/* Focused Error */
+/* Placeholder Error */
+/* Loading Dimmer */
+/* Loading Spinner */
+/*-------------------
+        Types
+--------------------*/
+/* Required */
+/* Inverted */
+/*-------------------
+      Variations
+--------------------*/
+/* Grouped Fields */
+/* Inline */
+/*-------------------
+       Groups
+--------------------*/
+/* Site Theme */
+/*******************************
+    User Variable Overrides
+*******************************/
+/*******************************
+             Mix-ins
+*******************************/
+/*------------------
+       Fonts
+-------------------*/
+/*------------------
+     Overrides
+-------------------*/
+/* End Config */
 /*******************************
             Elements
 *******************************/
-
-
 /*--------------------
         Form
 ---------------------*/
-
 .ui.form {
   position: relative;
   max-width: 100%;
 }
-
 /*--------------------
         Content
 ---------------------*/
-
 .ui.form > p {
   margin: 1em 0em;
 }
-
 /*--------------------
         Field
 ---------------------*/
-
 .ui.form .field {
   clear: both;
   margin: 0em 0em 1em;
@@ -47,11 +739,9 @@
   clear: both;
   margin: 0em;
 }
-
 /*--------------------
         Labels
 ---------------------*/
-
 .ui.form .field > label {
   display: block;
   margin: 0em 0em 0.28571429rem 0em;
@@ -60,11 +750,9 @@
   font-weight: bold;
   text-transform: none;
 }
-
 /*--------------------
     Standard Inputs
 ---------------------*/
-
 .ui.form textarea,
 .ui.form input:not([type]),
 .ui.form input[type="date"],
@@ -81,7 +769,6 @@
   width: 100%;
   vertical-align: top;
 }
-
 /* Set max height on unusual input */
 .ui.form ::-webkit-datetime-edit,
 .ui.form ::-webkit-inner-spin-button {
@@ -115,7 +802,6 @@
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
 }
-
 /* Text Area */
 .ui.form textarea {
   margin: 0em;
@@ -143,19 +829,15 @@
 .ui.form input[type="checkbox"] {
   vertical-align: top;
 }
-
 /*--------------------------
   Input w/ attached Button
 ---------------------------*/
-
 .ui.form input.attached {
   width: auto;
 }
-
 /*--------------------
      Basic Select
 ---------------------*/
-
 .ui.form select {
   display: block;
   height: auto;
@@ -169,12 +851,9 @@
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
 }
-
 /*--------------------
        Dropdown
 ---------------------*/
-
-
 /* Block */
 .ui.form .field > .selection.dropdown {
   width: 100%;
@@ -182,7 +861,6 @@
 .ui.form .field > .selection.dropdown > .dropdown.icon {
   float: right;
 }
-
 /* Inline */
 .ui.form .inline.fields .field > .selection.dropdown,
 .ui.form .inline.field > .selection.dropdown {
@@ -192,32 +870,26 @@
 .ui.form .inline.field > .selection.dropdown > .dropdown.icon {
   float: none;
 }
-
 /*--------------------
        UI Input
 ---------------------*/
-
-
 /* Block */
 .ui.form .field .ui.input,
 .ui.form .fields .field .ui.input,
 .ui.form .wide.field .ui.input {
   width: 100%;
 }
-
 /* Inline  */
 .ui.form .inline.fields .field:not(.wide) .ui.input,
 .ui.form .inline.field:not(.wide) .ui.input {
   width: auto;
   vertical-align: middle;
 }
-
 /* Auto Input */
 .ui.form .fields .field .ui.input input,
 .ui.form .field .ui.input input {
   width: auto;
 }
-
 /* Full Width Input */
 .ui.form .ten.fields .ui.input input,
 .ui.form .nine.fields .ui.input input,
@@ -230,31 +902,25 @@
 .ui.form .two.fields .ui.input input,
 .ui.form .wide.field .ui.input input {
   -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
   width: 0px;
 }
-
 /*--------------------
    Types of Messages
 ---------------------*/
-
 .ui.form .success.message,
 .ui.form .warning.message,
 .ui.form .error.message {
   display: none;
 }
-
 /* Assumptions */
 .ui.form .message:first-child {
   margin-top: 0px;
 }
-
 /*--------------------
    Validation Prompt
 ---------------------*/
-
 .ui.form .field .prompt.label {
   white-space: normal;
   background: #FFFFFF !important;
@@ -274,39 +940,29 @@
   top: 50%;
   left: 0em;
 }
-
-
 /*******************************
             States
 *******************************/
-
-
 /*--------------------
       Autofilled
 ---------------------*/
-
 .ui.form .field.field input:-webkit-autofill {
   box-shadow: 0px 0px 0px 100px #FFFFF0 inset !important;
   border-color: #E5DFA1 !important;
 }
-
 /* Focus */
 .ui.form .field.field input:-webkit-autofill:focus {
   box-shadow: 0px 0px 0px 100px #FFFFF0 inset !important;
   border-color: #D5C315 !important;
 }
-
 /* Error */
 .ui.form .error.error input:-webkit-autofill {
   box-shadow: 0px 0px 0px 100px #FFFAF0 inset !important;
   border-color: #E0B4B4 !important;
 }
-
 /*--------------------
       Placeholder
 ---------------------*/
-
-
 /* browsers require these rules separate */
 .ui.form ::-webkit-input-placeholder {
   color: rgba(191, 191, 191, 0.87);
@@ -326,7 +982,6 @@
 .ui.form :focus::-moz-placeholder {
   color: rgba(115, 115, 115, 0.87);
 }
-
 /* Error Placeholder */
 .ui.form .error ::-webkit-input-placeholder {
   color: #e7bdbc;
@@ -346,11 +1001,9 @@
 .ui.form .error :focus::-moz-placeholder {
   color: #da9796;
 }
-
 /*--------------------
         Focus
 ---------------------*/
-
 .ui.form input:not([type]):focus,
 .ui.form input[type="date"]:focus,
 .ui.form input[type="datetime-local"]:focus,
@@ -377,12 +1030,9 @@
   box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
   -webkit-appearance: none;
 }
-
 /*--------------------
         Success
 ---------------------*/
-
-
 /* On Form */
 .ui.form.success .success.message:not(:empty) {
   display: block;
@@ -392,16 +1042,12 @@
 }
 .ui.form.success .icon.success.message:not(:empty) {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
-
 /*--------------------
         Warning
 ---------------------*/
-
-
 /* On Form */
 .ui.form.warning .warning.message:not(:empty) {
   display: block;
@@ -411,16 +1057,12 @@
 }
 .ui.form.warning .icon.warning.message:not(:empty) {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
-
 /*--------------------
         Error
 ---------------------*/
-
-
 /* On Form */
 .ui.form.error .error.message:not(:empty) {
   display: block;
@@ -430,11 +1072,9 @@
 }
 .ui.form.error .icon.error.message:not(:empty) {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
-
 /* On Field(s) */
 .ui.form .fields.error .field label,
 .ui.form .field.error label,
@@ -501,16 +1141,13 @@
   -webkit-appearance: none;
   box-shadow: none;
 }
-
 /* Preserve Native Select Stylings */
 .ui.form .field.error select {
   -webkit-appearance: menulist-button;
 }
-
 /*------------------
     Dropdown Error
 --------------------*/
-
 .ui.form .fields.error .field .ui.dropdown,
 .ui.form .fields.error .field .ui.dropdown .item,
 .ui.form .field.error .ui.dropdown,
@@ -536,29 +1173,24 @@
   background-color: #EACBCB;
   color: #9F3A38;
 }
-
 /* Hover */
 .ui.form .fields.error .field .ui.dropdown .menu .item:hover,
 .ui.form .field.error .ui.dropdown .menu .item:hover {
   background-color: #FBE7E7;
 }
-
 /* Selected */
 .ui.form .fields.error .field .ui.dropdown .menu .selected.item,
 .ui.form .field.error .ui.dropdown .menu .selected.item {
   background-color: #FBE7E7;
 }
-
 /* Active */
 .ui.form .fields.error .field .ui.dropdown .menu .active.item,
 .ui.form .field.error .ui.dropdown .menu .active.item {
   background-color: #FDCFCF !important;
 }
-
 /*--------------------
     Checkbox Error
 ---------------------*/
-
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) label,
 .ui.form .field.error .checkbox:not(.toggle):not(.slider) label,
 .ui.form .fields.error .field .checkbox:not(.toggle):not(.slider) .box,
@@ -578,11 +1210,9 @@
 .ui.form .field.error .checkbox .box:after {
   color: #9F3A38;
 }
-
 /*--------------------
        Disabled
 ---------------------*/
-
 .ui.form .disabled.fields .field,
 .ui.form .disabled.field,
 .ui.form .field :disabled {
@@ -596,11 +1226,9 @@
 .ui.form .field.disabled :disabled {
   opacity: 1;
 }
-
 /*--------------
     Loading
 ---------------*/
-
 .ui.loading.form {
   position: relative;
   cursor: default;
@@ -656,17 +1284,12 @@
             transform: rotate(360deg);
   }
 }
-
-
 /*******************************
          Element Types
 *******************************/
-
-
 /*--------------------
      Required Field
 ---------------------*/
-
 .ui.form .required.fields:not(.grouped) > .field > label:after,
 .ui.form .required.fields.grouped > label:after,
 .ui.form .required.field > label:after,
@@ -688,17 +1311,12 @@
   top: 0%;
   left: 100%;
 }
-
-
 /*******************************
            Variations
 *******************************/
-
-
 /*--------------------
     Inverted Colors
 ---------------------*/
-
 .ui.inverted.form label,
 .ui.form .inverted.segment label,
 .ui.form .inverted.segment .ui.checkbox label,
@@ -712,7 +1330,6 @@
 .ui.inverted.form .inline.field > p {
   color: rgba(255, 255, 255, 0.9);
 }
-
 /* Inverted Field */
 .ui.inverted.form input:not([type]),
 .ui.inverted.form input[type="date"],
@@ -731,12 +1348,9 @@
   color: rgba(0, 0, 0, 0.87);
   box-shadow: none;
 }
-
 /*--------------------
      Field Groups
 ---------------------*/
-
-
 /* Grouped Vertically */
 .ui.form .grouped.fields {
   display: block;
@@ -758,28 +1372,22 @@
   margin: 0.5em 0em;
   padding: 0em;
 }
-
 /*--------------------
         Fields
 ---------------------*/
-
-
 /* Split fields */
 .ui.form .fields {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
   margin: 0em -0.5em 1em;
 }
 .ui.form .fields > .field {
   -webkit-box-flex: 0;
-  -webkit-flex: 0 1 auto;
       -ms-flex: 0 1 auto;
           flex: 0 1 auto;
   padding-left: 0.5em;
@@ -789,7 +1397,6 @@
   border-left: none;
   box-shadow: none;
 }
-
 /* Other Combinations */
 .ui.form .two.fields > .fields,
 .ui.form .two.fields > .field {
@@ -827,13 +1434,11 @@
 .ui.form .ten.fields > .field {
   width: 10%;
 }
-
 /* Swap to full width on mobile */
 @media only screen and (max-width: 767px) {
   .ui.form .fields {
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
   .ui[class*="equal width"].form .fields > .field,
   .ui.form [class*="equal width"].fields > .field,
@@ -859,7 +1464,6 @@
     margin: 0em 0em 1em;
   }
 }
-
 /* Sizing Combinations */
 .ui.form .fields .wide.field {
   width: 6.25%;
@@ -914,7 +1518,6 @@
 .ui.form .sixteen.wide.field {
   width: 100% !important;
 }
-
 /* Swap to full width on mobile */
 @media only screen and (max-width: 767px) {
   .ui.form .two.fields > .fields,
@@ -946,37 +1549,29 @@
     margin-bottom: 0em;
   }
 }
-
 /*--------------------
      Equal Width
 ---------------------*/
-
 .ui[class*="equal width"].form .fields > .field,
 .ui.form [class*="equal width"].fields > .field {
   width: 100%;
   -webkit-box-flex: 1;
-  -webkit-flex: 1 1 auto;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
 }
-
 /*--------------------
     Inline Fields
 ---------------------*/
-
 .ui.form .inline.fields {
   margin: 0em 0em 1em;
   -webkit-box-align: center;
-  -webkit-align-items: center;
       -ms-flex-align: center;
-              -ms-grid-row-align: center;
           align-items: center;
 }
 .ui.form .inline.fields .field {
   margin: 0em;
   padding: 0em 1em 0em 0em;
 }
-
 /* Inline Label */
 .ui.form .inline.fields > label,
 .ui.form .inline.fields .field > label,
@@ -993,12 +1588,10 @@
   color: rgba(0, 0, 0, 0.87);
   text-transform: none;
 }
-
 /* Grouped Inline Label */
 .ui.form .inline.fields > label {
   margin: 0.035714em 1em 0em 0em;
 }
-
 /* Inline Input */
 .ui.form .inline.fields .field > input,
 .ui.form .inline.fields .field > select,
@@ -1011,7 +1604,6 @@
   vertical-align: middle;
   font-size: 1em;
 }
-
 /* Label */
 .ui.form .inline.fields .field > :first-child,
 .ui.form .inline.field > :first-child {
@@ -1021,15 +1613,12 @@
 .ui.form .inline.field > :only-child {
   margin: 0em;
 }
-
 /* Wide */
 .ui.form .inline.fields .wide.field {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
 }
@@ -1037,11 +1626,9 @@
 .ui.form .inline.fields .wide.field > select {
   width: 100%;
 }
-
 /*--------------------
         Sizes
 ---------------------*/
-
 .ui.mini.form {
   font-size: 0.78571429rem;
 }
@@ -1066,15 +1653,11 @@
 .ui.massive.form {
   font-size: 1.71428571rem;
 }
-
-
 /*******************************
          Theme Overrides
 *******************************/
-
-
-
 /*******************************
          Site Overrides
 *******************************/
 
+/*# sourceMappingURL=form.css.map */

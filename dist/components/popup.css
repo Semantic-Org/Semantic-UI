@@ -7,19 +7,696 @@
  * http://opensource.org/licenses/MIT
  *
  */
+/*******************************
+            Theme
+*******************************/
+/*
 
+████████╗██╗  ██╗███████╗███╗   ███╗███████╗███████╗
+╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝██╔════╝
+   ██║   ███████║█████╗  ██╔████╔██║█████╗  ███████╗
+   ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝  ╚════██║
+   ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗███████║
+   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚══════╝
 
+*/
+/*******************************
+        Theme Selection
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+            Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+         Import Theme
+*******************************/
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+       Theme
+-------------------*/
+/*--------------------
+   Site Variables
+---------------------*/
+/* Default site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Packaged site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Component's site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Site theme site.variables */
+/*******************************
+     User Global Variables
+*******************************/
+/*-------------------
+ Component Variables
+---------------------*/
+/* Default */
+/*******************************
+             Popup
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/*-------------------
+       Parts
+--------------------*/
+/* Placement */
+/* Header */
+/* Content Border */
+/* Arrow */
+/* Arrow color by position */
+/*-------------------
+       Types
+--------------------*/
+/* Tooltip */
+/* Inverted */
+/* Arrow */
+/*-------------------
+       Coupling
+--------------------*/
+/* Grid Inside Popup */
+/* (padding * @medium) */
+/*-------------------
+       States
+--------------------*/
+/*-------------------
+       Variations
+--------------------*/
+/* Wide */
+/* Inverted */
+/* Arrow color by position */
+/* Packaged Theme */
+/*******************************
+             Popup
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/*-------------------
+       Parts
+--------------------*/
+/* Placement */
+/* Header */
+/* Content Border */
+/* Arrow */
+/* Arrow color by position */
+/*-------------------
+       Types
+--------------------*/
+/* Tooltip */
+/* Inverted */
+/* Arrow */
+/*-------------------
+       Coupling
+--------------------*/
+/* Grid Inside Popup */
+/* (padding * @medium) */
+/*-------------------
+       States
+--------------------*/
+/*-------------------
+       Variations
+--------------------*/
+/* Wide */
+/* Inverted */
+/* Arrow color by position */
+/* Site Theme */
+/*******************************
+    User Variable Overrides
+*******************************/
+/*******************************
+             Mix-ins
+*******************************/
+/*------------------
+       Fonts
+-------------------*/
+/*------------------
+     Overrides
+-------------------*/
+/* End Config */
 /*******************************
             Popup
 *******************************/
-
 .ui.popup {
   display: none;
   position: absolute;
   top: 0px;
   right: 0px;
-  
-/* Fixes content being squished when inline (moz only) */
+  /* Fixes content being squished when inline (moz only) */
   min-width: -webkit-min-content;
   min-width: -moz-min-content;
   min-width: min-content;
@@ -56,23 +733,16 @@
   z-index: 2;
   box-shadow: 1px 1px 0px 0px #bababc;
 }
-
-
 /*******************************
             Types
 *******************************/
-
-
 /*--------------
     Tooltip
 ---------------*/
-
-
 /* Content */
 [data-tooltip] {
   position: relative;
 }
-
 /* Arrow */
 [data-tooltip]:before {
   pointer-events: none;
@@ -87,7 +757,6 @@
   z-index: 2;
   box-shadow: 1px 1px 0px 0px #bababc;
 }
-
 /* Popup */
 [data-tooltip]:after {
   pointer-events: none;
@@ -109,7 +778,6 @@
   box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
   z-index: 1;
 }
-
 /* Default Position (Top Center) */
 [data-tooltip]:not([data-position]):before {
   top: auto;
@@ -127,7 +795,6 @@
   bottom: 100%;
   margin-bottom: 0.5em;
 }
-
 /* Animation */
 [data-tooltip]:before,
 [data-tooltip]:after {
@@ -160,7 +827,6 @@
           transform: rotate(45deg) scale(1) !important;
   opacity: 1;
 }
-
 /* Animation Position */
 [data-tooltip]:after,
 [data-tooltip][data-position="top center"]:after,
@@ -197,22 +863,17 @@
   -webkit-transform: scale(1) !important;
           transform: scale(1) !important;
 }
-
 /*--------------
     Inverted
 ---------------*/
-
-
 /* Arrow */
 [data-tooltip][data-inverted]:before {
   box-shadow: none !important;
 }
-
 /* Arrow Position */
 [data-tooltip][data-inverted]:before {
   background: #1B1C1D;
 }
-
 /* Popup  */
 [data-tooltip][data-inverted]:after {
   background: #1B1C1D;
@@ -224,12 +885,9 @@
   background-color: none;
   color: #FFFFFF;
 }
-
 /*--------------
     Position
 ---------------*/
-
-
 /* Top Center */
 [data-position="top center"][data-tooltip]:after {
   top: auto;
@@ -249,7 +907,6 @@
   margin-left: -0.07142857rem;
   margin-bottom: 0.14285714rem;
 }
-
 /* Top Left */
 [data-position="top left"][data-tooltip]:after {
   top: auto;
@@ -266,7 +923,6 @@
   margin-left: -0.07142857rem;
   margin-bottom: 0.14285714rem;
 }
-
 /* Top Right */
 [data-position="top right"][data-tooltip]:after {
   top: auto;
@@ -283,7 +939,6 @@
   margin-left: -0.07142857rem;
   margin-bottom: 0.14285714rem;
 }
-
 /* Bottom Center */
 [data-position="bottom center"][data-tooltip]:after {
   bottom: auto;
@@ -302,7 +957,6 @@
   margin-left: -0.07142857rem;
   margin-top: 0.14285714rem;
 }
-
 /* Bottom Left */
 [data-position="bottom left"][data-tooltip]:after {
   left: 0;
@@ -317,7 +971,6 @@
   margin-left: -0.07142857rem;
   margin-top: 0.14285714rem;
 }
-
 /* Bottom Right */
 [data-position="bottom right"][data-tooltip]:after {
   right: 0;
@@ -332,7 +985,6 @@
   margin-left: -0.14285714rem;
   margin-top: 0.07142857rem;
 }
-
 /* Left Center */
 [data-position="left center"][data-tooltip]:after {
   right: 100%;
@@ -347,7 +999,6 @@
   margin-top: -0.14285714rem;
   margin-right: -0.07142857rem;
 }
-
 /* Right Center */
 [data-position="right center"][data-tooltip]:after {
   left: 100%;
@@ -362,7 +1013,6 @@
   margin-top: -0.07142857rem;
   margin-left: 0.14285714rem;
 }
-
 /* Arrow */
 [data-position~="bottom"][data-tooltip]:before {
   background: #FFFFFF;
@@ -379,7 +1029,6 @@
 [data-position~="top"][data-tooltip]:before {
   background: #FFFFFF;
 }
-
 /* Inverted Arrow Color */
 [data-inverted][data-position~="bottom"][data-tooltip]:before {
   background: #1B1C1D;
@@ -420,15 +1069,12 @@
   -webkit-transform-origin: left center;
           transform-origin: left center;
 }
-
 /*--------------
      Spacing
 ---------------*/
-
 .ui.popup {
   margin: 0em;
 }
-
 /* Extending from Top */
 .ui.top.popup {
   margin: 0em 0em 0.71428571em;
@@ -445,7 +1091,6 @@
   -webkit-transform-origin: right bottom;
           transform-origin: right bottom;
 }
-
 /* Extending from Vertical Center */
 .ui.left.center.popup {
   margin: 0em 0.71428571em 0em 0em;
@@ -457,7 +1102,6 @@
   -webkit-transform-origin: left 50%;
           transform-origin: left 50%;
 }
-
 /* Extending from Bottom */
 .ui.bottom.popup {
   margin: 0.71428571em 0em 0em;
@@ -474,14 +1118,10 @@
   -webkit-transform-origin: right top;
           transform-origin: right top;
 }
-
 /*--------------
      Pointer
 ---------------*/
-
-
 /*--- Below ---*/
-
 .ui.bottom.center.popup:before {
   margin-left: -0.30714286em;
   top: -0.30714286em;
@@ -514,9 +1154,7 @@
   margin-left: 0em;
   box-shadow: -1px -1px 0px 0px #bababc;
 }
-
 /*--- Above ---*/
-
 .ui.top.center.popup:before {
   top: auto;
   right: auto;
@@ -546,9 +1184,7 @@
   left: auto;
   margin-left: 0em;
 }
-
 /*--- Left Center ---*/
-
 /*rtl:rename*/
 .ui.left.center.popup:before {
   top: 50%;
@@ -558,9 +1194,7 @@
   margin-top: -0.30714286em;
   box-shadow: 1px -1px 0px 0px #bababc;
 }
-
 /*--- Right Center  ---*/
-
 /*rtl:rename*/
 .ui.right.center.popup:before {
   top: 50%;
@@ -570,7 +1204,6 @@
   margin-top: -0.30714286em;
   box-shadow: -1px 1px 0px 0px #bababc;
 }
-
 /* Arrow Color By Location */
 .ui.bottom.popup:before {
   background: #FFFFFF;
@@ -582,7 +1215,6 @@
 .ui.top.popup:before {
   background: #FFFFFF;
 }
-
 /* Inverted Arrow Color */
 .ui.inverted.bottom.popup:before {
   background: #1B1C1D;
@@ -594,24 +1226,17 @@
 .ui.inverted.top.popup:before {
   background: #1B1C1D;
 }
-
-
 /*******************************
             Coupling
 *******************************/
-
-
 /* Immediate Nested Grid */
 .ui.popup > .ui.grid:not(.padded) {
   width: calc(100% + 1.75rem);
   margin: -0.7rem -0.875rem;
 }
-
-
 /*******************************
             States
 *******************************/
-
 .ui.loading.popup {
   display: block;
   visibility: hidden;
@@ -627,25 +1252,18 @@
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
-
-
 /*******************************
             Variations
 *******************************/
-
-
 /*--------------
      Basic
 ---------------*/
-
 .ui.basic.popup:before {
   display: none;
 }
-
 /*--------------
      Wide
 ---------------*/
-
 .ui.wide.popup {
   max-width: 350px;
 }
@@ -658,21 +1276,16 @@
     max-width: 250px;
   }
 }
-
 /*--------------
      Fluid
 ---------------*/
-
 .ui.fluid.popup {
   width: 100%;
   max-width: none;
 }
-
 /*--------------
      Colors
 ---------------*/
-
-
 /* Inverted colors  */
 .ui.inverted.popup {
   background: #1B1C1D;
@@ -688,19 +1301,15 @@
   background-color: #1B1C1D;
   box-shadow: none !important;
 }
-
 /*--------------
      Flowing
 ---------------*/
-
 .ui.flowing.popup {
   max-width: none;
 }
-
 /*--------------
      Sizes
 ---------------*/
-
 .ui.mini.popup {
   font-size: 0.78571429rem;
 }
@@ -719,15 +1328,11 @@
 .ui.huge.popup {
   font-size: 1.42857143rem;
 }
-
-
 /*******************************
          Theme Overrides
 *******************************/
-
-
-
 /*******************************
         User Overrides
 *******************************/
 
+/*# sourceMappingURL=popup.css.map */

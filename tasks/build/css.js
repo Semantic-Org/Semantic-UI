@@ -75,10 +75,6 @@ module.exports = function(callback) {
     .pipe(replace(comments.large.in, comments.large.out))
     .pipe(replace(comments.small.in, comments.small.out))
     .pipe(replace(comments.tiny.in, comments.tiny.out))
-    .pipe(sourcemaps.init(settings.sourcemaps))
-    .pipe(less(settings.less))
-    .pipe(autoprefixer(settings.prefix))
-    .pipe(flatten())
   ;
 
   // two concurrent streams from same source to concat release
@@ -87,8 +83,11 @@ module.exports = function(callback) {
 
   // uncompressed component css
   uncompressedStream
-    .pipe(plumber())
     .pipe(replace(assets.source, assets.uncompressed))
+    .pipe(sourcemaps.init())
+    .pipe(less(settings.less.uncompressed))
+    .pipe(flatten())
+    .pipe(sourcemaps.write(config.paths.sourcemaps))
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
@@ -99,11 +98,14 @@ module.exports = function(callback) {
 
   // compressed component css
   compressedStream = stream
-    .pipe(plumber())
     .pipe(clone())
     .pipe(replace(assets.source, assets.compressed))
-    .pipe(cleanCSS(settings.minify))
+    .pipe(sourcemaps.init())
+    .pipe(less(settings.less.minifyConcat))
+    .pipe(autoprefixer(settings.prefix))
     .pipe(rename(settings.rename.minCSS))
+    .pipe(flatten())
+    .pipe(sourcemaps.write(config.paths.sourcemaps))
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(gulp.dest(output.compressed))
     .pipe(print(log.created))

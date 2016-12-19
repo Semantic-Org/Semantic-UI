@@ -133,6 +133,7 @@ module.exports = {
       : '{' + defaults.components.join(',') + '}'
     ;
 
+
     return config;
 
   }

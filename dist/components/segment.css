@@ -7,12 +7,686 @@
  * http://opensource.org/licenses/MIT
  *
  */
+/*******************************
+            Theme
+*******************************/
+/*
 
+████████╗██╗  ██╗███████╗███╗   ███╗███████╗███████╗
+╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝██╔════╝
+   ██║   ███████║█████╗  ██╔████╔██║█████╗  ███████╗
+   ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝  ╚════██║
+   ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗███████║
+   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚══════╝
 
+*/
+/*******************************
+        Theme Selection
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+            Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+         Import Theme
+*******************************/
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+       Theme
+-------------------*/
+/*--------------------
+   Site Variables
+---------------------*/
+/* Default site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Packaged site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Component's site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Site theme site.variables */
+/*******************************
+     User Global Variables
+*******************************/
+/*-------------------
+ Component Variables
+---------------------*/
+/* Default */
 /*******************************
             Segment
 *******************************/
-
+/*-------------------
+       Element
+--------------------*/
+/*-------------------
+       Group
+--------------------*/
+/*-------------------
+       Coupling
+--------------------*/
+/* Page Grid Segment */
+/*******************************
+            States
+*******************************/
+/* Loading Dimmer */
+/* Loading Spinner */
+/*******************************
+            Variations
+*******************************/
+/* Piled */
+/* Circular */
+/* Stacked */
+/* Raised */
+/* Padded */
+/* Attached */
+/* Inverted */
+/* Floated */
+/* Basic */
+/* Colors */
+/* Ordinality */
+/* Packaged Theme */
+/*******************************
+            Segment
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/*-------------------
+       Group
+--------------------*/
+/*-------------------
+       Coupling
+--------------------*/
+/* Page Grid Segment */
+/*******************************
+            States
+*******************************/
+/* Loading Dimmer */
+/* Loading Spinner */
+/*******************************
+            Variations
+*******************************/
+/* Piled */
+/* Circular */
+/* Stacked */
+/* Raised */
+/* Padded */
+/* Attached */
+/* Inverted */
+/* Floated */
+/* Basic */
+/* Colors */
+/* Ordinality */
+/* Site Theme */
+/*******************************
+    User Variable Overrides
+*******************************/
+/*******************************
+             Mix-ins
+*******************************/
+/*------------------
+       Fonts
+-------------------*/
+/*------------------
+     Overrides
+-------------------*/
+/* End Config */
+/*******************************
+            Segment
+*******************************/
 .ui.segment {
   position: relative;
   background: #FFFFFF;
@@ -28,7 +702,6 @@
 .ui.segment:last-child {
   margin-bottom: 0em;
 }
-
 /* Vertical */
 .ui.vertical.segment {
   margin: 0em;
@@ -43,17 +716,13 @@
 .ui.vertical.segment:last-child {
   border-bottom: none;
 }
-
 /*-------------------
     Loose Coupling
 --------------------*/
-
-
 /* Header */
 .ui.inverted.segment > .ui.header {
   color: #FFFFFF;
 }
-
 /* Label */
 .ui[class*="bottom attached"].segment > [class*="top attached"].label {
   border-top-left-radius: 0em;
@@ -71,7 +740,6 @@
   border-bottom-left-radius: 0em;
   border-bottom-right-radius: 0em;
 }
-
 /* Grid */
 .ui.page.grid.segment,
 .ui.grid > .row > .ui.segment.column,
@@ -83,7 +751,6 @@
   margin: 1rem 0em;
   border-radius: 0.28571429rem;
 }
-
 /* Table */
 .ui.basic.table.segment {
   background: #FFFFFF;
@@ -93,17 +760,12 @@
 .ui[class*="very basic"].table.segment {
   padding: 1em 1em;
 }
-
-
 /*******************************
              Types
 *******************************/
-
-
 /*-------------------
         Piled
 --------------------*/
-
 .ui.piled.segments,
 .ui.piled.segment {
   margin: 3em 0em;
@@ -145,7 +807,6 @@
   top: 0;
   z-index: -1;
 }
-
 /* Piled Attached */
 .ui[class*="top attached"].piled.segment {
   margin-top: 3em;
@@ -161,11 +822,9 @@
 .ui.piled.segment[class*="bottom attached"]:last-child {
   margin-bottom: 0em;
 }
-
 /*-------------------
        Stacked
 --------------------*/
-
 .ui.stacked.segment {
   padding-bottom: 1.4em;
 }
@@ -187,14 +846,12 @@
 .ui.stacked.segment:before {
   display: none;
 }
-
 /* Add additional page */
 .ui.tall.stacked.segments:before,
 .ui.tall.stacked.segment:before {
   display: block;
   bottom: 0px;
 }
-
 /* Inverted */
 .ui.stacked.inverted.segments:before,
 .ui.stacked.inverted.segments:after,
@@ -203,30 +860,24 @@
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(34, 36, 38, 0.35);
 }
-
 /*-------------------
        Padded
 --------------------*/
-
 .ui.padded.segment {
   padding: 1.5em;
 }
 .ui[class*="very padded"].segment {
   padding: 3em;
 }
-
 /*-------------------
        Compact
 --------------------*/
-
 .ui.compact.segment {
   display: table;
 }
-
 /* Compact Group */
 .ui.compact.segments {
   display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
 }
@@ -234,15 +885,12 @@
 .ui.segments .compact.segment {
   display: block;
   -webkit-box-flex: 0;
-  -webkit-flex: 0 1 auto;
       -ms-flex: 0 1 auto;
           flex: 0 1 auto;
 }
-
 /*-------------------
        Circular
 --------------------*/
-
 .ui.circular.segment {
   display: table-cell;
   padding: 2em;
@@ -250,27 +898,20 @@
   vertical-align: middle;
   border-radius: 500em;
 }
-
 /*-------------------
        Raised
 --------------------*/
-
 .ui.raised.segments,
 .ui.raised.segment {
   box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
 }
-
-
 /*******************************
             Groups
 *******************************/
-
-
 /* Group */
 .ui.segments {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
@@ -285,7 +926,6 @@
 .ui.segments:last-child {
   margin-bottom: 0em;
 }
-
 /* Nested Segment */
 .ui.segments > .segment {
   top: 0px;
@@ -305,7 +945,6 @@
   top: 0px;
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
-
 /* Bottom */
 .ui.segments:not(.horizontal) > .segment:last-child {
   top: 0px;
@@ -315,12 +954,10 @@
   box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15), none;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
-
 /* Only */
 .ui.segments:not(.horizontal) > .segment:only-child {
   border-radius: 0.28571429rem;
 }
-
 /* Nested Group */
 .ui.segments > .ui.segments {
   border-top: 1px solid rgba(34, 36, 38, 0.15);
@@ -332,16 +969,13 @@
 .ui.segments > .segment + .segments:not(.horizontal) {
   margin-top: 0em;
 }
-
 /* Horizontal Group */
 .ui.horizontal.segments {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
   background-color: transparent;
@@ -353,7 +987,6 @@
   border-radius: 0.28571429rem;
   border: 1px solid rgba(34, 36, 38, 0.15);
 }
-
 /* Nested Horizontal Group */
 .ui.segments > .horizontal.segments {
   margin: 0em;
@@ -363,15 +996,12 @@
   box-shadow: none;
   border-top: 1px solid rgba(34, 36, 38, 0.15);
 }
-
 /* Horizontal Segment */
 .ui.horizontal.segments > .segment {
   -webkit-box-flex: 1;
-  -webkit-flex: 1 1 auto;
           flex: 1 1 auto;
   -ms-flex: 1 1 0px;
-  
-/* Solves #2550 MS Flex */
+  /* Solves #2550 MS Flex */
   margin: 0em;
   min-width: 0px;
   background-color: transparent;
@@ -380,7 +1010,6 @@
   box-shadow: none;
   border-left: 1px solid rgba(34, 36, 38, 0.15);
 }
-
 /* Border Fixes */
 .ui.segments > .horizontal.segments:first-child {
   border-top: none;
@@ -388,26 +1017,19 @@
 .ui.horizontal.segments > .segment:first-child {
   border-left: none;
 }
-
-
 /*******************************
             States
 *******************************/
-
-
 /*--------------
     Disabled
 ---------------*/
-
 .ui.disabled.segment {
   opacity: 0.45;
   color: rgba(40, 40, 40, 0.3);
 }
-
 /*--------------
     Loading
 ---------------*/
-
 .ui.loading.segment {
   position: relative;
   cursor: default;
@@ -468,28 +1090,21 @@
             transform: rotate(360deg);
   }
 }
-
-
 /*******************************
            Variations
 *******************************/
-
-
 /*-------------------
        Basic
 --------------------*/
-
 .ui.basic.segment {
   background: none transparent;
   box-shadow: none;
   border: none;
   border-radius: 0px;
 }
-
 /*-------------------
        Clearing
 --------------------*/
-
 .ui.clearing.segment:after {
   content: ".";
   display: block;
@@ -497,12 +1112,9 @@
   clear: both;
   visibility: hidden;
 }
-
 /*-------------------
        Colors
 --------------------*/
-
-
 /* Red */
 .ui.red.segment:not(.inverted) {
   border-top: 2px solid #DB2828;
@@ -511,7 +1123,6 @@
   background-color: #DB2828 !important;
   color: #FFFFFF !important;
 }
-
 /* Orange */
 .ui.orange.segment:not(.inverted) {
   border-top: 2px solid #F2711C;
@@ -520,7 +1131,6 @@
   background-color: #F2711C !important;
   color: #FFFFFF !important;
 }
-
 /* Yellow */
 .ui.yellow.segment:not(.inverted) {
   border-top: 2px solid #FBBD08;
@@ -529,7 +1139,6 @@
   background-color: #FBBD08 !important;
   color: #FFFFFF !important;
 }
-
 /* Olive */
 .ui.olive.segment:not(.inverted) {
   border-top: 2px solid #B5CC18;
@@ -538,7 +1147,6 @@
   background-color: #B5CC18 !important;
   color: #FFFFFF !important;
 }
-
 /* Green */
 .ui.green.segment:not(.inverted) {
   border-top: 2px solid #21BA45;
@@ -547,7 +1155,6 @@
   background-color: #21BA45 !important;
   color: #FFFFFF !important;
 }
-
 /* Teal */
 .ui.teal.segment:not(.inverted) {
   border-top: 2px solid #00B5AD;
@@ -556,7 +1163,6 @@
   background-color: #00B5AD !important;
   color: #FFFFFF !important;
 }
-
 /* Blue */
 .ui.blue.segment:not(.inverted) {
   border-top: 2px solid #2185D0;
@@ -565,7 +1171,6 @@
   background-color: #2185D0 !important;
   color: #FFFFFF !important;
 }
-
 /* Violet */
 .ui.violet.segment:not(.inverted) {
   border-top: 2px solid #6435C9;
@@ -574,7 +1179,6 @@
   background-color: #6435C9 !important;
   color: #FFFFFF !important;
 }
-
 /* Purple */
 .ui.purple.segment:not(.inverted) {
   border-top: 2px solid #A333C8;
@@ -583,7 +1187,6 @@
   background-color: #A333C8 !important;
   color: #FFFFFF !important;
 }
-
 /* Pink */
 .ui.pink.segment:not(.inverted) {
   border-top: 2px solid #E03997;
@@ -592,7 +1195,6 @@
   background-color: #E03997 !important;
   color: #FFFFFF !important;
 }
-
 /* Brown */
 .ui.brown.segment:not(.inverted) {
   border-top: 2px solid #A5673F;
@@ -601,7 +1203,6 @@
   background-color: #A5673F !important;
   color: #FFFFFF !important;
 }
-
 /* Grey */
 .ui.grey.segment:not(.inverted) {
   border-top: 2px solid #767676;
@@ -610,7 +1211,6 @@
   background-color: #767676 !important;
   color: #FFFFFF !important;
 }
-
 /* Black */
 .ui.black.segment:not(.inverted) {
   border-top: 2px solid #1B1C1D;
@@ -619,11 +1219,9 @@
   background-color: #1B1C1D !important;
   color: #FFFFFF !important;
 }
-
 /*-------------------
        Aligned
 --------------------*/
-
 .ui[class*="left aligned"].segment {
   text-align: left;
 }
@@ -633,11 +1231,9 @@
 .ui[class*="center aligned"].segment {
   text-align: center;
 }
-
 /*-------------------
        Floated
 --------------------*/
-
 .ui.floated.segment,
 .ui[class*="left floated"].segment {
   float: left;
@@ -647,11 +1243,9 @@
   float: right;
   margin-left: 1em;
 }
-
 /*-------------------
       Inverted
 --------------------*/
-
 .ui.inverted.segment {
   border: none;
   box-shadow: none;
@@ -661,7 +1255,6 @@
   background: #1B1C1D;
   color: rgba(255, 255, 255, 0.9);
 }
-
 /* Nested */
 .ui.inverted.segment .segment {
   color: rgba(0, 0, 0, 0.87);
@@ -669,17 +1262,13 @@
 .ui.inverted.segment .inverted.segment {
   color: rgba(255, 255, 255, 0.9);
 }
-
 /* Attached */
 .ui.inverted.attached.segment {
   border-color: #555555;
 }
-
 /*-------------------
      Emphasis
 --------------------*/
-
-
 /* Secondary */
 .ui.secondary.segment {
   background: #F3F4F5;
@@ -690,7 +1279,6 @@
   background: #4c4f52 linear-gradient(rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%);
   color: rgba(255, 255, 255, 0.8);
 }
-
 /* Tertiary */
 .ui.tertiary.segment {
   background: #DCDDDE;
@@ -701,12 +1289,9 @@
   background: #717579 linear-gradient(rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.35) 100%);
   color: rgba(255, 255, 255, 0.8);
 }
-
 /*-------------------
       Attached
 --------------------*/
-
-
 /* Middle */
 .ui.attached.segment {
   top: 0px;
@@ -721,7 +1306,6 @@
 .ui.attached:not(.message) + .ui.attached.segment:not(.top) {
   border-top: none;
 }
-
 /* Top */
 .ui[class*="top attached"].segment {
   bottom: 0px;
@@ -733,7 +1317,6 @@
 .ui.segment[class*="top attached"]:first-child {
   margin-top: 0em;
 }
-
 /* Bottom */
 .ui.segment[class*="bottom attached"] {
   bottom: 0px;
@@ -746,11 +1329,9 @@
 .ui.segment[class*="bottom attached"]:last-child {
   margin-bottom: 0em;
 }
-
 /*-------------------
         Size
 --------------------*/
-
 .ui.mini.segments .segment,
 .ui.mini.segment {
   font-size: 0.78571429rem;
@@ -783,15 +1364,11 @@
 .ui.massive.segment {
   font-size: 1.71428571rem;
 }
-
-
 /*******************************
          Theme Overrides
 *******************************/
-
-
-
 /*******************************
          Site Overrides
 *******************************/
 
+/*# sourceMappingURL=segment.css.map */

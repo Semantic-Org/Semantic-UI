@@ -7,12 +7,734 @@
  * http://opensource.org/licenses/MIT
  *
  */
+/*******************************
+            Theme
+*******************************/
+/*
 
+████████╗██╗  ██╗███████╗███╗   ███╗███████╗███████╗
+╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝██╔════╝
+   ██║   ███████║█████╗  ██╔████╔██║█████╗  ███████╗
+   ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝  ╚════██║
+   ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗███████║
+   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚══════╝
 
+*/
+/*******************************
+        Theme Selection
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+            Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+         Import Theme
+*******************************/
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+       Theme
+-------------------*/
+/*--------------------
+   Site Variables
+---------------------*/
+/* Default site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Packaged site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Component's site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Site theme site.variables */
+/*******************************
+     User Global Variables
+*******************************/
+/*-------------------
+ Component Variables
+---------------------*/
+/* Default */
 /*******************************
             Button
 *******************************/
-
+/*-------------------
+       Element
+--------------------*/
+/* Button */
+/* Button defaults to using same height as input globally */
+/* Text */
+/* Internal Shadow */
+/* Box Shadow */
+/* Icon */
+/* Loader */
+/*
+@willChange: box-shadow, transform, opacity, color, background;
+*/
+/*-------------------
+        Group
+--------------------*/
+/*-------------------
+        States
+--------------------*/
+/* Hovered */
+/* Focused */
+/* Disabled */
+/* Pressed Down */
+/* Active */
+/* Active + Hovered */
+/* Loading */
+/*-------------------
+        Types
+--------------------*/
+/* Or */
+/* Icon */
+/* Labeled */
+/* hypotenuse of triangle */
+/* Labeled Icon */
+/* Inverted */
+/* Basic */
+/* Basic Hover */
+/* Basic Focus */
+/* Basic Down */
+/* Basic Active */
+/* Basic Inverted */
+/* Basic Group */
+/*-------------------
+      Variations
+--------------------*/
+/* Colors */
+/* Colored */
+/* Inverted */
+/* Ordinality */
+/* Compact */
+/* Attached */
+/* Floated */
+/* Animated */
+/* Packaged Theme */
+/*******************************
+            Button
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/* Button */
+/* Button defaults to using same height as input globally */
+/* Text */
+/* Internal Shadow */
+/* Box Shadow */
+/* Icon */
+/* Loader */
+/*
+@willChange: box-shadow, transform, opacity, color, background;
+*/
+/*-------------------
+        Group
+--------------------*/
+/*-------------------
+        States
+--------------------*/
+/* Hovered */
+/* Focused */
+/* Disabled */
+/* Pressed Down */
+/* Active */
+/* Active + Hovered */
+/* Loading */
+/*-------------------
+        Types
+--------------------*/
+/* Or */
+/* Icon */
+/* Labeled */
+/* hypotenuse of triangle */
+/* Labeled Icon */
+/* Inverted */
+/* Basic */
+/* Basic Hover */
+/* Basic Focus */
+/* Basic Down */
+/* Basic Active */
+/* Basic Inverted */
+/* Basic Group */
+/*-------------------
+      Variations
+--------------------*/
+/* Colors */
+/* Colored */
+/* Inverted */
+/* Ordinality */
+/* Compact */
+/* Attached */
+/* Floated */
+/* Animated */
+/* Site Theme */
+/*******************************
+    User Variable Overrides
+*******************************/
+/*******************************
+             Mix-ins
+*******************************/
+/*------------------
+       Fonts
+-------------------*/
+/*------------------
+     Overrides
+-------------------*/
+/* End Config */
+/*******************************
+            Button
+*******************************/
 .ui.button {
   cursor: pointer;
   display: inline-block;
@@ -43,17 +765,12 @@
   will-change: '';
   -webkit-tap-highlight-color: transparent;
 }
-
-
 /*******************************
             States
 *******************************/
-
-
 /*--------------
       Hover
 ---------------*/
-
 .ui.button:hover {
   background-color: #CACBCD;
   background-image: none;
@@ -63,11 +780,9 @@
 .ui.button:hover .icon {
   opacity: 0.85;
 }
-
 /*--------------
       Focus
 ---------------*/
-
 .ui.button:focus {
   background-color: #CACBCD;
   color: rgba(0, 0, 0, 0.8);
@@ -77,11 +792,9 @@
 .ui.button:focus .icon {
   opacity: 0.85;
 }
-
 /*--------------
       Down
 ---------------*/
-
 .ui.button:active,
 .ui.active.button:active {
   background-color: #BABBBC;
@@ -89,11 +802,9 @@
   color: rgba(0, 0, 0, 0.9);
   box-shadow: 0px 0px 0px 1px transparent inset, none;
 }
-
 /*--------------
      Active
 ---------------*/
-
 .ui.active.button {
   background-color: #C0C1C2;
   background-image: none;
@@ -109,12 +820,9 @@
   background-color: #C0C1C2;
   background-image: none;
 }
-
 /*--------------
     Loading
 ---------------*/
-
-
 /* Specificity hack */
 .ui.loading.loading.loading.loading.loading.loading.button {
   position: relative;
@@ -185,11 +893,9 @@
 .ui.basic.loading.button:not(.inverted):after {
   border-top-color: #767676;
 }
-
 /*-------------------
       Disabled
 --------------------*/
-
 .ui.buttons .disabled.button,
 .ui.disabled.button,
 .ui.button:disabled,
@@ -201,22 +907,16 @@
   box-shadow: none !important;
   pointer-events: none !important;
 }
-
 /* Basic Group With Disabled */
 .ui.basic.buttons .ui.disabled.button {
   border-color: rgba(34, 36, 38, 0.5);
 }
-
-
 /*******************************
              Types
 *******************************/
-
-
 /*-------------------
        Animated
 --------------------*/
-
 .ui.animated.button {
   position: relative;
   overflow: hidden;
@@ -235,7 +935,6 @@
   position: absolute;
   width: 100%;
 }
-
 /* Horizontal */
 .ui.animated.button .visible.content,
 .ui.animated.button .hidden.content {
@@ -262,7 +961,6 @@
   left: auto;
   right: 0%;
 }
-
 /* Vertical */
 .ui.vertical.animated.button .visible.content,
 .ui.vertical.animated.button .hidden.content {
@@ -292,7 +990,6 @@
   top: 50%;
   right: auto;
 }
-
 /* Fade */
 .ui.fade.animated.button .visible.content,
 .ui.fade.animated.button .hidden.content {
@@ -331,18 +1028,15 @@
   -webkit-transform: scale(1);
           transform: scale(1);
 }
-
 /*-------------------
        Inverted
 --------------------*/
-
 .ui.inverted.button {
   box-shadow: 0px 0px 0px 2px #FFFFFF inset !important;
   background: transparent none;
   color: #FFFFFF;
   text-shadow: none !important;
 }
-
 /* Group */
 .ui.inverted.buttons .button {
   margin: 0px 0px 0px -2px;
@@ -356,16 +1050,13 @@
 .ui.inverted.vertical.buttons .button:first-child {
   margin-top: 0em;
 }
-
 /* States */
-
 /* Hover */
 .ui.inverted.button:hover {
   background: #FFFFFF;
   box-shadow: 0px 0px 0px 2px #FFFFFF inset !important;
   color: rgba(0, 0, 0, 0.8);
 }
-
 /* Active / Focus */
 .ui.inverted.button:focus,
 .ui.inverted.button.active {
@@ -373,26 +1064,21 @@
   box-shadow: 0px 0px 0px 2px #FFFFFF inset !important;
   color: rgba(0, 0, 0, 0.8);
 }
-
 /* Active Focus */
 .ui.inverted.button.active:focus {
   background: #DCDDDE;
   box-shadow: 0px 0px 0px 2px #DCDDDE inset !important;
   color: rgba(0, 0, 0, 0.8);
 }
-
 /*-------------------
     Labeled Button
 --------------------*/
-
 .ui.labeled.button:not(.icon) {
   display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
   background: none !important;
@@ -405,11 +1091,9 @@
 }
 .ui.labeled.button > .label {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   margin: 0px 0px 0px -1px !important;
@@ -417,13 +1101,11 @@
   font-size: 1em;
   border-color: rgba(34, 36, 38, 0.15);
 }
-
 /* Tag */
 .ui.labeled.button > .tag.label:before {
   width: 1.85em;
   height: 1.85em;
 }
-
 /* Right */
 .ui.labeled.button:not([class*="left labeled"]) > .button {
   border-top-right-radius: 0px;
@@ -433,7 +1115,6 @@
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
-
 /* Left Side */
 .ui[class*="left labeled"].button > .button {
   border-top-left-radius: 0px;
@@ -443,12 +1124,9 @@
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
-
 /*-------------------
        Social
 --------------------*/
-
-
 /* Facebook */
 .ui.facebook.button {
   background-color: #3B5998;
@@ -467,7 +1145,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Twitter */
 .ui.twitter.button {
   background-color: #55ACEE;
@@ -486,7 +1163,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Google Plus */
 .ui.google.plus.button {
   background-color: #DD4B39;
@@ -505,7 +1181,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Linked In */
 .ui.linkedin.button {
   background-color: #1F88BE;
@@ -522,7 +1197,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* YouTube */
 .ui.youtube.button {
   background-color: #CC181E;
@@ -541,7 +1215,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Instagram */
 .ui.instagram.button {
   background-color: #49769C;
@@ -560,7 +1233,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Pinterest */
 .ui.pinterest.button {
   background-color: #BD081C;
@@ -579,7 +1251,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* VK */
 .ui.vk.button {
   background-color: #4D7198;
@@ -595,11 +1266,9 @@
   background-color: #3c5876;
   color: #FFFFFF;
 }
-
 /*--------------
      Icon
 ---------------*/
-
 .ui.button > .icon:not(.button) {
   height: 0.85714286em;
   opacity: 0.8;
@@ -615,17 +1284,12 @@
 .ui.button:not(.icon) > .right.icon:not(.button):not(.dropdown) {
   margin: 0em -0.21428571em 0em 0.42857143em;
 }
-
-
 /*******************************
            Variations
 *******************************/
-
-
 /*-------------------
        Floated
 --------------------*/
-
 .ui[class*="left floated"].buttons,
 .ui[class*="left floated"].button {
   float: left;
@@ -638,11 +1302,9 @@
   margin-right: 0em;
   margin-left: 0.25em;
 }
-
 /*-------------------
        Compact
 --------------------*/
-
 .ui.compact.buttons .button,
 .ui.compact.button {
   padding: 0.58928571em 1.125em 0.58928571em;
@@ -655,11 +1317,9 @@
 .ui.compact.labeled.icon.button {
   padding: 0.58928571em 3.69642857em 0.58928571em;
 }
-
 /*-------------------
         Sizes
 --------------------*/
-
 .ui.mini.buttons .button,
 .ui.mini.buttons .or,
 .ui.mini.button {
@@ -700,11 +1360,9 @@
 .ui.massive.button {
   font-size: 1.71428571rem;
 }
-
 /*--------------
     Icon Only
 ---------------*/
-
 .ui.icon.buttons .button,
 .ui.icon.button {
   padding: 0.78571429em 0.78571429em 0.78571429em;
@@ -715,11 +1373,9 @@
   margin: 0em;
   vertical-align: top;
 }
-
 /*-------------------
         Basic
 --------------------*/
-
 .ui.basic.buttons .button,
 .ui.basic.button {
   background: transparent none !important;
@@ -767,7 +1423,6 @@
 .ui.basic.active.button:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
-
 /* Vertical */
 .ui.basic.buttons .button:hover {
   box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.15) inset inset;
@@ -778,7 +1433,6 @@
 .ui.basic.buttons .active.button {
   box-shadow: rgba(34, 36, 38, 0.35) inset;
 }
-
 /* Standard Basic Inverted */
 .ui.basic.inverted.buttons .button,
 .ui.basic.inverted.button {
@@ -814,7 +1468,6 @@
   background-color: rgba(255, 255, 255, 0.15);
   box-shadow: 0px 0px 0px 2px #ffffff inset !important;
 }
-
 /* Basic Group */
 .ui.basic.buttons .button {
   border-left: 1px solid rgba(34, 36, 38, 0.15);
@@ -830,18 +1483,15 @@
 .ui.basic.vertical.buttons .button:first-child {
   border-top-width: 0px;
 }
-
 /*--------------
   Labeled Icon
 ---------------*/
-
 .ui.labeled.icon.buttons .button,
 .ui.labeled.icon.button {
   position: relative;
   padding-left: 4.07142857em !important;
   padding-right: 1.5em !important;
 }
-
 /* Left Labeled */
 .ui.labeled.icon.buttons > .button > .icon,
 .ui.labeled.icon.button > .icon {
@@ -858,14 +1508,12 @@
   color: '';
   box-shadow: -1px 0px 0px 0px transparent inset;
 }
-
 /* Left Labeled */
 .ui.labeled.icon.buttons > .button > .icon,
 .ui.labeled.icon.button > .icon {
   top: 0em;
   left: 0em;
 }
-
 /* Right Labeled */
 .ui[class*="right labeled"].icon.button {
   padding-right: 4.07142857em !important;
@@ -910,19 +1558,15 @@
   border-radius: 0em;
   border-bottom-left-radius: 0.28571429rem;
 }
-
 /* Fluid Labeled */
 .ui.fluid[class*="left labeled"].icon.button,
 .ui.fluid[class*="right labeled"].icon.button {
   padding-left: 1.5em !important;
   padding-right: 1.5em !important;
 }
-
 /*--------------
      Toggle
 ---------------*/
-
-
 /* Toggle (Modifies active state to give affordances) */
 .ui.toggle.buttons .active.button,
 .ui.buttons .button.toggle.active,
@@ -937,11 +1581,9 @@
   text-shadow: none;
   color: #FFFFFF !important;
 }
-
 /*--------------
     Circular
 ---------------*/
-
 .ui.circular.button {
   border-radius: 10em;
 }
@@ -949,11 +1591,9 @@
   width: 1em;
   vertical-align: baseline;
 }
-
 /*-------------------
       Or Buttons
 --------------------*/
-
 .ui.buttons .or {
   position: relative;
   width: 0.3em;
@@ -982,7 +1622,6 @@
 .ui.buttons .or[data-text]:before {
   content: attr(data-text);
 }
-
 /* Fluid Or */
 .ui.fluid.buttons .or {
   width: 0em !important;
@@ -990,12 +1629,9 @@
 .ui.fluid.buttons .or:after {
   display: none;
 }
-
 /*-------------------
        Attached
 --------------------*/
-
-
 /* Singular */
 .ui.attached.button {
   position: relative;
@@ -1004,7 +1640,6 @@
   border-radius: 0em;
   box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) !important;
 }
-
 /* Top / Bottom */
 .ui.attached.top.button {
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
@@ -1012,7 +1647,6 @@
 .ui.attached.bottom.button {
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
-
 /* Left / Right */
 .ui.left.attached.button {
   display: inline-block;
@@ -1027,12 +1661,10 @@
   padding-left: 0.75em;
   border-radius: 0em 0.28571429rem 0.28571429rem 0em;
 }
-
 /* Plural */
 .ui.attached.buttons {
   position: relative;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   border-radius: 0em;
@@ -1050,7 +1682,6 @@
 .ui.attached.buttons .button:last-child {
   border-radius: 0em;
 }
-
 /* Top / Bottom */
 .ui[class*="top attached"].buttons {
   margin-bottom: -1px;
@@ -1072,11 +1703,9 @@
 .ui[class*="bottom attached"].buttons .button:last-child {
   border-radius: 0em 0em 0.28571429rem 0em;
 }
-
 /* Left / Right */
 .ui[class*="left attached"].buttons {
   display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   margin-right: 0em;
@@ -1093,7 +1722,6 @@
 }
 .ui[class*="right attached"].buttons {
   display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   margin-left: 0em;
@@ -1108,11 +1736,9 @@
   margin-left: -1px;
   border-radius: 0em 0em 0em 0.28571429rem;
 }
-
 /*-------------------
         Fluid
 --------------------*/
-
 .ui.fluid.buttons,
 .ui.fluid.button {
   width: 100%;
@@ -1186,12 +1812,10 @@
 .ui.twelve.buttons > .button {
   width: 8.3333%;
 }
-
 /* Fluid Vertical Buttons */
 .ui.fluid.vertical.buttons,
 .ui.fluid.vertical.buttons > .button {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   width: auto;
@@ -1229,14 +1853,10 @@
 .ui.twelve.vertical.buttons > .button {
   height: 8.3333%;
 }
-
 /*-------------------
        Colors
 --------------------*/
-
-
 /*--- Black ---*/
-
 .ui.black.buttons .button,
 .ui.black.button {
   background-color: #1B1C1D;
@@ -1273,7 +1893,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Basic */
 .ui.basic.black.buttons .button,
 .ui.basic.black.button {
@@ -1306,7 +1925,6 @@
 .ui.buttons:not(.vertical) > .basic.black.button:not(:first-child) {
   margin-left: -1px;
 }
-
 /* Inverted */
 .ui.inverted.black.buttons .button,
 .ui.inverted.black.button {
@@ -1341,7 +1959,6 @@
 .ui.inverted.black.button:active {
   background-color: #000000;
 }
-
 /* Inverted Basic */
 .ui.inverted.black.basic.buttons .button,
 .ui.inverted.black.buttons .basic.button,
@@ -1374,9 +1991,7 @@
   box-shadow: 0px 0px 0px 2px #000000 inset !important;
   color: #FFFFFF !important;
 }
-
 /*--- Grey ---*/
-
 .ui.grey.buttons .button,
 .ui.grey.button {
   background-color: #767676;
@@ -1413,7 +2028,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Basic */
 .ui.basic.grey.buttons .button,
 .ui.basic.grey.button {
@@ -1446,7 +2060,6 @@
 .ui.buttons:not(.vertical) > .basic.grey.button:not(:first-child) {
   margin-left: -1px;
 }
-
 /* Inverted */
 .ui.inverted.grey.buttons .button,
 .ui.inverted.grey.button {
@@ -1481,7 +2094,6 @@
 .ui.inverted.grey.button:active {
   background-color: #c2c4c5;
 }
-
 /* Inverted Basic */
 .ui.inverted.grey.basic.buttons .button,
 .ui.inverted.grey.buttons .basic.button,
@@ -1514,9 +2126,7 @@
   box-shadow: 0px 0px 0px 2px #c2c4c5 inset !important;
   color: #FFFFFF !important;
 }
-
 /*--- Brown ---*/
-
 .ui.brown.buttons .button,
 .ui.brown.button {
   background-color: #A5673F;
@@ -1553,7 +2163,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Basic */
 .ui.basic.brown.buttons .button,
 .ui.basic.brown.button {
@@ -1586,7 +2195,6 @@
 .ui.buttons:not(.vertical) > .basic.brown.button:not(:first-child) {
   margin-left: -1px;
 }
-
 /* Inverted */
 .ui.inverted.brown.buttons .button,
 .ui.inverted.brown.button {
@@ -1621,7 +2229,6 @@
 .ui.inverted.brown.button:active {
   background-color: #a96216;
 }
-
 /* Inverted Basic */
 .ui.inverted.brown.basic.buttons .button,
 .ui.inverted.brown.buttons .basic.button,
@@ -1654,9 +2261,7 @@
   box-shadow: 0px 0px 0px 2px #a96216 inset !important;
   color: #D67C1C !important;
 }
-
 /*--- Blue ---*/
-
 .ui.blue.buttons .button,
 .ui.blue.button {
   background-color: #2185D0;
@@ -1693,7 +2298,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Basic */
 .ui.basic.blue.buttons .button,
 .ui.basic.blue.button {
@@ -1726,7 +2330,6 @@
 .ui.buttons:not(.vertical) > .basic.blue.button:not(:first-child) {
   margin-left: -1px;
 }
-
 /* Inverted */
 .ui.inverted.blue.buttons .button,
 .ui.inverted.blue.button {
@@ -1761,7 +2364,6 @@
 .ui.inverted.blue.button:active {
   background-color: #21b8ff;
 }
-
 /* Inverted Basic */
 .ui.inverted.blue.basic.buttons .button,
 .ui.inverted.blue.buttons .basic.button,
@@ -1794,9 +2396,7 @@
   box-shadow: 0px 0px 0px 2px #21b8ff inset !important;
   color: #54C8FF !important;
 }
-
 /*--- Green ---*/
-
 .ui.green.buttons .button,
 .ui.green.button {
   background-color: #21BA45;
@@ -1833,7 +2433,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Basic */
 .ui.basic.green.buttons .button,
 .ui.basic.green.button {
@@ -1866,7 +2465,6 @@
 .ui.buttons:not(.vertical) > .basic.green.button:not(:first-child) {
   margin-left: -1px;
 }
-
 /* Inverted */
 .ui.inverted.green.buttons .button,
 .ui.inverted.green.button {
@@ -1901,7 +2499,6 @@
 .ui.inverted.green.button:active {
   background-color: #25a233;
 }
-
 /* Inverted Basic */
 .ui.inverted.green.basic.buttons .button,
 .ui.inverted.green.buttons .basic.button,
@@ -1934,9 +2531,7 @@
   box-shadow: 0px 0px 0px 2px #25a233 inset !important;
   color: #2ECC40 !important;
 }
-
 /*--- Orange ---*/
-
 .ui.orange.buttons .button,
 .ui.orange.button {
   background-color: #F2711C;
@@ -1973,7 +2568,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Basic */
 .ui.basic.orange.buttons .button,
 .ui.basic.orange.button {
@@ -2006,7 +2600,6 @@
 .ui.buttons:not(.vertical) > .basic.orange.button:not(:first-child) {
   margin-left: -1px;
 }
-
 /* Inverted */
 .ui.inverted.orange.buttons .button,
 .ui.inverted.orange.button {
@@ -2041,7 +2634,6 @@
 .ui.inverted.orange.button:active {
   background-color: #e76b00;
 }
-
 /* Inverted Basic */
 .ui.inverted.orange.basic.buttons .button,
 .ui.inverted.orange.buttons .basic.button,
@@ -2074,9 +2666,7 @@
   box-shadow: 0px 0px 0px 2px #e76b00 inset !important;
   color: #FF851B !important;
 }
-
 /*--- Pink ---*/
-
 .ui.pink.buttons .button,
 .ui.pink.button {
   background-color: #E03997;
@@ -2113,7 +2703,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Basic */
 .ui.basic.pink.buttons .button,
 .ui.basic.pink.button {
@@ -2146,7 +2735,6 @@
 .ui.buttons:not(.vertical) > .basic.pink.button:not(:first-child) {
   margin-left: -1px;
 }
-
 /* Inverted */
 .ui.inverted.pink.buttons .button,
 .ui.inverted.pink.button {
@@ -2181,7 +2769,6 @@
 .ui.inverted.pink.button:active {
   background-color: #ff5bd1;
 }
-
 /* Inverted Basic */
 .ui.inverted.pink.basic.buttons .button,
 .ui.inverted.pink.buttons .basic.button,
@@ -2214,9 +2801,7 @@
   box-shadow: 0px 0px 0px 2px #ff5bd1 inset !important;
   color: #FF8EDF !important;
 }
-
 /*--- Violet ---*/
-
 .ui.violet.buttons .button,
 .ui.violet.button {
   background-color: #6435C9;
@@ -2253,7 +2838,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Basic */
 .ui.basic.violet.buttons .button,
 .ui.basic.violet.button {
@@ -2286,7 +2870,6 @@
 .ui.buttons:not(.vertical) > .basic.violet.button:not(:first-child) {
   margin-left: -1px;
 }
-
 /* Inverted */
 .ui.inverted.violet.buttons .button,
 .ui.inverted.violet.button {
@@ -2321,7 +2904,6 @@
 .ui.inverted.violet.button:active {
   background-color: #7860f9;
 }
-
 /* Inverted Basic */
 .ui.inverted.violet.basic.buttons .button,
 .ui.inverted.violet.buttons .basic.button,
@@ -2354,9 +2936,7 @@
   box-shadow: 0px 0px 0px 2px #7860f9 inset !important;
   color: #A291FB !important;
 }
-
 /*--- Purple ---*/
-
 .ui.purple.buttons .button,
 .ui.purple.button {
   background-color: #A333C8;
@@ -2393,7 +2973,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Basic */
 .ui.basic.purple.buttons .button,
 .ui.basic.purple.button {
@@ -2426,7 +3005,6 @@
 .ui.buttons:not(.vertical) > .basic.purple.button:not(:first-child) {
   margin-left: -1px;
 }
-
 /* Inverted */
 .ui.inverted.purple.buttons .button,
 .ui.inverted.purple.button {
@@ -2461,7 +3039,6 @@
 .ui.inverted.purple.button:active {
   background-color: #cf40ff;
 }
-
 /* Inverted Basic */
 .ui.inverted.purple.basic.buttons .button,
 .ui.inverted.purple.buttons .basic.button,
@@ -2494,9 +3071,7 @@
   box-shadow: 0px 0px 0px 2px #cf40ff inset !important;
   color: #DC73FF !important;
 }
-
 /*--- Red ---*/
-
 .ui.red.buttons .button,
 .ui.red.button {
   background-color: #DB2828;
@@ -2533,7 +3108,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Basic */
 .ui.basic.red.buttons .button,
 .ui.basic.red.button {
@@ -2566,7 +3140,6 @@
 .ui.buttons:not(.vertical) > .basic.red.button:not(:first-child) {
   margin-left: -1px;
 }
-
 /* Inverted */
 .ui.inverted.red.buttons .button,
 .ui.inverted.red.button {
@@ -2601,7 +3174,6 @@
 .ui.inverted.red.button:active {
   background-color: #ff392b;
 }
-
 /* Inverted Basic */
 .ui.inverted.red.basic.buttons .button,
 .ui.inverted.red.buttons .basic.button,
@@ -2634,9 +3206,7 @@
   box-shadow: 0px 0px 0px 2px #ff392b inset !important;
   color: #FF695E !important;
 }
-
 /*--- Teal ---*/
-
 .ui.teal.buttons .button,
 .ui.teal.button {
   background-color: #00B5AD;
@@ -2673,7 +3243,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Basic */
 .ui.basic.teal.buttons .button,
 .ui.basic.teal.button {
@@ -2706,7 +3275,6 @@
 .ui.buttons:not(.vertical) > .basic.teal.button:not(:first-child) {
   margin-left: -1px;
 }
-
 /* Inverted */
 .ui.inverted.teal.buttons .button,
 .ui.inverted.teal.button {
@@ -2741,7 +3309,6 @@
 .ui.inverted.teal.button:active {
   background-color: #3affff;
 }
-
 /* Inverted Basic */
 .ui.inverted.teal.basic.buttons .button,
 .ui.inverted.teal.buttons .basic.button,
@@ -2774,9 +3341,7 @@
   box-shadow: 0px 0px 0px 2px #3affff inset !important;
   color: #6DFFFF !important;
 }
-
 /*--- Olive ---*/
-
 .ui.olive.buttons .button,
 .ui.olive.button {
   background-color: #B5CC18;
@@ -2813,7 +3378,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Basic */
 .ui.basic.olive.buttons .button,
 .ui.basic.olive.button {
@@ -2846,7 +3410,6 @@
 .ui.buttons:not(.vertical) > .basic.olive.button:not(:first-child) {
   margin-left: -1px;
 }
-
 /* Inverted */
 .ui.inverted.olive.buttons .button,
 .ui.inverted.olive.button {
@@ -2881,7 +3444,6 @@
 .ui.inverted.olive.button:active {
   background-color: #cddf4d;
 }
-
 /* Inverted Basic */
 .ui.inverted.olive.basic.buttons .button,
 .ui.inverted.olive.buttons .basic.button,
@@ -2914,9 +3476,7 @@
   box-shadow: 0px 0px 0px 2px #cddf4d inset !important;
   color: #D9E778 !important;
 }
-
 /*--- Yellow ---*/
-
 .ui.yellow.buttons .button,
 .ui.yellow.button {
   background-color: #FBBD08;
@@ -2953,7 +3513,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Basic */
 .ui.basic.yellow.buttons .button,
 .ui.basic.yellow.button {
@@ -2986,7 +3545,6 @@
 .ui.buttons:not(.vertical) > .basic.yellow.button:not(:first-child) {
   margin-left: -1px;
 }
-
 /* Inverted */
 .ui.inverted.yellow.buttons .button,
 .ui.inverted.yellow.button {
@@ -3021,7 +3579,6 @@
 .ui.inverted.yellow.button:active {
   background-color: #ebcd00;
 }
-
 /* Inverted Basic */
 .ui.inverted.yellow.basic.buttons .button,
 .ui.inverted.yellow.buttons .basic.button,
@@ -3054,14 +3611,10 @@
   box-shadow: 0px 0px 0px 2px #ebcd00 inset !important;
   color: #FFE21F !important;
 }
-
 /*-------------------
        Primary
 --------------------*/
-
-
 /*--- Standard ---*/
-
 .ui.primary.buttons .button,
 .ui.primary.button {
   background-color: #2185D0;
@@ -3098,7 +3651,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Basic */
 .ui.basic.primary.buttons .button,
 .ui.basic.primary.button {
@@ -3131,12 +3683,9 @@
 .ui.buttons:not(.vertical) > .basic.primary.button:not(:first-child) {
   margin-left: -1px;
 }
-
 /*-------------------
       Secondary
 --------------------*/
-
-
 /* Standard */
 .ui.secondary.buttons .button,
 .ui.secondary.button {
@@ -3174,7 +3723,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Basic */
 .ui.basic.secondary.buttons .button,
 .ui.basic.secondary.button {
@@ -3207,12 +3755,9 @@
 .ui.buttons:not(.vertical) > .basic.primary.button:not(:first-child) {
   margin-left: -1px;
 }
-
 /*---------------
     Positive
 ----------------*/
-
-
 /* Standard */
 .ui.positive.buttons .button,
 .ui.positive.button {
@@ -3250,7 +3795,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Basic */
 .ui.basic.positive.buttons .button,
 .ui.basic.positive.button {
@@ -3283,12 +3827,9 @@
 .ui.buttons:not(.vertical) > .basic.primary.button:not(:first-child) {
   margin-left: -1px;
 }
-
 /*---------------
      Negative
 ----------------*/
-
-
 /* Standard */
 .ui.negative.buttons .button,
 .ui.negative.button {
@@ -3326,7 +3867,6 @@
   color: #FFFFFF;
   text-shadow: none;
 }
-
 /* Basic */
 .ui.basic.negative.buttons .button,
 .ui.basic.negative.button {
@@ -3359,20 +3899,15 @@
 .ui.buttons:not(.vertical) > .basic.primary.button:not(:first-child) {
   margin-left: -1px;
 }
-
-
 /*******************************
             Groups
 *******************************/
-
 .ui.buttons {
   display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
   font-size: 0em;
@@ -3382,7 +3917,6 @@
 .ui.buttons:not(.basic):not(.inverted) {
   box-shadow: none;
 }
-
 /* Clearfix */
 .ui.buttons:after {
   content: ".";
@@ -3391,11 +3925,9 @@
   clear: both;
   visibility: hidden;
 }
-
 /* Standard Group */
 .ui.buttons .button {
   -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
   margin: 0em;
@@ -3416,16 +3948,13 @@
   border-top-right-radius: 0.28571429rem;
   border-bottom-right-radius: 0.28571429rem;
 }
-
 /* Vertical  Style */
 .ui.vertical.buttons {
   display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
@@ -3449,15 +3978,11 @@
 .ui.vertical.buttons .button:only-child {
   border-radius: 0.28571429rem;
 }
-
-
 /*******************************
          Theme Overrides
 *******************************/
-
-
-
 /*******************************
          Site Overrides
 *******************************/
 
+/*# sourceMappingURL=button.css.map */

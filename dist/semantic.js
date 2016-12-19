@@ -1,13 +1,3 @@
- /*
- * # Semantic UI - 2.2.6
- * https://github.com/Semantic-Org/Semantic-UI
- * http://www.semantic-ui.com/
- *
- * Copyright 2014 Contributors
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
 /*!
  * # Semantic UI 2.2.6 - Site
  * http://github.com/semantic-org/semantic-ui/
@@ -22498,3 +22488,5 @@ $.fn.visibility.settings = {
 };
 
 })( jQuery, window, document );
+
+//# sourceMappingURL=semantic.js.map

@@ -31,11 +31,11 @@ const
     }
   },
   autoprefix     = new lessAutoPrefix(lessSettings.autoprefix),
-  cleanCSS         = new lessCleanCSS(lessSettings.cleanCSS.minify),
-  cleanCSSConcat   = new lessCleanCSS(lessSettings.cleanCSS.concat),
+  cleanCSS       = new lessCleanCSS(lessSettings.cleanCSS.minify),
+  cleanCSSConcat = new lessCleanCSS(lessSettings.cleanCSS.concat),
 
-  config           = require('./user'),
-  release          = require('./project/release')
+  config         = require('./user'),
+  release        = require('./project/release')
 ;
 
 
@@ -155,7 +155,13 @@ module.exports = {
 
     /* What Browsers to Prefix */
     prefix: {
-
+      browsers: [
+        'last 2 versions',
+        '> 1%',
+        'opera 12.1',
+        'bb 10',
+        'android 4'
+      ]
     },
 
     /* File Renames */
@@ -187,6 +193,14 @@ module.exports = {
     uglify: {
       mangle           : true,
       preserveComments : 'some'
+    },
+
+    /* Minify concat css */
+    concatMinify: {
+      processImport       : true,
+      restructuring       : false,
+      keepSpecialComments : false,
+      roundingPrecision   : -1,
     },
 
     /* Minified Concat JS */

@@ -7,36 +7,700 @@
  * http://opensource.org/licenses/MIT
  *
  */
+/*******************************
+            Theme
+*******************************/
+/*
 
+████████╗██╗  ██╗███████╗███╗   ███╗███████╗███████╗
+╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝██╔════╝
+   ██║   ███████║█████╗  ██╔████╔██║█████╗  ███████╗
+   ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝  ╚════██║
+   ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗███████║
+   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚══════╝
 
+*/
+/*******************************
+        Theme Selection
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+            Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+         Import Theme
+*******************************/
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+       Theme
+-------------------*/
+/*--------------------
+   Site Variables
+---------------------*/
+/* Default site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Packaged site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Component's site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Site theme site.variables */
+/*******************************
+     User Global Variables
+*******************************/
+/*-------------------
+ Component Variables
+---------------------*/
+/* Default */
+/*******************************
+             Grid
+*******************************/
+/* Inherited From Site */
+/*******************************
+            Grid
+*******************************/
+/*******************************
+           Variations
+*******************************/
+/*--------------
+     Relaxed
+---------------*/
+/*--------------
+     Divided
+---------------*/
+/*--------------
+    Celled
+---------------*/
+/*--------------
+    Stackable
+---------------*/
+/*******************************
+             Legacy
+*******************************/
+/*--------------
+     Page
+---------------*/
+/* Legacy (DO NOT USE)
+ */
+/* Packaged Theme */
+/*******************************
+             Grid
+*******************************/
+/* Inherited From Site */
+/*******************************
+            Grid
+*******************************/
+/*******************************
+           Variations
+*******************************/
+/*--------------
+     Relaxed
+---------------*/
+/*--------------
+     Divided
+---------------*/
+/*--------------
+    Celled
+---------------*/
+/*--------------
+    Stackable
+---------------*/
+/*******************************
+             Legacy
+*******************************/
+/*--------------
+     Page
+---------------*/
+/* Legacy (DO NOT USE)
+ */
+/* Site Theme */
+/*******************************
+    User Variable Overrides
+*******************************/
+/*******************************
+             Mix-ins
+*******************************/
+/*------------------
+       Fonts
+-------------------*/
+/*------------------
+     Overrides
+-------------------*/
+/* End Config */
 /*******************************
             Standard
 *******************************/
-
 .ui.grid {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-align: stretch;
-  -webkit-align-items: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
   padding: 0em;
 }
-
 /*----------------------
       Remove Gutters
 -----------------------*/
-
 .ui.grid {
   margin-top: -1rem;
   margin-bottom: -1rem;
@@ -51,17 +715,13 @@
   margin-left: -2.5rem;
   margin-right: -2.5rem;
 }
-
 /* Preserve Rows Spacing on Consecutive Grids */
 .ui.grid + .grid {
   margin-top: 1rem;
 }
-
 /*-------------------
        Columns
 --------------------*/
-
-
 /* Standard 16 column */
 .ui.grid > .column:not(.row),
 .ui.grid > .row > .column {
@@ -76,31 +736,24 @@
   padding-left: 1rem;
   padding-right: 1rem;
 }
-
 /*-------------------
         Rows
 --------------------*/
-
 .ui.grid > .row {
   position: relative;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: inherit;
-  -webkit-justify-content: inherit;
       -ms-flex-pack: inherit;
           justify-content: inherit;
   -webkit-box-align: stretch;
-  -webkit-align-items: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
   width: 100% !important;
@@ -108,12 +761,9 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-
 /*-------------------
        Columns
 --------------------*/
-
-
 /* Vertical padding when no rows */
 .ui.grid > .column:not(.row) {
   padding-top: 1rem;
@@ -123,21 +773,16 @@
   margin-top: 0em;
   margin-bottom: 0em;
 }
-
 /*-------------------
       Content
 --------------------*/
-
 .ui.grid > .row > img,
 .ui.grid > .row > .column > img {
   max-width: 100%;
 }
-
 /*-------------------
     Loose Coupling
 --------------------*/
-
-
 /* Collapse Margin on Consecutive Grid */
 .ui.grid > .ui.grid:first-child {
   margin-top: 0em;
@@ -145,17 +790,14 @@
 .ui.grid > .ui.grid:last-child {
   margin-bottom: 0em;
 }
-
 /* Segment inside Aligned Grid */
 .ui.grid .aligned.row > .column > .segment:not(.compact):not(.attached),
 .ui.aligned.grid .column > .segment:not(.compact):not(.attached) {
   width: 100%;
 }
-
 /* Align Dividers with Gutter */
 .ui.grid .row + .ui.divider {
   -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
   margin: 1rem 1rem;
@@ -163,23 +805,17 @@
 .ui.grid .column + .ui.vertical.divider {
   height: calc(50% -  1rem );
 }
-
 /* Remove Border on Last Horizontal Segment */
 .ui.grid > .row > .column:last-child > .horizontal.segment,
 .ui.grid > .column:last-child > .horizontal.segment {
   box-shadow: none;
 }
-
-
 /*******************************
            Variations
 *******************************/
-
-
 /*-----------------------
        Page Grid
 -------------------------*/
-
 @media only screen and (max-width: 767px) {
   .ui.page.grid {
     width: auto;
@@ -225,18 +861,14 @@
     padding-right: 23%;
   }
 }
-
 /*-------------------
      Column Count
 --------------------*/
-
-
 /* Assume full width with one column */
 .ui.grid > .column:only-child,
 .ui.grid > .row > .column:only-child {
   width: 100%;
 }
-
 /* Grid Based */
 .ui[class*="one column"].grid > .row > .column,
 .ui[class*="one column"].grid > .column:not(.row) {
@@ -302,7 +934,6 @@
 .ui[class*="sixteen column"].grid > .column:not(.row) {
   width: 6.25%;
 }
-
 /* Row Based Overrides */
 .ui.grid > [class*="one column"].row > .column {
   width: 100% !important;
@@ -352,17 +983,13 @@
 .ui.grid > [class*="sixteen column"].row > .column {
   width: 6.25% !important;
 }
-
 /* Celled Page */
 .ui.celled.page.grid {
   box-shadow: none;
 }
-
 /*-------------------
     Column Width
 --------------------*/
-
-
 /* Sizing Combinations */
 .ui.grid > .row > [class*="one wide"].column,
 .ui.grid > .column.row > [class*="one wide"].column,
@@ -460,12 +1087,9 @@
 .ui.column.grid > [class*="sixteen wide"].column {
   width: 100% !important;
 }
-
 /*----------------------
     Width per Device
 -----------------------*/
-
-
 /* Mobile Sizing Combinations */
 @media only screen and (min-width: 320px) and (max-width: 767px) {
   .ui.grid > .row > [class*="one wide mobile"].column,
@@ -565,7 +1189,6 @@
     width: 100% !important;
   }
 }
-
 /* Tablet Sizing Combinations */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .ui.grid > .row > [class*="one wide tablet"].column,
@@ -665,7 +1288,6 @@
     width: 100% !important;
   }
 }
-
 /* Computer/Desktop Sizing Combinations */
 @media only screen and (min-width: 992px) {
   .ui.grid > .row > [class*="one wide computer"].column,
@@ -765,7 +1387,6 @@
     width: 100% !important;
   }
 }
-
 /* Large Monitor Sizing Combinations */
 @media only screen and (min-width: 1200px) and (max-width: 1919px) {
   .ui.grid > .row > [class*="one wide large screen"].column,
@@ -865,7 +1486,6 @@
     width: 100% !important;
   }
 }
-
 /* Widescreen Sizing Combinations */
 @media only screen and (min-width: 1920px) {
   .ui.grid > .row > [class*="one wide widescreen"].column,
@@ -965,17 +1585,14 @@
     width: 100% !important;
   }
 }
-
 /*----------------------
         Centered
 -----------------------*/
-
 .ui.centered.grid,
 .ui.centered.grid > .row,
 .ui.grid > .centered.row {
   text-align: center;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
@@ -990,11 +1607,9 @@
   margin-left: auto;
   margin-right: auto;
 }
-
 /*----------------------
         Relaxed
 -----------------------*/
-
 .ui.relaxed.grid > .column:not(.row),
 .ui.relaxed.grid > .row > .column,
 .ui.grid > .relaxed.row > .column {
@@ -1007,7 +1622,6 @@
   padding-left: 2.5rem;
   padding-right: 2.5rem;
 }
-
 /* Coupling with UI Divider */
 .ui.relaxed.grid .row + .ui.divider,
 .ui.grid .relaxed.row + .ui.divider {
@@ -1019,11 +1633,9 @@
   margin-left: 2.5rem;
   margin-right: 2.5rem;
 }
-
 /*----------------------
         Padded
 -----------------------*/
-
 .ui.padded.grid:not(.vertically):not(.horizontally) {
   margin: 0em !important;
 }
@@ -1035,27 +1647,22 @@
   margin-top: 0em !important;
   margin-bottom: 0em !important;
 }
-
 /*----------------------
        "Floated"
 -----------------------*/
-
 .ui.grid [class*="left floated"].column {
   margin-right: auto;
 }
 .ui.grid [class*="right floated"].column {
   margin-left: auto;
 }
-
 /*----------------------
         Divided
 -----------------------*/
-
 .ui.divided.grid:not([class*="vertically divided"]) > .column:not(.row),
 .ui.divided.grid:not([class*="vertically divided"]) > .row > .column {
   box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
 }
-
 /* Swap from padding to margin on columns to have dividers align */
 .ui[class*="vertically divided"].grid > .column:not(.row),
 .ui[class*="vertically divided"].grid > .row > .column {
@@ -1068,18 +1675,15 @@
   margin-top: 0em;
   margin-bottom: 0em;
 }
-
 /* No divider on first column on row */
 .ui.divided.grid:not([class*="vertically divided"]) > .column:first-child,
 .ui.divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
   box-shadow: none;
 }
-
 /* No space on top of first row */
 .ui[class*="vertically divided"].grid > .row:first-child > .column {
   margin-top: 0em;
 }
-
 /* Divided Row */
 .ui.grid > .divided.row > .column {
   box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
@@ -1087,7 +1691,6 @@
 .ui.grid > .divided.row > .column:first-child {
   box-shadow: none;
 }
-
 /* Vertically Divided */
 .ui[class*="vertically divided"].grid > .row {
   position: relative;
@@ -1102,18 +1705,15 @@
   margin: 0% 1rem;
   box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
 }
-
 /* Padded Horizontally Divided */
 [class*="horizontally padded"].ui.divided.grid,
 .ui.padded.divided.grid:not(.vertically):not(.horizontally) {
   width: 100%;
 }
-
 /* First Row Vertically Divided */
 .ui[class*="vertically divided"].grid > .row:first-child:before {
   box-shadow: none;
 }
-
 /* Inverted Divided */
 .ui.inverted.divided.grid:not([class*="vertically divided"]) > .column:not(.row),
 .ui.inverted.divided.grid:not([class*="vertically divided"]) > .row > .column {
@@ -1126,7 +1726,6 @@
 .ui.inverted[class*="vertically divided"].grid > .row:before {
   box-shadow: 0px -1px 0px 0px rgba(255, 255, 255, 0.1);
 }
-
 /* Relaxed */
 .ui.relaxed[class*="vertically divided"].grid > .row:before {
   margin-left: 1.5rem;
@@ -1138,11 +1737,9 @@
   margin-right: 5rem;
   width: calc(100% -  5rem );
 }
-
 /*----------------------
          Celled
 -----------------------*/
-
 .ui.celled.grid {
   width: 100%;
   margin: 1em 0em;
@@ -1174,7 +1771,6 @@
 .ui[class*="very relaxed"].celled.grid > .row > .column {
   padding: 2em;
 }
-
 /* Internally Celled */
 .ui[class*="internally celled"].grid {
   box-shadow: none;
@@ -1186,12 +1782,9 @@
 .ui[class*="internally celled"].grid > .row > .column:first-child {
   box-shadow: none;
 }
-
 /*----------------------
    Vertically Aligned
 -----------------------*/
-
-
 /* Top Aligned */
 .ui[class*="top aligned"].grid > .column:not(.row),
 .ui[class*="top aligned"].grid > .row > .column,
@@ -1200,15 +1793,12 @@
 .ui.grid > .row > [class*="top aligned"].column {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
   vertical-align: top;
-  -webkit-align-self: flex-start !important;
-      -ms-flex-item-align: start !important;
-          align-self: flex-start !important;
+  -ms-flex-item-align: start !important;
+      align-self: flex-start !important;
 }
-
 /* Middle Aligned */
 .ui[class*="middle aligned"].grid > .column:not(.row),
 .ui[class*="middle aligned"].grid > .row > .column,
@@ -1217,15 +1807,13 @@
 .ui.grid > .row > [class*="middle aligned"].column {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
   vertical-align: middle;
-  -webkit-align-self: center !important;
-      -ms-flex-item-align: center !important;
-          align-self: center !important;
+  -ms-flex-item-align: center !important;
+      -ms-grid-row-align: center !important;
+      align-self: center !important;
 }
-
 /* Bottom Aligned */
 .ui[class*="bottom aligned"].grid > .column:not(.row),
 .ui[class*="bottom aligned"].grid > .row > .column,
@@ -1234,15 +1822,12 @@
 .ui.grid > .row > [class*="bottom aligned"].column {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
   vertical-align: bottom;
-  -webkit-align-self: flex-end !important;
-      -ms-flex-item-align: end !important;
-          align-self: flex-end !important;
+  -ms-flex-item-align: end !important;
+      align-self: flex-end !important;
 }
-
 /* Stretched */
 .ui.stretched.grid > .row > .column,
 .ui.stretched.grid > .column,
@@ -1250,15 +1835,12 @@
 .ui.grid > .stretched.column:not(.row),
 .ui.grid > .row > .stretched.column {
   display: -webkit-inline-box !important;
-  display: -webkit-inline-flex !important;
   display: -ms-inline-flexbox !important;
   display: inline-flex !important;
-  -webkit-align-self: stretch;
-      -ms-flex-item-align: stretch;
-          align-self: stretch;
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
@@ -1268,16 +1850,12 @@
 .ui.grid > .stretched.column:not(.row) > *,
 .ui.grid > .row > .stretched.column > * {
   -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
-
 /*----------------------
   Horizontally Centered
 -----------------------*/
-
-
 /* Left Aligned */
 .ui[class*="left aligned"].grid > .column,
 .ui[class*="left aligned"].grid > .row > .column,
@@ -1285,11 +1863,10 @@
 .ui.grid > [class*="left aligned"].column.column,
 .ui.grid > .row > [class*="left aligned"].column.column {
   text-align: left;
-  -webkit-align-self: inherit;
-      -ms-flex-item-align: inherit;
-          align-self: inherit;
+  -ms-flex-item-align: inherit;
+      -ms-grid-row-align: inherit;
+      align-self: inherit;
 }
-
 /* Center Aligned */
 .ui[class*="center aligned"].grid > .column,
 .ui[class*="center aligned"].grid > .row > .column,
@@ -1297,17 +1874,15 @@
 .ui.grid > [class*="center aligned"].column.column,
 .ui.grid > .row > [class*="center aligned"].column.column {
   text-align: center;
-  -webkit-align-self: inherit;
-      -ms-flex-item-align: inherit;
-          align-self: inherit;
+  -ms-flex-item-align: inherit;
+      -ms-grid-row-align: inherit;
+      align-self: inherit;
 }
 .ui[class*="center aligned"].grid {
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
-
 /* Right Aligned */
 .ui[class*="right aligned"].grid > .column,
 .ui[class*="right aligned"].grid > .row > .column,
@@ -1315,11 +1890,10 @@
 .ui.grid > [class*="right aligned"].column.column,
 .ui.grid > .row > [class*="right aligned"].column.column {
   text-align: right;
-  -webkit-align-self: inherit;
-      -ms-flex-item-align: inherit;
-          align-self: inherit;
+  -ms-flex-item-align: inherit;
+      -ms-grid-row-align: inherit;
+      align-self: inherit;
 }
-
 /* Justified */
 .ui.justified.grid > .column,
 .ui.justified.grid > .row > .column,
@@ -1331,11 +1905,9 @@
       -ms-hyphens: auto;
           hyphens: auto;
 }
-
 /*----------------------
          Colored
 -----------------------*/
-
 .ui.grid > .row > .red.column,
 .ui.grid > .row > .orange.column,
 .ui.grid > .row > .yellow.column,
@@ -1354,7 +1926,6 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-
 /* Red */
 .ui.grid > .red.row,
 .ui.grid > .red.column,
@@ -1362,7 +1933,6 @@
   background-color: #DB2828 !important;
   color: #FFFFFF;
 }
-
 /* Orange */
 .ui.grid > .orange.row,
 .ui.grid > .orange.column,
@@ -1370,7 +1940,6 @@
   background-color: #F2711C !important;
   color: #FFFFFF;
 }
-
 /* Yellow */
 .ui.grid > .yellow.row,
 .ui.grid > .yellow.column,
@@ -1378,7 +1947,6 @@
   background-color: #FBBD08 !important;
   color: #FFFFFF;
 }
-
 /* Olive */
 .ui.grid > .olive.row,
 .ui.grid > .olive.column,
@@ -1386,7 +1954,6 @@
   background-color: #B5CC18 !important;
   color: #FFFFFF;
 }
-
 /* Green */
 .ui.grid > .green.row,
 .ui.grid > .green.column,
@@ -1394,7 +1961,6 @@
   background-color: #21BA45 !important;
   color: #FFFFFF;
 }
-
 /* Teal */
 .ui.grid > .teal.row,
 .ui.grid > .teal.column,
@@ -1402,7 +1968,6 @@
   background-color: #00B5AD !important;
   color: #FFFFFF;
 }
-
 /* Blue */
 .ui.grid > .blue.row,
 .ui.grid > .blue.column,
@@ -1410,7 +1975,6 @@
   background-color: #2185D0 !important;
   color: #FFFFFF;
 }
-
 /* Violet */
 .ui.grid > .violet.row,
 .ui.grid > .violet.column,
@@ -1418,7 +1982,6 @@
   background-color: #6435C9 !important;
   color: #FFFFFF;
 }
-
 /* Purple */
 .ui.grid > .purple.row,
 .ui.grid > .purple.column,
@@ -1426,7 +1989,6 @@
   background-color: #A333C8 !important;
   color: #FFFFFF;
 }
-
 /* Pink */
 .ui.grid > .pink.row,
 .ui.grid > .pink.column,
@@ -1434,7 +1996,6 @@
   background-color: #E03997 !important;
   color: #FFFFFF;
 }
-
 /* Brown */
 .ui.grid > .brown.row,
 .ui.grid > .brown.column,
@@ -1442,7 +2003,6 @@
   background-color: #A5673F !important;
   color: #FFFFFF;
 }
-
 /* Grey */
 .ui.grid > .grey.row,
 .ui.grid > .grey.column,
@@ -1450,7 +2010,6 @@
   background-color: #767676 !important;
   color: #FFFFFF;
 }
-
 /* Black */
 .ui.grid > .black.row,
 .ui.grid > .black.column,
@@ -1458,17 +2017,14 @@
   background-color: #1B1C1D !important;
   color: #FFFFFF;
 }
-
 /*----------------------
       Equal Width
 -----------------------*/
-
 .ui[class*="equal width"].grid > .column:not(.row),
 .ui[class*="equal width"].grid > .row > .column,
 .ui.grid > [class*="equal width"].row > .column {
   display: inline-block;
   -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
@@ -1476,16 +2032,12 @@
 .ui[class*="equal width"].grid > .row > .wide.column,
 .ui.grid > [class*="equal width"].row > .wide.column {
   -webkit-box-flex: 0;
-  -webkit-flex-grow: 0;
       -ms-flex-positive: 0;
           flex-grow: 0;
 }
-
 /*----------------------
         Reverse
 -----------------------*/
-
-
 /* Mobile */
 @media only screen and (max-width: 767px) {
   .ui[class*="mobile reversed"].grid,
@@ -1493,7 +2045,6 @@
   .ui.grid > [class*="mobile reversed"].row {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
-    -webkit-flex-direction: row-reverse;
         -ms-flex-direction: row-reverse;
             flex-direction: row-reverse;
   }
@@ -1501,12 +2052,10 @@
   .ui.stackable[class*="mobile reversed"] {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
-    -webkit-flex-direction: column-reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
   }
-  
-/* Divided Reversed */
+  /* Divided Reversed */
   .ui[class*="mobile reversed"].divided.grid:not([class*="vertically divided"]) > .column:first-child,
   .ui[class*="mobile reversed"].divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
     box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
@@ -1515,16 +2064,14 @@
   .ui[class*="mobile reversed"].divided.grid:not([class*="vertically divided"]) > .row > .column:last-child {
     box-shadow: none;
   }
-  
-/* Vertically Divided Reversed */
+  /* Vertically Divided Reversed */
   .ui.grid[class*="vertically divided"][class*="mobile vertically reversed"] > .row:first-child:before {
     box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
   }
   .ui.grid[class*="vertically divided"][class*="mobile vertically reversed"] > .row:last-child:before {
     box-shadow: none;
   }
-  
-/* Celled Reversed */
+  /* Celled Reversed */
   .ui[class*="mobile reversed"].celled.grid > .row > .column:first-child {
     box-shadow: -1px 0px 0px 0px #D4D4D5;
   }
@@ -1532,7 +2079,6 @@
     box-shadow: none;
   }
 }
-
 /* Tablet */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .ui[class*="tablet reversed"].grid,
@@ -1540,19 +2086,16 @@
   .ui.grid > [class*="tablet reversed"].row {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
-    -webkit-flex-direction: row-reverse;
         -ms-flex-direction: row-reverse;
             flex-direction: row-reverse;
   }
   .ui[class*="tablet vertically reversed"].grid {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
-    -webkit-flex-direction: column-reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
   }
-  
-/* Divided Reversed */
+  /* Divided Reversed */
   .ui[class*="tablet reversed"].divided.grid:not([class*="vertically divided"]) > .column:first-child,
   .ui[class*="tablet reversed"].divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
     box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
@@ -1561,16 +2104,14 @@
   .ui[class*="tablet reversed"].divided.grid:not([class*="vertically divided"]) > .row > .column:last-child {
     box-shadow: none;
   }
-  
-/* Vertically Divided Reversed */
+  /* Vertically Divided Reversed */
   .ui.grid[class*="vertically divided"][class*="tablet vertically reversed"] > .row:first-child:before {
     box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
   }
   .ui.grid[class*="vertically divided"][class*="tablet vertically reversed"] > .row:last-child:before {
     box-shadow: none;
   }
-  
-/* Celled Reversed */
+  /* Celled Reversed */
   .ui[class*="tablet reversed"].celled.grid > .row > .column:first-child {
     box-shadow: -1px 0px 0px 0px #D4D4D5;
   }
@@ -1578,7 +2119,6 @@
     box-shadow: none;
   }
 }
-
 /* Computer */
 @media only screen and (min-width: 992px) {
   .ui[class*="computer reversed"].grid,
@@ -1586,19 +2126,16 @@
   .ui.grid > [class*="computer reversed"].row {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
-    -webkit-flex-direction: row-reverse;
         -ms-flex-direction: row-reverse;
             flex-direction: row-reverse;
   }
   .ui[class*="computer vertically reversed"].grid {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
-    -webkit-flex-direction: column-reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
   }
-  
-/* Divided Reversed */
+  /* Divided Reversed */
   .ui[class*="computer reversed"].divided.grid:not([class*="vertically divided"]) > .column:first-child,
   .ui[class*="computer reversed"].divided.grid:not([class*="vertically divided"]) > .row > .column:first-child {
     box-shadow: -1px 0px 0px 0px rgba(34, 36, 38, 0.15);
@@ -1607,16 +2144,14 @@
   .ui[class*="computer reversed"].divided.grid:not([class*="vertically divided"]) > .row > .column:last-child {
     box-shadow: none;
   }
-  
-/* Vertically Divided Reversed */
+  /* Vertically Divided Reversed */
   .ui.grid[class*="vertically divided"][class*="computer vertically reversed"] > .row:first-child:before {
     box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
   }
   .ui.grid[class*="vertically divided"][class*="computer vertically reversed"] > .row:last-child:before {
     box-shadow: none;
   }
-  
-/* Celled Reversed */
+  /* Celled Reversed */
   .ui[class*="computer reversed"].celled.grid > .row > .column:first-child {
     box-shadow: -1px 0px 0px 0px #D4D4D5;
   }
@@ -1624,12 +2159,9 @@
     box-shadow: none;
   }
 }
-
 /*-------------------
       Doubling
 --------------------*/
-
-
 /* Tablet Only */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .ui.doubling.grid {
@@ -1724,7 +2256,6 @@
     width: 12.5% !important;
   }
 }
-
 /* Mobile Only */
 @media only screen and (max-width: 767px) {
   .ui.grid > .doubling.row,
@@ -1815,11 +2346,9 @@
     width: 25% !important;
   }
 }
-
 /*-------------------
       Stackable
 --------------------*/
-
 @media only screen and (max-width: 767px) {
   .ui.stackable.grid {
     width: auto;
@@ -1842,22 +2371,19 @@
     margin: 0em;
     padding: 0em;
   }
-  
-/* Coupling */
+  /* Coupling */
   .ui.container > .ui.stackable.grid > .column,
   .ui.container > .ui.stackable.grid > .row > .column {
     padding-left: 0em !important;
     padding-right: 0em !important;
   }
-  
-/* Don't pad inside segment or nested grid */
+  /* Don't pad inside segment or nested grid */
   .ui.grid .ui.stackable.grid,
   .ui.segment:not(.vertical) .ui.stackable.page.grid {
     margin-left: -1rem !important;
     margin-right: -1rem !important;
   }
-  
-/* Divided Stackable */
+  /* Divided Stackable */
   .ui.stackable.divided.grid > .row:first-child > .column:first-child,
   .ui.stackable.celled.grid > .row:first-child > .column:first-child,
   .ui.stackable.divided.grid > .column:not(.row):first-child,
@@ -1888,14 +2414,10 @@
     padding-right: 0em !important;
   }
 }
-
 /*----------------------
      Only (Device)
 -----------------------*/
-
-
 /* These include arbitrary class repetitions for forced specificity */
-
 /* Mobile Only Hide */
 @media only screen and (max-width: 767px) {
   .ui[class*="tablet only"].grid.grid.grid:not(.mobile),
@@ -1923,7 +2445,6 @@
     display: none !important;
   }
 }
-
 /* Tablet Only Hide */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .ui[class*="mobile only"].grid.grid.grid:not(.tablet),
@@ -1951,7 +2472,6 @@
     display: none !important;
   }
 }
-
 /* Computer Only Hide */
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .ui[class*="mobile only"].grid.grid.grid:not(.computer),
@@ -1979,7 +2499,6 @@
     display: none !important;
   }
 }
-
 /* Large Screen Only Hide */
 @media only screen and (min-width: 1200px) and (max-width: 1919px) {
   .ui[class*="mobile only"].grid.grid.grid:not(.computer),
@@ -2001,7 +2520,6 @@
     display: none !important;
   }
 }
-
 /* Widescreen Only Hide */
 @media only screen and (min-width: 1920px) {
   .ui[class*="mobile only"].grid.grid.grid:not(.computer),
@@ -2017,15 +2535,11 @@
     display: none !important;
   }
 }
-
-
 /*******************************
          Theme Overrides
 *******************************/
-
-
-
 /*******************************
          Site Overrides
 *******************************/
 
+/*# sourceMappingURL=grid.css.map */

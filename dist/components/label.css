@@ -7,12 +7,718 @@
  * http://opensource.org/licenses/MIT
  *
  */
+/*******************************
+            Theme
+*******************************/
+/*
 
+████████╗██╗  ██╗███████╗███╗   ███╗███████╗███████╗
+╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔════╝██╔════╝
+   ██║   ███████║█████╗  ██╔████╔██║█████╗  ███████╗
+   ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝  ╚════██║
+   ██║   ██║  ██║███████╗██║ ╚═╝ ██║███████╗███████║
+   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚══════╝
 
+*/
+/*******************************
+        Theme Selection
+*******************************/
+/* To override a theme for an individual element
+   specify theme name below
+*/
+/* Global */
+/* Elements */
+/* Collections */
+/* Modules */
+/* Views */
+/*******************************
+            Folders
+*******************************/
+/* Path to theme packages */
+/* Path to site override folder */
+/*******************************
+         Import Theme
+*******************************/
+/*******************************
+        Import Directives
+*******************************/
+/*------------------
+       Theme
+-------------------*/
+/*--------------------
+   Site Variables
+---------------------*/
+/* Default site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Packaged site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Component's site.variables */
+/*******************************
+         Site Settings
+*******************************/
+/*-------------------
+       Fonts
+--------------------*/
+/*-------------------
+      Base Sizes
+--------------------*/
+/* This is the single variable that controls them all */
+/* The size of page text  */
+/*-------------------
+    Border Radius
+--------------------*/
+/* See Power-user section below
+   for explanation of @px variables
+*/
+/*-------------------
+    Brand Colors
+--------------------*/
+/*--------------
+  Page Heading
+---------------*/
+/*--------------
+   Form Input
+---------------*/
+/* This adjusts the default form input across all elements */
+/* Input Text Color */
+/* Line Height Default For Inputs in Browser */
+/*-------------------
+    Focused Input
+--------------------*/
+/* Used on inputs, textarea etc */
+/* Used on dropdowns, other larger blocks */
+/*-------------------
+        Sizes
+--------------------*/
+/*
+  Sizes are all expressed in terms of 14px/em (default em)
+  This ensures these "ratios" remain constant despite changes in EM
+*/
+/*-------------------
+        Page
+--------------------*/
+/*-------------------
+      Paragraph
+--------------------*/
+/*-------------------
+       Links
+--------------------*/
+/*-------------------
+  Highlighted Text
+--------------------*/
+/*-------------------
+       Loader
+--------------------*/
+/*-------------------
+        Grid
+--------------------*/
+/*-------------------
+     Transitions
+--------------------*/
+/*-------------------
+     Breakpoints
+--------------------*/
+/*-------------------
+      Site Colors
+--------------------*/
+/*---  Colors  ---*/
+/*---  Light Colors  ---*/
+/*---   Neutrals  ---*/
+/*--- Colored Backgrounds ---*/
+/*--- Colored Headers ---*/
+/*--- Colored Text ---*/
+/*--- Colored Border ---*/
+/*-------------------
+     Alpha Colors
+--------------------*/
+/*-------------------
+       Accents
+--------------------*/
+/* Differentiating Neutrals */
+/* Differentiating Layers */
+/*******************************
+           Power-User
+*******************************/
+/*-------------------
+    Emotive Colors
+--------------------*/
+/* Positive */
+/* Negative */
+/* Info */
+/* Warning */
+/*-------------------
+        Paths
+--------------------*/
+/* For source only. Modified in gulp for dist */
+/*-------------------
+       Em Sizes
+--------------------*/
+/*
+  This rounds @size values to the closest pixel then expresses that value in (r)em.
+  This ensures all size values round to exact pixels
+*/
+/* em */
+/* rem */
+/*-------------------
+       Icons
+--------------------*/
+/* Maximum Glyph Width of Icon */
+/*-------------------
+     Neutral Text
+--------------------*/
+/*-------------------
+     Brand Colors
+--------------------*/
+/*-------------------
+      Borders
+--------------------*/
+/*-------------------
+    Derived Values
+--------------------*/
+/* Loaders Position Offset */
+/* Rendered Scrollbar Width */
+/* Maximum Single Character Glyph Width, aka Capital "W" */
+/* Used to match floats with text */
+/* Header Spacing */
+/* Minimum Mobile Width */
+/* Positive / Negative Dupes */
+/* Responsive */
+/*-------------------
+  Exact Pixel Values
+--------------------*/
+/*
+  These are used to specify exact pixel values in em
+  for things like borders that remain constantly
+  sized as emSize adjusts
+
+  Since there are many more sizes than names for sizes,
+  these are named by their original pixel values.
+
+*/
+/* Columns */
+/*******************************
+             States
+*******************************/
+/*-------------------
+      Disabled
+--------------------*/
+/*-------------------
+        Hover
+--------------------*/
+/*---  Shadows  ---*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Focus
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+    Down (:active)
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/*-------------------
+        Active
+--------------------*/
+/*---  Colors  ---*/
+/*---  Emotive  ---*/
+/*---  Brand   ---*/
+/*---  Dark Tones  ---*/
+/*---  Light Tones  ---*/
+/* Site theme site.variables */
+/*******************************
+     User Global Variables
+*******************************/
+/*-------------------
+ Component Variables
+---------------------*/
+/* Default */
+/*******************************
+             Label
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/* medium is not @emSize custom value required */
+/* Group */
+/*-------------------
+        Parts
+--------------------*/
+/* Link */
+/* Icon */
+/* Image */
+/* Detail */
+/* Delete */
+/*-------------------
+        Types
+--------------------*/
+/* Image Label */
+/*-------------------
+        States
+--------------------*/
+/* Hover */
+/* Active */
+/* Active Hover */
+/*-------------------
+      Variations
+--------------------*/
+/* Basic */
+/* Tag */
+/* Avoids error with background: inherit; on animation */
+/* Ribbon */
+/* Rounding Offset on Triangle */
+/* Rounding Offset on Triangle */
+/* Colors */
+/* Attached */
+/* Corner */
+/* Corner Text */
+/* Horizontal */
+/* Circular Padding */
+/* Pointing */
+/* Basic Pointing */
+/* Floating */
+/*-------------------
+        Group
+--------------------*/
+/* Sizing */
+/* Packaged Theme */
+/*******************************
+             Label
+*******************************/
+/*-------------------
+       Element
+--------------------*/
+/* medium is not @emSize custom value required */
+/* Group */
+/*-------------------
+        Parts
+--------------------*/
+/* Link */
+/* Icon */
+/* Image */
+/* Detail */
+/* Delete */
+/*-------------------
+        Types
+--------------------*/
+/* Image Label */
+/*-------------------
+        States
+--------------------*/
+/* Hover */
+/* Active */
+/* Active Hover */
+/*-------------------
+      Variations
+--------------------*/
+/* Basic */
+/* Tag */
+/* Avoids error with background: inherit; on animation */
+/* Ribbon */
+/* Rounding Offset on Triangle */
+/* Rounding Offset on Triangle */
+/* Colors */
+/* Attached */
+/* Corner */
+/* Corner Text */
+/* Horizontal */
+/* Circular Padding */
+/* Pointing */
+/* Basic Pointing */
+/* Floating */
+/*-------------------
+        Group
+--------------------*/
+/* Sizing */
+/* Site Theme */
+/*******************************
+    User Variable Overrides
+*******************************/
+/*******************************
+             Mix-ins
+*******************************/
+/*------------------
+       Fonts
+-------------------*/
+/*------------------
+     Overrides
+-------------------*/
+/* End Config */
 /*******************************
             Label
 *******************************/
-
 .ui.label {
   display: inline-block;
   line-height: 1;
@@ -35,12 +741,10 @@
 .ui.label:last-child {
   margin-right: 0em;
 }
-
 /* Link */
 a.ui.label {
   cursor: pointer;
 }
-
 /* Inside Link */
 .ui.label > a {
   cursor: pointer;
@@ -52,20 +756,17 @@ a.ui.label {
 .ui.label > a:hover {
   opacity: 1;
 }
-
 /* Image */
 .ui.label > img {
   width: auto !important;
   vertical-align: middle;
   height: 2.1666em !important;
 }
-
 /* Icon */
 .ui.label > .icon {
   width: auto;
   margin: 0em 0.75em 0em 0em;
 }
-
 /* Detail */
 .ui.label > .detail {
   display: inline-block;
@@ -77,7 +778,6 @@ a.ui.label {
 .ui.label > .detail .icon {
   margin: 0em 0.25em 0em 0em;
 }
-
 /* Removable label */
 .ui.label > .close.icon,
 .ui.label > .delete.icon {
@@ -92,23 +792,18 @@ a.ui.label {
 .ui.label > .delete.icon:hover {
   opacity: 1;
 }
-
 /*-------------------
        Group
 --------------------*/
-
 .ui.labels > .label {
   margin: 0em 0.5em 0.5em 0em;
 }
-
 /*-------------------
        Coupling
 --------------------*/
-
 .ui.header > .ui.label {
   margin-top: -0.29165em;
 }
-
 /* Remove border radius on attached segment */
 .ui.attached.segment > .ui.top.left.attached.label,
 .ui.bottom.attached.segment > .ui.top.left.attached.label {
@@ -124,7 +819,6 @@ a.ui.label {
 .ui.top.attached.segment > .ui.bottom.right.attached.label {
   border-bottom-right-radius: 0;
 }
-
 /* Padding on next content after a label */
 .ui.top.attached.label:first-child + :not(.attached),
 .ui.top.attached.label + [class*="right floated"] + * {
@@ -134,12 +828,9 @@ a.ui.label {
   margin-top: 0em;
   margin-bottom: 2rem !important;
 }
-
-
 /*******************************
              Types
 *******************************/
-
 .ui.image.label {
   width: auto !important;
   margin-top: 0em;
@@ -165,11 +856,9 @@ a.ui.label {
   padding: 0.5833em 0.833em;
   border-radius: 0em 0.28571429rem 0.28571429rem 0em;
 }
-
 /*-------------------
          Tag
 --------------------*/
-
 .ui.tag.labels .label,
 .ui.tag.label {
   margin-left: 1em;
@@ -208,11 +897,9 @@ a.ui.label {
   box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
   border-radius: 500rem;
 }
-
 /*-------------------
     Corner Label
 --------------------*/
-
 .ui.corner.label {
   position: absolute;
   top: 0em;
@@ -227,7 +914,6 @@ a.ui.label {
   -webkit-transition: border-color 0.1s ease;
   transition: border-color 0.1s ease;
 }
-
 /* Icon Label */
 .ui.corner.label {
   background-color: transparent !important;
@@ -257,7 +943,6 @@ a.ui.label {
   font-size: 1.14285714em;
   margin: 0em;
 }
-
 /* Left Corner */
 .ui.left.corner.label,
 .ui.left.corner.label:after {
@@ -274,7 +959,6 @@ a.ui.label {
 .ui.left.corner.label .icon {
   left: -0.78571429em;
 }
-
 /* Segment */
 .ui.segment > .ui.corner.label {
   top: -1px;
@@ -284,11 +968,9 @@ a.ui.label {
   right: auto;
   left: -1px;
 }
-
 /*-------------------
        Ribbon
 --------------------*/
-
 .ui.ribbon.label {
   position: relative;
   margin: 0em;
@@ -311,7 +993,6 @@ a.ui.label {
   width: 0em;
   height: 0em;
 }
-
 /* Positioning */
 .ui.ribbon.label {
   left: calc( -1rem  -  1.2em );
@@ -324,7 +1005,6 @@ a.ui.label {
   padding-left: 1.2em;
   padding-right: calc( 1rem  +  1.2em );
 }
-
 /* Right Ribbon */
 .ui[class*="right ribbon"].label {
   text-align: left;
@@ -340,7 +1020,6 @@ a.ui.label {
   border-color: transparent;
   border-top-color: inherit;
 }
-
 /* Inside Table */
 .ui.image > .ribbon.label,
 .ui.card .image > .ribbon.label {
@@ -356,7 +1035,6 @@ a.ui.label {
   left: calc(100% +  -0.05rem  +  1.2em );
   padding-left: 0.833em;
 }
-
 /* Inside Table */
 .ui.table td > .ui.ribbon.label {
   left: calc( -0.78571429em  -  1.2em );
@@ -365,11 +1043,9 @@ a.ui.label {
   left: calc(100% +  0.78571429em  +  1.2em );
   padding-left: 0.833em;
 }
-
 /*-------------------
       Attached
 --------------------*/
-
 .ui[class*="top attached"].label,
 .ui.attached.label {
   width: 100%;
@@ -410,25 +1086,18 @@ a.ui.label {
   width: auto;
   border-radius: 0.28571429rem 0em 0.21428571rem 0em;
 }
-
-
 /*******************************
              States
 *******************************/
-
-
 /*-------------------
       Disabled
 --------------------*/
-
 .ui.label.disabled {
   opacity: 0.5;
 }
-
 /*-------------------
         Hover
 --------------------*/
-
 a.ui.labels .label:hover,
 a.ui.label:hover {
   background-color: #E0E0E0;
@@ -440,11 +1109,9 @@ a.ui.label:hover {
 a.ui.label:hover:before {
   color: rgba(0, 0, 0, 0.8);
 }
-
 /*-------------------
         Active
 --------------------*/
-
 .ui.active.label {
   background-color: #D0D0D0;
   border-color: #D0D0D0;
@@ -456,11 +1123,9 @@ a.ui.label:hover:before {
   background-image: none;
   color: rgba(0, 0, 0, 0.95);
 }
-
 /*-------------------
      Active Hover
 --------------------*/
-
 a.ui.labels .active.label:hover,
 a.ui.active.label:hover {
   background-color: #C8C8C8;
@@ -474,45 +1139,33 @@ a.ui.active.label:ActiveHover:before {
   background-image: none;
   color: rgba(0, 0, 0, 0.95);
 }
-
 /*-------------------
       Visible
 --------------------*/
-
 .ui.labels.visible .label,
 .ui.label.visible:not(.dropdown) {
   display: inline-block !important;
 }
-
 /*-------------------
       Hidden
 --------------------*/
-
 .ui.labels.hidden .label,
 .ui.label.hidden {
   display: none !important;
 }
-
-
 /*******************************
            Variations
 *******************************/
-
-
 /*-------------------
        Colors
 --------------------*/
-
-
 /*--- Red ---*/
-
 .ui.red.labels .label,
 .ui.red.label {
   background-color: #DB2828 !important;
   border-color: #DB2828 !important;
   color: #FFFFFF !important;
 }
-
 /* Link */
 .ui.red.labels .label:hover,
 a.ui.red.label:hover {
@@ -520,18 +1173,15 @@ a.ui.red.label:hover {
   border-color: #d01919 !important;
   color: #FFFFFF !important;
 }
-
 /* Corner */
 .ui.red.corner.label,
 .ui.red.corner.label:hover {
   background-color: transparent !important;
 }
-
 /* Ribbon */
 .ui.red.ribbon.label {
   border-color: #b21e1e !important;
 }
-
 /* Basic */
 .ui.basic.red.label {
   background-color: #FFFFFF !important;
@@ -544,16 +1194,13 @@ a.ui.basic.red.label:hover {
   color: #d01919 !important;
   border-color: #d01919 !important;
 }
-
 /*--- Orange ---*/
-
 .ui.orange.labels .label,
 .ui.orange.label {
   background-color: #F2711C !important;
   border-color: #F2711C !important;
   color: #FFFFFF !important;
 }
-
 /* Link */
 .ui.orange.labels .label:hover,
 a.ui.orange.label:hover {
@@ -561,18 +1208,15 @@ a.ui.orange.label:hover {
   border-color: #f26202 !important;
   color: #FFFFFF !important;
 }
-
 /* Corner */
 .ui.orange.corner.label,
 .ui.orange.corner.label:hover {
   background-color: transparent !important;
 }
-
 /* Ribbon */
 .ui.orange.ribbon.label {
   border-color: #cf590c !important;
 }
-
 /* Basic */
 .ui.basic.orange.label {
   background-color: #FFFFFF !important;
@@ -585,16 +1229,13 @@ a.ui.basic.orange.label:hover {
   color: #f26202 !important;
   border-color: #f26202 !important;
 }
-
 /*--- Yellow ---*/
-
 .ui.yellow.labels .label,
 .ui.yellow.label {
   background-color: #FBBD08 !important;
   border-color: #FBBD08 !important;
   color: #FFFFFF !important;
 }
-
 /* Link */
 .ui.yellow.labels .label:hover,
 a.ui.yellow.label:hover {
@@ -602,18 +1243,15 @@ a.ui.yellow.label:hover {
   border-color: #eaae00 !important;
   color: #FFFFFF !important;
 }
-
 /* Corner */
 .ui.yellow.corner.label,
 .ui.yellow.corner.label:hover {
   background-color: transparent !important;
 }
-
 /* Ribbon */
 .ui.yellow.ribbon.label {
   border-color: #cd9903 !important;
 }
-
 /* Basic */
 .ui.basic.yellow.label {
   background-color: #FFFFFF !important;
@@ -626,16 +1264,13 @@ a.ui.basic.yellow.label:hover {
   color: #eaae00 !important;
   border-color: #eaae00 !important;
 }
-
 /*--- Olive ---*/
-
 .ui.olive.labels .label,
 .ui.olive.label {
   background-color: #B5CC18 !important;
   border-color: #B5CC18 !important;
   color: #FFFFFF !important;
 }
-
 /* Link */
 .ui.olive.labels .label:hover,
 a.ui.olive.label:hover {
@@ -643,18 +1278,15 @@ a.ui.olive.label:hover {
   border-color: #a7bd0d !important;
   color: #FFFFFF !important;
 }
-
 /* Corner */
 .ui.olive.corner.label,
 .ui.olive.corner.label:hover {
   background-color: transparent !important;
 }
-
 /* Ribbon */
 .ui.olive.ribbon.label {
   border-color: #198f35 !important;
 }
-
 /* Basic */
 .ui.basic.olive.label {
   background-color: #FFFFFF !important;
@@ -667,16 +1299,13 @@ a.ui.basic.olive.label:hover {
   color: #a7bd0d !important;
   border-color: #a7bd0d !important;
 }
-
 /*--- Green ---*/
-
 .ui.green.labels .label,
 .ui.green.label {
   background-color: #21BA45 !important;
   border-color: #21BA45 !important;
   color: #FFFFFF !important;
 }
-
 /* Link */
 .ui.green.labels .label:hover,
 a.ui.green.label:hover {
@@ -684,18 +1313,15 @@ a.ui.green.label:hover {
   border-color: #16ab39 !important;
   color: #FFFFFF !important;
 }
-
 /* Corner */
 .ui.green.corner.label,
 .ui.green.corner.label:hover {
   background-color: transparent !important;
 }
-
 /* Ribbon */
 .ui.green.ribbon.label {
   border-color: #198f35 !important;
 }
-
 /* Basic */
 .ui.basic.green.label {
   background-color: #FFFFFF !important;
@@ -708,16 +1334,13 @@ a.ui.basic.green.label:hover {
   color: #16ab39 !important;
   border-color: #16ab39 !important;
 }
-
 /*--- Teal ---*/
-
 .ui.teal.labels .label,
 .ui.teal.label {
   background-color: #00B5AD !important;
   border-color: #00B5AD !important;
   color: #FFFFFF !important;
 }
-
 /* Link */
 .ui.teal.labels .label:hover,
 a.ui.teal.label:hover {
@@ -725,18 +1348,15 @@ a.ui.teal.label:hover {
   border-color: #009c95 !important;
   color: #FFFFFF !important;
 }
-
 /* Corner */
 .ui.teal.corner.label,
 .ui.teal.corner.label:hover {
   background-color: transparent !important;
 }
-
 /* Ribbon */
 .ui.teal.ribbon.label {
   border-color: #00827c !important;
 }
-
 /* Basic */
 .ui.basic.teal.label {
   background-color: #FFFFFF !important;
@@ -749,16 +1369,13 @@ a.ui.basic.teal.label:hover {
   color: #009c95 !important;
   border-color: #009c95 !important;
 }
-
 /*--- Blue ---*/
-
 .ui.blue.labels .label,
 .ui.blue.label {
   background-color: #2185D0 !important;
   border-color: #2185D0 !important;
   color: #FFFFFF !important;
 }
-
 /* Link */
 .ui.blue.labels .label:hover,
 a.ui.blue.label:hover {
@@ -766,18 +1383,15 @@ a.ui.blue.label:hover {
   border-color: #1678c2 !important;
   color: #FFFFFF !important;
 }
-
 /* Corner */
 .ui.blue.corner.label,
 .ui.blue.corner.label:hover {
   background-color: transparent !important;
 }
-
 /* Ribbon */
 .ui.blue.ribbon.label {
   border-color: #1a69a4 !important;
 }
-
 /* Basic */
 .ui.basic.blue.label {
   background-color: #FFFFFF !important;
@@ -790,16 +1404,13 @@ a.ui.basic.blue.label:hover {
   color: #1678c2 !important;
   border-color: #1678c2 !important;
 }
-
 /*--- Violet ---*/
-
 .ui.violet.labels .label,
 .ui.violet.label {
   background-color: #6435C9 !important;
   border-color: #6435C9 !important;
   color: #FFFFFF !important;
 }
-
 /* Link */
 .ui.violet.labels .label:hover,
 a.ui.violet.label:hover {
@@ -807,18 +1418,15 @@ a.ui.violet.label:hover {
   border-color: #5829bb !important;
   color: #FFFFFF !important;
 }
-
 /* Corner */
 .ui.violet.corner.label,
 .ui.violet.corner.label:hover {
   background-color: transparent !important;
 }
-
 /* Ribbon */
 .ui.violet.ribbon.label {
   border-color: #502aa1 !important;
 }
-
 /* Basic */
 .ui.basic.violet.label {
   background-color: #FFFFFF !important;
@@ -831,16 +1439,13 @@ a.ui.basic.violet.label:hover {
   color: #5829bb !important;
   border-color: #5829bb !important;
 }
-
 /*--- Purple ---*/
-
 .ui.purple.labels .label,
 .ui.purple.label {
   background-color: #A333C8 !important;
   border-color: #A333C8 !important;
   color: #FFFFFF !important;
 }
-
 /* Link */
 .ui.purple.labels .label:hover,
 a.ui.purple.label:hover {
@@ -848,18 +1453,15 @@ a.ui.purple.label:hover {
   border-color: #9627ba !important;
   color: #FFFFFF !important;
 }
-
 /* Corner */
 .ui.purple.corner.label,
 .ui.purple.corner.label:hover {
   background-color: transparent !important;
 }
-
 /* Ribbon */
 .ui.purple.ribbon.label {
   border-color: #82299f !important;
 }
-
 /* Basic */
 .ui.basic.purple.label {
   background-color: #FFFFFF !important;
@@ -872,16 +1474,13 @@ a.ui.basic.purple.label:hover {
   color: #9627ba !important;
   border-color: #9627ba !important;
 }
-
 /*--- Pink ---*/
-
 .ui.pink.labels .label,
 .ui.pink.label {
   background-color: #E03997 !important;
   border-color: #E03997 !important;
   color: #FFFFFF !important;
 }
-
 /* Link */
 .ui.pink.labels .label:hover,
 a.ui.pink.label:hover {
@@ -889,18 +1488,15 @@ a.ui.pink.label:hover {
   border-color: #e61a8d !important;
   color: #FFFFFF !important;
 }
-
 /* Corner */
 .ui.pink.corner.label,
 .ui.pink.corner.label:hover {
   background-color: transparent !important;
 }
-
 /* Ribbon */
 .ui.pink.ribbon.label {
   border-color: #c71f7e !important;
 }
-
 /* Basic */
 .ui.basic.pink.label {
   background-color: #FFFFFF !important;
@@ -913,16 +1509,13 @@ a.ui.basic.pink.label:hover {
   color: #e61a8d !important;
   border-color: #e61a8d !important;
 }
-
 /*--- Brown ---*/
-
 .ui.brown.labels .label,
 .ui.brown.label {
   background-color: #A5673F !important;
   border-color: #A5673F !important;
   color: #FFFFFF !important;
 }
-
 /* Link */
 .ui.brown.labels .label:hover,
 a.ui.brown.label:hover {
@@ -930,18 +1523,15 @@ a.ui.brown.label:hover {
   border-color: #975b33 !important;
   color: #FFFFFF !important;
 }
-
 /* Corner */
 .ui.brown.corner.label,
 .ui.brown.corner.label:hover {
   background-color: transparent !important;
 }
-
 /* Ribbon */
 .ui.brown.ribbon.label {
   border-color: #805031 !important;
 }
-
 /* Basic */
 .ui.basic.brown.label {
   background-color: #FFFFFF !important;
@@ -954,16 +1544,13 @@ a.ui.basic.brown.label:hover {
   color: #975b33 !important;
   border-color: #975b33 !important;
 }
-
 /*--- Grey ---*/
-
 .ui.grey.labels .label,
 .ui.grey.label {
   background-color: #767676 !important;
   border-color: #767676 !important;
   color: #FFFFFF !important;
 }
-
 /* Link */
 .ui.grey.labels .label:hover,
 a.ui.grey.label:hover {
@@ -971,18 +1558,15 @@ a.ui.grey.label:hover {
   border-color: #838383 !important;
   color: #FFFFFF !important;
 }
-
 /* Corner */
 .ui.grey.corner.label,
 .ui.grey.corner.label:hover {
   background-color: transparent !important;
 }
-
 /* Ribbon */
 .ui.grey.ribbon.label {
   border-color: #805031 !important;
 }
-
 /* Basic */
 .ui.basic.grey.label {
   background-color: #FFFFFF !important;
@@ -995,16 +1579,13 @@ a.ui.basic.grey.label:hover {
   color: #838383 !important;
   border-color: #838383 !important;
 }
-
 /*--- Black ---*/
-
 .ui.black.labels .label,
 .ui.black.label {
   background-color: #1B1C1D !important;
   border-color: #1B1C1D !important;
   color: #FFFFFF !important;
 }
-
 /* Link */
 .ui.black.labels .label:hover,
 a.ui.black.label:hover {
@@ -1012,18 +1593,15 @@ a.ui.black.label:hover {
   border-color: #27292a !important;
   color: #FFFFFF !important;
 }
-
 /* Corner */
 .ui.black.corner.label,
 .ui.black.corner.label:hover {
   background-color: transparent !important;
 }
-
 /* Ribbon */
 .ui.black.ribbon.label {
   border-color: #805031 !important;
 }
-
 /* Basic */
 .ui.basic.black.label {
   background-color: #FFFFFF !important;
@@ -1036,18 +1614,15 @@ a.ui.basic.black.label:hover {
   color: #27292a !important;
   border-color: #27292a !important;
 }
-
 /*-------------------
         Basic
 --------------------*/
-
 .ui.basic.label {
   background: none #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
   box-shadow: none;
 }
-
 /* Link */
 a.ui.basic.label:hover {
   text-decoration: none;
@@ -1056,35 +1631,28 @@ a.ui.basic.label:hover {
   box-shadow: 1px solid rgba(34, 36, 38, 0.15);
   box-shadow: none;
 }
-
 /* Pointing */
 .ui.basic.pointing.label:before {
   border-color: inherit;
 }
-
 /*-------------------
        Fluid
 --------------------*/
-
 .ui.label.fluid,
 .ui.fluid.labels > .label {
   width: 100%;
   box-sizing: border-box;
 }
-
 /*-------------------
        Inverted
 --------------------*/
-
 .ui.inverted.labels .label,
 .ui.inverted.label {
   color: rgba(255, 255, 255, 0.9) !important;
 }
-
 /*-------------------
      Horizontal
 --------------------*/
-
 .ui.horizontal.labels .label,
 .ui.horizontal.label {
   margin: 0em 0.5em 0em 0em;
@@ -1092,11 +1660,9 @@ a.ui.basic.label:hover {
   min-width: 3em;
   text-align: center;
 }
-
 /*-------------------
        Circular
 --------------------*/
-
 .ui.circular.labels .label,
 .ui.circular.label {
   min-width: 2em;
@@ -1115,11 +1681,9 @@ a.ui.basic.label:hover {
   height: 0.5em;
   vertical-align: baseline;
 }
-
 /*-------------------
        Pointing
 --------------------*/
-
 .ui.pointing.label {
   position: relative;
 }
@@ -1133,7 +1697,6 @@ a.ui.basic.label:hover {
   border-style: solid;
   border-color: inherit;
 }
-
 /* Arrow */
 .ui.pointing.label:before {
   position: absolute;
@@ -1147,9 +1710,7 @@ a.ui.basic.label:hover {
   -webkit-transition: background 0.1s ease;
   transition: background 0.1s ease;
 }
-
 /*--- Above ---*/
-
 .ui.pointing.label,
 .ui[class*="pointing above"].label {
   margin-top: 1em;
@@ -1162,9 +1723,7 @@ a.ui.basic.label:hover {
   top: 0%;
   left: 50%;
 }
-
 /*--- Below ---*/
-
 .ui[class*="bottom pointing"].label,
 .ui[class*="pointing below"].label {
   margin-top: 0em;
@@ -1180,9 +1739,7 @@ a.ui.basic.label:hover {
   top: 100%;
   left: 50%;
 }
-
 /*--- Left ---*/
-
 .ui[class*="left pointing"].label {
   margin-top: 0em;
   margin-left: 0.6666em;
@@ -1196,9 +1753,7 @@ a.ui.basic.label:hover {
   top: 50%;
   left: 0em;
 }
-
 /*--- Right ---*/
-
 .ui[class*="right pointing"].label {
   margin-top: 0em;
   margin-right: 0.6666em;
@@ -1212,43 +1767,32 @@ a.ui.basic.label:hover {
   bottom: auto;
   left: auto;
 }
-
 /* Basic Pointing */
-
 /*--- Above ---*/
-
 .ui.basic.pointing.label:before,
 .ui.basic[class*="pointing above"].label:before {
   margin-top: -1px;
 }
-
 /*--- Below ---*/
-
 .ui.basic[class*="bottom pointing"].label:before,
 .ui.basic[class*="pointing below"].label:before {
   bottom: auto;
   top: 100%;
   margin-top: 1px;
 }
-
 /*--- Left ---*/
-
 .ui.basic[class*="left pointing"].label:before {
   top: 50%;
   left: -1px;
 }
-
 /*--- Right ---*/
-
 .ui.basic[class*="right pointing"].label:before {
   top: 50%;
   right: -1px;
 }
-
 /*------------------
    Floating Label
 -------------------*/
-
 .ui.floating.label {
   position: absolute;
   z-index: 100;
@@ -1256,11 +1800,9 @@ a.ui.basic.label:hover {
   left: 100%;
   margin: 0em 0em 0em -1.5em !important;
 }
-
 /*-------------------
         Sizes
 --------------------*/
-
 .ui.mini.labels .label,
 .ui.mini.label {
   font-size: 0.64285714rem;
@@ -1293,15 +1835,11 @@ a.ui.basic.label:hover {
 .ui.massive.label {
   font-size: 1.71428571rem;
 }
-
-
 /*******************************
          Theme Overrides
 *******************************/
-
-
-
 /*******************************
          Site Overrides
 *******************************/
 
+/*# sourceMappingURL=label.css.map */
