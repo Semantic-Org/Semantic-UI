@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.5 - Tab
+ * # Semantic UI 2.2.6 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -478,7 +478,7 @@ $.fn.tab = function(parameters) {
 
                   if(typeof settings.cacheType == 'string' && settings.cacheType.toLowerCase() == 'dom' && $tab.children().length > 0) {
                     setTimeout(function() {
-                      let
+                      var
                         $clone = $tab.children().clone(true)
                       ;
                       $clone = $clone.not('script');
