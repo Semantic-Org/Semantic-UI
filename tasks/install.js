@@ -194,10 +194,10 @@ gulp.task('run setup', function() {
   // If auto-install is switched on, we skip the configuration section and simply reuse the configuration from semantic.json
   if(install.shouldAutoInstall()) {
     answers = {
-      overwrite : 'yes',
-      install   : 'auto',
-      useRoot   : true,
-      semanticRoot : currentConfig.base      
+      overwrite    : 'yes',
+      install      : 'auto',
+      useRoot      : true,
+      semanticRoot : currentConfig.base
     };
   }
   else {
@@ -250,7 +250,7 @@ gulp.task('create install files', function(callback) {
   ---------------*/
 
   // Check if PM install
-  if(answers.useRoot || answers.customRoot) {
+  if(manager && (answers.useRoot || answers.customRoot)) {
 
     // Set root to custom root path if set
     if(answers.customRoot) {
