@@ -196,6 +196,8 @@ gulp.task('run setup', function() {
     answers = {
       overwrite : 'yes',
       install   : 'auto',
+      useRoot   : true,
+      semanticRoot : currentConfig.base      
     };
   }
   else {
@@ -385,7 +387,7 @@ gulp.task('create install files', function(callback) {
     ;
 
     // adjust variables in theme.less
-    if( fs.existsSync(files.config) ) {
+    if( fs.existsSync(installPaths.config) ) {
       console.info('Extending config file (semantic.json)', installPaths.config);
       return gulp.src(installPaths.config)
         .pipe(plumber())
@@ -417,7 +419,7 @@ gulp.task('create install files', function(callback) {
 gulp.task('clean up install', function() {
 
   // Completion Message
-  if(installFolder) {
+  if(installFolder && !install.shouldAutoInstall()) {
     console.log('\n Setup Complete! \n Installing Peer Dependencies. \x1b[0;31mPlease refrain from ctrl + c\x1b[0m... \n After completion navigate to \x1b[92m' + answers.semanticRoot + '\x1b[0m and run "\x1b[92mgulp build\x1b[0m" to build');
     process.exit(0);
   }
