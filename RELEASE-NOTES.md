@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 2.2.7 - October, 27, 2016
+### Version 2.2.7 - December 21, 2016
 
 **Build Tools**
 - **Autoinstall** - Fixes issue where `autoinstall: true` was not copying build files during `npm install` **Thanks @AnsonT** [#4430](https://github.com/Semantic-Org/Semantic-UI/pull/4430)
