@@ -621,8 +621,17 @@ $.fn.dropdown = function(parameters) {
                 .on('mousedown' + eventNamespace, module.event.mousedown)
                 .on('mouseup'   + eventNamespace, module.event.mouseup)
                 .on('focus'     + eventNamespace, module.event.focus)
-                .on('blur'      + eventNamespace, module.event.blur)
               ;
+              if(module.has.menuSearch() ) {
+                $module
+                  .on('blur' + eventNamespace, selector.search, module.event.search.blur)
+                ;
+              }
+              else {
+                $module
+                  .on('blur' + eventNamespace, module.event.blur)
+                ;
+              }
             }
             $menu
               .on('mouseenter' + eventNamespace, selector.item, module.event.item.mouseenter)
@@ -2190,7 +2199,7 @@ $.fn.dropdown = function(parameters) {
             $text.addClass(className.placeholder);
           },
           tabbable: function() {
-            if( module.has.search() ) {
+            if( module.is.searchSelection() ) {
               module.debug('Added tabindex to searchable dropdown');
               $search
                 .val('')
@@ -2302,12 +2311,13 @@ $.fn.dropdown = function(parameters) {
           },
           selectedItem: function($item) {
             var
-              value = module.get.choiceValue($item),
-              text  = module.get.choiceText($item, false)
+              value      = module.get.choiceValue($item),
+              searchText = module.get.choiceText($item, false),
+              text       = module.get.choiceText($item, true)
             ;
             module.debug('Setting user selection to item', $item);
             module.remove.activeItem();
-            module.set.partialSearch(text);
+            module.set.partialSearch(searchText);
             module.set.activeItem($item);
             module.set.selected(value, $item);
             module.set.text(text);
@@ -2896,7 +2906,7 @@ $.fn.dropdown = function(parameters) {
             ;
           },
           tabbable: function() {
-            if( module.has.search() ) {
+            if( module.is.searchSelection() ) {
               module.debug('Searchable dropdown initialized');
               $search
                 .removeAttr('tabindex')

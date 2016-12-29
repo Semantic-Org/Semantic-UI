@@ -15,13 +15,16 @@
 **Critical Bugs**
 - **Dropdown/Search/Checkbox** - Removes use of deprecated
 - **Dropdown** - `forceSelection` will no longer select value in `multiple selection dropdown` #4041 #4516
+- **Dropdown** - Fix issue where `dropdown` with `search` in menu are not tabbable #4490
 - **Search** - Fixes issue where search will re-appear with incorrect results when using `show `showNoResults: false` to hide no results messages. #4616
+
 
 **Bugs**
 - **Button** - Fixed issue where css specificity caused `icon buttons` to not center correctly #4487
 - **Dropdown** - Fixed bug where clicking `dropdown icon` using remote data would cause nothing to happen #4041
 - **Dropdown** - Fix bug where `scrolling menu` or `scrolling dropdown` would have excessive right padding by removing scrollbar width from calculation (no longer necessary in modern browsers)
 - **Comments** - `small`, `large` and other comment sizes now default to global size variables.
+- **Dropdown** - Fixed issue where `selectOnKeydown` with `html` content would cause only non html content to display in `text` until blur
 
 **Documentation**
 - **Visibility** - Added documentation for `onOnscreen` and `onOffScreen` to important callbacks somehow omitted from docs
