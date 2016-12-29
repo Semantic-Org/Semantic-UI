@@ -461,6 +461,10 @@ $.fn.dropdown = function(parameters) {
             ? callback
             : function(){}
           ;
+          if(!module.can.show() && module.is.remote()) {
+            module.debug('No API results retrieved, searching before show');
+            module.queryRemote(module.get.query(), module.show);
+          }
           if( module.can.show() && !module.is.active() ) {
             module.debug('Showing dropdown');
             if(module.has.message() && !(module.has.maxSelections() || module.has.allResultsFiltered()) ) {
@@ -702,6 +706,9 @@ $.fn.dropdown = function(parameters) {
           if(settings.apiSettings) {
             if( module.can.useAPI() ) {
               module.queryRemote(searchTerm, function() {
+                if(settings.filterRemoteData) {
+                  module.filterItems(searchTerm);
+                }
                 afterFiltered();
               });
             }
@@ -876,7 +883,7 @@ $.fn.dropdown = function(parameters) {
               : $activeItem,
             hasSelected = ($selectedItem.length > 0)
           ;
-          if(hasSelected) {
+          if(hasSelected && !module.is.multiple()) {
             module.debug('Forcing partial selection to selected item', $selectedItem);
             module.event.item.click.call($selectedItem, {}, true);
             return;
@@ -3083,6 +3090,9 @@ $.fn.dropdown = function(parameters) {
           multiple: function() {
             return $module.hasClass(className.multiple);
           },
+          remote: function() {
+            return settings.apiSettings && module.can.useAPI();
+          },
           single: function() {
             return !module.is.multiple();
           },
@@ -3503,7 +3513,10 @@ $.fn.dropdown.settings = {
   apiSettings            : false,
   selectOnKeydown        : true,       // Whether selection should occur automatically when keyboard shortcuts used
   minCharacters          : 0,          // Minimum characters required to trigger API call
+
+  filterRemoteData       : false,      // Whether API results should be filtered after being returned for query term
   saveRemoteData         : true,       // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
+
   throttle               : 200,        // How long to wait after last user input to search remotely
 
   context                : window,     // Context to use when determining if on screen

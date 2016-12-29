@@ -1448,7 +1448,7 @@ input::selection {
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
   opacity: 0.9;
-  margin: 0em;
+  margin: 0em !important;
   vertical-align: top;
 }
 
@@ -5790,7 +5790,7 @@ i.flag.mali:before {
 i.flag.mm:before,
 i.flag.myanmar:before,
 i.flag.burma:before {
-  background-position: -36px -1717px;
+  background-position: -73px -1821px;
 }
 
 i.flag.mn:before,
@@ -7670,7 +7670,7 @@ i.icons .inverted.corner.icon {
 }
 
 /*
- * Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
+ * Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  * License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 
@@ -7883,10 +7883,6 @@ i.icon.find:before {
   content: "\f1e5";
 }
 
-i.icon.wifi:before {
-  content: "\f1eb";
-}
-
 i.icon.alarm.mute:before {
   content: "\f1f6";
 }
@@ -7989,6 +7985,70 @@ i.icon.hashtag:before {
 
 i.icon.percent:before {
   content: "\f295";
+}
+
+i.icon.handshake:before {
+  content: "\f2b5";
+}
+
+i.icon.open.envelope:before {
+  content: "\f2b6";
+}
+
+i.icon.open.envelope.outline:before {
+  content: "\f2b7";
+}
+
+i.icon.address.book:before {
+  content: "\f2b9";
+}
+
+i.icon.address.book.outline:before {
+  content: "\f2ba";
+}
+
+i.icon.address.card:before {
+  content: "\f2bb";
+}
+
+i.icon.address.card.outline:before {
+  content: "\f2bc";
+}
+
+i.icon.id.badge:before {
+  content: "\f2c1";
+}
+
+i.icon.id.card:before {
+  content: "\f2c2";
+}
+
+i.icon.id.card.outline:before {
+  content: "\f2c3";
+}
+
+i.icon.podcast:before {
+  content: "\f2ce";
+}
+
+i.icon.window.maximize:before {
+  content: "\f2d0";
+}
+
+i.icon.window.minimize:before {
+  content: "\f2d1";
+}
+
+i.icon.window.restore:before {
+  content: "\f2d2";
+}
+
+i.icon.window.close:before {
+  content: "\f2d3";
+}
+
+i.icon.window.close.outline:before {
+  content: "\f2d4";
 }
 
 /* User Actions */
@@ -8295,6 +8355,18 @@ i.icon.child:before {
 
 i.icon.spy:before {
   content: "\f21b";
+}
+
+i.icon.user.circle:before {
+  content: "\f2bd";
+}
+
+i.icon.user.circle.outline:before {
+  content: "\f2be";
+}
+
+i.icon.user.outline:before {
+  content: "\f2c0";
 }
 
 /* Gender & Sexuality */
@@ -8623,6 +8695,38 @@ i.icon.hand.spock:before {
 
 i.icon.tv:before {
   content: "\f26c";
+}
+
+i.icon.thermometer.full:before {
+  content: "\f2c7";
+}
+
+i.icon.thermometer.three.quarters:before {
+  content: "\f2c8";
+}
+
+i.icon.thermometer.half:before {
+  content: "\f2c9";
+}
+
+i.icon.thermometer.quarter:before {
+  content: "\f2ca";
+}
+
+i.icon.thermometer.empty:before {
+  content: "\f2cb";
+}
+
+i.icon.shower:before {
+  content: "\f2cc";
+}
+
+i.icon.bathtub:before {
+  content: "\f2cd";
+}
+
+i.icon.snowflake:before {
+  content: "\f2dc";
 }
 
 /* Shapes */
@@ -9173,6 +9277,10 @@ i.icon.database:before {
   content: "\f1c0";
 }
 
+i.icon.wifi:before {
+  content: "\f1eb";
+}
+
 i.icon.server:before {
   content: "\f233";
 }
@@ -9187,6 +9295,10 @@ i.icon.bluetooth:before {
 
 i.icon.bluetooth.alternative:before {
   content: "\f294";
+}
+
+i.icon.microchip:before {
+  content: "\f2db";
 }
 
 /* Rating */
@@ -10301,6 +10413,58 @@ i.icon.font.awesome:before {
   content: "\f2b4";
 }
 
+i.icon.linode:before {
+  content: "\f2b8";
+}
+
+i.icon.quora:before {
+  content: "\f2c4";
+}
+
+i.icon.free.code.camp:before {
+  content: "\f2c5";
+}
+
+i.icon.telegram:before {
+  content: "\f2c6";
+}
+
+i.icon.bandcamp:before {
+  content: "\f2d5";
+}
+
+i.icon.grav:before {
+  content: "\f2d6";
+}
+
+i.icon.etsy:before {
+  content: "\f2d7";
+}
+
+i.icon.imdb:before {
+  content: "\f2d8";
+}
+
+i.icon.ravelry:before {
+  content: "\f2d9";
+}
+
+i.icon.eercast:before {
+  content: "\f2da";
+}
+
+i.icon.superpowers:before {
+  content: "\f2dd";
+}
+
+i.icon.wpexplorer:before {
+  content: "\f2de";
+}
+
+i.icon.meetup:before {
+  content: "\f2e0";
+}
+
 /*******************************
             Aliases
 *******************************/
@@ -11179,6 +11343,42 @@ i.icon.google.plus.official:before {
 
 i.icon.fa:before {
   content: "\f2b4";
+}
+
+i.icon.vcard:before {
+  content: "\f2bb";
+}
+
+i.icon.vcard.outline:before {
+  content: "\f2bc";
+}
+
+i.icon.drivers.license:before {
+  content: "\f2c2";
+}
+
+i.icon.drivers.license.outline:before {
+  content: "\f2c3";
+}
+
+i.icon.thermometer:before {
+  content: "\f2c7";
+}
+
+i.icon.s15:before {
+  content: "\f2cd";
+}
+
+i.icon.bath:before {
+  content: "\f2cd";
+}
+
+i.icon.times.rectangle:before {
+  content: "\f2d3";
+}
+
+i.icon.times.rectangle.outline:before {
+  content: "\f2d4";
 }
 
 /*******************************
@@ -26206,15 +26406,15 @@ a.ui.card:hover,
 }
 
 .ui.small.comments {
-  font-size: 0.9em;
+  font-size: 0.92857143rem;
 }
 
 .ui.comments {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .ui.large.comments {
-  font-size: 1.1em;
+  font-size: 1.14285714rem;
 }
 
 .ui.big.comments {
@@ -26222,7 +26422,7 @@ a.ui.card:hover,
 }
 
 .ui.huge.comments {
-  font-size: 1.2em;
+  font-size: 1.42857143rem;
 }
 
 .ui.massive.comments {

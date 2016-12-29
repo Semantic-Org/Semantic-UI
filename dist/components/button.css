@@ -708,7 +708,7 @@
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
   opacity: 0.9;
-  margin: 0em;
+  margin: 0em !important;
   vertical-align: top;
 }
 

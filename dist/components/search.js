@@ -147,9 +147,9 @@ $.fn.search = function(parameters) {
           },
           focus: function() {
             module.set.focus();
-            if( module.has.minimumCharacters() ) {
+            if(settings.searchOnFocus && module.has.minimumCharacters() ) {
               module.query();
-              if( module.can.show() ) {
+              if(module.can.show() ) {
                 module.showResults();
               }
             }
@@ -1143,6 +1143,9 @@ $.fn.search.settings = {
 
   // object to search
   source            : false,
+
+  // Whether search should query current term on focus
+  searchOnFocus     : true,
 
   // fields to search
   searchFields   : [

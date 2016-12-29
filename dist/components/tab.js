@@ -476,7 +476,10 @@ $.fn.tab = function(parameters) {
                   settings.onFirstLoad.call($tab[0], tabPath, parameterArray, historyEvent);
                   settings.onLoad.call($tab[0], tabPath, parameterArray, historyEvent);
 
-                  if(typeof settings.cacheType == 'string' && settings.cacheType.toLowerCase() == 'dom' && $tab.children().length > 0) {
+                  if(settings.loadOnce) {
+                    module.cache.add(fullTabPath, true);
+                  }
+                  else if(typeof settings.cacheType == 'string' && settings.cacheType.toLowerCase() == 'dom' && $tab.children().length > 0) {
                     setTimeout(function() {
                       var
                         $clone = $tab.children().clone(true)
@@ -506,11 +509,13 @@ $.fn.tab = function(parameters) {
             if(settings.cache && cachedContent) {
               module.activate.tab(tabPath);
               module.debug('Adding cached content', fullTabPath);
-              if(settings.evaluateScripts == 'once') {
-                module.update.content(tabPath, cachedContent, false);
-              }
-              else {
-                module.update.content(tabPath, cachedContent);
+              if(!settings.loadOnce) {
+                if(settings.evaluateScripts == 'once') {
+                  module.update.content(tabPath, cachedContent, false);
+                }
+                else {
+                  module.update.content(tabPath, cachedContent);
+                }
               }
               settings.onLoad.call($tab[0], tabPath, parameterArray, historyEvent);
             }
@@ -898,6 +903,7 @@ $.fn.tab.settings = {
 
   alwaysRefresh   : false,      // load tab content new every tab click
   cache           : true,       // cache the content requests to pull locally
+  loadOnce        : false,      // Whether tab data should only be loaded once when using remote content
   cacheType       : 'response', // Whether to cache exact response, or to html cache contents after scripts execute
   ignoreFirstLoad : false,      // don't load remote content on first load
 

@@ -4670,6 +4670,10 @@ $.fn.dropdown = function(parameters) {
             ? callback
             : function(){}
           ;
+          if(!module.can.show() && module.is.remote()) {
+            module.debug('No API results retrieved, searching before show');
+            module.queryRemote(module.get.query(), module.show);
+          }
           if( module.can.show() && !module.is.active() ) {
             module.debug('Showing dropdown');
             if(module.has.message() && !(module.has.maxSelections() || module.has.allResultsFiltered()) ) {
@@ -4911,6 +4915,9 @@ $.fn.dropdown = function(parameters) {
           if(settings.apiSettings) {
             if( module.can.useAPI() ) {
               module.queryRemote(searchTerm, function() {
+                if(settings.filterRemoteData) {
+                  module.filterItems(searchTerm);
+                }
                 afterFiltered();
               });
             }
@@ -5085,7 +5092,7 @@ $.fn.dropdown = function(parameters) {
               : $activeItem,
             hasSelected = ($selectedItem.length > 0)
           ;
-          if(hasSelected) {
+          if(hasSelected && !module.is.multiple()) {
             module.debug('Forcing partial selection to selected item', $selectedItem);
             module.event.item.click.call($selectedItem, {}, true);
             return;
@@ -7292,6 +7299,9 @@ $.fn.dropdown = function(parameters) {
           multiple: function() {
             return $module.hasClass(className.multiple);
           },
+          remote: function() {
+            return settings.apiSettings && module.can.useAPI();
+          },
           single: function() {
             return !module.is.multiple();
           },
@@ -7712,7 +7722,10 @@ $.fn.dropdown.settings = {
   apiSettings            : false,
   selectOnKeydown        : true,       // Whether selection should occur automatically when keyboard shortcuts used
   minCharacters          : 0,          // Minimum characters required to trigger API call
+
+  filterRemoteData       : false,      // Whether API results should be filtered after being returned for query term
   saveRemoteData         : true,       // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
+
   throttle               : 200,        // How long to wait after last user input to search remotely
 
   context                : window,     // Context to use when determining if on screen
@@ -13134,9 +13147,9 @@ $.fn.search = function(parameters) {
           },
           focus: function() {
             module.set.focus();
-            if( module.has.minimumCharacters() ) {
+            if(settings.searchOnFocus && module.has.minimumCharacters() ) {
               module.query();
-              if( module.can.show() ) {
+              if(module.can.show() ) {
                 module.showResults();
               }
             }
@@ -14130,6 +14143,9 @@ $.fn.search.settings = {
 
   // object to search
   source            : false,
+
+  // Whether search should query current term on focus
+  searchOnFocus     : true,
 
   // fields to search
   searchFields   : [
@@ -17773,7 +17789,10 @@ $.fn.tab = function(parameters) {
                   settings.onFirstLoad.call($tab[0], tabPath, parameterArray, historyEvent);
                   settings.onLoad.call($tab[0], tabPath, parameterArray, historyEvent);
 
-                  if(typeof settings.cacheType == 'string' && settings.cacheType.toLowerCase() == 'dom' && $tab.children().length > 0) {
+                  if(settings.loadOnce) {
+                    module.cache.add(fullTabPath, true);
+                  }
+                  else if(typeof settings.cacheType == 'string' && settings.cacheType.toLowerCase() == 'dom' && $tab.children().length > 0) {
                     setTimeout(function() {
                       var
                         $clone = $tab.children().clone(true)
@@ -17803,11 +17822,13 @@ $.fn.tab = function(parameters) {
             if(settings.cache && cachedContent) {
               module.activate.tab(tabPath);
               module.debug('Adding cached content', fullTabPath);
-              if(settings.evaluateScripts == 'once') {
-                module.update.content(tabPath, cachedContent, false);
-              }
-              else {
-                module.update.content(tabPath, cachedContent);
+              if(!settings.loadOnce) {
+                if(settings.evaluateScripts == 'once') {
+                  module.update.content(tabPath, cachedContent, false);
+                }
+                else {
+                  module.update.content(tabPath, cachedContent);
+                }
               }
               settings.onLoad.call($tab[0], tabPath, parameterArray, historyEvent);
             }
@@ -18195,6 +18216,7 @@ $.fn.tab.settings = {
 
   alwaysRefresh   : false,      // load tab content new every tab click
   cache           : true,       // cache the content requests to pull locally
+  loadOnce        : false,      // Whether tab data should only be loaded once when using remote content
   cacheType       : 'response', // Whether to cache exact response, or to html cache contents after scripts execute
   ignoreFirstLoad : false,      // don't load remote content on first load
 
