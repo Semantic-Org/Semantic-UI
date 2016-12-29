@@ -9,9 +9,11 @@
 
 
 **Enhancements**
+- **Search** - Added callback as a parameter to behaviors `query`, `show results`, `hide results`, and `search remote`.
 
 **Critical Bugs**
 - **Dropdown** - `forceSelection` will no longer select value in `multiple selection dropdown` #4041 #4516
+- **Search** - Fixes issue where search will re-appear with incorrect results when using `show `showNoResults: false` to hide no results messages. #4616
 
 **Bugs**
 - **Button** - Fixed issue where css specificity caused `icon buttons` to not center correctly #4487

@@ -148,10 +148,11 @@ $.fn.search = function(parameters) {
           focus: function() {
             module.set.focus();
             if(settings.searchOnFocus && module.has.minimumCharacters() ) {
-              module.query();
-              if(module.can.show() ) {
-                module.showResults();
-              }
+              module.query(function() {
+                if(module.can.show() ) {
+                  module.showResults();
+                }
+              });
             }
           },
           blur: function(event) {
@@ -318,7 +319,7 @@ $.fn.search = function(parameters) {
         },
 
         setup: {
-          api: function(searchTerm) {
+          api: function(searchTerm, callback) {
             var
               apiSettings = {
                 debug             : settings.debug,
@@ -330,11 +331,13 @@ $.fn.search = function(parameters) {
                 },
                 onSuccess         : function(response) {
                   module.parse.response.call(element, response, searchTerm);
-                },
-                onAbort           : function(response) {
+                  callback();
                 },
                 onFailure         : function() {
                   module.displayMessage(error.serverError);
+                  callback();
+                },
+                onAbort : function(response) {
                 },
                 onError           : module.error
               },
@@ -497,28 +500,36 @@ $.fn.search = function(parameters) {
           }
         },
 
-        query: function() {
+        query: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
           var
             searchTerm = module.get.value(),
             cache = module.read.cache(searchTerm)
           ;
+          callback = callback || function() {};
           if( module.has.minimumCharacters() )  {
             if(cache) {
               module.debug('Reading result from cache', searchTerm);
               module.save.results(cache.results);
               module.addResults(cache.html);
               module.inject.id(cache.results);
+              callback();
             }
             else {
               module.debug('Querying for', searchTerm);
               if($.isPlainObject(settings.source) || $.isArray(settings.source)) {
                 module.search.local(searchTerm);
+                callback();
               }
               else if( module.can.useAPI() ) {
-                module.search.remote(searchTerm);
+                module.search.remote(searchTerm, callback);
               }
               else {
                 module.error(error.source);
+                callback();
               }
             }
             settings.onSearchQuery.call(element, searchTerm);
@@ -549,11 +560,15 @@ $.fn.search = function(parameters) {
               results : results
             });
           },
-          remote: function(searchTerm) {
+          remote: function(searchTerm, callback) {
+            callback = $.isFunction(callback)
+              ? callback
+              : function(){}
+            ;
             if($module.api('is loading')) {
               $module.api('abort');
             }
-            module.setup.api(searchTerm);
+            module.setup.api(searchTerm, callback);
             $module
               .api('query')
             ;
@@ -680,6 +695,15 @@ $.fn.search = function(parameters) {
               numCharacters = searchTerm.length
             ;
             return (numCharacters >= settings.minCharacters);
+          },
+          results: function() {
+            if($results.length === 0) {
+              return false;
+            }
+            var
+              html = $results.html()
+            ;
+            return html != '';
           }
         },
 
@@ -846,12 +870,18 @@ $.fn.search = function(parameters) {
             module.showResults();
           }
           else {
-            module.hideResults();
+            module.hideResults(function() {
+              $results.empty();
+            });
           }
         },
 
-        showResults: function() {
-          if(!module.is.visible()) {
+        showResults: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
+          if(!module.is.visible() && module.has.results()) {
             if( module.can.transition() ) {
               module.debug('Showing results with css animations');
               $results
@@ -860,6 +890,9 @@ $.fn.search = function(parameters) {
                   debug      : settings.debug,
                   verbose    : settings.verbose,
                   duration   : settings.duration,
+                  onComplete : function() {
+                    callback();
+                  },
                   queue      : true
                 })
               ;
@@ -874,7 +907,11 @@ $.fn.search = function(parameters) {
             settings.onResultsOpen.call($results);
           }
         },
-        hideResults: function() {
+        hideResults: function(callback) {
+          callback = $.isFunction(callback)
+            ? callback
+            : function(){}
+          ;
           if( module.is.visible() ) {
             if( module.can.transition() ) {
               module.debug('Hiding results with css animations');
@@ -884,6 +921,9 @@ $.fn.search = function(parameters) {
                   debug      : settings.debug,
                   verbose    : settings.verbose,
                   duration   : settings.duration,
+                  onComplete : function() {
+                    callback();
+                  },
                   queue      : true
                 })
               ;
