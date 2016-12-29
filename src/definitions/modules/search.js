@@ -399,6 +399,7 @@ $.fn.search = function(parameters) {
               module.verbose('Triggering native blur event');
               events.initEvent('blur', false, false);
               promptElement.dispatchEvent(events);
+              promptElement.blur();
             }
           }
         },
