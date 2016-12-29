@@ -3,9 +3,12 @@
 ### Version 2.2.8 - December 21, 2016
 
 **Enhancements**
-
 - **Icons** - Updates Font Awesome to `4.7.0` **Always the man @BreadMaker** #4766
 - **Dropdown** - Added new setting `filterAPIResults` which when enabled will filter results locally by query after API returns, allowing your API call to return the full dropdown dataset. **Thanks @enix223** #4815
+
+
+**Critical Bugs**
+- **Dropdown** - `forceSelection` will no longer select value in `multiple selection dropdown` #4041 #4516
 
 **Bugs**
 - **Button** - Fixed issue where css specificity caused `icon buttons` to not center correctly #4487
