@@ -9,9 +9,11 @@
 
 **Bugs**
 - **Dropdown** - Fix bug where `scrolling menu` or `scrolling dropdown` would have excessive right padding by removing scrollbar width from calculation (no longer necessary in modern browsers)
+- **Comments** - `small`, `large` and other comment sizes now default to global size variables.
 
 **Documentation**
 - **Visibility** - Added documentation for `onOnscreen` and `onOffScreen` to important callbacks somehow omitted from docs
+- **Comments** - Added missing `size` variations to comments docs #4450
 
 
 **Bugs**
