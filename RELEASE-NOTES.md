@@ -2,10 +2,13 @@
 
 ### Version 2.2.8 - December 21, 2016
 
-**Enhancements**
+**Major Enhancements**
 - **Icons** - Updates Font Awesome to `4.7.0` **Always the man @BreadMaker** #4766
 - **Dropdown** - Added new setting `filterAPIResults` which when enabled will filter results locally by query after API returns, allowing your API call to return the full dropdown dataset. **Thanks @enix223** #4815
+- **Tab** - Added setting `loadOnce`, which when enabled only calls remote endpoint for tab data on first load #2534
 
+
+**Enhancements**
 
 **Critical Bugs**
 - **Dropdown** - `forceSelection` will no longer select value in `multiple selection dropdown` #4041 #4516
