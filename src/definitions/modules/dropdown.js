@@ -461,6 +461,10 @@ $.fn.dropdown = function(parameters) {
             ? callback
             : function(){}
           ;
+          if(!module.can.show() && module.is.remote()) {
+            module.debug('No API results retrieved, searching before show');
+            module.queryRemote(module.get.query(), module.show);
+          }
           if( module.can.show() && !module.is.active() ) {
             module.debug('Showing dropdown');
             if(module.has.message() && !(module.has.maxSelections() || module.has.allResultsFiltered()) ) {
@@ -702,7 +706,7 @@ $.fn.dropdown = function(parameters) {
           if(settings.apiSettings) {
             if( module.can.useAPI() ) {
               module.queryRemote(searchTerm, function() {
-                if(settings.filterAPIResults) {
+                if(settings.filterRemoteData) {
                   module.filterItems(searchTerm);
                 }
                 afterFiltered();
@@ -3085,6 +3089,9 @@ $.fn.dropdown = function(parameters) {
           },
           multiple: function() {
             return $module.hasClass(className.multiple);
+          },
+          remote: function() {
+            return settings.apiSettings && module.can.useAPI();
           },
           single: function() {
             return !module.is.multiple();
