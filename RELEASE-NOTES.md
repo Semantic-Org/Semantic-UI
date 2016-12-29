@@ -10,8 +10,10 @@
 
 **Enhancements**
 - **Search** - Added callback as a parameter to behaviors `query`, `show results`, `hide results`, and `search remote`.
+- **Search** - `escape` key now prevents search results from displaying until input is blurred
 
 **Critical Bugs**
+- **Dropdown/Search/Checkbox** - Removes use of deprecated
 - **Dropdown** - `forceSelection` will no longer select value in `multiple selection dropdown` #4041 #4516
 - **Search** - Fixes issue where search will re-appear with incorrect results when using `show `showNoResults: false` to hide no results messages. #4616
 
