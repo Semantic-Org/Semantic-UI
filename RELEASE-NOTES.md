@@ -1,5 +1,18 @@
 ## RELEASE NOTES
 
+### Version 2.2.8 - December 21, 2016
+
+**Enhancements**
+
+- **Icons** - Updates Font Awesome to `4.7.0` #4766 **Always the man @BreadMaker**
+- **Dropdown** - Added new setting `filterAPIResults` which when enabled will filter results locally by query after API returns, allowing your API call to return the full dropdown dataset. **Thanks @enix223**
+
+**Documentation**
+- **Visibility** - Added documentation for `onOnscreen` and `onOffScreen` to important callbacks somehow omitted from docs
+
+
+**Bugs**
+
 ### Version 2.2.7 - December 21, 2016
 
 **Build Tools**
