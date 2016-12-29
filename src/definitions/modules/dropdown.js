@@ -3504,10 +3504,12 @@ $.fn.dropdown.settings = {
 
 
   apiSettings            : false,
-  filterAPIResults       : false,      // Whether API results should be filtered after being returned for query term
   selectOnKeydown        : true,       // Whether selection should occur automatically when keyboard shortcuts used
   minCharacters          : 0,          // Minimum characters required to trigger API call
+
+  filterRemoteData       : false,      // Whether API results should be filtered after being returned for query term
   saveRemoteData         : true,       // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
+
   throttle               : 200,        // How long to wait after last user input to search remotely
 
   context                : window,     // Context to use when determining if on screen
