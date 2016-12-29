@@ -290,7 +290,7 @@ i.icon.hand.scissors:before { content: "\f257"; }
 i.icon.hand.lizard:before { content: "\f258"; }
 i.icon.hand.spock:before { content: "\f259"; }
 i.icon.tv:before { content: "\f26c"; }
-i.icon.thermometer:before { content: "\f2c7"; }
+i.icon.thermometer.full:before { content: "\f2c7"; }
 i.icon.thermometer.three.quarters:before { content: "\f2c8"; }
 i.icon.thermometer.half:before { content: "\f2c9"; }
 i.icon.thermometer.quarter:before { content: "\f2ca"; }
@@ -984,7 +984,7 @@ i.icon.vcard:before { content: "\f2bb"; }
 i.icon.vcard.outline:before { content: "\f2bc"; }
 i.icon.drivers.license:before { content: "\f2c2"; }
 i.icon.drivers.license.outline:before { content: "\f2c3"; }
-i.icon.thermometer.full:before { content: "\f2c7"; }
+i.icon.thermometer:before { content: "\f2c7"; }
 i.icon.s15:before { content: "\f2cd"; }
 i.icon.bath:before { content: "\f2cd"; }
 i.icon.times.rectangle:before { content: "\f2d3"; }

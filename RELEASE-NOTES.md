@@ -4,8 +4,11 @@
 
 **Enhancements**
 
-- **Icons** - Updates Font Awesome to `4.7.0` #4766 **Always the man @BreadMaker**
-- **Dropdown** - Added new setting `filterAPIResults` which when enabled will filter results locally by query after API returns, allowing your API call to return the full dropdown dataset. **Thanks @enix223**
+- **Icons** - Updates Font Awesome to `4.7.0` **Always the man @BreadMaker** #4766
+- **Dropdown** - Added new setting `filterAPIResults` which when enabled will filter results locally by query after API returns, allowing your API call to return the full dropdown dataset. **Thanks @enix223** #4815
+
+**Bugs**
+- **Dropdown** - Fix bug where `scrolling menu` or `scrolling dropdown` would have excessive right padding by removing scrollbar width from calculation (no longer necessary in modern browsers)
 
 **Documentation**
 - **Visibility** - Added documentation for `onOnscreen` and `onOffScreen` to important callbacks somehow omitted from docs
