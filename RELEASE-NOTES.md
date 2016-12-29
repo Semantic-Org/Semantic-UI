@@ -9,6 +9,7 @@
 
 
 **Enhancements**
+- **Items** - Added `unstackable` variation to prevent items from stacking on mobile #2901
 - **Search** - Added callback as a parameter to behaviors `query`, `show results`, `hide results`, and `search remote`.
 - **Search** - `escape` key now prevents search results from displaying until input is blurred
 
