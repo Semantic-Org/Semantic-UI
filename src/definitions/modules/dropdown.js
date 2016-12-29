@@ -805,12 +805,15 @@ $.fn.dropdown = function(parameters) {
                 }
                 if(settings.match == 'both' || settings.match == 'value') {
                   value = String(module.get.choiceValue($choice, text));
-
                   if(value.search(beginsWithRegExp) !== -1) {
                     results.push(this);
                     return true;
                   }
-                  else if(settings.fullTextSearch && module.fuzzySearch(searchTerm, value)) {
+                  else if (settings.fullTextSearch === 'exact' && module.exactSearch(searchTerm, value)) {
+                    results.push(this);
+                    return true;
+                  }
+                  else if (settings.fullTextSearch === true && module.fuzzySearch(searchTerm, value)) {
                     results.push(this);
                     return true;
                   }
