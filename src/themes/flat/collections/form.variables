@@ -25,6 +25,7 @@
 @inputBorder: none;
 @inputBorderRadius: 0em;
 @inputBoxShadow: none;
+@invertedInputColor: @invertedTextColor;
 
 @textAreaPadding: 1em;
 @textAreaBackground: transparent;

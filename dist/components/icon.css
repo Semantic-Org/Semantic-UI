@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.2 - Icon
+ * # Semantic UI 2.2.7 - Icon
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -119,13 +119,15 @@ i.fitted.icon {
          Link
 --------------------*/
 
-i.link.icon {
+i.link.icon,
+i.link.icons {
   cursor: pointer;
   opacity: 0.8;
   -webkit-transition: opacity 0.1s ease;
   transition: opacity 0.1s ease;
 }
-i.link.icon:hover {
+i.link.icon:hover,
+i.link.icons:hover {
   opacity: 1 !important;
 }
 
@@ -153,12 +155,10 @@ i.circular.inverted.icon {
 i.flipped.icon,
 i.horizontally.flipped.icon {
   -webkit-transform: scale(-1, 1);
-      -ms-transform: scale(-1, 1);
           transform: scale(-1, 1);
 }
 i.vertically.flipped.icon {
   -webkit-transform: scale(1, -1);
-      -ms-transform: scale(1, -1);
           transform: scale(1, -1);
 }
 
@@ -170,13 +170,11 @@ i.rotated.icon,
 i.right.rotated.icon,
 i.clockwise.rotated.icon {
   -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 i.left.rotated.icon,
 i.counterclockwise.rotated.icon {
   -webkit-transform: rotate(-90deg);
-      -ms-transform: rotate(-90deg);
           transform: rotate(-90deg);
 }
 
@@ -449,7 +447,6 @@ i.icons .icon {
   top: 50%;
   left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%);
-      -ms-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
   margin: 0em;
   margin: 0;
@@ -460,7 +457,6 @@ i.icons .icon:first-child {
   height: auto;
   vertical-align: top;
   -webkit-transform: none;
-      -ms-transform: none;
           transform: none;
   margin-right: 0.25rem;
 }
@@ -472,7 +468,6 @@ i.icons .corner.icon {
   right: 0;
   bottom: 0;
   -webkit-transform: none;
-      -ms-transform: none;
           transform: none;
   font-size: 0.45em;
   text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #FFFFFF;
