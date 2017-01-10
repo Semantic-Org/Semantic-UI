@@ -2330,12 +2330,6 @@ $.fn.dropdown = function(parameters) {
               else {
                 module.set.upward($menu);
               }
-              if(module.is.fitWidth($menu)) {
-                module.remove.leftward($menu);
-              }
-              else {
-                module.set.leftward($menu);
-              }
             }
             else if(settings.direction == 'upward') {
               module.set.upward($menu);
@@ -2344,14 +2338,6 @@ $.fn.dropdown = function(parameters) {
           upward: function($menu) {
             var $element = $menu || $module;
             $element.addClass(className.upward);
-          },
-          leftward: function($menu) {
-            var $element = $menu || $module;
-            var parentMenu = $element.parent().closest(selector.menu);
-            if (parentMenu.hasClass('transition')) {
-              $element = parentMenu;
-            }
-            $element.addClass(className.leftward);
           },
           value: function(value, text, $selected) {
             var
@@ -2704,14 +2690,6 @@ $.fn.dropdown = function(parameters) {
           upward: function($menu) {
             var $element = $menu || $module;
             $element.removeClass(className.upward);
-          },
-          leftward: function($menu) {
-            var $element = $menu || $module;
-            var parentMenu = $element.parent().closest(selector.menu);
-            if (parentMenu.hasClass('transition')) {
-              $element = parentMenu;
-            }
-            $element.removeClass(className.leftward);
           },
           visible: function() {
             $module.removeClass(className.visible);
@@ -3069,34 +3047,6 @@ $.fn.dropdown = function(parameters) {
             $currentMenu.removeClass(className.loading);
             return canOpenDownward;
           },
-          fitWidth: function($subMenu) {
-            var
-                $currentMenu   = $subMenu || $menu,
-                canOpenRightward = true,
-                isOutsideScreen = false,
-                calculations
-                ;
-            $currentMenu.addClass(className.loading);
-            calculations = {
-              childrenWidth: 0,
-              contextWidth: $context.outerWidth(),
-              menuOffset  : $currentMenu.offset().left,
-              menuWidth   : $currentMenu.outerWidth()
-            };
-            $currentMenu.find(selector.menu).each(function() {
-              var child = $(this);
-              child.show();
-              calculations.childrenWidth += child[0].offsetWidth;
-            });
-            isOutsideScreen = ((calculations.contextWidth < calculations.menuOffset + calculations.menuWidth + calculations.childrenWidth) || (calculations.menuOffset - $menu.offset().left < 0));
-
-            if(isOutsideScreen) {
-              module.verbose('Dropdown cannot fit in context rightward', isOutsideScreen);
-              canOpenRightward = false;
-            }
-            $currentMenu.removeClass(className.loading);
-            return canOpenRightward;
-          },
           inObject: function(needle, object) {
             var
               found = false
@@ -3266,12 +3216,7 @@ $.fn.dropdown = function(parameters) {
                     onStart    : start,
                     onComplete : function() {
                       if(settings.direction == 'auto') {
-                        if ($currentMenu.hasClass(className.leftward)) {
-                          module.remove.leftward($subMenu);
-                        }
-                        else {
-                          module.remove.upward($subMenu);
-                        }
+                        module.remove.upward($subMenu);
                       }
                       callback.call(element);
                     }
@@ -3699,7 +3644,6 @@ $.fn.dropdown.settings = {
     selected    : 'selected',
     selection   : 'selection',
     upward      : 'upward',
-    leftward    : 'left',
     visible     : 'visible'
   }
 
