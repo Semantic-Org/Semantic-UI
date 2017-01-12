@@ -53,7 +53,6 @@
 }
 
 .ui.slider:not(.vertical) .inner .track-fill {
-  width: 0;
   height: @trackFillHeight;
   top: @trackPositionTop;
   left: 0;
@@ -128,25 +127,24 @@
     Vertical
 ---------------*/
 
-.ui.vertical.slider{
+.ui.vertical.slider {
   height: 100%;
   padding: @verticalPadding;
 }
 
-.ui.vertical.slider.inner {
+.ui.vertical.slider .inner {
   width: @height;
   height: 100%;
 }
 
-.ui.vertical.slider.inner .track {
+.ui.vertical.slider .inner .track {
   height: 100%;
   width: @trackHeight;
   left: @trackPositionTop;
   top: 0;
 }
 
-.ui.vertical.slider.inner .track-fill {
-  height: 0;
+.ui.vertical.slider .inner .track-fill {
   width: @trackFillHeight;
   left: @trackPositionTop;
   top: 0;
@@ -169,11 +167,13 @@
 
 .ui.labeled.slider > .labels {
   height: @labelHeight;
-  width: 100%;
+  width: auto;
   margin: 0;
   padding: 0;
   position: absolute;
   top: 50%;
+  left: 0;
+  right: 0;
 }
 
 .ui.labeled.slider:not(.vertical) > .labels {
@@ -200,14 +200,15 @@
 
 .ui.labeled.vertical.slider > .labels {
   width: @labelHeight;
-  height: 100%;
+  height: auto;
   left: 50%;
   top: 0;
+  bottom: 0;
   transform: translateX(-50%);
 }
 
 .ui.labeled.vertical.slider > .labels .label {
-  transform: translate(-100%, -@labelWidth);
+  transform: translate(-100%, -50%);
 }
 
 .ui.labeled.vertical.slider > .labels .label:after {
@@ -215,6 +216,11 @@
   height: @labelWidth;
   left: 100%;
   top: 50%;
+}
+
+/* Vertical Reversed Labels */
+.ui.labeled.vertical.reversed.slider > .labels .label {
+  transform: translate(-100%, 50%);
 }
 
 /*--------------
