@@ -56,6 +56,7 @@ $.fn.slider = function(parameters) {
         namespace       = settings.namespace,
         error           = settings.error,
         keys            = settings.keys,
+        interpretLabel  = settings.interpretLabel,
 
         isHover         = false,
         eventNamespace  = '.' + namespace,
@@ -201,11 +202,17 @@ $.fn.slider = function(parameters) {
               }
               for(var i = 1, len = module.get.numLabels(); i < len; i++) {
                 var
-                  $label = $('<li class="label">' + module.get.label(i) + '</li>'),
+                  labelText = module.get.label(i),
+                  $label =
+                    labelText
+                    ? $('<li class="label">' + labelText + '</li>')
+                    : null,
                   ratio  = i / len
                 ;
-                module.update.labelPosition(ratio, $label);
-                $labels.append($label);
+                if($label) {
+                  module.update.labelPosition(ratio, $label);
+                  $labels.append($label);
+                }
               }
             }
           }
@@ -510,6 +517,10 @@ $.fn.slider = function(parameters) {
             return settings.labelType;
           },
           label: function(value) {
+            if(interpretLabel) {
+              return interpretLabel(value);
+            }
+
             switch (settings.labelType) {
               case settings.labelTypes.number:
                 return (value * module.get.step()) + module.get.min();
@@ -871,10 +882,11 @@ $.fn.slider = function(parameters) {
                 ?
                 module.is.reversed() ? 'bottom' : 'top'
                 :
-                module.is.reversed() ? 'right' : 'left'
+                module.is.reversed() ? 'right' : 'left',
+              startMarginMod = module.is.reversed() && !module.is.vertical() ? ' - ' : ' + '
             ;
             var position = '(100% - ' + startMargin + ' - ' + endMargin + ') * ' + ratio;
-            $label.css(posDir, 'calc(' + position + ' + ' + startMargin + ')');
+            $label.css(posDir, 'calc(' + position + startMarginMod + startMargin + ')');
           }
         },
 
