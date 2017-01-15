@@ -81,7 +81,6 @@ $.fn.slider = function(parameters) {
         offset,
         precision,
         isTouch,
-        sliderObserver,
 
         module
       ;
