@@ -1346,6 +1346,33 @@ select.ui.dropdown {
   box-shadow: @pointingUpwardArrowBoxShadow;
   margin: @pointingArrowOffset 0em 0em;
 }
+/* ... (only for icon) */
+.ui.icon.upward.pointing.dropdown:not(.top) > .menu {
+  bottom: 0%;
+}
+.ui.icon.upward.pointing.dropdown:not(.top) > .menu:after {
+  top: ~"calc(100% - 1em)";
+}
+
+/* Upward Left (non-Top) (only for icon, link) */
+.ui.link.upward.left.pointing.dropdown > .menu:after {
+  top: ~"calc(100% - 1em)";
+  transform: rotate(135deg);
+}
+.ui.icon.upward.left.pointing.dropdown:not(.top) > .menu {
+  margin: 0em 0em 0em @pointingArrowDistanceFromEdge;
+}
+.ui.icon.upward.left.pointing.dropdown:not(.top) > .menu:after {
+  transform: rotate(135deg);
+}
+
+/* Upward Right (non-Top) (only for icon) */
+.ui.icon.upward.right.pointing.dropdown:not(.top) > .menu {
+  margin: 0em @pointingArrowDistanceFromEdge 0em 0em;
+}
+.ui.icon.upward.right.pointing.dropdown:not(.top) > .menu:after {
+  transform: rotate(-45deg);
+}
 
 
 .loadUIOverrides();
