@@ -234,7 +234,6 @@ $.fn.modal = function(parameters) {
               module.verbose('Approve callback returned false cancelling hide');
               return;
             }
-
             module.hide();
           },
           deny: function() {
