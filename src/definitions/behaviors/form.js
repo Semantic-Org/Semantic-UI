@@ -1523,30 +1523,30 @@ $.fn.form.settings = {
     },
 
     minCount: function(value, minCount) {
-      if(minCount == 0) {
+      if(minCount === 0) {
         return true;
       }
-      if(minCount == 1) {
+      if(minCount === 1) {
         return (value !== '');
       }
       return (value.split(',').length >= minCount);
     },
 
     exactCount: function(value, exactCount) {
-      if(exactCount == 0) {
+      if(exactCount === 0) {
         return (value === '');
       }
-      if(exactCount == 1) {
+      if(exactCount === 1) {
         return (value !== '' && value.search(',') === -1);
       }
       return (value.split(',').length == exactCount);
     },
 
     maxCount: function(value, maxCount) {
-      if(maxCount == 0) {
+      if(maxCount === 0) {
         return false;
       }
-      if(maxCount == 1) {
+      if(maxCount === 1) {
         return (value.search(',') === -1);
       }
       return (value.split(',').length <= maxCount);
