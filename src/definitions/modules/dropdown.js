@@ -756,9 +756,9 @@ $.fn.dropdown = function(parameters) {
             searchTerm = (query !== undefined)
               ? query
               : module.get.query(),
-            results          =  null,
-            escapedTerm      = module.escape.regExp(searchTerm),
-            beginsWithRegExp = new RegExp('^' + escapedTerm, 'igm')
+            results      =  null,
+            escapedTerm  = module.escape.regExp(searchTerm),
+            searchRegExp = settings.filter === 'startsWith' ? new RegExp('^' + escapedTerm, 'igm') : new RegExp(escapedTerm, 'igm');
           ;
           // avoid loop if we're matching nothing
           if( module.has.query() ) {
@@ -774,7 +774,7 @@ $.fn.dropdown = function(parameters) {
                 ;
                 if(settings.match == 'both' || settings.match == 'text') {
                   text = String(module.get.choiceText($choice, false));
-                  if(text.search(beginsWithRegExp) !== -1) {
+                  if(text.search(searchRegExp) !== -1) {
                     results.push(this);
                     return true;
                   }
@@ -790,7 +790,7 @@ $.fn.dropdown = function(parameters) {
                 if(settings.match == 'both' || settings.match == 'value') {
                   value = String(module.get.choiceValue($choice, text));
 
-                  if(value.search(beginsWithRegExp) !== -1) {
+                  if(value.search(searchRegExp) !== -1) {
                     results.push(this);
                     return true;
                   }
