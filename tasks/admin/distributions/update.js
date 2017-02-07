@@ -151,7 +151,7 @@ module.exports = function(callback) {
       if(version) {
         releaseOptions.target_commitish = version;
       }
-      github.releases.createRelease(releaseOptions, function() {
+      github.repos.createRelease(releaseOptions, function() {
         nextRepo();
       });
     }
