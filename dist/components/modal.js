@@ -12,6 +12,8 @@
 
 "use strict";
 
+/* @warn: start of OLX ID patch */
+
 window = (typeof window != 'undefined' && window.Math == Math)
   ? window
   : (typeof self != 'undefined' && self.Math == Math)
@@ -336,27 +338,44 @@ $.fn.modal = function(parameters) {
               settings.onShow.call(element);
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 module.debug('Showing modal with css animations');
-                $module
-                  .transition({
-                    debug       : settings.debug,
-                    animation   : settings.transition + ' in',
-                    queue       : settings.queue,
-                    duration    : settings.duration,
-                    useFailSafe : true,
-                    onComplete : function() {
-                      settings.onVisible.apply(element);
-                      if(settings.keyboardShortcuts) {
-                        module.add.keyboardShortcuts();
-                      }
-                      module.save.focus();
-                      module.set.active();
-                      if(settings.autofocus) {
-                        module.set.autofocus();
-                      }
-                      callback();
-                    }
-                  })
-                ;
+
+                // onStart
+                $module.css("min-height", $(window).height())
+
+                $module.transition("show");
+                // onComplete
+                settings.onVisible.apply(element);
+                if(settings.keyboardShortcuts) {
+                  module.add.keyboardShortcuts();
+                }
+                module.save.focus();
+                module.set.active();
+                if(settings.autofocus) {
+                  module.set.autofocus();
+                }
+                callback();
+
+                // $module
+                //   .transition({
+                //     debug       : settings.debug,
+                //     animation   : settings.transition + ' in',
+                //     queue       : settings.queue,
+                //     duration    : settings.duration,
+                //     useFailSafe : true,
+                //     onComplete : function() {
+                //       settings.onVisible.apply(element);
+                //       if(settings.keyboardShortcuts) {
+                //         module.add.keyboardShortcuts();
+                //       }
+                //       module.save.focus();
+                //       module.set.active();
+                //       if(settings.autofocus) {
+                //         module.set.autofocus();
+                //       }
+                //       callback();
+                //     }
+                //   })
+                // ;
               }
               else {
                 module.error(error.noTransition);
@@ -382,28 +401,44 @@ $.fn.modal = function(parameters) {
           if( module.is.animating() || module.is.active() ) {
             if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
               module.remove.active();
-              $module
-                .transition({
-                  debug       : settings.debug,
-                  animation   : settings.transition + ' out',
-                  queue       : settings.queue,
-                  duration    : settings.duration,
-                  useFailSafe : true,
-                  onStart     : function() {
-                    if(!module.others.active() && !keepDimmed) {
-                      module.hideDimmer();
-                    }
-                    if(settings.keyboardShortcuts) {
-                      module.remove.keyboardShortcuts();
-                    }
-                  },
-                  onComplete : function() {
-                    settings.onHidden.call(element);
-                    module.restore.focus();
-                    callback();
-                  }
-                })
-              ;
+
+              // onStart
+              if(!module.others.active() && !keepDimmed) {
+                module.hideDimmer();
+              }
+              if(settings.keyboardShortcuts) {
+                module.remove.keyboardShortcuts();
+              }
+
+              $module.transition("hide");
+
+              // onComplete
+              settings.onHidden.call(element);
+              module.restore.focus();
+              callback();
+
+              // $module
+              //   .transition({
+              //     debug       : settings.debug,
+              //     animation   : settings.transition + ' out',
+              //     queue       : settings.queue,
+              //     duration    : settings.duration,
+              //     useFailSafe : true,
+              //     onStart     : function() {
+              //       if(!module.others.active() && !keepDimmed) {
+              //         module.hideDimmer();
+              //       }
+              //       if(settings.keyboardShortcuts) {
+              //         module.remove.keyboardShortcuts();
+              //       }
+              //     },
+              //     onComplete : function() {
+              //       settings.onHidden.call(element);
+              //       module.restore.focus();
+              //       callback();
+              //     }
+              //   })
+              // ;
             }
             else {
               module.error(error.noTransition);
@@ -602,9 +637,9 @@ $.fn.modal = function(parameters) {
             }
             else {
               module.debug('Modal is taller than page content, resizing page height');
-              $body
-                .css('height', module.cache.height + (settings.padding * 2) )
-              ;
+              // $body
+              //   .css('height', module.cache.height + (settings.padding * 2) )
+              // ;
             }
           },
           active: function() {
@@ -909,5 +944,6 @@ $.fn.modal.settings = {
   }
 };
 
+/* @warn: end of OLX ID patch */
 
 })( jQuery, window, document );

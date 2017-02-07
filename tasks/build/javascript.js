@@ -55,6 +55,9 @@ module.exports = function(callback) {
   }
 
   // copy source javascript
+
+  console.log( source.definitions );
+
   gulp.src(source.definitions + '/**/' + globs.components + '.js')
     .pipe(plumber())
     .pipe(flatten())

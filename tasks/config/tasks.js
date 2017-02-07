@@ -19,12 +19,12 @@ module.exports = {
   },
 
   filenames: {
-    concatenatedCSS            : 'semantic.css',
-    concatenatedJS             : 'semantic.js',
-    concatenatedMinifiedCSS    : 'semantic.min.css',
-    concatenatedMinifiedJS     : 'semantic.min.js',
-    concatenatedRTLCSS         : 'semantic.rtl.css',
-    concatenatedMinifiedRTLCSS : 'semantic.rtl.min.css'
+    concatenatedCSS            : 'semantic.olx.css',
+    concatenatedJS             : 'semantic.olx.js',
+    concatenatedMinifiedCSS    : 'semantic.olx.min.css',
+    concatenatedMinifiedJS     : 'semantic.olx.min.js',
+    concatenatedRTLCSS         : 'semantic.olx.rtl.css',
+    concatenatedMinifiedRTLCSS : 'semantic.olx.rtl.min.css'
   },
 
   regExp: {

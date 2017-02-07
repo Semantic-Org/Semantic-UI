@@ -1,27 +1,34 @@
 {
-  "name"        : "semantic",
-  "description" : "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
-  "homepage"    : "http://www.semantic-ui.com",
+  "name": "semantic-olx",
+  "description": "Semantic empowers designers and developers by creating a shared vocabulary for UI.",
+  "homepage": "http://www.semantic-ui.com",
   "author": {
-    "name" : "Jack Lukic",
-    "web"  : "http://www.jacklukic.com"
+    "name": "Jack Lukic",
+    "web": "http://www.jacklukic.com"
   },
   "dependencies": {
-    "jquery"      : ">=1.8"
+    "jquery": ">=3.1"
   },
   "main": [
-    "src/semantic.less",
-    "dist/semantic.js"
+    "dist/semantic.olx.js"
   ],
   "keywords": [
     "semantic",
     "ui",
     "css3",
-    "framework"
+    "olx"
   ],
-  "license" : "MIT",
+  "license": "MIT",
   "ignore": [
     "src/site",
-    "test"
-  ]
+    "test",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tests"
+  ],
+  "authors": [
+    "rezki-olx <rezki.bangsawan@olx.co.id>"
+  ],
+  "private": true
 }
