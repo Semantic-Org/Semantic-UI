@@ -27,6 +27,7 @@ i.icon {
   display: inline-block;
   opacity: 1;
   margin: 0em 0.25rem 0em 0em;
+  padding-top: 0px;
   width: 1.18em;
   height: 1em;
   font-family: 'Icons';
@@ -3139,4 +3140,3 @@ i.icon.fa:before {
 /*******************************
          Site Overrides
 *******************************/
-
