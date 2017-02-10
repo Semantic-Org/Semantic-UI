@@ -65,6 +65,7 @@ module.exports = {
     'api',
     'breadcrumb',
     'button',
+    'calendar',
     'card',
     'checkbox',
     'comment',

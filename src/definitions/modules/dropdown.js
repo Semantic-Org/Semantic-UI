@@ -756,7 +756,11 @@ $.fn.dropdown = function(parameters) {
             searchTerm = (query !== undefined)
               ? query
               : module.get.query(),
+<<<<<<< HEAD
+            results         =  null,
+=======
             results          =  null,
+>>>>>>> refs/remotes/Semantic-Org/master
             escapedTerm      = module.escape.regExp(searchTerm),
             beginsWithRegExp = new RegExp('^' + escapedTerm, 'igm')
           ;
@@ -804,7 +808,11 @@ $.fn.dropdown = function(parameters) {
           }
           module.debug('Showing only matched items', searchTerm);
           module.remove.filteredItem();
+<<<<<<< HEAD
+          if(results){
+=======
           if(results) {
+>>>>>>> refs/remotes/Semantic-Org/master
             $item
               .not(results)
               .addClass(className.filtered)
