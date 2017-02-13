@@ -1,4 +1,5 @@
 node_modules/
+bower_components/
 test/coverage/
 coverage/
 src/**/site/
@@ -34,3 +35,4 @@ nbproject
 *.sublime-project
 *.sublime-workspace
 .build*
+.idea
