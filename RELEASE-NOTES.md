@@ -23,6 +23,7 @@
 **Bugs**
 - **Button** - Fixed issue where css specificity caused `icon buttons` to not center correctly #4487
 - **Dropdown** - Fixed bug where clicking `dropdown icon` using remote data would cause nothing to happen #4041
+- **Dropdown** - Fixes issue where `left pointing dropdown` and `right pointing dropdown` appear styled incorrectly when opening `upward` #4896
 - **Dropdown** - Fixed issue where using `fullTextSearch: 'exact'` would still fuzzy search on value **Thanks @ rminnett** #4651 #3424
 - **Dropdown** - Fix bug where `scrolling menu` or `scrolling dropdown` would have excessive right padding by removing scrollbar width from calculation (no longer necessary in modern browsers)
 - **Comments** - `small`, `large` and other comment sizes now default to global size variables.
