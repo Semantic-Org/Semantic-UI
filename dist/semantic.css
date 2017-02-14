@@ -17410,7 +17410,6 @@ ol.ui.horizontal.list li:before,
   margin: 0em 0em 1em;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  -ms-grid-row-align: center;
   align-items: center;
 }
 
@@ -26615,7 +26614,6 @@ a.ui.card:hover,
   flex-direction: row;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  -ms-grid-row-align: center;
   align-items: center;
 }
 
@@ -26635,7 +26633,6 @@ a.ui.card:hover,
   flex-direction: row;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  -ms-grid-row-align: center;
   align-items: center;
   max-width: none;
   margin: 1em 0em;

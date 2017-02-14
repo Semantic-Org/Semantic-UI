@@ -272,7 +272,6 @@
           flex-direction: row;
   -webkit-box-align: center;
       -ms-flex-align: center;
-              -ms-grid-row-align: center;
           align-items: center;
 }
 .ui.horizontal.statistics {
@@ -290,7 +289,6 @@
           flex-direction: row;
   -webkit-box-align: center;
       -ms-flex-align: center;
-              -ms-grid-row-align: center;
           align-items: center;
   max-width: none;
   margin: 1em 0em;
