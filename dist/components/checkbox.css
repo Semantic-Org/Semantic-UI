@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.4 - Checkbox
+ * # Semantic UI 2.2.7 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -491,6 +491,7 @@
   border: none;
   top: 0rem;
   background: rgba(0, 0, 0, 0.05);
+  box-shadow: none;
   width: 3.5rem;
   height: 1.5rem;
   border-radius: 500rem;
@@ -518,6 +519,7 @@
 .ui.toggle.checkbox input ~ .box:after,
 .ui.toggle.checkbox input ~ label:after {
   left: -0.05rem;
+  box-shadow: none;
 }
 
 /* Focus */
@@ -546,6 +548,7 @@
 .ui.toggle.checkbox input:checked ~ .box:after,
 .ui.toggle.checkbox input:checked ~ label:after {
   left: 2.15rem;
+  box-shadow: none;
 }
 
 /* Active Focus */
