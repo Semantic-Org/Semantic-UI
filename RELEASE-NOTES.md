@@ -18,6 +18,7 @@
 - **Dropdown** - `forceSelection` will no longer select value in `multiple selection dropdown` #4041 #4516
 - **Dropdown** - Fix issue where `dropdown` with `search` in menu are not tabbable #4490
 - **Search** - Fixes issue where search will re-appear with incorrect results when using `show `showNoResults: false` to hide no results messages. #4616
+- **Sidebar** - Fixed bug where sidebar in `iOS` would show background behind page when page is less than 100% height #4264
 
 
 **Bugs**
