@@ -14,7 +14,7 @@
 - **Search** - `escape` key now prevents search results from displaying until input is blurred
 
 **Critical Bugs**
-- **Dropdown/Search/Checkbox** - Removes use of deprecated
+- **Dropdown/Search/Checkbox** - Removes use of deprecated `dispatchEvent` usage for generating simulated events
 - **Dropdown** - `forceSelection` will no longer select value in `multiple selection dropdown` #4041 #4516
 - **Dropdown** - Fix issue where `dropdown` with `search` in menu are not tabbable #4490
 - **Search** - Fixes issue where search will re-appear with incorrect results when using `show `showNoResults: false` to hide no results messages. #4616
@@ -29,6 +29,7 @@
 - **Comments** - `small`, `large` and other comment sizes now default to global size variables.
 - **Dropdown** - Fixed issue where `selectOnKeydown` with `html` content would cause only non html content to display in `text` until blur
 - **Form Validation** - Fixes js error caused by revalidating inputs without validation rules #4497 #4547 **Thanks @cbxp**
+- **Input/Dropdown** - Fixed rounding error causing vertical alignment of `dropdown`, `search`, `input` to sometimes appear off by 1 pixel #4279
 
 **Documentation**
 - **Visibility** - Added documentation for `onOnscreen` and `onOffScreen` to important callbacks somehow omitted from docs
