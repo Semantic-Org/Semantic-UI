@@ -32,6 +32,7 @@
 - **Form Validation** - Fixes js error caused by revalidating inputs without validation rules #4497 #4547 **Thanks @cbxp**
 - **Input/Dropdown** - Fixed rounding error causing vertical alignment of `dropdown`, `search`, `input` to sometimes appear off by 1 pixel #4279
 - **Segment** - Fixed `padded vertical segment` `very padded vertical segment` would receive horizontal padding #3012
+- **Visibility* - Fixes issue where reinitializing, `.visibility({ type: 'image'})` will cause it to re-animate when visibile again
 
 **Documentation**
 - **Visibility** - Added documentation for `onOnscreen` and `onOffScreen` to important callbacks somehow omitted from docs
