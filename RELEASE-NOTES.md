@@ -28,6 +28,7 @@
 - **Dropdown** - Fix bug where `scrolling menu` or `scrolling dropdown` would have excessive right padding by removing scrollbar width from calculation (no longer necessary in modern browsers)
 - **Comments** - `small`, `large` and other comment sizes now default to global size variables.
 - **Dropdown** - Fixed issue where `selectOnKeydown` with `html` content would cause only non html content to display in `text` until blur
+- **Form Validation** - Fixes js error caused by revalidating inputs without validation rules #4497 #4547 **Thanks @cbxp**
 
 **Documentation**
 - **Visibility** - Added documentation for `onOnscreen` and `onOffScreen` to important callbacks somehow omitted from docs
