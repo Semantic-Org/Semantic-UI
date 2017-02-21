@@ -234,6 +234,20 @@ $.fn.form = function(parameters) {
           ;
         },
 
+        determine: {
+          isValid: function() {
+            var
+              allValid = true
+            ;
+            $.each(validation, function(fieldName, field) {
+              if( !( module.validate.field(field, fieldName, true) ) ) {
+                allValid = false;
+              }
+            });
+            return allValid;
+          }
+        },
+
         is: {
           bracketedRule: function(rule) {
             return (rule.type && rule.type.match(settings.regExp.bracket));
@@ -252,17 +266,23 @@ $.fn.form = function(parameters) {
           blank: function($field) {
             return $.trim($field.val()) === '';
           },
-          valid: function() {
+          valid: function(field) {
             var
               allValid = true
             ;
-            module.verbose('Checking if form is valid');
-            $.each(validation, function(fieldName, field) {
-              if( !( module.validate.field(field, fieldName) ) ) {
-                allValid = false;
-              }
-            });
-            return allValid;
+            if(field) {
+              module.verbose('Checking if field is valid', field);
+              return module.validate.field(validation[field], field, false);
+            }
+            else {
+              module.verbose('Checking if form is valid');
+              $.each(validation, function(fieldName, field) {
+                if( !module.is.valid(fieldName) ) {
+                  allValid = false;
+                }
+              });
+              return allValid;
+            }
           }
         },
 
@@ -805,7 +825,7 @@ $.fn.form = function(parameters) {
 
             // reset errors
             formErrors = [];
-            if( module.is.valid() ) {
+            if( module.determine.isValid() ) {
               module.debug('Form has no validation errors, submitting');
               module.set.success();
               if(ignoreCallbacks !== true) {
@@ -829,11 +849,15 @@ $.fn.form = function(parameters) {
           },
 
           // takes a validation object and returns whether field passes validation
-          field: function(field, fieldName) {
-            if(field == 'string') {
-              field = {
-                field: identifier
-              }
+          field: function(field, fieldName, showErrors) {
+            showErrors = (showErrors !== undefined)
+              ? showErrors
+              : true
+            ;
+            if(typeof field == 'string') {
+              module.verbose('Validating field', field);
+              fieldName = field;
+              field = validation[field];
             }
             var
               identifier    = field.identifier || fieldName,
@@ -870,12 +894,16 @@ $.fn.form = function(parameters) {
               });
             }
             if(fieldValid) {
-              module.remove.prompt(identifier, fieldErrors);
+              if(showErrors) {
+                module.remove.prompt(identifier, fieldErrors);
+              }
               settings.onValid.call($field);
             }
             else {
-              formErrors = formErrors.concat(fieldErrors);
-              module.add.prompt(identifier, fieldErrors);
+              if(showErrors) {
+                formErrors = formErrors.concat(fieldErrors);
+                module.add.prompt(identifier, fieldErrors);
+              }
               settings.onInvalid.call($field, fieldErrors);
               return false;
             }
