@@ -11,7 +11,7 @@ If you are using form validation, previous to `2.2.8` calling `is valid` would t
 To trigger UI updates you can call `validate form`. Additional form behaviors have been added as well. [See the new documentation on programmatic validation](http://semantic-ui.com/behaviors/form.html#validating-programmatically) for more examples.
 
 #### Dropdown
-Dropdown no longer automatically selects the currently selected value in a multi-select dropdown when you "alt-tab" or click out of a field. In most cases this is confusing, although in most cases people expect a single select to preserve current value on tab, this is in most cases, not a normal expectation for a multi-select.
+`multiple selection dropdown` no longer automatically adds the currently selected value when you "alt-tab" or blur the field, even when `forceSelection: true` is set.
 
 -------------------------------------------------------
 
