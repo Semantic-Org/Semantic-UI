@@ -27,7 +27,7 @@ To trigger UI updates you can call `validate form`. Additional form behaviors ha
 - **Search** - Fixes issue where empty results message can still appear when using setting `showNoResults: false` [#4616](https://github.com/Semantic-Org/Semantic-UI/pull/4616)
 - **Sidebar** - Fixed bug where sidebar in `iOS` would show incorrect background when opening sidebar if page is less than 100% height [#4264](https://github.com/Semantic-Org/Semantic-UI/pull/4264)
 
-**Critical Doc Fixes*
+**Critical Doc Fixes**
 - **Visibility** - Added documentation for `onOnscreen` and `onOffScreen`, two very important callbacks that occur when an element is or isn't in currently scrolled view.
 
 **Enhancements**
