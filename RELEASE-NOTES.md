@@ -5,7 +5,7 @@
 **Major Enhancements**
 - **Icons** - Updates Font Awesome to `4.7.0` **Always the man @BreadMaker** #4766
 - **Dropdown** - Added new setting `filterAPIResults` which when enabled will filter results locally by query after API returns, allowing your API call to return the full dropdown dataset. **Thanks @enix223** #4815
-- **Tab** - Added setting `loadOnce`, which when enabled only calls remote endpoint for tab data on first load #2534
+- **Tab** - Added setting `loadOnce`, which when enabled only calls remote endpoint for tab data on first load and leaves the DOM undisturbed afterwards. #2534
 
 
 **Enhancements**
@@ -29,6 +29,7 @@
 - **Dropdown** - Fix bug where `scrolling menu` or `scrolling dropdown` would have excessive right padding by removing scrollbar width from calculation (no longer necessary in modern browsers)
 - **Comments** - `small`, `large` and other comment sizes now default to global size variables.
 - **Dropdown** - Fixed issue where `selectOnKeydown` with `html` content would cause only non html content to display in `text` until blur
+- **Form Validation** - Fixes issue where decimal validation would allow multiple `.` in value
 - **Form Validation** - Fixes js error caused by revalidating inputs without validation rules #4497 #4547 **Thanks @cbxp**
 - **Header** - Using `image icon` or `image outline icon` would cause incorrect display within `ui header` due to namespace collision with `ui image` #4145
 - **Input/Dropdown** - Fixed rounding error causing vertical alignment of `dropdown`, `search`, `input` to sometimes appear off by 1 pixel #4279
