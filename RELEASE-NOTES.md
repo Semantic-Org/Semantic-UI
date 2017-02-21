@@ -1,17 +1,17 @@
 ## RELEASE NOTES
 
-### Version 2.2.8 - December 21, 2016
+### Version 2.2.8 - February 21, 2016
 
-### Important Changes
-> Some behaviors have been changed, as these are patches of incorrect behaviors this is still being considered a patch release, however  if you have relied on these quirks you might need to update your code.
+### Important Note
+> Some quirks have been resolved that may cause changes for upgrading users who were expecting these behaviors
 
 #### Form Validation
 If you are using form validation, previous to `2.2.8` calling `is valid` would trigger UI updates. This behavior now **no longer triggers UI updates**, and will only return a `boolean` whether form is valid, as this was the intended functionality.
 
-To trigger UI updates you can call `validate form`. Additional UI behaviors have been added as well, [see new documentation on programmatic validation](http://semantic-ui.com/behaviors/form.html#validating-programmatically)
+To trigger UI updates you can call `validate form`. Additional form behaviors have been added as well. [See the new documentation on programmatic validation](http://semantic-ui.com/behaviors/form.html#validating-programmatically) for more examples.
 
 #### Dropdown
-Dropdown no longer automatically selects the currently selected value in a multi-select dropdown when you "alt-tab" or click out of a field. In most cases this is an unexpected behavior, even with `forceSelection`.
+Dropdown no longer automatically selects the currently selected value in a multi-select dropdown when you "alt-tab" or click out of a field. In most cases this is confusing, although in most cases people expect a single select to preserve current value on tab, this is in most cases, not a normal expectation for a multi-select.
 
 -------------------------------------------------------
 
