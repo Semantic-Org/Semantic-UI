@@ -896,15 +896,15 @@ $.fn.form = function(parameters) {
             if(fieldValid) {
               if(showErrors) {
                 module.remove.prompt(identifier, fieldErrors);
+                settings.onValid.call($field);
               }
-              settings.onValid.call($field);
             }
             else {
               if(showErrors) {
                 formErrors = formErrors.concat(fieldErrors);
                 module.add.prompt(identifier, fieldErrors);
+                settings.onInvalid.call($field, fieldErrors);
               }
-              settings.onInvalid.call($field, fieldErrors);
               return false;
             }
             return true;
