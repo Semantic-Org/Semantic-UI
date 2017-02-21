@@ -263,12 +263,6 @@ $.fn.form = function(parameters) {
               }
             });
             return allValid;
-          },
-          validHTMLID(value) {
-            if(typeof value !== 'string') {
-              return false;
-            }
-            return value.search(regExp.htmlID) !== -1;
           }
         },
 
@@ -485,7 +479,8 @@ $.fn.form = function(parameters) {
           },
           field: function(identifier) {
             module.verbose('Finding field with identifier', identifier);
-            if(module.is.validHTMLID(identifier) && $field.filter('#' + identifier).length > 0 ) {
+            identifier = module.escape.string(identifier);
+            if($field.filter('#' + identifier).length > 0 ) {
               return $field.filter('#' + identifier);
             }
             else if( $field.filter('[name="' + identifier +'"]').length > 0 ) {
@@ -600,10 +595,11 @@ $.fn.form = function(parameters) {
 
           field: function(identifier) {
             module.verbose('Checking for existence of a field with identifier', identifier);
+            identifier = module.escape.regExp(identifier);
             if(typeof identifier !== 'string') {
               module.error(error.identifier, identifier);
             }
-            if(module.is.validHTMLID(identifier) && $field.filter('#' + identifier).length > 0 ) {
+            if($field.filter('#' + identifier).length > 0 ) {
               return true;
             }
             else if( $field.filter('[name="' + identifier +'"]').length > 0 ) {
@@ -615,6 +611,13 @@ $.fn.form = function(parameters) {
             return false;
           }
 
+        },
+
+        escape: {
+          string: function(text) {
+            text =  String(text);
+            return text.replace(regExp.escape, '\\$&');
+          }
         },
 
         add: {
