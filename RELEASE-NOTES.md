@@ -55,9 +55,6 @@ Dropdown no longer automatically selects the currently selected value in a multi
 - **Comments** - Added missing `size` variations to comments docs [#4450](https://github.com/Semantic-Org/Semantic-UI/pull/4450)
 - **Typos** - Thanks to everyone who has submitted typo/grammatical PRs, much appreciated
 
-
-**Bugs**
-
 ### Version 2.2.7 - December 21, 2016
 
 **Build Tools**
