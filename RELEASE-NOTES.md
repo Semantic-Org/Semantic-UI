@@ -2,7 +2,7 @@
 
 ### Version 2.2.8 - December 21, 2016
 
-> ### Important Changes
+### Important Changes
 > Some behaviors have been changed, as these are patches of incorrect behaviors this is still being considered a patch release, however  if you have relied on these quirks you might need to update your code.
 
 #### Form Validation
