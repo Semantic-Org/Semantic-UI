@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 2.2.7
+ * # Semantic UI - 2.2.8
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -9,7 +9,7 @@
  *
  */
 /*!
- * # Semantic UI 2.2.7 - Site
+ * # Semantic UI 2.2.8 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -497,7 +497,7 @@ $.extend($.expr[ ":" ], {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - Form Validation
+ * # Semantic UI 2.2.8 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2056,7 +2056,7 @@ $.fn.form.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - Accordion
+ * # Semantic UI 2.2.8 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2667,7 +2667,7 @@ $.extend( $.easing, {
 
 
 /*!
- * # Semantic UI 2.2.7 - Checkbox
+ * # Semantic UI 2.2.8 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3499,7 +3499,7 @@ $.fn.checkbox.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - Dimmer
+ * # Semantic UI 2.2.8 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -4208,7 +4208,7 @@ $.fn.dimmer.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - Dropdown
+ * # Semantic UI 2.2.8 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -4670,6 +4670,10 @@ $.fn.dropdown = function(parameters) {
             ? callback
             : function(){}
           ;
+          if(!module.can.show() && module.is.remote()) {
+            module.debug('No API results retrieved, searching before show');
+            module.queryRemote(module.get.query(), module.show);
+          }
           if( module.can.show() && !module.is.active() ) {
             module.debug('Showing dropdown');
             if(module.has.message() && !(module.has.maxSelections() || module.has.allResultsFiltered()) ) {
@@ -4911,6 +4915,9 @@ $.fn.dropdown = function(parameters) {
           if(settings.apiSettings) {
             if( module.can.useAPI() ) {
               module.queryRemote(searchTerm, function() {
+                if(settings.filterRemoteData) {
+                  module.filterItems(searchTerm);
+                }
                 afterFiltered();
               });
             }
@@ -5085,7 +5092,7 @@ $.fn.dropdown = function(parameters) {
               : $activeItem,
             hasSelected = ($selectedItem.length > 0)
           ;
-          if(hasSelected) {
+          if(hasSelected && !module.is.multiple()) {
             module.debug('Forcing partial selection to selected item', $selectedItem);
             module.event.item.click.call($selectedItem, {}, true);
             return;
@@ -7292,6 +7299,9 @@ $.fn.dropdown = function(parameters) {
           multiple: function() {
             return $module.hasClass(className.multiple);
           },
+          remote: function() {
+            return settings.apiSettings && module.can.useAPI();
+          },
           single: function() {
             return !module.is.multiple();
           },
@@ -7712,7 +7722,10 @@ $.fn.dropdown.settings = {
   apiSettings            : false,
   selectOnKeydown        : true,       // Whether selection should occur automatically when keyboard shortcuts used
   minCharacters          : 0,          // Minimum characters required to trigger API call
+
+  filterRemoteData       : false,      // Whether API results should be filtered after being returned for query term
   saveRemoteData         : true,       // Whether remote name/value pairs should be stored in sessionStorage to allow remote data to be restored on page refresh
+
   throttle               : 200,        // How long to wait after last user input to search remotely
 
   context                : window,     // Context to use when determining if on screen
@@ -7950,7 +7963,7 @@ $.fn.dropdown.settings.templates = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - Embed
+ * # Semantic UI 2.2.8 - Embed
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8647,7 +8660,7 @@ $.fn.embed.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - Modal
+ * # Semantic UI 2.2.8 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9561,7 +9574,7 @@ $.fn.modal.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - Nag
+ * # Semantic UI 2.2.8 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10069,7 +10082,7 @@ $.extend( $.easing, {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - Popup
+ * # Semantic UI 2.2.8 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11545,7 +11558,7 @@ $.fn.popup.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - Progress
+ * # Semantic UI 2.2.8 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12477,7 +12490,7 @@ $.fn.progress.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - Rating
+ * # Semantic UI 2.2.8 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12986,7 +12999,7 @@ $.fn.rating.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - Search
+ * # Semantic UI 2.2.8 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13134,9 +13147,9 @@ $.fn.search = function(parameters) {
           },
           focus: function() {
             module.set.focus();
-            if( module.has.minimumCharacters() ) {
+            if(settings.searchOnFocus && module.has.minimumCharacters() ) {
               module.query();
-              if( module.can.show() ) {
+              if(module.can.show() ) {
                 module.showResults();
               }
             }
@@ -14131,6 +14144,9 @@ $.fn.search.settings = {
   // object to search
   source            : false,
 
+  // Whether search should query current term on focus
+  searchOnFocus     : true,
+
   // fields to search
   searchFields   : [
     'title',
@@ -14394,7 +14410,7 @@ $.fn.search.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - Shape
+ * # Semantic UI 2.2.8 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15316,7 +15332,7 @@ $.fn.shape.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - Sidebar
+ * # Semantic UI 2.2.8 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -16353,7 +16369,7 @@ $.fn.sidebar.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - Sticky
+ * # Semantic UI 2.2.8 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17296,7 +17312,7 @@ $.fn.sticky.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - Tab
+ * # Semantic UI 2.2.8 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17773,7 +17789,10 @@ $.fn.tab = function(parameters) {
                   settings.onFirstLoad.call($tab[0], tabPath, parameterArray, historyEvent);
                   settings.onLoad.call($tab[0], tabPath, parameterArray, historyEvent);
 
-                  if(typeof settings.cacheType == 'string' && settings.cacheType.toLowerCase() == 'dom' && $tab.children().length > 0) {
+                  if(settings.loadOnce) {
+                    module.cache.add(fullTabPath, true);
+                  }
+                  else if(typeof settings.cacheType == 'string' && settings.cacheType.toLowerCase() == 'dom' && $tab.children().length > 0) {
                     setTimeout(function() {
                       var
                         $clone = $tab.children().clone(true)
@@ -17803,11 +17822,13 @@ $.fn.tab = function(parameters) {
             if(settings.cache && cachedContent) {
               module.activate.tab(tabPath);
               module.debug('Adding cached content', fullTabPath);
-              if(settings.evaluateScripts == 'once') {
-                module.update.content(tabPath, cachedContent, false);
-              }
-              else {
-                module.update.content(tabPath, cachedContent);
+              if(!settings.loadOnce) {
+                if(settings.evaluateScripts == 'once') {
+                  module.update.content(tabPath, cachedContent, false);
+                }
+                else {
+                  module.update.content(tabPath, cachedContent);
+                }
               }
               settings.onLoad.call($tab[0], tabPath, parameterArray, historyEvent);
             }
@@ -18195,6 +18216,7 @@ $.fn.tab.settings = {
 
   alwaysRefresh   : false,      // load tab content new every tab click
   cache           : true,       // cache the content requests to pull locally
+  loadOnce        : false,      // Whether tab data should only be loaded once when using remote content
   cacheType       : 'response', // Whether to cache exact response, or to html cache contents after scripts execute
   ignoreFirstLoad : false,      // don't load remote content on first load
 
@@ -18243,7 +18265,7 @@ $.fn.tab.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - Transition
+ * # Semantic UI 2.2.8 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -19339,7 +19361,7 @@ $.fn.transition.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - API
+ * # Semantic UI 2.2.8 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20507,7 +20529,7 @@ $.api.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - State
+ * # Semantic UI 2.2.8 - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21216,7 +21238,7 @@ $.fn.state.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - Visibility
+ * # Semantic UI 2.2.8 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *

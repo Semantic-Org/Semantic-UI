@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.7 - Button
+ * # Semantic UI 2.2.8 - Button
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -708,7 +708,7 @@
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
   opacity: 0.9;
-  margin: 0em;
+  margin: 0em !important;
   vertical-align: top;
 }
 

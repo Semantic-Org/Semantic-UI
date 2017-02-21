@@ -58,13 +58,13 @@
 ---------------*/
 
 @headerFontWeight : bold;
-@headerLineHeight : 1.2857em;
+@headerLineHeight : unit((18 / 14), em);
 
-@h1 : 2rem;
-@h2 : 1.714rem;
-@h3 : 1.28rem;
-@h4 : 1.071rem;
-@h5 : 1rem;
+@h1 : unit((28 / 14), rem);
+@h2 : unit((24 / 14), rem);
+@h3 : unit((18 / 14), rem);
+@h4 : unit((15 / 14), rem);
+@h5 : unit((14 / 14), rem);
 
 /*--------------
    Form Input
@@ -81,8 +81,8 @@
 @inputPlaceholderColor: lighten(@inputColor, 75);
 @inputPlaceholderFocusColor: lighten(@inputColor, 45);
 
-/* Line Height Default For Inputs in Browser */
-@inputLineHeight: 1.2142em;
+/* Line Height Default For Inputs in Browser (Descendors are 17px at 14px base em) */
+@inputLineHeight: unit((17 / 14), em);
 
 /*-------------------
     Focused Input

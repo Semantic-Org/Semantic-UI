@@ -353,26 +353,25 @@
 
 /* Mobile Only */
 @media only screen and (max-width: @largestMobileScreen) {
-  .ui.items > .item {
+  .ui.items:not(.unstackable) > .item {
     flex-direction: column;
     margin: @mobileItemSpacing 0em;
   }
-  .ui.items > .item > .image {
+  .ui.items:not(.unstackable) > .item > .image {
     display: block;
     margin-left: auto;
     margin-right: auto;
   }
-  .ui.items > .item > .image,
-  .ui.items > .item > .image > img {
+  .ui.items:not(.unstackable) > .item > .image,
+  .ui.items:not(.unstackable) > .item > .image > img {
     max-width: 100% !important;
     width: @mobileImageWidth !important;
     max-height: @mobileImageMaxHeight !important;
   }
-  .ui.items > .item > .image + .content {
+  .ui.items:not(.unstackable) > .item > .image + .content {
     display: block;
     padding: @mobileContentImageDistance 0em 0em;
   }
-
 }
 
 
@@ -458,7 +457,18 @@
 ---------------*/
 
 .ui.items > .item {
-  font-size: @medium;
+  font-size: @relativeMedium;
+}
+
+/*---------------
+   Unstackable
+----------------*/
+
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui.unstackable.items > .item > .image,
+  .ui.unstackable.items > .item > .image > img {
+    width: @unstackableMobileImageWidth !important;
+  }
 }
 
 .loadUIOverrides();
