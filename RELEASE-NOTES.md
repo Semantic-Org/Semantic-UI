@@ -5,6 +5,7 @@
 **Major Enhancements**
 - **Icons** - Updates Font Awesome to `4.7.0` **Always the man @BreadMaker** #4766
 - **Dropdown** - Added new setting `filterAPIResults` which when enabled will filter results locally by query after API returns, allowing your API call to return the full dropdown dataset. **Thanks @enix223** #4815
+- **Dropdown** - Fixed issue where using special characters like `\` inside values could cause them not to work properly #4688 #4692
 - **Tab** - Added setting `loadOnce`, which when enabled only calls remote endpoint for tab data on first load and leaves the DOM undisturbed afterwards. #2534
 
 **Critical Bugs**
