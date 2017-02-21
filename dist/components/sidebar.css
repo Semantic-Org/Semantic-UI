@@ -256,10 +256,6 @@ html.ios {
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
-html.ios,
-html.ios body {
-  height: initial !important;
-}
 
 
 /*******************************
