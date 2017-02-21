@@ -1,11 +1,11 @@
 ## RELEASE NOTES
 
-### Version 2.2.9 - February 21, 2016
+### Version 2.2.9 - February 21, 2017
 
 **Build Tools**
 - Fixes `2.2.8` npm install script failing due to incorrect path in `require` statement
 
-### Version 2.2.8 - February 21, 2016
+### Version 2.2.8 - February 21, 2017
 
 ### Important Note
 > Some quirks have been resolved that may cause changes for upgrading users who were expecting these behaviors
