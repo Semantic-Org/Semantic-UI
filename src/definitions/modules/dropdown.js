@@ -773,7 +773,7 @@ $.fn.dropdown = function(parameters) {
               ? query
               : module.get.query(),
             results          =  null,
-            escapedTerm      = module.escape.regExp(searchTerm),
+            escapedTerm      = module.escape.string(searchTerm),
             beginsWithRegExp = new RegExp('^' + escapedTerm, 'igm')
           ;
           // avoid loop if we're matching nothing
@@ -3323,7 +3323,7 @@ $.fn.dropdown = function(parameters) {
             }
             return value.replace(regExp.quote, '&quot;');
           },
-          regExp: function(text) {
+          string: function(text) {
             text =  String(text);
             return text.replace(regExp.escape, '\\$&');
           }
