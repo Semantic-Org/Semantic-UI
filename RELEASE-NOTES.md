@@ -7,6 +7,11 @@
 - **Dropdown** - Added new setting `filterAPIResults` which when enabled will filter results locally by query after API returns, allowing your API call to return the full dropdown dataset. **Thanks @enix223** #4815
 - **Tab** - Added setting `loadOnce`, which when enabled only calls remote endpoint for tab data on first load and leaves the DOM undisturbed afterwards. #2534
 
+**Critical Bugs**
+- **Dropdown** - `forceSelection` setting will no longer cause highlighted value in multiselect to be selected on blur when using a `multiple selection dropdown` #4041 #4516
+- **Dropdown** - Fix issue where `dropdown` with `search` in menu are not tabbable #4490
+- **Search** - Fixes issue where search will re-appear with incorrect results when using `show `showNoResults: false` to hide no results messages. #4616
+- **Sidebar** - Fixed bug where sidebar in `iOS` would show background behind page when page is less than 100% height #4264
 
 **Enhancements**
 - **Items** - Added `unstackable` variation to prevent items from stacking on mobile #2901
@@ -14,17 +19,10 @@
 - **Form Validation** - Validation now properly supports rules with brackets, like `name="user[name]"` **Thanks @@mzygmunt** #4163
 - **Search** - `esc` key now hides results and prevents them from being displayed again until form field is blurred
 
-**Critical Bugs**
-- **Dropdown/Search/Checkbox** - Removes use of deprecated `dispatchEvent` usage for generating simulated events
-- **Dropdown** - `forceSelection` will no longer select value in `multiple selection dropdown` #4041 #4516
-- **Dropdown** - Fix issue where `dropdown` with `search` in menu are not tabbable #4490
-- **Search** - Fixes issue where search will re-appear with incorrect results when using `show `showNoResults: false` to hide no results messages. #4616
-- **Sidebar** - Fixed bug where sidebar in `iOS` would show background behind page when page is less than 100% height #4264
-
-
 **Bugs**
 - **Button** - Fixed issue where css specificity caused `icon buttons` to not center correctly #4487
 - **Dropdown** - Fixed bug where clicking `dropdown icon` using remote data would cause nothing to happen #4041
+- **Dropdown/Search/Checkbox** - Removes use of deprecated `dispatchEvent` usage for generating simulated events
 - **Dropdown** - Fixes issue where `left pointing dropdown` and `right pointing dropdown` appear styled incorrectly when opening `upward` #4896
 - **Dropdown** - Fixed issue where using `fullTextSearch: 'exact'` would still fuzzy search on value **Thanks @ rminnett** #4651 #3424
 - **Dropdown** - Fix bug where `scrolling menu` or `scrolling dropdown` would have excessive right padding by removing scrollbar width from calculation (no longer necessary in modern browsers)
@@ -41,6 +39,7 @@
 **Documentation**
 - **Visibility** - Added documentation for `onOnscreen` and `onOffScreen` to important callbacks somehow omitted from docs
 - **Comments** - Added missing `size` variations to comments docs #4450
+- **Typos** - Thanks to everyone who has submitted typo/grammatical PRs, much appreciated
 
 
 **Bugs**

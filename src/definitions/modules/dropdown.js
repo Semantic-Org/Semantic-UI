@@ -2529,7 +2529,7 @@ $.fn.dropdown = function(parameters) {
             ;
             $label =  $('<a />')
               .addClass(className.label)
-              .attr('data-value', escapedValue)
+              .attr('data-' + metadata.value, escapedValue)
               .html(templates.label(escapedValue, text))
             ;
             $label = settings.onLabelCreate.call($label, escapedValue, text);
@@ -2577,7 +2577,7 @@ $.fn.dropdown = function(parameters) {
           optionValue: function(value) {
             var
               escapedValue = module.escape.value(value),
-              $option      = $input.find('option[value="' + escapedValue + '"]'),
+              $option      = $input.find('option[value="' + module.escape.string(escapedValue) + '"]'),
               hasOption    = ($option.length > 0)
             ;
             if(hasOption) {
@@ -2750,7 +2750,7 @@ $.fn.dropdown = function(parameters) {
           optionValue: function(value) {
             var
               escapedValue = module.escape.value(value),
-              $option      = $input.find('option[value="' + escapedValue + '"]'),
+              $option      = $input.find('option[value="' + module.escape.string(escapedValue) + '"]'),
               hasOption    = ($option.length > 0)
             ;
             if(!hasOption || !$option.hasClass(className.addition)) {
@@ -2869,7 +2869,7 @@ $.fn.dropdown = function(parameters) {
           label: function(value, shouldAnimate) {
             var
               $labels       = $module.find(selector.label),
-              $removedLabel = $labels.filter('[data-value="' + value +'"]')
+              $removedLabel = $labels.filter('[data-' + metadata.value + '="' + module.escape.string(value) +'"]')
             ;
             module.verbose('Removing label', $removedLabel);
             $removedLabel.remove();
@@ -2983,7 +2983,7 @@ $.fn.dropdown = function(parameters) {
               escapedValue = module.escape.value(value),
               $labels      = $module.find(selector.label)
             ;
-            return ($labels.filter('[data-value="' + escapedValue +'"]').length > 0);
+            return ($labels.filter('[data-' + metadata.value + '="' + module.escape.string(escapedValue) +'"]').length > 0);
           },
           maxSelections: function() {
             return (settings.maxSelections && module.get.selectionCount() >= settings.maxSelections);
@@ -3311,7 +3311,7 @@ $.fn.dropdown = function(parameters) {
               hasQuotes      = (stringValue && value.search(regExp.quote) !== -1),
               values         = []
             ;
-            if(!module.has.selectInput() || isUnparsable || !hasQuotes) {
+            if(isUnparsable || !hasQuotes) {
               return value;
             }
             module.debug('Encoding quote values for use in select', value);
