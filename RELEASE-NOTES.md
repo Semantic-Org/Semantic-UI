@@ -30,6 +30,7 @@
 - **Comments** - `small`, `large` and other comment sizes now default to global size variables.
 - **Dropdown** - Fixed issue where `selectOnKeydown` with `html` content would cause only non html content to display in `text` until blur
 - **Form Validation** - Fixes js error caused by revalidating inputs without validation rules #4497 #4547 **Thanks @cbxp**
+- **Header** - Using `image icon` or `image outline icon` would cause incorrect display within `ui header` due to namespace collision with `ui image` #4145
 - **Input/Dropdown** - Fixed rounding error causing vertical alignment of `dropdown`, `search`, `input` to sometimes appear off by 1 pixel #4279
 - **Segment** - Fixed `padded vertical segment` `very padded vertical segment` would receive horizontal padding #3012
 - **Visibility* - Fixes issue where reinitializing, `.visibility({ type: 'image'})` will cause it to re-animate when visibile again
