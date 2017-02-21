@@ -595,7 +595,7 @@ $.fn.form = function(parameters) {
 
           field: function(identifier) {
             module.verbose('Checking for existence of a field with identifier', identifier);
-            identifier = module.escape.regExp(identifier);
+            identifier = module.escape.string(identifier);
             if(typeof identifier !== 'string') {
               module.error(error.identifier, identifier);
             }
@@ -830,6 +830,11 @@ $.fn.form = function(parameters) {
 
           // takes a validation object and returns whether field passes validation
           field: function(field, fieldName) {
+            if(field == 'string') {
+              field = {
+                field: identifier
+              }
+            }
             var
               identifier    = field.identifier || fieldName,
               $field        = module.get.field(identifier),
