@@ -48,7 +48,7 @@ Dropdown no longer automatically selects the currently selected value in a multi
 - **Input/Dropdown** - Fixed rounding error causing vertical alignment of `dropdown`, `search`, `input` to sometimes appear off by 1 pixel [#4279](https://github.com/Semantic-Org/Semantic-UI/pull/4279)
 - **Segment** - Fixed `padded vertical segment` `very padded vertical segment` would receive horizontal padding [#3012](https://github.com/Semantic-Org/Semantic-UI/pull/3012)
 - **Visibility** - Fixes issue where reinitializing, `.visibility({ type: 'image'})` will cause it to re-animate when visibile again
-- **Form Validation** - Fixed issue where using bracketed values, or other special characters could cause errors with selectors [#4163 [#4164](https://github.com/Semantic-Org/Semantic-UI/pull/4164)
+- **Form Validation** - Fixed issue where using bracketed values, or other special characters could cause errors with selectors [#4163](https://github.com/Semantic-Org/Semantic-UI/pull/4163) [#4164](https://github.com/Semantic-Org/Semantic-UI/pull/4164)
 
 **Documentation**
 - **Visibility** - Added documentation for `onOnscreen` and `onOffScreen` to important callbacks somehow omitted from docs
