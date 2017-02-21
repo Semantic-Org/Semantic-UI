@@ -2,6 +2,11 @@
 
 ### Version 2.2.8 - December 21, 2016
 
+**Notice about Form Validation**
+If you are using form validation, previous to `2.2.8` calling `is valid` would trigger UI updates. This behavior now **no longer triggers UI updates**, and will only return a `boolean` whether form is valid, as this was the intended functionality.
+
+To trigger UI updates you can call `validate form`. Additional UI behaviors have been added as well, [see new documentation on programmatic validation](http://semantic-ui.com/behaviors/form.html#validating-programmatically)
+
 **Major Enhancements**
 - **Icons** - Updates Font Awesome to `4.7.0` **Always the man @BreadMaker** #4766
 - **Dropdown** - Added new setting `filterAPIResults` which when enabled will filter results locally by query after API returns, allowing your API call to return the full dropdown dataset. **Thanks @enix223** #4815
