@@ -6,7 +6,7 @@
 > Some quirks have been resolved that may cause changes for upgrading users who were expecting these behaviors
 
 #### Form Validation
-If you are using form validation, previous to `2.2.8` calling `is valid` would trigger UI updates. This behavior now **no longer triggers UI updates**, and will only return a `boolean` whether form is valid, as this was the intended functionality.
+If you are using form validation, previous to `2.2.8` calling `is valid` would trigger UI updates. This behavior now **no longer triggers UI updates**, and will only return a `boolean` whether form is valid.
 
 To trigger UI updates you can call `validate form`. Additional form behaviors have been added as well. [See the new documentation on programmatic validation](http://semantic-ui.com/behaviors/form.html#validating-programmatically) for more examples.
 
