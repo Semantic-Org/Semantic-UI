@@ -11,7 +11,8 @@
 **Enhancements**
 - **Items** - Added `unstackable` variation to prevent items from stacking on mobile #2901
 - **Search** - Added callback as a parameter to behaviors `query`, `show results`, `hide results`, and `search remote`.
-- **Search** - `escape` key now prevents search results from displaying until input is blurred
+- **Form Validation** - Validation now properly supports rules with brackets, like `name="user[name]"` **Thanks @@mzygmunt** #4163
+- **Search** - `esc` key now hides results and prevents them from being displayed again until form field is blurred
 
 **Critical Bugs**
 - **Dropdown/Search/Checkbox** - Removes use of deprecated `dispatchEvent` usage for generating simulated events
@@ -35,6 +36,7 @@
 - **Input/Dropdown** - Fixed rounding error causing vertical alignment of `dropdown`, `search`, `input` to sometimes appear off by 1 pixel #4279
 - **Segment** - Fixed `padded vertical segment` `very padded vertical segment` would receive horizontal padding #3012
 - **Visibility* - Fixes issue where reinitializing, `.visibility({ type: 'image'})` will cause it to re-animate when visibile again
+- **Form Validation** - Fixed issue where using bracketed values, or other special characters could cause errors with selectors #4163 #4164
 
 **Documentation**
 - **Visibility** - Added documentation for `onOnscreen` and `onOffScreen` to important callbacks somehow omitted from docs
