@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 2.2.9 - February 21, 2016
+
+**Build Tools**
+- Fixes install script failing do to incorrect path in `require` statement
+
 ### Version 2.2.8 - February 21, 2016
 
 ### Important Note
