@@ -726,8 +726,15 @@ $.fn.modal = function(parameters) {
 
         set: {
           autofocus: function() {
-            if (module.cache.firstFocusElement) {
-              module.cache.firstFocusElement.focus();
+            var
+              $inputs    = $module.find('[tabindex], :input').filter(':visible'),
+              $autofocus = $inputs.filter('[autofocus]'),
+              $input     = ($autofocus.length > 0)
+                ? $autofocus.first()
+                : $(module.cache.firstFocusElement)
+            ;
+            if($input.length > 0) {
+              $input.focus();
             }
           },
           clickaway: function() {
