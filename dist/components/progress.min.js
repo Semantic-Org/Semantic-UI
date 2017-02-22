@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.8 - Progress
+ * # Semantic UI 2.2.9 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
