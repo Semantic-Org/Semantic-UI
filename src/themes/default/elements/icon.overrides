@@ -296,8 +296,8 @@ i.icon.thermometer.half:before { content: "\f2c9"; }
 i.icon.thermometer.quarter:before { content: "\f2ca"; }
 i.icon.thermometer.empty:before { content: "\f2cb"; }
 i.icon.shower:before { content: "\f2cc"; }
-i.icon.bathtub:before { content: "\f2cd"; }
-i.icon.snowflake:before { content: "\f2dc"; }
+i.icon.bath:before { content: "\f2cd"; }
+i.icon.snowflake.outline:before { content: "\f2dc"; }
 
 /* Shapes */
 i.icon.crosshairs:before { content: "\f05b"; }
@@ -986,6 +986,6 @@ i.icon.drivers.license:before { content: "\f2c2"; }
 i.icon.drivers.license.outline:before { content: "\f2c3"; }
 i.icon.thermometer:before { content: "\f2c7"; }
 i.icon.s15:before { content: "\f2cd"; }
-i.icon.bath:before { content: "\f2cd"; }
+i.icon.bathtub:before { content: "\f2cd"; }
 i.icon.times.rectangle:before { content: "\f2d3"; }
 i.icon.times.rectangle.outline:before { content: "\f2d4"; }
