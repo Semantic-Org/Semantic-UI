@@ -791,12 +791,6 @@ $.fn.modal = function(parameters) {
           }
         },
 
-        manage: {
-            focus: function() {
-                
-            }
-        },
-
         setting: function(name, value) {
           module.debug('Changing setting', name, value);
           if( $.isPlainObject(name) ) {
