@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.7 - Segment
+ * # Semantic UI 2.2.9 - Segment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -213,6 +213,13 @@
 }
 .ui[class*="very padded"].segment {
   padding: 3em;
+}
+
+/* Padded vertical */
+.ui.padded.segment.vertical.segment,
+.ui[class*="very padded"].vertical.segment {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 /*-------------------

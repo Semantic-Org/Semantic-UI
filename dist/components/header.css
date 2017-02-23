@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.7 - Header
+ * # Semantic UI 2.2.9 - Header
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -69,7 +69,7 @@
         Image
 --------------------*/
 
-.ui.header > .image,
+.ui.header > .image:not(.icon),
 .ui.header > img {
   display: inline-block;
   margin-top: 0.14285em;
@@ -77,7 +77,7 @@
   height: auto;
   vertical-align: middle;
 }
-.ui.header > .image:only-child,
+.ui.header > .image:not(.icon):only-child,
 .ui.header > img:only-child {
   margin-right: 0.75rem;
 }
