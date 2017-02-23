@@ -422,6 +422,12 @@ $.fn.visibility = function(parameters) {
               return !(module.cache.element.width === 0 && module.cache.element.offset.top === 0);
             }
             return false;
+          },
+          verticallyScrollableContext: function() {
+            return $context.get(0) !== window  && $context.css('overflow-y') == 'auto';
+          },
+          horizontallyScrollableContext: function() {
+            return $context.get(0) !== window  && $context.css('overflow-x') == 'auto';
           }
         },
 
@@ -879,6 +885,13 @@ $.fn.visibility = function(parameters) {
             element.offset        = $module.offset();
             element.width         = $module.outerWidth();
             element.height        = $module.outerHeight();
+            // compensate for scroll in context
+            if(module.is.verticallyScrollableContext()) {
+              element.offset.top += $context.scrollTop();
+            }
+            if(module.is.horizontallyScrollableContext()) {
+              element.offset.left += $context.scrollLeft();
+            }
             // store
             module.cache.element = element;
             return element;

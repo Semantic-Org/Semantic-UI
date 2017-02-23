@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 2.2.10 - February 21, 2017
+
+**Bugs**
+**Visibility** - Fixed bug where using visibility with `context` setting on a scrollable context (with overflow) would cause callbacks to fire incorrectly
+
 ### Version 2.2.9 - February 21, 2017
 
 **Build Tools**
