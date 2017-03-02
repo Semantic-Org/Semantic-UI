@@ -1,5 +1,13 @@
 ## RELEASE NOTES
 
+### Version 2.2.11 - February 21, 2017
+
+**Bugs**
+
+- **Button** - Fixes `@basicActiveBoxShadow` being used incorrectly in basic button variables
+- **Visibility** - Fixes issue where visibility events would occur improperly when using a `context` that have `overflow-x` or `overflow-y` set to `auto`
+- **Dropdown** - Fixes an issue where dropdown would not correctly open `upward` at bottom edge of the screen when using a `context` with `overflow-x` or `overflow-y` set to `auto`
+
 ### Version 2.2.10 - February 21, 2017
 
 **Bugs**
