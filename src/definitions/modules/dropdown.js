@@ -3148,9 +3148,11 @@ $.fn.dropdown = function(parameters) {
           },
           verticallyScrollableContext: function() {
             var
-              overflowY = $context.css('overflow-y')
+              overflowY = ($context.get(0) !== window)
+                ? $context.css('overflow-y')
+                : false
             ;
-            return $context.get(0) !== window  &&  (overflowY == 'auto' || overflowY == 'scroll');
+            return (overflowY == 'auto' || overflowY == 'scroll');
           }
         },
 
