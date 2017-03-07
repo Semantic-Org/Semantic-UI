@@ -915,10 +915,10 @@ $.fn.visibility = function(parameters) {
             }
 
             // visibility
-            element.topVisible       = (screen.bottom >= element.top);
             element.topPassed        = (screen.top >= element.top);
-            element.bottomVisible    = (screen.bottom >= element.bottom);
             element.bottomPassed     = (screen.top >= element.bottom);
+            element.topVisible       = (screen.bottom >= element.top) && !element.bottomPassed;
+            element.bottomVisible    = (screen.bottom >= element.bottom) && !element.topPassed;
             element.pixelsPassed     = 0;
             element.percentagePassed = 0;
 
