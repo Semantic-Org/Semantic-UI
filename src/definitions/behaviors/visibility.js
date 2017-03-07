@@ -424,10 +424,16 @@ $.fn.visibility = function(parameters) {
             return false;
           },
           verticallyScrollableContext: function() {
-            return $context.get(0) !== window  && $context.css('overflow-y') == 'auto';
+            var
+              overflowY = $context.css('overflow-y')
+            ;
+            return $context.get(0) !== window  &&  (overflowY == 'auto' || overflowY == 'scroll');
           },
           horizontallyScrollableContext: function() {
-            return $context.get(0) !== window  && $context.css('overflow-x') == 'auto';
+            var
+              overflowX = $context.css('overflow-x')
+            ;
+            return $context.get(0) !== window  && (overflowX == 'auto' || overflowX == 'scroll');
           }
         },
 
