@@ -887,10 +887,10 @@ $.fn.visibility = function(parameters) {
             element.height        = $module.outerHeight();
             // compensate for scroll in context
             if(module.is.verticallyScrollableContext()) {
-              element.offset.top += $context.scrollTop();
+              element.offset.top += $context.scrollTop() - $context.offset().top;
             }
             if(module.is.horizontallyScrollableContext()) {
-              element.offset.left += $context.scrollLeft();
+              element.offset.left += $context.scrollLeft - $context.offset().left;
             }
             // store
             module.cache.element = element;
