@@ -1,5 +1,5 @@
 /*
- * Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
+ * Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  * License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 
@@ -76,7 +76,6 @@ i.icon.history:before { content: "\f1da"; }
 i.icon.options:before { content: "\f1de"; }
 i.icon.text.telephone:before { content: "\f1e4"; }
 i.icon.find:before { content: "\f1e5"; }
-i.icon.wifi:before { content: "\f1eb"; }
 i.icon.alarm.mute:before { content: "\f1f6"; }
 i.icon.alarm.mute.outline:before { content: "\f1f7"; }
 i.icon.copyright:before { content: "\f1f9"; }
@@ -103,6 +102,22 @@ i.icon.shopping.bag:before { content: "\f290"; }
 i.icon.shopping.basket:before { content: "\f291"; }
 i.icon.hashtag:before { content: "\f292"; }
 i.icon.percent:before { content: "\f295"; }
+i.icon.handshake:before { content: "\f2b5"; }
+i.icon.open.envelope:before { content: "\f2b6"; }
+i.icon.open.envelope.outline:before { content: "\f2b7"; }
+i.icon.address.book:before { content: "\f2b9"; }
+i.icon.address.book.outline:before { content: "\f2ba"; }
+i.icon.address.card:before { content: "\f2bb"; }
+i.icon.address.card.outline:before { content: "\f2bc"; }
+i.icon.id.badge:before { content: "\f2c1"; }
+i.icon.id.card:before { content: "\f2c2"; }
+i.icon.id.card.outline:before { content: "\f2c3"; }
+i.icon.podcast:before { content: "\f2ce"; }
+i.icon.window.maximize:before { content: "\f2d0"; }
+i.icon.window.minimize:before { content: "\f2d1"; }
+i.icon.window.restore:before { content: "\f2d2"; }
+i.icon.window.close:before { content: "\f2d3"; }
+i.icon.window.close.outline:before { content: "\f2d4"; }
 
 /* User Actions */
 i.icon.wait:before { content: "\f017"; }
@@ -173,7 +188,7 @@ i.icon.announcement:before { content: "\f0a1"; }
 i.icon.help:before { content: "\f128"; }
 i.icon.info:before { content: "\f129"; }
 i.icon.warning:before { content: "\f12a"; }
-i.icon.birthday:before {  content: "\f1fd"; }
+i.icon.birthday:before { content: "\f1fd"; }
 i.icon.help.circle.outline:before { content: "\f29c"; }
 
 /* Users */
@@ -184,6 +199,9 @@ i.icon.handicap:before { content: "\f193"; }
 i.icon.student:before { content: "\f19d"; }
 i.icon.child:before { content: "\f1ae"; }
 i.icon.spy:before { content: "\f21b"; }
+i.icon.user.circle:before { content: "\f2bd"; }
+i.icon.user.circle.outline:before { content: "\f2be"; }
+i.icon.user.outline:before { content: "\f2c0"; }
 
 /* Gender & Sexuality */
 i.icon.female:before { content: "\f182"; }
@@ -272,6 +290,14 @@ i.icon.hand.scissors:before { content: "\f257"; }
 i.icon.hand.lizard:before { content: "\f258"; }
 i.icon.hand.spock:before { content: "\f259"; }
 i.icon.tv:before { content: "\f26c"; }
+i.icon.thermometer.full:before { content: "\f2c7"; }
+i.icon.thermometer.three.quarters:before { content: "\f2c8"; }
+i.icon.thermometer.half:before { content: "\f2c9"; }
+i.icon.thermometer.quarter:before { content: "\f2ca"; }
+i.icon.thermometer.empty:before { content: "\f2cb"; }
+i.icon.shower:before { content: "\f2cc"; }
+i.icon.bathtub:before { content: "\f2cd"; }
+i.icon.snowflake:before { content: "\f2dc"; }
 
 /* Shapes */
 i.icon.crosshairs:before { content: "\f05b"; }
@@ -421,10 +447,12 @@ i.icon.css3:before { content: "\f13c"; }
 i.icon.rss.square:before { content: "\f143"; }
 i.icon.openid:before { content: "\f19b"; }
 i.icon.database:before { content: "\f1c0"; }
+i.icon.wifi:before { content: "\f1eb"; }
 i.icon.server:before { content: "\f233"; }
 i.icon.usb:before { content: "\f287"; }
 i.icon.bluetooth:before { content: "\f293"; }
 i.icon.bluetooth.alternative:before { content: "\f294"; }
+i.icon.microchip:before { content: "\f2db"; }
 
 /* Rating */
 i.icon.heart:before { content: "\f004"; }
@@ -715,6 +743,19 @@ i.icon.yoast:before { content: "\f2b1"; }
 i.icon.themeisle:before { content: "\f2b2"; }
 i.icon.google.plus.circle:before { content: "\f2b3"; }
 i.icon.font.awesome:before { content: "\f2b4"; }
+i.icon.linode:before { content: "\f2b8"; }
+i.icon.quora:before { content: "\f2c4"; }
+i.icon.free.code.camp:before { content: "\f2c5"; }
+i.icon.telegram:before { content: "\f2c6"; }
+i.icon.bandcamp:before { content: "\f2d5"; }
+i.icon.grav:before { content: "\f2d6"; }
+i.icon.etsy:before { content: "\f2d7"; }
+i.icon.imdb:before { content: "\f2d8"; }
+i.icon.ravelry:before { content: "\f2d9"; }
+i.icon.eercast:before { content: "\f2da"; }
+i.icon.superpowers:before { content: "\f2dd"; }
+i.icon.wpexplorer:before { content: "\f2de"; }
+i.icon.meetup:before { content: "\f2e0"; }
 
 /*******************************
             Aliases
@@ -933,9 +974,18 @@ i.icon.ald:before { content: "\f2a2"; }
 i.icon.asl.interpreting:before { content: "\f2a3"; }
 i.icon.deaf:before { content: "\f2a4"; }
 i.icon.american.sign.language.interpreting:before { content: "\f2a3"; }
-i.icon.hard.of.hearing:before{ content: "\f2a4"; }
+i.icon.hard.of.hearing:before { content: "\f2a4"; }
 i.icon.signing:before { content: "\f2a7"; }
 i.icon.new.pied.piper:before { content: "\f2ae"; }
 i.icon.theme.isle:before { content: "\f2b2"; }
 i.icon.google.plus.official:before { content: "\f2b3"; }
 i.icon.fa:before { content: "\f2b4"; }
+i.icon.vcard:before { content: "\f2bb"; }
+i.icon.vcard.outline:before { content: "\f2bc"; }
+i.icon.drivers.license:before { content: "\f2c2"; }
+i.icon.drivers.license.outline:before { content: "\f2c3"; }
+i.icon.thermometer:before { content: "\f2c7"; }
+i.icon.s15:before { content: "\f2cd"; }
+i.icon.bath:before { content: "\f2cd"; }
+i.icon.times.rectangle:before { content: "\f2d3"; }
+i.icon.times.rectangle.outline:before { content: "\f2d4"; }

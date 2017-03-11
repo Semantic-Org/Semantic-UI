@@ -1,9 +1,9 @@
 /*!
- * # Semantic UI 2.2.4 - Breadcrumb
+ * # Semantic UI 2.2.9 - Breadcrumb
  * http://github.com/semantic-org/semantic-ui/
  *
  *
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
- */.ui.breadcrumb{line-height:1;display:inline-block;margin:0;vertical-align:middle}.ui.breadcrumb:first-child{margin-top:0}.ui.breadcrumb:last-child{margin-bottom:0}.ui.breadcrumb .divider{display:inline-block;opacity:.7;margin:0 .21428571rem;font-size:.92857143em;color:rgba(0,0,0,.4);vertical-align:baseline}.ui.breadcrumb a{color:#4183C4}.ui.breadcrumb a:hover{color:#1e70bf}.ui.breadcrumb .icon.divider{font-size:.85714286em;vertical-align:baseline}.ui.breadcrumb a.section{cursor:pointer}.ui.breadcrumb .section{display:inline-block;margin:0;padding:0}.ui.breadcrumb.segment{display:inline-block;padding:.78571429em 1em}.ui.breadcrumb .active.section{font-weight:700}.ui.mini.breadcrumb{font-size:.78571429rem}.ui.tiny.breadcrumb{font-size:.85714286rem}.ui.small.breadcrumb{font-size:.92857143rem}.ui.breadcrumb{font-size:1rem}.ui.large.breadcrumb{font-size:1.14285714rem}.ui.big.breadcrumb{font-size:1.28571429rem}.ui.huge.breadcrumb{font-size:1.42857143rem}.ui.massive.breadcrumb{font-size:1.71428571rem}
+ */.ui.breadcrumb{line-height:1;display:inline-block;margin:0 0;vertical-align:middle}.ui.breadcrumb:first-child{margin-top:0}.ui.breadcrumb:last-child{margin-bottom:0}.ui.breadcrumb .divider{display:inline-block;opacity:.7;margin:0 .21428571rem 0;font-size:.92857143em;color:rgba(0,0,0,.4);vertical-align:baseline}.ui.breadcrumb a{color:#4183c4}.ui.breadcrumb a:hover{color:#1e70bf}.ui.breadcrumb .icon.divider{font-size:.85714286em;vertical-align:baseline}.ui.breadcrumb a.section{cursor:pointer}.ui.breadcrumb .section{display:inline-block;margin:0;padding:0}.ui.breadcrumb.segment{display:inline-block;padding:.78571429em 1em}.ui.breadcrumb .active.section{font-weight:700}.ui.mini.breadcrumb{font-size:.78571429rem}.ui.tiny.breadcrumb{font-size:.85714286rem}.ui.small.breadcrumb{font-size:.92857143rem}.ui.breadcrumb{font-size:1rem}.ui.large.breadcrumb{font-size:1.14285714rem}.ui.big.breadcrumb{font-size:1.28571429rem}.ui.huge.breadcrumb{font-size:1.42857143rem}.ui.massive.breadcrumb{font-size:1.71428571rem}

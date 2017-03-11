@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.4 - Popup
+ * # Semantic UI 2.2.9 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -52,7 +52,6 @@
   height: 0.71428571em;
   background: #FFFFFF;
   -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
           transform: rotate(45deg);
   z-index: 2;
   box-shadow: 1px 1px 0px 0px #bababc;
@@ -84,7 +83,6 @@
   height: 0.71428571em;
   background: #FFFFFF;
   -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
           transform: rotate(45deg);
   z-index: 2;
   box-shadow: 1px 1px 0px 0px #bababc;
@@ -125,7 +123,6 @@
 [data-tooltip]:not([data-position]):after {
   left: 50%;
   -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
           transform: translateX(-50%);
   bottom: 100%;
   margin-bottom: 0.5em;
@@ -140,10 +137,8 @@
 [data-tooltip]:before {
   opacity: 0;
   -webkit-transform: rotate(45deg) scale(0) !important;
-      -ms-transform: rotate(45deg) scale(0) !important;
           transform: rotate(45deg) scale(0) !important;
   -webkit-transform-origin: center top;
-      -ms-transform-origin: center top;
           transform-origin: center top;
   -webkit-transition: all 0.1s ease;
   transition: all 0.1s ease;
@@ -151,7 +146,6 @@
 [data-tooltip]:after {
   opacity: 1;
   -webkit-transform-origin: center bottom;
-      -ms-transform-origin: center bottom;
           transform-origin: center bottom;
   -webkit-transition: all 0.1s ease;
   transition: all 0.1s ease;
@@ -163,7 +157,6 @@
 }
 [data-tooltip]:hover:before {
   -webkit-transform: rotate(45deg) scale(1) !important;
-      -ms-transform: rotate(45deg) scale(1) !important;
           transform: rotate(45deg) scale(1) !important;
   opacity: 1;
 }
@@ -173,25 +166,21 @@
 [data-tooltip][data-position="top center"]:after,
 [data-tooltip][data-position="bottom center"]:after {
   -webkit-transform: translateX(-50%) scale(0) !important;
-      -ms-transform: translateX(-50%) scale(0) !important;
           transform: translateX(-50%) scale(0) !important;
 }
 [data-tooltip]:hover:after,
 [data-tooltip][data-position="bottom center"]:hover:after {
   -webkit-transform: translateX(-50%) scale(1) !important;
-      -ms-transform: translateX(-50%) scale(1) !important;
           transform: translateX(-50%) scale(1) !important;
 }
 [data-tooltip][data-position="left center"]:after,
 [data-tooltip][data-position="right center"]:after {
   -webkit-transform: translateY(-50%) scale(0) !important;
-      -ms-transform: translateY(-50%) scale(0) !important;
           transform: translateY(-50%) scale(0) !important;
 }
 [data-tooltip][data-position="left center"]:hover:after,
 [data-tooltip][data-position="right center"]:hover:after {
   -webkit-transform: translateY(-50%) scale(1) !important;
-      -ms-transform: translateY(-50%) scale(1) !important;
           transform: translateY(-50%) scale(1) !important;
 }
 [data-tooltip][data-position="top left"]:after,
@@ -199,7 +188,6 @@
 [data-tooltip][data-position="bottom left"]:after,
 [data-tooltip][data-position="bottom right"]:after {
   -webkit-transform: scale(0) !important;
-      -ms-transform: scale(0) !important;
           transform: scale(0) !important;
 }
 [data-tooltip][data-position="top left"]:hover:after,
@@ -207,7 +195,6 @@
 [data-tooltip][data-position="bottom left"]:hover:after,
 [data-tooltip][data-position="bottom right"]:hover:after {
   -webkit-transform: scale(1) !important;
-      -ms-transform: scale(1) !important;
           transform: scale(1) !important;
 }
 
@@ -250,7 +237,6 @@
   left: 50%;
   bottom: 100%;
   -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
           transform: translateX(-50%);
   margin-bottom: 0.5em;
 }
@@ -305,7 +291,6 @@
   left: 50%;
   top: 100%;
   -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
           transform: translateX(-50%);
   margin-top: 0.5em;
 }
@@ -354,7 +339,6 @@
   top: 50%;
   margin-right: 0.5em;
   -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
           transform: translateY(-50%);
 }
 [data-position="left center"][data-tooltip]:before {
@@ -370,7 +354,6 @@
   top: 50%;
   margin-left: 0.5em;
   -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
           transform: translateY(-50%);
 }
 [data-position="right center"][data-tooltip]:before {
@@ -415,32 +398,26 @@
 }
 [data-position~="bottom"][data-tooltip]:before {
   -webkit-transform-origin: center bottom;
-      -ms-transform-origin: center bottom;
           transform-origin: center bottom;
 }
 [data-position~="bottom"][data-tooltip]:after {
   -webkit-transform-origin: center top;
-      -ms-transform-origin: center top;
           transform-origin: center top;
 }
 [data-position="left center"][data-tooltip]:before {
   -webkit-transform-origin: top center;
-      -ms-transform-origin: top center;
           transform-origin: top center;
 }
 [data-position="left center"][data-tooltip]:after {
   -webkit-transform-origin: right center;
-      -ms-transform-origin: right center;
           transform-origin: right center;
 }
 [data-position="right center"][data-tooltip]:before {
   -webkit-transform-origin: right center;
-      -ms-transform-origin: right center;
           transform-origin: right center;
 }
 [data-position="right center"][data-tooltip]:after {
   -webkit-transform-origin: left center;
-      -ms-transform-origin: left center;
           transform-origin: left center;
 }
 
@@ -458,17 +435,14 @@
 }
 .ui.top.left.popup {
   -webkit-transform-origin: left bottom;
-      -ms-transform-origin: left bottom;
           transform-origin: left bottom;
 }
 .ui.top.center.popup {
   -webkit-transform-origin: center bottom;
-      -ms-transform-origin: center bottom;
           transform-origin: center bottom;
 }
 .ui.top.right.popup {
   -webkit-transform-origin: right bottom;
-      -ms-transform-origin: right bottom;
           transform-origin: right bottom;
 }
 
@@ -476,13 +450,11 @@
 .ui.left.center.popup {
   margin: 0em 0.71428571em 0em 0em;
   -webkit-transform-origin: right 50%;
-      -ms-transform-origin: right 50%;
           transform-origin: right 50%;
 }
 .ui.right.center.popup {
   margin: 0em 0em 0em 0.71428571em;
   -webkit-transform-origin: left 50%;
-      -ms-transform-origin: left 50%;
           transform-origin: left 50%;
 }
 
@@ -492,17 +464,14 @@
 }
 .ui.bottom.left.popup {
   -webkit-transform-origin: left top;
-      -ms-transform-origin: left top;
           transform-origin: left top;
 }
 .ui.bottom.center.popup {
   -webkit-transform-origin: center top;
-      -ms-transform-origin: center top;
           transform-origin: center top;
 }
 .ui.bottom.right.popup {
   -webkit-transform-origin: right top;
-      -ms-transform-origin: right top;
           transform-origin: right top;
 }
 

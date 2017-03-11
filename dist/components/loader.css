@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.4 - Loader
+ * # Semantic UI 2.2.9 - Loader
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -24,7 +24,6 @@
   text-align: center;
   z-index: 1000;
   -webkit-transform: translateX(-50%) translateY(-50%);
-      -ms-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
 }
 
@@ -320,7 +319,6 @@
   left: 0em;
   top: 0em;
   -webkit-transform: none;
-      -ms-transform: none;
           transform: none;
 }
 .ui.inline.loader.active,

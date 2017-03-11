@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.4 - Search
+ * # Semantic UI 2.2.9 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -24,8 +24,8 @@
   text-shadow: none;
   font-style: normal;
   font-weight: normal;
-  line-height: 1.2142em;
-  padding: 0.67861429em 1em;
+  line-height: 1.21428571em;
+  padding: 0.67857143em 1em;
   font-size: 1em;
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
@@ -56,7 +56,6 @@
   top: 100%;
   left: 0%;
   -webkit-transform-origin: center top;
-      -ms-transform-origin: center top;
           transform-origin: center top;
   white-space: normal;
   background: #FFFFFF;
@@ -115,7 +114,7 @@
   margin: 0em 6em 0em 0em;
 }
 .ui.search > .results .result .title {
-  margin: -0.14285em 0em 0em;
+  margin: -0.14285714em 0em 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1em;

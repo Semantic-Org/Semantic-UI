@@ -1065,7 +1065,6 @@ select.ui.dropdown {
 .ui.scrolling.dropdown .menu .item.item.item,
 .ui.dropdown .scrolling.menu > .item.item.item {
   border-top: @scrollingMenuItemBorder;
-  padding-right: @scrollingMenuRightItemPadding !important;
 }
 .ui.scrolling.dropdown .menu .item:first-child,
 .ui.dropdown .scrolling.menu .item:first-child {
@@ -1348,5 +1347,31 @@ select.ui.dropdown {
   margin: @pointingArrowOffset 0em 0em;
 }
 
+/* Right Pointing Upward */
+.ui.upward.right.pointing.dropdown:not(.top):not(.bottom) > .menu {
+  top: auto;
+  bottom: 0;
+  margin: 0em @pointingArrowDistanceFromEdge 0em 0em;
+}
+.ui.upward.right.pointing.dropdown:not(.top):not(.bottom) > .menu:after {
+  top: auto;
+  bottom: 0;
+  margin: 0em 0em @pointingArrowDistanceFromEdge 0em;
+  box-shadow: @pointingArrowBoxShadow;
+}
+
+
+/* Left Pointing Upward */
+.ui.upward.left.pointing.dropdown:not(.top):not(.bottom) > .menu {
+  top: auto;
+  bottom: 0;
+  margin: 0em 0em 0em @pointingArrowDistanceFromEdge;
+}
+.ui.upward.left.pointing.dropdown:not(.top):not(.bottom) > .menu:after {
+  top: auto;
+  bottom: 0;
+  margin: 0em 0em @pointingArrowDistanceFromEdge 0em;
+  box-shadow: @pointingArrowBoxShadow;
+}
 
 .loadUIOverrides();

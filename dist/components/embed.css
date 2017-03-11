@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.4 - Video
+ * # Semantic UI 2.2.9 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -95,7 +95,6 @@
   left: 50%;
   z-index: 4;
   -webkit-transform: translateX(-50%) translateY(-50%);
-      -ms-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
   color: #FFFFFF;
   font-size: 6rem;

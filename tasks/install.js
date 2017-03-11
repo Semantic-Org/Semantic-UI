@@ -34,7 +34,7 @@ var
   rename         = require('gulp-rename'),
   replace        = require('gulp-replace'),
   requireDotFile = require('require-dot-file'),
-  wrench         = require('wrench'),
+  wrench         = require('wrench-sui'),
 
   // install config
   install        = require('./config/project/install'),
@@ -194,9 +194,10 @@ gulp.task('run setup', function() {
   // If auto-install is switched on, we skip the configuration section and simply reuse the configuration from semantic.json
   if(install.shouldAutoInstall()) {
     answers = {
-      overwrite : 'yes',
-      install   : 'auto',
-      useRoot   : true,
+
+      overwrite    : 'yes',
+      install      : 'auto',
+      useRoot      : true,
       semanticRoot : currentConfig.base
     };
   }
@@ -250,7 +251,7 @@ gulp.task('create install files', function(callback) {
   ---------------*/
 
   // Check if PM install
-  if(answers.useRoot || answers.customRoot) {
+  if(manager && (answers.useRoot || answers.customRoot)) {
 
     // Set root to custom root path if set
     if(answers.customRoot) {

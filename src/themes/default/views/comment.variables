@@ -96,9 +96,3 @@
 @minimalEasing: @defaultEasing;
 @minimalDuration: 0.2s;
 @minimalTransition: opacity @minimalDuration @minimalEasing;
-
-/* Sizes */
-@small: 0.9em;
-@medium: 1em;
-@large: 1.1em;
-@huge: 1.2em;

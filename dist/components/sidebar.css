@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.4 - Sidebar
+ * # Semantic UI 2.2.9 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -256,10 +256,6 @@ html.ios {
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
-html.ios,
-html.ios body {
-  height: initial !important;
-}
 
 
 /*******************************
@@ -403,7 +399,6 @@ html.ios body {
 .ui.visible.overlay.sidebar ~ .fixed,
 .ui.visible.overlay.sidebar ~ .pusher {
   -webkit-transform: none !important;
-      -ms-transform: none !important;
           transform: none !important;
 }
 
@@ -586,22 +581,18 @@ html.ios body {
 /* Pusher - Initial */
 .ui.scale.down.left.sidebar ~ .pusher {
   -webkit-transform-origin: 75% 50%;
-      -ms-transform-origin: 75% 50%;
           transform-origin: 75% 50%;
 }
 .ui.scale.down.right.sidebar ~ .pusher {
   -webkit-transform-origin: 25% 50%;
-      -ms-transform-origin: 25% 50%;
           transform-origin: 25% 50%;
 }
 .ui.scale.down.top.sidebar ~ .pusher {
   -webkit-transform-origin: 50% 75%;
-      -ms-transform-origin: 50% 75%;
           transform-origin: 50% 75%;
 }
 .ui.scale.down.bottom.sidebar ~ .pusher {
   -webkit-transform-origin: 50% 25%;
-      -ms-transform-origin: 50% 25%;
           transform-origin: 50% 25%;
 }
 
@@ -627,7 +618,6 @@ html.ios body {
 }
 .ui.visible.scale.down.sidebar ~ .pusher {
   -webkit-transform: scale(0.75);
-      -ms-transform: scale(0.75);
           transform: scale(0.75);
 }
 

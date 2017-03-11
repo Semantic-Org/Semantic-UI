@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.4 - Dropdown
+ * # Semantic UI 2.2.9 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -167,7 +167,6 @@
 .ui.dropdown .menu > .input {
   width: auto;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   margin: 1.14285714rem 0.78571429rem;
@@ -348,10 +347,9 @@
   white-space: normal;
   outline: 0;
   -webkit-transform: rotateZ(0deg);
-      -ms-transform: rotate(0deg);
           transform: rotateZ(0deg);
   min-width: 14em;
-  min-height: 2.7142em;
+  min-height: 2.71428571em;
   background: #FFFFFF;
   display: inline-block;
   padding: 0.78571429em 2.1em 0.78571429em 1em;
@@ -379,7 +377,7 @@ select.ui.dropdown {
   position: absolute;
   width: auto;
   height: auto;
-  line-height: 1.2142em;
+  line-height: 1.21428571em;
   top: 0.78571429em;
   right: 1em;
   z-index: 3;
@@ -562,14 +560,14 @@ select.ui.dropdown {
 
 /* Search Selection */
 .ui.search.selection.dropdown > input.search {
-  line-height: 1.2142em;
-  padding: 0.67861429em 2.1em 0.67861429em 1em;
+  line-height: 1.21428571em;
+  padding: 0.67857143em 2.1em 0.67857143em 1em;
 }
 
 /* Used to size multi select input to character width */
 .ui.search.selection.dropdown > span.sizer {
-  line-height: 1.2142em;
-  padding: 0.67861429em 2.1em 0.67861429em 1em;
+  line-height: 1.21428571em;
+  padding: 0.67857143em 2.1em 0.67857143em 1em;
   display: none;
   white-space: pre;
 }
@@ -629,7 +627,7 @@ select.ui.dropdown {
 
 /* Multiple Selection */
 .ui.multiple.dropdown {
-  padding: 0.22620476em 2.1em 0.22620476em 0.35714286em;
+  padding: 0.22619048em 2.1em 0.22619048em 0.35714286em;
 }
 .ui.multiple.dropdown .menu {
   cursor: auto;
@@ -667,7 +665,7 @@ select.ui.dropdown {
   position: static;
   padding: 0;
   max-width: 100%;
-  margin: 0.45240952em 0em 0.45240952em 0.64285714em;
+  margin: 0.45238095em 0em 0.45238095em 0.64285714em;
   line-height: 1.21428571em;
 }
 .ui.multiple.dropdown > .label ~ input.search {
@@ -689,7 +687,7 @@ select.ui.dropdown {
   top: 0;
   left: 0;
   padding: inherit;
-  margin: 0.45240952em 0em 0.45240952em 0.64285714em;
+  margin: 0.45238095em 0em 0.45238095em 0.64285714em;
   line-height: 1.21428571em;
 }
 .ui.multiple.search.dropdown > .label ~ .text {
@@ -701,7 +699,7 @@ select.ui.dropdown {
   position: static;
   padding: 0;
   max-width: 100%;
-  margin: 0.45240952em 0em 0.45240952em 0.64285714em;
+  margin: 0.45238095em 0em 0.45238095em 0.64285714em;
   width: 2.2em;
   line-height: 1.21428571em;
 }
@@ -1067,7 +1065,6 @@ select.ui.dropdown {
 .ui.scrolling.dropdown .menu .item.item.item,
 .ui.dropdown .scrolling.menu > .item.item.item {
   border-top: none;
-  padding-right: calc( 1.14285714rem  +  17px ) !important;
 }
 .ui.scrolling.dropdown .menu .item:first-child,
 .ui.dropdown .scrolling.menu .item:first-child {
@@ -1209,7 +1206,6 @@ select.ui.dropdown {
   content: '';
   visibility: visible;
   -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
           transform: rotate(45deg);
   width: 0.5em;
   height: 0.5em;
@@ -1244,7 +1240,6 @@ select.ui.dropdown {
   right: auto;
   margin: 0em;
   -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
@@ -1262,7 +1257,6 @@ select.ui.dropdown {
   right: 1em;
   margin: 0em;
   -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
@@ -1278,7 +1272,6 @@ select.ui.dropdown {
   left: -0.25em;
   margin: 0em 0em 0em 0em;
   -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 
@@ -1295,7 +1288,6 @@ select.ui.dropdown {
   right: -0.25em;
   margin: 0em 0em 0em 0em;
   -webkit-transform: rotate(135deg);
-      -ms-transform: rotate(135deg);
           transform: rotate(135deg);
 }
 
@@ -1313,7 +1305,6 @@ select.ui.dropdown {
   right: auto;
   margin: 0em;
   -webkit-transform: rotate(-135deg);
-      -ms-transform: rotate(-135deg);
           transform: rotate(-135deg);
 }
 
@@ -1357,6 +1348,32 @@ select.ui.dropdown {
   bottom: auto;
   box-shadow: 1px 1px 0px 1px rgba(34, 36, 38, 0.15);
   margin: -0.25em 0em 0em;
+}
+
+/* Right Pointing Upward */
+.ui.upward.right.pointing.dropdown:not(.top):not(.bottom) > .menu {
+  top: auto;
+  bottom: 0;
+  margin: 0em 1em 0em 0em;
+}
+.ui.upward.right.pointing.dropdown:not(.top):not(.bottom) > .menu:after {
+  top: auto;
+  bottom: 0;
+  margin: 0em 0em 1em 0em;
+  box-shadow: -1px -1px 0px 1px rgba(34, 36, 38, 0.15);
+}
+
+/* Left Pointing Upward */
+.ui.upward.left.pointing.dropdown:not(.top):not(.bottom) > .menu {
+  top: auto;
+  bottom: 0;
+  margin: 0em 0em 0em 1em;
+}
+.ui.upward.left.pointing.dropdown:not(.top):not(.bottom) > .menu:after {
+  top: auto;
+  bottom: 0;
+  margin: 0em 0em 1em 0em;
+  box-shadow: -1px -1px 0px 1px rgba(34, 36, 38, 0.15);
 }
 
 

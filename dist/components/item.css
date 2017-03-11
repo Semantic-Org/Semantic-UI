@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.4 - Item
+ * # Semantic UI 2.2.9 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20,7 +20,6 @@
 
 .ui.items > .item {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   margin: 1em 0em;
@@ -79,7 +78,6 @@
 .ui.items > .item > .image {
   position: relative;
   -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   display: block;
@@ -87,9 +85,9 @@
   margin: 0em;
   padding: 0em;
   max-height: '';
-  -webkit-align-self: top;
-      -ms-flex-item-align: top;
-          align-self: top;
+  -ms-flex-item-align: top;
+      -ms-grid-row-align: top;
+      align-self: top;
 }
 .ui.items > .item > .image > img {
   display: block;
@@ -109,7 +107,6 @@
 .ui.items > .item > .content {
   display: block;
   -webkit-box-flex: 1;
-  -webkit-flex: 1 1 auto;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   background: none;
@@ -133,9 +130,9 @@
   width: auto;
   display: block;
   margin-left: 0em;
-  -webkit-align-self: top;
-      -ms-flex-item-align: top;
-          align-self: top;
+  -ms-flex-item-align: top;
+      -ms-grid-row-align: top;
+      align-self: top;
   padding-left: 1.5em;
 }
 .ui.items > .item > .content > .header {
@@ -167,9 +164,9 @@
 ---------------*/
 
 .ui.items > .item .content img {
-  -webkit-align-self: middle;
-      -ms-flex-item-align: middle;
-          align-self: middle;
+  -ms-flex-item-align: middle;
+      -ms-grid-row-align: middle;
+      align-self: middle;
   width: '';
 }
 .ui.items > .item img.avatar,
@@ -356,26 +353,25 @@
 
 /* Mobile Only */
 @media only screen and (max-width: 767px) {
-  .ui.items > .item {
+  .ui.items:not(.unstackable) > .item {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column;
     margin: 2em 0em;
   }
-  .ui.items > .item > .image {
+  .ui.items:not(.unstackable) > .item > .image {
     display: block;
     margin-left: auto;
     margin-right: auto;
   }
-  .ui.items > .item > .image,
-  .ui.items > .item > .image > img {
+  .ui.items:not(.unstackable) > .item > .image,
+  .ui.items:not(.unstackable) > .item > .image > img {
     max-width: 100% !important;
     width: auto !important;
     max-height: 250px !important;
   }
-  .ui.items > .item > .image + .content {
+  .ui.items:not(.unstackable) > .item > .image + .content {
     display: block;
     padding: 1.5em 0em 0em;
   }
@@ -392,19 +388,17 @@
 --------------------*/
 
 .ui.items > .item > .image + [class*="top aligned"].content {
-  -webkit-align-self: flex-start;
-      -ms-flex-item-align: start;
-          align-self: flex-start;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 .ui.items > .item > .image + [class*="middle aligned"].content {
-  -webkit-align-self: center;
-      -ms-flex-item-align: center;
-          align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 .ui.items > .item > .image + [class*="bottom aligned"].content {
-  -webkit-align-self: flex-end;
-      -ms-flex-item-align: end;
-          align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 
 /*--------------
@@ -466,6 +460,17 @@
 
 .ui.items > .item {
   font-size: 1em;
+}
+
+/*---------------
+   Unstackable
+----------------*/
+
+@media only screen and (max-width: 767px) {
+  .ui.unstackable.items > .item > .image,
+  .ui.unstackable.items > .item > .image > img {
+    width: 125px !important;
+  }
 }
 
 

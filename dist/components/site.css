@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.4 - Site
+ * # Semantic UI 2.2.9 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -45,8 +45,8 @@ h3,
 h4,
 h5 {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  line-height: 1.2857em;
-  margin: calc(2rem -  0.14285em ) 0em 1rem;
+  line-height: 1.28571429em;
+  margin: calc(2rem -  0.14285714em ) 0em 1rem;
   font-weight: bold;
   padding: 0em;
 }
@@ -55,13 +55,13 @@ h1 {
   font-size: 2rem;
 }
 h2 {
-  font-size: 1.714rem;
+  font-size: 1.71428571rem;
 }
 h3 {
-  font-size: 1.28rem;
+  font-size: 1.28571429rem;
 }
 h4 {
-  font-size: 1.071rem;
+  font-size: 1.07142857rem;
 }
 h5 {
   font-size: 1rem;

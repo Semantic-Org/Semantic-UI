@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.4 - Transition
+ * # Semantic UI 2.2.9 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -251,7 +251,6 @@
 
 .drop.transition {
   -webkit-transform-origin: top center;
-      -ms-transform-origin: top center;
           transform-origin: top center;
   -webkit-animation-duration: 400ms;
           animation-duration: 400ms;
@@ -1247,28 +1246,24 @@
   -webkit-animation-name: slideInY;
           animation-name: slideInY;
   -webkit-transform-origin: top center;
-      -ms-transform-origin: top center;
           transform-origin: top center;
 }
 .transition[class*="slide up"].in {
   -webkit-animation-name: slideInY;
           animation-name: slideInY;
   -webkit-transform-origin: bottom center;
-      -ms-transform-origin: bottom center;
           transform-origin: bottom center;
 }
 .transition[class*="slide left"].in {
   -webkit-animation-name: slideInX;
           animation-name: slideInX;
   -webkit-transform-origin: center right;
-      -ms-transform-origin: center right;
           transform-origin: center right;
 }
 .transition[class*="slide right"].in {
   -webkit-animation-name: slideInX;
           animation-name: slideInX;
   -webkit-transform-origin: center left;
-      -ms-transform-origin: center left;
           transform-origin: center left;
 }
 .transition.slide.out,
@@ -1276,28 +1271,24 @@
   -webkit-animation-name: slideOutY;
           animation-name: slideOutY;
   -webkit-transform-origin: top center;
-      -ms-transform-origin: top center;
           transform-origin: top center;
 }
 .transition[class*="slide up"].out {
   -webkit-animation-name: slideOutY;
           animation-name: slideOutY;
   -webkit-transform-origin: bottom center;
-      -ms-transform-origin: bottom center;
           transform-origin: bottom center;
 }
 .transition[class*="slide left"].out {
   -webkit-animation-name: slideOutX;
           animation-name: slideOutX;
   -webkit-transform-origin: center right;
-      -ms-transform-origin: center right;
           transform-origin: center right;
 }
 .transition[class*="slide right"].out {
   -webkit-animation-name: slideOutX;
           animation-name: slideOutX;
   -webkit-transform-origin: center left;
-      -ms-transform-origin: center left;
           transform-origin: center left;
 }
 
@@ -1413,28 +1404,24 @@
   -webkit-animation-name: swingInX;
           animation-name: swingInX;
   -webkit-transform-origin: top center;
-      -ms-transform-origin: top center;
           transform-origin: top center;
 }
 .transition[class*="swing up"].in {
   -webkit-animation-name: swingInX;
           animation-name: swingInX;
   -webkit-transform-origin: bottom center;
-      -ms-transform-origin: bottom center;
           transform-origin: bottom center;
 }
 .transition[class*="swing left"].in {
   -webkit-animation-name: swingInY;
           animation-name: swingInY;
   -webkit-transform-origin: center right;
-      -ms-transform-origin: center right;
           transform-origin: center right;
 }
 .transition[class*="swing right"].in {
   -webkit-animation-name: swingInY;
           animation-name: swingInY;
   -webkit-transform-origin: center left;
-      -ms-transform-origin: center left;
           transform-origin: center left;
 }
 .transition.swing.out,
@@ -1442,28 +1429,24 @@
   -webkit-animation-name: swingOutX;
           animation-name: swingOutX;
   -webkit-transform-origin: top center;
-      -ms-transform-origin: top center;
           transform-origin: top center;
 }
 .transition[class*="swing up"].out {
   -webkit-animation-name: swingOutX;
           animation-name: swingOutX;
   -webkit-transform-origin: bottom center;
-      -ms-transform-origin: bottom center;
           transform-origin: bottom center;
 }
 .transition[class*="swing left"].out {
   -webkit-animation-name: swingOutY;
           animation-name: swingOutY;
   -webkit-transform-origin: center right;
-      -ms-transform-origin: center right;
           transform-origin: center right;
 }
 .transition[class*="swing right"].out {
   -webkit-animation-name: swingOutY;
           animation-name: swingOutY;
   -webkit-transform-origin: center left;
-      -ms-transform-origin: center left;
           transform-origin: center left;
 }
 

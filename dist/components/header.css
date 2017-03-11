@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.4 - Header
+ * # Semantic UI 2.2.9 - Header
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17,16 +17,16 @@
 /* Standard */
 .ui.header {
   border: none;
-  margin: calc(2rem -  0.14285em ) 0em 1rem;
+  margin: calc(2rem -  0.14285714em ) 0em 1rem;
   padding: 0em 0em;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: bold;
-  line-height: 1.2857em;
+  line-height: 1.28571429em;
   text-transform: none;
   color: rgba(0, 0, 0, 0.87);
 }
 .ui.header:first-child {
-  margin-top: -0.14285em;
+  margin-top: -0.14285714em;
 }
 .ui.header:last-child {
   margin-bottom: 0em;
@@ -54,7 +54,7 @@
   display: table-cell;
   opacity: 1;
   font-size: 1.5em;
-  padding-top: 0.14285em;
+  padding-top: 0.14285714em;
   vertical-align: middle;
 }
 
@@ -69,15 +69,15 @@
         Image
 --------------------*/
 
-.ui.header > .image,
+.ui.header > .image:not(.icon),
 .ui.header > img {
   display: inline-block;
-  margin-top: 0.14285em;
+  margin-top: 0.14285714em;
   width: 2.5em;
   height: auto;
   vertical-align: middle;
 }
-.ui.header > .image:only-child,
+.ui.header > .image:not(.icon):only-child,
 .ui.header > img:only-child {
   margin-right: 0.75rem;
 }
@@ -134,13 +134,13 @@ h1.ui.header {
   font-size: 2rem;
 }
 h2.ui.header {
-  font-size: 1.714rem;
+  font-size: 1.71428571rem;
 }
 h3.ui.header {
-  font-size: 1.28rem;
+  font-size: 1.28571429rem;
 }
 h4.ui.header {
-  font-size: 1.071rem;
+  font-size: 1.07142857rem;
 }
 h5.ui.header {
   font-size: 1rem;
@@ -172,13 +172,13 @@ h5.ui.header .sub.header {
   font-size: 2em;
 }
 .ui.large.header {
-  font-size: 1.714em;
+  font-size: 1.71428571em;
 }
 .ui.medium.header {
-  font-size: 1.28em;
+  font-size: 1.28571429em;
 }
 .ui.small.header {
-  font-size: 1.071em;
+  font-size: 1.07142857em;
 }
 .ui.tiny.header {
   font-size: 1em;
@@ -705,7 +705,7 @@ a.ui.inverted.grey.header:hover {
 --------------------*/
 
 .ui.header:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1.28em;
+  font-size: 1.28571429em;
 }
 
 

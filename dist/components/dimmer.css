@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.4 - Dimmer
+ * # Semantic UI 2.2.9 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -100,7 +100,6 @@
   -webkit-perspective: 2000px;
           perspective: 2000px;
   -webkit-transform-origin: center center;
-      -ms-transform-origin: center center;
           transform-origin: center center;
 }
 body.animating.in.dimmable,
@@ -118,8 +117,10 @@ body.dimmable > .dimmer {
 .blurring.dimmable > :not(.dimmer) {
   -webkit-filter: blur(0px) grayscale(0);
           filter: blur(0px) grayscale(0);
-  -webkit-transition: 800ms filter ease;
+  -webkit-transition: 800ms -webkit-filter ease;
+  transition: 800ms -webkit-filter ease;
   transition: 800ms filter ease;
+  transition: 800ms filter ease, 800ms -webkit-filter ease;
 }
 .blurring.dimmed.dimmable > :not(.dimmer) {
   -webkit-filter: blur(5px) grayscale(0.7);
