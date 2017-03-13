@@ -2,8 +2,11 @@
 
 ### Version 2.2.11 - February 21, 2017
 
-**Bugs**
+**Critical Bugs**
 
+- **Dropdown** - Fix search input inside dropdown menu causing dropdown to close before selection when selecting an item #5113
+
+**Bugs**
 - **Button** - Fixes `@basicActiveBoxShadow` being used incorrectly in basic button variables
 - **Visibility** - Fixes issue where visibility events would occur improperly when using a `context` that have `overflow-x` or `overflow-y` set to `auto`
 - **Dropdown** - Fixes an issue where dropdown would not correctly open `upward` at bottom edge of the screen when using a `context` with `overflow-x` or `overflow-y` set to `auto`
