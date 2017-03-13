@@ -1158,6 +1158,10 @@ $.fn.dropdown = function(parameters) {
                 hasSubMenu     = ($subMenu.length > 0),
                 isBubbledEvent = ($subMenu.find($target).length > 0)
               ;
+              if(module.has.menuSearch()) {
+                console.log('zz');
+                $(document.activeElement).blur();
+              }
               if(!isBubbledEvent && (!hasSubMenu || settings.allowCategorySelection)) {
                 if(module.is.searchSelection()) {
                   if(settings.allowAdditions) {
