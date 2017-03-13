@@ -1158,8 +1158,8 @@ $.fn.dropdown = function(parameters) {
                 hasSubMenu     = ($subMenu.length > 0),
                 isBubbledEvent = ($subMenu.find($target).length > 0)
               ;
+              // prevents IE11 bug where menu receives focus even though `tabindex=-1`
               if(module.has.menuSearch()) {
-                console.log('zz');
                 $(document.activeElement).blur();
               }
               if(!isBubbledEvent && (!hasSubMenu || settings.allowCategorySelection)) {
