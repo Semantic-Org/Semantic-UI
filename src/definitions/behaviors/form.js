@@ -1520,6 +1520,8 @@ $.fn.form.settings = {
         return;
       }
 
+      cardNumber = cardNumber.replace(/[^0-9.]/g, '');
+
       // verify card types
       if(requiredTypes) {
         $.each(requiredTypes, function(index, type){
