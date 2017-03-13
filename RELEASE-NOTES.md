@@ -9,9 +9,12 @@
 
 **Bugs**
 - **Button** - Fixes `@basicActiveBoxShadow` being used incorrectly in basic button variables
-- **Visibility** - Fixes issue where visibility events would occur improperly when using a `context` that have `overflow-x` or `overflow-y` set to `auto`
+- **Visibility** - Visibility events now fire correctly when using `context` other than body that has `overflow-x` or `overflow-y` set to `auto` or `scroll`
 - **Dropdown** - Fixes an issue where dropdown would not correctly open `upward` at bottom edge of the screen when using a `context` with `overflow-x` or `overflow-y` set to `auto`
 - **Modal** - `onDeny` and `onApprove` callbacks can no longer occur multiple times if you rapidly click a approve/deny button in a. #4479
+
+**Enhancements**
+-**Form** - Credit card validation now no longer fails validation with dashed credit card values #5122 **Thanks @neokio**
 
 ### Version 2.2.10 - February 21, 2017
 
