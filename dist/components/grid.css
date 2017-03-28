@@ -1346,7 +1346,7 @@
 .ui.grid > .orange.row,
 .ui.grid > .orange.column,
 .ui.grid > .row > .orange.column {
-  background-color: #DA6619 !important;
+  background-color: #F2711C !important;
   color: #FFFFFF;
 }
 
@@ -1354,7 +1354,7 @@
 .ui.grid > .yellow.row,
 .ui.grid > .yellow.column,
 .ui.grid > .row > .yellow.column {
-  background-color: #FFD900 !important;
+  background-color: #FBBD08 !important;
   color: #FFFFFF;
 }
 
@@ -1370,7 +1370,7 @@
 .ui.grid > .green.row,
 .ui.grid > .green.column,
 .ui.grid > .row > .green.column {
-  background-color: #188130 !important;
+  background-color: #21BA45 !important;
   color: #FFFFFF;
 }
 
@@ -1378,7 +1378,7 @@
 .ui.grid > .teal.row,
 .ui.grid > .teal.column,
 .ui.grid > .row > .teal.column {
-  background-color: #158570 !important;
+  background-color: #00B5AD !important;
   color: #FFFFFF;
 }
 
