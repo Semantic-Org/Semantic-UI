@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 2.2.11 - February 21, 2017
+### Version 2.2.10 - March 28, 2017
 
 **Critical Bugs**
 
@@ -15,8 +15,6 @@
 
 **Enhancements**
 -**Form** - Credit card validation now no longer fails validation with dashed credit card values #5122 **Thanks @neokio**
-
-### Version 2.2.10 - February 21, 2017
 
 **Bugs**
 - **Visibility** - Fixed bug where using visibility with `context` setting on a scrollable context (with overflow) would cause callbacks to fire incorrectly
