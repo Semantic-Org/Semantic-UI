@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.9 - Modal
+ * # Semantic UI 2.2.10 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -71,6 +71,8 @@ $.fn.modal = function(parameters) {
 
         element         = this,
         instance        = $module.data(moduleNamespace),
+
+        ignoreRepeatedEvents = false,
 
         elementEventNamespace,
         id,
@@ -226,18 +228,24 @@ $.fn.modal = function(parameters) {
 
         event: {
           approve: function() {
-            if(settings.onApprove.call(element, $(this)) === false) {
+            if(ignoreRepeatedEvents || settings.onApprove.call(element, $(this)) === false) {
               module.verbose('Approve callback returned false cancelling hide');
               return;
             }
-            module.hide();
+            ignoreRepeatedEvents = true;
+            module.hide(function() {
+              ignoreRepeatedEvents = false;
+            });
           },
           deny: function() {
-            if(settings.onDeny.call(element, $(this)) === false) {
+            if(ignoreRepeatedEvents || settings.onDeny.call(element, $(this)) === false) {
               module.verbose('Deny callback returned false cancelling hide');
               return;
             }
-            module.hide();
+            ignoreRepeatedEvents = true;
+            module.hide(function() {
+              ignoreRepeatedEvents = false;
+            });
           },
           close: function() {
             module.hide();

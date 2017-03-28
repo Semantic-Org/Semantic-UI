@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.9 - Form Validation
+ * # Semantic UI 2.2.10 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1519,6 +1519,9 @@ $.fn.form.settings = {
       if(typeof cardNumber !== 'string' || cardNumber.length === 0) {
         return;
       }
+
+      // allow dashes in card
+      cardNumber = cardNumber.replace(/[\-]/g, '');
 
       // verify card types
       if(requiredTypes) {

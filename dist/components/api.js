@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.9 - API
+ * # Semantic UI 2.2.10 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *

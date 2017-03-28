@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.9 - Button
+ * # Semantic UI 2.2.10 - Button
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -387,10 +387,12 @@
 
 .ui.labeled.button:not(.icon) {
   display: -webkit-inline-box;
+  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
   background: none !important;
@@ -403,9 +405,11 @@
 }
 .ui.labeled.button > .label {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
+  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   margin: 0px 0px 0px -1px !important;
@@ -757,7 +761,6 @@
   background: rgba(0, 0, 0, 0.05) !important;
   box-shadow: '' !important;
   color: rgba(0, 0, 0, 0.95);
-  box-shadow: rgba(34, 36, 38, 0.35);
 }
 .ui.basic.buttons .active.button:hover,
 .ui.basic.active.button:hover {
@@ -772,7 +775,7 @@
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(34, 36, 38, 0.15) inset inset;
 }
 .ui.basic.buttons .active.button {
-  box-shadow: rgba(34, 36, 38, 0.35) inset;
+  box-shadow: '' !important;
 }
 
 /* Standard Basic Inverted */
@@ -1028,6 +1031,7 @@
 .ui.attached.buttons {
   position: relative;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   border-radius: 0em;
@@ -1071,6 +1075,7 @@
 /* Left / Right */
 .ui[class*="left attached"].buttons {
   display: -webkit-inline-box;
+  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   margin-right: 0em;
@@ -1087,6 +1092,7 @@
 }
 .ui[class*="right attached"].buttons {
   display: -webkit-inline-box;
+  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   margin-left: 0em;
@@ -1184,6 +1190,7 @@
 .ui.fluid.vertical.buttons,
 .ui.fluid.vertical.buttons > .button {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   width: auto;
@@ -3359,10 +3366,12 @@
 
 .ui.buttons {
   display: -webkit-inline-box;
+  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
   font-size: 0em;
@@ -3385,6 +3394,7 @@
 /* Standard Group */
 .ui.buttons .button {
   -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
   margin: 0em;
@@ -3409,10 +3419,12 @@
 /* Vertical  Style */
 .ui.vertical.buttons {
   display: -webkit-inline-box;
+  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }

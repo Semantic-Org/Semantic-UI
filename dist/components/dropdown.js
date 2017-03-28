@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.9 - Dropdown
+ * # Semantic UI 2.2.10 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -975,7 +975,7 @@ $.fn.dropdown = function(parameters) {
             },
             blur: function(event) {
               pageLostFocus = (document.activeElement === this);
-              if(!willRefocus) {
+              if(module.is.searchSelection() && !willRefocus) {
                 if(!itemActivated && !pageLostFocus) {
                   if(settings.forceSelection) {
                     module.forceSelection();
@@ -1158,6 +1158,10 @@ $.fn.dropdown = function(parameters) {
                 hasSubMenu     = ($subMenu.length > 0),
                 isBubbledEvent = ($subMenu.find($target).length > 0)
               ;
+              // prevents IE11 bug where menu receives focus even though `tabindex=-1`
+              if(module.has.menuSearch()) {
+                $(document.activeElement).blur();
+              }
               if(!isBubbledEvent && (!hasSubMenu || settings.allowCategorySelection)) {
                 if(module.is.searchSelection()) {
                   if(settings.allowAdditions) {
@@ -3069,6 +3073,9 @@ $.fn.dropdown = function(parameters) {
                 height: $currentMenu.outerHeight()
               }
             };
+            if(module.is.verticallyScrollableContext()) {
+              calculations.menu.offset.top += calculations.context.scrollTop;
+            }
             onScreen = {
               above : (calculations.context.scrollTop) <= calculations.menu.offset.top - calculations.menu.height,
               below : (calculations.context.scrollTop + calculations.context.height) >= calculations.menu.offset.top + calculations.menu.height
@@ -3142,6 +3149,14 @@ $.fn.dropdown = function(parameters) {
               ? $subMenu.hasClass(className.visible)
               : $menu.hasClass(className.visible)
             ;
+          },
+          verticallyScrollableContext: function() {
+            var
+              overflowY = ($context.get(0) !== window)
+                ? $context.css('overflow-y')
+                : false
+            ;
+            return (overflowY == 'auto' || overflowY == 'scroll');
           }
         },
 
