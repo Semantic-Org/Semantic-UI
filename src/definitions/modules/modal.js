@@ -63,6 +63,10 @@ $.fn.modal = function(parameters) {
         $context        = $(settings.context),
         $close          = $module.find(selector.close),
 
+        $header = $(this).find('.header'),
+        $actions = $(this).find('.actions'),
+        $scrollableContent = $(this).find('.scrollable.content'),
+
         $allModals,
         $otherModals,
         $focusedElement,
@@ -553,7 +557,10 @@ $.fn.modal = function(parameters) {
               height        : modalHeight + settings.offset,
               contextHeight : (settings.context == 'body')
                 ? $(window).height()
-                : $dimmable.height()
+                : $dimmable.height(),
+              headerHeight :  $header.length > 0 ? $header.outerHeight() : null,
+              footerHeight : $actions.length > 0 ? $actions.outerHeight() : null,
+              scrollableContentHeight: $scrollableContent[0] ? $scrollableContent[0].scrollHeight : null
             };
           }
           module.debug('Caching modal and container sizes', module.cache);
@@ -561,7 +568,7 @@ $.fn.modal = function(parameters) {
 
         can: {
           fit: function() {
-            return ( ( module.cache.height + (settings.padding * 2) ) < module.cache.contextHeight);
+            return ( ( module.cache.height + (settings.padding * 2) ) <= module.cache.contextHeight);
           }
         },
 
@@ -577,6 +584,9 @@ $.fn.modal = function(parameters) {
           },
           scrolling: function() {
             return $dimmable.hasClass(className.scrolling);
+          },
+          scrollingContent: function(){
+            return $scrollableContent.length;
           },
           modernBrowser: function() {
             // appName for IE11 reports 'Netscape' can no longer use
@@ -618,12 +628,24 @@ $.fn.modal = function(parameters) {
           active: function() {
             $module.addClass(className.active);
           },
+          contentScrolling: function() {
+              var headerHeight = module.cache.headerHeight === null ? 0 : (module.cache.headerHeight ? module.cache.headerHeight : settings.defaultHeaderHeight);
+              var footerHeight = module.cache.footerHeight === null ? 0 : (module.cache.footerHeight ? module.cache.footerHeight : settings.defaultFooterHeight);
+              var maxContentOuterHeight = module.cache.contextHeight - (settings.padding * 2) -headerHeight -footerHeight;
+              $scrollableContent.css({ 'max-height': maxContentOuterHeight });
+              module.cacheSizes();
+              module.set.position();
+          },
           scrolling: function() {
-            $dimmable.addClass(className.scrolling);
-            $module.addClass(className.scrolling);
+                $dimmable.addClass(className.scrolling);
+                $module.addClass(className.scrolling);
           },
           type: function() {
-            if(module.can.fit()) {
+            if (module.is.scrollingContent()) {
+                  module.verbose('Adjusting modal content height');
+                  module.set.contentScrolling();
+            }
+            else if(module.can.fit()) {
               module.verbose('Modal fits on screen');
               if(!module.others.active() && !module.others.animating()) {
                 module.remove.scrolling();
@@ -636,7 +658,7 @@ $.fn.modal = function(parameters) {
           },
           position: function() {
             module.verbose('Centering modal on page', module.cache);
-            if(module.can.fit()) {
+            if(module.can.fit() || module.is.scrollingContent()) {
               $module
                 .css({
                   top: '',
@@ -878,6 +900,10 @@ $.fn.modal.settings = {
 
   // padding with edge of page
   padding    : 50,
+
+  //used when footer and header size cannot be calculated when setting the content scroll
+  defaultHeaderHeight : 61,
+  defaultFooterHeight : 65,
 
   // called before show animation
   onShow     : function(){},
