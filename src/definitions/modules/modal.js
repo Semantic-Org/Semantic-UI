@@ -63,9 +63,9 @@ $.fn.modal = function(parameters) {
         $context        = $(settings.context),
         $close          = $module.find(selector.close),
 
-        $header = $(this).find('.header'),
-        $actions = $(this).find('.actions'),
-        $scrollableContent = $(this).find('.scrollable.content'),
+        $header = $module.find(selector.header),
+        $actions = $module.find(selector.actions),
+        $scrollableContent = $module.find(selector.scrollableContent),
 
         $allModals,
         $otherModals,
@@ -927,7 +927,10 @@ $.fn.modal.settings = {
     close    : '> .close',
     approve  : '.actions .positive, .actions .approve, .actions .ok',
     deny     : '.actions .negative, .actions .deny, .actions .cancel',
-    modal    : '.ui.modal'
+    modal    : '.ui.modal',
+    scrollableContent : '.scrollable.content',
+    actions : '.actions',
+    header : '.header'
   },
   error : {
     dimmer    : 'UI Dimmer, a required component is not included in this page',
