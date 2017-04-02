@@ -56,6 +56,7 @@ $.fn.slider = function(parameters) {
         namespace       = settings.namespace,
         error           = settings.error,
         keys            = settings.keys,
+        interpretLabel  = settings.interpretLabel,
 
         isHover         = false,
         eventNamespace  = '.' + namespace,
@@ -80,7 +81,6 @@ $.fn.slider = function(parameters) {
         offset,
         precision,
         isTouch,
-        sliderObserver,
 
         module
       ;
@@ -104,7 +104,6 @@ $.fn.slider = function(parameters) {
           module.read.settings();
 
           module.instantiate();
-          settings.onChange.call(element, value, module.thumbVal, module.secondThumbVal);
         },
 
         instantiate: function() {
@@ -201,11 +200,17 @@ $.fn.slider = function(parameters) {
               }
               for(var i = 1, len = module.get.numLabels(); i < len; i++) {
                 var
-                  $label = $('<li class="label">' + module.get.label(i) + '</li>'),
+                  labelText = module.get.label(i),
+                  $label =
+                    labelText
+                    ? $('<li class="label">' + labelText + '</li>')
+                    : null,
                   ratio  = i / len
                 ;
-                module.update.labelPosition(ratio, $label);
-                $labels.append($label);
+                if($label) {
+                  module.update.labelPosition(ratio, $label);
+                  $labels.append($label);
+                }
               }
             }
           }
@@ -382,6 +387,12 @@ $.fn.slider = function(parameters) {
           module.verbose('Taking a step');
           if(step > 0) {
             module.set.value(currValue + step * multiplier);
+          } else if (step == 0){
+            var
+              precision = module.get.precision(),
+              newValue = currValue + (multiplier/precision)
+            ;
+            module.set.value(Math.round(newValue * precision) / precision);
           }
         },
 
@@ -394,6 +405,12 @@ $.fn.slider = function(parameters) {
           module.verbose('Going back a step');
           if(step > 0) {
             module.set.value(currValue - step * multiplier);
+          } else if (step == 0) {
+            var
+              precision = module.get.precision(),
+              newValue = currValue - (multiplier/precision)
+            ;
+            module.set.value(Math.round(newValue * precision) / precision);
           }
         },
 
@@ -510,6 +527,10 @@ $.fn.slider = function(parameters) {
             return settings.labelType;
           },
           label: function(value) {
+            if(interpretLabel) {
+              return interpretLabel(value);
+            }
+
             switch (settings.labelType) {
               case settings.labelTypes.number:
                 return (value * module.get.step()) + module.get.min();
@@ -751,6 +772,7 @@ $.fn.slider = function(parameters) {
           value: function(newValue) {
             module.update.value(newValue, function(value, thumbVal, secondThumbVal) {
               settings.onChange.call(element, value, thumbVal, secondThumbVal);
+              settings.onMove.call(element, value, thumbVal, secondThumbVal);
             });
           },
           valueDouble: function(first, second) {
@@ -761,6 +783,7 @@ $.fn.slider = function(parameters) {
               module.update.position(module.thumbVal, $thumb);
               module.update.position(module.secondThumbVal, $secondThumb);
               settings.onChange.call(element, value, module.thumbVal, module.secondThumbVal);
+              settings.onMove.call(element, value, module.thumbVal, module.secondThumbVal);
             } else {
               module.error(error.notdouble);
             }
@@ -772,13 +795,12 @@ $.fn.slider = function(parameters) {
                 module.secondThumbVal = thumbVal;
                 module.update.position(thumbVal, $secondThumb);
                 break;
-              case 'first':
               default:
                 module.thumbVal = thumbVal;
                 module.update.position(thumbVal, $thumb);
             }
             value = Math.abs(module.thumbVal - (module.secondThumbVal || 0));
-            settings.onChange.call(element, value, module.thumbVal, module.secondThumbVal);
+            module.set.value(value);
           }
         },
 
@@ -799,8 +821,7 @@ $.fn.slider = function(parameters) {
             } else {
               if(!$currThumb.hasClass('second')) {
                 module.thumbVal = newValue;
-              }
-              else {
+              } else {
                 module.secondThumbVal = newValue;
               }
               value = Math.abs(module.thumbVal - module.secondThumbVal);
@@ -871,10 +892,11 @@ $.fn.slider = function(parameters) {
                 ?
                 module.is.reversed() ? 'bottom' : 'top'
                 :
-                module.is.reversed() ? 'right' : 'left'
+                module.is.reversed() ? 'right' : 'left',
+              startMarginMod = module.is.reversed() && !module.is.vertical() ? ' - ' : ' + '
             ;
             var position = '(100% - ' + startMargin + ' - ' + endMargin + ') * ' + ratio;
-            $label.css(posDir, 'calc(' + position + ' + ' + startMargin + ')');
+            $label.css(posDir, 'calc(' + position + startMarginMod + startMargin + ')');
           }
         },
 
@@ -901,7 +923,7 @@ $.fn.slider = function(parameters) {
                 module.set.valueDouble(data.thumbVal, data.secondThumbVal);
               } else {
                 module.debug('Current value set from metadata', data.thumbVal);
-                module.update.value(data.thumbVal);
+                module.set.value(data.thumbVal);
               }
             }
           },
@@ -912,7 +934,7 @@ $.fn.slider = function(parameters) {
                 module.set.valueDouble(settings.start, settings.doubleStart);
               } else {
                 module.debug('Start position set from settings', settings.start);
-                module.update.value(settings.start);
+                module.set.value(settings.start);
               }
             }
           }
