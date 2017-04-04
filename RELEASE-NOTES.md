@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 2.2.11 - March 28, 2017
+
+**Bugs**
+- **Search** - Fixed issue where `searchDelay` could cause results to appear after search had lost focus.
+- **Sticky** - Fix issue where sticky would cause page to shift when `context` height was determined by sticky's height in `position: static;`  #3430
+
 ### Version 2.2.10 - March 28, 2017
 
 **Critical Bugs**
