@@ -408,6 +408,43 @@
   font-size: @medium;
 }
 
+/* Tiny */
+.ui.tiny.modal > .header:not(.ui) {
+  font-size: @tinyHeaderSize;
+}
+
+/* Tiny Modal Width */
+@media only screen and (max-width : @largestMobileScreen) {
+  .ui.tiny.modal {
+    width: @tinyMobileWidth;
+    margin: @tinyMobileMargin;
+  }
+}
+@media only screen and (min-width : @tabletBreakpoint) {
+  .ui.tiny.modal {
+    width: @tinyTabletWidth;
+    margin: @tinyTabletMargin;
+  }
+}
+@media only screen and (min-width : @computerBreakpoint) {
+  .ui.tiny.modal {
+    width: @tinyComputerWidth;
+    margin: @tinyComputerMargin;
+  }
+}
+@media only screen and (min-width : @largeMonitorBreakpoint) {
+  .ui.tiny.modal {
+    width: @tinyLargeMonitorWidth;
+    margin: @tinyLargeMonitorMargin;
+  }
+}
+@media only screen and (min-width : @widescreenMonitorBreakpoint) {
+  .ui.tiny.modal {
+    width: @tinyWidescreenMonitorWidth;
+    margin: @tinyWidescreenMonitorMargin;
+  }
+}
+
 /* Small */
 .ui.small.modal > .header:not(.ui) {
   font-size: @smallHeaderSize;
