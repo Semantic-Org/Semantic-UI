@@ -1,0 +1,60 @@
+/*******************************
+             Loader
+*******************************/
+
+/* Some global loader styles defined in site.variables */
+// @loaderSpeed
+// @loaderLineWidth
+// @loaderFillColor
+// @loaderLineColor
+// @invertedLoaderFillColor
+// @invertedLoaderLineColor
+
+/*-------------------
+      Standard
+--------------------*/
+
+@loaderTopOffset: 50%;
+@loaderLeftOffset: 50%;
+
+@shapeBorderColor: @loaderLineColor transparent transparent;
+@invertedShapeBorderColor: @invertedLoaderLineColor transparent transparent;
+
+/*-------------------
+        Types
+--------------------*/
+
+/* Text */
+@textDistance: @relativeMini;
+@loaderTextColor: @textColor;
+@invertedLoaderTextColor: @invertedTextColor;
+
+/*-------------------
+        States
+--------------------*/
+
+@indeterminateDirection: reverse;
+@indeterminateSpeed: (2 * @loaderSpeed);
+
+/*-------------------
+      Variations
+--------------------*/
+
+@inlineVerticalAlign: middle;
+@inlineMargin: 0em;
+
+/* Exact Sizes (Avoids Rounding Errors) */
+@mini: 1.2857em;   /* 18px */
+@small: 1.7142em;  /* 24px */
+@medium: 2.2585em; /* 32px */
+@large: 4.5714em;  /* 64px */
+
+@miniOffset: 0em 0em 0em -(@mini / 2);
+@smallOffset: 0em 0em 0em -(@small / 2);
+@mediumOffset: 0em 0em 0em -(@medium / 2);
+@largeOffset: 0em 0em 0em -(@large / 2);
+
+@miniFontSize: @relativeMini;
+@smallFontSize: @relativeSmall;
+@mediumFontSize: @relativeMedium;
+@largeFontSize: @relativeLarge;

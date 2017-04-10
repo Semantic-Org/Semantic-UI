@@ -223,6 +223,7 @@ figure {
  * Address differences between Firefox and other browsers.
  */
 hr {
+  box-sizing: content-box;
   height: 0;
 }
 /**
@@ -359,6 +360,9 @@ input[type="search"] {
   -webkit-appearance: textfield;
   
 /* 1 */
+  
+/* 2 */
+  box-sizing: content-box;
 }
 /**
  * Remove inner padding and search cancel button in Safari and Chrome on OS X.

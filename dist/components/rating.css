@@ -163,7 +163,7 @@
 *******************************/
 
 .ui.mini.rating {
-  font-size: 0.78571429rem;
+  font-size: 0.71428571rem;
 }
 .ui.tiny.rating {
   font-size: 0.85714286rem;
@@ -207,7 +207,7 @@
 
 /* Empty Star */
 .ui.rating .icon:before {
-  content: '\f005';
+  content: '\f006';
 }
 
 /* Active Star */
