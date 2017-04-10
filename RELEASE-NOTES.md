@@ -5,6 +5,7 @@
 **Bugs**
 - **Search** - Fixed issue where `searchDelay` could cause results to appear after search had lost focus.
 - **Sticky** - Fix issue where sticky would cause page to shift when `context` height was determined by sticky's height in `position: static;`  #3430
+- **Form Validation** - Fixed issue where radio was not being included in `onFailure` values if not set #5064
 
 ### Version 2.2.10 - March 28, 2017
 

@@ -589,8 +589,11 @@ $.fn.form = function(parameters) {
                 }
                 else {
                   if(isRadio) {
-                    if(isChecked) {
-                      values[name] = value;
+                    if(values[name] === undefined) {
+                      values[name] = (isChecked)
+                        ? true
+                        : false
+                      ;
                     }
                   }
                   else if(isCheckbox) {
@@ -607,6 +610,7 @@ $.fn.form = function(parameters) {
                 }
               }
             });
+            console.log(values);
             return values;
           }
         },
