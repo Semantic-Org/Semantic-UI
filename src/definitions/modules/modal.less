@@ -408,9 +408,46 @@
   font-size: @medium;
 }
 
-/* Tiny */
-.ui.tiny.modal > .header:not(.ui) {
-  font-size: @tinyHeaderSize;
+/* Mini */
+.ui.mini.modal > .header:not(.ui) {
+  font-size: @miniHeaderSize;
+}
+
+/* Mini Modal Width */
+@media only screen and (max-width : @largestMobileScreen) {
+  .ui.mini.modal {
+    width: @miniMobileWidth;
+    margin: @miniMobileMargin;
+  }
+}
+@media only screen and (min-width : @tabletBreakpoint) {
+  .ui.mini.modal {
+    width: @miniTabletWidth;
+    margin: @miniTabletMargin;
+  }
+}
+@media only screen and (min-width : @computerBreakpoint) {
+  .ui.mini.modal {
+    width: @miniComputerWidth;
+    margin: @miniComputerMargin;
+  }
+}
+@media only screen and (min-width : @largeMonitorBreakpoint) {
+  .ui.mini.modal {
+    width: @miniLargeMonitorWidth;
+    margin: @miniLargeMonitorMargin;
+  }
+}
+@media only screen and (min-width : @widescreenMonitorBreakpoint) {
+  .ui.mini.modal {
+    width: @miniWidescreenMonitorWidth;
+    margin: @miniWidescreenMonitorMargin;
+  }
+}
+
+/* mini */
+.ui.small.modal > .header:not(.ui) {
+  font-size: @miniHeaderSize;
 }
 
 /* Tiny Modal Width */
