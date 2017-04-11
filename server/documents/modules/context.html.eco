@@ -1,0 +1,270 @@
+---
+layout      : 'default'
+css         : 'context'
+
+title       : 'Context Menu'
+description : 'A context menu provides context specific options to users.'
+type        : 'UI Module'
+---
+
+<script src="/javascript/dropdown.js"></script>
+
+<%- @partial('header', { tabs: 'module' }) %>
+
+<div class="main container">
+
+<div class="ui active tab" data-tab="definition">
+
+<div class="peek">
+    <div class="ui vertical pointing secondary menu">
+        <a class="active item">Types</a>
+        <a class="item">Variations</a>
+        <a class="item">States</a>
+    </div>
+</div>
+
+
+<h2 class="ui dividing header">Types</h2>
+
+<div class="visible dropdown example">
+    <h4 class="ui header">Context Menu</h4>
+    <p>A context menu is a version of a <a href="../collections/menu.html">menu</a>.</p>
+    <div class="ui vertical context menu" id="user-info-menu">
+        <div class="item">
+            <div class="ui header">Change Settings</div>
+            <div class="ui icon input">
+                <input type="text" placeholder="Name" autofocus> <i class="person icon"></i>
+
+            </div>
+        </div>
+        <div class="ui button">Right Click to Show</div>
+    </div>
+</div>
+<div class="ui tab" data-tab="usage">
+    <h2 class="ui dividing header">Initializing</h2>
+
+    <h3 class="ui header">Initializing a dropdown</h3>
+    <div class="code" data-label="HTML" data-type="html">
+        <div class="ui vertical context menu" id="user-info-menu">
+            <div class="item">
+                <div class="ui header">Change Settings</div>
+                <div class="ui icon input">
+                    <input type="text" placeholder="Name" autofocus> <i class="person icon"></i>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="code" data-label="Javascript" data-type="javascript">
+        $('.ui.context.menu')
+        .context()
+        ;
+    </div>
+
+    <h2 class="ui dividing header">Behavior</h2>
+
+    <p>All the following <a href="/module.html#/behavior">behaviors</a> can be called using the syntax:</p>
+    <div class="code">
+        $('.your.element')
+        .context('behavior name', argumentOne, argumentTwo)
+        ;
+    </div>
+
+    <table class="ui definition sortable celled table segment">
+        <thead>
+        <tr>
+            <th>Behavior</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>show(targetElement, x, y)</td>
+            <td>Shows context menu at the specified element or coordinates</td>
+        </tr>
+        <tr>
+            <td>hide</td>
+            <td>Hides context menu</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="ui tab" data-tab="examples">
+
+    <h2 class="ui dividing header">Examples</h2>
+
+    <div class="dropdown example">
+        <h3 class="ui header">Simple Context Menu</h3>
+        <p></p>
+
+        <div class="ui vertical context menu" id="user-info-menu">
+            <div class="item">
+                <div class="ui header">Change Settings</div>
+                <div class="ui icon input">
+                    <input type="text" placeholder="Name" autofocus> <i class="person icon"></i>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="dropdown example">
+        <h3 class="ui header">Context Menu with Buttons</h3>
+        <p>Context Menus can have buttons which will close it.</p>
+
+        <div class="ui vertical context menu" id="user-info-menu">
+            <div class="item">
+                <div class="ui header">Change Settings</div>
+                <div class="ui icon input">
+                    <input type="text" placeholder="Name" autofocus> <i class="person icon"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ui two column grid">
+                    <!-- These items have the "option" class, which doesn't have any styles
+                    but when clicked will trigger the onSelect callback, and hide the dropdown -->
+                    <div class="column">
+                        <div class="ui negative option button">Cancel</div>
+                    </div>
+                    <div class="column">
+                        <div class="ui positive option button">Save</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ui tab" data-tab="settings">
+
+<h3 class="ui header">
+    Context Menu Settings
+    <div class="sub header">Context Menu settings modify the dropdown's behavior</div>
+</h3>
+<table class="ui celled sortable definition table segment">
+    <thead>
+    <tr>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>delay</td>
+        <td>
+            <div class="code">
+                delay: 500
+            </div>
+        </td>
+        <td>Time in milliseconds for before a long press is registered.</td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="ui horizontal section divider"><i class="icon setting"></i></div>
+<h3 class="ui header">
+    Callbacks
+    <div class="sub header">Callbacks specify a function to occur after a specific behavior.</div>
+</h3>
+
+<table class="ui celled sortable definition table segment">
+    <thead>
+    <tr>
+        <th class="four wide">Setting</th>
+        <th>Context</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>onSelect(option)</td>
+        <td>Context Menu</td>
+        <td>Is called when an option (usually a button) is pressed.  Receives the element.</td>
+    </tr>
+    <tr>
+        <td>onShow</td>
+        <td>Context Menu</td>
+        <td>Is called after a context menu is shown.  Return <code>false</code> to prevent showing.</td>
+    </tr>
+    <tr>
+        <td>onHide</td>
+        <td>Dropdown</td>
+        <td>Is called after a context menu is hidden.  Return <code>false</code> to prevent hiding.</td>
+    </tr>
+    </tbody>
+</table>
+
+<h3 class="ui header">
+    DOM Settings
+    <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
+</h3>
+<table class="ui celled sortable definition table segment">
+    <thead>
+    <tr>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>namespace</td>
+        <td>context</td>
+        <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+    </tr>
+    <tr>
+        <td>selector</td>
+        <td colspan="2">
+            <div class="code">
+                selector : {
+                option : ' .option',
+                }
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h3 class="ui header">
+    Debug Settings
+    <div class="sub header">Debug settings controls debug output to the console</div>
+</h3>
+<table class="ui celled sortable definition table segment">
+    <thead>
+    <tr>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>name</td>
+        <td>Dropdown</td>
+        <td>Name used in debug logs</td>
+    </tr>
+    <tr>
+        <td>debug</td>
+        <td>True</td>
+        <td>Provides standard debug output to console</td>
+    </tr>
+    <tr>
+        <td>performance</td>
+        <td>True</td>
+        <td>Provides standard debug output to console</td>
+    </tr>
+    <tr>
+        <td>verbose</td>
+        <td>True</td>
+        <td>Provides ancillary debug output to console</td>
+    </tr>
+    </tbody>
+</table>
+
+</div>
+
+</div>
