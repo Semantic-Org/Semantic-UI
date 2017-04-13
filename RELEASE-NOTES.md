@@ -4,9 +4,9 @@
 
 **Enhancements**
 - **Modal** - Adds `tiny` and `mini` sized modals #5123 **Thanks @Banandrew**
+- **Popup* - Added `bind clickaway` `bind touchclose` `bind close on scroll` behaviors to make it easier for `on: 'manual'` popup to specify behavior
 
 **Bugs**
-
 - **Sidebar** - Removed use of `ios` browser detection, and use of `-webkit-overflow-scrolling: touch;`. iOS no longer has sizing issues when displaying sidebar content in latest iOS.
 - **Search** - Fixed issue where `searchDelay` could cause results to appear after search had lost focus.
 - **Sticky** - Fix issue where sticky would cause page to shift when `context` height was determined by sticky's height in `position: static;`  #3430

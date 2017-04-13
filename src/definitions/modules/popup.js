@@ -986,28 +986,38 @@ $.fn.popup = function(parameters) {
           },
           close: function() {
             if(settings.hideOnScroll === true || (settings.hideOnScroll == 'auto' && settings.on != 'click')) {
-              $scrollContext
-                .one(module.get.scrollEvent() + elementNamespace, module.event.hideGracefully)
-              ;
+              tpl.bind.closeOnScroll();
             }
             if(settings.on == 'hover' && openedWithTouch) {
-              module.verbose('Binding popup close event to document');
-              $document
-                .on('touchstart' + elementNamespace, function(event) {
-                  module.verbose('Touched away from popup');
-                  module.event.hideGracefully.call(element, event);
-                })
-              ;
+              tpl.bind.touchClose();
             }
             if(settings.on == 'click' && settings.closable) {
-              module.verbose('Binding popup close event to document');
-              $document
-                .on('click' + elementNamespace, function(event) {
-                  module.verbose('Clicked away from popup');
-                  module.event.hideGracefully.call(element, event);
-                })
-              ;
+              tpl.bind.clickaway();
             }
+          },
+          closeOnScroll: function() {
+            module.verbose('Binding scroll close event to document');
+            $scrollContext
+              .one(module.get.scrollEvent() + elementNamespace, module.event.hideGracefully)
+            ;
+          },
+          touchClose: function() {
+            module.verbose('Binding popup touchclose event to document');
+            $document
+              .on('touchstart' + elementNamespace, function(event) {
+                module.verbose('Touched away from popup');
+                module.event.hideGracefully.call(element, event);
+              })
+            ;
+          },
+          clickaway: function() {
+            module.verbose('Binding popup close event to document');
+            $document
+              .on('click' + elementNamespace, function(event) {
+                module.verbose('Clicked away from popup');
+                module.event.hideGracefully.call(element, event);
+              })
+            ;
           }
         },
 
