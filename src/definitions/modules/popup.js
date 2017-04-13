@@ -986,13 +986,13 @@ $.fn.popup = function(parameters) {
           },
           close: function() {
             if(settings.hideOnScroll === true || (settings.hideOnScroll == 'auto' && settings.on != 'click')) {
-              tpl.bind.closeOnScroll();
+              module.bind.closeOnScroll();
             }
             if(settings.on == 'hover' && openedWithTouch) {
-              tpl.bind.touchClose();
+              module.bind.touchClose();
             }
             if(settings.on == 'click' && settings.closable) {
-              tpl.bind.clickaway();
+              module.bind.clickaway();
             }
           },
           closeOnScroll: function() {
