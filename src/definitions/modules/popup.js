@@ -360,7 +360,7 @@ $.fn.popup = function(parameters) {
 
         hideAll: function() {
           $(selector.popup)
-            .filter('.' + className.visible)
+            .filter('.' + className.popupVisible)
             .each(function() {
               $(this)
                 .data(metadata.activator)
@@ -1078,7 +1078,7 @@ $.fn.popup = function(parameters) {
             return ($popup !== undefined && $popup.hasClass(className.fluid));
           },
           visible: function() {
-            return ($popup !== undefined && $popup.hasClass(className.visible));
+            return ($popup !== undefined && $popup.hasClass(className.popupVisible));
           },
           dropdown: function() {
             return $module.hasClass(className.dropdown);
@@ -1424,14 +1424,15 @@ $.fn.popup.settings = {
   },
 
   className   : {
-    active    : 'active',
-    animating : 'animating',
-    dropdown  : 'dropdown',
-    fluid     : 'fluid',
-    loading   : 'loading',
-    popup     : 'ui popup',
-    position  : 'top left center bottom right',
-    visible   : 'visible'
+    active       : 'active',
+    animating    : 'animating',
+    dropdown     : 'dropdown',
+    fluid        : 'fluid',
+    loading      : 'loading',
+    popup        : 'ui popup',
+    position     : 'top left center bottom right',
+    visible      : 'visible',
+    popupVisible : 'visible'
   },
 
   selector    : {

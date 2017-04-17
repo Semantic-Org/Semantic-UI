@@ -14,6 +14,9 @@
 - **Menu** - Fixed issue where `left menu` and `right menu` did not display correctly in `stackable menu` on mobile #3604 #5116 **Thanks @BleuDiamant @Traverse**
 - **Dimmer** - Fixed typo causing body dimmer to add unnecessary `position: relative;` **Thanks @jinyangzhen** #4707
 
+**Enhancements**
+- **Popup** - Separated className setting for `visible` into `visible` and `popupVisible`, this way you can remove visible indiciation on activating element without modifying popup.
+
 ### Version 2.2.10 - March 28, 2017
 
 **Critical Bugs**
