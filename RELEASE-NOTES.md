@@ -1,10 +1,11 @@
 ## RELEASE NOTES
 
-### Version 2.2.11 - March 28, 2017
+### Version 2.2.11 - April XX, 2017
 
 **Enhancements**
 - **Modal** - Adds `tiny` and `mini` sized modals #5123 **Thanks @Banandrew**
 - **Popup* - Added `bind clickaway` `bind touchclose` `bind close on scroll` behaviors to make it easier for `on: 'manual'` popup to specify behavior
+- **Popup** - Separated className setting for `visible` into `visible` and `popupVisible`, this way you can remove visible indiciation on activating element without modifying popup.
 
 **Bugs**
 - **Sidebar** - Removed use of `ios` browser detection, and use of `-webkit-overflow-scrolling: touch;`. iOS no longer has sizing issues when displaying sidebar content in latest iOS.
@@ -13,9 +14,6 @@
 - **Form Validation** - Fixed issue where radio was not being included in `onFailure` values if not set #5064
 - **Menu** - Fixed issue where `left menu` and `right menu` did not display correctly in `stackable menu` on mobile #3604 #5116 **Thanks @BleuDiamant @Traverse**
 - **Dimmer** - Fixed typo causing body dimmer to add unnecessary `position: relative;` **Thanks @jinyangzhen** #4707
-
-**Enhancements**
-- **Popup** - Separated className setting for `visible` into `visible` and `popupVisible`, this way you can remove visible indiciation on activating element without modifying popup.
 
 ### Version 2.2.10 - March 28, 2017
 
