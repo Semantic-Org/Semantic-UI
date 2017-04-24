@@ -191,6 +191,7 @@
 @sortableActiveHoverBackground: @transparentBlack;
 @sortableActiveHoverColor: @selectedTextColor;
 
+@sortableInvertedColor: @invertedTextColor;
 @sortableInvertedBorderColor: transparent;
 @sortableInvertedHoverBackground: @transparentWhite @subtleGradient;
 @sortableInvertedHoverColor: @invertedHoveredTextColor;
