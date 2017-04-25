@@ -11,6 +11,7 @@
 - **Sidebar** - Removed use of `ios` browser detection, and use of `-webkit-overflow-scrolling: touch;`. iOS no longer has sizing issues when displaying sidebar content in latest iOS.
 - **Search** - Fixed issue where `searchDelay` could cause results to appear after search had lost focus.
 - **Sticky** - Fix issue where sticky would cause page to shift when `context` height was determined by sticky's height in `position: static;`  #3430
+- **Sticky** - Fixed edge case where using `offset` setting, sticky element would not internally scroll if the rail contents (without the offset setting) would fit on screen
 - **Form Validation** - Fixed issue where radio was not being included in `onFailure` values if not set #5064
 - **Menu** - Fixed issue where `left menu` and `right menu` did not display correctly in `stackable menu` on mobile #3604 #5116 **Thanks @BleuDiamant @Traverse**
 - **Dimmer** - Fixed typo causing body dimmer to add unnecessary `position: relative;` **Thanks @jinyangzhen** #4707

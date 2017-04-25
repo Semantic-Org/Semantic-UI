@@ -286,7 +286,7 @@ $.fn.sticky = function(parameters) {
               context.offset.left += scrollContext.left;
             }
             module.cache = {
-              fits          : (element.height <= scrollContext.height),
+              fits          : ( (element.height + settings.offset) <= scrollContext.height),
               sameHeight    : (element.height == context.height),
               scrollContext : {
                 height : scrollContext.height
