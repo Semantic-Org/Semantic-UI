@@ -520,21 +520,21 @@ $.fn.popup = function(parameters) {
               // element which is launching popup
               target : {
                 element : $target[0],
-                width   : $target.outerWidth(),
-                height  : $target.outerHeight(),
+                width   : $target.outerWidth(true),
+                height  : $target.outerHeight(true),
                 top     : targetPosition.top,
                 left    : targetPosition.left,
                 margin  : {}
               },
               // popup itself
               popup : {
-                width  : $popup.outerWidth(),
-                height : $popup.outerHeight()
+                width  : $popup.outerWidth(true),
+                height : $popup.outerHeight(true)
               },
               // offset container (or 3d context)
               parent : {
-                width  : $offsetParent.outerWidth(),
-                height : $offsetParent.outerHeight()
+                width  : $offsetParent.outerWidth(true),
+                height : $offsetParent.outerHeight(true)
               },
               // screen boundaries
               screen : {
