@@ -610,7 +610,6 @@ $.fn.form = function(parameters) {
                 }
               }
             });
-            console.log(values);
             return values;
           }
         },
