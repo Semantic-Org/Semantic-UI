@@ -2886,6 +2886,7 @@ $.fn.dropdown = function(parameters) {
           labels: function($labels) {
             $labels = $labels || $module.find(selector.label);
             module.verbose('Removing labels', $labels);
+            var userValues = module.get.userValues();
             $labels
               .each(function(){
                 var
@@ -2894,7 +2895,7 @@ $.fn.dropdown = function(parameters) {
                   stringValue = (value !== undefined)
                     ? String(value)
                     : value,
-                  isUserValue = module.is.userValue(stringValue)
+                  isUserValue = $.inArray(stringValue, userValues) !== -1
                 ;
                 if(settings.onLabelRemove.call($label, value) === false) {
                   module.debug('Label remove callback cancelled removal');
@@ -3136,9 +3137,6 @@ $.fn.dropdown = function(parameters) {
           },
           selection: function() {
             return $module.hasClass(className.selection);
-          },
-          userValue: function(value) {
-            return ($.inArray(value, module.get.userValues()) !== -1);
           },
           upward: function($menu) {
             var $element = $menu || $module;
