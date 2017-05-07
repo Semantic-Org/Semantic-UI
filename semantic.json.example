@@ -9,12 +9,12 @@
       "themes"      : "src/themes/"
     },
     "output": {
-      "packaged"     : "dist/",
-      "uncompressed" : "dist/components/",
-      "compressed"   : "dist/components/",
-      "themes"       : "dist/themes/"
+      "packaged": "../../../../public/assets/semantic/",
+      "uncompressed": "../../../../public/assets/semantic/components/",
+      "compressed": "../../../../public/assets/semantic/components/",
+      "themes": "../../../../public/assets/semantic/themes/"
     },
-    "clean"        : "dist/"
+    "clean": "../../../../public/assets/semantic/"
   },
 
   "permission" : false,
