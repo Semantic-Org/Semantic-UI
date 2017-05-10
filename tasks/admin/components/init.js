@@ -65,7 +65,7 @@ module.exports = function(callback) {
     }
 
     var
-      component            = release.components[index]
+      component            = release.components[index],
       outputDirectory      = path.resolve(release.outputRoot + component),
       capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
       repoName             = release.componentRepoRoot + capitalizedComponent,
