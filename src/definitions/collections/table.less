@@ -930,9 +930,6 @@
 }
 
 /* Inverted */
-.ui.inverted.sortable.table thead th {
-  color: @sortableInvertedColor;
-}
 .ui.inverted.sortable.table thead th.sorted {
   background: @sortableInvertedActiveBackground;
   color: @sortableInvertedActiveColor;
@@ -960,7 +957,7 @@
 .ui.inverted.table th {
   background-color: @invertedHeaderBackground;
   border-color: @invertedHeaderBorderColor !important;
-  color: @invertedHeaderColor;
+  color: @invertedHeaderColor !important;
 }
 .ui.inverted.table tr td {
   border-color: @invertedCellBorderColor !important;
