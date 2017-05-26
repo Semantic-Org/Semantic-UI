@@ -36,6 +36,7 @@
 @inputBorderRadius: @absoluteBorderRadius;
 @inputColor: @textColor;
 @inputTransition:
+  background-color @defaultDuration @defaultEasing,
   color @defaultDuration @defaultEasing,
   border-color @defaultDuration @defaultEasing
 ;
