@@ -194,6 +194,7 @@ gulp.task('run setup', function() {
   // If auto-install is switched on, we skip the configuration section and simply reuse the configuration from semantic.json
   if(install.shouldAutoInstall()) {
     answers = {
+
       overwrite    : 'yes',
       install      : 'auto',
       useRoot      : true,
@@ -430,7 +431,10 @@ gulp.task('clean up install', function() {
 
   // If auto-install is switched on, we skip the configuration section and simply build the dependencies
   if(install.shouldAutoInstall()) {
-    return gulp.start('build');
+    console.log(answers)
+    if (install.shouldBuild()) {
+      gulp.start('build');
+    }
   }
   else {
     return gulp
@@ -445,8 +449,6 @@ gulp.task('clean up install', function() {
       }))
     ;
   }
-
-
 });
 
 runSequence(

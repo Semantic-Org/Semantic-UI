@@ -19,6 +19,7 @@
 
   "permission" : false,
   "autoInstall": false,
+  "build": false,
   "rtl": false
 
 }
