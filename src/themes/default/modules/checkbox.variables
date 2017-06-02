@@ -176,12 +176,12 @@
 @toggleHoverColor: @toggleFocusColor;
 
 @toggleOffLabelColor: @checkboxColor;
-@toggleOffHandleBoxShadow: none;
+@toggleOffHandleBoxShadow: @handleBoxShadow;
 
 @toggleOnLabelColor: @selectedTextColor;
 @toggleOnLaneColor: @primaryColor;
 
-@toggleOnHandleBoxShadow: none;
+@toggleOnHandleBoxShadow: @handleBoxShadow;
 
 @toggleOnFocusLaneColor: @primaryColorFocus;
 @toggleOnFocusLabelColor: @toggleOnLabelColor;
