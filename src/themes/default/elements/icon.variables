@@ -6,14 +6,14 @@
    Icon Variables
 --------------------*/
 
-@fontName: 'icons';
-@fallbackSRC: url("@{fontPath}/@{fontName}.eot");
+@iconFontName: 'icons';
+@fallbackSRC: url("@{fontPath}/@{iconFontName}.eot");
 @src:
-  url("@{fontPath}/@{fontName}.eot?#iefix") format('embedded-opentype'),
-  url("@{fontPath}/@{fontName}.woff2") format('woff2'),
-  url("@{fontPath}/@{fontName}.woff") format('woff'),
-  url("@{fontPath}/@{fontName}.ttf") format('truetype'),
-  url("@{fontPath}/@{fontName}.svg#icons") format('svg')
+  url("@{fontPath}/@{iconFontName}.eot?#iefix") format('embedded-opentype'),
+  url("@{fontPath}/@{iconFontName}.woff2") format('woff2'),
+  url("@{fontPath}/@{iconFontName}.woff") format('woff'),
+  url("@{fontPath}/@{iconFontName}.ttf") format('truetype'),
+  url("@{fontPath}/@{iconFontName}.svg#icons") format('svg')
 ;
 
 @opacity: 1;
