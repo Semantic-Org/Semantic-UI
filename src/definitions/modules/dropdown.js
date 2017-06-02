@@ -759,9 +759,12 @@ $.fn.dropdown = function(parameters) {
               }
             }
           ;
-          if( !$module.api('get request') ) {
+
+          var apiNamespace = settings.apiSettings && settings.apiSettings.namespace || $.api.settings.namespace;
+          if(!$module.data('module-' + apiNamespace)) {
             module.setup.api();
           }
+
           apiSettings = $.extend(true, {}, apiSettings, settings.apiSettings);
           $module
             .api('setting', apiSettings)
