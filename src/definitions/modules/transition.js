@@ -191,7 +191,7 @@ $.fn.transition = function() {
               instance.complete();
             }
           }
-          if( module.can.animate() ) {
+          if( module.can.transition() ) {
             module.set.animating(settings.animation);
           }
           else {
