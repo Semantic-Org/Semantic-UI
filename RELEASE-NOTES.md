@@ -14,6 +14,7 @@
 - **Sticky** - Fix issue where sticky would cause page to shift when `context` height was determined by sticky's height in `position: static;`  #3430
 - **Sticky** - Fixed edge case where using `offset` setting, sticky element would not internally scroll if the rail contents (without the offset setting) would fit on screen
 - **Form Validation** - Fixed issue where radio was not being included in `onFailure` values if not set #5064
+- **Input** - Fixes disabled style being applied twice on input **Thanks @levithomason** #5284
 - **Menu** - Fixed issue where `left menu` and `right menu` did not display correctly in `stackable menu` on mobile #3604 #5116 **Thanks @BleuDiamant @Traverse**
 - **Popup** - Fixed issue where popup would incorrectly add itself to the wrong offset context when using `popup` and `target` setting together in cases where the `target` has a different `offsetParent` than the activating element.
 - **Dimmer** - Fixed typo causing body dimmer to add unnecessary `position: relative;` **Thanks @jinyangzhen** #4707
