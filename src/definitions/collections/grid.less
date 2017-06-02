@@ -141,6 +141,11 @@
 .ui.grid .column + .ui.vertical.divider {
   height: ~"calc(50% - "(@rowSpacing/2)~")";
 }
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui.stackable.grid .column + .ui.vertical.divider {
+    height: auto;
+  }
+}
 
 /* Remove Border on Last Horizontal Segment */
 .ui.grid > .row > .column:last-child > .horizontal.segment,
