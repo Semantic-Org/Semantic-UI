@@ -211,7 +211,11 @@ $.fn.modal = function(parameters) {
             module.verbose('Attaching events');
             $module
               .on('click' + eventNamespace, selector.close, module.event.close)
-              .on('click' + eventNamespace, selector.approve, module.event.approve)
+              .on('click' + eventNamespace, selector.approve, function() {
+                if( !module.is.animating() ) {
+                  module.event.approve();
+                }
+              })
               .on('click' + eventNamespace, selector.deny, module.event.deny)
             ;
             $window
@@ -310,8 +314,11 @@ $.fn.modal = function(parameters) {
             ? callback
             : function(){}
           ;
-          module.refreshModals();
-          module.showModal(callback);
+
+          if( !module.is.active() && !module.is.animating() ) {
+            module.refreshModals();
+            module.showModal(callback);
+          }
         },
 
         hide: function(callback) {
