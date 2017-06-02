@@ -426,6 +426,9 @@
 .ui.action.input:not([class*="left action"]) > .buttons:not(:first-child) > .button {
   border-radius: 0px;
 }
+.ui.action.input:not([class*="left action"]) > .dropdown:first-child {
+  border-radius: @borderRadius 0px 0px @borderRadius;
+}
 .ui.action.input:not([class*="left action"]) > .dropdown:last-child,
 .ui.action.input:not([class*="left action"]) > .button:last-child,
 .ui.action.input:not([class*="left action"]) > .buttons:last-child > .button {
