@@ -340,6 +340,8 @@ $.fn.sidebar = function(parameters) {
             module.clear.cache();
             module.set.pushable();
             module.set.direction();
+            module.debug("Setting sidebar behavior");
+            module.set.behavior();
           }
         },
 
@@ -603,6 +605,9 @@ $.fn.sidebar = function(parameters) {
           },
           overlay: function() {
             $module.addClass(className.overlay);
+          },
+          behavior: function() {
+            (settings.closable) ? module.bind.clickaway() : module.unbind.clickaway();
           }
         },
         remove: {
@@ -767,6 +772,7 @@ $.fn.sidebar = function(parameters) {
           module.debug('Changing setting', name, value);
           if( $.isPlainObject(name) ) {
             $.extend(true, settings, name);
+            module.set.behavior();
           }
           else if(value !== undefined) {
             if($.isPlainObject(settings[name])) {
@@ -775,6 +781,7 @@ $.fn.sidebar = function(parameters) {
             else {
               settings[name] = value;
             }
+            module.set.behavior();
           }
           else {
             return settings[name];
