@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.9 - Feed
+ * # Semantic UI 2.2.10 - Feed
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -32,10 +32,12 @@
 /* Event */
 .ui.feed > .event {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
   width: 100%;
@@ -56,13 +58,14 @@
 .ui.feed > .event > .label {
   display: block;
   -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   width: 2.5em;
   height: auto;
-  -ms-flex-item-align: stretch;
-      -ms-grid-row-align: stretch;
-      align-self: stretch;
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+          align-self: stretch;
   text-align: left;
 }
 .ui.feed > .event > .label .icon {
@@ -93,11 +96,12 @@
 .ui.feed > .event > .content {
   display: block;
   -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-  -ms-flex-item-align: stretch;
-      -ms-grid-row-align: stretch;
-      align-self: stretch;
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+          align-self: stretch;
   text-align: left;
   word-wrap: break-word;
 }

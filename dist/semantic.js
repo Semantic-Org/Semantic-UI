@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 2.2.9
+ * # Semantic UI - 2.2.10
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -9,7 +9,7 @@
  *
  */
 /*!
- * # Semantic UI 2.2.9 - Site
+ * # Semantic UI 2.2.10 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -497,7 +497,7 @@ $.extend($.expr[ ":" ], {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - Form Validation
+ * # Semantic UI 2.2.10 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2018,6 +2018,9 @@ $.fn.form.settings = {
         return;
       }
 
+      // allow dashes in card
+      cardNumber = cardNumber.replace(/[\-]/g, '');
+
       // verify card types
       if(requiredTypes) {
         $.each(requiredTypes, function(index, type){
@@ -2101,7 +2104,7 @@ $.fn.form.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - Accordion
+ * # Semantic UI 2.2.10 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2712,7 +2715,7 @@ $.extend( $.easing, {
 
 
 /*!
- * # Semantic UI 2.2.9 - Checkbox
+ * # Semantic UI 2.2.10 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3544,7 +3547,7 @@ $.fn.checkbox.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - Dimmer
+ * # Semantic UI 2.2.10 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -4253,7 +4256,7 @@ $.fn.dimmer.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - Dropdown
+ * # Semantic UI 2.2.10 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -5229,7 +5232,7 @@ $.fn.dropdown = function(parameters) {
             },
             blur: function(event) {
               pageLostFocus = (document.activeElement === this);
-              if(!willRefocus) {
+              if(module.is.searchSelection() && !willRefocus) {
                 if(!itemActivated && !pageLostFocus) {
                   if(settings.forceSelection) {
                     module.forceSelection();
@@ -5412,6 +5415,10 @@ $.fn.dropdown = function(parameters) {
                 hasSubMenu     = ($subMenu.length > 0),
                 isBubbledEvent = ($subMenu.find($target).length > 0)
               ;
+              // prevents IE11 bug where menu receives focus even though `tabindex=-1`
+              if(module.has.menuSearch()) {
+                $(document.activeElement).blur();
+              }
               if(!isBubbledEvent && (!hasSubMenu || settings.allowCategorySelection)) {
                 if(module.is.searchSelection()) {
                   if(settings.allowAdditions) {
@@ -7323,6 +7330,9 @@ $.fn.dropdown = function(parameters) {
                 height: $currentMenu.outerHeight()
               }
             };
+            if(module.is.verticallyScrollableContext()) {
+              calculations.menu.offset.top += calculations.context.scrollTop;
+            }
             onScreen = {
               above : (calculations.context.scrollTop) <= calculations.menu.offset.top - calculations.menu.height,
               below : (calculations.context.scrollTop + calculations.context.height) >= calculations.menu.offset.top + calculations.menu.height
@@ -7396,6 +7406,14 @@ $.fn.dropdown = function(parameters) {
               ? $subMenu.hasClass(className.visible)
               : $menu.hasClass(className.visible)
             ;
+          },
+          verticallyScrollableContext: function() {
+            var
+              overflowY = ($context.get(0) !== window)
+                ? $context.css('overflow-y')
+                : false
+            ;
+            return (overflowY == 'auto' || overflowY == 'scroll');
           }
         },
 
@@ -8021,7 +8039,7 @@ $.fn.dropdown.settings.templates = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - Embed
+ * # Semantic UI 2.2.10 - Embed
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8718,7 +8736,7 @@ $.fn.embed.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - Modal
+ * # Semantic UI 2.2.10 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8790,6 +8808,8 @@ $.fn.modal = function(parameters) {
 
         element         = this,
         instance        = $module.data(moduleNamespace),
+
+        ignoreRepeatedEvents = false,
 
         elementEventNamespace,
         id,
@@ -8945,18 +8965,24 @@ $.fn.modal = function(parameters) {
 
         event: {
           approve: function() {
-            if(settings.onApprove.call(element, $(this)) === false) {
+            if(ignoreRepeatedEvents || settings.onApprove.call(element, $(this)) === false) {
               module.verbose('Approve callback returned false cancelling hide');
               return;
             }
-            module.hide();
+            ignoreRepeatedEvents = true;
+            module.hide(function() {
+              ignoreRepeatedEvents = false;
+            });
           },
           deny: function() {
-            if(settings.onDeny.call(element, $(this)) === false) {
+            if(ignoreRepeatedEvents || settings.onDeny.call(element, $(this)) === false) {
               module.verbose('Deny callback returned false cancelling hide');
               return;
             }
-            module.hide();
+            ignoreRepeatedEvents = true;
+            module.hide(function() {
+              ignoreRepeatedEvents = false;
+            });
           },
           close: function() {
             module.hide();
@@ -9632,7 +9658,7 @@ $.fn.modal.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - Nag
+ * # Semantic UI 2.2.10 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10140,7 +10166,7 @@ $.extend( $.easing, {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - Popup
+ * # Semantic UI 2.2.10 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -11616,7 +11642,7 @@ $.fn.popup.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - Progress
+ * # Semantic UI 2.2.10 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12548,7 +12574,7 @@ $.fn.progress.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - Rating
+ * # Semantic UI 2.2.10 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13057,7 +13083,7 @@ $.fn.rating.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - Search
+ * # Semantic UI 2.2.10 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14500,7 +14526,7 @@ $.fn.search.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - Shape
+ * # Semantic UI 2.2.10 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15422,7 +15448,7 @@ $.fn.shape.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - Sidebar
+ * # Semantic UI 2.2.10 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -16459,7 +16485,7 @@ $.fn.sidebar.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - Sticky
+ * # Semantic UI 2.2.10 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17402,7 +17428,7 @@ $.fn.sticky.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - Tab
+ * # Semantic UI 2.2.10 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -18355,7 +18381,7 @@ $.fn.tab.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - Transition
+ * # Semantic UI 2.2.10 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -19451,7 +19477,7 @@ $.fn.transition.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - API
+ * # Semantic UI 2.2.10 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20619,7 +20645,7 @@ $.api.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - State
+ * # Semantic UI 2.2.10 - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21328,7 +21354,7 @@ $.fn.state.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.9 - Visibility
+ * # Semantic UI 2.2.10 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21751,6 +21777,22 @@ $.fn.visibility = function(parameters) {
               return !(module.cache.element.width === 0 && module.cache.element.offset.top === 0);
             }
             return false;
+          },
+          verticallyScrollableContext: function() {
+            var
+              overflowY = ($context.get(0) !== window)
+                ? $context.css('overflow-y')
+                : false
+            ;
+            return (overflowY == 'auto' || overflowY == 'scroll');
+          },
+          horizontallyScrollableContext: function() {
+            var
+              overflowX = ($context.get(0) !== window)
+                ? $context.css('overflow-x')
+                : false
+            ;
+            return (overflowX == 'auto' || overflowX == 'scroll');
           }
         },
 
@@ -22208,6 +22250,13 @@ $.fn.visibility = function(parameters) {
             element.offset        = $module.offset();
             element.width         = $module.outerWidth();
             element.height        = $module.outerHeight();
+            // compensate for scroll in context
+            if(module.is.verticallyScrollableContext()) {
+              element.offset.top += $context.scrollTop() - $context.offset().top;
+            }
+            if(module.is.horizontallyScrollableContext()) {
+              element.offset.left += $context.scrollLeft - $context.offset().left;
+            }
             // store
             module.cache.element = element;
             return element;
@@ -22231,10 +22280,10 @@ $.fn.visibility = function(parameters) {
             }
 
             // visibility
-            element.topVisible       = (screen.bottom >= element.top);
             element.topPassed        = (screen.top >= element.top);
-            element.bottomVisible    = (screen.bottom >= element.bottom);
             element.bottomPassed     = (screen.top >= element.bottom);
+            element.topVisible       = (screen.bottom >= element.top) && !element.bottomPassed;
+            element.bottomVisible    = (screen.bottom >= element.bottom) && !element.topPassed;
             element.pixelsPassed     = 0;
             element.percentagePassed = 0;
 
