@@ -15,7 +15,6 @@
 
 .ui.rating {
   display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   white-space: nowrap;
@@ -33,7 +32,6 @@
   font-weight: normal;
   font-style: normal;
   -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
   cursor: pointer;
@@ -165,7 +163,7 @@
 *******************************/
 
 .ui.mini.rating {
-  font-size: 0.71428571rem;
+  font-size: 0.78571429rem;
 }
 .ui.tiny.rating {
   font-size: 0.85714286rem;
@@ -209,7 +207,7 @@
 
 /* Empty Star */
 .ui.rating .icon:before {
-  content: '\f006';
+  content: '\f005';
 }
 
 /* Active Star */

@@ -45,8 +45,8 @@ h3,
 h4,
 h5 {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  line-height: 1.2857em;
-  margin: calc(2rem -  0.14285em ) 0em 1rem;
+  line-height: 1.28571429em;
+  margin: calc(2rem -  0.14285714em ) 0em 1rem;
   font-weight: bold;
   padding: 0em;
 }
@@ -55,13 +55,13 @@ h1 {
   font-size: 2rem;
 }
 h2 {
-  font-size: 1.714rem;
+  font-size: 1.71428571rem;
 }
 h3 {
-  font-size: 1.28rem;
+  font-size: 1.28571429rem;
 }
 h4 {
-  font-size: 1.071rem;
+  font-size: 1.07142857rem;
 }
 h5 {
   font-size: 1rem;
@@ -152,18 +152,6 @@ input::selection {
         Global Overrides
 *******************************/
 
-
-/* only visible by screen reader */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
 
 
 /*******************************
