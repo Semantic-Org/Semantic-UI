@@ -155,10 +155,14 @@
   .ui.table:not(.unstackable) {
     width: 100%;
   }
-  .ui.table:not(.unstackable) tbody,
-  .ui.table:not(.unstackable) tr,
-  .ui.table:not(.unstackable) tr > th,
-  .ui.table:not(.unstackable) tr > td  {
+  .ui.table:not(.unstackable) > tbody,
+  .ui.table:not(.unstackable) > tr,
+  .ui.table:not(.unstackable) > tbody > tr,
+  .ui.table:not(.unstackable) > tr > th,
+  .ui.table:not(.unstackable) > thead > tr > th,
+  .ui.table:not(.unstackable) > tfoot > tr > th,
+  .ui.table:not(.unstackable) > tr > td,
+  .ui.table:not(.unstackable) > tbody > tr > td {
     display: block !important;
     width: auto !important;
     display: block !important;
@@ -167,32 +171,42 @@
   .ui.table:not(.unstackable) {
     padding: 0em;
   }
-  .ui.table:not(.unstackable) thead {
+  .ui.table:not(.unstackable) > thead {
     display: @responsiveHeaderDisplay;
   }
-  .ui.table:not(.unstackable) tfoot {
+  .ui.table:not(.unstackable) > tfoot {
     display: @responsiveFooterDisplay;
   }
-  .ui.table:not(.unstackable) tr {
+  .ui.table:not(.unstackable) > tr,
+  .ui.table:not(.unstackable) > tbody > tr,
+  .ui.table:not(.unstackable) > thead > tr,
+  .ui.table:not(.unstackable) > tfoot > tr {
     padding-top: @responsiveRowVerticalPadding;
     padding-bottom: @responsiveRowVerticalPadding;
     box-shadow: @responsiveRowBoxShadow;
   }
 
-  .ui.table:not(.unstackable) tr > th,
-  .ui.table:not(.unstackable) tr > td {
+  .ui.table:not(.unstackable) > tr > th,
+  .ui.table:not(.unstackable) > thead > tr > th,
+  .ui.table:not(.unstackable) > tfoot > tr > th,
+  .ui.table:not(.unstackable) > tr > td,
+  .ui.table:not(.unstackable) > tbody > tr > td {
     background: none;
     border: none !important;
     padding: @responsiveCellVerticalPadding @responsiveCellHorizontalPadding !important;
     box-shadow: @responsiveCellBoxShadow;
   }
-  .ui.table:not(.unstackable) th:first-child,
-  .ui.table:not(.unstackable) td:first-child {
+  .ui.table:not(.unstackable) > tr > th:first-child,
+  .ui.table:not(.unstackable) > thead > th:first-child,
+  .ui.table:not(.unstackable) > tfoot > th:first-child,
+  .ui.table:not(.unstackable) > td:first-child,
+  .ui.table:not(.unstackable) > tr > td:first-child,
+  .ui.table:not(.unstackable) > tbody > tr > td:first-child {
     font-weight: bold;
   }
 
   /* Definition Table */
-  .ui.definition.table:not(.unstackable) thead th:first-child {
+  .ui.definition.table:not(.unstackable) > thead > th:first-child {
     box-shadow: none !important;
   }
 }
