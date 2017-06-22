@@ -129,7 +129,7 @@
        Links
 --------------------*/
 
-@linkColor           : #4183C4;
+@linkColor           : @blue;
 @linkUnderline       : none;
 @linkHoverColor      : darken(saturate(@linkColor, 20), 15, relative);
 @linkHoverUnderline  : @linkUnderline;
@@ -192,7 +192,7 @@
 @olive            : #B5CC18;
 @green            : #188130;
 @teal             : #158570;
-@blue             : #2185D0;
+@blue             : #1E78BB;
 @violet           : #6435C9;
 @purple           : #A333C8;
 @pink             : #E03997;
@@ -201,19 +201,19 @@
 @black            : #1B1C1D;
 
 /*---  Light Colors  ---*/
-@lightRed         : #FF695E;
-@lightOrange      : #FF851B;
-@lightYellow      : #FFE21F;
-@lightOlive       : #D9E778;
-@lightGreen       : #2ECC40;
-@lightTeal        : #6DFFFF;
-@lightBlue        : #54C8FF;
-@lightViolet      : #A291FB;
-@lightPurple      : #DC73FF;
-@lightPink        : #FF8EDF;
-@lightBrown       : #D67C1C;
-@lightGrey        : #DCDDDE;
-@lightBlack       : #545454;
+@lightRed         : #E76A6A;
+@lightOrange      : #E28447;
+@lightYellow      : #FFE134;
+@lightOlive       : #CADB5D;
+@lightGreen       : #74B584;
+@lightTeal        : #8AC2B8;
+@lightBlue        : #7AB0D7;
+@lightViolet      : #A485DD;
+@lightPurple      : #C783E0;
+@lightPink        : #EC89BF;
+@lightBrown       : #C9A38B;
+@lightGrey        : #E6E6E6;
+@lightBlack       : #AEAEAE;
 
 /*---   Neutrals  ---*/
 @fullBlack        : #000000;
@@ -253,8 +253,8 @@
 @orangeTextColor : @orange;
 @yellowTextColor : #B58105; // Yellow text is difficult to read
 @oliveTextColor  : #8ABC1E; // Olive is difficult to read
-@greenTextColor  : #1EBC30; // Green is difficult to read
-@tealTextColor   : #10A3A3; // Teal text is difficult to read
+@greenTextColor  : @green; 
+@tealTextColor   : @teal; 
 @blueTextColor   : @blue;
 @violetTextColor : @violet;
 @purpleTextColor : @purple;
@@ -302,30 +302,30 @@
 /* Positive */
 @positiveColor           : @green;
 @positiveBackgroundColor : #FCFFF5;
-@positiveBorderColor     : #A3C293;
-@positiveHeaderColor     : #1A531B;
-@positiveTextColor       : #2C662D;
+@positiveBorderColor     : #146726;
+@positiveHeaderColor     : #146726;
+@positiveTextColor       : #146726;
 
 /* Negative */
 @negativeColor           : @red;
 @negativeBackgroundColor : #FFF6F6;
-@negativeBorderColor     : #E0B4B4;
-@negativeHeaderColor     : #912D2B;
-@negativeTextColor       : #9F3A38;
+@negativeBorderColor     : #991C1C;
+@negativeHeaderColor     : #991C1C;
+@negativeTextColor       : #991C1C;
 
 /* Info */
-@infoColor              : #31CCEC;
+@infoColor              : @lightBlue;
 @infoBackgroundColor    : #F8FFFF;
-@infoBorderColor        : #A9D5DE;
-@infoHeaderColor        : #0E566C;
-@infoTextColor          : #276F86;
+@infoBorderColor        : #155482;
+@infoHeaderColor        : #155482;
+@infoTextColor          : #155482;
 
 /* Warning */
-@warningColor           : #F2C037;
-@warningBorderColor     : #C9BA9B;
+@warningColor           : @orange;
+@warningBorderColor     : #984810;
 @warningBackgroundColor : #FFFAF3;
-@warningHeaderColor     : #794B02;
-@warningTextColor       : #573A08;
+@warningHeaderColor     : #984810;
+@warningTextColor       : #@orange; // only use with large font sizes
 
 /*-------------------
         Paths
