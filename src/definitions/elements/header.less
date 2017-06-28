@@ -79,7 +79,7 @@
         Image
 --------------------*/
 
-.ui.header > .image,
+.ui.header > .image:not(.icon),
 .ui.header > img {
   display: inline-block;
   margin-top: @imageOffset;
@@ -87,7 +87,7 @@
   height: @imageHeight;
   vertical-align: @imageAlignment;
 }
-.ui.header > .image:only-child,
+.ui.header > .image:not(.icon):only-child,
 .ui.header > img:only-child {
   margin-right: @imageMargin;
 }

@@ -38,6 +38,14 @@
 @h4               : 1.5rem;
 @h5               : 1.25rem;
 
+
+/*-------------------
+        Paths
+--------------------*/
+
+@imagePath : '../../themes/material/assets/images';
+@fontPath  : '../../themes/material/assets/fonts';
+
 /*--------------
    Paragraphs
 ---------------*/

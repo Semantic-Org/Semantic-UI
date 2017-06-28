@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.0 - Button
+ * # Semantic UI 2.2.10 - Button
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -273,7 +273,6 @@
 }
 .ui.vertical.animated.button .visible.content {
   -webkit-transform: translateY(0%);
-      -ms-transform: translateY(0%);
           transform: translateY(0%);
   right: auto;
 }
@@ -285,7 +284,6 @@
 .ui.vertical.animated.button:focus .visible.content,
 .ui.vertical.animated.button:hover .visible.content {
   -webkit-transform: translateY(200%);
-      -ms-transform: translateY(200%);
           transform: translateY(200%);
   right: auto;
 }
@@ -308,7 +306,6 @@
   right: auto;
   opacity: 1;
   -webkit-transform: scale(1);
-      -ms-transform: scale(1);
           transform: scale(1);
 }
 .ui.fade.animated.button .hidden.content {
@@ -316,7 +313,6 @@
   left: 0%;
   right: auto;
   -webkit-transform: scale(1.5);
-      -ms-transform: scale(1.5);
           transform: scale(1.5);
 }
 .ui.fade.animated.button:focus .visible.content,
@@ -325,7 +321,6 @@
   right: auto;
   opacity: 0;
   -webkit-transform: scale(0.75);
-      -ms-transform: scale(0.75);
           transform: scale(0.75);
 }
 .ui.fade.animated.button:focus .hidden.content,
@@ -334,7 +329,6 @@
   right: auto;
   opacity: 1;
   -webkit-transform: scale(1);
-      -ms-transform: scale(1);
           transform: scale(1);
 }
 
@@ -393,12 +387,10 @@
 
 .ui.labeled.button:not(.icon) {
   display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
   background: none !important;
@@ -411,11 +403,9 @@
 }
 .ui.labeled.button > .label {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
   margin: 0px 0px 0px -1px !important;
@@ -476,38 +466,38 @@
 
 /* Twitter */
 .ui.twitter.button {
-  background-color: #0084B4;
+  background-color: #55ACEE;
   color: #FFFFFF;
   text-shadow: none;
   background-image: none;
   box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
 }
 .ui.twitter.button:hover {
-  background-color: #00719b;
+  background-color: #35a2f4;
   color: #FFFFFF;
   text-shadow: none;
 }
 .ui.twitter.button:active {
-  background-color: #005f81;
+  background-color: #2795e9;
   color: #FFFFFF;
   text-shadow: none;
 }
 
 /* Google Plus */
 .ui.google.plus.button {
-  background-color: #DC4A38;
+  background-color: #DD4B39;
   color: #FFFFFF;
   text-shadow: none;
   background-image: none;
   box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
 }
 .ui.google.plus.button:hover {
-  background-color: #de321d;
+  background-color: #e0321c;
   color: #FFFFFF;
   text-shadow: none;
 }
 .ui.google.plus.button:active {
-  background-color: #bf3322;
+  background-color: #c23321;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -569,19 +559,19 @@
 
 /* Pinterest */
 .ui.pinterest.button {
-  background-color: #00ACED;
+  background-color: #BD081C;
   color: #FFFFFF;
   text-shadow: none;
   background-image: none;
   box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
 }
 .ui.pinterest.button:hover {
-  background-color: #0099d4;
+  background-color: #ac0013;
   color: #FFFFFF;
   text-shadow: none;
 }
 .ui.pinterest.button:active {
-  background-color: #0087ba;
+  background-color: #8c0615;
   color: #FFFFFF;
   text-shadow: none;
 }
@@ -615,10 +605,10 @@
   vertical-align: '';
   color: '';
 }
-.ui.button:not(.icon) > .icon:not(.button) {
+.ui.button:not(.icon) > .icon:not(.button):not(.dropdown) {
   margin: 0em 0.42857143em 0em -0.21428571em;
 }
-.ui.button:not(.icon) > .right.icon:not(.button) {
+.ui.button:not(.icon) > .right.icon:not(.button):not(.dropdown) {
   margin: 0em -0.21428571em 0em 0.42857143em;
 }
 
@@ -718,7 +708,7 @@
 .ui.icon.buttons .button > .icon,
 .ui.icon.button > .icon {
   opacity: 0.9;
-  margin: 0em;
+  margin: 0em !important;
   vertical-align: top;
 }
 
@@ -767,7 +757,6 @@
   background: rgba(0, 0, 0, 0.05) !important;
   box-shadow: '' !important;
   color: rgba(0, 0, 0, 0.95);
-  box-shadow: rgba(34, 36, 38, 0.35);
 }
 .ui.basic.buttons .active.button:hover,
 .ui.basic.active.button:hover {
@@ -782,7 +771,7 @@
   box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(34, 36, 38, 0.15) inset inset;
 }
 .ui.basic.buttons .active.button {
-  box-shadow: rgba(34, 36, 38, 0.35) inset;
+  box-shadow: '' !important;
 }
 
 /* Standard Basic Inverted */
@@ -895,7 +884,6 @@
   top: 50%;
   text-align: center;
   -webkit-transform: translateY(-50%);
-      -ms-transform: translateY(-50%);
           transform: translateY(-50%);
 }
 .ui.labeled.icon.buttons .button > .icon {
@@ -1039,7 +1027,6 @@
 .ui.attached.buttons {
   position: relative;
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   border-radius: 0em;
@@ -1083,7 +1070,6 @@
 /* Left / Right */
 .ui[class*="left attached"].buttons {
   display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   margin-right: 0em;
@@ -1100,7 +1086,6 @@
 }
 .ui[class*="right attached"].buttons {
   display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   margin-left: 0em;
@@ -1198,7 +1183,6 @@
 .ui.fluid.vertical.buttons,
 .ui.fluid.vertical.buttons > .button {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   width: auto;
@@ -3374,12 +3358,10 @@
 
 .ui.buttons {
   display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
   font-size: 0em;
@@ -3402,7 +3384,6 @@
 /* Standard Group */
 .ui.buttons .button {
   -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
   margin: 0em;
@@ -3427,12 +3408,10 @@
 /* Vertical  Style */
 .ui.vertical.buttons {
   display: -webkit-inline-box;
-  display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
 }
@@ -3442,24 +3421,19 @@
   width: 100%;
   margin: 0px 0px 0px 0px;
   box-shadow: none;
+  border-radius: 0em;
 }
-.ui.vertical.buttons .button:first-child,
-.ui.vertical.buttons .mini.button:first-child,
-.ui.vertical.buttons .tiny.button:first-child,
-.ui.vertical.buttons .small.button:first-child,
-.ui.vertical.buttons .massive.button:first-child,
-.ui.vertical.buttons .huge.button:first-child {
-  border-radius: 0.28571429rem 0.28571429rem 0px 0px;
+.ui.vertical.buttons .button:first-child {
+  border-top-left-radius: 0.28571429rem;
+  border-top-right-radius: 0.28571429rem;
 }
-.ui.vertical.buttons .button:last-child,
-.ui.vertical.buttons .mini.button:last-child,
-.ui.vertical.buttons .tiny.button:last-child,
-.ui.vertical.buttons .small.button:last-child,
-.ui.vertical.buttons .massive.button:last-child,
-.ui.vertical.buttons .huge.button:last-child,
-.ui.vertical.buttons .gigantic.button:last-child {
+.ui.vertical.buttons .button:last-child {
   margin-bottom: 0px;
-  border-radius: 0px 0px 0.28571429rem 0.28571429rem;
+  border-bottom-left-radius: 0.28571429rem;
+  border-bottom-right-radius: 0.28571429rem;
+}
+.ui.vertical.buttons .button:only-child {
+  border-radius: 0.28571429rem;
 }
 
 

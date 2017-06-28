@@ -429,13 +429,21 @@ $.fn.tab = function(parameters) {
               ? evaluateScripts
               : settings.evaluateScripts
             ;
-            if(evaluateScripts) {
-              module.debug('Updating HTML and evaluating inline scripts', tabPath, html);
-              $tab.html(html);
+            if(typeof settings.cacheType == 'string' && settings.cacheType.toLowerCase() == 'dom' && typeof html !== 'string') {
+              $tab
+                .empty()
+                .append($(html).clone(true))
+              ;
             }
             else {
-              module.debug('Updating HTML', tabPath, html);
-              tab.innerHTML = html;
+              if(evaluateScripts) {
+                module.debug('Updating HTML and evaluating inline scripts', tabPath, html);
+                $tab.html(html);
+              }
+              else {
+                module.debug('Updating HTML', tabPath, html);
+                tab.innerHTML = html;
+              }
             }
           }
         },
@@ -467,7 +475,20 @@ $.fn.tab = function(parameters) {
                   }
                   settings.onFirstLoad.call($tab[0], tabPath, parameterArray, historyEvent);
                   settings.onLoad.call($tab[0], tabPath, parameterArray, historyEvent);
-                  if(settings.cacheType != 'response') {
+
+                  if(settings.loadOnce) {
+                    module.cache.add(fullTabPath, true);
+                  }
+                  else if(typeof settings.cacheType == 'string' && settings.cacheType.toLowerCase() == 'dom' && $tab.children().length > 0) {
+                    setTimeout(function() {
+                      var
+                        $clone = $tab.children().clone(true)
+                      ;
+                      $clone = $clone.not('script');
+                      module.cache.add(fullTabPath, $clone);
+                    }, 0);
+                  }
+                  else {
                     module.cache.add(fullTabPath, $tab.html());
                   }
                 },
@@ -488,11 +509,13 @@ $.fn.tab = function(parameters) {
             if(settings.cache && cachedContent) {
               module.activate.tab(tabPath);
               module.debug('Adding cached content', fullTabPath);
-              if(settings.evaluateScripts == 'once') {
-                module.update.content(tabPath, cachedContent, false);
-              }
-              else {
-                module.update.content(tabPath, cachedContent);
+              if(!settings.loadOnce) {
+                if(settings.evaluateScripts == 'once') {
+                  module.update.content(tabPath, cachedContent, false);
+                }
+                else {
+                  module.update.content(tabPath, cachedContent);
+                }
               }
               settings.onLoad.call($tab[0], tabPath, parameterArray, historyEvent);
             }
@@ -880,6 +903,7 @@ $.fn.tab.settings = {
 
   alwaysRefresh   : false,      // load tab content new every tab click
   cache           : true,       // cache the content requests to pull locally
+  loadOnce        : false,      // Whether tab data should only be loaded once when using remote content
   cacheType       : 'response', // Whether to cache exact response, or to html cache contents after scripts execute
   ignoreFirstLoad : false,      // don't load remote content on first load
 

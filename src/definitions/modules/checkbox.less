@@ -500,6 +500,7 @@
   top: @toggleLaneVerticalOffset;
 
   background: @toggleLaneBackground;
+  box-shadow: @toggleLaneBoxShadow;
   width: @toggleLaneWidth;
   height: @toggleLaneHeight;
   border-radius: @toggleHandleRadius;
@@ -528,6 +529,7 @@
 .ui.toggle.checkbox input ~ .box:after,
 .ui.toggle.checkbox input ~ label:after {
   left: @toggleOffOffset;
+  box-shadow: @toggleOffHandleBoxShadow;
 }
 
 /* Focus */
@@ -556,6 +558,7 @@
 .ui.toggle.checkbox input:checked ~ .box:after,
 .ui.toggle.checkbox input:checked ~ label:after {
   left: @toggleOnOffset;
+  box-shadow: @toggleOnHandleBoxShadow;
 }
 
 

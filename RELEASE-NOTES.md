@@ -1,5 +1,195 @@
 ## RELEASE NOTES
 
+### Version 2.2.11 - April XX, 2017
+
+**Enhancements**
+- **Modal** - Adds `tiny` and `mini` sized modals #5123 **Thanks @Banandrew**
+- **Popup* - Added `bind clickaway` `bind touchclose` `bind close on scroll` behaviors to make it easier for `on: 'manual'` popup to specify behavior
+- **Popup** - Separated className setting for `visible` into `visible` and `popupVisible`, this way you can remove visible indiciation on activating element without modifying popup.
+
+**Bugs**
+- **Dropdown** - Fixed issue where using `down` key to re-open dropdown when using `search selection dropdown` would start at the top element instead of jumping to selected element
+- **Sidebar** - Removed use of `ios` browser detection, and use of `-webkit-overflow-scrolling: touch;`. iOS no longer has sizing issues when displaying sidebar content in latest iOS.
+- **Search** - Fixed issue where `searchDelay` could cause results to appear after search had lost focus.
+- **Sticky** - Fix issue where sticky would cause page to shift when `context` height was determined by sticky's height in `position: static;`  #3430
+- **Sticky** - Fixed edge case where using `offset` setting, sticky element would not internally scroll if the rail contents (without the offset setting) would fit on screen
+- **Form Validation** - Fixed issue where radio was not being included in `onFailure` values if not set #5064
+- **Input** - Fixes disabled style being applied twice on input **Thanks @levithomason** #5284
+- **Menu** - Fixed issue where `left menu` and `right menu` did not display correctly in `stackable menu` on mobile #3604 #5116 **Thanks @BleuDiamant @Traverse**
+- **Popup** - Fixed issue where popup would incorrectly add itself to the wrong offset context when using `popup` and `target` setting together in cases where the `target` has a different `offsetParent` than the activating element.
+- **Dimmer** - Fixed typo causing body dimmer to add unnecessary `position: relative;` **Thanks @jinyangzhen** #4707
+
+### Version 2.2.10 - March 28, 2017
+
+**Critical Bugs**
+- **Dropdown** - Fix search input inside dropdown menu causing dropdown to close before selection when selecting an item #5113
+- **Dropdown** - (IE11 Only) Fixed issue where dropdown re-opens immediately after closing when using a `search` inside menu. #4237
+
+**Bugs**
+- **Button** - Fixes `@basicActiveBoxShadow` being used incorrectly in basic button variables
+- **Visibility** - Visibility events now fire correctly when using `context` other than body that has `overflow-x` or `overflow-y` set to `auto` or `scroll`
+- **Dropdown** - Fixes an issue where dropdown would not correctly open `upward` at bottom edge of the screen when using a `context` with `overflow-x` or `overflow-y` set to `auto`
+- **Modal** - `onDeny` and `onApprove` callbacks can no longer occur multiple times if you rapidly click a approve/deny button in a. #4479
+
+**Enhancements**
+-**Form** - Credit card validation now no longer fails validation with dashed credit card values #5122 **Thanks @neokio**
+
+**Bugs**
+- **Visibility** - Fixed bug where using visibility with `context` setting on a scrollable context (with overflow) would cause callbacks to fire incorrectly
+- **Visibility** - Fixed bug where `top passed` and `bottom passed` would appear as incorrect values if using settings from `get element calculations` when element is off screen.
+
+### Version 2.2.9 - February 21, 2017
+
+**Build Tools**
+- Fixes `2.2.8` npm install script failing due to incorrect path in `require` statement
+
+### Version 2.2.8 - February 21, 2017
+
+### Important Note
+> Some quirks have been resolved that may cause changes for upgrading users who were expecting these behaviors
+
+#### Form Validation
+If you are using form validation, previous to `2.2.8` calling `is valid` would trigger UI updates. This behavior now **no longer triggers UI updates**, and will only return a `boolean` whether form is valid.
+
+To trigger UI updates you can call `validate form`. Additional form behaviors have been added as well. [See the new documentation on programmatic validation](http://semantic-ui.com/behaviors/form.html#validating-programmatically) for more examples.
+
+#### Dropdown
+`multiple selection dropdown` no longer automatically adds the currently selected value when you "alt-tab" or blur the field, even when `forceSelection: true` is set.
+
+-------------------------------------------------------
+
+**Major Enhancements**
+- **Icons** - Updates Font Awesome to `4.7.0` **Always the man @BreadMaker** [#4766](https://github.com/Semantic-Org/Semantic-UI/pull/4766)
+- **Dropdown** - Added new setting `filterRemoteData`, when set to `true` API will be expected to return the complete result set, which will then be filtered clientside to only display matching results. **Thanks @enix223** [#4815](https://github.com/Semantic-Org/Semantic-UI/pull/4815)
+- **Dropdown** - Fixed issue where using some usage of special characters like `\` could cause dropdowns to not work. [#4688](https://github.com/Semantic-Org/Semantic-UI/pull/4688) [#4692](https://github.com/Semantic-Org/Semantic-UI/pull/4692)
+- **Tab** - Added setting `loadOnce`, which when enabled only calls remote endpoint for tab data on first load and leaves the DOM undisturbed afterwards. [#2534](https://github.com/Semantic-Org/Semantic-UI/pull/2534)
+
+**Critical Bugs**
+- **Dropdown** - `forceSelection` setting will no longer cause highlighted value in multiselect to be selected on blur when using a `multiple selection dropdown` [#4041](https://github.com/Semantic-Org/Semantic-UI/pull/4041) [#4516](https://github.com/Semantic-Org/Semantic-UI/pull/4516)
+- **Dropdown** - Dropdown using search input inside of menu are now tabbable [#4490](https://github.com/Semantic-Org/Semantic-UI/pull/4490)
+- **Search** - Fixes issue where empty results message can still appear when using setting `showNoResults: false` [#4616](https://github.com/Semantic-Org/Semantic-UI/pull/4616)
+- **Sidebar** - Fixed bug where sidebar in `iOS` would show incorrect background when opening sidebar if page is less than 100% height [#4264](https://github.com/Semantic-Org/Semantic-UI/pull/4264)
+
+**Critical Doc Fixes**
+- **Visibility** - Added documentation for `onOnscreen` and `onOffScreen`, two very important callbacks that occur when an element is or isn't in currently scrolled view.
+
+**Enhancements**
+- **Items** - Added `unstackable` variation to prevent items from stacking on mobile [#2901](https://github.com/Semantic-Org/Semantic-UI/pull/2901)
+- **Search** - Added new parameter `callback` to behaviors `query`, `show results`, `hide results`, and `search remote` to allow a function to be called after completion.
+- **Form Validation** - Rules now properly supports identifiers with special characters like brackets, e.g. `name="user[name]"` **Thanks @mzygmunt** [#4163](https://github.com/Semantic-Org/Semantic-UI/pull/4163)
+- **Search** - `esc` key now hides results and prevents them from being displayed again until form field is blurred
+
+**Build Tools**
+- **NPM** - Removed dependency on tarball, packaged new patched WrenchJS under Semantic-org [as a new package](http://github.com/semantic-org/wrench-js).
+
+**Bugs**
+- **Button** - Fixed issue where css specificity caused `icon buttons` to not center correctly [#4487](https://github.com/Semantic-Org/Semantic-UI/pull/4487)
+- **Dropdown** - Fixed bug where clicking on a dropdown's `dropdown icon` when using remote data would not open menu [#4041](https://github.com/Semantic-Org/Semantic-UI/pull/4041)
+- **Dropdown/Search/Checkbox** - Removes use of deprecated `dispatchEvent` DOM APIs for generating simulated events
+- **Dropdown** - Fixes issue where `left pointing dropdown` and `right pointing dropdown` appear styled incorrectly when opening `upward` [#4896](https://github.com/Semantic-Org/Semantic-UI/pull/4896)
+- **Dropdown** - Fixed issue where using `fullTextSearch: 'exact'` would still fuzzy search on value **Thanks @ rminnett** [#4651](https://github.com/Semantic-Org/Semantic-UI/pull/4651) [#3424](https://github.com/Semantic-Org/Semantic-UI/pull/3424)
+- **Dropdown** - Fix bug where `scrolling menu` or `scrolling dropdown` would have excessive right padding by removing scrollbar width from calculation (no longer necessary in modern browsers)
+- **Comments** - `small`, `large` and other comment sizes now default to global size variables.
+- **Dropdown** - Fixed issue where `selectOnKeydown` with `html` content would cause only non html content to display in `text` until blur
+- **Form Validation** - Fixes issue where decimal validation would allow multiple `.` in value
+- **Form Validation** - Fixes js error caused by revalidating inputs without validation rules [#4497](https://github.com/Semantic-Org/Semantic-UI/pull/4497) [#4547](https://github.com/Semantic-Org/Semantic-UI/pull/4457) **Thanks @cbxp**
+- **Header** - Fixed issue where using `image icon` or `image outline icon` would cause incorrect display within `ui header` due to namespace collision with `ui image` [#4145](https://github.com/Semantic-Org/Semantic-UI/pull/4145)
+- **Input/Dropdown** - Fixed rounding error causing vertical alignment of `dropdown`, `search`, `input` to sometimes appear off by 1 pixel [#4279](https://github.com/Semantic-Org/Semantic-UI/pull/4279)
+- **Segment** - Fixed `padded vertical segment` `very padded vertical segment` mistakenly receives horizontal padding [#3012](https://github.com/Semantic-Org/Semantic-UI/pull/3012)
+- **Visibility** - Images that use `$('img').visibility({ type: 'image'})` will no longer animate a second time if re-initialized.
+- **Form Validation** - Fixed issue where using bracketed values, or other special characters could cause errors with selectors [#4163](https://github.com/Semantic-Org/Semantic-UI/pull/4163) [#4164](https://github.com/Semantic-Org/Semantic-UI/pull/4164)
+
+**Documentation**
+- **Comments** - Added missing `size` variations to comments docs [#4450](https://github.com/Semantic-Org/Semantic-UI/pull/4450)
+- **Typos** - Thanks to everyone who has submitted typo/grammatical PRs, much appreciated
+
+### Version 2.2.7 - December 21, 2016
+
+**Build Tools**
+- **Autoinstall** - Fixes issue where `autoinstall: true` was not copying build files during `npm install` **Thanks @AnsonT** [#4430](https://github.com/Semantic-Org/Semantic-UI/pull/4430)
+- **Dependencies** - Updates build dependencies
+
+### Version 2.2.6 - October, 27, 2016
+
+**Bugs**
+-**Tab** - Hotfix for accidental use of ES6 `let`
+
+### Version 2.2.5 - October, 27, 2016
+
+**Bugs**
+- **Search** - Fixed issue where pressing "up" key when no results selected would cause bottom result to be selected
+- **Search** - Fixed issue where input may attempt to refocus when search element is immediately removed from browser's DOM after a result is clicked.
+- **Flat Theme** - Fixes inverted input color
+
+**Enhancements**
+- **Tab** - Added new tab cache type `DOM` which preserves the final DOM state after scripts rendering. This can be used to avoid re-running returned `<script>` tags on each cached read #2534
+- **Checkbox** - Adds additional variables for styling toggle checkbox on/off state
+-  **Sticky** - Adds `container` setting. This can be used to specify the offsetParent of the sticky element and avoid having to calculate on initialization (improving performance)
+- **Progress** - Progress now includes transitionEnd failback for progress bar animations, this will prevent labels from continuing to be updated if the `transitionEnd` css callback does not fire correctly
+- **Transition** - You can now specify `data-display` to specify the final display state for an animation in cases that it is detected incorrectly (you can also pass in as a setting)
+
+### Version 2.2.4 - August 25, 2016
+
+**Critical Bug**
+- **Search** - Fixed issue where keyboard navigation for search was broken in `2.2.3` due to regression [#4469](https://github.com/Semantic-Org/Semantic-UI/issues/4469)
+
+**Bugs**
+- **Build Tools** - Removed unnecessary `gulp-minify-css` package from deps [#4463](https://github.com/Semantic-Org/Semantic-UI/issues/4463)
+
+**Enhancements**
+- **Message** - Added additional variables for `@padding`
+
+### Version 2.2.3 - August 21, 2016
+
+**Enhancements**
+- **Form Validation** - Bracketed notation can now be omitted for rules, instead passing in bracketed values with the `value` parameter [#3313](https://github.com/Semantic-Org/Semantic-UI/issues/3313)
+- **Dropdown** - Using `search selection` with `selectOnKeydown` will now highlight the partial search matching the currently keyboard selected value
+- **Modal** - Modal now includes setting to enable/disable keyboard shortcuts
+- **Modal** - Modal will now focus first tabable element, not just `input` [#4370](https://github.com/Semantic-Org/Semantic-UI/issues/4370)
+
+**Bugs**
+- **Comments** - Adds missing sizes (mini, tiny etc) **Thanks @ilanus** [#4408](https://github.com/Semantic-Org/Semantic-UI/issues/4408)
+- **NPM** - Fixed `package.json` to allow either jQuery `2.x` or `3.x` [#4254](https://github.com/Semantic-Org/Semantic-UI/issues/4254)
+- **Button/Dropdown** - Fixed issue where `ui dropdown button` could have incorrect spacing for dropdown icon **Thanks @ilanus** [#4408](https://github.com/Semantic-Org/Semantic-UI/issues/4408)
+- **Form/Segment** - Fix typo causing `pointer-events: none` no to work on `loading segment` and `loading form`  **Thanks @YamiOdymel and @ilanus** [#4403](https://github.com/Semantic-Org/Semantic-UI/issues/4403)
+- **Icon** - `icons` can now receive `link` styling  **Thanks @tbracken** [#4399](https://github.com/Semantic-Org/Semantic-UI/issues/4399)
+- **Button** - Fixed `vertical buttons` with only 1 button having incorrect border radius **Thanks @Denhai** [#4107](https://github.com/Semantic-Org/Semantic-UI/issues/4107)
+- **Grid** - Fixed issue where `(x) aligned column` inside a `(x) aligned row` would not properly apply the `column` alignment
+- **Form** - Fixed issue where `disabled fields` with radio inputs would not correctly dim the label **Thanks @louwers** [#4366](https://github.com/Semantic-Org/Semantic-UI/issues/4366)
+- **Menu** - Fixed issue where `dropdown` in `vertical menu` would not correctly open `upward` when no space below **Thanks @gdaunton** [#4150 [#4156](https://github.com/Semantic-Org/Semantic-UI/issues/4156)
+- **Dropdown** - Using `search selection with `selectOnKeydown` and text content that includes html, will not apply html content (like images) to the text until dropdown blur, making sure that content can align correctly with the partial search content of the search input (which cannot include HTML)
+- **Dropdown** - Fixed issue where dropdown `clear` would not remove active state when `useLabels: true` and multiple dropdown **Thanks vinh123456789** [#4275](https://github.com/Semantic-Org/Semantic-UI/issues/4275) [#4366](https://github.com/Semantic-Org/Semantic-UI/issues/89**)
+- **Dropdown** - `dropdown icon` no longer relies on stopping event propagation. This means using the dropdown icon will now cause other dropdowns to correctly hide. [#3998](https://github.com/Semantic-Org/Semantic-UI/issues/3998)
+- **Dropdown** - Fixes `action: select` not working correctly since `2.2` due to incorrect use of new function signature. [#4183](https://github.com/Semantic-Org/Semantic-UI/issues/4183)
+- **Dropdown** - Fixed typo causing selectObserver mutation observer not to disconnect **Thanks @Paklausk** [#4311](https://github.com/Semantic-Org/Semantic-UI/issues/4311)
+- **Icon** - Fixed missing `dribbble` icon due to incorrect count of "b" (should be 3). [#4185](https://github.com/Semantic-Org/Semantic-UI/issues/4185)
+- **Icon** - Fixes `grab icon` and `television icon` not appearing correctly [#4178](https://github.com/Semantic-Org/Semantic-UI/issues/4178)
+- **Form** - `input` styles now apply to `type="file"` **thanks @coldfire79** [#4074](https://github.com/Semantic-Org/Semantic-UI/issues/4074)
+- **Popup/Menu** - Fixed issue where popup would not appear correctly when nested in menu in some ways.
+- **Icon** - Fixes `talk` icon not working correctly **Thanks @anantogosh** [#4354](https://github.com/Semantic-Org/Semantic-UI/issues/4354)
+- **Transition** - Removed unreachable code **Thanks @basarat** [#4225](https://github.com/Semantic-Org/Semantic-UI/issues/4225)
+- **Grid** - Fixed alignment in `centered justified grid** **Thanks @bretto36** [#4224](https://github.com/Semantic-Org/Semantic-UI/issues/4224)
+- **Popup** - Fixed issue where `observeChanges: false` setting in popup would not prevent mutation observers
+
+**Docs**
+- **Icons** - Fixed some duplicate icons (External) and mispelled icons (Dribbble)
+- **Popup** - Fixed popup in menu example
+
+**Themes**
+- **Material** - Fixed paths to `Roboto` google font to use `https` **Thanks @AndyR207** [#4051](https://github.com/Semantic-Org/Semantic-UI/issues/4051)
+
+### Version 2.2.2 - July 07, 2016
+
+**Bugs**
+- **Shape** - Fixed issue where shape was animating incorrectly when using jQuery 3.0, due to secret changes in how `width` are calculated on elements with `transform`
+- **Dropdown** - Fixed "pointer" cursor appearing in hitbox above search input in `search selection`, now all input area will appear with "text" input cursor
+- **Dimmer/Modal** - Fixed a bug which could cause a modal's dimmer to not obey `inverted: true` or `blurring: true` when initializing modals with *then afterwards* without either setting.
+
+### Version 2.2.1 - June 27, 2016
+
+**Bugs**
+- **Dropdown** - Fixed issue where using both `<select>` and `allowAdditions: true` would cause dropdown selection to fail
+
 ### Version 2.2.0 - June 26, 2016
 
 **Project Features**
@@ -14,7 +204,7 @@
 - **Button** - Added compatibility with `primary` `secondary` `positive` `negative` buttons with the `basic` styling variation. [#3756](https://github.com/Semantic-Org/Semantic-UI/issues/3756)
 - **Card** - Added `raised` card variation **Thanks @yordis** [#2955](https://github.com/Semantic-Org/Semantic-UI/issues/2955)
 - **Dropdown** - All dropdowns, not just `selection dropdown`, will now select the first `menu item` that starts with a pressed keyboard key, for example "N" will select "New"
-- **Dropdown** - Dropdown now changes user selection on keyboard shortcuts immediately, this will save the extra `enter` key press to confirm selection in most cases. To enable previous pre `2.2` selection style use the setting `selectOnKeydown: false` 
+- **Dropdown** - Dropdown now changes user selection on keyboard shortcuts immediately, this will save the extra `enter` key press to confirm selection in most cases. To enable previous pre `2.2` selection style use the setting `selectOnKeydown: false`
 - **Dropdown** - Dropdown will now automatically focus on `search` inside of a dropdown menu after it is opened.
 - **Dropdown** - Multiple select dropdown now sizes current dropdown input based on rendered width of a hidden element, not using an estimate based on character count. This means search will never break to a second line earlier than would normally fit in current line.
 - **Icons** -  Icons now use the latest Font Awesome `4.6.3` Icons. 80+ new icons+ are included. Thanks @BreadMaker for the PR and @davegandy for the font!
@@ -26,7 +216,7 @@
 - **Build Tools** - Added new `autoInstall` option to allow for Semantic to be installed without user interaction. See [docs explanation](http://www.semantic-ui.com/introduction/advanced-usage.html[#Auto](https://github.com/Semantic-Org/Semantic-UI/issues/Auto)-Install) for how to use. [#3616](https://github.com/Semantic-Org/Semantic-UI/issues/3616) **Thanks @algorithme**
 - **Dropdown** - Added `fullSearchSearch: 'exact'` setting, which requires exact matches for dropdown values [#3085](https://github.com/Semantic-Org/Semantic-UI/issues/3085) [#3994](https://github.com/Semantic-Org/Semantic-UI/issues/3994) **Thanks @ShawnCholeva**
 - **Dropdown** - Added new setting for search selection `hideAdditions` this will remove showing user additions inside the menu, making for a more intuitive adding process. Dropdowns now have a new state `empty` which will format an active dropdown with empty results. [#3791](https://github.com/Semantic-Org/Semantic-UI/issues/3791)
-- **Dropdown** - Adds new `allowReselection` option to trigger `onChange` events even when reselecting same value 
+- **Dropdown** - Adds new `allowReselection` option to trigger `onChange` events even when reselecting same value
 - **Dropdown** - Adds new setting `minCharacters` which sets the minimum number of characters required to start filtering results [#3886](https://github.com/Semantic-Org/Semantic-UI/issues/3886)
 
 - **Form Validation** - Added `depends` validation rule setting which will only validate a field if another specified field is not empty
@@ -34,12 +224,12 @@
 - **Popup** - Added new settings `observeChanges`, which is enabled by default. This will add special mutation observers to trigger `destroy` when the element is removed from the document, preventing memory leaks.
 - **Progress** - Added `onLabelUpdate` callback, this can be used to specify the exact text that should appear on the actual progress update, perhaps based on some external conditions
 - **Rating** - Added new setting `fireOnInit` for rating, which defaults to `false`. When set to true `onRate` will fire when rating is initialized [#3712](https://github.com/Semantic-Org/Semantic-UI/issues/3712)
-- **Search** - Added a new option `selectFirstResult`, which defaults to `false`. Will automatically highlight first result on search 
-- **Search** - Search now includes a `showNoResults` setting for determining whether no results messages should be shown 
-- **Shape** - Shape now lets you specify next side width using setting `width`, can use `next` or `initial` to specify whether it should use old or new side size 
+- **Search** - Added a new option `selectFirstResult`, which defaults to `false`. Will automatically highlight first result on search
+- **Search** - Search now includes a `showNoResults` setting for determining whether no results messages should be shown
+- **Shape** - Shape now lets you specify next side width using setting `width`, can use `next` or `initial` to specify whether it should use old or new side size
 - **Tab** - Added new setting `cacheType`, can either be `html` or `response` (default). HTML will cache resulting html after callbacks, `response` will cache the original response so that it can be played back identically on future loads [#2534](https://github.com/Semantic-Org/Semantic-UI/issues/2534)
 - **Tab** - Added new option `deactivate`, defaults to `siblings` which will only deactivate tab activators that are DOM siblings elements to the activating element. Setting it to <code>'all'</code> will deactivate any other tab element initialized at the same time.
-- **Visibility** - Added `onFixed` and `onUnfixed` callbacks for visibility `type: 'fixed'` 
+- **Visibility** - Added `onFixed` and `onUnfixed` callbacks for visibility `type: 'fixed'`
 - **Visibility** - Added `onLoad` and `onAllLoaded` callback for `type: 'image'` visibility
 - **Visibility** - Added `zIndex` setting for specifying zindex with `type: 'fixed'` [#3370](https://github.com/Semantic-Org/Semantic-UI/issues/3370)
 
@@ -49,7 +239,7 @@
 - **Progress** - Added progress `is complete` for returning whether success, warning, or error conditions are met
 
 **CSS Enhancements**
-- **All UI** Extended variables which return exact pixel values in em (`@relativePX` and @px) up to 40px to allow for simple theming with exact values
+- **All UI** Extended variables which return exact pixel values in em (`@relativePX` and @px) up to 64px to allow for simple theming with exact values
 - **Button** - Added variables for configuring `disabled` background image and box shadow.
 - **Site** - Added colored box shadow defaults. `ui message` now includes individual colored border shadows based on new site defaults.
 - **Site** - Added new `@inputColor` and `@inputPlaceholderColor` global variables that now control placeholder text styles across all components.

@@ -57,6 +57,7 @@ $.fn.form = function(parameters) {
         metadata,
         selector,
         className,
+        regExp,
         error,
 
         namespace,
@@ -233,6 +234,20 @@ $.fn.form = function(parameters) {
           ;
         },
 
+        determine: {
+          isValid: function() {
+            var
+              allValid = true
+            ;
+            $.each(validation, function(fieldName, field) {
+              if( !( module.validate.field(field, fieldName, true) ) ) {
+                allValid = false;
+              }
+            });
+            return allValid;
+          }
+        },
+
         is: {
           bracketedRule: function(rule) {
             return (rule.type && rule.type.match(settings.regExp.bracket));
@@ -251,17 +266,23 @@ $.fn.form = function(parameters) {
           blank: function($field) {
             return $.trim($field.val()) === '';
           },
-          valid: function() {
+          valid: function(field) {
             var
               allValid = true
             ;
-            module.verbose('Checking if form is valid');
-            $.each(validation, function(fieldName, field) {
-              if( !( module.validate.field(field, fieldName) ) ) {
-                allValid = false;
-              }
-            });
-            return allValid;
+            if(field) {
+              module.verbose('Checking if field is valid', field);
+              return module.validate.field(validation[field], field, false);
+            }
+            else {
+              module.verbose('Checking if form is valid');
+              $.each(validation, function(fieldName, field) {
+                if( !module.is.valid(fieldName) ) {
+                  allValid = false;
+                }
+              });
+              return allValid;
+            }
           }
         },
 
@@ -338,7 +359,7 @@ $.fn.form = function(parameters) {
                 $fieldGroup = $field.closest($group),
                 validationRules = module.get.validation($field)
               ;
-              if(settings.on == 'change' || ( $fieldGroup.hasClass(className.error) && settings.revalidate) ) {
+              if(validationRules && (settings.on == 'change' || ( $fieldGroup.hasClass(className.error) && settings.revalidate) )) {
                 clearTimeout(module.timer);
                 module.timer = setTimeout(function() {
                   module.debug('Revalidating field', $field,  module.get.validation($field));
@@ -352,10 +373,13 @@ $.fn.form = function(parameters) {
 
         get: {
           ancillaryValue: function(rule) {
-            if(!rule.type || !module.is.bracketedRule(rule)) {
+            if(!rule.type || (!rule.value && !module.is.bracketedRule(rule))) {
               return false;
             }
-            return rule.type.match(settings.regExp.bracket)[1] + '';
+            return (rule.value !== undefined)
+              ? rule.value
+              : rule.type.match(settings.regExp.bracket)[1] + ''
+            ;
           },
           ruleName: function(rule) {
             if( module.is.bracketedRule(rule) ) {
@@ -462,6 +486,7 @@ $.fn.form = function(parameters) {
             metadata        = settings.metadata;
             selector        = settings.selector;
             className       = settings.className;
+            regExp          = settings.regExp;
             error           = settings.error;
             moduleNamespace = 'module-' + namespace;
             eventNamespace  = '.' + namespace;
@@ -474,7 +499,8 @@ $.fn.form = function(parameters) {
           },
           field: function(identifier) {
             module.verbose('Finding field with identifier', identifier);
-            if( $field.filter('#' + identifier).length > 0 ) {
+            identifier = module.escape.string(identifier);
+            if($field.filter('#' + identifier).length > 0 ) {
               return $field.filter('#' + identifier);
             }
             else if( $field.filter('[name="' + identifier +'"]').length > 0 ) {
@@ -563,8 +589,11 @@ $.fn.form = function(parameters) {
                 }
                 else {
                   if(isRadio) {
-                    if(isChecked) {
-                      values[name] = value;
+                    if(values[name] === undefined) {
+                      values[name] = (isChecked)
+                        ? true
+                        : false
+                      ;
                     }
                   }
                   else if(isCheckbox) {
@@ -589,10 +618,11 @@ $.fn.form = function(parameters) {
 
           field: function(identifier) {
             module.verbose('Checking for existence of a field with identifier', identifier);
+            identifier = module.escape.string(identifier);
             if(typeof identifier !== 'string') {
               module.error(error.identifier, identifier);
             }
-            if( $field.filter('#' + identifier).length > 0 ) {
+            if($field.filter('#' + identifier).length > 0 ) {
               return true;
             }
             else if( $field.filter('[name="' + identifier +'"]').length > 0 ) {
@@ -604,6 +634,13 @@ $.fn.form = function(parameters) {
             return false;
           }
 
+        },
+
+        escape: {
+          string: function(text) {
+            text =  String(text);
+            return text.replace(regExp.escape, '\\$&');
+          }
         },
 
         add: {
@@ -791,7 +828,7 @@ $.fn.form = function(parameters) {
 
             // reset errors
             formErrors = [];
-            if( module.is.valid() ) {
+            if( module.determine.isValid() ) {
               module.debug('Form has no validation errors, submitting');
               module.set.success();
               if(ignoreCallbacks !== true) {
@@ -815,7 +852,16 @@ $.fn.form = function(parameters) {
           },
 
           // takes a validation object and returns whether field passes validation
-          field: function(field, fieldName) {
+          field: function(field, fieldName, showErrors) {
+            showErrors = (showErrors !== undefined)
+              ? showErrors
+              : true
+            ;
+            if(typeof field == 'string') {
+              module.verbose('Validating field', field);
+              fieldName = field;
+              field = validation[field];
+            }
             var
               identifier    = field.identifier || fieldName,
               $field        = module.get.field(identifier),
@@ -851,13 +897,17 @@ $.fn.form = function(parameters) {
               });
             }
             if(fieldValid) {
-              module.remove.prompt(identifier, fieldErrors);
-              settings.onValid.call($field);
+              if(showErrors) {
+                module.remove.prompt(identifier, fieldErrors);
+                settings.onValid.call($field);
+              }
             }
             else {
-              formErrors = formErrors.concat(fieldErrors);
-              module.add.prompt(identifier, fieldErrors);
-              settings.onInvalid.call($field, fieldErrors);
+              if(showErrors) {
+                formErrors = formErrors.concat(fieldErrors);
+                module.add.prompt(identifier, fieldErrors);
+                settings.onInvalid.call($field, fieldErrors);
+              }
               return false;
             }
             return true;
@@ -1087,8 +1137,9 @@ $.fn.form.settings = {
   },
 
   regExp: {
+    htmlID  : /^[a-zA-Z][\w:.-]*$/g,
     bracket : /\[(.*)\]/i,
-    decimal : /^\d*(\.)\d+/,
+    decimal : /^\d+\.?\d*$/,
     email   : /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i,
     escape  : /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g,
     flags   : /^\/(.*)\/(.*)?/,
@@ -1207,6 +1258,9 @@ $.fn.form.settings = {
 
     // matches specified regExp
     regExp: function(value, regExp) {
+      if(regExp instanceof RegExp) {
+        return value.match(regExp);
+      }
       var
         regExpParts = regExp.match($.fn.form.settings.regExp.flags),
         flags
@@ -1468,6 +1522,9 @@ $.fn.form.settings = {
       if(typeof cardNumber !== 'string' || cardNumber.length === 0) {
         return;
       }
+
+      // allow dashes in card
+      cardNumber = cardNumber.replace(/[\-]/g, '');
 
       // verify card types
       if(requiredTypes) {

@@ -2,7 +2,7 @@
 
 ### Usage Questions
 
-Questions about usage should be asked on [the ProjectTalk message board](http://www.projecttalk.io/boards/Semantic-Org%2FSemantic-UI), [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui) or [Gitter](https://gitter.im/Semantic-Org/Semantic-UI).
+Questions about usage should be asked in our [Gitter chatroom](https://gitter.im/Semantic-Org/Semantic-UI), on [Semantic UI forums](http://forums.semantic-ui.com) or [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui).
 
 Examples of usage questions
 * *Why isnt my code working?*
@@ -24,7 +24,7 @@ If your bug is reproduced by a maintainer it will be assigned the [`confirmed bu
 
 #### Naming Issues
 
-Semantic UI boards use a special naming convention to help tag issue titles by the component the issue is related to. 
+Semantic UI boards use a special naming convention to help tag issue titles by the component the issue is related to.
 
 ##### Bugs
 Please tag titles in the format "[Component] *Sub-type* should do *correct behavior*". Please use standard [title case](http://www.titlecase.com) for titles, including the bracketed tag.
