@@ -33,35 +33,35 @@
 
   <!--- Example CSS -->
   <style>
-    body {
-      padding: 1em;
-    }
-    .ui.menu {
-      margin: 3em 0em;
-    }
-    .ui.menu:last-child {
-      margin-bottom: 110px;
-    }
+  body {
+    padding: 1em;
+  }
+  .ui.menu {
+    margin: 3em 0em;
+  }
+  .ui.menu:last-child {
+    margin-bottom: 110px;
+  }
   </style>
 
   <!--- Example Javascript -->
   <script>
     $(document)
-            .ready(function() {
-              $('.ui.menu .ui.dropdown').dropdown({
-                on: 'hover'
-              });
-              $('.ui.menu a.item')
-                      .on('click', function() {
-                        $(this)
-                                .addClass('active')
-                                .siblings()
-                                .removeClass('active')
-                        ;
-                      })
+      .ready(function () {
+        $('.ui.menu .ui.dropdown').dropdown({
+          on: 'hover'
+        });
+        $('.ui.menu a.item')
+          .on('click', function () {
+            $(this)
+              .addClass('active')
+              .siblings()
+              .removeClass('active')
               ;
-            })
-    ;
+          })
+          ;
+      })
+      ;
   </script>
 </head>
 <body>
