@@ -11,6 +11,7 @@
 - **Popup** - Separated className setting for `visible` into `visible` and `popupVisible`, this way you can remove visible indiciation on activating element without modifying popup.
 - **Build Tools** - All Gulp/NPM dependencies have been updated to their latest versions
 - **Site** - Site now includes custom scrollbar styles for UI (not page) by default in WebKit/Chrome. You can disable this by setting `@useCustomScrollbars: false` in your `site.variables`
+- **Sticky** - Sticky now includes a new setting `setSize` to determine whether it should set content size on stick to the size before sticking (fixed content uses different positioning system) #4360
 
 **Bugs**
 - **Modal** - Using multiple modals with different `inverted` `blurring` or `closable` settings will no longer in some cases inherit the options of other modals #4368
@@ -29,6 +30,7 @@
 - **Message** - Fix issue with `compact icon message` not appearing compact #4759
 - **Menu** - Fixed issue where `left menu` and `right menu` did not display correctly in `stackable menu` on mobile #3604 #5116 **Thanks @BleuDiamant @Traverse**
 - **Popup** - Fixed issue where popup would incorrectly add itself to the wrong offset context when using `popup` and `target` setting together in cases where the `target` has a different `offsetParent` than the activating element.
+- **Sticky** - Fixed an issue where `ui sticky` used with a percentage based width would not resize properly if the content size of container changed when "stuck" #4360
 - **Dimmer** - Fixed typo causing body dimmer to add unnecessary `position: relative;` **Thanks @jinyangzhen** #4707
 
 ### Version 2.2.10 - March 28, 2017
