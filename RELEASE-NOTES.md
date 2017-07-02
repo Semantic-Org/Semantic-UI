@@ -3,6 +3,7 @@
 ### Version 2.2.11 - April XX, 2017
 
 **Enhancements**
+- **Reset** - Upgrades to [normalize.css 7.0](https://necolas.github.io/normalize.css/) **Thanks @ivantcholakov** #4647
 - **Dropdown** - Improved spacing on `img` inside `menu item` and for selected `text`
 - **Modal** - Adds `tiny` and `mini` sized modals #5123 **Thanks @Banandrew**
 - **Modal** - Adds new `scrolling content` variation to have a modal with content that scrolls
@@ -12,6 +13,7 @@
 - **Site** - Site now includes custom scrollbar styles for UI (not page) by default in WebKit/Chrome. You can disable this by setting `@useCustomScrollbars: false` in your `site.variables`
 
 **Bugs**
+- **Modal** - Fixed issue where modal `refresh` was being called on modals even if they are hidden. #5319 **Thanks @p2kmgcl**
 - **Dropdown** - Fixed issue where using `down` key to re-open dropdown when using `search selection dropdown` would start at the top element instead of jumping to selected element
 - **Dropdown** - Fix dropdown arrow being slightly off center due to em calculation being incorrect due to differences in relative em
 - **Dropdown** - Fix `loading dropdown` icon position being slightly offset
