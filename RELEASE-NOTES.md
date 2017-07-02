@@ -4,9 +4,11 @@
 
 **Enhancements**
 - **Modal** - Adds `tiny` and `mini` sized modals #5123 **Thanks @Banandrew**
+- **Modal** - Adds new `scrolling content` variation to have a modal with content that scrolls
 - **Popup* - Added `bind clickaway` `bind touchclose` `bind close on scroll` behaviors to make it easier for `on: 'manual'` popup to specify behavior
 - **Popup** - Separated className setting for `visible` into `visible` and `popupVisible`, this way you can remove visible indiciation on activating element without modifying popup.
 - **Build Tools** - All Gulp/NPM dependencies have been updated to their latest versions
+- **Site** - Site now includes custom scrollbar styles for UI (not page) by default in WebKit/Chrome. You can disable this by setting `@useCustomScrollbars: false` in your `site.variables`
 
 **Bugs**
 - **Dropdown** - Fixed issue where using `down` key to re-open dropdown when using `search selection dropdown` would start at the top element instead of jumping to selected element

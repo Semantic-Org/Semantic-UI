@@ -46,8 +46,6 @@ body {
   font-smoothing: @fontSmoothing;
 }
 
-
-
 /*******************************
              Headers
 *******************************/
@@ -128,6 +126,39 @@ a:hover {
 
 
 /*******************************
+         Scrollbars
+*******************************/
+
+.addScrollbars() when (@useCustomScrollbars) {
+
+  /* Force Simple Scrollbars */
+  body ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: @customScrollbarWidth;
+  }
+  body ::-webkit-scrollbar-track {
+    background: @trackBackground;
+    border-radius: @trackBorderRadius;
+  }
+
+  body ::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    border-radius: @thumbBorderRadius;
+    background: @thumbBackground;
+    transition: @thumbTransition;
+  }
+
+  body ::-webkit-scrollbar-thumb:window-inactive {
+    background: @thumbInactiveBackground;
+  }
+
+  body ::-webkit-scrollbar-thumb:hover {
+    background: @thumbHoverBackground;
+  }
+
+}
+
+/*******************************
           Highlighting
 *******************************/
 
@@ -162,5 +193,5 @@ input::selection {
   color: @inputHighlightColor;
 }
 
-
+.addScrollbars();
 .loadUIOverrides();

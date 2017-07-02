@@ -140,6 +140,24 @@
 @linkHoverUnderline  : @linkUnderline;
 
 /*-------------------
+    Scroll Bars
+--------------------*/
+
+@useCustomScrollbars: true;
+
+@customScrollbarWidth: 9px;
+
+@trackBackground: rgba(0, 0, 0, 0.1);
+@trackBorderRadius: 0px;
+
+@thumbBorderRadius: 5px;
+@thumbBackground: rgba(0, 0, 0, 0.25);
+@thumbTransition: color 0.2s ease;
+
+@thumbInactiveBackground: rgba(0, 0, 0, 0.15);
+@thumbHoverBackground: rgba(128, 135, 139, 0.8);
+
+/*-------------------
   Highlighted Text
 --------------------*/
 
