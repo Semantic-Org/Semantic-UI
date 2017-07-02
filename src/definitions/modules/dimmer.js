@@ -130,10 +130,12 @@ $.fn.dimmer = function(parameters) {
               module.set.pageDimmer();
             }
 
-            $dimmable
-              .on(clickEvent + eventNamespace, selector.dimmer, module.event.click)
-            ;
-
+            if( module.is.closable() ) {
+              module.verbose('Adding dimmer close event', $dimmer);
+              $dimmable
+                .on(clickEvent + eventNamespace, selector.dimmer, module.event.click)
+              ;
+            }
           }
         },
 
@@ -151,7 +153,7 @@ $.fn.dimmer = function(parameters) {
         event: {
           click: function(event) {
             module.verbose('Determining if event occured on dimmer', event);
-            if( ($dimmer.find(event.target).length === 0 || $(event.target).is(selector.content)) && module.is.closable()) {
+            if( $dimmer.find(event.target).length === 0 || $(event.target).is(selector.content) ) {
               module.hide();
               event.stopImmediatePropagation();
             }
@@ -189,7 +191,6 @@ $.fn.dimmer = function(parameters) {
           ;
           module.debug('Showing dimmer', $dimmer, settings);
           if( (!module.is.dimmed() || module.is.animating()) && module.is.enabled() ) {
-            module.set.variation();
             module.animate.show(callback);
             settings.onShow.call(element);
             settings.onChange.call(element);

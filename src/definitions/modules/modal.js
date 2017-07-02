@@ -105,12 +105,19 @@ $.fn.modal = function(parameters) {
 
         create: {
           dimmer: function() {
+            var
+              defaultSettings = {
+                debug      : settings.debug,
+                dimmerName : 'modals'
+              },
+              dimmerSettings = $.extend(true, defaultSettings, settings.dimmerSettings)
+            ;
             if($.fn.dimmer === undefined) {
               module.error(error.dimmer);
               return;
             }
             module.debug('Creating dimmer');
-            $dimmable = $context.dimmer({});
+            $dimmable = $context.dimmer(dimmerSettings);
             if(settings.detachable) {
               module.verbose('Modal is detachable, moving content into dimmer');
               $dimmable.dimmer('add content', $module);
