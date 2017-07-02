@@ -3,6 +3,7 @@
 ### Version 2.2.11 - April XX, 2017
 
 **Enhancements**
+- **Dropdown** - Improved spacing on `img` inside `menu item` and for selected `text`
 - **Modal** - Adds `tiny` and `mini` sized modals #5123 **Thanks @Banandrew**
 - **Modal** - Adds new `scrolling content` variation to have a modal with content that scrolls
 - **Popup* - Added `bind clickaway` `bind touchclose` `bind close on scroll` behaviors to make it easier for `on: 'manual'` popup to specify behavior

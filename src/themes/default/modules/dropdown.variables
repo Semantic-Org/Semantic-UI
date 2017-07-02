@@ -94,6 +94,7 @@
 
 /* Menu Image */
 @menuImageMaxHeight: 2em;
+@menuImageVerticalMargin: -(@menuImageMaxHeight - 1em) / 2;
 
 /* Item Sub-Element */
 @itemElementFloat: none;
