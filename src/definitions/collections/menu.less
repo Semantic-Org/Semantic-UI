@@ -1967,4 +1967,130 @@ Floated Menu / Item
   width: @massiveWidth;
 }
 
+/*----------------------
+     Only (Device)
+-----------------------*/
+
+
+/* Mobile Only Hide */
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui[class*="tablet only"].menu:not(.mobile),
+  .ui.menu > [class*="tablet only"].row:not(.mobile),
+  .ui.menu > [class*="tablet only"].column:not(.mobile),
+  .ui.menu > .row > [class*="tablet only"].column:not(.mobile) {
+    display: none !important;
+  }
+  .ui[class*="computer only"].menu:not(.mobile),
+  .ui.menu > [class*="computer only"].row:not(.mobile),
+  .ui.menu > [class*="computer only"].column:not(.mobile),
+  .ui.menu > .row > [class*="computer only"].column:not(.mobile) {
+    display: none !important;
+  }
+  .ui[class*="large screen only"].menu:not(.mobile),
+  .ui.menu > [class*="large screen only"].row:not(.mobile),
+  .ui.menu > [class*="large screen only"].column:not(.mobile),
+  .ui.menu > .row > [class*="large screen only"].column:not(.mobile) {
+    display: none !important;
+  }
+  .ui[class*="widescreen only"].menu:not(.mobile),
+  .ui.menu > [class*="widescreen only"].row:not(.mobile),
+  .ui.menu > [class*="widescreen only"].column:not(.mobile),
+  .ui.menu > .row > [class*="widescreen only"].column:not(.mobile) {
+    display: none !important;
+  }
+}
+/* Tablet Only Hide */
+@media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
+  .ui[class*="mobile only"].menu:not(.tablet),
+  .ui.menu > [class*="mobile only"].row:not(.tablet),
+  .ui.menu > [class*="mobile only"].column:not(.tablet),
+  .ui.menu > .row > [class*="mobile only"].column:not(.tablet) {
+    display: none !important;
+  }
+  .ui[class*="computer only"].menu:not(.tablet),
+  .ui.menu > [class*="computer only"].row:not(.tablet),
+  .ui.menu > [class*="computer only"].column:not(.tablet),
+  .ui.menu > .row > [class*="computer only"].column:not(.tablet) {
+    display: none !important;
+  }
+  .ui[class*="large screen only"].menu:not(.mobile),
+  .ui.menu > [class*="large screen only"].row:not(.mobile),
+  .ui.menu > [class*="large screen only"].column:not(.mobile),
+  .ui.menu > .row > [class*="large screen only"].column:not(.mobile) {
+    display: none !important;
+  }
+  .ui[class*="widescreen only"].menu:not(.mobile),
+  .ui.menu > [class*="widescreen only"].row:not(.mobile),
+  .ui.menu > [class*="widescreen only"].column:not(.mobile),
+  .ui.menu > .row > [class*="widescreen only"].column:not(.mobile) {
+    display: none !important;
+  }
+}
+
+/* Computer Only Hide */
+@media only screen and (min-width: @computerBreakpoint) and (max-width: @largestSmallMonitor) {
+  .ui[class*="mobile only"].menu:not(.computer),
+  .ui.menu > [class*="mobile only"].row:not(.computer),
+  .ui.menu > [class*="mobile only"].column:not(.computer),
+  .ui.menu > .row > [class*="mobile only"].column:not(.computer) {
+    display: none !important;
+  }
+  .ui[class*="tablet only"].menu:not(.computer),
+  .ui.menu > [class*="tablet only"].row:not(.computer),
+  .ui.menu > [class*="tablet only"].column:not(.computer),
+  .ui.menu > .row > [class*="tablet only"].column:not(.computer) {
+    display: none !important;
+  }
+  .ui[class*="large screen only"].menu:not(.mobile),
+  .ui.menu > [class*="large screen only"].row:not(.mobile),
+  .ui.menu > [class*="large screen only"].column:not(.mobile),
+  .ui.menu > .row > [class*="large screen only"].column:not(.mobile) {
+    display: none !important;
+  }
+  .ui[class*="widescreen only"].menu:not(.mobile),
+  .ui.menu > [class*="widescreen only"].row:not(.mobile),
+  .ui.menu > [class*="widescreen only"].column:not(.mobile),
+  .ui.menu > .row > [class*="widescreen only"].column:not(.mobile) {
+    display: none !important;
+  }
+}
+
+/* Large Screen Only Hide */
+@media only screen and (min-width: @largeMonitorBreakpoint) and (max-width: @largestLargeMonitor) {
+  .ui[class*="mobile only"].menu:not(.computer),
+  .ui.menu > [class*="mobile only"].row:not(.computer),
+  .ui.menu > [class*="mobile only"].column:not(.computer),
+  .ui.menu > .row > [class*="mobile only"].column:not(.computer) {
+    display: none !important;
+  }
+  .ui[class*="tablet only"].menu:not(.computer),
+  .ui.menu > [class*="tablet only"].row:not(.computer),
+  .ui.menu > [class*="tablet only"].column:not(.computer),
+  .ui.menu > .row > [class*="tablet only"].column:not(.computer) {
+    display: none !important;
+  }
+  .ui[class*="widescreen only"].menu:not(.mobile),
+  .ui.menu > [class*="widescreen only"].row:not(.mobile),
+  .ui.menu > [class*="widescreen only"].column:not(.mobile),
+  .ui.menu > .row > [class*="widescreen only"].column:not(.mobile) {
+    display: none !important;
+  }
+}
+
+/* Widescreen Only Hide */
+@media only screen and (min-width: @widescreenMonitorBreakpoint) {
+  .ui[class*="mobile only"].menu:not(.computer),
+  .ui.menu > [class*="mobile only"].row:not(.computer),
+  .ui.menu > [class*="mobile only"].column:not(.computer),
+  .ui.menu > .row > [class*="mobile only"].column:not(.computer) {
+    display: none !important;
+  }
+  .ui[class*="tablet only"].menu:not(.computer),
+  .ui.menu > [class*="tablet only"].row:not(.computer),
+  .ui.menu > [class*="tablet only"].column:not(.computer),
+  .ui.menu > .row > [class*="tablet only"].column:not(.computer) {
+    display: none !important;
+  }
+}
+
 .loadUIOverrides();
