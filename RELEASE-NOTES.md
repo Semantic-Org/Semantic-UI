@@ -13,6 +13,7 @@
 - **Site** - Site now includes custom scrollbar styles for UI (not page) by default in WebKit/Chrome. You can disable this by setting `@useCustomScrollbars: false` in your `site.variables`
 
 **Bugs**
+- **Modal** - Using multiple modals with different `inverted` `blurring` or `closable` settings will no longer in some cases inherit the options of other modals #4368
 - **Modal** - Fixed issue where modal `refresh` was being called on modals even if they are hidden. #5319 **Thanks @p2kmgcl**
 - **Dropdown** - Fixed issue where using `down` key to re-open dropdown when using `search selection dropdown` would start at the top element instead of jumping to selected element
 - **Dropdown** - Fix dropdown arrow being slightly off center due to em calculation being incorrect due to differences in relative em
