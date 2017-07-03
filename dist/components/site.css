@@ -112,6 +112,12 @@ a:hover {
 
 
 /*******************************
+         Scrollbars
+*******************************/
+
+
+
+/*******************************
           Highlighting
 *******************************/
 
@@ -147,6 +153,29 @@ input::selection {
   color: rgba(0, 0, 0, 0.87);
 }
 
+/* Force Simple Scrollbars */
+body ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 9px;
+}
+body ::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 0px;
+}
+body ::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.25);
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+body ::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0, 0, 0, 0.15);
+}
+body ::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 135, 139, 0.8);
+}
+
 
 /*******************************
         Global Overrides
@@ -158,7 +187,3 @@ input::selection {
          Site Overrides
 *******************************/
 
-.ui.menu.nav {
-  background: #40C8FF;
-  border-radius: 0;
-}

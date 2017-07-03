@@ -1266,6 +1266,13 @@ Floated Menu / Item
   .ui.stackable.menu .right.item {
     margin-left: 0 !important;
   }
+  .ui.stackable.menu .right.menu,
+  .ui.stackable.menu .left.menu {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 /*--------------

@@ -1087,8 +1087,11 @@ $.fn.form = function(parameters) {
                 }
                 else {
                   if(isRadio) {
-                    if(isChecked) {
-                      values[name] = value;
+                    if(values[name] === undefined) {
+                      values[name] = (isChecked)
+                        ? true
+                        : false
+                      ;
                     }
                   }
                   else if(isCheckbox) {
@@ -4934,7 +4937,9 @@ $.fn.dropdown = function(parameters) {
               if(module.is.multiple()) {
                 module.filterActive();
               }
-              module.select.firstUnfiltered();
+              if(query || (!query && module.get.activeItem().length == 0)) {
+                module.select.firstUnfiltered();
+              }
               if( module.has.allResultsFiltered() ) {
                 if( settings.onNoResults.call(element, searchTerm) ) {
                   if(settings.allowAdditions) {
@@ -5725,7 +5730,6 @@ $.fn.dropdown = function(parameters) {
                 // down arrow (open menu)
                 if(pressedKey == keys.downArrow && !module.is.visible()) {
                   module.verbose('Down key pressed, showing dropdown');
-                  module.select.firstUnfiltered();
                   module.show();
                   event.preventDefault();
                 }
@@ -8845,25 +8849,15 @@ $.fn.modal = function(parameters) {
             var
               defaultSettings = {
                 debug      : settings.debug,
-                dimmerName : 'modals',
-                duration   : {
-                  show     : settings.duration,
-                  hide     : settings.duration
-                }
+                dimmerName : 'modals'
               },
               dimmerSettings = $.extend(true, defaultSettings, settings.dimmerSettings)
             ;
-            if(settings.inverted) {
-              dimmerSettings.variation = (dimmerSettings.variation !== undefined)
-                ? dimmerSettings.variation + ' inverted'
-                : 'inverted'
-              ;
-            }
             if($.fn.dimmer === undefined) {
               module.error(error.dimmer);
               return;
             }
-            module.debug('Creating dimmer with settings', dimmerSettings);
+            module.debug('Creating dimmer');
             $dimmable = $context.dimmer(dimmerSettings);
             if(settings.detachable) {
               module.verbose('Modal is detachable, moving content into dimmer');
@@ -8871,9 +8865,6 @@ $.fn.modal = function(parameters) {
             }
             else {
               module.set.undetached();
-            }
-            if(settings.blurring) {
-              $dimmable.addClass(className.blurring);
             }
             $dimmer = $dimmable.dimmer('get dimmer');
           },
@@ -9027,7 +9018,7 @@ $.fn.modal = function(parameters) {
             }
           },
           resize: function() {
-            if( $dimmable.dimmer('is active') ) {
+            if( $dimmable.dimmer('is active') && ( module.is.animating() || module.is.active() ) ) {
               requestAnimationFrame(module.refresh);
             }
           }
@@ -9048,6 +9039,7 @@ $.fn.modal = function(parameters) {
             : function(){}
           ;
           module.refreshModals();
+          module.set.dimmerSettings();
           module.showModal(callback);
         },
 
@@ -9340,6 +9332,42 @@ $.fn.modal = function(parameters) {
                 .on('click' + elementEventNamespace, module.event.click)
               ;
             }
+          },
+          dimmerSettings: function() {
+            if($.fn.dimmer === undefined) {
+              module.error(error.dimmer);
+              return;
+            }
+            var
+              defaultSettings = {
+                debug      : settings.debug,
+                dimmerName : 'modals',
+                variation  : false,
+                closable   : 'auto',
+                duration   : {
+                  show     : settings.duration,
+                  hide     : settings.duration
+                }
+              },
+              dimmerSettings = $.extend(true, defaultSettings, settings.dimmerSettings)
+            ;
+            if(settings.inverted) {
+              dimmerSettings.variation = (dimmerSettings.variation !== undefined)
+                ? dimmerSettings.variation + ' inverted'
+                : 'inverted'
+              ;
+              $dimmer.addClass(className.inverted);
+            }
+            else {
+              $dimmer.removeClass(className.inverted);
+            }
+            if(settings.blurring) {
+              $dimmable.addClass(className.blurring);
+            }
+            else {
+              $dimmable.removeClass(className.blurring);
+            }
+            $context.dimmer('setting', dimmerSettings);
           },
           screenHeight: function() {
             if( module.can.fit() ) {
@@ -9649,6 +9677,7 @@ $.fn.modal.settings = {
     active     : 'active',
     animating  : 'animating',
     blurring   : 'blurring',
+    inverted   : 'inverted',
     scrolling  : 'scrolling',
     undetached : 'undetached'
   }
@@ -10292,10 +10321,10 @@ $.fn.popup = function(parameters) {
           }
           if(settings.popup) {
             $popup.addClass(className.loading);
-            $offsetParent = module.get.offsetParent();
+            $offsetParent = module.get.offsetParent($target);
             $popup.removeClass(className.loading);
             if(settings.movePopup && module.has.popup() && module.get.offsetParent($popup)[0] !== $offsetParent[0]) {
-              module.debug('Moving popup to the same offset parent as activating element');
+              module.debug('Moving popup to the same offset parent as target');
               $popup
                 .detach()
                 .appendTo($offsetParent)
@@ -10306,7 +10335,7 @@ $.fn.popup = function(parameters) {
             $offsetParent = (settings.inline)
               ? module.get.offsetParent($target)
               : module.has.popup()
-                ? module.get.offsetParent($popup)
+                ? module.get.offsetParent($target)
                 : $body
             ;
           }
@@ -10527,7 +10556,7 @@ $.fn.popup = function(parameters) {
 
         hideAll: function() {
           $(selector.popup)
-            .filter('.' + className.visible)
+            .filter('.' + className.popupVisible)
             .each(function() {
               $(this)
                 .data(metadata.activator)
@@ -11153,28 +11182,38 @@ $.fn.popup = function(parameters) {
           },
           close: function() {
             if(settings.hideOnScroll === true || (settings.hideOnScroll == 'auto' && settings.on != 'click')) {
-              $scrollContext
-                .one(module.get.scrollEvent() + elementNamespace, module.event.hideGracefully)
-              ;
+              module.bind.closeOnScroll();
             }
             if(settings.on == 'hover' && openedWithTouch) {
-              module.verbose('Binding popup close event to document');
-              $document
-                .on('touchstart' + elementNamespace, function(event) {
-                  module.verbose('Touched away from popup');
-                  module.event.hideGracefully.call(element, event);
-                })
-              ;
+              module.bind.touchClose();
             }
             if(settings.on == 'click' && settings.closable) {
-              module.verbose('Binding popup close event to document');
-              $document
-                .on('click' + elementNamespace, function(event) {
-                  module.verbose('Clicked away from popup');
-                  module.event.hideGracefully.call(element, event);
-                })
-              ;
+              module.bind.clickaway();
             }
+          },
+          closeOnScroll: function() {
+            module.verbose('Binding scroll close event to document');
+            $scrollContext
+              .one(module.get.scrollEvent() + elementNamespace, module.event.hideGracefully)
+            ;
+          },
+          touchClose: function() {
+            module.verbose('Binding popup touchclose event to document');
+            $document
+              .on('touchstart' + elementNamespace, function(event) {
+                module.verbose('Touched away from popup');
+                module.event.hideGracefully.call(element, event);
+              })
+            ;
+          },
+          clickaway: function() {
+            module.verbose('Binding popup close event to document');
+            $document
+              .on('click' + elementNamespace, function(event) {
+                module.verbose('Clicked away from popup');
+                module.event.hideGracefully.call(element, event);
+              })
+            ;
           }
         },
 
@@ -11235,7 +11274,7 @@ $.fn.popup = function(parameters) {
             return ($popup !== undefined && $popup.hasClass(className.fluid));
           },
           visible: function() {
-            return ($popup !== undefined && $popup.hasClass(className.visible));
+            return ($popup !== undefined && $popup.hasClass(className.popupVisible));
           },
           dropdown: function() {
             return $module.hasClass(className.dropdown);
@@ -11581,14 +11620,15 @@ $.fn.popup.settings = {
   },
 
   className   : {
-    active    : 'active',
-    animating : 'animating',
-    dropdown  : 'dropdown',
-    fluid     : 'fluid',
-    loading   : 'loading',
-    popup     : 'ui popup',
-    position  : 'top left center bottom right',
-    visible   : 'visible'
+    active       : 'active',
+    animating    : 'animating',
+    dropdown     : 'dropdown',
+    fluid        : 'fluid',
+    loading      : 'loading',
+    popup        : 'ui popup',
+    position     : 'top left center bottom right',
+    visible      : 'visible',
+    popupVisible : 'visible'
   },
 
   selector    : {
@@ -13227,8 +13267,17 @@ $.fn.search = function(parameters) {
 
         event: {
           input: function() {
-            clearTimeout(module.timer);
-            module.timer = setTimeout(module.query, settings.searchDelay);
+            if(settings.searchDelay) {
+              clearTimeout(module.timer);
+              module.timer = setTimeout(function() {
+                if(module.is.focused()) {
+                  module.query();
+                }
+              }, settings.searchDelay);
+            }
+            else {
+              module.query();
+            }
           },
           focus: function() {
             module.set.focus();
@@ -15538,10 +15587,6 @@ $.fn.sidebar = function(parameters) {
 
           transitionEvent = module.get.transitionEvent();
 
-          if(module.is.ios()) {
-            module.set.ios();
-          }
-
           // avoids locking rendering if initialized in onReady
           if(settings.delaySetup) {
             requestAnimationFrame(module.setup.layout);
@@ -16018,6 +16063,7 @@ $.fn.sidebar = function(parameters) {
         set: {
 
           // ios only (scroll on html not document). This prevent auto-resize canvas/scroll in ios
+          // (This is no longer necessary in latest iOS)
           ios: function() {
             $html.addClass(className.ios);
           },
@@ -16772,7 +16818,8 @@ $.fn.sticky = function(parameters) {
               context.offset.left += scrollContext.left;
             }
             module.cache = {
-              fits : ( element.height < scrollContext.height ),
+              fits          : ( (element.height + settings.offset) <= scrollContext.height),
+              sameHeight    : (element.height == context.height),
               scrollContext : {
                 height : scrollContext.height
               },
@@ -16791,7 +16838,7 @@ $.fn.sticky = function(parameters) {
               }
             };
             module.set.containerSize();
-            module.set.size();
+
             module.stick();
             module.debug('Caching element positions', module.cache);
           }
@@ -16859,6 +16906,11 @@ $.fn.sticky = function(parameters) {
           },
           elementScroll: function(scroll) {
             delete module.elementScroll;
+          },
+          minimumSize: function() {
+            $container
+              .css('min-height', '')
+            ;
           },
           offset: function() {
             $module.css('margin-top', '');
@@ -16953,6 +17005,7 @@ $.fn.sticky = function(parameters) {
             cachedPosition = scroll || $scroll.scrollTop(),
             cache          = module.cache,
             fits           = cache.fits,
+            sameHeight     = cache.sameHeight,
             element        = cache.element,
             scrollContext  = cache.scrollContext,
             context        = cache.context,
@@ -16972,8 +17025,7 @@ $.fn.sticky = function(parameters) {
             doesntFit      = !fits,
             elementVisible = (element.height !== 0)
           ;
-
-          if(elementVisible) {
+          if(elementVisible && !sameHeight) {
 
             if( module.is.initialPosition() ) {
               if(scroll.top >= context.bottom) {
@@ -17100,6 +17152,9 @@ $.fn.sticky = function(parameters) {
 
         fixTop: function() {
           module.debug('Fixing element to top of page');
+          if(settings.setSize) {
+            module.set.size();
+          }
           module.set.minimumSize();
           module.set.offset();
           $module
@@ -17118,6 +17173,9 @@ $.fn.sticky = function(parameters) {
 
         fixBottom: function() {
           module.debug('Sticking element to bottom of page');
+          if(settings.setSize) {
+            module.set.size();
+          }
           module.set.minimumSize();
           module.set.offset();
           $module
@@ -17149,6 +17207,7 @@ $.fn.sticky = function(parameters) {
         unfix: function() {
           if( module.is.fixed() ) {
             module.debug('Removing fixed position on element');
+            module.remove.minimumSize();
             module.remove.offset();
             $module
               .removeClass(className.fixed)
@@ -17384,7 +17443,11 @@ $.fn.sticky.settings = {
   // Offset to adjust scroll when attached to bottom of screen
   bottomOffset   : 0,
 
-  jitter         : 5, // will only set container height if difference between context and container is larger than this number
+  // will only set container height if difference between context and container is larger than this number
+  jitter         : 5,
+
+  // set width of sticky element when it is fixed to page (used to make sure 100% width is maintained if no fixed size set)
+  setSize        : true,
 
   // Whether to automatically observe changes with Mutation Observers
   observeChanges : false,

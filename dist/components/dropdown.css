@@ -270,8 +270,10 @@
 .ui.dropdown .menu > .item > .image,
 .ui.dropdown .menu > .item > img {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
   width: auto;
+  margin-top: -0.5em;
+  margin-bottom: -0.5em;
   max-height: 2em;
 }
 
@@ -382,7 +384,7 @@ select.ui.dropdown {
   right: 1em;
   z-index: 3;
   margin: -0.78571429em;
-  padding: 0.78571429em;
+  padding: 0.91666667em;
   opacity: 0.8;
   -webkit-transition: opacity 0.1s ease;
   transition: opacity 0.1s ease;
@@ -764,7 +766,9 @@ select.ui.dropdown {
 
 .ui.loading.dropdown > i.icon {
   height: 1em !important;
-  padding: 1.14285714em 1.07142857em !important;
+}
+.ui.loading.selection.dropdown > i.icon {
+  padding: 1.5em 1.28571429em !important;
 }
 .ui.loading.dropdown > i.icon:before {
   position: absolute;

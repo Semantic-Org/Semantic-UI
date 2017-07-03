@@ -46,26 +46,19 @@ input[type="password"] {
   /* mobile firefox too! */
 }
 
-/*******************************
-         Theme Overrides
-*******************************/
+/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 
-/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
-
-/**
- * Correct `block` display not defined in IE 8/9.
- */
-
-/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+/* Document
+   ========================================================================== */
 
 /**
- * 1. Set default font family to sans-serif.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
  */
 
 html {
-  font-family: sans-serif;
+  line-height: 1.15;
   /* 1 */
   -ms-text-size-adjust: 100%;
   /* 2 */
@@ -73,124 +66,33 @@ html {
   /* 2 */
 }
 
+/* Sections
+   ========================================================================== */
+
 /**
- * Remove default margin.
+ * Remove the margin in all browsers (opinionated).
  */
 
 body {
   margin: 0;
 }
 
-/* HTML5 display definitions
-   ========================================================================== */
-
 /**
- * Correct `block` display not defined for any HTML5 element in IE 8/9.
- * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
- * Correct `block` display not defined for `main` in IE 11.
+ * Add the correct display in IE 9-.
  */
 
 article,
 aside,
-details,
-figcaption,
-figure,
 footer,
 header,
-hgroup,
-main,
 nav,
-section,
-summary {
+section {
   display: block;
 }
 
 /**
- * 1. Correct `inline-block` display not defined in IE 8/9.
- * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
- */
-
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-  /* 1 */
-  vertical-align: baseline;
-  /* 2 */
-}
-
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
-
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-/**
- * Address `[hidden]` styling not present in IE 8/9/10.
- * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
- */
-
-[hidden],
-template {
-  display: none;
-}
-
-/* Links
-   ========================================================================== */
-
-/**
- * Remove the gray background color from active links in IE 10.
- */
-
-a {
-  background: transparent;
-}
-
-/**
- * Improve readability when focused and also mouse hovered in all browsers.
- */
-
-a:active,
-a:hover {
-  outline: 0;
-}
-
-/* Text-level semantics
-   ========================================================================== */
-
-/**
- * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
- */
-
-abbr[title] {
-  border-bottom: 1px dotted;
-}
-
-/**
- * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
- */
-
-b,
-strong {
-  font-weight: bold;
-}
-
-/**
- * Address styling not present in Safari and Chrome.
- */
-
-dfn {
-  font-style: italic;
-}
-
-/**
- * Address variable `h1` font-size and margin within `section` and `article`
- * contexts in Firefox 4+, Safari, and Chrome.
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
  */
 
 h1 {
@@ -198,17 +100,135 @@ h1 {
   margin: 0.67em 0;
 }
 
+/* Grouping content
+   ========================================================================== */
+
 /**
- * Address styling not present in IE 8/9.
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in IE.
+ */
+
+figcaption,
+figure,
+main {
+  /* 1 */
+  display: block;
+}
+
+/**
+ * Add the correct margin in IE 8.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+
+a {
+  background-color: transparent;
+  /* 1 */
+  -webkit-text-decoration-skip: objects;
+  /* 2 */
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
+}
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+
+b,
+strong {
+  font-weight: inherit;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Add the correct background and color in IE 9-.
  */
 
 mark {
-  background: #ff0;
+  background-color: #ff0;
   color: #000;
 }
 
 /**
- * Address inconsistent and variable font size in all browsers.
+ * Add the correct font size in all browsers.
  */
 
 small {
@@ -216,7 +236,8 @@ small {
 }
 
 /**
- * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
  */
 
 sub,
@@ -227,85 +248,57 @@ sup {
   vertical-align: baseline;
 }
 
-sup {
-  top: -0.5em;
-}
-
 sub {
   bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
 }
 
 /* Embedded content
    ========================================================================== */
 
 /**
- * Remove border when inside `a` element in IE 8/9/10.
+ * Add the correct display in IE 9-.
  */
 
-img {
-  border: 0;
+audio,
+video {
+  display: inline-block;
 }
 
 /**
- * Correct overflow not hidden in IE 9/10/11.
+ * Add the correct display in iOS 4-7.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+
+img {
+  border-style: none;
+}
+
+/**
+ * Hide the overflow in IE.
  */
 
 svg:not(:root) {
   overflow: hidden;
 }
 
-/* Grouping content
-   ========================================================================== */
-
-/**
- * Address margin not present in IE 8/9 and Safari.
- */
-
-figure {
-  margin: 1em 40px;
-}
-
-/**
- * Address differences between Firefox and other browsers.
- */
-
-hr {
-  height: 0;
-}
-
-/**
- * Contain overflow in all browsers.
- */
-
-pre {
-  overflow: auto;
-}
-
-/**
- * Address odd `em`-unit font size rendering in all browsers.
- */
-
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
-
 /* Forms
    ========================================================================== */
 
 /**
- * Known limitation: by default, Chrome and Safari on OS X allow very limited
- * styling of `select`, unless a `border` property is set.
- */
-
-/**
- * 1. Correct color not being inherited.
- *    Known issue: affects color of disabled elements.
- * 2. Correct font properties not being inherited.
- * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ * 1. Change the font styles in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
  */
 
 button,
@@ -313,153 +306,119 @@ input,
 optgroup,
 select,
 textarea {
-  color: inherit;
+  font-family: sans-serif;
   /* 1 */
-  font: inherit;
-  /* 2 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
   margin: 0;
-  /* 3 */
+  /* 2 */
 }
 
 /**
- * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
  */
 
-button {
+button,
+input {
+  /* 1 */
   overflow: visible;
 }
 
 /**
- * Address inconsistent `text-transform` inheritance for `button` and `select`.
- * All other form control elements do not inherit `text-transform` values.
- * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
- * Correct `select` style inheritance in Firefox.
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
  */
 
 button,
 select {
+  /* 1 */
   text-transform: none;
 }
 
 /**
- * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
- *    and `video` controls.
- * 2. Correct inability to style clickable `input` types in iOS.
- * 3. Improve usability and consistency of cursor style between image-type
- *    `input` and others.
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
  */
 
 button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+html [type="button"],
+[type="reset"],
+[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
-  cursor: pointer;
-  /* 3 */
 }
 
 /**
- * Re-set default cursor for disabled elements.
- */
-
-button[disabled],
-html input[disabled] {
-  cursor: default;
-}
-
-/**
- * Remove inner padding and border in Firefox 4+.
+ * Remove the inner border and padding in Firefox.
  */
 
 button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
   padding: 0;
 }
 
 /**
- * Address Firefox 4+ setting `line-height` on `input` using `!important` in
- * the UA stylesheet.
+ * Restore the focus styles unset by the previous rule.
  */
 
-input {
-  line-height: normal;
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
 }
 
 /**
- * It's recommended that you don't attempt to style these elements.
- * Firefox's implementation doesn't respect box-sizing, padding, or width.
- *
- * 1. Address box sizing set to `content-box` in IE 8/9/10.
- * 2. Remove excess padding in IE 8/9/10.
- */
-
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box;
-  /* 1 */
-  padding: 0;
-  /* 2 */
-}
-
-/**
- * Fix the cursor style for Chrome's increment/decrement buttons. For certain
- * `font-size` values of the `input`, it causes the cursor style of the
- * decrement button to change from `default` to `text`.
- */
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-/**
- * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
- *    (include `-moz` to future-proof).
- */
-
-input[type="search"] {
-  -webkit-appearance: textfield;
-  /* 1 */
-}
-
-/**
- * Remove inner padding and search cancel button in Safari and Chrome on OS X.
- * Safari (but not Chrome) clips the cancel button when the search input has
- * padding (and `textfield` appearance).
- */
-
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/**
- * Define consistent border, margin, and padding.
+ * Correct the padding in Firefox.
  */
 
 fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
+  padding: 0.35em 0.75em 0.625em;
 }
 
 /**
- * 1. Correct `color` not being inherited in IE 8/9/10/11.
- * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
  */
 
 legend {
-  border: 0;
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
   /* 1 */
   padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+}
+
+/**
+ * 1. Add the correct display in IE 9-.
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
   /* 2 */
 }
 
 /**
- * Remove default vertical scrollbar in IE 8/9/10/11.
+ * Remove the default vertical scrollbar in IE.
  */
 
 textarea {
@@ -467,29 +426,109 @@ textarea {
 }
 
 /**
- * Don't inherit the `font-weight` (applied by a rule above).
- * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
  */
 
-optgroup {
-  font-weight: bold;
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
 }
 
-/* Tables
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ */
+
+details,
+menu {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  display: list-item;
+}
+
+/* Scripting
    ========================================================================== */
 
 /**
- * Remove most spacing between table cells.
+ * Add the correct display in IE 9-.
  */
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+canvas {
+  display: inline-block;
 }
 
-td,
-th {
-  padding: 0;
+/**
+ * Add the correct display in IE.
+ */
+
+template {
+  display: none;
+}
+
+/* Hidden
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 10-.
+ */
+
+[hidden] {
+  display: none;
 }
 
 /*******************************
@@ -616,6 +655,10 @@ a:hover {
 }
 
 /*******************************
+         Scrollbars
+*******************************/
+
+/*******************************
           Highlighting
 *******************************/
 
@@ -656,6 +699,34 @@ input::selection {
   color: rgba(0, 0, 0, 0.87);
 }
 
+/* Force Simple Scrollbars */
+
+body ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 9px;
+}
+
+body ::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 0px;
+}
+
+body ::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.25);
+  -webkit-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}
+
+body ::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+body ::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 135, 139, 0.8);
+}
+
 /*******************************
         Global Overrides
 *******************************/
@@ -663,11 +734,6 @@ input::selection {
 /*******************************
          Site Overrides
 *******************************/
-
-.ui.menu.nav {
-  background: #40C8FF;
-  border-radius: 0;
-}
 /*!
  * # Semantic UI 2.2.10 - Button
  * http://github.com/semantic-org/semantic-ui/
@@ -7669,6 +7735,34 @@ i.icons .corner.icon {
   text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 1px 0 #FFFFFF, 1px 1px 0 #FFFFFF;
 }
 
+i.icons .top.right.corner.icon {
+  top: 0;
+  left: auto;
+  right: 0;
+  bottom: auto;
+}
+
+i.icons .top.left.corner.icon {
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: auto;
+}
+
+i.icons .bottom.left.corner.icon {
+  top: auto;
+  left: 0;
+  right: auto;
+  bottom: 0;
+}
+
+i.icons .bottom.right.corner.icon {
+  top: auto;
+  left: auto;
+  right: 0;
+  bottom: 0;
+}
+
 i.icons .inverted.corner.icon {
   text-shadow: -1px -1px 0 #1B1C1D, 1px -1px 0 #1B1C1D, -1px 1px 0 #1B1C1D, 1px 1px 0 #1B1C1D;
 }
@@ -11781,12 +11875,12 @@ img.ui.bordered.image {
 ---------------------*/
 
 .ui.disabled.input,
-.ui.input input[disabled] {
+.ui.input:not(.disabled) input[disabled] {
   opacity: 0.45;
 }
 
 .ui.disabled.input input,
-.ui.input input[disabled] {
+.ui.input:not(.disabled) input[disabled] {
   pointer-events: none;
 }
 
@@ -11916,6 +12010,7 @@ img.ui.bordered.image {
   background-color: transparent !important;
   padding: 0em !important;
   box-shadow: none !important;
+  border-radius: 0px !important;
 }
 
 /* Transparent Icon */
@@ -22147,6 +22242,14 @@ Floated Menu / Item
   .ui.stackable.menu .right.item {
     margin-left: 0 !important;
   }
+
+  .ui.stackable.menu .right.menu,
+  .ui.stackable.menu .left.menu {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
 }
 
 /*--------------
@@ -23183,6 +23286,12 @@ Floated Menu / Item
 
 .ui.compact.message {
   display: inline-block;
+}
+
+.ui.compact.icon.message {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 /*--------------
@@ -24620,7 +24729,7 @@ Floated Menu / Item
 .ui.inverted.table th {
   background-color: rgba(0, 0, 0, 0.15);
   border-color: rgba(255, 255, 255, 0.1) !important;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .ui.inverted.table tr td {
@@ -28862,7 +28971,7 @@ a.ui.card:hover,
             Dimmer
 *******************************/
 
-.dimmable:not(.body) {
+.dimmable:not(body) {
   position: relative;
 }
 
@@ -28914,6 +29023,24 @@ a.ui.card:hover,
 
 .ui.segment > .ui.dimmer {
   border-radius: inherit !important;
+}
+
+/* Scrollbars */
+
+.ui.dimmer:not(.inverted)::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ui.dimmer:not(.inverted)::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.ui.dimmer:not(.inverted)::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.ui.dimmer:not(.inverted)::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
 }
 
 /*******************************
@@ -29340,8 +29467,10 @@ body.dimmable > .dimmer {
 .ui.dropdown .menu > .item > .image,
 .ui.dropdown .menu > .item > img {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
   width: auto;
+  margin-top: -0.5em;
+  margin-bottom: -0.5em;
   max-height: 2em;
 }
 
@@ -29454,7 +29583,7 @@ select.ui.dropdown {
   right: 1em;
   z-index: 3;
   margin: -0.78571429em;
-  padding: 0.78571429em;
+  padding: 0.91666667em;
   opacity: 0.8;
   -webkit-transition: opacity 0.1s ease;
   transition: opacity 0.1s ease;
@@ -29881,7 +30010,10 @@ select.ui.dropdown {
 
 .ui.loading.dropdown > i.icon {
   height: 1em !important;
-  padding: 1.14285714em 1.07142857em !important;
+}
+
+.ui.loading.selection.dropdown > i.icon {
+  padding: 1.5em 1.28571429em !important;
 }
 
 .ui.loading.dropdown > i.icon:before {
@@ -31225,6 +31357,13 @@ select.ui.dropdown {
   }
 }
 
+/* Scrolling Content */
+
+.ui.modal .scrolling.content {
+  max-height: calc(70vh);
+  overflow: auto;
+}
+
 /*--------------
    Full Screen
 ---------------*/
@@ -31255,6 +31394,92 @@ select.ui.dropdown {
 
 .ui.modal {
   font-size: 1rem;
+}
+
+/* Mini */
+
+.ui.mini.modal > .header:not(.ui) {
+  font-size: 1.3em;
+}
+
+/* Mini Modal Width */
+
+@media only screen and (max-width: 767px) {
+  .ui.mini.modal {
+    width: 95%;
+    margin: 0em 0em 0em -47.5%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ui.mini.modal {
+    width: 35.2%;
+    margin: 0em 0em 0em -17.6%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .ui.mini.modal {
+    width: 340px;
+    margin: 0em 0em 0em -170px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ui.mini.modal {
+    width: 360px;
+    margin: 0em 0em 0em -180px;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .ui.mini.modal {
+    width: 380px;
+    margin: 0em 0em 0em -190px;
+  }
+}
+
+/* mini */
+
+.ui.small.modal > .header:not(.ui) {
+  font-size: 1.3em;
+}
+
+/* Tiny Modal Width */
+
+@media only screen and (max-width: 767px) {
+  .ui.tiny.modal {
+    width: 95%;
+    margin: 0em 0em 0em -47.5%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .ui.tiny.modal {
+    width: 52.8%;
+    margin: 0em 0em 0em -26.4%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .ui.tiny.modal {
+    width: 510px;
+    margin: 0em 0em 0em -255px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .ui.tiny.modal {
+    width: 540px;
+    margin: 0em 0em 0em -270px;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .ui.tiny.modal {
+    width: 570px;
+    margin: 0em 0em 0em -285px;
+  }
 }
 
 /* Small */
@@ -34018,16 +34243,6 @@ body.pushable > .pusher {
 /*--------------
        iOS
 ---------------*/
-
-/*
-  iOS incorrectly sizes document when content
-  is presented outside of view with 2Dtranslate
-*/
-
-html.ios {
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-}
 
 /*******************************
           Variations
