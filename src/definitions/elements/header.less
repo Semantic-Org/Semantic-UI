@@ -96,20 +96,20 @@
      Content
 ---------------*/
 
-.ui.header .content {
+.ui.header .content:not(.icon) {
   display: inline-block;
   vertical-align: @contentAlignment;
 }
 
 /* After Image */
-.ui.header > img + .content,
-.ui.header > .image + .content {
+.ui.header > img + .content:not(.icon),
+.ui.header > .image + .content:not(.icon) {
   padding-left: @imageMargin;
   vertical-align: @contentImageAlignment;
 }
 
 /* After Icon */
-.ui.header > .icon + .content {
+.ui.header > .icon + .content:not(.icon) {
   padding-left: @iconMargin;
   display: table-cell;
   vertical-align: @contentIconAlignment;
@@ -274,7 +274,7 @@ h5.ui.header .sub.header {
   margin: 0em auto @iconHeaderMargin;
   opacity: @iconHeaderOpacity;
 }
-.ui.icon.header .content {
+.ui.icon.header .content:not(.icon) {
   display: block;
   padding: 0em;
 }
