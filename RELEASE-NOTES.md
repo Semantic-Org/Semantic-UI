@@ -14,12 +14,14 @@
 - **Sticky** - Sticky now includes a new setting `setSize` to determine whether it should set content size on stick to the size before sticking (fixed content uses different positioning system) #4360
 
 **Bugs**
+- **Table**- Fix inverted table header color not applying properly to `sortable table` #5303 **Thanks @Banandrew**
 - **Modal** - Using multiple modals with different `inverted` `blurring` or `closable` settings will no longer in some cases inherit the options of other modals #4368
 - **Dimmer** - Changing closable or inverted settings dynamically with `setting` will now modify settings correctly on next show/hide without re-initialization
 - **Modal** - Fixed issue where modal `refresh` was being called on modals even if they are hidden. #5319 **Thanks @p2kmgcl**
 - **Dropdown** - Fixed issue where using `down` key to re-open dropdown when using `search selection dropdown` would start at the top element instead of jumping to selected element
 - **Dropdown** - Fix dropdown arrow being slightly off center due to em calculation being incorrect due to differences in relative em
 - **Dropdown** - Fix `loading dropdown` icon position being slightly offset
+- **Icon** - Changed `content icon` to use an existing alias `sidebar icon`, as it is most common use case and prevents naming collisions with `content` of elements #4574 **Thanks @4575**
 - **Sidebar** - Removed use of `ios` browser detection, and use of `-webkit-overflow-scrolling: touch;`. iOS no longer has sizing issues when displaying sidebar content in latest iOS.
 - **Search** - Fixed issue where `searchDelay` could cause results to appear after search had lost focus.
 - **Sticky** - Fix issue where sticky would cause page to shift when `context` height was determined by sticky's height in `position: static;`  #3430
