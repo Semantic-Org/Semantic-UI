@@ -7,7 +7,6 @@ var
   extend          = require('extend'),
   fs              = require('fs'),
   path            = require('path'),
-  requireDotFile  = require('require-dot-file'),
 
   // semantic.json defaults
   defaults        = require('./defaults'),
@@ -28,7 +27,7 @@ var
 
 try {
   // looks for config file across all parent directories
-  userConfig = requireDotFile('semantic.json');
+  userConfig = require('../../../semantic.json');
 }
 catch(error) {
   if(error.code === 'MODULE_NOT_FOUND') {
