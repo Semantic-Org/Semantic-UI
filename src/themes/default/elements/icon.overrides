@@ -712,7 +712,7 @@ i.icon.firefox:before { content: "\f269"; }
 i.icon.opera:before { content: "\f26a"; }
 i.icon.internet.explorer:before { content: "\f26b"; }
 i.icon.contao:before { content: "\f26d"; }
-i.icon.\35 00px:before { content: "\f26e"; }
+i.icon.five.hundred.px:before { content: "\f26e"; }
 i.icon.amazon:before { content: "\f270"; }
 i.icon.houzz:before { content: "\f27c"; }
 i.icon.vimeo:before { content: "\f27d"; }
