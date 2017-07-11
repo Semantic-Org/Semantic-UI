@@ -663,14 +663,14 @@ $.fn.form = function(parameters) {
             module.add.field(name, rules);
           },
           field: function(name, rules) {
-            rules = $.isArray(rules)
-              ? rules
-              : [rules]
-            ;
             var
               newValidation = {}
             ;
             if(module.is.shorthandRules(rules)) {
+              rules = $.isArray(rules)
+                ? rules
+                : [rules]
+              ;
               newValidation[name] = {
                 rules: []
               };
@@ -679,9 +679,7 @@ $.fn.form = function(parameters) {
               });
             }
             else {
-              newValidation[name] = {
-                rules: rules
-              };
+              newValidation[name] = rules;
             }
             validation = $.extend({}, validation, newValidation);
             module.debug('Adding rules', newValidation, validation);
@@ -756,6 +754,11 @@ $.fn.form = function(parameters) {
                 ? rule
                 : [rule]
             ;
+            if(rule == undefined) {
+              module.debug('Removed all rules');
+              validation[field].rules = [];
+              return;
+            }
             if(validation[field] == undefined || !$.isArray(validation[field].rules)) {
               return;
             }
@@ -773,12 +776,19 @@ $.fn.form = function(parameters) {
                 : [field]
             ;
             $.each(fields, function(index, field) {
-              delete validation[field];
+              module.remove.rule(field);
             });
           },
           // alias
           rules: function(field, rules) {
-            module.remove.rule(field, rules);
+            if($.isArray(field)) {
+              $.each(fields, function(index, field) {
+                module.remove.rule(field, rules);
+              });
+            }
+            else {
+              module.remove.rule(field, rules);
+            }
           },
           fields: function(fields) {
             module.remove.field(fields);
