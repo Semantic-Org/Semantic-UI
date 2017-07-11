@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 2.2.11 - April XX, 2017
+### Version 2.2.11 - July 11, 2017
 
 **New Features (6) **
 - **Dropdown** - Dropdowns will automatically detect when they are offscreen to the right and will open leftward instead **Thanks @Graveheart** [#4211](https://github.com/Semantic-Org/Semantic-UI/issues/4211)
