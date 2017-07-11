@@ -44,7 +44,7 @@
 - **Sticky** - Fixed an issue where `ui sticky` used with a percentage based width would not resize properly if the content size of container changed when "stuck" [#4360](https://github.com/Semantic-Org/Semantic-UI/issues/4360)
 - **Dimmer** - Fixed typo causing body dimmer to add unnecessary `position: relative;` **Thanks @jinyangzhen** [#4707](https://github.com/Semantic-Org/Semantic-UI/issues/4707)
 
-**Doc Fixes(2)**
+**Doc Fixes (3)**
 - **Form** - Updated docs to include new examples of adding/removing validation rules
 - **API** - Clarified in docs that all AJAX parameters can be passed to API
 - **Form Validation** - Added undocumented `add prompt` to list of behaviors
