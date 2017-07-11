@@ -15,6 +15,7 @@
 - **Popup* - Added `bind clickaway` `bind touch close` `bind close on scroll` behaviors to make it easier for `on: 'manual'` popup to specify behavior
 - **Popup** - Separated className setting for `visible` into `visible` and `popupVisible`, this way you can remove visible indication on activating element without modifying popup visibility.
 - **Build Tools** - All Gulp/NPM dependencies have been updated to their latest versions
+- **Steps** - Steps now include an `unstackable` variation **Thanks @TemaSM** #3714
 
 **Bugs**
 - **Table**- Fix inverted table header color not applying properly to `sortable table` #5303 **Thanks @Banandrew**
