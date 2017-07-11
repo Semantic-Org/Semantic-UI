@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.10 - Modal
+ * # Semantic UI 2.2.11 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
