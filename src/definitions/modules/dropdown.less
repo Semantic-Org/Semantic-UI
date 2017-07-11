@@ -963,8 +963,8 @@ select.ui.dropdown {
 
 /* Leftward Opening Menu */
 .ui.dropdown > .left.menu {
-  left: auto;
-  right: 0px;
+  left: auto !important;
+  right: 0px !important;
 }
 
 .ui.dropdown > .left.menu .menu,
@@ -1262,7 +1262,7 @@ select.ui.dropdown {
   margin: 0em;
   transform: rotate(45deg);
 }
-/* Top Right  Pointing */
+/* Top Right Pointing */
 .ui.top.right.pointing.dropdown > .menu {
   top: 100%;
   bottom: auto;
@@ -1270,6 +1270,7 @@ select.ui.dropdown {
   left: auto;
   margin: @pointingArrowDistanceFromEdge 0em 0em;
 }
+.ui.top.pointing.dropdown > .left.menu:after,
 .ui.top.right.pointing.dropdown > .menu:after {
   top: @pointingArrowOffset;
   left: auto;
