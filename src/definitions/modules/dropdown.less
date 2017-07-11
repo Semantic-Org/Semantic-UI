@@ -1292,6 +1292,19 @@ select.ui.dropdown {
   margin: 0em 0em 0em 0em;
   transform: rotate(-45deg);
 }
+.ui.left.pointing.dropdown > .left.menu {
+  left: auto !important;
+  right: 100% !important;
+  margin: 0em @pointingArrowDistanceFromEdge 0em 0em;
+}
+.ui.left.pointing.dropdown > .left.menu:after {
+  top: 1em;
+  left: auto;
+  right: @pointingArrowOffset;
+  margin: 0em 0em 0em 0em;
+  transform: rotate(135deg);
+}
+
 
 /* Right Pointing */
 .ui.right.pointing.dropdown > .menu {
