@@ -346,6 +346,7 @@
 
 /* Left */
 @leftSubMenuBorderRadius: @borderRadius;
+@leftSubMenuMargin: 0em @subMenuDistanceAway 0em 0em;
 
 /* Simple */
 @simpleTransitionDuration: @defaultDuration;
