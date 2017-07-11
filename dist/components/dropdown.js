@@ -3312,11 +3312,11 @@ $.fn.dropdown = function(parameters) {
                     onStart    : start,
                     onComplete : function() {
                       if(settings.direction == 'auto') {
-                        if ($currentMenu.hasClass(className.leftward)) {
-                          module.remove.leftward($subMenu);
+                        if($currentMenu.hasClass(className.leftward)) {
+                          module.remove.leftward($currentMenu);
                         }
-                        else {
-                          module.remove.upward($subMenu);
+                        if($currentMenu.hasClass(className.upward)) {
+                          module.remove.upward($currentMenu);
                         }
                       }
                       callback.call(element);
