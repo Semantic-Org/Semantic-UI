@@ -3,6 +3,7 @@
 ### Version 2.2.11 - April XX, 2017
 
 **New Features**
+- **Dropdown** - Dropdowns will automatically detect when they are offscreen to the right and will open leftward instead **Thanks @Graveheart**
 - **Form Validation** - Added `add rule` `add field`, `remove rule`, `remove field` to programmatically and and remove validation rules from form validation #4267 #5253
 - **Site** - Site now includes custom scrollbar styles for UI (not page) by default in WebKit/Chrome. Components with inverted content like dimmer include an inverted scrollbar.  You can disable this by setting `@useCustomScrollbars: false` in your `site.variables`
 - **Modal** - Adds new `scrolling content` variation to have a modal with content that scrolls

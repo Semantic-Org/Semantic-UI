@@ -229,8 +229,8 @@
 
 .ui.dropdown .menu .menu {
   top: @subMenuTop !important;
-  left: @subMenuLeft !important;
-  right: @subMenuRight !important;
+  left: @subMenuLeft;
+  right: @subMenuRight;
   margin: @subMenuMargin !important;
   border-radius: @subMenuBorderRadius !important;
   z-index: @subMenuZIndex !important;
@@ -851,6 +851,14 @@ select.ui.dropdown {
   visibility: hidden;
   z-index: @loadingZIndex;
 }
+.ui.dropdown > .loading.menu {
+  left: 0px !important;
+  right: auto !important;
+}
+.ui.dropdown > .menu .loading.menu {
+  left: 100% !important;
+  right: auto !important;
+}
 
 /*--------------------
     Keyboard Select
@@ -953,12 +961,16 @@ select.ui.dropdown {
   border-radius: @subMenuBorderRadius !important;
 }
 
-/* Left Flyout Menu */
+/* Leftward Opening Menu */
+.ui.dropdown > .left.menu {
+  left: auto;
+  right: 0px;
+}
+
 .ui.dropdown > .left.menu .menu,
 .ui.dropdown .menu .left.menu {
-  display: block !important;
-  left: auto !important;
-  right: 100% !important;
+  left: auto;
+  right: 100%;
   border-radius: @leftSubMenuBorderRadius !important;
 }
 

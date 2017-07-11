@@ -2374,15 +2374,15 @@ $.fn.dropdown = function(parameters) {
               else {
                 module.set.upward($menu);
               }
-              if(module.is.fitWidth($menu)) {
-                module.remove.leftward($menu);
-              }
-              else {
-                module.set.leftward($menu);
-              }
             }
             else if(settings.direction == 'upward') {
               module.set.upward($menu);
+            }
+            if(module.can.openRightward($menu)) {
+              module.remove.leftward($menu);
+            }
+            else {
+              module.set.leftward($menu);
             }
           },
           upward: function($menu) {
@@ -3110,28 +3110,6 @@ $.fn.dropdown = function(parameters) {
             $currentMenu.removeClass(className.loading);
             return canOpenDownward;
           },
-          fitWidth: function($subMenu) {
-            var
-                $currentMenu   = $subMenu || $menu,
-                canOpenRightward = true,
-                isOutsideScreen = false,
-                calculations
-                ;
-            $currentMenu.addClass(className.loading);
-            calculations = {
-              contextWidth: $context.outerWidth(),
-              menuOffset: $currentMenu.offset().left,
-              menuWidth: $currentMenu.outerWidth()
-            };
-            isOutsideScreen = (calculations.contextWidth < calculations.menuOffset + calculations.menuWidth) || (calculations.menuOffset - $menu.offset().left < 0);
-
-            if(isOutsideScreen) {
-              module.verbose('Dropdown cannot fit in context rightward', isOutsideScreen);
-              canOpenRightward = false;
-            }
-            $currentMenu.removeClass(className.loading);
-            return canOpenRightward;
-          },
           inObject: function(needle, object) {
             var
               found = false
@@ -3210,6 +3188,28 @@ $.fn.dropdown = function(parameters) {
             }
             return false;
           },
+          openRightward: function($menu) {
+            var
+              canOpenRightward = true,
+              isOutsideScreen  = false,
+              calculations
+            ;
+            $menu
+              .addClass(className.loading)
+            ;
+            calculations = {
+              contextWidth : $context.outerWidth(),
+              menuOffset   : $menu.offset().left,
+              menuWidth    : $menu.outerWidth(),
+            };
+            isOutsideScreen = (calculations.menuOffset + calculations.menuWidth > calculations.contextWidth) || (calculations.menuOffset - $menu.offset().left < 0);
+            if(isOutsideScreen) {
+              module.verbose('Dropdown cannot fit in context rightward', isOutsideScreen);
+              canOpenRightward = false;
+            }
+            $menu.removeClass(className.loading);
+            return canOpenRightward;
+          },
           click: function() {
             return (hasTouch || settings.on == 'click');
           },
@@ -3242,7 +3242,7 @@ $.fn.dropdown = function(parameters) {
               : function(){}
             ;
             module.verbose('Doing menu show animation', $currentMenu);
-            module.set.direction($subMenu);
+            module.set.direction($currentMenu);
             transition = module.get.transition($subMenu);
             if( module.is.selection() ) {
               module.set.scrollPosition(module.get.selectedItem(), true);
