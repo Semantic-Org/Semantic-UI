@@ -260,38 +260,38 @@
 /* Mobile (Default) */
 @media only screen and (max-width: (@largestMobileScreen)) {
 
-.ui.steps {
+.ui:not(.unstackable).steps {
   display: inline-flex;
   overflow: visible;
   flex-direction: column;
 }
-.ui.steps .step {
+.ui:not(.unstackable).steps .step {
   width: 100% !important;
   flex-direction: column;
   border-radius: @borderRadius;
   padding: @verticalPadding @horizontalPadding;
 }
-.ui.steps .step:first-child {
+.ui:not(.unstackable).steps .step:first-child {
   padding: @verticalPadding @horizontalPadding;
   border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
 }
-.ui.steps .step:last-child {
+.ui:not(.unstackable).steps .step:last-child {
   border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
 }
 
 /* Arrow */
-.ui.steps .step:after {
+.ui:not(.unstackable).steps .step:after {
   display: none !important;
 }
 
 /* Content */
-.ui.steps .step .content {
+.ui:not(.unstackable).steps .step .content {
   text-align: center;
 }
 
 /* Icon */
-.ui.steps .step > .icon,
-.ui.ordered.steps .step:before {
+.ui:not(.unstackable).steps .step > .icon,
+.ui:not(.unstackable).ordered.steps .step:before {
   margin: 0em 0em @mobileIconDistance 0em;
 }
 
