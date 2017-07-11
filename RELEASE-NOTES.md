@@ -33,6 +33,7 @@
 - **Sticky** - Fix issue where sticky would cause page to shift when `context` height was determined by sticky's height in `position: static;`  #3430
 - **Sticky** - Fixed edge case where using `offset` setting, sticky element would not internally scroll if the rail contents (without the offset setting) would fit on screen
 - **Form Validation** - Fixed issue where radio was not being included in `onFailure` values if not set #5064
+- **Popup** - Fixed bug where `supports svg` was not working correctly due to incorrect comparison to `undefined` **Thanks @mathiasrw**
 - **Input** - Fix issue where transparent input had a border radius and could cut off descendors #5281
 - **Input** - Fixes disabled style being applied twice on input **Thanks @levithomason** #5284
 - **Message** - Fix issue with `compact icon message` not appearing compact #4759
