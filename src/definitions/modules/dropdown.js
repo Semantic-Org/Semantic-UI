@@ -2370,7 +2370,6 @@ $.fn.dropdown = function(parameters) {
             if(settings.direction == 'auto') {
               // reset position
               module.remove.upward();
-              module.remove.leftward();
 
               if(module.can.openDownward($menu)) {
                 module.remove.upward($menu);
@@ -2378,10 +2377,7 @@ $.fn.dropdown = function(parameters) {
               else {
                 module.set.upward($menu);
               }
-              if(module.can.openRightward($menu)) {
-                module.remove.leftward($menu);
-              }
-              else {
+              if(!module.is.leftward($menu) && !module.can.openRightward($menu)) {
                 module.set.leftward($menu);
               }
             }
@@ -3055,6 +3051,10 @@ $.fn.dropdown = function(parameters) {
               ? $subMenu.transition && $subMenu.transition('is animating')
               : $menu.transition    && $menu.transition('is animating')
             ;
+          },
+          leftward: function($subMenu) {
+            var $selectedMenu = $subMenu || $menu;
+            return $selectedMenu.hasClass(className.leftward);
           },
           disabled: function() {
             return $module.hasClass(className.disabled);
