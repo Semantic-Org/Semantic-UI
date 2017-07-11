@@ -2368,29 +2368,33 @@ $.fn.dropdown = function(parameters) {
           },
           direction: function($menu) {
             if(settings.direction == 'auto') {
-              if(module.is.onScreen($menu)) {
+              // reset position
+              module.remove.upward();
+              module.remove.leftward();
+
+              if(module.can.openDownward($menu)) {
                 module.remove.upward($menu);
               }
               else {
                 module.set.upward($menu);
               }
+              if(module.can.openRightward($menu)) {
+                module.remove.leftward($menu);
+              }
+              else {
+                module.set.leftward($menu);
+              }
             }
             else if(settings.direction == 'upward') {
               module.set.upward($menu);
             }
-            if(module.can.openRightward($menu)) {
-              module.remove.leftward($menu);
-            }
-            else {
-              module.set.leftward($menu);
-            }
           },
-          upward: function($menu) {
-            var $element = $menu || $module;
+          upward: function($currentMenu) {
+            var $element = $currentMenu || $module;
             $element.addClass(className.upward);
           },
-          leftward: function($menu) {
-            var $element = $menu || $module;
+          leftward: function($currentMenu) {
+            var $element = $currentMenu || $menu;
             $element.addClass(className.leftward);
           },
           value: function(value, text, $selected) {
@@ -2740,12 +2744,12 @@ $.fn.dropdown = function(parameters) {
           initialLoad: function() {
             initialLoad = false;
           },
-          upward: function($menu) {
-            var $element = $menu || $module;
+          upward: function($currentMenu) {
+            var $element = $currentMenu || $module;
             $element.removeClass(className.upward);
           },
-          leftward: function($menu) {
-            var $element = $menu || $module;
+          leftward: function($currentMenu) {
+            var $element = $currentMenu || $menu;
             $element.removeClass(className.leftward);
           },
           visible: function() {
@@ -3070,46 +3074,6 @@ $.fn.dropdown = function(parameters) {
           initialLoad: function() {
             return initialLoad;
           },
-          onScreen: function($subMenu) {
-            var
-              $currentMenu   = $subMenu || $menu,
-              canOpenDownward = true,
-              onScreen = {},
-              calculations
-            ;
-            $currentMenu.addClass(className.loading);
-            calculations = {
-              context: {
-                scrollTop : $context.scrollTop(),
-                height    : $context.outerHeight()
-              },
-              menu : {
-                offset: $currentMenu.offset(),
-                height: $currentMenu.outerHeight()
-              }
-            };
-            if(module.is.verticallyScrollableContext()) {
-              calculations.menu.offset.top += calculations.context.scrollTop;
-            }
-            onScreen = {
-              above : (calculations.context.scrollTop) <= calculations.menu.offset.top - calculations.menu.height,
-              below : (calculations.context.scrollTop + calculations.context.height) >= calculations.menu.offset.top + calculations.menu.height
-            };
-            if(onScreen.below) {
-              module.verbose('Dropdown can fit in context downward', onScreen);
-              canOpenDownward = true;
-            }
-            else if(!onScreen.below && !onScreen.above) {
-              module.verbose('Dropdown cannot fit in either direction, favoring downward', onScreen);
-              canOpenDownward = true;
-            }
-            else {
-              module.verbose('Dropdown cannot fit below, opening upward', onScreen);
-              canOpenDownward = false;
-            }
-            $currentMenu.removeClass(className.loading);
-            return canOpenDownward;
-          },
           inObject: function(needle, object) {
             var
               found = false
@@ -3172,6 +3136,14 @@ $.fn.dropdown = function(parameters) {
                 : false
             ;
             return (overflowY == 'auto' || overflowY == 'scroll');
+          },
+          horizontallyScrollableContext: function() {
+            var
+              overflowX = ($context.get(0) !== window)
+                ? $context.css('overflow-X')
+                : false
+            ;
+            return (overflowX == 'auto' || overflowX == 'scroll');
           }
         },
 
@@ -3188,26 +3160,77 @@ $.fn.dropdown = function(parameters) {
             }
             return false;
           },
-          openRightward: function($menu) {
+          openDownward: function($subMenu) {
             var
-              canOpenRightward = true,
-              isOutsideScreen  = false,
+              $currentMenu    = $subMenu || $menu,
+              canOpenDownward = true,
+              onScreen        = {},
               calculations
             ;
-            $menu
+            $currentMenu
               .addClass(className.loading)
             ;
             calculations = {
-              contextWidth : $context.outerWidth(),
-              menuOffset   : $menu.offset().left,
-              menuWidth    : $menu.outerWidth(),
+              context: {
+                scrollTop : $context.scrollTop(),
+                height    : $context.outerHeight()
+              },
+              menu : {
+                offset: $currentMenu.offset(),
+                height: $currentMenu.outerHeight()
+              }
             };
-            isOutsideScreen = (calculations.menuOffset + calculations.menuWidth > calculations.contextWidth) || (calculations.menuOffset - $menu.offset().left < 0);
-            if(isOutsideScreen) {
-              module.verbose('Dropdown cannot fit in context rightward', isOutsideScreen);
+            if(module.is.verticallyScrollableContext()) {
+              calculations.menu.offset.top += calculations.context.scrollTop;
+            }
+            onScreen = {
+              above : (calculations.context.scrollTop) <= calculations.menu.offset.top - calculations.menu.height,
+              below : (calculations.context.scrollTop + calculations.context.height) >= calculations.menu.offset.top + calculations.menu.height
+            };
+            if(onScreen.below) {
+              module.verbose('Dropdown can fit in context downward', onScreen);
+              canOpenDownward = true;
+            }
+            else if(!onScreen.below && !onScreen.above) {
+              module.verbose('Dropdown cannot fit in either direction, favoring downward', onScreen);
+              canOpenDownward = true;
+            }
+            else {
+              module.verbose('Dropdown cannot fit below, opening upward', onScreen);
+              canOpenDownward = false;
+            }
+            $currentMenu.removeClass(className.loading);
+            return canOpenDownward;
+          },
+          openRightward: function($subMenu) {
+            var
+              $currentMenu     = $subMenu || $menu,
+              canOpenRightward = true,
+              isOffscreenRight = false,
+              calculations
+            ;
+            $currentMenu
+              .addClass(className.loading)
+            ;
+            calculations = {
+              context: {
+                scrollLeft : $context.scrollLeft(),
+                width      : $context.outerWidth()
+              },
+              menu: {
+                offset : $currentMenu.offset(),
+                width  : $currentMenu.outerWidth()
+              }
+            };
+            if(module.is.horizontallyScrollableContext()) {
+              calculations.menu.offset.left += calculations.context.scrollLeft;
+            }
+            isOffscreenRight = (calculations.menu.offset.left + calculations.menu.width >= calculations.context.scrollLeft + calculations.context.width);
+            if(isOffscreenRight) {
+              module.verbose('Dropdown cannot fit in context rightward', isOffscreenRight);
               canOpenRightward = false;
             }
-            $menu.removeClass(className.loading);
+            $currentMenu.removeClass(className.loading);
             return canOpenRightward;
           },
           click: function() {
@@ -3242,7 +3265,7 @@ $.fn.dropdown = function(parameters) {
               : function(){}
             ;
             module.verbose('Doing menu show animation', $currentMenu);
-            module.set.direction($currentMenu);
+            module.set.direction($subMenu);
             transition = module.get.transition($subMenu);
             if( module.is.selection() ) {
               module.set.scrollPosition(module.get.selectedItem(), true);
@@ -3311,14 +3334,6 @@ $.fn.dropdown = function(parameters) {
                     queue      : true,
                     onStart    : start,
                     onComplete : function() {
-                      if(settings.direction == 'auto') {
-                        if($currentMenu.hasClass(className.leftward)) {
-                          module.remove.leftward($currentMenu);
-                        }
-                        if($currentMenu.hasClass(className.upward)) {
-                          module.remove.upward($currentMenu);
-                        }
-                      }
                       callback.call(element);
                     }
                   })
