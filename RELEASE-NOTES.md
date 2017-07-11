@@ -2,16 +2,19 @@
 
 ### Version 2.2.11 - April XX, 2017
 
-**Enhancements**
-- **Reset** - Upgrades to [normalize.css 7.0](https://necolas.github.io/normalize.css/) **Thanks @ivantcholakov** #4647
-- **Dropdown** - Improved spacing on `img` inside `menu item` and for selected `text`
-- **Modal** - Adds `tiny` and `mini` sized modals #5123 **Thanks @Banandrew**
+**New Features**
+- **Form Validation** - Added `add rule` `add field`, `remove rule`, `remove field` to programmatically and and remove validation rules from form validation #4267 #5253
+- **Site** - Site now includes custom scrollbar styles for UI (not page) by default in WebKit/Chrome. Components with inverted content like dimmer include an inverted scrollbar.  You can disable this by setting `@useCustomScrollbars: false` in your `site.variables`
 - **Modal** - Adds new `scrolling content` variation to have a modal with content that scrolls
-- **Popup* - Added `bind clickaway` `bind touchclose` `bind close on scroll` behaviors to make it easier for `on: 'manual'` popup to specify behavior
-- **Popup** - Separated className setting for `visible` into `visible` and `popupVisible`, this way you can remove visible indiciation on activating element without modifying popup.
-- **Build Tools** - All Gulp/NPM dependencies have been updated to their latest versions
-- **Site** - Site now includes custom scrollbar styles for UI (not page) by default in WebKit/Chrome. You can disable this by setting `@useCustomScrollbars: false` in your `site.variables`
 - **Sticky** - Sticky now includes a new setting `setSize` to determine whether it should set content size on stick to the size before sticking (fixed content uses different positioning system) #4360
+- **Reset** - Upgrades to [normalize.css 7.0](https://necolas.github.io/normalize.css/) **Thanks @ivantcholakov** #4647
+
+**Enhancements**
+- **Dropdown** - Improved spacing on `image` inside `menu item` and for selected `text`
+- **Modal** - Adds `tiny` and `mini` sized modals #5123 **Thanks @Banandrew**
+- **Popup* - Added `bind clickaway` `bind touch close` `bind close on scroll` behaviors to make it easier for `on: 'manual'` popup to specify behavior
+- **Popup** - Separated className setting for `visible` into `visible` and `popupVisible`, this way you can remove visible indication on activating element without modifying popup visibility.
+- **Build Tools** - All Gulp/NPM dependencies have been updated to their latest versions
 
 **Bugs**
 - **Table**- Fix inverted table header color not applying properly to `sortable table` #5303 **Thanks @Banandrew**
