@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.10 - Search
+ * # Semantic UI 2.2.11 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -143,8 +143,17 @@ $.fn.search = function(parameters) {
 
         event: {
           input: function() {
-            clearTimeout(module.timer);
-            module.timer = setTimeout(module.query, settings.searchDelay);
+            if(settings.searchDelay) {
+              clearTimeout(module.timer);
+              module.timer = setTimeout(function() {
+                if(module.is.focused()) {
+                  module.query();
+                }
+              }, settings.searchDelay);
+            }
+            else {
+              module.query();
+            }
           },
           focus: function() {
             module.set.focus();

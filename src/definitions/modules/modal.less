@@ -377,6 +377,13 @@
   }
 }
 
+/* Scrolling Content */
+
+.ui.modal .scrolling.content {
+  max-height: @scrollingContentMaxHeight;
+  overflow: auto;
+}
+
 
 /*--------------
    Full Screen
@@ -406,6 +413,80 @@
 
 .ui.modal {
   font-size: @medium;
+}
+
+/* Mini */
+.ui.mini.modal > .header:not(.ui) {
+  font-size: @miniHeaderSize;
+}
+
+/* Mini Modal Width */
+@media only screen and (max-width : @largestMobileScreen) {
+  .ui.mini.modal {
+    width: @miniMobileWidth;
+    margin: @miniMobileMargin;
+  }
+}
+@media only screen and (min-width : @tabletBreakpoint) {
+  .ui.mini.modal {
+    width: @miniTabletWidth;
+    margin: @miniTabletMargin;
+  }
+}
+@media only screen and (min-width : @computerBreakpoint) {
+  .ui.mini.modal {
+    width: @miniComputerWidth;
+    margin: @miniComputerMargin;
+  }
+}
+@media only screen and (min-width : @largeMonitorBreakpoint) {
+  .ui.mini.modal {
+    width: @miniLargeMonitorWidth;
+    margin: @miniLargeMonitorMargin;
+  }
+}
+@media only screen and (min-width : @widescreenMonitorBreakpoint) {
+  .ui.mini.modal {
+    width: @miniWidescreenMonitorWidth;
+    margin: @miniWidescreenMonitorMargin;
+  }
+}
+
+/* mini */
+.ui.small.modal > .header:not(.ui) {
+  font-size: @miniHeaderSize;
+}
+
+/* Tiny Modal Width */
+@media only screen and (max-width : @largestMobileScreen) {
+  .ui.tiny.modal {
+    width: @tinyMobileWidth;
+    margin: @tinyMobileMargin;
+  }
+}
+@media only screen and (min-width : @tabletBreakpoint) {
+  .ui.tiny.modal {
+    width: @tinyTabletWidth;
+    margin: @tinyTabletMargin;
+  }
+}
+@media only screen and (min-width : @computerBreakpoint) {
+  .ui.tiny.modal {
+    width: @tinyComputerWidth;
+    margin: @tinyComputerMargin;
+  }
+}
+@media only screen and (min-width : @largeMonitorBreakpoint) {
+  .ui.tiny.modal {
+    width: @tinyLargeMonitorWidth;
+    margin: @tinyLargeMonitorMargin;
+  }
+}
+@media only screen and (min-width : @widescreenMonitorBreakpoint) {
+  .ui.tiny.modal {
+    width: @tinyWidescreenMonitorWidth;
+    margin: @tinyWidescreenMonitorMargin;
+  }
 }
 
 /* Small */

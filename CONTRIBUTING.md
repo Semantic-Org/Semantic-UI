@@ -14,7 +14,7 @@ Once you receive feedback through community channels you may find your question 
 
 [Github Issues Tracker](https://github.com/Semantic-Org/Semantic-UI/issues) is used to track all upcoming milestones and changes to the project.
 
-**Please create a fork of this [jsfiddle](http://jsfiddle.net/efp8z6Ln/) to demonstrate bugs.**
+**Please create a fork of this [JSFiddle](https://jsfiddle.net/ca0rovs3/) to demonstrate bugs.**
 
 When submiting a bug report, include a set of steps to reproduce the issue and any related information, browser, OS etc. If we can't reproduce the issue then it will make solving things much more difficult.
 

@@ -21,7 +21,7 @@
             Dimmer
 *******************************/
 
-.dimmable:not(.body) {
+.dimmable:not(body) {
   position: @dimmablePosition;
 }
 
@@ -68,6 +68,23 @@
 .ui.segment > .ui.dimmer {
   border-radius: inherit !important;
 }
+
+/* Scrollbars */
+.addScrollbars() when (@useCustomScrollbars) {
+  .ui.dimmer:not(.inverted)::-webkit-scrollbar-track {
+    background: @trackInvertedBackground;
+  }
+  .ui.dimmer:not(.inverted)::-webkit-scrollbar-thumb {
+    background: @thumbInvertedBackground;
+  }
+  .ui.dimmer:not(.inverted)::-webkit-scrollbar-thumb:window-inactive {
+    background: @thumbInvertedInactiveBackground;
+  }
+  .ui.dimmer:not(.inverted)::-webkit-scrollbar-thumb:hover {
+    background: @thumbInvertedHoverBackground;
+  }
+}
+.addScrollbars();
 
 /*******************************
             States

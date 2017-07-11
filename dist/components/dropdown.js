@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.10 - Dropdown
+ * # Semantic UI 2.2.11 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -677,7 +677,9 @@ $.fn.dropdown = function(parameters) {
               if(module.is.multiple()) {
                 module.filterActive();
               }
-              module.select.firstUnfiltered();
+              if(query || (!query && module.get.activeItem().length == 0)) {
+                module.select.firstUnfiltered();
+              }
               if( module.has.allResultsFiltered() ) {
                 if( settings.onNoResults.call(element, searchTerm) ) {
                   if(settings.allowAdditions) {
@@ -1468,7 +1470,6 @@ $.fn.dropdown = function(parameters) {
                 // down arrow (open menu)
                 if(pressedKey == keys.downArrow && !module.is.visible()) {
                   module.verbose('Down key pressed, showing dropdown');
-                  module.select.firstUnfiltered();
                   module.show();
                   event.preventDefault();
                 }
@@ -2377,10 +2378,20 @@ $.fn.dropdown = function(parameters) {
             else if(settings.direction == 'upward') {
               module.set.upward($menu);
             }
+            if(module.can.openRightward($menu)) {
+              module.remove.leftward($menu);
+            }
+            else {
+              module.set.leftward($menu);
+            }
           },
           upward: function($menu) {
             var $element = $menu || $module;
             $element.addClass(className.upward);
+          },
+          leftward: function($menu) {
+            var $element = $menu || $module;
+            $element.addClass(className.leftward);
           },
           value: function(value, text, $selected) {
             var
@@ -2732,6 +2743,10 @@ $.fn.dropdown = function(parameters) {
           upward: function($menu) {
             var $element = $menu || $module;
             $element.removeClass(className.upward);
+          },
+          leftward: function($menu) {
+            var $element = $menu || $module;
+            $element.removeClass(className.leftward);
           },
           visible: function() {
             $module.removeClass(className.visible);
@@ -3173,6 +3188,28 @@ $.fn.dropdown = function(parameters) {
             }
             return false;
           },
+          openRightward: function($menu) {
+            var
+              canOpenRightward = true,
+              isOutsideScreen  = false,
+              calculations
+            ;
+            $menu
+              .addClass(className.loading)
+            ;
+            calculations = {
+              contextWidth : $context.outerWidth(),
+              menuOffset   : $menu.offset().left,
+              menuWidth    : $menu.outerWidth(),
+            };
+            isOutsideScreen = (calculations.menuOffset + calculations.menuWidth > calculations.contextWidth) || (calculations.menuOffset - $menu.offset().left < 0);
+            if(isOutsideScreen) {
+              module.verbose('Dropdown cannot fit in context rightward', isOutsideScreen);
+              canOpenRightward = false;
+            }
+            $menu.removeClass(className.loading);
+            return canOpenRightward;
+          },
           click: function() {
             return (hasTouch || settings.on == 'click');
           },
@@ -3205,7 +3242,7 @@ $.fn.dropdown = function(parameters) {
               : function(){}
             ;
             module.verbose('Doing menu show animation', $currentMenu);
-            module.set.direction($subMenu);
+            module.set.direction($currentMenu);
             transition = module.get.transition($subMenu);
             if( module.is.selection() ) {
               module.set.scrollPosition(module.get.selectedItem(), true);
@@ -3275,7 +3312,12 @@ $.fn.dropdown = function(parameters) {
                     onStart    : start,
                     onComplete : function() {
                       if(settings.direction == 'auto') {
-                        module.remove.upward($subMenu);
+                        if ($currentMenu.hasClass(className.leftward)) {
+                          module.remove.leftward($subMenu);
+                        }
+                        else {
+                          module.remove.upward($subMenu);
+                        }
                       }
                       callback.call(element);
                     }
@@ -3706,6 +3748,7 @@ $.fn.dropdown.settings = {
     selected    : 'selected',
     selection   : 'selection',
     upward      : 'upward',
+    leftward    : 'left',
     visible     : 'visible'
   }
 
