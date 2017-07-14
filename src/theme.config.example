@@ -76,6 +76,9 @@
             Folders
 *******************************/
 
+/* Path to default theme folder */
+@defaultThemeFolder : 'default';
+
 /* Path to theme packages */
 @themesFolder : 'themes';
 
