@@ -415,7 +415,7 @@ $.fn.popup = function(parameters) {
         },
         supports: {
           svg: function() {
-            return (typeof SVGGraphicsElement === undefined);
+            return (typeof SVGGraphicsElement === 'undefined');
           }
         },
         animate: {
