@@ -1,9 +1,8 @@
 /*!
- * # Semantic UI 2.1.6 - Dimmer
+ * # Semantic UI 2.2.11 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -14,7 +13,7 @@
             Dimmer
 *******************************/
 
-.dimmable {
+.dimmable:not(body) {
   position: relative;
 }
 .ui.dimmer {
@@ -34,7 +33,7 @@
   -webkit-animation-duration: 0.5s;
           animation-duration: 0.5s;
   -webkit-transition: background-color 0.5s linear;
-          transition: background-color 0.5s linear;
+  transition: background-color 0.5s linear;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -62,6 +61,20 @@
 /* Loose Coupling */
 .ui.segment > .ui.dimmer {
   border-radius: inherit !important;
+}
+
+/* Scrollbars */
+.ui.dimmer:not(.inverted)::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+.ui.dimmer:not(.inverted)::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+}
+.ui.dimmer:not(.inverted)::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(255, 255, 255, 0.15);
+}
+.ui.dimmer:not(.inverted)::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
 }
 
 
@@ -101,7 +114,6 @@
   -webkit-perspective: 2000px;
           perspective: 2000px;
   -webkit-transform-origin: center center;
-      -ms-transform-origin: center center;
           transform-origin: center center;
 }
 body.animating.in.dimmable,
@@ -119,8 +131,10 @@ body.dimmable > .dimmer {
 .blurring.dimmable > :not(.dimmer) {
   -webkit-filter: blur(0px) grayscale(0);
           filter: blur(0px) grayscale(0);
-  -webkit-transition: 800ms -webkit-filter ease, 800ms filter ease;
-          transition: 800ms filter ease;
+  -webkit-transition: 800ms -webkit-filter ease;
+  transition: 800ms -webkit-filter ease;
+  transition: 800ms filter ease;
+  transition: 800ms filter ease, 800ms -webkit-filter ease;
 }
 .blurring.dimmed.dimmable > :not(.dimmer) {
   -webkit-filter: blur(5px) grayscale(0.7);

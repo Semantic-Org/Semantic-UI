@@ -115,15 +115,46 @@
 @scrollingMargin: 3.5rem;
 @mobileScrollingMargin: 1rem;
 
+/* Scrolling Content */
+@scrollingContentMaxHeight: calc(80vh - 10em);
+
 /*-------------------
       Variations
 --------------------*/
 
 /* Size Widths */
+@miniRatio: 0.4;
+@tinyRatio: 0.6;
 @smallRatio: 0.8;
 @largeRatio: 1.2;
 
 /* Derived Responsive Sizes */
+@miniHeaderSize: 1.3em;
+@miniMobileWidth: @mobileWidth;
+@miniTabletWidth: (@tabletWidth * @miniRatio);
+@miniComputerWidth: (@computerWidth * @miniRatio);
+@miniLargeMonitorWidth: (@largeMonitorWidth * @miniRatio);
+@miniWidescreenMonitorWidth: (@widescreenMonitorWidth * @miniRatio);
+
+@miniMobileMargin: 0em 0em 0em -(@miniMobileWidth / 2);
+@miniTabletMargin: 0em 0em 0em -(@miniTabletWidth / 2);
+@miniComputerMargin: 0em 0em 0em -(@miniComputerWidth / 2);
+@miniLargeMonitorMargin: 0em 0em 0em -(@miniLargeMonitorWidth / 2);
+@miniWidescreenMonitorMargin: 0em 0em 0em -(@miniWidescreenMonitorWidth / 2);
+
+@tinyHeaderSize: 1.3em;
+@tinyMobileWidth: @mobileWidth;
+@tinyTabletWidth: (@tabletWidth * @tinyRatio);
+@tinyComputerWidth: (@computerWidth * @tinyRatio);
+@tinyLargeMonitorWidth: (@largeMonitorWidth * @tinyRatio);
+@tinyWidescreenMonitorWidth: (@widescreenMonitorWidth * @tinyRatio);
+
+@tinyMobileMargin: 0em 0em 0em -(@tinyMobileWidth / 2);
+@tinyTabletMargin: 0em 0em 0em -(@tinyTabletWidth / 2);
+@tinyComputerMargin: 0em 0em 0em -(@tinyComputerWidth / 2);
+@tinyLargeMonitorMargin: 0em 0em 0em -(@tinyLargeMonitorWidth / 2);
+@tinyWidescreenMonitorMargin: 0em 0em 0em -(@tinyWidescreenMonitorWidth / 2);
+
 @smallHeaderSize: 1.3em;
 @smallMobileWidth: @mobileWidth;
 @smallTabletWidth: (@tabletWidth * @smallRatio);

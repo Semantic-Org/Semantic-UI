@@ -1,9 +1,8 @@
 /*!
- * # Semantic UI 2.1.6 - Video
+ * # Semantic UI 2.2.11 - Video
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -88,7 +87,7 @@
   background: radial-gradient(transparent 45%, rgba(0, 0, 0, 0.3));
   opacity: 0.5;
   -webkit-transition: opacity 0.5s ease;
-          transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 .ui.embed > .icon:before {
   position: absolute;
@@ -96,13 +95,12 @@
   left: 50%;
   z-index: 4;
   -webkit-transform: translateX(-50%) translateY(-50%);
-      -ms-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
   color: #FFFFFF;
   font-size: 6rem;
   text-shadow: 0px 2px 10px rgba(34, 36, 38, 0.2);
   -webkit-transition: opacity 0.5s ease, color 0.5s ease;
-          transition: opacity 0.5s ease, color 0.5s ease;
+  transition: opacity 0.5s ease, color 0.5s ease;
   z-index: 10;
 }
 

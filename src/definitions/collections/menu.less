@@ -198,18 +198,6 @@
 }
 
 /*--------------
-     Popup
----------------*/
-
-.ui.menu .ui.popup {
-  display: none;
-}
-.ui.menu .ui.visible.popup {
-  display: block;
-}
-
-
-/*--------------
     Dropdowns
 ---------------*/
 
@@ -296,12 +284,17 @@
   margin-left: 1em;
 }
 .ui.vertical.menu .dropdown.item .menu {
-  top: 0% !important;
   left: 100%;
   min-width: 0;
   margin: 0em 0em 0em @dropdownMenuDistance;
   box-shadow: @dropdownVerticalMenuBoxShadow;
   border-radius: 0em @dropdownMenuBorderRadius @dropdownMenuBorderRadius @dropdownMenuBorderRadius;
+}
+.ui.vertical.menu .dropdown.item.upward .menu {
+  bottom: 0;
+}
+.ui.vertical.menu .dropdown.item:not(.upward) .menu {
+  top: 0;
 }
 .ui.vertical.menu .active.dropdown.item {
   border-top-right-radius: 0em;
@@ -538,7 +531,6 @@ Floated Menu / Item
   width: 100%;
   height: @dividerSize;
   background: @verticalDividerBackground;
-  height: 1px;
 }
 
 .ui.vertical.menu .item:first-child:before {
@@ -636,9 +628,12 @@ Floated Menu / Item
 }
 
 /* Coupling with segment for attachment */
-.ui.tabular.menu + .bottom.attached.segment {
+.ui.tabular.menu + .attached:not(.top).segment,
+.ui.tabular.menu + .attached:not(.top).segment + .attached:not(.top).segment {
   border-top: none;
-  margin: 0px;
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-right: 0px;
   width: 100%;
 }
 .top.attached.segment + .ui.bottom.tabular.menu {
@@ -998,9 +993,11 @@ Floated Menu / Item
 }
 
 /* Hover */
-.ui.secondary.inverted.pointing.menu .item:hover {
+.ui.secondary.inverted.pointing.menu .link.item:hover,
+.ui.secondary.inverted.pointing.menu a.item:hover {
   color: @secondaryPointingInvertedItemHoverTextColor;
 }
+
 
 /* Active */
 .ui.secondary.inverted.pointing.menu .active.item {
@@ -1069,6 +1066,8 @@ Floated Menu / Item
 }
 .ui.vertical.text.menu .item {
   margin: @textVerticalMenuItemMargin;
+  padding-left: 0em;
+  padding-right: 0em;
 }
 .ui.vertical.text.menu .item > i.icon {
   float: @textVerticalMenuIconFloat;
@@ -1229,7 +1228,20 @@ Floated Menu / Item
     width: 100%;
     height: @dividerSize;
     background: @verticalDividerBackground;
-    height: 1px;
+  }
+
+  .ui.stackable.menu .left.menu,
+  .ui.stackable.menu .left.item {
+    margin-right: 0 !important;
+  }
+  .ui.stackable.menu .right.menu,
+  .ui.stackable.menu .right.item {
+    margin-left: 0 !important;
+  }
+
+  .ui.stackable.menu .right.menu,
+  .ui.stackable.menu .left.menu {
+    flex-direction: column;
   }
 }
 
@@ -1363,8 +1375,7 @@ Floated Menu / Item
 
 /*--- Pressed ---*/
 .ui.inverted.menu a.item:active,
-.ui.inverted.menu .link.item:active,
-.ui.inverted.menu a.item:active {
+.ui.inverted.menu .link.item:active{
   background: @invertedMenuPressedBackground;
   color: @invertedMenuPressedColor;
 }
@@ -1643,6 +1654,9 @@ Floated Menu / Item
   text-align: center;
   justify-content: center;
 }
+.ui.attached.item.menu {
+  margin: 0em @attachedHorizontalOffset !important;
+}
 
 .ui.item.menu .item:last-child:before {
   display: none;
@@ -1892,6 +1906,22 @@ Floated Menu / Item
      Sizes
 ---------------*/
 
+/* Mini */
+.ui.mini.menu {
+  font-size: @mini;
+}
+.ui.mini.vertical.menu {
+  width: @miniWidth;
+}
+
+/* Tiny */
+.ui.tiny.menu {
+  font-size: @tiny;
+}
+.ui.tiny.vertical.menu {
+  width: @tinyWidth;
+}
+
 /* Small */
 .ui.small.menu {
   font-size: @small;
@@ -1922,6 +1952,22 @@ Floated Menu / Item
 }
 .ui.huge.vertical.menu {
   width: @hugeWidth;
+}
+
+/* Big */
+.ui.big.menu {
+  font-size: @big;
+}
+.ui.big.vertical.menu {
+  width: @bigWidth;
+}
+
+/* Massive */
+.ui.massive.menu {
+  font-size: @massive;
+}
+.ui.massive.vertical.menu {
+  width: @massiveWidth;
 }
 
 .loadUIOverrides();

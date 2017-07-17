@@ -3,7 +3,6 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -261,40 +260,40 @@
 /* Mobile (Default) */
 @media only screen and (max-width: (@largestMobileScreen)) {
 
-.ui.steps {
-  display: inline-flex;
-  overflow: visible;
-  flex-direction: column;
-}
-.ui.steps .step {
-  width: 100% !important;
-  flex-direction: column;
-  border-radius: @borderRadius;
-  padding: @verticalPadding @horizontalPadding;
-}
-.ui.steps .step:first-child {
-  padding: @verticalPadding @horizontalPadding;
-  border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
-}
-.ui.steps .step:last-child {
-  border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
-}
+  .ui.steps:not(.unstackable) {
+    display: inline-flex;
+    overflow: visible;
+    flex-direction: column;
+  }
+  .ui.steps:not(.unstackable) .step {
+    width: 100% !important;
+    flex-direction: column;
+    border-radius: @borderRadius;
+    padding: @verticalPadding @horizontalPadding;
+  }
+  .ui.steps:not(.unstackable) .step:first-child {
+    padding: @verticalPadding @horizontalPadding;
+    border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+  }
+  .ui.steps:not(.unstackable) .step:last-child {
+    border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+  }
 
-/* Arrow */
-.ui.steps .step:after {
-  display: none !important;
-}
+  /* Arrow */
+  .ui.steps:not(.unstackable) .step:after {
+    display: none !important;
+  }
 
-/* Content */
-.ui.steps .step .content {
-  text-align: center;
-}
+  /* Content */
+  .ui.steps:not(.unstackable) .step .content {
+    text-align: center;
+  }
 
-/* Icon */
-.ui.steps .step > .icon,
-.ui.ordered.steps .step:before {
-  margin: 0em 0em @mobileIconDistance 0em;
-}
+  /* Icon */
+  .ui.steps:not(.unstackable) .step > .icon,
+  .ui.ordered.steps:not(.unstackable) .step:before {
+    margin: 0em 0em @mobileIconDistance 0em;
+  }
 
 }
 
@@ -526,17 +525,38 @@
 --------------------*/
 
 
-.ui.small.step,
-.ui.small.steps .step {
+.ui.mini.steps .step,
+.ui.mini.step {
+  font-size: @mini;
+}
+.ui.tiny.steps .step,
+.ui.tiny.step {
+  font-size: @tiny;
+}
+.ui.small.steps .step,
+.ui.small.step {
   font-size: @small;
 }
-.ui.step,
-.ui.steps .step {
+.ui.steps .step,
+.ui.step {
   font-size: @medium;
 }
-.ui.large.step,
-.ui.large.steps .step {
+.ui.large.steps .step,
+.ui.large.step {
   font-size: @large;
 }
+.ui.big.steps .step,
+.ui.big.step {
+  font-size: @big;
+}
+.ui.huge.steps .step,
+.ui.huge.step {
+  font-size: @huge;
+}
+.ui.massive.steps .step,
+.ui.massive.step {
+  font-size: @massive;
+}
+
 
 .loadUIOverrides();
