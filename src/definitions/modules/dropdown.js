@@ -1219,8 +1219,8 @@ $.fn.dropdown = function(parameters) {
                   });
                   module.animate.show(false, $subMenu);
                 }
-                event.preventDefault();
               }
+              event.preventDefault();
             }
           },
 
