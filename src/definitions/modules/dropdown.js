@@ -27,6 +27,7 @@ $.fn.dropdown = function(parameters) {
     moduleSelector = $allModules.selector || '',
 
     hasTouch       = ('ontouchstart' in document.documentElement),
+    onTouchMove    = false,
     time           = new Date().getTime(),
     performance    = [],
 
@@ -548,7 +549,9 @@ $.fn.dropdown = function(parameters) {
               ;
             }
             $menu
-              .on('touchstart' + eventNamespace, selector.item, module.event.item.click)
+              .on('touchstart' + eventNamespace, selector.item, module.event.touch.start)
+              .on('touchmove' + eventNamespace, selector.item, module.event.touch.move)
+              .on('touchend' + eventNamespace, selector.item, module.event.item.click)
             ;
           },
           keyboardEvents: function() {
@@ -965,6 +968,14 @@ $.fn.dropdown = function(parameters) {
               }
             }
           },
+          touch: {
+            start: function () {
+              onTouchMove = false;
+            },
+            move: function () {
+              onTouchMove = true;
+            },
+          },
           search: {
             focus: function() {
               activated = true;
@@ -1161,6 +1172,9 @@ $.fn.dropdown = function(parameters) {
                 hasSubMenu     = ($subMenu.length > 0),
                 isBubbledEvent = ($subMenu.find($target).length > 0)
               ;
+              if (onTouchMove) {
+                return;
+              }
               // prevents IE11 bug where menu receives focus even though `tabindex=-1`
               if(module.has.menuSearch()) {
                 $(document.activeElement).blur();
