@@ -533,7 +533,7 @@ $.fn.modal = function(parameters) {
 
         cacheSizes: function() {
           var
-            modalHeight = $module.outerHeight()
+            modalHeight = $module[0].scrollHeight;
           ;
           if(module.cache === undefined || modalHeight !== 0) {
             module.cache = {
