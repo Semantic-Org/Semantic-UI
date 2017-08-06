@@ -2,6 +2,9 @@
 
 ### Version 2.2.12 - Aug 06, 2017
 
+**Major Enhancements** (1)
+- **Dropdown** - Dropdown can now have `values` specified in javascript when initializing. See some [examples here](https://jsfiddle.net/Lb7c5dkz/). This makes it much easier to modify values of a dropdown after initializing. For example, when the dropdown options are affected by another field.
+
 **Critical Bugs** (1)
 - **Build Tools** - Fixes issue with deprecated uglify setting that could cause build tools to fail
 
