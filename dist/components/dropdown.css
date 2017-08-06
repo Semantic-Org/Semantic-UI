@@ -834,8 +834,8 @@ select.ui.dropdown {
 .ui.default.dropdown:not(.button) > .text {
   color: rgba(191, 191, 191, 0.87);
 }
-.ui.dropdown:not(.button) > input:focus + .default.text,
-.ui.default.dropdown:not(.button) > input:focus + .text {
+.ui.dropdown:not(.button) > input:focus ~ .default.text,
+.ui.default.dropdown:not(.button) > input:focus ~ .text {
   color: rgba(115, 115, 115, 0.87);
 }
 

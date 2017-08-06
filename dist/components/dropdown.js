@@ -97,7 +97,13 @@ $.fn.dropdown = function(parameters) {
             module.setup.reference();
           }
           else {
+
             module.setup.layout();
+
+            if(settings.values) {
+              module.change.values(settings.values);
+            }
+
             module.refreshData();
 
             module.save.defaults();
@@ -162,7 +168,7 @@ $.fn.dropdown = function(parameters) {
         observe: {
           select: function() {
             if(module.has.input()) {
-              selectObserver.observe($input[0], {
+              selectObserver.observe($module[0], {
                 childList : true,
                 subtree   : true
               });
@@ -383,19 +389,16 @@ $.fn.dropdown = function(parameters) {
           reference: function() {
             module.debug('Dropdown behavior was called on select, replacing with closest dropdown');
             // replace module reference
-            $module = $module.parent(selector.dropdown);
+            $module  = $module.parent(selector.dropdown);
+            instance = $module.data(moduleNamespace);
+            element  = $module.get(0);
             module.refresh();
             module.setup.returnedObject();
-            // invoke method in context of current instance
-            if(methodInvoked) {
-              instance = module;
-              module.invoke(query);
-            }
           },
           returnedObject: function() {
             var
               $firstModules = $allModules.slice(0, elementIndex),
-              $lastModules = $allModules.slice(elementIndex + 1)
+              $lastModules  = $allModules.slice(elementIndex + 1)
             ;
             // adjust all modules to use correct reference
             $allModules = $firstModules.add($module).add($lastModules);
@@ -913,6 +916,23 @@ $.fn.dropdown = function(parameters) {
           }
         },
 
+        change: {
+          values: function(values) {
+            if(!settings.allowAdditions) {
+              module.clear();
+            }
+            module.debug('Creating dropdown with specified values', values);
+            module.setup.menu({values: values});
+            $.each(values, function(index, item) {
+              if(item.selected == true) {
+                module.debug('Setting initial selection to', item.value);
+                module.set.selected(item.value);
+                return true;
+              }
+            });
+          }
+        },
+
         event: {
           change: function() {
             if(!internalChange) {
@@ -1081,7 +1101,22 @@ $.fn.dropdown = function(parameters) {
           select: {
             mutation: function(mutations) {
               module.debug('<select> modified, recreating menu');
-              module.setup.select();
+              var
+                isSelectMutation = false
+              ;
+              $.each(mutations, function(index, mutation) {
+                if($(mutation.target).is('select') || $(mutation.addedNodes).is('select')) {
+                  isSelectMutation = true;
+                  return true;
+                }
+              });
+              if(isSelectMutation) {
+                module.disconnect.selectObserver();
+                module.refresh();
+                module.setup.select();
+                module.set.selected();
+                module.observe.select();
+              }
             }
           },
           menu: {
@@ -1619,6 +1654,9 @@ $.fn.dropdown = function(parameters) {
             return $module.data(metadata.defaultValue);
           },
           placeholderText: function() {
+            if(settings.placeholder != 'auto' && typeof settings.placeholder == 'string') {
+              return settings.placeholder;
+            }
             return $module.data(metadata.placeholderText) || '';
           },
           text: function() {
@@ -3044,7 +3082,7 @@ $.fn.dropdown = function(parameters) {
             return $(event.target).closest($icon).length > 0;
           },
           alreadySetup: function() {
-            return ($module.is('select') && $module.parent(selector.dropdown).length > 0  && $module.prev().length === 0);
+            return ($module.is('select') && $module.parent(selector.dropdown).data(moduleNamespace) !== undefined && $module.prev().length === 0);
           },
           animating: function($subMenu) {
             return ($subMenu)
@@ -3594,6 +3632,7 @@ $.fn.dropdown.settings = {
   on                     : 'click',    // what event should show menu action on item selection
   action                 : 'activate', // action on item selection (nothing, activate, select, combo, hide, function(){})
 
+  values                 : false,      // specify values to use for dropdown
 
   apiSettings            : false,
   selectOnKeydown        : true,       // Whether selection should occur automatically when keyboard shortcuts used
