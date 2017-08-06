@@ -5,8 +5,21 @@
 **Critical Bugs** (1)
 - **Build Tools** - Fixes issue with deprecated uglify setting that could cause build tools to fail
 
+```bash
+GulpUglifyError: unable to minify JavaScript
+Caused by: DefaultsError: `preserveComments` is not a supported option
+```
+
 **Bugs** (1)
 - **Dropdown** - Fixed an issue where css rule for `focused default text` was not being applied for multiselects #5633
+
+**Enhancements**
+- **Dropdown** - Calling dropdown methods on a `<select>` turned into a dropdown will now automatically pass settings to the initialized dropdown, #3744
+```javascript
+$('select').dropdown();
+// somewhere later
+$('select').dropdown('onChange', function(value) { console.log(value) });
+```
 
 ### Version 2.2.11 - July 11, 2017
 
