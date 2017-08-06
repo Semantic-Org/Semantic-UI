@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 2.2.12 - Aug 06, 2017
+
+**Critical Bugs** (1)
+- **Build Tools** - Fixes issue with deprecated uglify setting that could cause build tools to fail
+
 ### Version 2.2.11 - July 11, 2017
 
 **Critical Bugs** (5)
