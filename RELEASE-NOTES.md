@@ -5,6 +5,9 @@
 **Critical Bugs** (1)
 - **Build Tools** - Fixes issue with deprecated uglify setting that could cause build tools to fail
 
+**Bugs** (1)
+- **Dropdown** - Fixed an issue where css rule for `focused default text` was not being applied for multiselects #5633
+
 ### Version 2.2.11 - July 11, 2017
 
 **Critical Bugs** (5)
