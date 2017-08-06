@@ -94,9 +94,7 @@ $.fn.dropdown = function(parameters) {
           module.debug('Initializing dropdown', settings);
 
           if( module.is.alreadySetup() ) {
-            console.log('fixing', $module.get(0));
             module.setup.reference();
-            console.log('new reference', $module.get(0));
           }
           else {
             module.setup.layout();
