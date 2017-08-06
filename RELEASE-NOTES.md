@@ -7,7 +7,7 @@
 
 **Critical Bugs** (1)
 - **Dropdown** - Fixed regression that caused `dropdown` inside menu to appear on left edge of dropdown in `2.2.11` #5542
-- **Build Tools** - Fixes issue with deprecated uglify setting that could cause build tools to fail #
+- **Build Tools** - Fixes issue with deprecated uglify setting that could cause build tools to fail
 
 ```bash
 GulpUglifyError: unable to minify JavaScript
@@ -16,6 +16,8 @@ Caused by: DefaultsError: `preserveComments` is not a supported option
 
 **Bugs** (1)
 - **Dropdown** - Fixed an issue where css rule for `focused default text` was not being applied for multiselects #5633
+- **Header** - Fixes vertical alignment
+- **Header/List* -- Fixes issue where icons appear slightly offset with text due to line-height offset fixes no longer being necessary in modern browsers.
 
 **Enhancements**
 - **Dropdown** - Calling dropdown methods on a `<select>` turned into a dropdown will now automatically pass settings to the initialized dropdown, #3744
