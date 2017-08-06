@@ -13,7 +13,7 @@
 ---------------------*/
 
 /* Default site.variables */
-@import "@{themesFolder}/default/globals/site.variables";
+@import "@{themesFolder}/@{defaultThemeFolder}/globals/site.variables";
 
 /* Packaged site.variables */
 @import "@{themesFolder}/@{site}/globals/site.variables";
@@ -30,7 +30,7 @@
 ---------------------*/
 
 /* Default */
-@import "@{themesFolder}/default/@{type}s/@{element}.variables";
+@import "@{themesFolder}/@{defaultThemeFolder}/@{type}s/@{element}.variables";
 
 /* Packaged Theme */
 @import (optional) "@{themesFolder}/@{theme}/@{type}s/@{element}.variables";
@@ -56,6 +56,7 @@
 -------------------*/
 
 .loadUIOverrides() {
+  @import (optional) "@{themesFolder}/@{defaultThemeFolder}/@{type}s/@{element}.overrides";
   @import (optional) "@{themesFolder}/@{theme}/@{type}s/@{element}.overrides";
   @import (optional) "@{siteFolder}/@{type}s/@{element}.overrides";
 }
