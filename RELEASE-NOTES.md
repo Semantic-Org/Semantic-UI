@@ -7,8 +7,8 @@
 
 **Critical Bugs** (3)
 - **Dropdown** - Fixed regression that caused sub menu `dropdown` inside `ui menu` to always appear on left edge of dropdown introduced `2.2.11` [#5542](https://github.com/Semantic-Org/Semantic-UI/issues/5542)
-- **Build Tools** - Fixes issue with deprecated uglify setting that could cause build tools to fail
 - **Popup** - Fixed a regression with `popup` in `2.2.11` that caused popups to appear out of place in some cases due to incorrect calculation of `offsetParent` [#5549](https://github.com/Semantic-Org/Semantic-UI/issues/5549) [#5597](https://github.com/Semantic-Org/Semantic-UI/issues/5597) [#5590](https://github.com/Semantic-Org/Semantic-UI/issues/5590)
+- **Build Tools** - Fixes issue with deprecated uglify setting that could cause build tools to fail with the following error:
 
 ```bash
 GulpUglifyError: unable to minify JavaScript
