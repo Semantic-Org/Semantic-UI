@@ -30,7 +30,7 @@ var
   del            = require('del'),
   jsonEditor     = require('gulp-json-editor'),
   plumber        = require('gulp-plumber'),
-  prompt         = require('gulp-prompt'),
+  prompt         = require('prompt-sui'),
   rename         = require('gulp-rename'),
   replace        = require('gulp-replace'),
   requireDotFile = require('require-dot-file'),
