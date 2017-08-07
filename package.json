@@ -70,7 +70,7 @@
     "gulp-notify": "^3.0.0",
     "gulp-plumber": "^1.1.0",
     "gulp-print": "^2.0.1",
-    "promp-sui": "^3.2.1",
+    "prompt-sui": "^3.2.1",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.6.1",
     "gulp-rtlcss": "^1.0.0",
