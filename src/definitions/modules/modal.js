@@ -162,7 +162,8 @@ $.fn.modal = function(parameters) {
 
         refresh: function() {
           module.remove.scrolling();
-          module.cacheSizes();
+          module.cache.sizes();
+          module.cache.tabNavigable();
           module.set.screenHeight();
           module.set.type();
           module.set.position();
@@ -210,6 +211,48 @@ $.fn.modal = function(parameters) {
         get: {
           id: function() {
             return (Math.random().toString(16) + '000000000').substr(2,8);
+          },
+          tabIndex: function(element) {
+            var 
+              $element   = (typeof element === 'undefined') ? $module : $(element),
+              isTabbable = false,
+              iframeBody
+            ;
+            element = $element.get(0);
+            
+            if($element.is(':disabled')) {
+              return undefined;
+            } else if($element.is('[tabIndex]')) {
+              return $element.attr('tabIndex');
+            } else {
+              switch (element.nodeName.toLowerCase()) {
+                case 'a':
+                  isTabbable = $element.is('[href]');
+                  break;
+                case 'area':
+                case 'button':
+                case 'input':
+                case 'object':
+                case 'select':
+                case 'textarea':
+                  isTabbable = true;
+                  break;
+                case 'iframe':
+                  try {
+                    if(element.contentDocument && 'designMode' in element.contentDocument && element.contentDocument.designMode == 'on') {
+                      isTabbable = true;
+                      break;
+                    }
+                    iframeBody = element.contentDocument.body || element.contentWindow.document.body;
+                  } catch(e) {
+                    break;
+                  }
+                  isTabbable = iframeBody && (iframeBody.contentEditable == 'true' || (iframeBody.firstChild && iframeBody.firstChild.contentEditable == 'true') );
+                default:
+                  isTabbable = (element.contentEditable == 'true');
+              }
+              return (isTabbable) ? 0 : undefined;
+            }
           }
         },
 
@@ -260,7 +303,33 @@ $.fn.modal = function(parameters) {
             clearTimeout(module.timer);
             module.timer = setTimeout(method, delay);
           },
-          keyboard: function(event) {
+          keyboardDown: function(event) {
+            var
+              keyCode   = event.which,
+              tabKey    = 9,
+              target    = event.target
+            ;
+            if(keyCode == tabKey) {
+              if(module.cache.firstFocusElement == module.cache.lastFocusElement) {
+                module.debug('Only one focusable element; tab does nothing');
+                event.stopPropagation();
+                event.preventDefault();
+              }
+              else if(target == module.cache.firstFocusElement && event.shiftKey) {
+                module.debug('Tabbing past the first element; last element is focused');
+                module.cache.lastFocusElement.focus();
+                event.stopPropagation();
+                event.preventDefault();
+              }
+              else if(target == module.cache.lastFocusElement && !event.shiftKey) {
+                module.debug('Tabbing past the last element; first element is focused');
+                module.cache.firstFocusElement.focus();
+                event.stopPropagation();
+                event.preventDefault();
+              }
+            }
+          },
+          keyboardUp: function(event) {
             var
               keyCode   = event.which,
               escapeKey = 27
@@ -319,7 +388,7 @@ $.fn.modal = function(parameters) {
           if( module.is.animating() || !module.is.active() ) {
 
             module.showDimmer();
-            module.cacheSizes();
+            module.cache.sizes();
             module.set.position();
             module.set.screenHeight();
             module.set.type();
@@ -348,6 +417,7 @@ $.fn.modal = function(parameters) {
                         module.add.keyboardShortcuts();
                       }
                       module.save.focus();
+                      module.cache.tabNavigable();
                       module.set.active();
                       if(settings.autofocus) {
                         module.set.autofocus();
@@ -480,7 +550,8 @@ $.fn.modal = function(parameters) {
           keyboardShortcuts: function() {
             module.verbose('Adding keyboard shortcuts');
             $document
-              .on('keyup' + eventNamespace, module.event.keyboard)
+              .on('keydown' + eventNamespace, module.event.keyboardDown)
+              .on('keyup' + eventNamespace, module.event.keyboardUp)
             ;
           }
         },
@@ -534,20 +605,97 @@ $.fn.modal = function(parameters) {
           }
         },
 
-        cacheSizes: function() {
-          var
-            modalHeight = $module.outerHeight()
-          ;
-          if(module.cache === undefined || modalHeight !== 0) {
-            module.cache = {
-              pageHeight    : $(document).outerHeight(),
-              height        : modalHeight + settings.offset,
-              contextHeight : (settings.context == 'body')
+        cache: {
+          sizes: function() {
+            var
+              modalHeight = $module.outerHeight()
+            ;
+            if(module.cache === undefined) module.cache = {};
+            if(!module.cache.pageHeight || modalHeight !== 0) {
+              module.cache.pageHeight = $(document).outerHeight();
+              module.cache.height = modalHeight + settings.offset;
+              module.cache.contextHeight = (settings.context == 'body')
                 ? $(window).height()
                 : $dimmable.height()
+            }
+            module.debug('Caching modal and container sizes', module.cache);
+          },
+          tabNavigable: function() {
+            var
+              radioSelected = {},
+              first,
+              last,
+              lowest,
+              lowestTabIndex,
+              highest,
+              highestTabIndex
+            ;
+            
+            var getRadioName = function(node) {
+              return node && node.tagName.toLowerCase() == "input" &&
+                node.type && node.type.toLowerCase() == "radio" &&
+                node.name && node.name.toLowerCase();
             };
+            
+            var radioSubstitution = function(node) {
+              return radioSelected[getRadioName(node)] || node;
+            };
+
+            var walkTree = function(parent) {
+              var
+                child    = parent.firstChild,
+                $child,
+                tabIndex,
+                radioName
+              ;
+              while(child) {
+                $child = $(child);
+                if(child.nodeType != 1 || !$child.is(':visible')) {
+                  child = child.nextSibling;
+                  continue;
+                }
+                
+                tabIndex = module.get.tabIndex(child);
+                if(tabIndex >= 0) {
+                  if(tabIndex == 0) {
+                    if(!first) {
+                      first = child;
+                    }
+                    last = child;
+                  }
+                  else {
+                    if(!lowest || tabIndex < lowestTabIndex) {
+                      lowestTabIndex = tabIndex;
+                      lowest = child;
+                    }
+                    if(!highest || tabIndex >= highestTabIndex) {
+                      highestTabIndex = tabIndex;
+                      highest = child;
+                    }
+                  }
+                }
+                
+                radioName = getRadioName(child);
+                if($child.is(':checked') && radioName) {
+                  radioSelected[radioName] = child;
+                }
+                
+                if(child.nodeName.toLowerCase() != 'select'){
+                  walkTree(child);
+                }
+                
+                child = child.nextSibling;
+              }
+            };
+            
+            if($module.is(':visible')) {
+              walkTree($module.get(0));
+            }
+            
+            if(module.cache === undefined) module.cache = {};
+            module.cache.firstFocusElement = radioSubstitution(lowest) || radioSubstitution(first);
+            module.cache.lastFocusElement = radioSubstitution(last) || radioSubstitution(highest) || module.cache.firstFocusElement;
           }
-          module.debug('Caching modal and container sizes', module.cache);
         },
 
         can: {
@@ -582,7 +730,7 @@ $.fn.modal = function(parameters) {
               $autofocus = $inputs.filter('[autofocus]'),
               $input     = ($autofocus.length > 0)
                 ? $autofocus.first()
-                : $inputs.first()
+                : $(module.cache.firstFocusElement)
             ;
             if($input.length > 0) {
               $input.focus();
