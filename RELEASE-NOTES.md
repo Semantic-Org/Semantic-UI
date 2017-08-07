@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 2.2.13 - Aug 07, 2017
+
+**Hotfix** (2)
+- **Install** - Updated interactive install script. Fixed issue where Linux users had to hit "down key" during install to select "yes" option (Forked `gulp-prompt` plugin to allow for updated version).
+- **Build Tools** - Fixes typo causing fix for build tools to fail [#5391](https://github.com/Semantic-Org/Semantic-UI/issues/5597) [#5590](https://github.com/Semantic-Org/Semantic-UI/issues/5391)
+
 ### Version 2.2.12 - Aug 07, 2017
 
 **Major Enhancements** (1)
