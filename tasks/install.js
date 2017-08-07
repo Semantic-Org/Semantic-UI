@@ -170,7 +170,7 @@ if(currentConfig && manager.name === 'NPM') {
 // PM that supports Build Tools (NPM Only Now)
 if(manager.name == 'NPM') {
   rootQuestions[0].message = rootQuestions[0].message
-    .replace('{packageMessage}', 'We detected you are using \x1b[92m' + manager.name + '\x1b[0m. Nice! ')
+    .replace('{packageMessage}', 'We detected you are using ' + manager.name + ' Nice!')
     .replace('{root}', manager.root)
   ;
   // set default path to detected PM root
