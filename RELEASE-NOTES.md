@@ -21,7 +21,9 @@ Caused by: DefaultsError: `preserveComments` is not a supported option
 - **Modal** - Fixes issue where init order matters when multiple modals are shown at same time and `allowMultiple: true` is used #5559
 
 **Enhancements**
+- **Modal** - Modal will now take into account absolutely positioned elements inside a modal when determining if scrolling is necessary. #5578 **Thanks @lulalala**
 - **Dropdown** - Calling dropdown methods on a `<select>` turned into a dropdown will now automatically pass settings to the initialized dropdown, #3744
+
 ```javascript
 $('select').dropdown();
 // somewhere later
