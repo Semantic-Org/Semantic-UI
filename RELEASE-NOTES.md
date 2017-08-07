@@ -1,34 +1,31 @@
 ## RELEASE NOTES
 
-### Version 2.2.12 - Aug 06, 2017
+### Version 2.2.12 - Aug 07, 2017
 
 **Major Enhancements** (1)
-- **Dropdown** - Dropdown can now have `values` specified in javascript when initializing. See some [examples here](https://jsfiddle.net/Lb7c5dkz/). This makes it much easier to modify values of a dropdown after initializing. For example, when the dropdown options are affected by another field.
+- **Dropdown** - Dropdown can now have `values` specified in javascript when initializing.This should simplify cases where dropdown contents are contingent on other fields, for example listing sub categories. You can see some [examples here](https://jsfiddle.net/Lb7c5dkz/). An example has also been added to the usage tab.
 
-**Critical Bugs** (1)
-- **Dropdown** - Fixed regression that caused `dropdown` inside menu to appear on left edge of dropdown in `2.2.11` #5542
+**Critical Bugs** (3)
+- **Dropdown** - Fixed regression that caused sub menu `dropdown` inside `ui menu` to always appear on left edge of dropdown introduced `2.2.11` [#5542](https://github.com/Semantic-Org/Semantic-UI/issues/5542)
 - **Build Tools** - Fixes issue with deprecated uglify setting that could cause build tools to fail
+- **Popup** - Fixed a regression with `popup` in `2.2.11` that caused popups to appear out of place in some cases due to incorrect calculation of `offsetParent` [#5549](https://github.com/Semantic-Org/Semantic-UI/issues/5549) [#5597](https://github.com/Semantic-Org/Semantic-UI/issues/5597) [#5590](https://github.com/Semantic-Org/Semantic-UI/issues/5590)
 
 ```bash
 GulpUglifyError: unable to minify JavaScript
 Caused by: DefaultsError: `preserveComments` is not a supported option
 ```
 
-**Bugs** (1)
-- **Dropdown** - Fixed an issue where css rule for `focused default text` was not being applied for multiselects #5633
+**Enhancements** (2)
+- **Dropdown** - Dropdown mutation observers now watch to see if the entire `<select>` DOM node is replaced with a different select, and not just if new `<option>` are added
+- **Modal** - Modal will now take into account absolutely positioned elements inside a modal when determining if scrolling is necessary. [#5578](https://github.com/Semantic-Org/Semantic-UI/issues/5578) **Thanks @lulalala**
+
+**Bugs** (4)
+- **Dropdown** - Fixed an issue where css rule for `focused default text` was not being applied for multiselects [#5633](https://github.com/Semantic-Org/Semantic-UI/issues/5633)
+- **Dropdown** - Calling dropdown methods on `<select>` will now work when using `setting` behavior to set settings after load [#3744](https://github.com/Semantic-Org/Semantic-UI/issues/3744)
 - **Header** - Fixes vertical alignment
-- **Header/List* -- Fixes issue where icons appear slightly offset with text due to line-height offset fixes no longer being necessary in modern browsers.
-- **Modal** - Fixes issue where init order matters when multiple modals are shown at same time and `allowMultiple: true` is used #5559
+- **Header/List** - Fixes issue where icons appear slightly offset with text due to line-height offset fixes no longer being necessary in modern browsers.
+- **Modal** - Fixes issue where init order matters when multiple modals are shown at same time and `allowMultiple: true` is used [#5559](https://github.com/Semantic-Org/Semantic-UI/issues/5559)
 
-**Enhancements**
-- **Modal** - Modal will now take into account absolutely positioned elements inside a modal when determining if scrolling is necessary. #5578 **Thanks @lulalala**
-- **Dropdown** - Calling dropdown methods on a `<select>` turned into a dropdown will now automatically pass settings to the initialized dropdown, #3744
-
-```javascript
-$('select').dropdown();
-// somewhere later
-$('select').dropdown('onChange', function(value) { console.log(value) });
-```
 
 ### Version 2.2.11 - July 11, 2017
 
