@@ -282,10 +282,7 @@ module.exports = {
         type    : 'list',
         name    : 'useRoot',
         message :
-          '{packageMessage} \n' +
-          '\n' +
-          'Is this your project folder?\n' +
-          '{root}',
+          '{packageMessage} Is this your project folder? {root}',
         choices: [
           {
             name  : 'Yes',
