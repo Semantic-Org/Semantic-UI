@@ -535,24 +535,41 @@ $.fn.modal = function(parameters) {
         },
 
         cacheSizes: function() {
+          $module.addClass(className.loading);
           var
-            modalHeight = $module.outerHeight()
+            scrollHeight = $module.prop('scrollHeight'),
+            modalHeight  = $module.outerHeight()
           ;
           if(module.cache === undefined || modalHeight !== 0) {
             module.cache = {
               pageHeight    : $(document).outerHeight(),
               height        : modalHeight + settings.offset,
+              scrollHeight  : scrollHeight + settings.offset,
               contextHeight : (settings.context == 'body')
                 ? $(window).height()
-                : $dimmable.height()
+                : $dimmable.height(),
             };
+            module.cache.topOffset = -(module.cache.height / 2);
           }
+          $module.removeClass(className.loading);
           module.debug('Caching modal and container sizes', module.cache);
         },
 
         can: {
           fit: function() {
-            return ( ( module.cache.height + (settings.padding * 2) ) < module.cache.contextHeight);
+            var
+              contextHeight  = module.cache.contextHeight,
+              verticalCenter = module.cache.contextHeight / 2,
+              topOffset      = module.cache.topOffset,
+              scrollHeight   = module.cache.scrollHeight,
+              height         = module.cache.height,
+              paddingHeight  = settings.padding,
+              startPosition  = (verticalCenter + topOffset)
+            ;
+            return (scrollHeight > height)
+              ? (startPosition + scrollHeight + paddingHeight < contextHeight)
+              : (height + (paddingHeight * 2) < contextHeight)
+            ;
           }
         },
 
@@ -667,7 +684,7 @@ $.fn.modal = function(parameters) {
               $module
                 .css({
                   top: '',
-                  marginTop: -(module.cache.height / 2)
+                  marginTop: module.cache.topOffset
                 })
               ;
             }
@@ -940,6 +957,7 @@ $.fn.modal.settings = {
     animating  : 'animating',
     blurring   : 'blurring',
     inverted   : 'inverted',
+    loading    : 'loading',
     scrolling  : 'scrolling',
     undetached : 'undetached'
   }
