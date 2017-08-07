@@ -18,6 +18,7 @@ Caused by: DefaultsError: `preserveComments` is not a supported option
 - **Dropdown** - Fixed an issue where css rule for `focused default text` was not being applied for multiselects #5633
 - **Header** - Fixes vertical alignment
 - **Header/List* -- Fixes issue where icons appear slightly offset with text due to line-height offset fixes no longer being necessary in modern browsers.
+- **Modal** - Fixes issue where init order matters when multiple modals are shown at same time and `allowMultiple: true` is used #5559
 
 **Enhancements**
 - **Dropdown** - Calling dropdown methods on a `<select>` turned into a dropdown will now automatically pass settings to the initialized dropdown, #3744
