@@ -329,6 +329,9 @@ $.fn.modal = function(parameters) {
               module.hideOthers(module.showModal);
             }
             else {
+              if(settings.allowMultiple && settings.detachable) {
+                $module.detach().appendTo($dimmer);
+              }
               settings.onShow.call(element);
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 module.debug('Showing modal with css animations');
