@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.11 - List
+ * # Semantic UI 2.2.12 - List
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -96,7 +96,7 @@ ol.ui.list ol li,
 .ui.list > .item > i.icon {
   display: table-cell;
   margin: 0em;
-  padding-top: 0.07142857em;
+  padding-top: 0em;
   padding-right: 0.28571429em;
   vertical-align: top;
   -webkit-transition: color 0.1s ease;

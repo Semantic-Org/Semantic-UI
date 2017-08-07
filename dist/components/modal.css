@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.11 - Modal
+ * # Semantic UI 2.2.12 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -332,6 +332,11 @@
              States
 *******************************/
 
+.ui.loading.modal {
+  display: block;
+  visibility: hidden;
+  z-index: -1;
+}
 .ui.active.modal {
   display: block;
 }
