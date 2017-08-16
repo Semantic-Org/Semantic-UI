@@ -247,14 +247,25 @@ $.fn.transition = function() {
               style          = $module.attr('style'),
               userStyle      = module.get.userStyle(),
               displayType    = module.get.displayType(),
-              overrideStyle  = userStyle + 'display: ' + displayType + ' !important;',
+              overrideStyle  = userStyle + 'display: ' + displayType,
               currentDisplay = $module.css('display'),
               emptyStyle     = (style === undefined || style === '')
             ;
             if(currentDisplay !== displayType) {
               module.verbose('Overriding default display to show element', displayType);
+              var
+                styleLines = overrideStyle.split(';'),
+                styles = {},
+                line
+              ;
+              styleLines.forEach(function(style){
+                line = style.split(':');
+                if(line.length === 2) {
+                  styles[line[0].trim()] = line[1].trim();
+                }
+              });
               $module
-                .attr('style', overrideStyle)
+                .css(styles)
               ;
             }
             else if(emptyStyle) {
