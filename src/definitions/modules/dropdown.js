@@ -2523,14 +2523,15 @@ $.fn.dropdown = function(parameters) {
             $selectedItem
               .each(function() {
                 var
-                  $selected      = $(this),
-                  selectedText   = module.get.choiceText($selected),
-                  selectedValue  = module.get.choiceValue($selected, selectedText),
-
-                  isFiltered     = $selected.hasClass(className.filtered),
-                  isActive       = $selected.hasClass(className.active),
-                  isUserValue    = $selected.hasClass(className.addition),
-                  shouldAnimate  = (isMultiple && $selectedItem.length == 1)
+                  $selected          = $(this),
+                  selectedText       = module.get.choiceText($selected),
+                  selectedValue      = module.get.choiceValue($selected, selectedText),
+                  
+                  isFiltered         = $selected.hasClass(className.filtered),
+                  isActive           = $selected.hasClass(className.active),
+                  isUserValue        = $selected.hasClass(className.addition),
+                  shouldAnimate      = (isMultiple && $selectedItem.length == 1),
+                  updatedLabelValues = [];
                 ;
                 if(isMultiple) {
                   if(!isActive || isUserValue) {
@@ -2538,7 +2539,9 @@ $.fn.dropdown = function(parameters) {
                       module.save.remoteData(selectedText, selectedValue);
                     }
                     if(settings.useLabels) {
-                      [selectedValue,selectedText] = settings.beforeLabelCreate.call($selected,selectedValue,selectedText);
+                      updatedLabelValues = settings.beforeLabelCreate.call($selected,selectedValue,selectedText);
+                      selectedValue = updatedLabelValues[0];
+                      selectedText = updatedLabelValues[1];
                       module.add.value(selectedValue, selectedText, $selected);
                       module.add.label(selectedValue, selectedText, shouldAnimate);
                       module.set.activeItem($selected);
