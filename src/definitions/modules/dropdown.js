@@ -2538,6 +2538,7 @@ $.fn.dropdown = function(parameters) {
                       module.save.remoteData(selectedText, selectedValue);
                     }
                     if(settings.useLabels) {
+                      [selectedValue,selectedText] = settings.beforeLabelCreate.call($selected,selectedValue,selectedText);
                       module.add.value(selectedValue, selectedText, $selected);
                       module.add.label(selectedValue, selectedText, shouldAnimate);
                       module.set.activeItem($selected);
@@ -3691,16 +3692,17 @@ $.fn.dropdown.settings = {
   },
 
   /* Callbacks */
-  onChange      : function(value, text, $selected){},
-  onAdd         : function(value, text, $selected){},
-  onRemove      : function(value, text, $selected){},
-
-  onLabelSelect : function($selectedLabels){},
-  onLabelCreate : function(value, text) { return $(this); },
-  onLabelRemove : function(value) { return true; },
-  onNoResults   : function(searchTerm) { return true; },
-  onShow        : function(){},
-  onHide        : function(){},
+  onChange         : function(value, text, $selected){},
+  onAdd            : function(value, text, $selected){},
+  onRemove         : function(value, text, $selected){},
+  
+  onLabelSelect    : function($selectedLabels){},
+  beforeLabelCreate: function(value,text){ return [value,text]; },
+  onLabelCreate    : function(value, text) { return $(this); },
+  onLabelRemove    : function(value) { return true; },
+  onNoResults      : function(searchTerm) { return true; },
+  onShow           : function(){},
+  onHide           : function(){},
 
   /* Component */
   name           : 'Dropdown',
