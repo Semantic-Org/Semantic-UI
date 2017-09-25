@@ -758,6 +758,9 @@ $.fn.dropdown = function(parameters) {
                 module.setup.menu({
                   values: response[fields.remoteValues]
                 });
+                if(0 == response[fields.remoteValues].length) {
+                  module.add.message(message.noResults);
+                }
                 callback();
               }
             }
