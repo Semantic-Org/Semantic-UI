@@ -148,7 +148,7 @@
 @customScrollbarWidth: 10px;
 
 @trackBackground: rgba(0, 0, 0, 0.1);
-@trackBorderRadius: 0px;
+@trackBorderRadius: 5px;
 
 @thumbBorderRadius: 5px;
 @thumbBackground: rgba(0, 0, 0, 0.25);
