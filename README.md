@@ -6,7 +6,7 @@
 
 [![CDNJS](https://img.shields.io/cdnjs/v/semantic-ui.svg)](https://cdnjs.com/libraries/semantic-ui/)
 
-Semantic is a UI framework designed for theming.
+[Semantic](http://www.semantic-ui.com) is a UI framework designed for theming.
 
 Key Features
 * 50+ UI elements
