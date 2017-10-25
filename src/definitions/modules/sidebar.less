@@ -212,19 +212,19 @@ body.pushable > .pusher {
 /* Visible On Load */
 .ui.visible.left.sidebar ~ .fixed,
 .ui.visible.left.sidebar ~ .pusher {
-  transform: translate3d(@width, 0, 0);
+  left: @width;
 }
 .ui.visible.right.sidebar ~ .fixed,
 .ui.visible.right.sidebar ~ .pusher {
-  transform: translate3d(-@width, 0, 0);
+  left: -@width;
 }
 .ui.visible.top.sidebar ~ .fixed,
 .ui.visible.top.sidebar ~ .pusher {
-  transform: translate3d(0, @height, 0);
+  top: @height;
 }
 .ui.visible.bottom.sidebar ~ .fixed,
 .ui.visible.bottom.sidebar ~ .pusher {
-  transform: translate3d(0, -@height, 0);
+  top: -@height;
 }
 
 /* opposite sides visible forces content overlay */
