@@ -571,12 +571,14 @@ $.fn.search = function(parameters) {
               .api('query')
             ;
           },
-          object: function(searchTerm, source, searchFields) {
+          object: function(searchTerm, source, searchFields, recur) {
             var
               results      = [],
               fuzzyResults = [],
               searchExp    = searchTerm.toString().replace(regExp.escape, '\\$&'),
               matchRegExp  = new RegExp(regExp.beginsWith + searchExp, 'i'),
+              // stop category recurrsion
+              recur        = recur || true
 
               // avoid duplicates when pushing results
               addResult = function(array, result) {
@@ -624,6 +626,20 @@ $.fn.search = function(parameters) {
                 }
               });
             });
+            
+            if (recur && settings.type === 'category') {
+              $.each(source, (label, content) => {
+                if (content.results) {
+                  var matchingChildren = module.search.object(searchTerm, content.results, searchFields, false)
+
+                  if (matchingChildren.length) {
+                    content.results = matchingChildren
+                    addResult(results, content);
+                  }
+                }
+              })
+            }
+            
             return $.merge(results, fuzzyResults);
           }
         },
