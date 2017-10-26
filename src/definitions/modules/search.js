@@ -578,7 +578,7 @@ $.fn.search = function(parameters) {
               searchExp    = searchTerm.toString().replace(regExp.escape, '\\$&'),
               matchRegExp  = new RegExp(regExp.beginsWith + searchExp, 'i'),
               // stop category recurrsion
-              recur        = recur || true
+              recur        = recur || true,
 
               // avoid duplicates when pushing results
               addResult = function(array, result) {
@@ -628,7 +628,7 @@ $.fn.search = function(parameters) {
             });
             
             if (recur && settings.type === 'category') {
-              $.each(source, (label, content) => {
+              $.each(source, function(label, content) {
                 if (content.results) {
                   var matchingChildren = module.search.object(searchTerm, content.results, searchFields, false)
 
