@@ -453,6 +453,6 @@
 @smallWidth: 13rem;
 @mediumWidth: 15rem;
 @largeWidth: 18rem;
-@hugeWidth: 20rem;
-@bigWidth: 22rem;
+@bigWidth: 20rem;
+@hugeWidth: 22rem;
 @massiveWidth: 25rem;
