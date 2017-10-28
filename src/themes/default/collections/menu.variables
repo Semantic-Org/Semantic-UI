@@ -443,8 +443,8 @@
 @tiny: @12px;
 @small: @13px;
 @large: @15px;
-@huge: @16px;
-@big: @17px;
+@big: @16px;
+@huge: @17px;
 @massive: @18px;
 
 /* Sizes */
