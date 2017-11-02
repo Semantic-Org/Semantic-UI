@@ -317,6 +317,10 @@
   min-width: 100%;
 }
 
+.dropdown a.ui.label {
+  display: inline-block!important;
+}
+
 /*--------------
      Button
 ---------------*/

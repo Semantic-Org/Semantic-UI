@@ -19350,7 +19350,9 @@ $.fn.transition = function() {
               tagName      = $module.prop('tagName');
 
               $clone = $('<' + tagName + ' />').addClass( elementClass ).insertAfter($module);
-              currentAnimation = $clone
+                currentAnimation = $clone
+                .appendTo('body')
+                .addClass('clone')
                 .addClass(animation)
                 .removeClass(className.inward)
                 .removeClass(className.outward)
