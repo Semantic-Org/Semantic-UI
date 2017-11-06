@@ -13,9 +13,6 @@
   "bugs": {
     "url": "https://github.com/Semantic-Org/Semantic-UI/issues"
   },
-  "scripts": {
-    "install": "gulp install"
-  },
   "peerDependencies": {
     "better-console": "*",
     "del": "*",
