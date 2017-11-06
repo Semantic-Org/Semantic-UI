@@ -26,7 +26,7 @@
           box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(0, 0, 0, 0.2);
   -webkit-transform-origin: 50% 25%;
           transform-origin: 50% 25%;
-  border-radius: 0.28571429rem;
+  border-radius: 0.33333333rem;
   -webkit-user-select: text;
      -moz-user-select: text;
       -ms-user-select: text;
@@ -35,12 +35,12 @@
 }
 .ui.modal > :first-child:not(.icon),
 .ui.modal > .icon:first-child + * {
-  border-top-left-radius: 0.28571429rem;
-  border-top-right-radius: 0.28571429rem;
+  border-top-left-radius: 0.33333333rem;
+  border-top-right-radius: 0.33333333rem;
 }
 .ui.modal > :last-child {
-  border-bottom-left-radius: 0.28571429rem;
-  border-bottom-right-radius: 0.28571429rem;
+  border-bottom-left-radius: 0.33333333rem;
+  border-bottom-right-radius: 0.33333333rem;
 }
 
 
@@ -86,7 +86,7 @@
   border-bottom: 1px solid rgba(34, 36, 38, 0.15);
 }
 .ui.modal > .header:not(.ui) {
-  font-size: 1.42857143rem;
+  font-size: 1.41666667rem;
   line-height: 1.28571429em;
   font-weight: bold;
 }

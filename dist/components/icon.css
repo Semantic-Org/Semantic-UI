@@ -207,7 +207,7 @@ i.bordered.inverted.icon {
 /* Inverted Shapes */
 i.inverted.bordered.icon,
 i.inverted.circular.icon {
-  background-color: #1B1C1D !important;
+  background-color: #2e2e2e !important;
   color: #FFFFFF !important;
 }
 i.inverted.icon {
@@ -273,14 +273,14 @@ i.inverted.circular.olive.icon {
 
 /* Green */
 i.green.icon {
-  color: #21BA45 !important;
+  color: #238A41 !important;
 }
 i.inverted.green.icon {
   color: #2ECC40 !important;
 }
 i.inverted.bordered.green.icon,
 i.inverted.circular.green.icon {
-  background-color: #21BA45 !important;
+  background-color: #238A41 !important;
   color: #FFFFFF !important;
 }
 
@@ -377,14 +377,14 @@ i.inverted.circular.grey.icon {
 
 /* Black */
 i.black.icon {
-  color: #1B1C1D !important;
+  color: #2e2e2e !important;
 }
 i.inverted.black.icon {
   color: #545454 !important;
 }
 i.inverted.bordered.black.icon,
 i.inverted.circular.black.icon {
-  background-color: #1B1C1D !important;
+  background-color: #2e2e2e !important;
   color: #FFFFFF !important;
 }
 
@@ -501,7 +501,7 @@ i.icons .bottom.right.corner.icon {
   bottom: 0;
 }
 i.icons .inverted.corner.icon {
-  text-shadow: -1px -1px 0 #1B1C1D, 1px -1px 0 #1B1C1D, -1px 1px 0 #1B1C1D, 1px 1px 0 #1B1C1D;
+  text-shadow: -1px -1px 0 #2e2e2e, 1px -1px 0 #2e2e2e, -1px 1px 0 #2e2e2e, 1px 1px 0 #2e2e2e;
 }
 /*
  * Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome

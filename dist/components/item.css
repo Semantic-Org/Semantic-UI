@@ -147,7 +147,7 @@
 
 /* Default Header Size */
 .ui.items > .item > .content > .header:not(.ui) {
-  font-size: 1.28571429em;
+  font-size: 1.25em;
 }
 
 /*--------------

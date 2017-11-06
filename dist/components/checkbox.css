@@ -68,7 +68,7 @@
   height: 17px;
   content: '';
   background: #FFFFFF;
-  border-radius: 0.21428571rem;
+  border-radius: 0.25rem;
   -webkit-transition: border 0.1s ease, opacity 0.1s ease, -webkit-transform 0.1s ease, -webkit-box-shadow 0.1s ease;
   transition: border 0.1s ease, opacity 0.1s ease, -webkit-transform 0.1s ease, -webkit-box-shadow 0.1s ease;
   transition: border 0.1s ease, opacity 0.1s ease, transform 0.1s ease, box-shadow 0.1s ease;
@@ -383,7 +383,7 @@
   top: 0.4rem;
   background-color: rgba(0, 0, 0, 0.05);
   width: 3.5rem;
-  height: 0.21428571rem;
+  height: 0.25rem;
   -webkit-transform: none;
           transform: none;
   border-radius: 500rem;
