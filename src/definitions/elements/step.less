@@ -270,6 +270,8 @@
     flex-direction: column;
     border-radius: @borderRadius;
     padding: @verticalPadding @horizontalPadding;
+    border-right: none;
+    border-bottom: divider;
   }
   .ui.steps:not(.unstackable) .step:first-child {
     padding: @verticalPadding @horizontalPadding;
@@ -277,11 +279,15 @@
   }
   .ui.steps:not(.unstackable) .step:last-child {
     border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+    border-bottom: none;
   }
 
   /* Arrow */
   .ui.steps:not(.unstackable) .step:after {
-    display: none !important;
+    top: unset;
+    bottom: -@arrowSize;
+    right: 50%;
+    transform: translateY(-50%) translateX(50%) rotate(45deg);
   }
 
   /* Content */
@@ -404,6 +410,8 @@
   flex-direction: column;
   border-radius: @borderRadius;
   padding: @verticalPadding @horizontalPadding;
+  border-right: none;
+  border-bottom: @divider;
 }
 .ui[class*="tablet stackable"].steps .step:first-child {
   padding: @verticalPadding @horizontalPadding;
@@ -411,11 +419,15 @@
 }
 .ui[class*="tablet stackable"].steps .step:last-child {
   border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+  border-bottom: none;
 }
 
 /* Arrow */
 .ui[class*="tablet stackable"].steps .step:after {
-  display: none !important;
+  top: unset;
+  bottom: -@arrowSize;
+  right: 50%;
+  transform: translateY(-50%) translateX(50%) rotate(45deg);
 }
 
 /* Content */
