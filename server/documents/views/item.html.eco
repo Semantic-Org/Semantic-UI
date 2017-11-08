@@ -1,0 +1,655 @@
+---
+layout      : 'default'
+css         : 'item'
+standalone  : true
+
+element     : 'item'
+elementType : 'view'
+
+title       : 'Item'
+description : 'An item view presents large collections of site content for display'
+type        : 'UI View'
+
+themes      : ['Default']
+---
+
+<%- @partial('header') %>
+
+<link rel="stylesheet/less" type="text/css" href="/src/definitions/views/item.less" />
+<script src="/javascript/item.js"></script>
+
+<div class="main ui container">
+
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="example">
+    <h4 class="ui header">
+      Items
+      <span class="ui teal label">Flexbox</span>
+    </h4>
+    <p>A group of items.</p>
+    <div class="ui ignored positive icon message">
+      <i class="mobile icon"></i>
+      <div class="content">
+        <h3 class="header">Responsive Element</h3>
+        <p>Item views are designed to be responsive with images stacking at mobile resolutions.</p>
+      </div>
+    </div>
+    <div class="ui items">
+      <div class="item">
+        <div class="image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="content">
+          <a class="header">Header</a>
+          <div class="meta">
+            <span>Description</span>
+          </div>
+          <div class="description">
+            <img src="/images/wireframe/short-paragraph.png" class="ui wireframe image">
+          </div>
+          <div class="extra">
+            Additional Details
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="content">
+          <a class="header">Header</a>
+          <div class="meta">
+            <span>Description</span>
+          </div>
+          <div class="description">
+            <img src="/images/wireframe/short-paragraph.png" class="ui wireframe image">
+          </div>
+          <div class="extra">
+            Additional Details
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Content</h2>
+
+  <div class="example">
+    <h4 class="ui header">Image</h4>
+    <p>An item can contain an image</p>
+    <div class="ui divided items">
+      <div class="item">
+        <div class="image">
+          <img src="/images/wireframe/image.png">
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <img src="/images/wireframe/image.png">
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <img src="/images/wireframe/image.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Content</h4>
+    <p>An item can contain content</p>
+    <div class="ui divided items">
+      <div class="item">
+        <div class="ui tiny image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="middle aligned content">
+          Content A
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui tiny image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="middle aligned content">
+          Content B
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui tiny image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="middle aligned content">
+          Content C
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Header</h4>
+    <p>An item can contain a header</p>
+    <div class="ui items">
+      <div class="item">
+        <div class="ui tiny image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="middle aligned content">
+          <a class="header">12 Years a Slave</a>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui tiny image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="middle aligned content">
+          <a class="header">My Neighbor Totoro</a>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui tiny image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="middle aligned content">
+          <a class="header">Watchmen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Metadata</h4>
+    <p>An item can contain content metadata</p>
+    <div class="ui ignored info message">
+      <i class="info icon"></i>
+      You can include an arbitrary amount of metadata using your own class conventions, all child elements will automatically be spaced
+    </div>
+    <div class="ui items">
+      <div class="item">
+        <div class="ui small image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="content">
+          <div class="header">Arrowhead Valley Camp</div>
+          <div class="meta">
+            <span class="price">$1200</span>
+            <span class="stay">1 Month</span>
+          </div>
+          <div class="description">
+            <img src="/images/wireframe/short-paragraph.png" class="ui wireframe image">
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui small image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="content">
+          <div class="header">Buck's Homebrew Stayaway</div>
+          <div class="meta">
+            <span class="price">$1000</span>
+            <span class="stay">2 Weeks</span>
+          </div>
+          <div class="description">
+            <img src="/images/wireframe/short-paragraph.png" class="ui wireframe image">
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui small image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="content">
+          <div class="header">Astrology Camp</div>
+          <div class="meta">
+            <span class="price">$1600</span>
+            <span class="stay">6 Weeks</span>
+          </div>
+          <div class="description">
+            <img src="/images/wireframe/short-paragraph.png" class="ui wireframe image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Link</h4>
+    <p>An item can contain links as images, headers, or inside content</p>
+    <div class="ui yellow message">
+      <i class="star icon"></i>
+      To make the entire content of an item link, check out the link variation below
+    </div>
+    <div class="ui items">
+      <div class="item">
+        <a class="ui tiny image">
+          <img src="/images/avatar/large/stevie.jpg">
+        </a>
+        <div class="content">
+          <a class="header">Stevie Feliciano</a>
+          <div class="description">
+            <p>Stevie Feliciano is a <a>library scientist</a> living in New York City. She likes to spend her time reading, running, and writing.</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <a class="ui tiny image">
+          <img src="/images/avatar/large/veronika.jpg">
+        </a>
+        <div class="content">
+          <a class="header">Veronika Ossi</a>
+          <div class="description">
+            <p>Veronika Ossi is a set designer living in New York who <a>enjoys</a> kittens, music, and partying.</p>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <a class="ui tiny image">
+          <img src="/images/avatar/large/jenny.jpg">
+        </a>
+        <div class="content">
+          <a class="header">Jenny Hess</a>
+          <div class="description">
+            <p>Jenny is a student studying Media Management at <a>the New School</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Description</h4>
+    <p>An item can contain a description with a single or multiple paragraphs</p>
+    <div class="ui items">
+      <div class="item">
+        <a class="ui small image">
+          <img src="/images/wireframe/image.png" class="ui wireframe image">
+        </a>
+        <div class="content">
+          <a class="header">Cute Dog</a>
+          <div class="description">
+            <p>Cute dogs come in a variety of shapes and sizes. Some cute dogs are cute for their adorable faces, others for their tiny stature, and even others for their massive size.</p>
+            <p>Many people also have their own barometers for what makes a cute dog.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Extra Content</h4>
+    <p>An item can contain extra content meant to be formatted separately from the main content</p>
+    <div class="ui items">
+      <div class="item">
+        <div class="content">
+          <a class="header">Cute Dog</a>
+          <div class="description">
+            <img src="/images/wireframe/short-paragraph.png" class="ui wireframe image">
+            <img src="/images/wireframe/short-paragraph.png" class="ui wireframe image">
+          </div>
+          <div class="extra">
+            <i class="green check icon"></i>
+            121 Votes
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Rating</h4>
+    <p>An item can contain icons signifying a 'like' or 'favorite' action</p>
+    <div class="ui ignored info message">
+      You can use the <a href="/modules/rating.html">rating</a> component to attach events to like and favorite icons
+    </div>
+    <div class="ui items">
+      <div class="item">
+        <a class="ui tiny image">
+          <img src="/images/avatar/large/jenny.jpg">
+        </a>
+        <div class="middle aligned content">
+          <div class="header">
+            <i class="like icon"></i>
+            Veronika Ossi
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <a class="ui tiny image">
+          <img src="/images/avatar/large/justen.jpg">
+        </a>
+        <div class="middle aligned content">
+          <div class="header">
+            <i class="favorite icon"></i>
+            Justen Kitsune
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <h2 class="ui dividing header">Variations</h2>
+
+  <div class="example" data-class="unstackable">
+    <h4 class="ui header">Stacking</h4>
+    <p>A table can specify how it stacks items responsively</p>
+    <div class="ui unstackable items">
+      <div class="item">
+        <div class="image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="content">
+          <a class="header">Header</a>
+          <div class="meta">
+            <span>Description</span>
+          </div>
+          <div class="description">
+            <img src="/images/wireframe/short-paragraph.png" class="ui wireframe image">
+          </div>
+          <div class="extra">
+            Additional Details
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="content">
+          <a class="header">Header</a>
+          <div class="meta">
+            <span>Description</span>
+          </div>
+          <div class="description">
+            <img src="/images/wireframe/short-paragraph.png" class="ui wireframe image">
+          </div>
+          <div class="extra">
+            Additional Details
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Divided</h4>
+    <p>Items can be divided to better distinguish between grouped content</p>
+    <div class="ui ignored info message">
+      <i class="info icon"></i>
+      The following example uses <a href="/elements/segment.html">ui</a> for legibility only. This is not necessary for using <code>ui items</code>
+    </div>
+
+    <div class="ui divided items">
+      <div class="item">
+        <div class="image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="content">
+          <a class="header">12 Years a Slave</a>
+          <div class="meta">
+            <span class="cinema">Union Square 14</span>
+          </div>
+          <div class="description">
+            <img src="/images/wireframe/short-paragraph.png" class="ui wireframe image">
+          </div>
+          <div class="extra">
+            <div class="ui label">IMAX</div>
+            <div class="ui label"><i class="globe icon"></i> Additional Languages</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="content">
+          <a class="header">My Neighbor Totoro</a>
+          <div class="meta">
+            <span class="cinema">IFC Cinema</span>
+          </div>
+          <div class="description">
+            <img src="/images/wireframe/short-paragraph.png" class="ui wireframe image">
+          </div>
+          <div class="extra">
+            <div class="ui right floated primary button">
+              Buy tickets
+              <i class="right chevron icon"></i>
+            </div>
+            <div class="ui label">Limited</div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="content">
+          <a class="header">Watchmen</a>
+          <div class="meta">
+            <span class="cinema">IFC</span>
+          </div>
+          <div class="description">
+            <img src="/images/wireframe/short-paragraph.png" class="ui wireframe image">
+          </div>
+          <div class="extra">
+            <div class="ui right floated primary button">
+              Buy tickets
+              <i class="right chevron icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Relaxed</h4>
+    <p>A group of items can relax its padding to provide more negative space</p>
+    <div class="ui relaxed items">
+      <div class="item">
+        <div class="ui tiny image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="middle aligned content">
+          <a class="header">12 Years a Slave</a>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui tiny image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="middle aligned content">
+          <a class="header">My Neighbor Totoro</a>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui tiny image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="middle aligned content">
+          <a class="header">Watchmen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui very relaxed items">
+      <div class="item">
+        <div class="ui tiny image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="middle aligned content">
+          <a class="header">12 Years a Slave</a>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui tiny image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="middle aligned content">
+          <a class="header">My Neighbor Totoro</a>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui tiny image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="middle aligned content">
+          <a class="header">Watchmen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Link Item</h4>
+    <p>An item can be formatted so that the entire contents link to another page</p>
+    <div class="ui link items">
+      <div class="item">
+        <div class="ui tiny image">
+          <img src="/images/avatar/large/stevie.jpg">
+        </div>
+        <div class="content">
+          <div class="header">Stevie Feliciano</div>
+          <div class="description">
+            <img src="/images/wireframe/short-paragraph.png" class="ui wireframe image">
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui tiny image">
+          <img src="/images/avatar/large/veronika.jpg">
+        </div>
+        <div class="content">
+          <div class="header">Veronika Ossi</div>
+          <div class="description">
+            <img src="/images/wireframe/short-paragraph.png" class="ui wireframe image">
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui tiny image">
+          <img src="/images/avatar/large/jenny.jpg">
+        </div>
+        <div class="content">
+          <div class="header">Jenny Hess</div>
+          <div class="description">
+            <img src="/images/wireframe/short-paragraph.png" class="ui wireframe image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Vertical Alignment</h4>
+    <p>Content can specify its vertical alignment</p>
+    <div class="ui ignored info message">
+      <i class="info icon"></i>
+      You can include an arbitrary amount of metadata using your own class conventions, all child elements will automatically be spaced
+    </div>
+    <div class="ui items">
+      <div class="item">
+        <div class="ui small image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="content">
+          <div class="header">
+            Top Aligned
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui small image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="middle aligned content">
+          <div class="header">
+            Middle Aligned
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui small image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="bottom aligned content">
+          <div class="header">
+            Bottom Aligned
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Floated Content</h4>
+    <p>Any content element can be floated left or right</p>
+    <div class="ui ignored info message">
+      <i class="info icon"></i>
+      You can include an arbitrary amount of metadata using your own class conventions, all child elements will automatically be spaced
+    </div>
+    <div class="ui items">
+      <div class="item">
+        <div class="ui small image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="middle aligned content">
+          <div class="header">
+            Content A
+          </div>
+          <div class="description">
+            <img src="/images/wireframe/short-paragraph.png" class="ui wireframe image">
+          </div>
+          <div class="extra">
+            <div class="ui right floated button">
+              Action
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui small image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="middle aligned content">
+          <div class="header">
+            Content B
+          </div>
+          <div class="description">
+            <img src="/images/wireframe/short-paragraph.png" class="ui wireframe image">
+          </div>
+          <div class="extra">
+            <div class="ui right floated button">
+              Action
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="ui small image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="middle aligned content">
+          <div class="header">
+            Content C
+          </div>
+          <div class="description">
+            <img src="/images/wireframe/short-paragraph.png" class="ui wireframe image">
+          </div>
+          <div class="extra">
+            <div class="ui right floated button">
+              Action
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

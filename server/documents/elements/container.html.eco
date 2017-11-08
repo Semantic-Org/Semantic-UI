@@ -1,0 +1,462 @@
+---
+layout      : 'default'
+css         : 'basic minimal'
+element     : 'container'
+elementType : 'element'
+standalone  : true
+
+title       : 'Container'
+description : 'A container limits content to a maximum width'
+type        : 'UI Element'
+
+themes      : ['Default']
+---
+
+<script src="/javascript/container.js"></script>
+<link rel="stylesheet/less" type="text/css" href="/src/definitions/elements/container.less" />
+
+<%- @partial('header', { tabs: {  introduction: 'Introduction', definition: 'Definition', examples: 'Examples' } }) %>
+
+<div class="ui active intro tab" data-tab="introduction">
+
+  <div class="ui main container">
+
+    <h2 class="ui dividing header">Introduction</h2>
+
+    <div class="introduction">
+
+      <h3 class="ui header">When To Use</h3>
+
+      <p>A container is an element designed to contain page elements to a reasonable maximum width based on the size of a user's screen. This is useful to couple with other UI elements like <a href="/collections/grid.html">grid</a> or <a href="/collections/menu.html">menu</a> to restrict their width to a reasonable size for display.</p>
+
+
+      <h3 class="ui header">Container Sizes</h3>
+
+      <p>Containers are designed to responsively adjust their maximum width based on the size of the screen on which they are appearing.</p>
+
+      <table class="ui celled definition table">
+        <thead>
+          <th class="collapsing"></th>
+            <th>Mobile</th>
+            <th>Tablet</th>
+            <th class="single line">Small Monitor</th>
+            <th class="single line">Large Monitor</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Width</td>
+            <td>100%</td>
+            <td>
+              723px
+              <i class="circle help link icon" data-html="Maximum device width with two <code>1em</code> gutters and a <code>17px</code> scrollbar width. <div class='ui divider'></div> <code>768 - (14 * (1 * 2)) - 17</code>">
+            </td>
+            <td>
+              933px
+              <i class="circle help link icon" data-html="Maximum device width with two <code>1.5em</code> gutters and a <code>17px</code> scrollbar width. <div class='ui divider'></div> <code>992 - (14 * (1.5 * 2)) - 17</code>">
+            </td>
+            <td>
+              1127px
+              <i class="circle help link icon" data-html="Maximum device width with two <code>2em</code> gutters and a <code>17px</code> scrollbar width. <div class='ui divider'></div> <code>1200 - (14 * (2 * 2)) - 17</code>">
+            </td>
+          </tr>
+          <tr>
+            <td class="single line">Gutter Size</td>
+            <td>1em</td>
+            <td>Fluid</td>
+            <td>Fluid</td>
+            <td>Fluid</td>
+          </tr>
+          <tr>
+            <td>Variable</td>
+            <td><code>$largestMobileScreen</code></td>
+            <td><code>$mobileBreakpoint</code></td>
+            <td><code>$smallMonitorBreakpoint</code></td>
+            <td><code>$largeMonitorBreakpoint</code></td>
+          </tr>
+          <tr>
+            <td>Device Width</td>
+            <td>below 768px</td>
+            <td>768px - 991px</td>
+            <td>992px - 1200px</td>
+            <td>above 1200px</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 class="ui header">Responsive Visibility</h3>
+      <p>Since variations in Semantic UI are only assigned in the scope of components, there are no "free floating" responsive class names, however some components include responsive variations to help ease responsive design. <a href=href="/collections/grid.html#device-visibility">Grid</a> for example, includes responsive classes for hiding or showing <code>column</code>, <code>row</code> based on device type.</p>
+
+      <a href="/collections/grid.html#device-visibility" class="ui secondary button">See grid responsive variations <i class="right chevron icon"></i></a>
+
+      <h3 class="ui header">Determining Maximum Widths</h3>
+
+      <p>Containers appear at the same width at each device size. This size is calculated programmatically by determining the maximum device width available within a device breakpoint, given a desired minimum gutter size.</p>
+
+      <p>For example to determine tablet container size the following formula is used:</p>
+
+      <div class="code" data-type="less">
+      /* In site.variables */
+      @tabletBreakpoint : 768px;
+      @scrollbarWidth : 17px; /* This is a constant */
+
+      /* In container.variables */
+      @tabletMinimumGutter : (@emSize  * 1); /* require 1em gutter */
+      @tabletWidth : @tabletBreakpoint - (@tabletMinimumGutter * 2) - @scrollbarWidth;
+      </div>
+
+      <p>This is the same as <code>768px - (14px * 2) - 17px</code> or <code>723px</code></p>
+
+      <p>Adjusting site breakpoints in <code>site.variables</code> to use custom values will automatically adjust container widths.</p>
+
+
+    </div>
+  </div>
+</div>
+
+
+<div class="ui tab" data-tab="definition">
+
+  <div class="ui main container">
+
+    <h2 class="ui dividing header">Types</h2>
+
+    <div class="no example">
+      <h4 class="ui header">Container</h4>
+      <p>A standard container</p>
+    </div>
+
+    <div class="ui ignored code">
+      <div class="ui container">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ui container">
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+    elit. Aenean commodo ligula eget dolor. Aenean massa
+    <strong>strong</strong>. Cum sociis natoque penatibus
+    et magnis dis parturient montes, nascetur ridiculus
+    mus. Donec quam felis, ultricies nec, pellentesque
+    eu, pretium quis, sem. Nulla consequat massa quis
+    enim. Donec pede justo, fringilla vel, aliquet nec,
+    vulputate eget, arcu. In enim justo, rhoncus ut,
+    imperdiet a, venenatis vitae, justo. Nullam dictum
+    felis eu pede <a href="#">link</a>
+    mollis pretium. Integer tincidunt. Cras dapibus.
+    Vivamus elementum semper nisi. Aenean vulputate
+    eleifend tellus. Aenean leo ligula, porttitor eu,
+    consequat vitae, eleifend ac, enim. Aliquam lorem ante,
+    dapibus in, viverra quis, feugiat a, tellus. Phasellus
+    viverra nulla ut metus varius laoreet. Quisque rutrum.
+    Aenean imperdiet. Etiam ultricies nisi vel augue.
+    Curabitur ullamcorper ultricies nisi.</p>
+  </div>
+
+  <div class="ui main container">
+
+    <div class="no example">
+      <h4 class="ui header">Text Container</h4>
+      <p>A container can reduce its maximum width to more naturally accomodate a single column of text</p>
+      <div class="ui info message">
+        A text container is a simpler markup alternative to using a grid with a single column, and is designed to have a reasonable maximum width for displaying flowing text
+      </div>
+    </div>
+
+    <div class="ui ignored code">
+      <div class="ui text container">
+      </div>
+    </div>
+  </div>
+
+  <div class="ui text container">
+    <h2 class="ui header">Header</h2>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+    elit. Aenean commodo ligula eget dolor. Aenean massa
+    <strong>strong</strong>. Cum sociis natoque penatibus
+    et magnis dis parturient montes, nascetur ridiculus
+    mus. Donec quam felis, ultricies nec, pellentesque
+    eu, pretium quis, sem. Nulla consequat massa quis
+    enim. Donec pede justo, fringilla vel, aliquet nec,
+    vulputate eget, arcu. In enim justo, rhoncus ut,
+    imperdiet a, venenatis vitae, justo. Nullam dictum
+    felis eu pede <a href="#">link</a>
+    mollis pretium. Integer tincidunt. Cras dapibus.
+    Vivamus elementum semper nisi. Aenean vulputate
+    eleifend tellus. Aenean leo ligula, porttitor eu,
+    consequat vitae, eleifend ac, enim. Aliquam lorem ante,
+    dapibus in, viverra quis, feugiat a, tellus. Phasellus
+    viverra nulla ut metus varius laoreet. Quisque rutrum.
+    Aenean imperdiet. Etiam ultricies nisi vel augue.
+    Curabitur ullamcorper ultricies nisi.</p>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+    elit. Aenean commodo ligula eget dolor. Aenean massa
+    <strong>strong</strong>. Cum sociis natoque penatibus
+    et magnis dis parturient montes, nascetur ridiculus
+    mus. Donec quam felis, ultricies nec, pellentesque
+    eu, pretium quis, sem. Nulla consequat massa quis
+    enim. Donec pede justo, fringilla vel, aliquet nec,
+    vulputate eget, arcu. In enim justo, rhoncus ut,
+    imperdiet a, venenatis vitae, justo. Nullam dictum
+    felis eu pede <a href="#">link</a>
+    mollis pretium. Integer tincidunt. Cras dapibus.
+    Vivamus elementum semper nisi. Aenean vulputate
+    eleifend tellus. Aenean leo ligula, porttitor eu,
+    consequat vitae, eleifend ac, enim. Aliquam lorem ante,
+    dapibus in, viverra quis, feugiat a, tellus. Phasellus
+    viverra nulla ut metus varius laoreet. Quisque rutrum.
+    Aenean imperdiet. Etiam ultricies nisi vel augue.
+    Curabitur ullamcorper ultricies nisi.</p>
+  </div>
+
+  <div class="ui main container">
+
+
+    <h2 class="ui dividing header">Variations</h2>
+
+    <div class="no example">
+      <h4 class="ui header">Text Alignment</h4>
+      <p>A container can specify its text alignment</p>
+
+    </div>
+
+    <div class="ui ignored code">
+      <div class="ui left aligned container">
+        <p></p>
+      </div>
+      <div class="ui center aligned container">
+        <p></p>
+      </div>
+      <div class="ui right aligned container">
+        <p></p>
+      </div>
+      <div class="ui justified container">
+        <p></p>
+      </div>
+    </div>
+
+    <div class="ui left aligned container">
+      Left Aligned
+    </div>
+    <div class="ui center aligned container">
+      Center Aligned
+    </div>
+    <div class="ui right aligned container">
+      Right Aligned
+    </div>
+    <div class="ui justified container">
+      <b>Justified</b>
+      <div class="ui divider"></div>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+      elit. Aenean commodo ligula eget dolor. Aenean massa
+      <strong>strong</strong>. Cum sociis natoque penatibus
+      et magnis dis parturient montes, nascetur ridiculus
+      mus. Donec quam felis, ultricies nec, pellentesque
+      eu, pretium quis, sem. Nulla consequat massa quis
+      enim. Donec pede justo, fringilla vel, aliquet nec,
+      vulputate eget, arcu. In enim justo, rhoncus ut,
+      imperdiet a, venenatis vitae, justo. Nullam dictum
+      felis eu pede <a href="#">link</a>
+      mollis pretium. Integer tincidunt. Cras dapibus.
+      Vivamus elementum semper nisi. Aenean vulputate
+      eleifend tellus. Aenean leo ligula, porttitor eu,
+      consequat vitae, eleifend ac, enim. Aliquam lorem ante,
+      dapibus in, viverra quis, feugiat a, tellus. Phasellus
+      viverra nulla ut metus varius laoreet. Quisque rutrum.
+      Aenean imperdiet. Etiam ultricies nisi vel augue.
+      Curabitur ullamcorper ultricies nisi.</p>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing
+      elit. Aenean commodo ligula eget dolor. Aenean massa
+      <strong>strong</strong>. Cum sociis natoque penatibus
+      et magnis dis parturient montes, nascetur ridiculus
+      mus. Donec quam felis, ultricies nec, pellentesque
+      eu, pretium quis, sem. Nulla consequat massa quis
+      enim. Donec pede justo, fringilla vel, aliquet nec,
+      vulputate eget, arcu. In enim justo, rhoncus ut,
+      imperdiet a, venenatis vitae, justo. Nullam dictum
+      felis eu pede <a href="#">link</a>
+      mollis pretium. Integer tincidunt. Cras dapibus.
+      Vivamus elementum semper nisi. Aenean vulputate
+      eleifend tellus. Aenean leo ligula, porttitor eu,
+      consequat vitae, eleifend ac, enim. Aliquam lorem ante,
+      dapibus in, viverra quis, feugiat a, tellus. Phasellus
+      viverra nulla ut metus varius laoreet. Quisque rutrum.
+      Aenean imperdiet. Etiam ultricies nisi vel augue.
+      Curabitur ullamcorper ultricies nisi.</p>
+    </div>
+
+    <div class="no example">
+      <h4 class="ui header">Fluid</h4>
+      <p>A fluid container has no maximum width</p>
+      <div class="ui info message">Fluid containers are useful for setting text alignment, or other variations on unstyled content</div>
+
+      <div class="ui ignored code">
+        <div class="ui fluid container">
+          Fluid
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ui fluid container">
+    <h2 class="ui header">Dogs Roles with Humans</h2>
+    <p>Domestic dogs inherited complex behaviors, such as bite inhibition, from their wolf ancestors, which would have been pack hunters with complex body language. These sophisticated forms of social cognition and communication may account for their trainability, playfulness, and ability to fit into human households and social situations, and these attributes have given dogs a relationship with humans that has enabled them to become one of the most successful species on the planet today.</p>
+    <p>The dogs' value to early human hunter-gatherers led to them quickly becoming ubiquitous across world cultures. Dogs perform many roles for people, such as hunting, herding, pulling loads, protection, assisting police and military, companionship, and, more recently, aiding handicapped individuals. This impact on human society has given them the nickname "man's best friend" in the Western world. In some cultures, however, dogs are also a source of meat.</p>
+  </div>
+
+  <div class="ui main container"></div>
+
+</div>
+
+<div class="ui tab" data-tab="examples">
+
+
+  <div class="ui main container">
+
+    <h2 class="ui dividing header">Examples</h2>
+
+    <div class="no example">
+      <h4 class="ui header">Containers Using Grids</h4>
+      <p>A container can be combined with a grid allowing you to use all of the layout and alignment available for <a href="/collections/grid.html#doubling">grids</a> including responsive patterns.</p>
+    </div>
+
+    <div class="ui ignored code">
+      <div class="ui four column doubling stackable grid container">
+        <div class="column">
+          <p></p>
+          <p></p>
+        </div>
+        <div class="column">
+          <p></p>
+          <p></p>
+        </div>
+        <div class="column">
+          <p></p>
+          <p></p>
+        </div>
+        <div class="column">
+          <p></p>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui four column doubling stackable grid container">
+    <div class="column">
+      <img src="/images/wireframe/media-paragraph.png" class="ui wireframe image">
+      <div class="ui hidden divider"></div>
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+      <div class="ui hidden divider"></div>
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+    <div class="column">
+      <img src="/images/wireframe/media-paragraph.png" class="ui wireframe image">
+      <div class="ui hidden divider"></div>
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+      <div class="ui hidden divider"></div>
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+    <div class="column">
+      <img src="/images/wireframe/media-paragraph.png" class="ui wireframe image">
+      <div class="ui hidden divider"></div>
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+      <div class="ui hidden divider"></div>
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+    <div class="column">
+      <img src="/images/wireframe/media-paragraph.png" class="ui wireframe image">
+      <div class="ui hidden divider"></div>
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+      <div class="ui hidden divider"></div>
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+  </div>
+
+  <div class="ui main container">
+    <div class="no example">
+      <h4 class="ui header">Centered Menu</h4>
+      <p>A container can be used inside of a menu to make sure menu items appear inline with page contents. Using responsive variations like <a href="/collections/menu.html#stackable">stackable</a> menu can help make contents adjust to different device sizes.</p>
+    </div>
+
+    <div class="ui ignored code">
+      <div class="ui attached stackable menu">
+        <div class="ui container">
+          <a class="item">
+            <i class="home icon"></i> Home
+          </a>
+          <a class="item">
+            <i class="grid layout icon"></i> Browse
+          </a>
+          <a class="item">
+            <i class="mail icon"></i> Messages
+          </a>
+          <div class="ui simple dropdown item">
+            More
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <a class="item"><i class="edit icon"></i> Edit Profile</a>
+              <a class="item"><i class="globe icon"></i> Choose Language</a>
+              <a class="item"><i class="settings icon"></i> Account Settings</a>
+            </div>
+          </div>
+          <div class="right item">
+            <div class="ui input"><input type="text" placeholder="Search..."></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui attached stackable menu">
+    <div class="ui container">
+      <a class="item">
+        <i class="home icon"></i> Home
+      </a>
+      <a class="item">
+        <i class="grid layout icon"></i> Browse
+      </a>
+      <a class="item">
+        <i class="mail icon"></i> Messages
+      </a>
+      <div class="ui simple dropdown item">
+        More
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <a class="item"><i class="edit icon"></i> Edit Profile</a>
+          <a class="item"><i class="globe icon"></i> Choose Language</a>
+          <a class="item"><i class="settings icon"></i> Account Settings</a>
+        </div>
+      </div>
+      <div class="right item">
+        <div class="ui input"><input type="text" placeholder="Search..."></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui main container">
+
+    <div class="no example">
+      <h4 class="ui header">Container Segment</h4>
+      <p>A container can be used with a <a href="/elements/segment.html">segment</a></p>
+    </div>
+
+    <div class="ui ignored code">
+      <div class="ui raised very padded text container segment">
+        <h2 class="ui header">Dogs Roles with Humans</h2>
+        <p></p>
+        <p></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui raised very padded text container segment">
+    <h2 class="ui header">Dogs Roles with Humans</h2>
+    <p>Domestic dogs inherited complex behaviors, such as bite inhibition, from their wolf ancestors, which would have been pack hunters with complex body language. These sophisticated forms of social cognition and communication may account for their trainability, playfulness, and ability to fit into human households and social situations, and these attributes have given dogs a relationship with humans that has enabled them to become one of the most successful species on the planet today.</p>
+    <p>The dogs' value to early human hunter-gatherers led to them quickly becoming ubiquitous across world cultures. Dogs perform many roles for people, such as hunting, herding, pulling loads, protection, assisting police and military, companionship, and, more recently, aiding handicapped individuals. This impact on human society has given them the nickname "man's best friend" in the Western world. In some cultures, however, dogs are also a source of meat.</p>
+  </div>
+
+
+  <div class="main container"></div>
+</div>

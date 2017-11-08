@@ -1,0 +1,10 @@
+---
+layout      : 'default'
+title       : 'Page Not Found'
+type        : '404'
+---
+<%- @partial('header') %>
+
+<div class="main ui container">
+
+</div>

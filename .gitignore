@@ -1,6 +1,7 @@
 node_modules/
 test/coverage/
 coverage/
+out/
 theme.config
 semantic.json
 tasks/**/oauth.js

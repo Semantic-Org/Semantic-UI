@@ -1,0 +1,633 @@
+---
+layout      : 'default'
+css         : 'button-page'
+element     : 'button'
+elementType : 'element'
+standalone  : true
+
+title       : 'Button'
+description : 'A button indicates a possible user action'
+type        : 'UI Element'
+
+themes      : ['Default', 'Classic', 'Basic', 'Bootstrap3', 'Twitter', 'Raised', 'Chubby', 'Round', 'Amazon', 'Material', 'GitHub']
+---
+<link rel="stylesheet/less" type="text/css" href="/src/definitions/elements/button.less" />
+<script src="/javascript/button.js"></script>
+
+<%- @partial('header') %>
+
+<div class="main ui container">
+
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="follow example">
+    <h4 class="ui header">Button</h4>
+    <p>A standard button</p>
+    <button class="ui button">
+      Follow
+    </button>
+  </div>
+  <div class="another example">
+    <div class="ui ignored warning message">
+      Although any tag can be used for a button, it will only be <a href="http://webaim.org/techniques/keyboard/tabindex">keyboard focusable</a> if you use a <code>&#x3C;button&#x3E;</code> tag or you add the property <code>tabindex="0"</code>. Keyboard accessible buttons will preserve focus styles after click, which may be visually jarring.</p>
+    </div>
+    <button class="ui button">
+      Button
+    </button>
+    <div class="ui button" tabindex="0">
+      Focusable
+    </div>
+  </div>
+
+  <div class="example" data-class="primary, secondary">
+    <h4 class="ui header">Emphasis</h4>
+    <p>A button can be formatted to show different levels of emphasis</p>
+    <div class="ui ignored info message">Setting your brand colors to primary and secondary color variables in <a href="/usage/theming.html"><code>site.variables</code></a> will allow you to use your color theming for UI elements</div>
+    <button class="ui primary button">
+      Save
+    </button>
+    <button class="ui button">
+      Discard
+    </button>
+  </div>
+  <div class="another example">
+    <button class="ui secondary button">
+      Okay
+    </button>
+    <button class="ui button">
+      Cancel
+    </button>
+  </div>
+
+  <div class="example" data-class="animated fade, animated">
+    <h4 class="ui header">Animated</h4>
+    <p>A button can animate to show hidden content</p>
+    <div class="ui ignored message">The button will be automatically sized according to the visible content size. Make sure there is enough room for the hidden content to show</div>
+    <div class="ui animated button" tabindex="0">
+      <div class="visible content">Next</div>
+      <div class="hidden content">
+        <i class="right arrow icon"></i>
+      </div>
+    </div>
+    <div class="ui vertical animated button" tabindex="0">
+      <div class="hidden content">Shop</div>
+      <div class="visible content">
+        <i class="shop icon"></i>
+      </div>
+    </div>
+    <div class="ui animated fade button" tabindex="0">
+      <div class="visible content">Sign-up for a Pro account</div>
+      <div class="hidden content">
+        $12.99 a month
+      </div>
+    </div>
+  </div>
+
+  <div class="example" data-class="labeled, left labeled">
+    <h4 class="ui header">Labeled</h4>
+    <p>A button can appear alongside a <a href="/elements/label.html">label</a></p>
+    <div class="ui labeled button" tabindex="0">
+      <div class="ui button">
+        <i class="heart icon"></i> Like
+      </div>
+      <a class="ui basic label">
+        2,048
+      </a>
+    </div>
+    <div class="ui left labeled button" tabindex="0">
+      <a class="ui basic right pointing label">
+        2,048
+      </a>
+      <div class="ui button">
+        <i class="heart icon"></i> Like
+      </div>
+    </div>
+    <div class="ui left labeled button" tabindex="0">
+      <a class="ui basic label">
+        1,048
+      </a>
+      <div class="ui icon button">
+        <i class="fork icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui labeled button" tabindex="0">
+      <div class="ui red button">
+        <i class="heart icon"></i> Like
+      </div>
+      <a class="ui basic red left pointing label">
+        1,048
+      </a>
+    </div>
+    <div class="ui labeled button" tabindex="0">
+      <div class="ui basic blue button">
+        <i class="fork icon"></i> Forks
+      </div>
+      <a class="ui basic left pointing blue label">
+        1,048
+      </a>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Icon</h4>
+    <p>A button can have only an icon</p>
+    <button class="ui icon button">
+      <i class="cloud icon"></i>
+    </button>
+  </div>
+
+  <div class="example" data-class="labeled icon, right labeled icon">
+    <h4 class="ui header">Labeled Icon</h4>
+    <p>A button can use an icon as a label</p>
+    <button class="ui labeled icon button">
+      <i class="pause icon"></i>
+      Pause
+    </button>
+    <button class="ui right labeled icon button">
+      <i class="right arrow icon"></i>
+      Next
+    </button>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Basic</h4>
+    <p>A basic button is less pronounced</p>
+    <button class="ui basic button">
+      <i class="icon user"></i>
+      Add Friend
+    </button>
+  </div>
+  <div class="another spaced example">
+    <button class="ui primary basic button">Primary</button>
+    <button class="ui secondary basic button">Secondary</button>
+    <button class="ui positive basic button">Positive</button>
+    <button class="ui negative basic button">Negative</button>
+  </div>
+  <div class="another spaced example">
+    <button class="ui red basic button">Red</button>
+    <button class="ui orange basic button">Orange</button>
+    <button class="ui yellow basic button">Yellow</button>
+    <button class="ui olive basic button">Olive</button>
+    <button class="ui green basic button">Green</button>
+    <button class="ui teal basic button">Teal</button>
+    <button class="ui blue basic button">Blue</button>
+    <button class="ui violet basic button">Violet</button>
+    <button class="ui purple basic button">Purple</button>
+    <button class="ui pink basic button">Pink</button>
+    <button class="ui brown basic button">Brown</button>
+    <button class="ui grey basic button">Grey</button>
+    <button class="ui black basic button">Black</button>
+  </div>
+
+  <div class="spaced example">
+    <h4 class="ui header">Inverted</h4>
+    <p>A button can be formatted to appear on dark backgrounds</p>
+    <div class="ui inverted segment">
+      <button class="ui inverted button">Standard</button>
+      <button class="ui inverted red button">Red</button>
+      <button class="ui inverted orange button">Orange</button>
+      <button class="ui inverted yellow button">Yellow</button>
+      <button class="ui inverted olive button">Olive</button>
+      <button class="ui inverted green button">Green</button>
+      <button class="ui inverted teal button">Teal</button>
+      <button class="ui inverted blue button">Blue</button>
+      <button class="ui inverted violet button">Violet</button>
+      <button class="ui inverted purple button">Purple</button>
+      <button class="ui inverted pink button">Pink</button>
+      <button class="ui inverted brown button">Brown</button>
+      <button class="ui inverted grey button">Grey</button>
+      <button class="ui inverted black button">Black</button>
+    </div>
+  </div>
+  <div class="another spaced example">
+    <div class="ui inverted segment">
+      <button class="ui inverted basic button">Basic</button>
+      <button class="ui inverted red basic button">Basic Red</button>
+      <button class="ui inverted orange basic button">Basic Orange</button>
+      <button class="ui inverted yellow basic button">Basic Yellow</button>
+      <button class="ui inverted olive basic button">Basic Olive</button>
+      <button class="ui inverted green basic button">Basic Green</button>
+      <button class="ui inverted teal basic button">Basic Teal</button>
+      <button class="ui inverted blue basic button">Basic Blue</button>
+      <button class="ui inverted violet basic button">Basic Violet</button>
+      <button class="ui inverted purple basic button">Basic Purple</button>
+      <button class="ui inverted pink basic button">Basic Pink</button>
+      <button class="ui inverted brown basic button">Basic Brown</button>
+      <button class="ui inverted grey basic button">Basic Grey</button>
+      <button class="ui inverted black basic button">Basic Black</button>
+    </div>
+  </div>
+
+
+  <h2 class="ui dividing header">Groups</h2>
+
+  <div class="example">
+    <h4 class="ui header">Buttons</h4>
+    <p>Buttons can exist together as a group</p>
+    <div class="ui buttons">
+      <button class="ui button">One</button>
+      <button class="ui button">Two</button>
+      <button class="ui button">Three</button>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Icon Buttons</h4>
+    <p>Button groups can show groups of icons</p>
+    <div class="ui icon buttons">
+      <button class="ui button"><i class="align left icon"></i></button>
+      <button class="ui button"><i class="align center icon"></i></button>
+      <button class="ui button"><i class="align right icon"></i></button>
+      <button class="ui button"><i class="align justify icon"></i></button>
+    </div>
+    <div class="ui icon buttons">
+      <button class="ui button"><i class="bold icon"></i></button>
+      <button class="ui button"><i class="underline icon"></i></button>
+      <button class="ui button"><i class="text width icon"></i></button>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Content</h2>
+
+  <div class="example" data-class="or">
+    <h4 class="ui header">Conditionals</h4>
+    <p>Button groups can contain conditionals</p>
+    <div class="ui buttons">
+      <button class="ui button">Cancel</button>
+      <div class="or"></div>
+      <button class="ui positive button">Save</button>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui ignored info message">
+      Or buttons can have their text localized, or adjusted by using the <code>data-text</code> attribute. If the size of the conditional changes you will need to adjust <code>@orCircleSize</code>
+    </div>
+    <div class="ui buttons">
+      <button class="ui button">un</button>
+      <div class="or" data-text="ou"></div>
+      <button class="ui positive button">deux</button>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">States</h2>
+
+  <div class="example">
+    <h4 class="ui header">Active</h4>
+    <p>A button can show it is currently the active user selection</p>
+    <button class="ui active button">
+      <i class="user icon"></i>
+      Follow
+    </button>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Disabled</h4>
+    <p>A button can show it is currently unable to be interacted with</p>
+    <button class="ui disabled button">
+      <i class="user icon"></i>
+      Followed
+    </button>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Loading</h4>
+    <p>A button can show a loading indicator</p>
+    <button class="ui loading button">Loading</button>
+    <button class="ui basic loading button">Loading</button>
+    <button class="ui primary loading button">Loading</button>
+    <button class="ui secondary loading button">Loading</button>
+  </div>
+
+  <h2 class="ui dividing header">Variations</h2>
+
+  <div class="spaced example" data-class="facebook, twitter, google, vk, linkedin, instagram, youtube">
+    <h4 class="ui header">Social</h4>
+    <p>A button can be formatted to link to a social website</p>
+    <button class="ui facebook button">
+      <i class="facebook icon"></i>
+      Facebook
+    </button>
+    <button class="ui twitter button">
+      <i class="twitter icon"></i>
+      Twitter
+    </button>
+    <button class="ui google plus button">
+      <i class="google plus icon"></i>
+      Google Plus
+    </button>
+    <button class="ui vk button">
+      <i class="vk icon"></i>
+      VK
+    </button>
+    <button class="ui linkedin button">
+      <i class="linkedin icon"></i>
+      LinkedIn
+    </button>
+    <button class="ui instagram button">
+      <i class="instagram icon"></i>
+      Instagram
+    </button>
+    <button class="ui youtube button">
+      <i class="youtube icon"></i>
+      YouTube
+    </button>
+  </div>
+
+
+  <div class="spaced example" data-class="size">
+    <h4 class="ui header">Size</h4>
+    <p>A button can have different sizes</p>
+    <button class="mini ui button">
+      Mini
+    </button>
+    <button class="tiny ui button">
+      Tiny
+    </button>
+    <button class="small ui button">
+      Small
+    </button>
+    <button class="medium ui button">
+      Medium
+    </button>
+    <button class="large ui button">
+      Large
+    </button>
+    <button class="big ui button">
+      Big
+    </button>
+    <button class="huge ui button">
+      Huge
+    </button>
+    <button class="massive ui button">
+      Massive
+    </button>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Floated</h4>
+    <p>A button can be aligned to the left or right of its container</p>
+    <button class="ui right floated button">Right Floated</button>
+    <button class="ui left floated button">Left Floated</button>
+  </div>
+
+
+  <div class="spaced example">
+    <h4 class="ui header">Colored</h4>
+    <p>A button can have different colors</p>
+    <button class="ui red button">Red</button>
+    <button class="ui orange button">Orange</button>
+    <button class="ui yellow button">Yellow</button>
+    <button class="ui olive button">Olive</button>
+    <button class="ui green button">Green</button>
+    <button class="ui teal button">Teal</button>
+    <button class="ui blue button">Blue</button>
+    <button class="ui violet button">Violet</button>
+    <button class="ui purple button">Purple</button>
+    <button class="ui pink button">Pink</button>
+    <button class="ui brown button">Brown</button>
+    <button class="ui grey button">Grey</button>
+    <button class="ui black button">Black</button>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Compact</h4>
+    <p>A button can reduce its padding to fit into tighter spaces</p>
+    <button class="compact ui button">
+      Hold
+    </button>
+    <button class="ui compact icon button">
+      <i class="pause icon"></i>
+    </button>
+    <button class="ui compact labeled icon button">
+      <i class="pause icon"></i>
+      Pause
+    </button>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Toggle</h4>
+    <p>A button can be formatted to toggle on and off</p>
+    <button class="ui toggle button">
+      Vote
+    </button>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Positive</h4>
+    <p>A button can hint towards a positive consequence</p>
+    <button class="positive ui button">Positive Button</button>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Negative</h4>
+    <p>A button can hint towards a negative consequence</p>
+    <button class="negative ui button">Negative Button</button>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Fluid</h4>
+    <p>A button can take the width of its container</p>
+    <button class="fluid ui button">Fits container</button>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Circular</h4>
+    <p>A button can be circular</p>
+    <button class="circular ui icon button">
+      <i class="icon settings"></i>
+    </button>
+  </div>
+  <div class="another example">
+    <button class="ui circular facebook icon button">
+      <i class="facebook icon"></i>
+    </button>
+    <button class="ui circular twitter icon button">
+      <i class="twitter icon"></i>
+    </button>
+    <button class="ui circular linkedin icon button">
+      <i class="linkedin icon"></i>
+    </button>
+    <button class="ui circular google plus icon button">
+      <i class="google plus icon"></i>
+    </button>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Vertically Attached</h4>
+    <p>A button can be attached to the top or bottom of other content</p>
+    <div class="ui top attached button" tabindex="0">Top</div>
+    <div class="ui attached segment">
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+    <div class="ui bottom attached button" tabindex="0">Bottom</div>
+  </div>
+
+  <div class="another layered example">
+    <div class="ui two top attached buttons">
+        <div class="ui button">One</div>
+        <div class="ui button">Two</div>
+    </div>
+    <div class="ui attached segment">
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+    <div class="ui two bottom attached buttons">
+        <div class="ui button">One</div>
+        <div class="ui button">Two</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Horizontally Attached</h4>
+    <p>A button can be attached to the left or right of other content</p>
+    <button class="ui left attached button">Left</button>
+    <button class="right attached ui button">Right</button>
+  </div>
+
+
+  <h2 class="ui dividing header">Group Variations</h2>
+
+  <div class="example">
+    <h4 class="ui header">Vertical Buttons</h4>
+    <p>Groups can be formatted to appear vertically</p>
+    <div class="ui vertical buttons">
+      <button class="ui button">Feed</button>
+      <button class="ui button">Messages</button>
+      <button class="ui button">Events</button>
+      <button class="ui button">Photos</button>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Icon Buttons</h4>
+    <p>Groups can be formatted as icons</p>
+    <div class="ui icon buttons">
+      <button class="ui button">
+        <i class="play icon"></i>
+      </button>
+      <button class="ui button">
+        <i class="pause icon"></i>
+      </button>
+      <button class="ui button">
+        <i class="shuffle icon"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Labeled Icon Buttons</h4>
+    <p>Groups can be formatted as labeled icons</p>
+    <div class="ui vertical labeled icon buttons">
+      <button class="ui button">
+        <i class="pause icon"></i>
+        Pause
+      </button>
+      <button class="ui button">
+        <i class="play icon"></i>
+        Play
+      </button>
+      <button class="ui button">
+        <i class="shuffle icon"></i>
+        Shuffle
+      </button>
+    </div>
+  </div>
+  <div class="example" data-class="labeled icon, ui button, ui buttons, right labeled icon">
+    <h4 class="ui header">Mixed Group</h4>
+    <p>Groups can be formatted to use multiple button types together</p>
+    <div class="ui buttons">
+      <button class="ui labeled icon button">
+        <i class="left chevron icon"></i>
+        Back
+      </button>
+      <button class="ui button">
+        <i class="stop icon"></i>
+        Stop
+      </button>
+      <button class="ui right labeled icon button">
+        Forward
+        <i class="right chevron icon"></i>
+      </button>
+    </div>
+  </div>
+
+
+  <div class="example" data-class="one, two, three, four, five">
+    <h4 class="ui header">Equal Width</h4>
+    <p>Groups can have their widths divided evenly</p>
+    <div class="five ui buttons">
+      <button class="ui button">Overview</button>
+      <button class="ui button">Specs</button>
+      <button class="ui button">Warranty</button>
+      <button class="ui button">Reviews</button>
+      <button class="ui button">Support</button>
+    </div>
+    <div class="ui ignored divider"></div>
+    <div class="three ui buttons">
+      <button class="ui button">Overview</button>
+      <button class="ui button">Specs</button>
+      <button class="ui button">Support</button>
+    </div>
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Colored Buttons</h4>
+    <p>Groups can have a shared color</p>
+    <div class="blue ui buttons">
+      <button class="ui button">One</button>
+      <button class="ui button">Two</button>
+      <button class="ui button">Three</button>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Basic Buttons</h4>
+    <p>A button group can be less pronounced</p>
+    <div class="ui basic buttons">
+      <div class="ui button">One</div>
+      <div class="ui button">Two</div>
+      <div class="ui button">Three</div>
+    </div>
+    <div class="ui divider"></div>
+    <div class="ui vertical basic buttons">
+      <button class="ui button">One</button>
+      <button class="ui button">Two</button>
+      <button class="ui button">Three</button>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui buttons">
+      <button class="ui red basic button">One</button>
+      <button class="ui blue basic button">Two</button>
+      <button class="ui green basic button">Three</button>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Group Sizes</h4>
+    <p>Groups can have a shared size</p>
+    <div class="large ui buttons">
+      <button class="ui button">One</button>
+      <button class="ui button">Two</button>
+      <button class="ui button">Three</button>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui small basic icon buttons">
+      <button class="ui button"><i class="file icon"></i></button>
+      <button class="ui button"><i class="save icon"></i></button>
+      <button class="ui button"><i class="upload icon"></i></button>
+      <button class="ui button"><i class="download icon"></i></button>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui large buttons">
+      <button class="ui button">One</button>
+      <div class="or"></div>
+      <button class="ui button">Two</button>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,1032 @@
+---
+layout      : 'default'
+css         : 'progress'
+standalone  : true
+
+element     : 'progress'
+elementType : 'module'
+
+title       : 'Progress'
+description : 'A progress bar shows the progression of a task'
+type        : 'UI Module'
+
+themes      : ['Default', 'Classic', 'Basic', 'Striped']
+---
+<link rel="stylesheet/less" type="text/css" href="/src/definitions/modules/progress.less" />
+<script src="/javascript/progress.js"></script>
+
+<%- @partial('header', { tabs: 'module' }) %>
+
+<div class="main ui container">
+
+  <div class="ui definition tab" data-tab="definition">
+
+    <h2 class="ui dividing header">Types</h2>
+
+    <div class="example">
+      <h4 class="ui header">Standard</h4>
+      <p>A standard progress bar</p>
+      <div class="ui progress">
+        <div class="bar">
+          <div class="progress"></div>
+        </div>
+        <div class="label">Uploading Files</div>
+      </div>
+      <div class="ignored">
+        <div class="ui icon buttons">
+          <div class="decrement ui basic red button icon"><i class="minus icon"></i></div>
+          <div class="increment ui basic green button icon"><i class="plus icon"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="indicating example">
+      <h4 class="ui header">Indicating</h4>
+      <p>An indicating progress bar visually indicates the current level of progress of a task</p>
+      <div class="ui indicating progress">
+        <div class="bar"></div>
+        <div class="label">Funding</div>
+      </div>
+      <div class="ignored">
+        <div class="ui icon buttons">
+          <div class="decrement ui basic red button icon"><i class="minus icon"></i></div>
+          <div class="increment ui basic green button icon"><i class="plus icon"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="ui dividing header">Content</h2>
+
+    <div class="example">
+      <h4 class="ui header">Bar</h4>
+      <p>A progress element can contain a bar visually indicating progress</p>
+      <div class="ui progress">
+        <div class="bar"></div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Progress</h4>
+      <p>A progress bar can contain a text value indicating current progress</p>
+      <div class="ui progress">
+        <div class="bar">
+          <div class="progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Label</h4>
+      <p>A progress element can contain a label</p>
+      <div class="ui progress">
+        <div class="bar">
+          <div class="progress"></div>
+        </div>
+        <div class="label">Uploading Files</div>
+      </div>
+    </div>
+
+    <h2 class="ui dividing header">States</h2>
+
+    <div class="example">
+      <h4 class="ui header">Active</h4>
+      <p>A progress bar can show activity</p>
+      <div class="ui active progress">
+        <div class="bar">
+          <div class="progress"></div>
+        </div>
+        <div class="label">Uploading Files</div>
+      </div>
+    </div>
+
+
+    <div class="example">
+    <h4 class="ui header">Success</h4>
+    <p>A progress bar can show a success state</p>
+      <div class="ui progress success">
+        <div class="bar">
+          <div class="progress"></div>
+        </div>
+        <div class="label">Everything worked, your file is all ready.</div>
+      </div>
+    </div>
+
+    <div class="example">
+    <h4 class="ui header">Warning</h4>
+    <p>A progress bar can show a warning state</p>
+      <div class="ui progress warning">
+        <div class="bar">
+          <div class="progress"></div>
+        </div>
+        <div class="label">Your file didn't meet the minimum resolution requirements.</div>
+      </div>
+    </div>
+
+    <div class="example">
+    <h4 class="ui header">Error</h4>
+    <p>A progress bar can show an error state</p>
+      <div class="ui progress error">
+        <div class="bar">
+          <div class="progress"></div>
+        </div>
+        <div class="label">There was an error.</div>
+      </div>
+    </div>
+
+    <div class="example">
+    <h4 class="ui header">Disabled</h4>
+    <p>A progress bar can be disabled</p>
+      <div class="ui disabled progress">
+        <div class="bar"></div>
+      </div>
+    </div>
+
+    <h2 class="ui dividing header">Variations</h2>
+
+    <div class="example">
+      <h4 class="ui header">Inverted</h4>
+      <p>A progress bar can have its colors inverted</p>
+      <div class="ui inverted segment">
+        <div class="ui inverted progress">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+          <div class="label">Uploading Files</div>
+        </div>
+        <div class="ui inverted progress success">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+          <div class="label">Success</div>
+        </div>
+        <div class="ui inverted progress warning">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+          <div class="label">Warning</div>
+        </div>
+        <div class="ui inverted progress error">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+          <div class="label">Error</div>
+        </div>
+      </div>
+      <div class="ignored">
+        <div class="ui icon buttons">
+          <div class="increment ui basic green button icon"><i class="plus icon"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Attached</h4>
+      <p>A progress bar can show progress of an element</p>
+      <div class="ui segment">
+        <div class="ui top attached progress">
+          <div class="bar"></div>
+        </div>
+        <p>La la la la</p>
+        <div class="ui bottom attached progress">
+          <div class="bar"></div>
+        </div>
+      </div>
+      <div class="ignored">
+        <div class="ui icon buttons">
+          <div class="decrement ui basic red button icon"><i class="minus icon"></i></div>
+          <div class="increment ui basic green button icon"><i class="plus icon"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="another example">
+      <div class="ui card">
+        <div class="image">
+          <img src="/images/wireframe/image.png">
+        </div>
+        <div class="content">
+          <a class="header">Project</a>
+          <div class="meta">
+            <span class="date">Started in 2014</span>
+          </div>
+        </div>
+        <div class="extra content">
+          <a>
+            <i class="user icon"></i>
+            22 Friends
+          </a>
+        </div>
+        <div class="ui bottom attached progress">
+          <div class="bar"></div>
+        </div>
+      </div>
+      <div class="ignored">
+        <div class="ui icon buttons">
+          <div class="decrement ui basic red button icon"><i class="minus icon"></i></div>
+          <div class="increment ui basic green button icon"><i class="plus icon"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Size</h4>
+      <p>A progress bar can vary in size</p>
+      <div class="ui ignored info message">
+        Some small sizes may not be able to fit an inlined label
+      </div>
+      <div class="ui tiny progress">
+        <div class="bar"></div>
+        <div class="label">Tiny</div>
+      </div>
+      <div class="ui small progress">
+        <div class="bar"></div>
+        <div class="label">Small</div>
+      </div>
+      <div class="ui progress">
+        <div class="bar"></div>
+        <div class="label">Standard</div>
+      </div>
+      <div class="ui large progress">
+        <div class="bar"></div>
+        <div class="label">Large</div>
+      </div>
+      <div class="ui big progress">
+        <div class="bar"></div>
+        <div class="label">Big</div>
+      </div>
+      <div class="ignored">
+        <div class="ui icon buttons">
+          <div class="decrement ui basic red button icon"><i class="minus icon"></i></div>
+          <div class="increment ui basic green button icon"><i class="plus icon"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Color</h4>
+      <p>Can have different colors:</p>
+      <div class="ui red progress">
+        <div class="bar"></div>
+      </div>
+      <div class="ui orange progress">
+        <div class="bar"></div>
+      </div>
+      <div class="ui yellow progress">
+        <div class="bar"></div>
+      </div>
+      <div class="ui olive progress">
+        <div class="bar"></div>
+      </div>
+      <div class="ui green progress">
+        <div class="bar"></div>
+      </div>
+      <div class="ui teal progress">
+        <div class="bar"></div>
+      </div>
+      <div class="ui blue progress">
+        <div class="bar"></div>
+      </div>
+      <div class="ui violet progress">
+        <div class="bar"></div>
+      </div>
+      <div class="ui purple progress">
+        <div class="bar"></div>
+      </div>
+      <div class="ui pink progress">
+        <div class="bar"></div>
+      </div>
+      <div class="ui brown progress">
+        <div class="bar"></div>
+      </div>
+      <div class="ui grey progress">
+        <div class="bar"></div>
+      </div>
+      <div class="ui black progress">
+        <div class="bar"></div>
+      </div>
+      <div class="ignored">
+        <div class="ui icon buttons">
+          <div class="decrement ui basic red button icon"><i class="minus icon"></i></div>
+          <div class="increment ui basic green button icon"><i class="plus icon"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="example">
+      <h4 class="ui header">Inverted Color</h4>
+      <p>These colors can also be inverted for improved contrast on dark backgrounds</p>
+      <div class="ui inverted segment">
+        <div class="ui red inverted progress">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+        <div class="ui orange inverted progress">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+        <div class="ui yellow inverted progress">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+        <div class="ui olive inverted progress">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+        <div class="ui green inverted progress">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+        <div class="ui teal inverted progress">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+        <div class="ui blue inverted progress">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+        <div class="ui violet inverted progress">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+        <div class="ui purple inverted progress">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+        <div class="ui pink inverted progress">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+        <div class="ui brown inverted progress">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+        <div class="ui grey inverted progress">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+        <div class="ui black inverted progress">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+        <div class="ignored">
+          <div class="ui icon buttons">
+            <div class="decrement ui basic inverted red button icon"><i class="minus icon"></i></div>
+            <div class="increment ui basic inverted green button icon"><i class="plus icon"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ui tab" data-tab="usage">
+
+    <h2 class="ui header">Initializing a progress bar</h2>
+
+    <div class="example">
+      <h4 class="ui header">With metadata</h4>
+      <p>A progress bar can be initialized with metadata</p>
+      <div class="code" data-type="javascript" data-demo="true">
+        $('#example1').progress();
+      </div>
+      <div class="code" data-type="html" data-preview="true">
+        <div class="ui teal progress" data-percent="74" id="example1">
+          <div class="bar"></div>
+          <div class="label">74% Funded</div>
+        </div>
+      </div>
+    </div>
+    <div class="example">
+      <h4 class="ui header">With Javascript</h4>
+      <p>A progress bar can be initialized with a Javascript settings object</p>
+      <div class="code" data-type="javascript" data-demo="true">
+        $('#example2').progress({
+          percent: 22
+        });
+      </div>
+      <div class="code" data-type="html" data-preview="true">
+        <div class="ui teal progress" id="example2">
+          <div class="bar"></div>
+          <div class="label">22% Earned</div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="ui header">Task Completion Percent</h2>
+
+    <div class="example">
+      <h4 class="ui header">Adding a Total Value</h4>
+      <p>A progress bar can keep track of the current value as a ratio of a total value. This is useful for tracking the progress of a series of events with a known quantity, for example "uploading 1 of 20" photos.</p>
+      <p>Each call to increment will increase the value by 1, or the value specified as the second parameter</p>
+      <div class="code" data-type="javascript" data-demo="true">
+        $('#example3')
+          .progress('increment')
+        ;
+      </div>
+      <div class="code" data-type="html" data-preview="true">
+        <div class="ui teal progress" id="example3">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+          <div class="label">Adding Photos</div>
+        </div>
+      </div>
+      <div class="evaluated code" data-type="javascript">
+        $('#example3')
+          .progress({
+            total: 3
+          })
+        ;
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Initializing with Metadata</h4>
+      <p>A progress bar can keep track of the current value as a ratio of a total value. This is useful for tracking the progress of a series of events with a known quantity, for example "uploading 1 of 20" photos.</p>
+      <p>Each call to increment will increase the value by 1, or the value specified as the second parameter</p>
+      <p>In addition you can pass in templates text for each state available to your progress bar which will automatically be updated when your progress bar reaches that state</p>
+      <div class="code" data-type="javascript" data-demo="true">
+        $('#example4')
+          .progress('increment')
+        ;
+      </div>
+      <div class="code" data-type="html" data-preview="true">
+        <div class="ui indicating progress" data-value="1" data-total="20" id="example4">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+          <div class="label">Adding Photos</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Adding Custom Labels</h4>
+      <p>You can pass in templates text for each state available to your progress bar which will automatically be updated when your progress bar reaches that state</p>
+      <p>You can use <code>label</code> setting to change progress bar labels between two preset messages. In addition you can customize the messages themselves by specifying the templated text in <code>text</code>. Templated strings will replace three values on render</p>
+      <table class="ui basic celled definition table">
+        <tr>
+          <td>{percent}</td>
+          <td>Current percentage</td>
+        </tr>
+        <tr>
+          <td>{value}</td>
+          <td>Current value</td>
+        </tr>
+        <tr>
+          <td>{total}</td>
+          <td>Total value</td>
+        </tr>
+        <tr>
+          <td>{left}</td>
+          <td>Distance to total, or % progress left</td>
+        </tr>
+      </table>
+      <div class="code" data-type="javascript" data-demo="true">
+        $('#example5')
+          .progress('increment')
+        ;
+      </div>
+      <div class="code" data-type="html" data-preview="true">
+        <div class="ui indicating progress" data-value="1" data-total="20" id="example5">
+          <div class="bar"></div>
+          <div class="label">Adding Photos</div>
+        </div>
+      </div>
+      <div class="evaluated code" data-type="javascript">
+        $('#example5')
+          .progress({
+            text: {
+              active  : 'Adding {value} of {total} photos',
+              success : '{total} Photos Uploaded!'
+            }
+          })
+        ;
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Translation</h4>
+      <p>You can also adjust text labels to help strings appear translated</p>
+      <div class="code" data-type="javascript" data-demo="true">
+        $('#example6')
+          .progress('increment')
+        ;
+      </div>
+      <div class="code" data-type="html" data-preview="true">
+        <div class="ui progress" data-value="15" data-total="20" id="example6">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+          <div class="label">Carga de archivos</div>
+        </div>
+      </div>
+      <div class="evaluated code" data-type="javascript">
+        $('#example6')
+          .progress({
+            label: 'ratio',
+            text: {
+              ratio: '{value} de {total}'
+            }
+          })
+        ;
+      </div>
+    </div>
+
+
+    <h2 class="ui dividing header">Behavior</h2>
+
+    <p>All the following behaviors can be called using the syntax:</p>
+    <div class="code">
+    $('.your.element')
+      .progress('behavior name', argumentOne, argumentTwo)
+    ;
+    </div>
+
+    <table class="ui definition celled sortable table segment">
+      <thead>
+        <th>Behavior</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>set percent(percent)</td>
+          <td>Sets current percent of progress to value. If using a total will convert from percent to estimated value.</td>
+        </tr>
+        <tr>
+          <td>set progress(value)</td>
+          <td>Sets progress to specified value. Will automatically calculate percent from total.</td>
+        </tr>
+        <tr>
+          <td>increment(incrementValue)</td>
+          <td>Increments progress by increment value, if not passed a value will use random amount specified in settings</td>
+        </tr>
+        <tr>
+          <td>decrement(decrementValue)</td>
+          <td>Decrements progress by decrement value, if not passed a value will use random amount specified in settings</td>
+        </tr>
+        <tr>
+          <td>update progress(value)</td>
+          <td>Immediately updates progress to value, ignoring progress animation interval delays</td>
+        </tr>
+        <tr>
+          <td>complete</td>
+          <td>Finishes progress and sets loaded to 100%</td>
+        </tr>
+        <tr>
+          <td>reset</td>
+          <td>Resets progress to zero</td>
+        </tr>
+        <tr>
+          <td>set total(total)</td>
+          <td>Set total to a new value</td>
+        </tr>
+        <tr>
+          <td>get text(text)</td>
+          <td>Replaces templated string with value, total, percent left and percent.</td>
+        </tr>
+        <tr>
+          <td>get normalized value(value)</td>
+          <td>Returns normalized value inside acceptable range specified by total.</td>
+        </tr>
+        <tr>
+          <td>get percent</td>
+          <td>Returns percent as last specified</td>
+        </tr>
+        <tr>
+          <td>get value</td>
+          <td>Returns current progress value</td>
+        </tr>
+        <tr>
+          <td>get total</td>
+          <td>Returns total</td>
+        </tr>
+        <tr>
+          <td>is complete</td>
+          <td>Returns whether progress is completed</td>
+        </tr>
+        <tr>
+          <td>is success</td>
+          <td>Returns whether progress was a success</td>
+        </tr>
+        <tr>
+          <td>is warning</td>
+          <td>Returns whether progress is in warning state</td>
+        </tr>
+        <tr>
+          <td>is error</td>
+          <td>Returns whether progress is in error state</td>
+        </tr>
+        <tr>
+          <td>is active</td>
+          <td>Returns whether progress is in active state</td>
+        </tr>
+        <tr>
+          <td>set active</td>
+          <td>Sets progress to active state</td>
+        </tr>
+        <tr>
+          <td>set warning</td>
+          <td>Sets progress to warning state</td>
+        </tr>
+        <tr>
+          <td>set success</td>
+          <td>Sets progress to success state</td>
+        </tr>
+        <tr>
+          <td>set error</td>
+          <td>Sets progress to error state</td>
+        </tr>
+        <tr>
+          <td>set duration(value)</td>
+          <td>Changes progress animation speed</td>
+        </tr>
+        <tr>
+          <td>set label(text)</td>
+          <td>Sets progress exterior label to text</td>
+        </tr>
+        <tr>
+          <td>set bar label(text)</td>
+          <td>Sets progress bar label to text</td>
+        </tr>
+        <tr>
+          <td>remove active</td>
+          <td>Removes progress to active state</td>
+        </tr>
+        <tr>
+          <td>remove warning</td>
+          <td>Removes progress to warning state</td>
+        </tr>
+        <tr>
+          <td>remove success</td>
+          <td>Removes progress to success state</td>
+        </tr>
+        <tr>
+          <td>remove error</td>
+          <td>Removes progress to error state</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+  <div class="ui examples tab" data-tab="examples">
+
+    <h2 class="ui dividing header">Examples</h2>
+
+    <div class="rapid example">
+      <h4 class="ui header">Frequently Updated Progress</h4>
+      <p>Progress bar will automatically poll for the last progress value after completing an animation, so that animation easing continues to work smoothly, even if update events occur much more frequently than UI updates.</p>
+      <a class="ui button" data-url="/images/large-pdf.pdf">
+        Rapidly Update
+      </a>
+      <div class="code" data-type="html" data-preview="true">
+        <div class="ui indicating progress" data-value="1" data-total="200" id="example5">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+          <div class="label">Waiting for you to press button</div>
+        </div>
+      </div>
+      <div class="evaluated code" data-type="javascript">
+        $('.rapid.example .ui.button')
+          .on('click', function() {
+            var
+              $progress       = $('.rapid.example .ui.progress'),
+              $button         = $(this),
+              updateEvent
+            ;
+            // restart to zero
+            clearInterval(window.fakeProgress)
+            $progress.progress('reset');
+
+            // updates every 10ms until complete
+            window.fakeProgress = setInterval(function() {
+              $progress.progress('increment');
+              $button.text( $progress.progress('get value') );
+              // stop incrementing when complete
+              if($progress.progress('is complete')) {
+                clearInterval(window.fakeProgress)
+              }
+            }, 10);
+          })
+        ;
+        $('.rapid.example .ui.progress')
+          .progress({
+            duration : 200,
+            total    : 200,
+            text     : {
+              active: '{value} of {total} done'
+            }
+          })
+        ;
+      </div>
+    </div>
+<!--     <div class="upload example">
+      <h4 class="ui header">File Upload</h4>
+      <p>Progress can be used to display the progress of a file upload event</p>
+      <a class="ui button" data-url="/images/large-pdf.pdf">
+        Load PDF
+      </a>
+      <div class="code" data-type="html" data-preview="true">
+        <div class="ui indicating progress" data-value="1" data-total="20" id="example5">
+          <div class="bar"></div>
+          <div class="label">Uploading File</div>
+        </div>
+      </div>
+      <div class="evaluated code" data-type="javascript" data-demo="true">
+        $('.upload.example .ui.button')
+          .api({
+            debug: true,
+            dataType: 'text',
+            onSuccess: function() {
+              console.log('Completed downloading');
+            },
+            onError: function(error) {
+              console.log(error);
+            },
+            onDownloadProgress: function(progress) {
+              console.log('progress', progress);
+            }
+          })
+        ;
+        $('.upload.example .ui.progress')
+          .progress()
+        ;
+      </div>
+    </div> -->
+
+  </div>
+
+  <div class="ui tab" data-tab="settings">
+
+    <h3 class="ui header">
+      Progress Settings
+      <div class="sub header">Form settings modify the tab behavior</div>
+    </h3>
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th class="four wide">Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>autoSuccess</td>
+          <td>true</td>
+          <td>Whether success state should automatically trigger when progress completes</td>
+        </tr>
+        <tr>
+          <td>showActivity</td>
+          <td>true</td>
+          <td>Whether progress should automatically show activity when incremented</td>
+        </tr>
+        <tr>
+          <td>limitValues</td>
+          <td>true</td>
+          <td>When set to true, values that calculate to above 100% or below 0% will be adjusted. When set to false, inappropriate values will produce an error.</td>
+        </tr>
+        <tr>
+          <td>label</td>
+          <td>percent</td>
+          <td>Can be set to either to display progress as <b>percent</b> or <b>ratio</b>. Matches up to corresponding text template with the same name.</td>
+        </tr>
+        <tr>
+          <td>random</td>
+          <td>
+          <div class="code">
+            className : {
+              active  : 'active',
+              error   : 'error',
+              success : 'success',
+              warning : 'warning'
+            }
+          </div>
+          </td>
+          <td>When incrementing without value, sets range for random increment value</td>
+        </tr>
+        <tr>
+          <td>precision</td>
+          <td>1</td>
+          <td>Decimal point precision for calculated progress</td>
+        </tr>
+        <tr>
+          <td>total</td>
+          <td>false</td>
+          <td>Setting a total value will make each call to increment get closer to this total (i.e. 1/20, 2/20 etc)</td>
+        </tr>
+        <tr>
+          <td>value</td>
+          <td>false</td>
+          <td>Sets current value, when total is specified, this is used to calculate a ratio of the total, with percent this should be the overall percent</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ui horizontal section icon divider"><i class="icon setting"></i></div>
+    <h4 class="ui header">Callbacks</h4>
+    <p>Callbacks specify a function to occur after a specific behavior.</p>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+          <th class="four wide"></th>
+          <th class="four wide">Parameters</th>
+          <th>Context</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>onChange</td>
+          <td>percent, value, total</td>
+          <td>Progress</td>
+          <td>Callback on percentage change</td>
+        </tr>
+        <tr>
+          <td>onSuccess</td>
+          <td>total</td>
+          <td>Progress</td>
+          <td>Callback on success state</td>
+        </tr>
+        <tr>
+          <td>onActive</td>
+          <td>value, total</td>
+          <td>Progress</td>
+          <td>Callback on active state</td>
+        </tr>
+        <tr>
+          <td>onError</td>
+          <td>value, total</td>
+          <td>Progress</td>
+          <td>Callback on error state</td>
+        </tr>
+        <tr>
+          <td>onWarning</td>
+          <td>value, total</td>
+          <td>Progress</td>
+          <td>Callback on warning state</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+      DOM Settings
+      <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
+    </h3>
+    <table class="ui celled definition table segment">
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th class="six wide">Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>namespace</td>
+          <td>progress</td>
+          <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+        </tr>
+        <tr>
+          <td>text</td>
+          <td>
+            <div class="code">
+            text : {
+              active  : false,
+              error   : false,
+              success : false,
+              warning : false,
+              percent : '{percent}%',
+              ratio   : '{value} of {total}'
+            }
+            </div>
+          </td>
+          <td>Text content for each state, uses simple templating with {percent}, {value}, {total}</td>
+        </tr>
+        <tr>
+          <td>regExp</td>
+          <td>
+            <div class="code">
+            regExp: {
+              variable: /\{\$*[A-z0-9]+\}/g
+            }
+            </div>
+          </td>
+          <td>Regular expressions used by module</td>
+        </tr>
+        <tr>
+          <td>selector</td>
+          <td>
+            <div class="code">
+            selector : {
+              bar      : '> .bar',
+              label    : '> .label',
+              progress : '.bar > .progress'
+            }
+            </div>
+          </td>
+          <td>Selectors used by module</td>
+        </tr>
+        <tr>
+          <td>metadata</td>
+          <td>
+            <div class="code">
+            metadata: {
+              percent : 'percent',
+              total   : 'total',
+              value   : 'value'
+            }
+            </div>
+          </td>
+          <td>DOM metadata used by module</td>
+        </tr>
+        <tr>
+          <td>className</td>
+          <td>
+            <div class="code">
+            className : {
+              active  : 'active',
+              error   : 'error',
+              success : 'success',
+              warning : 'warning'
+            }
+            </div>
+          </td>
+          <td>Class names used to attach style to state</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+      Debug Settings
+      <div class="sub header">Debug settings controls debug output to the console</div>
+    </h3>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th class="four wide">Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>name</td>
+          <td>Progress</td>
+          <td>Name used in debug logs</td>
+        </tr>
+        <tr>
+          <td>silent</td>
+          <td>False</td>
+          <td>Silences all console output including error messages, regardless of other debug settings.</td>
+        </tr>
+        <tr>
+          <td>debug</td>
+          <td>False</td>
+          <td>Provides standard debug output to console</td>
+        </tr>
+        <tr>
+          <td>performance</td>
+          <td>True</td>
+          <td>Provides standard debug output to console</td>
+        </tr>
+        <tr>
+          <td>verbose</td>
+          <td>True</td>
+          <td>Provides ancillary debug output to console</td>
+        </tr>
+        <tr>
+          <td>errors</td>
+          <td colspan="2">
+            <div class="code">
+            error    : {
+              method     : 'The method you called is not defined.',
+              nonNumeric : 'Progress value is non numeric'
+            }
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

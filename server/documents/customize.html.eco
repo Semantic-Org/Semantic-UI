@@ -1,0 +1,199 @@
+---
+layout      : 'default'
+css         : 'custom'
+title       : 'Download'
+type        : 'Draft'
+---
+
+<script src="/javascript/customize.js"></script>
+<link rel="stylesheet" type="text/css" href="/stylesheets/customize.css">
+
+<% uiElements    = @getCollection("uiElements").toJSON() %>
+<% uiCollections = @getCollection("uiCollections").toJSON() %>
+<% uiViews       = @getCollection("uiViews").toJSON() %>
+<% uiModules     = @getCollection("uiModules").toJSON() %>
+
+<%- @partial('header') %>
+
+<script type="text/javascript">
+  if(window.semantic === undefined) {
+    window.semantic = {};
+  }
+  if(window.semantic.config === undefined) {
+    window.semantic.config = {};
+  }
+
+  window.semantic.config.packages = {
+    basic: {
+
+    },
+    standard: {
+
+    },
+    premium: {
+
+    }
+  }
+
+</script>
+
+<div class="main ui container">
+  <h2 class="ui header">Configurations</h2>
+  <div class="ui two buttons">
+    <div class="ui active button">
+      <div class="ui header">
+        Pro
+      </div>
+      LESS + Build System
+    </div>
+    <div class="ui button">
+      <div class="ui header">
+        Basic
+      </div>
+      CSS Only
+    </div>
+  </div>
+  <div class="ui info icon message">
+    <i class="circle help icon"></i>
+    <div class="content">
+      <div class="header">Choosing a package</div>
+      <p>
+        Semantic is designed to be used as part of a front-end build system like <code>Grunt</code> or <code>Gulp</code> so that you can modify themes, site-specific variables, and UI overrides during development.
+      </p>
+      <!-- <div class="ui button">Read more</div> -->
+    </div>
+  </div>
+
+  <h2 class="ui header">
+    Components
+  </h2>
+
+  <div class="ui accordion">
+    <h3 class="ui small block header active title">
+      <a class="all">Select All</a>
+      <i class="dropdown icon"></i>
+      Elements
+    </h3>
+    <div class="active content">
+      <div class="ui download selection list">
+        <% for element in uiElements: %>
+        <div class="item">
+          <div class="ui checkbox">
+            <input type="checkbox" checked="checked" name="<%= element.element %>" />
+            <label></label>
+          </div>
+          <div class="content">
+            <a class="ui right floated compact basic icon button" href="<%= element.url %>" target="_blank" data-content="View definition">
+              <i class="docs book icon"></i>
+            </a>
+            <div class="ui small header">
+              <%= element.title %>
+              <% if element.status?: %>
+              <span class="ui empty circular yellow label" data-content="This module is undocumented"></span>
+              <% end %>
+            </div>
+            <div class="description">
+              <%= element.description  %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+    <h3 class="ui small block header active title">
+      <a class="all">Select All</a>
+      <i class="dropdown icon"></i>
+      Collections
+    </h3>
+    <div class="active content">
+      <div class="ui download selection list">
+        <% for collection in uiCollections: %>
+        <div class="item">
+          <div class="ui checkbox">
+            <input type="checkbox" checked="checked" name="<%= collection.element %>" />
+            <label></label>
+          </div>
+          <div class="content">
+            <a class="ui right floated compact basic icon button" href="<%= collection.url %>target="_blank" " data-content="View definition">
+              <i class="docs book icon"></i>
+            </a>
+            <div class="ui small header">
+              <%= collection.title %>
+              <% if collection.status?: %>
+              <span class="ui empty circular yellow label" data-content="This module is undocumented"></span>
+              <% end %>
+            </div>
+            <div class="description">
+              <%= collection.description  %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+    <h3 class="ui small block header active title">
+      <a class="all">Select All</a>
+      <i class="dropdown icon"></i>
+      Views
+    </h3>
+    <div class="active content">
+      <div class="ui download selection list">
+        <% for view in uiViews: %>
+        <div class="item">
+          <div class="ui checkbox">
+            <input type="checkbox" checked="checked" name="<%= view.element %>" />
+            <label></label>
+          </div>
+          <div class="content">
+            <a class="ui right floated compact basic icon button" href="<%= view.url %>" target="_blank" data-content="View definition">
+              <i class="docs book icon"></i>
+            </a>
+            <div class="ui small header">
+              <%= view.title %>
+              <% if view.status?: %>
+              <span class="ui empty circular yellow label" data-content="This module is undocumented"></span>
+              <% end %>
+            </div>
+            <div class="description">
+              <%= view.description  %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <h3 class="ui small block header active title">
+      <a class="all">Select All</a>
+      <i class="dropdown icon"></i>
+      Modules
+    </h3>
+    <div class="active content">
+      <div class="ui download selection list">
+      <% for module in uiModules: %>
+        <div class="item">
+          <div class="ui checkbox">
+            <input type="checkbox" checked="checked" name="<%= module.element %>" />
+            <label></label>
+          </div>
+          <div class="content">
+            <a class="ui right floated compact basic icon button" href="<%= module.url %>" target="_blank" data-content="View definition">
+              <i class="docs book icon"></i>
+            </a>
+            <div class="ui small header">
+              <%= module.title %>
+              <% if module.status?: %>
+              <span class="ui empty circular yellow label" data-content="This module is undocumented"></span>
+              <% end %>
+            </div>
+            <div class="description">
+              <%= module.description  %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

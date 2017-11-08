@@ -1,0 +1,78 @@
+---
+layout      : 'default'
+css         : ''
+element     : 'nag'
+elementType : 'module'
+standalone  : true
+
+title       : 'Nag'
+description : 'A nag is an important message that persists until dismissed by a user'
+type        : 'UI Module'
+
+---
+
+<%- @partial('header') %>
+
+<div class="main container">
+
+  <div class="ui active tab" data-tab="overview">
+
+    <h2 class="ui dividing header">Current Progress</h2>
+    <div class="ui indicating progress">
+      <div class="bar" style="width: 60%;">
+        <div class="progress">60%</div>
+      </div>
+      <div class="label">Needs Documentation / Re-coding</div>
+    </div>
+
+    <h2 class="ui dividing header">Usage</h2>
+    <div class="no example">
+      <h4 class="ui header"></h4>
+      <p>Nags are used to present a user with a one time message which will persist until a user acknowledges the message. This can be used for providing notices like the site's use of cookies, an important change to a site like a security breach.</p>
+      <p>Semantic's nag component provides built in options for ensuring a nag is only displayed once. You can trigger an API endpoint on dismissal, in order to store a value in your database, or you can use localstorage or cookie value to make sure that a particular computer does not receive the nag again.</p>
+    </div>
+
+    <h2 class="ui dividing header">Example</h2>
+
+    <div class="code" data-type="javascript" data-demo="true">
+    // Wont re-appear unless cleared
+    $('.cookie.nag')
+      .nag('show')
+    ;
+    </div>
+    <div class="code" data-type="javascript" data-demo="true">
+    // Clears cookie so nag shows again
+    $('.cookie.nag')
+      .nag('clear')
+    ;
+    </div>
+    <div class="ui code" data-type="html" data-preview="true">
+      <div class="ui inline cookie nag">
+        <span class="title">
+          We use cookies to ensure you get the best experience on our website
+        </span>
+        <i class="close icon"></i>
+      </div>
+    </div>
+    <div class="evaluated code" data-type="javascript">
+    // Automatically shows on init if cookie isnt set
+    $('.cookie.nag')
+      .nag({
+        key      : 'accepts-cookies',
+        value    : true
+      })
+    ;
+    </div>
+
+    <h2 class="ui dividing header">Support Development</h2>
+    <div class="no example">
+
+      <p>You can help support the future development of the Semantic UI project, and help boost the priority of this component by donating to Semantic UI development.</p>
+
+      <p>Please be sure to leave a note in the comments to indicate that you are interested in the development of this particular component.</p>
+
+    </div>
+
+  </div>
+
+</div>

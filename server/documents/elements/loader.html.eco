@@ -1,0 +1,209 @@
+---
+layout      : 'default'
+css         : 'loader'
+standalone  : true
+
+element     : 'loader'
+elementType : 'element'
+
+title       : 'Loader'
+description : 'A loader alerts a user to wait for an activity to complete'
+type        : 'UI Element'
+
+themes      : ['Default', 'Duo', 'Pulsar']
+---
+
+<%- @partial('header') %>
+<link rel="stylesheet/less" type="text/css" href="/src/definitions/elements/loader.less" />
+
+<div class="main ui container">
+
+  <h2 class="ui dividing header">Types</h2>
+  <div class="example">
+    <h4 class="ui header">Loader</h4>
+    <p>A loader</p>
+    <div class="ui ignored info message">Loaders are hidden unless <code>active</code> or inside an <a href="/modules/dimmer.html"><code>active dimmer</code></a>.</div>
+    <div class="ui segment">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <div class="ui active dimmer">
+        <div class="ui loader"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Text Loader</h4>
+    <p>A loader can contain text</p>
+    <div class="ui segment">
+      <div class="ui active dimmer">
+        <div class="ui text loader">Loading</div>
+      </div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui segment">
+      <div class="ui active inverted dimmer">
+        <div class="ui text loader">Loading</div>
+      </div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+  </div>
+
+
+  <h2 class="ui dividing header">States</h2>
+
+  <div class="example">
+    <h4 class="ui header">Indeterminate</h4>
+    <p>A loader can show it's unsure of how long a task will take</p>
+    <div class="ui segment">
+      <div class="ui active dimmer">
+        <div class="ui indeterminate text loader">Preparing Files</div>
+      </div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Active</h4>
+    <p>A loader can be active or visible</p>
+    <div class="ui ignored info message">
+      An active dimmer may not be clearly visible without using a <a href="/modules/dimmer.html">ui dimmer</a>
+    </div>
+    <div class="ui segment">
+      <div class="ui active loader"></div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Disabled</h4>
+    <p>A loader can be disabled or hidden</p>
+    <div class="ui segment">
+      <div class="ui disabled loader"></div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+  </div>
+
+
+  <h2 class="ui dividing header">Variations</h2>
+
+  <div class="example">
+    <h4 class="ui header">Inline</h4>
+    <p>Loaders can appear inline with content </p>
+    <div class="ui active inline loader"></div>
+  </div>
+
+  <div class="example" data-class="centered inline">
+    <h4 class="ui header">Inline Center</h4>
+    <p>Loaders can appear inline centered with content </p>
+    <div class="ui active centered inline loader"></div>
+  </div>
+
+  <div class="example" data-class="size">
+    <h4 class="ui header">Size</h4>
+    <p>Loaders can have different sizes</p>
+
+    <div class="ui segment">
+      <div class="ui active dimmer">
+        <div class="ui mini text loader">Loading</div>
+      </div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+    <div class="ui segment">
+      <div class="ui active dimmer">
+        <div class="ui tiny text loader">Loading</div>
+      </div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+    <div class="ui segment">
+      <div class="ui active dimmer">
+        <div class="ui small text loader">Loading</div>
+      </div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+    <div class="ui segment">
+      <div class="ui active dimmer">
+        <div class="ui medium text loader">Loading</div>
+      </div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+    <div class="ui segment">
+      <div class="ui active dimmer">
+        <div class="ui large text loader">Loading</div>
+      </div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+    <div class="ui segment">
+      <div class="ui active dimmer">
+        <div class="ui big text loader">Loading</div>
+      </div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+    <div class="ui segment">
+      <div class="ui active dimmer">
+        <div class="ui huge text loader">Loading</div>
+      </div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+    <div class="ui segment">
+      <div class="ui active dimmer">
+        <div class="ui massive text loader">Loading</div>
+      </div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Inverted</h4>
+    <p>Loaders can have their colors inverted.</p>
+    <div class="ui inverted segment">
+      <div class="ui active inverted loader"></div>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+  <div class="another example" data-class="inverted dimmer">
+    <div class="ui ignored info message">Loaders will automatically be inverted inside <code>inverted dimmer</code></div>
+    <div class="ui segment">
+      <div class="ui active inverted dimmer">
+        <div class="ui mini text loader">Loading</div>
+      </div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+    <div class="ui segment">
+      <div class="ui active inverted dimmer">
+        <div class="ui small text loader">Loading</div>
+      </div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+    <div class="ui segment">
+      <div class="ui active inverted dimmer">
+        <div class="ui medium text loader">Loading</div>
+      </div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+    <div class="ui segment">
+      <div class="ui active inverted dimmer">
+        <div class="ui large text loader">Loading</div>
+      </div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+  </div>
+
+</div>

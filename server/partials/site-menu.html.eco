@@ -1,0 +1,119 @@
+<% introduction      = @getCollection("documents").findAll({type: $in: ['Introduction']},[{order: 1}]).toJSON() %>
+<% usage             = @getCollection("documents").findAll({type: $in: ['Usage']},[{order: 1}]).toJSON() %>
+<% uiGlobals         = @getCollection("documents").findAll({type: $in: ['UI Global']},[{title: 1}]).toJSON() %>
+<% uiElements        = @getCollection("documents").findAll({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
+<% uiCollections     = @getCollection("documents").findAll({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
+<% uiViews           = @getCollection("documents").findAll({type: $in: ['UI View']},[{title: 1}]).toJSON() %>
+<% uiModules         = @getCollection("documents").findAll({type: $in: ['UI Module']},[{title: 1}]).toJSON() %>
+<% uiBehavior        = @getCollection("documents").findAll({type: $in: ['UI Behavior']},[{title: 1}]).toJSON() %>
+
+<div class="item">
+  <a class="ui logo icon image" href="/">
+    <img src="/images/logo.png">
+  </a>
+  <a href="/"><b>UI Docs</b></a>
+</div>
+<a class="item" href="/introduction/getting-started.html">
+  <b>Getting Started</b>
+</a>
+<a class="item" href="/introduction/new.html">
+  <b>New in 2.2</b>
+</a>
+<div class="item">
+  <div class="<%= if @document.elementType is 'introduction' then 'active ' %>header">Introduction</div>
+  <div class="menu">
+    <% for element in introduction: %>
+      <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+        <%= element.title %>
+      </a>
+    <% end %>
+  </div>
+</div>
+<div class="item">
+  <div class="<%= if @document.elementType is 'usage' then 'active ' %>header">Usage</div>
+  <div class="menu">
+    <% for element in usage: %>
+      <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+        <%= element.title %>
+      </a>
+    <% end %>
+  </div>
+</div>
+<div class="item">
+  <div class="<%= if @document.elementType is 'global' then 'active ' %> header">Globals</div>
+  <div class="menu">
+    <% for element in uiGlobals: %>
+      <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+        <%= element.title %>
+        <% if element.status?: %>
+        <span class="ui mini empty yellow circular ui label"></span>
+        <% end %>
+      </a>
+    <% end %>
+  </div>
+</div>
+<div class="item">
+  <div class="<%= if @document.elementType is 'element' then 'active ' %> header">Elements</div>
+  <div class="menu">
+    <% for element in uiElements: %>
+      <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+        <%= element.title %>
+        <% if element.status?: %>
+        <span class="ui mini empty yellow circular ui label"></span>
+        <% end %>
+      </a>
+    <% end %>
+  </div>
+</div>
+<div class="item">
+  <div class="<%= if @document.elementType is 'collection' then 'active ' %> header">Collections</div>
+  <div class="menu">
+    <% for element in uiCollections: %>
+      <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+        <%= element.title %>
+        <% if element.status?: %>
+        <span class="ui mini empty yellow circular ui label"></span>
+        <% end %>
+      </a>
+    <% end %>
+  </div>
+</div>
+<div class="item">
+  <div class="<%= if @document.elementType is 'view' then 'active ' %> header">Views</div>
+  <div class="menu">
+    <% for element in uiViews: %>
+      <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+        <%= element.title %>
+        <% if element.status?: %>
+        <span class="ui mini empty yellow circular ui label"></span>
+        <% end %>
+      </a>
+    <% end %>
+  </div>
+</div>
+<div class="item">
+  <div class="<%= if @document.elementType is 'module' then 'active ' %> header">Modules</div>
+  <div class="menu">
+    <% for element in uiModules: %>
+      <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+        <%= element.title %>
+        <% if element.status?: %>
+        <span class="ui mini empty yellow circular ui label"></span>
+        <% end %>
+      </a>
+  <% end %>
+  </div>
+</div>
+<div class="item">
+  <div class="<%= if @document.elementType is 'behavior' then 'active ' %> header">Behaviors</div>
+  <div class="menu">
+    <% for element in uiBehavior: %>
+      <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+        <%= element.title %>
+        <% if element.status?: %>
+        <span class="ui mini empty yellow circular ui label"></span>
+        <% end %>
+      </a>
+    <% end %>
+  </div>
+</div>

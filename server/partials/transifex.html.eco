@@ -1,0 +1,18 @@
+<% if ('development' in @getEnvironments()) or (@document.title? and @document.title is 'Page Not Found'): %>
+<% else: %>
+<script type="text/javascript">
+  window.liveSettings = {
+    api_key    : '9ede3015b9f84c1aabc81ab839c55d74',
+    parse_attr : [
+      'data-title',
+      'data-content'
+    ],
+    detectlang   : false,
+    autocollect  : true,
+    ignore_tags  : ['i', 'code', 'pre'],
+    parse_attr   : ['data-title', 'data-content', 'data-text'],
+    ignore_class : ['code', 'anchor']
+  };
+</script>
+<script type="text/javascript" src="//cdn.transifex.com/live.js"></script>
+<% end %>

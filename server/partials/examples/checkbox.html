@@ -1,0 +1,56 @@
+<div class="ui checkbox">
+  <input type="checkbox" name="fun">
+  <label>Checkbox</label>
+</div>
+
+<div class="ui hidden divider"></div>
+<div class="ui form">
+  <div class="inline fields">
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" checked="checked" />
+        <label>A</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" />
+        <label>B</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" />
+        <label>C</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="radio" name="fruit" />
+        <label>D</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui hidden divider"></div>
+<div class="ui slider checkbox">
+  <input type="checkbox" name="newsletter">
+  <label>Slider</label>
+</div>
+
+<div class="ui hidden divider"></div>
+<div class="ui toggle checkbox">
+  <input type="checkbox" name="public">
+  <label>Toggle</label>
+</div>
+
+<script type="text/javascript">
+$(document)
+  .ready(function(){
+    $('.demo .ui.checkbox')
+      .checkbox()
+    ;
+  })
+;
+</script>

@@ -1,0 +1,317 @@
+---
+layout      : 'default'
+css         : 'started'
+standalone  : true
+order       : 3
+
+title       : 'Build Tools'
+description : 'Using Gulp with Semantic UI'
+type        : 'Introduction'
+---
+<%- @partial('header') %>
+
+<div class="main ui intro container">
+
+  <h2 class="ui dividing header">Overview</h2>
+
+  <div class="no example">
+    <h4>30 Second Explanation</h4>
+    <p><a href="/introduction/getting-started.html">Download Semantic UI</a> navigate to the install folder then run a <a href="#gulp-commands">gulp command</a>.</p>
+
+    <p>To build all files:</p>
+    <div class="code" data-type="bash">
+      gulp build
+    </div>
+
+    <p>To watch for changes</p>
+    <div class="code" data-type="bash">
+      gulp watch
+    </div>
+  </div>
+  <div class="no example">
+    <h4>Why Build Tools?</h4>
+    <p>Semantic UI uses Gulp for several reasons:</p>
+    <div class="ui large bulleted list">
+      <div class="item">Process LESS files with <a href="/usage/theming.html">theming variables</a></div>
+      <div class="item">Add vendor prefixes for <a href="https://github.com/Semantic-Org/Semantic-UI/blob/master/tasks/config/project/tasks.js#L96">supported browsers</a> with <a href="https://github.com/postcss/autoprefixer" target="_blank">autoprefixer</a></div>
+      <div class="item">Watch file changes and rebuild the necessary files when adjusting themes</div>
+      <div class="item">Automatically process asset paths, so that minified and concatenated releases can exist in different directories</div>
+      <div class="item">Allow custom builds with only the required components for your site</div>
+      <div class="item">Allow advanced usage like Right-To-Left (RTL) languages using <a href="https://github.com/MohammadYounes/rtlcss" target="_blank">RTLCSS</a></div>
+    </div>
+  </div>
+  <div class="no example">
+    <h3 class="ui header">Folder Structure</h3>
+    <p>A Semantic UI project includes the following folder structure.</p>
+    <div class="ui list">
+      <div class="item">
+        <i class="folder icon"></i>
+        <div class="content">
+          <div class="header">src</div>
+          <div class="list">
+            <div class="item">
+              <i class="folder icon"></i>
+              <div class="content">
+                <a href="/usage/theming.html#site-theme" class="header">site</a>
+                <div class="description">Your site's theme</div>
+              </div>
+            </div>
+            <div class="item">
+              <i class="folder icon"></i>
+              <div class="content">
+                <div class="header">themes</div>
+                <div class="list">
+                  <div class="item">
+                    <i class="folder icon"></i>
+                    <div class="content">
+                      <a href="/usage/theming.html#default-theme" class="header">default</a>
+                      <div class="description">Default theme</div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <i class="folder icon"></i>
+                    <div class="content">
+                      <a href="/usage/theming.html#packaged-theme" class="header">packaged-theme</a>
+                      <div class="description">Additional themes</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <i class="file icon"></i>
+              <div class="content">
+                <a class="header" href="#themeconfig" >theme.config</a>
+                <div class="description">Config file for setting packaged themes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="folder icon"></i>
+        <div class="content">
+          <div class="header">dist</div>
+          <div class="description">Compiled CSS and JS files</div>
+          <div class="list">
+            <div class="item">
+              <i class="folder icon"></i>
+              <div class="content">
+                <div class="header">components</div>
+                <div class="description">Individual component CSS and JS</div>
+              </div>
+            </div>
+            <div class="item">
+              <i class="file icon"></i>
+              <div class="content">
+                <div class="header">semantic.css</div>
+                <div class="description">concatenated release</div>
+              </div>
+            </div>
+            <div class="item">
+              <i class="file icon"></i>
+              <div class="content">
+                <div class="header">semantic.js</div>
+                <div class="description">concatenated release</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="file icon"></i>
+        <div class="content">
+          <a href="#semanticjson" class="header">semantic.json</a>
+          <div class="description">Contains build settings for gulp</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="no example">
+    <h4>Gulp Commands</h4>
+    <p>Below is a list of all available gulp commands</p>
+    <table class="ui definition table">
+      <thead>
+        <th>Command</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>install</td>
+          <td>Asks install questions to setup semantic.json</td>
+        </tr>
+        <tr>
+          <td>watch (default)</td>
+          <td>Watches for changes in source files, and builds file on change</td>
+        </tr>
+        <tr>
+          <td>build</td>
+          <td>Build all files</td>
+        </tr>
+        <tr>
+          <td>clean</td>
+          <td>Cleans <code>dist/</code> folder</td>
+        </tr>
+        <tr>
+          <td>version</td>
+          <td>Outputs current version</td>
+        </tr>
+        <tr>
+          <td>build-javascript</td>
+          <td>Build JS files</td>
+        </tr>
+        <tr>
+          <td>build-css</td>
+          <td>Build CSS files</td>
+        </tr>
+        <tr>
+          <td>build-assets</td>
+          <td>Build assets files</td>
+        </tr>
+        <tr>
+          <td>serve-docs</td>
+          <td>Serves files to local docs instance</td>
+        </tr>
+        <tr>
+          <td>build-docs</td>
+          <td>Builds files to docs folder</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <h2 class="ui dividing header">Configuration Files</h2>
+
+  <div class="no example">
+    <h4>semantic.json</h4>
+    <p>Build tool settings are stored in a special file called <code>semantic.json</code> It can be included in any folder that is in a parent folder of the semantic install folder.</p>
+    <p>If you used the npm or meteor, a <code>semantic.json</code> file is automatically generated for you in the root of your project. If you used a different package manager you can run <code>gulp install</code> to run the interactive installer.</p>
+    <div class="ignored code">
+    {
+      // base path added to all other paths specified in "paths"
+      "base": "",
+
+      // current version of Semantic UI
+      "version": "<%= @getVersion() %>",
+
+      "paths": {
+
+        "source": {
+
+          // source theme.config
+          "config"      : "src/theme.config",
+
+          // source definition folder
+          "definitions" : "src/definitions/",
+
+          // source site theme
+          "site"        : "src/site/",
+
+          // source themes folder
+          "themes"      : "src/themes/"
+        },
+
+        "output": {
+          // packaged source (both compressed/uncompressed)
+          "packaged"     : "dist/",
+
+          // uncompressed source
+          "uncompressed" : "dist/components/",
+
+          // compressed source
+          "compressed"   : "dist/components/",
+
+          // output directory for theme assets
+          "themes"       : "dist/themes/"
+        },
+
+        // directory for gulp clean task
+        "clean"        : "dist/"
+      },
+
+      // when set to an integer permission, will set dist files with this file permission
+      "permission" : false,
+
+      // whether gulp watch/build should run RTLCSS
+      "rtl": false,
+
+      // will only include components with these names
+      "components": [
+        "reset",
+        "site",
+        "button",
+        "container",
+        "divider",
+        "flag",
+        "header",
+        "icon",
+        "image",
+        "input",
+        "label",
+        "list",
+        "loader",
+        "rail",
+        "reveal",
+        "segment",
+        "step",
+        "breadcrumb",
+        "form",
+        "grid",
+        "menu",
+        "message",
+        "table",
+        "ad",
+        "card",
+        "comment",
+        "feed",
+        "item",
+        "statistic",
+        "accordion",
+        "checkbox",
+        "dimmer",
+        "dropdown",
+        "embed",
+        "modal",
+        "nag",
+        "popup",
+        "progress",
+        "rating",
+        "search",
+        "shape",
+        "sidebar",
+        "sticky",
+        "tab",
+        "transition",
+        "api",
+        "form",
+        "state",
+        "visibility"
+      ],
+      // whether to include special project maintainer tasks
+      "admin": false
+    }
+
+    </div>
+  </div>
+
+  <div class="no example">
+    <h4>theme.config</h4>
+    <p>LESS uses a special configuration file <code>theme.config</code> which lets you specify what theme each component should use. If you have not generated this file yet, you will receive an error message when running build tools</p>
+    <p>You can learn more about <code>theme.config</code> by checking out the <a href="/usage/theming.html#using-packaged-themes">theming guide</a></p>
+  </div>
+
+  <div class="no example">
+    <h4>Importing Gulp Tasks</h4>
+    <p>See our <a href="/introduction/advanced-usage.html">recipes section</a> for examples on how to import individual gulp tasks into your custom Gulpfile.</p>
+  </div>
+  <div class="no example">
+    <h4>
+      Auto-Install & Continuous Integration
+      <div class="ui teal horizontal label">New in 2.2</div>
+    </h4>
+    <p>We've added a new setting to <code>semantic.json</code> in 2.2 to help make working with a CLI, or other automated deployments more streamlined.</p>
+    <p>Specifying <code>autoInstall: true</code> in an environments <code>semantic.json</code> configuration will prevent any user prompting when running <code>npm install</code> allowing for automated deployment.</p>
+  </div>
+
+</div>

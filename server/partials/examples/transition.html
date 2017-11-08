@@ -1,0 +1,56 @@
+<div class="transition demo">
+
+  <div class="ui small images">
+    <img class="ui image" src="/images/leaves/14.png">
+    <img class="ui image" src="/images/leaves/20.png">
+    <img class="ui image" src="/images/leaves/12.png">
+    <img class="ui image" src="/images/leaves/9.png">
+    <img class="ui image" src="/images/leaves/13.png">
+  </div>
+
+  <div class="ui button">Flash</div>
+  <div class="ui button">Shake</div>
+  <div class="ui button">Pulse</div>
+  <div class="ui button">Tada</div>
+  <div class="ui button">Bounce</div>
+  <div class="ui button">Drop</div>
+  <div class="ui button">Browse</div>
+  <div class="ui button">Horizontal Flip</div>
+  <div class="ui button">Vertical Flip</div>
+  <div class="ui button">Fade</div>
+  <div class="ui button">Fade Up</div>
+  <div class="ui button">Fade Down</div>
+  <div class="ui button">Scale</div>
+  <div class="ui button">Slide Down</div>
+  <div class="ui button">Slide Up</div>
+
+</div>
+<style type="text/css">
+.transition.demo .button {
+  margin-bottom: 0.5em;
+}
+/* Dont hide on hide */
+.transition.demo .ui.hidden.image {
+  display: inline-block !important;
+}
+</style>
+<script type="text/javascript">
+$(document)
+  .ready(function(){
+    $('.transition.demo .button')
+      .on('click', function() {
+        var animation = $(this).text();
+        if(typeof animation == 'string') {
+          animation = animation.toLowerCase();
+        }
+        $('.transition.demo .image')
+          .transition({
+            animation: animation,
+            interval: 200
+          })
+        ;
+      })
+    ;
+  })
+;
+</script>

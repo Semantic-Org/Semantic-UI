@@ -1,0 +1,559 @@
+---
+layout      : 'default'
+css         : 'shape'
+standalone  : true
+
+element     : 'shape'
+elementType : 'module'
+
+title       : 'Shape'
+description : 'A shape is a three dimensional object displayed on a two dimensional plane'
+type        : 'UI Module'
+
+themes      : ['default']
+---
+<link rel="stylesheet/less" type="text/css" href="/src/definitions/modules/shape.less" />
+
+<link rel="stylesheet" type="text/css" class="ui" href="/stylesheets/shape.css">
+<script src="/javascript/shape.js"></script>
+
+<%- @partial('header', { tabs: 'module' }) %>
+
+<div class="main ui container">
+
+  <div class="ui tab" data-tab="definition">
+
+    <h2 class="ui dividing header">Types</h2>
+
+    <div class="example">
+      <h4 class="ui header">Shape</h4>
+      <p>A shape is a three dimensional object including any flat content as a side.</p>
+
+      <div class="ui people shape">
+        <div class="sides">
+          <div class="active side">
+            <div class="ui card">
+              <div class="image">
+                <img src="/images/avatar/large/steve.jpg">
+              </div>
+              <div class="content">
+                <div class="header">Steve Jobes</div>
+                <div class="meta">
+                  <a>Acquaintances</a>
+                </div>
+                <div class="description">
+                  Steve Jobes is a fictional character designed to resemble someone familiar to readers.
+                </div>
+              </div>
+              <div class="extra content">
+                <span class="right floated">
+                  Joined in 2014
+                </span>
+                <span>
+                  <i class="user icon"></i>
+                  151 Friends
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="side">
+            <div class="ui card">
+              <div class="image">
+                <img src="/images/avatar/large/stevie.jpg">
+              </div>
+              <div class="content">
+                <a class="header">Stevie Feliciano</a>
+                <div class="meta">
+                  <span class="date">Joined in 2014</span>
+                </div>
+                <div class="description">
+                  Stevie Feliciano is a library scientist living in New York City. She likes to spend her time reading, running, and writing.
+                </div>
+              </div>
+              <div class="extra content">
+                <a>
+                  <i class="user icon"></i>
+                  22 Friends
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui ignored divider"></div>
+      <div class="ui ignored icon direction buttons">
+        <div class="ui button" data-animation="flip" title="Flip Left" data-direction="left"><i class="left long arrow icon"></i></div>
+        <div class="ui button" data-animation="flip" title="Flip Up" data-direction="up"><i class="up long arrow icon"></i></div>
+        <div class="ui icon button" data-animation="flip" title="Flip Down" data-direction="down"><i class="down long arrow icon"></i></div>
+        <div class="ui icon button" data-animation="flip" title="Flip Right" data-direction="right"><i class="right long arrow icon"></i></div>
+      </div>
+      <div class="ui ignored icon direction buttons">
+        <div class="ui button" title="Flip Over" data-animation="flip" data-direction="over"><i class="retweet icon"></i></div>
+        <div class="ui button" title="Flip Back" data-animation="flip" data-direction="back"><i class="flipped retweet icon"></i></div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Cube</h4>
+      <p>A cube shape is formatted so that each side is the face of a cube</p>
+      <div class="ui cube shape">
+        <div class="sides">
+          <div class="active side">
+            <div class="content">
+              <div class="center">
+                1
+              </div>
+            </div>
+          </div>
+          <div class="side">
+            <div class="content">
+              <div class="center">
+                2
+              </div>
+            </div>
+          </div>
+          <div class="side">
+            <div class="content">
+              <div class="center">
+                3
+              </div>
+            </div>
+          </div>
+          <div class="side">
+            <div class="content">
+              <div class="center">
+                4
+              </div>
+            </div>
+          </div>
+          <div class="side">
+            <div class="content">
+              <div class="center">
+                5
+              </div>
+            </div>
+          </div>
+          <div class="side">
+            <div class="content">
+              <div class="center">
+                6
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui ignored divider"></div>
+      <div class="ui ignored icon direction buttons">
+        <div class="ui button" data-animation="flip" title="Flip Left" data-direction="left"><i class="left long arrow icon"></i></div>
+        <div class="ui button" data-animation="flip" title="Flip Up" data-direction="up"><i class="up long arrow icon"></i></div>
+        <div class="ui icon button" data-animation="flip" title="Flip Down" data-direction="down"><i class="down long arrow icon"></i></div>
+        <div class="ui icon button" data-animation="flip" title="Flip Right" data-direction="right"><i class="right long arrow icon"></i></div>
+      </div>
+      <div class="ui ignored icon direction buttons">
+        <div class="ui button" title="Flip Over" data-animation="flip" data-direction="over"><i class="retweet icon"></i></div>
+        <div class="ui button" title="Flip Back" data-animation="flip" data-direction="back"><i class="flipped retweet icon"></i></div>
+      </div>
+
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Text</h4>
+      <p>A text shape is formatted to allow for sides of text to be displayed</p>
+
+      <div class="ui info ignored icon message">
+        <i class="info letter icon"></i>
+        <div class="content">
+          <div class="header">Using Shapes</div>
+          <ul class="list">
+            <li>A shape must have defined width and heights for each side or else text flow may change during animation</li>
+            <li>The module uses 3D transformations which are currently only supported in modern versions of Chrome, Safari, and Firefox.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ui text shape">
+        <div class="sides">
+          <div class="active ui header side">Did you know? This side starts visible.</div>
+          <div class="ui header side">Help, its another side!</div>
+          <div class="ui header side">This is the last side</div>
+        </div>
+      </div>
+
+      <div class="ui ignored divider"></div>
+      <div class="ui ignored icon direction buttons">
+        <div class="ui button" data-animation="flip" title="Flip Left" data-direction="left"><i class="left long arrow icon"></i></div>
+        <div class="ui button" data-animation="flip" title="Flip Up" data-direction="up"><i class="up long arrow icon"></i></div>
+        <div class="ui icon button" data-animation="flip" title="Flip Down" data-direction="down"><i class="down long arrow icon"></i></div>
+        <div class="ui icon button" data-animation="flip" title="Flip Right" data-direction="right"><i class="right long arrow icon"></i></div>
+      </div>
+      <div class="ui ignored icon direction buttons">
+        <div class="ui button" title="Flip Over" data-animation="flip" data-direction="over"><i class="retweet icon"></i></div>
+        <div class="ui button" title="Flip Back" data-animation="flip" data-direction="back"><i class="flipped retweet icon"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui tab" data-tab="examples">
+
+    <h2 class="ui dividing header">Examples</h2>
+
+    <div class="no example">
+      <h4 class="ui header">Shape Types</h4>
+      <p>Shapes do not have to be regular or have its sides match up in length and width to animate correctly.</p>
+
+      <h3 class="ui header">Shape</h3>
+      <div class="ui type buttons">
+        <div class="active ui button" data-shape="auto">Auto</div>
+        <div class="ui button" data-shape="square">Square</div>
+        <div class="ui button" data-shape="irregular">Irregular</div>
+      </div>
+      <div class="ui divider"></div>
+      <div class="demo auto ui shape">
+        <div class="sides">
+          <div class="active first side">
+            <img src="/images/leaves/1.png" class="ui medium image">
+          </div>
+          <div class="second side">
+            <img src="/images/leaves/3.png" class="ui medium image">
+          </div>
+          <div class="third side">
+            <img src="/images/leaves/5.png" class="ui medium image">
+          </div>
+        </div>
+      </div>
+
+      <div class="ui ignored divider"></div>
+      <div class="ui ignored icon direction buttons">
+        <div class="ui button" data-animation="flip" title="Flip Left" data-direction="left"><i class="left long arrow icon"></i></div>
+        <div class="ui button" data-animation="flip" title="Flip Up" data-direction="up"><i class="up long arrow icon"></i></div>
+        <div class="ui icon button" data-animation="flip" title="Flip Down" data-direction="down"><i class="down long arrow icon"></i></div>
+        <div class="ui icon button" data-animation="flip" title="Flip Right" data-direction="right"><i class="right long arrow icon"></i></div>
+      </div>
+      <div class="ui ignored icon direction buttons">
+        <div class="ui button" title="Flip Over" data-animation="flip" data-direction="over"><i class="retweet icon"></i></div>
+        <div class="ui button" title="Flip Back" data-animation="flip" data-direction="back"><i class="flipped retweet icon"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui tab" data-tab="usage">
+
+    <h2 class="ui dividing header">Getting Started</h2>
+
+    <div class="no example">
+      <h4 class="ui header">Required Markup</h4>
+      <p>Shapes can have any arbitrary content, just wrap each side in <code>side</code></p>
+      <div class="code" data-type="html">
+        <div class="ui shape">
+          <div class="sides">
+            <div class="active side">This side starts visible.</div>
+            <div class="side">This is yet another side</div>
+            <div class="side">This is the last side</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="no example">
+
+      <h4 class="ui header">Animating with Javascript</h4>
+      <p>Animations use CSS3 transitions and Javascript to set-up the correct conditions.</p>
+
+      <p>Initializing a shape</p>
+      <div class="code">
+        $('.shape').shape();
+      </div>
+
+      <p>Transitions automatically assume next side is the next sibling (or first if last element)</p>
+      <div class="code">
+        $('.shape').shape('flip up');
+      </div>
+
+      <p>To manually set the next side to appear use a selector or jQuery object</p>
+      <div class="code">
+      $('.shape')
+        .shape('set next side', '.second.side')
+        .shape('flip up')
+      ;
+      </div>
+
+      <p>Any internal method can be invoked programmatically</p>
+      <div class="code">
+        $('.shape').shape('repaint');
+      </div>
+
+    </div>
+
+    <h2 class="ui dividing header">Behavior</h2>
+
+    <div class="no example">
+      <p>All the following behaviors can be called using the syntax:</p>
+      <div class="code">
+      $('.your.element')
+        .shape('behavior name', argumentOne, argumentTwo)
+      ;
+      </div>
+    </div>
+
+    <table class="ui definition sortable celled table segment">
+      <thead>
+        <th>Behavior</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>flip up</td>
+          <td>Flips the shape upward</td>
+        </tr>
+        <tr>
+          <td>flip down</td>
+          <td>Flips the shape downward</td>
+        </tr>
+        <tr>
+          <td>flip right</td>
+          <td>Flips the shape right</td>
+        </tr>
+        <tr>
+          <td>flip left</td>
+          <td>Flips the shape left</td>
+        </tr>
+        <tr>
+          <td>flip over</td>
+          <td>Flips the shape over clock-wise</td>
+        </tr>
+        <tr>
+          <td>flip back</td>
+          <td>Flips the shape over counter-clockwise</td>
+        </tr>
+        <tr>
+          <td>set next side(selector)</td>
+          <td>Set the next side to a specific selector</td>
+        </tr>
+        <tr>
+          <td>is animating</td>
+          <td>Returns whether shape is currently animating</td>
+        </tr>
+        <tr>
+          <td>reset</td>
+          <td>Removes all inline styles</td>
+        </tr>
+        <tr>
+          <td>queue(animation)</td>
+          <td>Queues an animationtill after current animation</td>
+        </tr>
+        <tr>
+          <td>repaint</td>
+          <td>Forces a reflow on element</td>
+        </tr>
+        <tr>
+          <td>set default side</td>
+          <td>Set the next side to next sibling to active element</td>
+        </tr>
+        <tr>
+          <td>set stage size</td>
+          <td>Sets shape to the content size of the next side</td>
+        </tr>
+        <tr>
+          <td>refresh</td>
+          <td>Refreshes the selector cache for element sides</td>
+        </tr>
+        <tr>
+          <td>get transform down</td>
+          <td>Returns translation for next side staged below</td>
+        </tr>
+        <tr>
+          <td>get transform left</td>
+          <td>Returns translation for next side staged left</td>
+        </tr>
+        <tr>
+          <td>get transform right</td>
+          <td>Returns translation for next side staged right</td>
+        </tr>
+        <tr>
+          <td>get transform up</td>
+          <td>Returns translation for next side staged up</td>
+        </tr>
+        <tr>
+          <td>get transform down</td>
+          <td>Returns translation for next side staged down</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="ui tab" data-tab="settings">
+
+    <h3 class="ui header">
+      Shape Settings
+      <div class="sub header">Shape settings modify the shape's behavior</div>
+    </h3>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>duration</td>
+          <td>700ms</td>
+          <td>Duration of side change animation</td>
+        </tr>
+        <tr>
+          <td>width <div class="ui horizontal teal label">2.2</div></td>
+          <td>initial</td>
+          <td>
+            <div class="ui bulleted list">
+              <div class="item">When set to <code>next</code> will use the width of the next <code>side</code> during the shape's animation.</div>
+              <div class="item">When set to <code>initial</code> it will use the width of the shape at initialization.</div>
+              <div class="item">When set to a specifix pixel height, will force the width to that height.</div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>height <div class="ui horizontal teal label">2.2</div></td>
+          <td>initial</td>
+          <td>
+            <div class="ui bulleted list">
+              <div class="item">When set to <code>next</code> will use the height of the next <code>side</code> during the shape's animation.</div>
+              <div class="item">When set to <code>initial</code> it will use the height of the shape at initialization.</div>
+              <div class="item">When set to a specifix pixel height, will force the height to that height.</div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ui horizontal section divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+      Callbacks
+      <div class="sub header">Callbacks specify a function to occur after a specific behavior.</div>
+    </h3>
+
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <th class="four wide">Setting</th>
+        <th>Context</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>beforeChange</td>
+          <td>Next Side</td>
+          <td>Is called before side change</td>
+        </tr>
+        <tr>
+          <td>onChange</td>
+          <td>Active Side</td>
+          <td>Is called after visible side change</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ui horizontal section divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+      DOM Settings
+      <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
+    </h3>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>namespace</td>
+          <td>shape</td>
+          <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+        </tr>
+        <tr>
+          <td>selector</td>
+          <td colspan="2">
+            <div class="code">
+            selector    : {
+              sides : '.sides',
+              side  : '.side'
+            }
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>className</td>
+          <td colspan="2">
+            <div class="code">
+            className   : {
+              animating : 'animating',
+              hidden    : 'hidden',
+              loading   : 'loading',
+              active    : 'active'
+            }
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ui horizontal section divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+      Debug Settings
+      <div class="sub header">Debug settings controls debug output to the console</div>
+    </h3>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>name</td>
+          <td>Shape</td>
+          <td>Name used in debug logs</td>
+        </tr>
+        <tr>
+          <td>silent</td>
+          <td>False</td>
+          <td>Silences all console output including error messages, regardless of other debug settings.</td>
+        </tr>
+        <tr>
+          <td>debug</td>
+          <td>False</td>
+          <td>Provides standard debug output to console</td>
+        </tr>
+        <tr>
+          <td>performance</td>
+          <td>True</td>
+          <td>Provides standard debug output to console</td>
+        </tr>
+        <tr>
+          <td>verbose</td>
+          <td>True</td>
+          <td>Provides ancillary debug output to console</td>
+        </tr>
+        <tr>
+          <td>error</td>
+          <td colspan="2">
+            <div class="code">
+            error: {
+              side   : 'You tried to switch to a side that does not exist.',
+              method : 'The method you called is not defined'
+            }
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>

@@ -1,0 +1,904 @@
+---
+layout      : 'default'
+css         : 'card'
+standalone  : true
+
+element     : 'card'
+elementType : 'view'
+
+title       : 'Card'
+description : 'A card displays site content in a manner similar to a playing card'
+type        : 'UI View'
+
+themes      : ['Default', 'Basic', 'Classic', 'Instagram']
+---
+
+<%- @partial('header') %>
+
+<link rel="stylesheet/less" type="text/css" href="/src/definitions/views/card.less" />
+<script src="/javascript/card.js"></script>
+
+<div class="main ui container">
+
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="example">
+    <h4 class="ui header">Card</h4>
+    <p>A single card.</p>
+    <div class="ui ignored warning message">
+      To ensure cards are equal height use the plural, <a href="#cards"><code>cards</code></a>. Card groups automatically uses <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes" target="_blank">flex</a> styles to match height between cards in the same row.
+    </div>
+    <div class="ui card">
+      <div class="image">
+        <img src="/images/avatar2/large/kristy.png">
+      </div>
+      <div class="content">
+        <a class="header">Kristy</a>
+        <div class="meta">
+          <span class="date">Joined in 2013</span>
+        </div>
+        <div class="description">
+          Kristy is an art director living in New York.
+        </div>
+      </div>
+      <div class="extra content">
+        <a>
+          <i class="user icon"></i>
+          22 Friends
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui card">
+      <div class="content">
+        <div class="right floated meta">14h</div>
+        <img class="ui avatar image" src="/images/avatar/large/elliot.jpg"> Elliot
+      </div>
+      <div class="image">
+        <img class="ui wireframe image" src="/images/wireframe/image.png">
+      </div>
+      <div class="content">
+        <span class="right floated">
+          <i class="heart outline like icon"></i>
+          17 likes
+        </span>
+        <i class="comment icon"></i>
+        3 comments
+      </div>
+      <div class="extra content">
+        <div class="ui large transparent left icon input">
+          <i class="heart outline icon"></i>
+          <input type="text" placeholder="Add Comment...">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Cards</h4>
+    <p>A group of cards.</p>
+    <div class="ui ignored info message">
+      <p>Cards are designed to be flexible to your content. <code>content</code> blocks can include any custom elements related to your content.</p>
+    </div>
+    <div class="ui cards">
+      <div class="card">
+        <div class="content">
+          <img class="right floated mini ui image" src="/images/avatar/large/elliot.jpg">
+          <div class="header">
+            Elliot Fu
+          </div>
+          <div class="meta">
+            Friends of Veronika
+          </div>
+          <div class="description">
+            Elliot requested permission to view your contact details
+          </div>
+        </div>
+        <div class="extra content">
+          <div class="ui two buttons">
+            <div class="ui basic green button">Approve</div>
+            <div class="ui basic red button">Decline</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <img class="right floated mini ui image" src="/images/avatar/large/jenny.jpg">
+          <div class="header">
+            Jenny Hess
+          </div>
+          <div class="meta">
+            New Member
+          </div>
+          <div class="description">
+            Jenny wants to add you to the group <b>best friends</b>
+          </div>
+        </div>
+        <div class="extra content">
+          <div class="ui two buttons">
+            <div class="ui basic green button">Approve</div>
+            <div class="ui basic red button">Decline</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui link cards">
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar2/large/matthew.png">
+        </div>
+        <div class="content">
+          <div class="header">Matt Giampietro</div>
+          <div class="meta">
+            <a>Friends</a>
+          </div>
+          <div class="description">
+            Matthew is an interior designer living in New York.
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="right floated">
+            Joined in 2013
+          </span>
+          <span>
+            <i class="user icon"></i>
+            75 Friends
+          </span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar2/large/molly.png">
+        </div>
+        <div class="content">
+          <div class="header">Molly</div>
+          <div class="meta">
+            <span class="date">Coworker</span>
+          </div>
+          <div class="description">
+            Molly is a personal assistant living in Paris.
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="right floated">
+            Joined in 2011
+          </span>
+          <span>
+            <i class="user icon"></i>
+            35 Friends
+          </span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar2/large/elyse.png">
+        </div>
+        <div class="content">
+          <div class="header">Elyse</div>
+          <div class="meta">
+            <a>Coworker</a>
+          </div>
+          <div class="description">
+            Elyse is a copywriter working in New York.
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="right floated">
+            Joined in 2014
+          </span>
+          <span>
+            <i class="user icon"></i>
+            151 Friends
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Content</h2>
+
+  <div class="example">
+    <h4 class="ui header">Content Block</h4>
+    <p>A card can contain blocks of content</p>
+    <div class="ui card">
+      <div class="content">
+        <div class="header">Project Timeline</div>
+      </div>
+      <div class="content">
+        <h4 class="ui sub header">Activity</h4>
+        <div class="ui small feed">
+          <div class="event">
+            <div class="content">
+              <div class="summary">
+                 <a>Elliot Fu</a> added <a>Jenny Hess</a> to the project
+              </div>
+            </div>
+          </div>
+          <div class="event">
+            <div class="content">
+              <div class="summary">
+                 <a>Stevie Feliciano</a> was added as an <a>Administrator</a>
+              </div>
+            </div>
+          </div>
+          <div class="event">
+            <div class="content">
+              <div class="summary">
+                 <a>Helen Troy</a> added two pictures
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="extra content">
+        <button class="ui button">Join Project</button>
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Image</h4>
+    <p>A card can contain an image</p>
+    <div class="ui ignored info message">Cards can use <a href="/elements/reveal.html">reveal</a> or <a href="/modules/dimmer.html">dimmers</a> to easily show additional content, or options on hover</div>
+    <div class="ui card">
+      <div class="ui slide masked reveal image">
+        <img src="/images/avatar/large/jenny.jpg" class="visible content">
+        <img src="/images/avatar/large/elliot.jpg" class="hidden content">
+      </div>
+      <div class="content">
+        <a class="header">Team Fu & Hess</a>
+        <div class="meta">
+          <span class="date">Create in Sep 2014</span>
+        </div>
+      </div>
+      <div class="extra content">
+        <a>
+          <i class="users icon"></i>
+          2 Members
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="evaluated code" data-type="javascript">
+    $('.special.cards .image').dimmer({
+      on: 'hover'
+    });
+    </div>
+    <div class="ui special cards">
+      <div class="card">
+        <div class="blurring dimmable image">
+          <div class="ui dimmer">
+            <div class="content">
+              <div class="center">
+                <div class="ui inverted button">Add Friend</div>
+              </div>
+            </div>
+          </div>
+          <img src="/images/avatar/large/elliot.jpg">
+        </div>
+        <div class="content">
+          <a class="header">Team Fu</a>
+          <div class="meta">
+            <span class="date">Create in Sep 2014</span>
+          </div>
+        </div>
+        <div class="extra content">
+          <a>
+            <i class="users icon"></i>
+            2 Members
+          </a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="blurring dimmable image">
+          <div class="ui inverted dimmer">
+            <div class="content">
+              <div class="center">
+                <div class="ui primary button">Add Friend</div>
+              </div>
+            </div>
+          </div>
+          <img src="/images/avatar/large/jenny.jpg">
+        </div>
+        <div class="content">
+          <a class="header">Team Hess</a>
+          <div class="meta">
+            <span class="date">Create in Aug 2014</span>
+          </div>
+        </div>
+        <div class="extra content">
+          <a>
+            <i class="users icon"></i>
+            2 Members
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Header</h4>
+    <p>A card can contain a header</p>
+    <div class="ui cards">
+      <div class="card">
+        <div class="content">
+          <div class="header">Elliot Fu</div>
+          <div class="meta">Friend</div>
+          <div class="description">
+            Elliot Fu is a film-maker from New York.
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <div class="header">Veronika Ossi</div>
+          <div class="meta">Friend</div>
+          <div class="description">
+            Veronika Ossi is a set designer living in New York who enjoys kittens, music, and partying.
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <div class="header">Jenny Hess</div>
+          <div class="meta">Friend</div>
+          <div class="description">
+            Jenny is a student studying Media Management at the New School
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Metadata</h4>
+    <p>A card can contain content metadata</p>
+
+    <div class="ui ignored info message">
+      <i class="info icon"></i>
+      You can include an arbitrary amount of metadata using your own class conventions, all child elements will automatically be spaced
+    </div>
+    <div class="ui card">
+      <div class="content">
+        <div class="header">Cute Dog</div>
+        <div class="meta">
+          <span>2 days ago</span>
+          <a>Animals</a>
+        </div>
+        <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Link</h4>
+    <p>A card can contain contain links as images, headers, or inside content</p>
+    <div class="ui ignored info message">To make the entire content of a card link, check out the link variation below
+    </div>
+    <div class="ui card">
+      <a class="image" href="#">
+        <img src="/images/avatar/large/steve.jpg">
+      </a>
+      <div class="content">
+        <a class="header" href="#">Steve Jobes</a>
+        <div class="meta">
+          <a>Last Seen 2 days ago</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Buttons</h4>
+    <p>A card can contain buttons</p>
+    <div class="ui cards">
+      <div class="card">
+        <div class="content">
+          <div class="header">Elliot Fu</div>
+          <div class="description">
+            Elliot Fu is a film-maker from New York.
+          </div>
+        </div>
+        <div class="ui bottom attached button">
+          <i class="add icon"></i>
+          Add Friend
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <div class="header">Veronika Ossi</div>
+          <div class="description">
+            Veronika Ossi is a set designer living in New York who enjoys kittens, music, and partying.
+          </div>
+        </div>
+        <div class="ui bottom attached button">
+          <i class="add icon"></i>
+          Add Friend
+        </div>
+      </div>
+      <div class="card">
+        <div class="content">
+          <div class="header">Jenny Hess</div>
+          <div class="description">
+            Jenny is a student studying Media Management at the New School
+          </div>
+        </div>
+        <div class="ui bottom attached button">
+          <i class="add icon"></i>
+          Add Friend
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Approval</h4>
+    <p>A card can contain a like or star action.</p>
+    <div class="ui card">
+      <div class="content">
+        <i class="right floated like icon"></i>
+        <i class="right floated star icon"></i>
+        <div class="header">Cute Dog</div>
+        <div class="description">
+          <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+        </div>
+      </div>
+      <div class="extra content">
+        <span class="left floated like">
+          <i class="like icon"></i>
+          Like
+        </span>
+        <span class="right floated star">
+          <i class="star icon"></i>
+          Favorite
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Description</h4>
+    <p>A card can contain a description with one or more paragraphs</p>
+    <div class="ui card">
+      <div class="content">
+        <div class="header">Cute Dog</div>
+        <div class="meta">2 days ago</div>
+        <div class="description">
+          <p>Cute dogs come in a variety of shapes and sizes. Some cute dogs are cute for their adorable faces, others for their tiny stature, and even others for their massive size.</p>
+          <p>Many people also have their own barometers for what makes a cute dog.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Extra Content</h4>
+    <p>A card can contain extra content meant to be formatted separately from the main content</p>
+    <div class="ui card">
+      <div class="content">
+        <div class="header">Cute Dog</div>
+        <div class="meta">2 days ago</div>
+        <div class="description">
+          <p>Cute dogs come in a variety of shapes and sizes. Some cute dogs are cute for their adorable faces, others for their tiny stature, and even others for their massive size.</p>
+          <p>Many people also have their own barometers for what makes a cute dog.</p>
+        </div>
+      </div>
+      <div class="extra content">
+        <i class="check icon"></i>
+        121 Votes
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="ui dividing header">Variations</h2>
+
+  <div class="example">
+    <h4 class="ui header">Fluid Card</h4>
+    <p>A fluid card takes up the width of its container</p>
+    <div class="ui three column grid">
+      <div class="column">
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="/images/avatar/large/daniel.jpg">
+          </div>
+          <div class="content">
+            <a class="header">Daniel Louise</a>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="/images/avatar/large/helen.jpg">
+          </div>
+          <div class="content">
+            <a class="header">Helen Troy</a>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui fluid card">
+          <div class="image">
+            <img src="/images/avatar/large/elliot.jpg">
+          </div>
+          <div class="content">
+            <a class="header">Elliot Fu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Centered Card</h4>
+    <p>A card can center itself inside its container</p>
+
+    <div class="ui centered card">
+      <div class="image">
+        <img src="/images/avatar2/large/elyse.png">
+      </div>
+      <div class="content">
+        <a class="header">Elyse</a>
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Raised Card</h4>
+    <p>A card may be formatted to raise above the page.</p>
+    <div class="ui raised card">
+      <div class="content">
+        <div class="header">Cute Dog</div>
+        <div class="meta">
+          <span class="category">Animals</span>
+        </div>
+        <div class="description">
+          <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="right floated author">
+          <img class="ui avatar image" src="/images/avatar/small/matt.jpg"> Matt
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui raised link card">
+      <div class="content">
+        <div class="header">Cute Dog</div>
+        <div class="meta">
+          <span class="category">Animals</span>
+        </div>
+        <div class="description">
+          <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="right floated author">
+          <img class="ui avatar image" src="/images/avatar/small/matt.jpg"> Matt
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Link Card</h4>
+    <p>A card can be formatted so that the entire contents link to another page</p>
+    <a class="ui card" href="http://www.dog.com">
+      <div class="content">
+        <div class="header">Cute Dog</div>
+        <div class="meta">
+          <span class="category">Animals</span>
+        </div>
+        <div class="description">
+          <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="right floated author">
+          <img class="ui avatar image" src="/images/avatar/small/matt.jpg"> Matt
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="another example">
+    <div class="ui link card">
+      <div class="content">
+        <div class="header">Cute Dog</div>
+        <div class="meta">
+          <span class="category">Animals</span>
+        </div>
+        <div class="description">
+          <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="right floated author">
+          <img class="ui avatar image" src="/images/avatar/small/matt.jpg"> Matt
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Floated Content</h4>
+    <p>Any content element can be floated left or right</p>
+    <div class="ui ignored info message">
+      <i class="info icon"></i>
+      You can include an arbitrary amount of metadata using your own class conventions, all child elements will automatically be spaced
+    </div>
+    <div class="ui card">
+      <div class="content">
+        <div class="header">Cute Dog</div>
+        <div class="meta">
+          <span class="right floated time">2 days ago</span>
+          <span class="category">Animals</span>
+        </div>
+        <div class="description">
+          <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="right floated author">
+          <img class="ui avatar image" src="/images/avatar/small/matt.jpg"> Matt
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Text Alignment</h4>
+    <p>Any element inside a card can have its text alignment specified</p>
+    <div class="ui ignored info message">
+      <i class="info icon"></i>
+      You can include an arbitrary amount of metadata using your own class conventions, all child elements will automatically be spaced
+    </div>
+    <div class="ui card">
+      <div class="content">
+        <div class="header">Cute Dog</div>
+        <div class="meta">
+          <span class="right floated time">2 days ago</span>
+          <span class="category">Animals</span>
+        </div>
+        <div class="description">
+          <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+        </div>
+      </div>
+      <div class="extra content">
+        <div class="right floated author">
+          <img class="ui avatar image" src="/images/avatar/small/matt.jpg"> Matt
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Colored</h4>
+    <p>A card can specify a color</p>
+    <div class="ui four cards">
+      <a class="red card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/white-image.png">
+        </div>
+      </a>
+      <a class="orange card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/white-image.png">
+        </div>
+      </a>
+      <a class="yellow card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/white-image.png">
+        </div>
+      </a>
+      <a class="olive card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/white-image.png">
+        </div>
+      </a>
+      <a class="green card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/white-image.png">
+        </div>
+      </a>
+      <a class="teal card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/white-image.png">
+        </div>
+      </a>
+      <a class="blue card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/white-image.png">
+        </div>
+      </a>
+      <a class="violet card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/white-image.png">
+        </div>
+      </a>
+      <a class="purple card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/white-image.png">
+        </div>
+      </a>
+      <a class="pink card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/white-image.png">
+        </div>
+      </a>
+      <a class="brown card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/white-image.png">
+        </div>
+      </a>
+      <a class="grey card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/white-image.png">
+        </div>
+      </a>
+      <a class="black card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/white-image.png">
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Column Count</h4>
+    <p>A group of cards can set how many cards should exist in a row</p>
+    <div class="ui four cards">
+      <div class="card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/image.png">
+        </div>
+        <div class="extra">
+          Rating:
+          <div class="ui star rating" data-rating="4"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/image.png">
+        </div>
+        <div class="extra">
+          Rating:
+          <div class="ui star rating" data-rating="2"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/image.png">
+        </div>
+        <div class="extra">
+          Rating:
+          <div class="ui star rating" data-rating="3"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/image.png">
+        </div>
+        <div class="extra">
+          Rating:
+          <div class="ui star rating" data-rating="4"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/image.png">
+        </div>
+        <div class="extra">
+          Rating:
+          <div class="ui star rating" data-rating="3"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/image.png">
+        </div>
+        <div class="extra">
+          Rating:
+          <div class="ui star rating" data-rating="3"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/image.png">
+        </div>
+        <div class="extra">
+          Rating:
+          <div class="ui star rating" data-rating="4"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img class="ui wireframe image" src="/images/wireframe/image.png">
+        </div>
+        <div class="extra">
+          Rating:
+          <div class="ui star rating" data-rating="4"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Stackable</h4>
+    <p>A group of cards can automatically stack rows to a single columns on mobile devices</p>
+    <div class="ui ignored warning message">Resize your browser to a smaller size to see the cards stack after reaching mobile breakpoints</div>
+    <div class="ui three stackable cards">
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar/large/elliot.jpg">
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar/large/helen.jpg">
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar/large/jenny.jpg">
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar/large/veronika.jpg">
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar/large/stevie.jpg">
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar/large/steve.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Doubling</h4>
+    <p>A group of cards can double its column width for mobile</p>
+    <div class="ui ignored warning message">Resize your browser to a smaller size to see the cards stack after reaching mobile breakpoints</div>
+    <div class="ui six doubling cards">
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar/large/elliot.jpg">
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar/large/helen.jpg">
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar/large/jenny.jpg">
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar/large/veronika.jpg">
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar/large/stevie.jpg">
+        </div>
+      </div>
+      <div class="card">
+        <div class="image">
+          <img src="/images/avatar/large/steve.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

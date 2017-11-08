@@ -1,0 +1,90 @@
+---
+layout     : 'blank'
+css        : 'hotfix'
+standalone : true
+
+title      : 'Test Page'
+type       : 'Library'
+---
+<div class="ui container">
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Absolute positioned long drop down select list
+  </div>
+  <div class="image content">
+    <div class="description">
+      <div class="scroll">
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      <div>item</div>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black deny button">
+      No
+    </div>
+    <div class="ui button">
+      Yes
+    </div>
+  </div>
+</div>
+</div>
+<script>
+  $(document).ready(function() {
+
+$('.ui.modal').modal({
+  observeChanges: true
+}).modal('show');
+
+});
+
+</script>
+
+<!-- TEST CSS HERE !-->
+<style type="text/css">
+
+.ui.container {
+  padding-top: 2em;
+}
+
+.scroll {
+  //display: none;
+  width: 200px;
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+}
+
+</style>

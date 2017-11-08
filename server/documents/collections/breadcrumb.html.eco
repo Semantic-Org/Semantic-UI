@@ -1,0 +1,175 @@
+---
+layout      : 'default'
+css         : 'breadcrumb'
+standalone  : true
+
+element     : 'breadcrumb'
+elementType : 'collection'
+
+title       : 'Breadcrumb'
+description : 'A breadcrumb is used to show hierarchy between content'
+type        : 'UI Collection'
+
+themes      : ['Default']
+---
+
+<%- @partial('header') %>
+
+
+<link rel="stylesheet/less" type="text/css" href="/src/definitions/collections/breadcrumb.less" />
+
+
+<div class="main ui container">
+
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="example">
+    <h4 class="ui header">Breadcrumb</h4>
+    <p>A standard breadcrumb</p>
+    <div class="ui breadcrumb">
+      <a class="section">Home</a>
+      <div class="divider"> / </div>
+      <a class="section">Store</a>
+      <div class="divider"> / </div>
+      <div class="active section">T-Shirt</div>
+    </div>
+  </div>
+
+  <div class="another example">
+    <div class="ui breadcrumb">
+      <a class="section">Home</a>
+      <i class="right angle icon divider"></i>
+      <a class="section">Store</a>
+      <i class="right angle icon divider"></i>
+      <div class="active section">T-Shirt</div>
+    </div>
+  </div>
+
+
+  <h2 class="ui dividing header">Content</h2>
+
+  <div class="example" data-use-content="true">
+    <h4 class="ui header">Divider</h4>
+    <p>A breadcrumb can contain a divider to show the relationship between sections, this can be formatted as an icon or text.</p>
+    <div class="ui breadcrumb">
+      <a class="section">Home</a>
+      <span class="divider">/</span>
+      <a class="section">Registration</a>
+      <span class="divider">/</span>
+      <div class="active section">Personal Information</div>
+    </div>
+  </div>
+
+  <div class="another example">
+    <div class="ui breadcrumb">
+      <a class="section">Home</a>
+      <i class="right chevron icon divider"></i>
+      <a class="section">Registration</a>
+      <i class="right arrow icon divider"></i>
+      <div class="active section">Personal Information</div>
+    </div>
+  </div>
+
+
+  <div class="example" data-use-content="true">
+    <h4 class="ui header">Section</h4>
+    <p>A breadcrumb can contain sections that can either be formatted as a link or text</p>
+    <div class="ui breadcrumb">
+      <div class="section">Home</div>
+      <div class="divider"> / </div>
+      <div class="active section">Search</div>
+    </div>
+  </div>
+
+  <div class="example" data-use-content="true">
+    <h4 class="ui header">Link</h4>
+    <p>A section may be linkable or contain a link</p>
+    <div class="ui breadcrumb">
+      <a class="section">Home</a>
+      <div class="divider"> / </div>
+      <div class="active section">Search for: <a href="#">paper towels</a></div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">States</h2>
+
+  <div class="example" data-use-content="true">
+    <h4 class="ui header">Active</h4>
+    <p>A section can be active</p>
+    <div class="ui breadcrumb">
+      <a class="section">Products</a>
+      <div class="divider"> / </div>
+      <div class="active section">Paper Towels</div>
+    </div>
+  </div>
+
+
+  <h2 class="ui dividing header">Variations</h2>
+
+  <div class="example" data-class="size">
+    <h4 class="ui header">Size</h4>
+    <p>A breadcrumb can vary in size</p>
+    <div class="ui mini breadcrumb">
+      <a class="section">Home</a>
+      <i class="right chevron icon divider"></i>
+      <a class="section">Registration</a>
+      <i class="right chevron icon divider"></i>
+      <div class="active section">Personal Information</div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui tiny breadcrumb">
+      <a class="section">Home</a>
+      <i class="right chevron icon divider"></i>
+      <a class="section">Registration</a>
+      <i class="right chevron icon divider"></i>
+      <div class="active section">Personal Information</div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui small breadcrumb">
+      <a class="section">Home</a>
+      <i class="right chevron icon divider"></i>
+      <a class="section">Registration</a>
+      <i class="right chevron icon divider"></i>
+      <div class="active section">Personal Information</div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui large breadcrumb">
+      <a class="section">Home</a>
+      <i class="right chevron icon divider"></i>
+      <a class="section">Registration</a>
+      <i class="right chevron icon divider"></i>
+      <div class="active section">Personal Information</div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui big breadcrumb">
+      <a class="section">Home</a>
+      <i class="right chevron icon divider"></i>
+      <a class="section">Registration</a>
+      <i class="right chevron icon divider"></i>
+      <div class="active section">Personal Information</div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui huge breadcrumb">
+      <a class="section">Home</a>
+      <i class="right chevron icon divider"></i>
+      <a class="section">Registration</a>
+      <i class="right chevron icon divider"></i>
+      <div class="active section">Personal Information</div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui massive breadcrumb">
+      <a class="section">Home</a>
+      <i class="right chevron icon divider"></i>
+      <a class="section">Registration</a>
+      <i class="right chevron icon divider"></i>
+      <div class="active section">Personal Information</div>
+    </div>
+  </div>
+
+</div>

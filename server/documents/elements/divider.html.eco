@@ -1,0 +1,211 @@
+---
+layout      : 'default'
+css         : 'divider'
+standalone  : true
+
+element     : 'divider'
+elementType : 'element'
+
+title       : 'Divider'
+description : 'A divider visually segments content into groups'
+type        : 'UI Element'
+
+themes      : ['default']
+---
+
+<%- @partial('header') %>
+<link rel="stylesheet/less" type="text/css" href="/src/definitions/elements/divider.less" />
+
+<div class="main ui container">
+
+  <h2 class="ui dividing header">Types</h2>
+  <div class="example">
+    <h4 class="ui header">Divider</h4>
+    <p>A standard divider</p>
+    <div class="ignored ui warning message">To add a divider between parts of a grid use a <a href="/collections/grid.html#divided"><code>divided grid</code></a> variation.</div>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    <div class="ui divider"></div>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Vertical Divider</h4>
+    <p>A divider can segment content vertically</p>
+    <div class="ui ignored message">
+      Vertical dividers requires <code>position: relative</code> on the element that you would like to contain the divider
+    </div>
+    <div class="ui info ignored message">
+      A vertical divider will automatically swap to a horizontal divider at mobile resolutions when used inside a <a href="/collections/grid.html#stackable-grid"><code>stackable grid</code></a>
+    </div>
+    <div class="ui warning ignored message">
+      There is a know bug of vertical dividers after a W3C update. Please read <a href="https://github.com/Semantic-Org/Semantic-UI/issues/4342" target="_blank" rel="nofollow">#4342</a> for more information
+    </div>
+    <div class="ui three column very relaxed grid">
+      <div class="column">
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      </div>
+      <div class="ui vertical divider">
+        and
+      </div>
+      <div class="column">
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      </div>
+      <div class="ui vertical divider">
+        not
+      </div>
+      <div class="column">
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+        <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui two column middle aligned very relaxed stackable grid">
+      <div class="column">
+        <div class="ui form">
+          <div class="field">
+            <label>Username</label>
+            <div class="ui left icon input">
+              <input type="text" placeholder="Username">
+              <i class="user icon"></i>
+            </div>
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <div class="ui left icon input">
+              <input type="password">
+              <i class="lock icon"></i>
+            </div>
+          </div>
+          <div class="ui blue submit button">Login</div>
+        </div>
+      </div>
+      <div class="ui vertical divider">
+        Or
+      </div>
+      <div class="center aligned column">
+        <div class="ui big green labeled icon button">
+          <i class="signup icon"></i>
+          Sign Up
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Horizontal Divider</h4>
+    <p>A divider can segment content horizontally</p>
+    <div class="ui ignored message">Horizontal dividers can also be used in combination with <a href="/elements/header.html">headers</a> and <a href="/elements/icon.html">icons</a> to create different styles of dividers.
+    </div>
+    <div class="ui ignored info message">Dividers will automatically vary the size of their dividing rules to match the length of your text</div>
+    <div class="ui center aligned basic segment">
+      <div class="ui left icon action input">
+        <i class="search icon"></i>
+        <input type="text" placeholder="Order #">
+        <div class="ui blue submit button">Search</div>
+      </div>
+      <div class="ui horizontal divider">
+        Or
+      </div>
+      <div class="ui teal labeled icon button">
+        Create New Order
+        <i class="add icon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <h4 class="ui horizontal divider header">
+      <i class="tag icon"></i>
+      Description
+    </h4>
+    <p>Doggie treats are good for all times of the year. Proven to be eaten by 99.9% of all dogs worldwide.</p>
+    <h4 class="ui horizontal divider header">
+      <i class="bar chart icon"></i>
+      Specifications
+    </h4>
+    <table class="ui definition table">
+      <tbody>
+        <tr>
+          <td class="two wide column">Size</td>
+          <td>1" x 2"</td>
+        </tr>
+        <tr>
+          <td>Weight</td>
+          <td>6 ounces</td>
+        </tr>
+        <tr>
+          <td>Color</td>
+          <td>Yellowish</td>
+        </tr>
+        <tr>
+          <td>Odor</td>
+          <td>Not Much Usually</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 class="ui dividing header">Variations</h2>
+
+  <div class="example">
+    <h4 class="ui header">Inverted</h4>
+    <p>A divider can have its colors inverted</p>
+    <div class="ui inverted segment">
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <div class="ui inverted divider"></div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <h4 class="ui horizontal inverted divider">
+        Horizontal
+      </h4>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Fitted</h4>
+    <p>A divider can be fitted, without any space above or below it.</p>
+    <div class="ui segment">
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
+      <div class="ui fitted divider"></div>
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Hidden</h4>
+    <p>A hidden divider divides content without creating a dividing line</p>
+    <h3 class="ui header">Section One</h3>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    <div class="ui hidden divider"></div>
+    <h3 class="ui header">Section Two</h3>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Section</h4>
+    <p>A divider can provide greater margins to divide sections of content</p>
+    <h3 class="ui header">Section One</h3>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    <div class="ui section divider"></div>
+    <h3 class="ui header">Section Two</h3>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Clearing</h4>
+    <p>A divider can clear the contents above it</p>
+    <div class="ui segment">
+      <h2 class="ui right floated header">Floated Content</h2>
+      <div class="ui clearing divider"></div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+  </div>
+
+</div>

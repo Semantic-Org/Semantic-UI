@@ -1,0 +1,219 @@
+---
+layout      : 'default'
+css         : 'basic minimal'
+element     : 'rail'
+elementType : 'element'
+standalone  : true
+
+title       : 'Rail'
+description : 'A rail is used to show accompanying content outside the boundaries of the main view of a site'
+type        : 'UI Element'
+
+---
+<link rel="stylesheet/less" type="text/css" href="/src/definitions/elements/rail.less" />
+
+<%- @partial('header') %>
+
+<div class="main ui container">
+
+  <div class="introduction">
+    <h2 class="ui dividing header">Introduction</h2>
+
+    <h3 class="ui header">When to Use</h3>
+    <p>Rails display optional accompanying content outside of the main viewport of your website. Sites often use rails with <a href="/modules/sticky.html">sticky</a> content to fix additional—often optional—content to your viewport as you scroll through the page.</p>
+    <p>Semantic's default rail is <code>300px</code> wide, just large enough to fit many <a href="/views/advertisement.html">common ad unit sizes</a>, and just wide enough for a sub-navigation menu or a prominent call-to-action.</p>
+    <h3 class="ui header">Adjusting Sizes</h3>
+    <p>Railed content will most likely require arbitrary breakpoints that are specific to your site's content, to ensure they do not exceed the horizontal width of a user's browser.</p>
+    <p>Rails are generally used beside long, single-column containers with long-form content like blog posts, articles, or user profiles. Generally your main text container width should be set between around <code>600-800px</code> depending on your font size to <a href="http://baymard.com/blog/line-length-readability" target="_blank">optimize line length for readability</a>.</p>
+    <p>This set-up means most tablet browsers can only accomodate a single rail. Ultrabooks and lower resolution computers two small rails, and larger monitors, usually two full-sized rails. The specifics of this implementation is left up to you in your project.</p>
+    <div class="ui ignored warning message">
+      The following examples do not use any breakpoints, so some railed content may appear outside your browser's viewport on smaller screens.
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="example">
+    <h4 class="ui header">Rail</h4>
+    <p class="header">A rail can be presented on the left or right side of a container</p>
+
+    <div class="ui segment">
+      <div class="ui left rail">
+        <div class="ui segment">
+          Left Rail Content
+        </div>
+      </div>
+      <div class="ui right rail">
+        <div class="ui segment">
+          Right Rail Content
+        </div>
+      </div>
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Internal</h4>
+    <p class="header">A rail can attach itself to the inside of a container</p>
+
+    <div class="ui segment" style="left: -150px; width: 960px;min-height: 300px;">
+      <div class="ui left internal rail">
+        <div class="ui segment">
+          Left Rail Content
+        </div>
+      </div>
+      <div class="ui right internal rail">
+        <div class="ui segment">
+          Right Rail Content
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example" data-class="left dividing, right dividing, dividing">
+    <h4 class="ui header">Dividing</h4>
+    <p>A rail can create a division between itself and a container</p>
+    <div class="ui segment">
+      <div class="ui left dividing rail">
+        <div class="ui segment">
+          Left Rail Content
+        </div>
+      </div>
+      <div class="ui right dividing rail">
+        <div class="ui segment">
+          Right Rail Content
+        </div>
+      </div>
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Variations</h2>
+
+  <div class="example" data-class="left attached, right attached, internal right attached, internal left attached">
+    <h4 class="ui header">Attached</h4>
+    <p>A rail can appear attached to the main viewport</p>
+    <div class="ui segment">
+      <div class="ui left attached rail">
+        <div class="ui segment">
+          Left Rail Content
+        </div>
+      </div>
+      <div class="ui right attached rail">
+        <div class="ui segment">
+          Right Rail Content
+        </div>
+      </div>
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui segment" style="left: -150px; width: 960px;min-height: 300px;">
+      <div class="ui left internal attached rail">
+        <div class="ui segment">
+          Left Rail Content
+        </div>
+      </div>
+      <div class="ui right internal attached rail">
+        <div class="ui segment">
+          Right Rail Content
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example" data-class="close, very close">
+    <h4 class="ui header">Close</h4>
+    <p class="header">A rail can appear closer to the main viewport</p>
+    <div class="ui segment">
+      <div class="ui left close rail">
+        <div class="ui segment">
+          Left Rail Content
+        </div>
+      </div>
+      <div class="ui right close rail">
+        <div class="ui segment">
+          Right Rail Content
+        </div>
+      </div>
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui segment">
+      <div class="ui left very close rail">
+        <div class="ui segment">
+          Left Rail Content
+        </div>
+      </div>
+      <div class="ui right very close rail">
+        <div class="ui segment">
+          Right Rail Content
+        </div>
+      </div>
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+  </div>
+
+  <div class="example" data-class="size">
+    <h4 class="ui header">Size</h4>
+    <p>A rail can have different sizes</p>
+    <div class="ui segment">
+      <div class="ui left mini rail">
+        <div class="ui segment">
+          Mini
+        </div>
+      </div>
+      <div class="ui right tiny rail">
+        <div class="ui segment">
+          Tiny
+        </div>
+      </div>
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+    <div class="ui segment">
+      <div class="ui left small rail">
+        <div class="ui segment">
+          Small
+        </div>
+      </div>
+      <div class="ui right large rail">
+        <div class="ui segment">
+          Large
+        </div>
+      </div>
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+    <div class="ui segment">
+      <div class="ui left big rail">
+        <div class="ui segment">
+          Big
+        </div>
+      </div>
+      <div class="ui right huge rail">
+        <div class="ui segment">
+          Huge
+        </div>
+      </div>
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+    <div class="ui segment">
+      <div class="ui right massive rail">
+        <div class="ui segment">
+          Massive
+        </div>
+      </div>
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+      <img src="/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+  </div>
+
+
+</div>

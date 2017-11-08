@@ -1,0 +1,2172 @@
+---
+layout      : 'default'
+css         : 'form'
+standalone  : true
+
+element     : 'validation'
+elementType : 'behavior'
+
+title       : 'Form Validation'
+description : 'A form validation behavior checks data against a set of criteria before passing it along to the server'
+
+type        : 'UI Behavior'
+---
+
+
+<script src="/dist/components/form.js"></script>
+<script src="/javascript/validate-form.js"></script>
+
+<%- @partial('header', { tabs: { usage: 'Usage', examples: 'Examples', settings: 'Settings'} }) %>
+
+<div class="main ui container">
+
+  <div class="ui active tab" data-tab="usage">
+
+    <h2 class="ui dividing header">Usage</h2>
+
+    <div class="auto example">
+      <h4 class="ui header">Specifying Validation Rules</h4>
+      <p>Form validation requires passing in a validation object with the rules required to validate your form.</p>
+      <div class="ui ignored info message">
+        A validation object includes a list of form elements, and rules to validate each field against. Fields are matched by either the <code>id</code>, <code>name</code>, or <code>data-validate</code>  property matching the identifier specified in the settings object. Validation objects must use either shorthand or longhand exclusively.
+      </div>
+      <div class="ignore code" data-title="Shorthand Validation">
+      $('.ui.form')
+        .form({
+          fields: {
+            name     : 'empty',
+            gender   : 'empty',
+            username : 'empty',
+            password : ['minLength[6]', 'empty'],
+            skills   : ['minCount[2]', 'empty'],
+            terms    : 'checked'
+          }
+        })
+      ;
+      </div>
+      <div class="ui horizontal divider">or</div>
+      <div class="ignore code" data-title="Full Validation Settings">
+      $('.ui.form')
+        .form({
+          fields: {
+            name: {
+              identifier: 'name',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter your name'
+                }
+              ]
+            },
+            skills: {
+              identifier: 'skills',
+              rules: [
+                {
+                  type   : 'minCount[2]',
+                  prompt : 'Please select at least two skills'
+                }
+              ]
+            },
+            gender: {
+              identifier: 'gender',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please select a gender'
+                }
+              ]
+            },
+            username: {
+              identifier: 'username',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter a username'
+                }
+              ]
+            },
+            password: {
+              identifier: 'password',
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter a password'
+                },
+                {
+                  type   : 'minLength[6]',
+                  prompt : 'Your password must be at least {ruleValue} characters'
+                }
+              ]
+            },
+            terms: {
+              identifier: 'terms',
+              rules: [
+                {
+                  type   : 'checked',
+                  prompt : 'You must agree to the terms and conditions'
+                }
+              ]
+            }
+          }
+        })
+      ;
+      </div>
+      <form class="ui form segment">
+        <p>Tell Us About Yourself</p>
+        <div class="two fields">
+          <div class="field">
+            <label>Name</label>
+            <input placeholder="First Name" name="name" type="text">
+          </div>
+          <div class="field">
+            <label>Gender</label>
+            <select class="ui dropdown" name="gender">
+              <option value="">Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>Username</label>
+            <input placeholder="Username" name="username" type="text">
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" name="password">
+          </div>
+        </div>
+        <div class="field">
+          <label>Skills</label>
+          <select name="skills" multiple class="ui dropdown">
+            <option value="">Select Skills</option>
+            <option value="css">CSS</option>
+            <option value="html">HTML</option>
+            <option value="javascript">Javascript</option>
+            <option value="design">Graphic Design</option>
+            <option value="plumbing">Plumbing</option>
+            <option value="mech">Mechanical Engineering</option>
+            <option value="repair">Kitchen Repair</option>
+          </select>
+        </div>
+        <div class="inline field">
+          <div class="ui checkbox">
+            <input type="checkbox" name="terms" />
+            <label>I agree to the terms and conditions</label>
+          </div>
+        </div>
+        <div class="ui primary submit button">Submit</div>
+        <div class="ui error message"></div>
+      </div>
+    </form>
+    <div class="color example">
+      <h4 class="ui header">Passing Parameters to Rules <div class="ui horizontal teal label">New in 2.2.3</div></h4>
+      <p>Typically rules that include a parameter are written <code>minLength[2]</code> with the value being passed in as brackets.</p>
+      <p>If passing in properties as a string is not ideal, or if you are pulling values from another javascript variable, it might make sense to consider using <code>value</code> to pass in the rule value.</p>
+      <div class="ignored code">
+        $('.ui.form').form({
+          fields: {
+            color: {
+              identifier: 'color',
+              rules: [{
+                type: 'regExp',
+                value: /rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)/i,
+              }]
+            }
+          }
+        });
+      </div>
+      <form class="ui form segment">
+        <div class="field">
+          <label>Color</label>
+          <input placeholder="Enter rgb" name="color" type="text" value="rgb(255, 255, 255)">
+        </div>
+        <div class="ui primary submit button">Submit</div>
+      </form>
+    </div>
+
+    <div class="prompt example">
+      <h4 class="ui header">Customizing Prompts</h4>
+      <p>Form validation includes default error prompts for most cases, however these can be quite generic. To specify custom personalized values for a validation prompt use the <code>prompt</code> property with a rule.</p>
+      <div class="ui ignored info message">You can set default messages for each validation rule type by modifying <code>$fn.form.settings.prompt</code></div>
+      <p>Prompt also supports custom templating with the following values replaced</p>
+      <table class="ui celled sortable basic table segment">
+        <tbody>
+          <tr>
+            <td class="four wide"><b>{name}</b></td>
+            <td>The current text of a field's label, or if no label available its placeholder text</td>
+          </tr>
+          <tr>
+            <td class="four wide"><b>{identifier}</b></td>
+            <td>The identifier used to match the field</td>
+          </tr>
+          <tr>
+            <td class="four wide"><b>{value}</b></td>
+            <td>The current field value</td>
+          </tr>
+          <tr>
+            <td class="four wide"><b>{ruleValue}</b></td>
+            <td>The value passed to a rule, for example <code>minLength[100]</code> would set this value to 100</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="ignored code">
+      $('.ui.form')
+        .form({
+          fields: {
+            field1: {
+              rules: [
+                {
+                  type   : 'empty'
+                }
+              ]
+            },
+            field2: {
+              rules: [
+                {
+                  type   : 'exactly[dog]',
+                  prompt : '{name} is set to "{value}" that is totally wrong. It should be {ruleValue}'
+                }
+              ]
+            }
+          }
+        })
+      ;
+      </div>
+      <form class="ui form segment">
+        <div class="two fields">
+          <div class="field">
+            <label>Field 1</label>
+            <input type="text" name="field1">
+          </div>
+          <div class="field">
+            <label>Field 2</label>
+            <input type="text" name="field2">
+          </div>
+        </div>
+        <div class="ui primary submit button">Submit</div>
+        <div class="ui error message">
+        </div>
+      </form>
+    </div>
+
+    <div class="matching example">
+      <h4 class="ui header">Matching Fields</h4>
+      <p>By default the property name used in the validation object will match against the <code>id</code>, <code>name</code>, or <code>data-validate</code> property of each input to find the corresponding field to match validation rules against.</p>
+      <p>If you need to specify a different identifier you can use the <code>identifier</code> property on each validation rule</p>
+      <div class="ignored code">
+      $('.ui.form')
+        .form({
+          fields: {
+            name: {
+              identifier : 'special-name',
+              rules: [
+                {
+                  type   : 'empty'
+                }
+              ]
+            }
+          }
+        })
+      ;
+      </div>
+      <form class="ui form segment">
+        <div class="field">
+          <label>Special Field</label>
+          <input type="text" name="special-name">
+        </div>
+        <div class="ui primary submit button">Submit</div>
+        <div class="ui error message">
+        </div>
+      </form>
+    </div>
+
+    <div class="prompt example">
+      <h4 class="ui header">
+        Validating Programmatically
+        <div class="ui teal label">Updated in 2.2.8</div>
+      </h4>
+      <p>Form validation provides additional behaviors to programmatically trigger validation for either the form or an individual field, and check validation on the form or individual fields.</p>
+      <p>Please see the <a href="#behaviors">behaviors section</a> for an explanation on syntax.</p>
+      <table class="ui celled sortable basic table segment">
+        <tbody>
+          <tr>
+            <td class="four wide"><b>validate form</b></td>
+            <td>Validates entire form and displays errors if necessary</td>
+          </tr>
+          <tr>
+            <td class="four wide"><b>is valid</b></td>
+            <td>Returns whether a form is valid</td>
+          </tr>
+          <tr>
+            <td class="four wide"><b>is valid(fieldName)</b></td>
+            <td>Returns whether a field in a form is valid (does not update UI)</td>
+          </tr>
+          <tr>
+            <td class="four wide"><b>validate field(fieldName)</b></td>
+            <td>Validates a particular field and displays errors if necessary</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="ignored code">
+      $('.ui.form')
+        .form({
+          fields: [
+           email: 'empty',
+           name: 'empty'
+          ]
+        })
+      ;
+      if( $('.ui.form').form('is valid', 'email')) {
+        // email is valid
+      }
+      if( $('.ui.form').form('is valid') {
+        // form is valid (both email and name)
+      }
+      </div>
+    </div>
+
+    <h2 class="ui dividing header">Rules</h2>
+
+    <div class="no example">
+      <h4 class="ui header">
+        Validation Rules
+      </h4>
+        <p>Validation rules are a set of conditions required to validate a field</p>
+      <div class="ui info message">Validation rules are found in <code>$.fn.form.settings.rules</code>, to add new global validation rules, modify <code>$.fn.form.settings.rules</code> to include your function.</div>
+      <div class="in red message">To pass parameters to a rule, use bracket notation in your settings object. For example <code>type: 'not[dog]'</code></div>
+
+      <h3 class="ui header"><a href="#empty">Empty</a></h3>
+      <table class="ui celled sortable basic table segment">
+        <tbody>
+          <tr>
+            <td class="four wide">empty</td>
+            <td class="twelve wide">A field is empty</td>
+          </tr>
+          <tr>
+            <td>checked</td>
+            <td>A checkbox field is checked</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="ui header"><a href="#content-type">Content Type</h3>
+      <table class="ui celled sortable basic table segment">
+        <tbody>
+          <tr>
+            <td class="four wide">email</td>
+            <td>A field is a valid email address</td>
+            <td class="six wide"></td>
+          </tr>
+          <tr>
+            <td>url</td>
+            <td>A field is a url</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>integer</td>
+            <td>A field is an integer value, or matches an integer range</td>
+            <td><code>integer</code> or <code>integer[1..10]</code></td>
+          </tr>
+          <tr>
+            <td>decimal</td>
+            <td>A field must be a decimal number</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>number</td>
+            <td>A field is any number decimal or non-decimal</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>regExp[expression]</td>
+            <td>Matches against a regular expression, when using bracketed notation RegExp values must be escaped.</td>
+            <td>
+              <code>regExp[/^[a-z0-9_-]{3,16}$/gi]]</code>
+              <div class="ui horizontal divider">Or</div>
+              <code>regExp[/^[a-z0-9_-]{3,16}$/]]</code>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="ui header"><a href="#payment">Payment</a></h3>
+      <table class="ui celled sortable basic table segment">
+        <tbody>
+          <tr>
+            <td class="four wide">creditCard</td>
+            <td class="six wide">A field is a valid credit card</td>
+            <td><code>creditCard</code></td>
+          </tr>
+          <tr>
+            <td>creditCard[types]</td>
+            <td>A field matches a specified array of card types</td>
+            <td><code>creditCard[visa,mastercard,unionpay]</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="ui header"><a href="#specified-content">Specified Content</a></h3>
+      <table class="ui celled sortable basic table segment">
+        <tbody>
+          <tr>
+            <td class="four wide">contains</td>
+            <td>A field contains text (case insensitive)</td>
+            <td class="six wide"><code>contains[foo]</code></td>
+          </tr>
+          <tr>
+            <td>containsExactly</td>
+            <td>A field contains text (case sensitive)</td>
+            <td><code>containsExactly[foo]</code></td>
+          </tr>
+          <tr>
+            <td>doesntContain</td>
+            <td>A field doesn't contain text (case insensitive)</td>
+            <td><code>doesntContain[foo]</code></td>
+          </tr>
+          <tr>
+            <td>doesntContainExactly</td>
+            <td>A field doesn't text (case sensitive)</td>
+            <td><code>doesntContainExactly[foo]</code></td>
+          </tr>
+          <tr>
+            <td>is</td>
+            <td>A field is a value (case insensitive)</td>
+            <td><code>is[foo]</code></td>
+          </tr>
+          <tr>
+            <td>isExactly</td>
+            <td>A field is a value (case-sensitive)</td>
+            <td><code>isExactly[foo]</code></td>
+          </tr>
+          <tr>
+            <td>not</td>
+            <td>A field is not a value (case insensitive)</td>
+            <td><code>not[foo]</code></td>
+          </tr>
+          <tr>
+            <td>notExactly</td>
+            <td>A field is not a value (case sensitive)</td>
+            <td><code>notExactly[foo]</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="ui header"><a href="#length">Length</a></h3>
+      <table class="ui celled sortable basic table segment">
+        <tbody>
+          <tr>
+            <td class="four wide">minLength</td>
+            <td>A field is less than a min length</td>
+            <td class="six wide"><code>minLength[5]</code></td>
+          </tr>
+          <tr>
+            <td>exactLength</td>
+            <td>A field is exactly length</td>
+            <td><code>exactLength[16]</code></td>
+          </tr>
+          <tr>
+            <td>maxLength</td>
+            <td>A field is less than a max length</td>
+            <td><code>maxLength[50]</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="ui header"><a href="#matching-fields">Matching Fields</a></h3>
+      <table class="ui celled sortable basic table segment">
+        <tbody>
+          <tr>
+            <td class="four wide">match</td>
+            <td class="six wide">A field should match the value of another validation field, for example to confirm passwords</td>
+            <td><code>match[password]</code></td>
+          </tr>
+          <tr>
+            <td>different</td>
+            <td>A field should be different than another specified field</td>
+            <td><code>different[choice]</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="ui header"><a href="#selection-count">Selection Count</a></h3>
+      <table class="ui celled sortable basic table segment">
+        <tbody>
+          <tr>
+            <td class="four wide">minCount</td>
+            <td>A multiple select field contains at minimum (count) selections</td>
+            <td class="six wide"><code>minCount[count]</code></td>
+          </tr>
+          <tr>
+            <td>exactCount</td>
+            <td>A multiple select field contains exactly (count) selections</td>
+            <td><code>exactCount[count]</code></td>
+          </tr>
+          <tr>
+            <td>maxCount</td>
+            <td>A multiple select field contains at maximum (count) selections</td>
+            <td><code>maxCount[count]</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="custom rule example">
+      <h4 class="ui header">Adding Custom Rules</h4>
+      <p>You can extend form validation to include your own rules. Keep in mind these will need to be executed synchronously.</p>
+      <div class="ignore code">
+      // some arbitrary business-logic
+      window.user = {
+        name       : 'Simon',
+        adminLevel : 1
+      };
+      // custom form validation rule
+      $.fn.form.settings.rules.adminLevel = function(value, adminLevel) {
+        return (window.user.adminLevel >= adminLevel)
+      };
+      $('.ui.form')
+        .form({
+          fields: {
+            dog: {
+              identifier: 'dog',
+              rules: [
+                {
+                  type: 'adminLevel[2]',
+                  prompt: 'You must be at least a level-2 admin to add a dog'
+                }
+              ]
+            }
+          }
+        })
+      ;
+      </div>
+      <form class="ui form segment">
+        <p>Let's go ahead and get you signed up.</p>
+        <div class="field">
+          <label>Dog</label>
+          <input placeholder="Dog" name="dog" type="text">
+        </div>
+        <div class="ui primary submit button">
+          <i class="add icon"></i>
+          Add Dog
+        </div>
+        <div class="ui error message"></div>
+      </form>
+    </div>
+
+    <div class="inline example">
+      <h4 class="ui header">Built-in Events</h4>
+      <p>
+        Form will automatically attach events to specially labeled form fields
+      </p>
+      <ul class="ui list">
+        <li>Fields will blur on <code>escape</code> key press</li>
+        <li>Fields will submit form on <code>enter</code></li>
+        <li>Submit events will be attached to <code>click</code> on any element inside the form with class  <code>submit</code></li>
+        <li>Reset events will be attached to <code>click</code> on any element inside the form with class <code>reset</code></li>
+        <li>Clear events will be attached to <code>click</code> on any element inside the form with class <code>clear</code></li>
+      </ul>
+      <form class="ui form segment">
+        <div class="field">
+          <label>Test Field</label>
+          <input placeholder="Test Field" name="name" type="text">
+        </div>
+        <div class="ui primary submit button">Submit</div>
+        <div class="ui reset button">Reset</div>
+        <div class="ui clear button">Clear</div>
+      </form>
+    </div>
+
+    <h2 class="ui dividing header">Manipulating Forms</h2>
+
+    <div class="inline example">
+      <h4 class="ui header">Reset / Clear Fields</h4>
+      <p>
+        Calling <code>$('form').form('reset')</code>, or clicking any reset element will return all form values to their <em>default value</em>. This is the value the form fields were set to when the page loaded.
+      </p>
+      <p>Calling <code>$('form').form('clear')</code> will remove all values from form fields and reset dropdowns to placeholder text</p>
+      <div class="ui ignored warning message">
+        Form <code>reset</code> works by caching default values on page load. For this to work correctly any form that uses reset will need to initialize on page load.
+      </div>
+      <div class="ui ignored info message">
+        Reset and clear will modify all form fields, not just those which have validation rules
+      </div>
+      <form class="ui form segment">
+        <div class="two fields">
+          <div class="field">
+            <label>Name</label>
+            <input placeholder="First Name" name="name" type="text">
+          </div>
+          <div class="field">
+            <label>Gender</label>
+            <div class="ui selection dropdown">
+              <input name="gender" type="hidden">
+              <div class="default text">Gender</div>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item" data-value="male">Male</div>
+                <div class="item" data-value="female">Female</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Username</label>
+          <input placeholder="Username" name="username" type="text">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input name="password" type="password">
+        </div>
+        <div class="inline field">
+          <div class="ui checkbox">
+            <input name="terms" type="checkbox">
+            <label>I agree to the terms and conditions</label>
+          </div>
+        </div>
+        <div class="ui primary submit button">Submit</div>
+        <div class="ui reset button">Reset</div>
+        <div class="ui clear button">Clear</div>
+      </form>
+    </div>
+
+    <div class="writing no example">
+      <h4 class="ui header">Writing Values</h4>
+      <p>
+        Form includes behaviors for reading from and writing to form fields.
+      </p>
+      <div class="code" data-demo="true">
+      $('.writing.example form')
+        // set one value
+        .form('set value', 'name', 'Jack')
+
+        // set several values
+        .form('set values', {
+          name     : 'Jack',
+          gender   : 'male',
+          colors   : ['red', 'grey'],
+          username : 'jlukic',
+          password : 'youdliketoknow',
+          terms    : true
+        })
+      ;
+      </div>
+      <form class="ui form segment">
+        <div class="two fields">
+          <div class="field">
+            <label>Name</label>
+            <input placeholder="First Name" name="name" type="text">
+          </div>
+          <div class="field">
+            <label>Gender</label>
+            <div class="ui selection dropdown">
+              <input name="gender" type="hidden">
+              <div class="default text">Gender</div>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item" data-value="male">Male</div>
+                <div class="item" data-value="female">Female</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Username</label>
+          <input placeholder="Username" name="username" type="text">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input name="password" type="password">
+        </div>
+        <div class="inline fields">
+          <label for="colors">Favorite Colors</label>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="colors[]" value="red" />
+              <label>Red</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="colors[]" value="blue" />
+              <label>Blue</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="colors[]" value="green" />
+              <label>Green</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="colors[]" value="grey" />
+              <label>Grey</label>
+            </div>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui checkbox">
+            <input name="terms" type="checkbox">
+            <label>I agree to the terms and conditions</label>
+          </div>
+        </div>
+        <div class="ui primary submit button">Submit</div>
+        <div class="ui clear button">Clear</div>
+      </form>
+    </div>
+
+    <div class="get no example">
+      <h4 class="ui header">Getting Values</h4>
+      <p>
+        You can also read values from form fields using <code>get value</code> and <code>get values</code>
+      </p>
+      <div class="ui ignored info message">
+        Although <code>get values</code> allows you to use any matching identifier, returned values will always use the corresponding <code>name</code> attribute of the element.
+      </div>
+      <div class="code" data-demo="true">
+      var
+        $form = $('.get.example form'),
+        // get one value
+        colors = $form.form('get value', 'colors'),
+        // get list of values
+        fields = $form.form('get values', ['name', 'colors']),
+        // get all values
+        allFields = $form.form('get values')
+      ;
+      console.log(colors);
+      console.log(fields);
+      console.log(allFields);
+      </div>
+      <form class="ui form segment">
+        <div class="two fields">
+          <div class="field">
+            <label>Name</label>
+            <input placeholder="First Name" name="name" type="text">
+          </div>
+          <div class="field">
+            <label>Gender</label>
+            <div class="ui selection dropdown">
+              <input name="gender" type="hidden">
+              <div class="default text">Gender</div>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item" data-value="male">Male</div>
+                <div class="item" data-value="female">Female</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Username</label>
+          <input placeholder="Username" name="username" type="text">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input name="password" type="password">
+        </div>
+        <div class="inline fields">
+          <label for="colors">Favorite Colors</label>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="colors[]" value="red" />
+              <label>Red</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="colors[]" value="blue" />
+              <label>Blue</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="colors[]" value="green" />
+              <label>Green</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="colors[]" value="grey" />
+              <label>Grey</label>
+            </div>
+          </div>
+        </div>
+        <div class="inline field">
+          <div class="ui checkbox">
+            <input name="terms" type="checkbox">
+            <label>I agree to the terms and conditions</label>
+          </div>
+        </div>
+        <div class="ui primary submit button">Submit</div>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="ui tab" data-tab="examples">
+
+    <h2 class="ui dividing header">Rule Examples</h2>
+
+    <div class="field example">
+      <h4 class="ui header">Empty</h4>
+      <p>The following shows examples of validating different types of empty or unchecked content.</p>
+      <form class="ui form">
+        <div class="field">
+          <label>Empty</label>
+          <input name="empty" type="text">
+        </div>
+        <div class="field">
+          <label>Dropdown</label>
+          <select class="ui dropdown" name="dropdown">
+            <option value="">Select</option>
+            <option value="male">Choice 1</option>
+            <option value="female">Choice 2</option>
+          </select>
+        </div>
+        <div class="inline field">
+          <div class="ui checkbox">
+            <input type="checkbox" name="checkbox" />
+            <label>Checkbox</label>
+          </div>
+        </div>
+        <div class="ui submit button">Submit</div>
+        <div class="ui error message"></div>
+      </form>
+      <div class="evaluated code">
+        $('.field.example form')
+          .form({
+            on: 'blur',
+            fields: {
+              empty: {
+                identifier  : 'empty',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please enter a value'
+                  }
+                ]
+              },
+              dropdown: {
+                identifier  : 'dropdown',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please select a dropdown value'
+                  }
+                ]
+              },
+              checkbox: {
+                identifier  : 'checkbox',
+                rules: [
+                  {
+                    type   : 'checked',
+                    prompt : 'Please check the checkbox'
+                  }
+                ]
+              }
+            }
+          })
+        ;
+      </div>
+    </div>
+
+    <div class="type example">
+      <h4 class="ui header">Content Type</h4>
+      <p>Inputs can match against common content types, or your own custom <a href="http://www.regular-expressions.info/" target="_blank">regular expressions</a>.</p>
+      <form class="ui form">
+        <div class="two fields">
+          <div class="field">
+            <label>Integer</label>
+            <input name="integer" type="text" value="101">
+          </div>
+          <div class="field">
+            <label>E-mail</label>
+            <input name="email" type="text" value="jack">
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>Decimal</label>
+            <input name="decimal" type="text" value="1.1.1">
+          </div>
+          <div class="field">
+            <label>Number</label>
+            <input name="number" type="text" value="+200">
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>URL</label>
+            <input name="url" type="text" value="ww.fakeurl.com">
+          </div>
+          <div class="field">
+            <label>RegEx</label>
+            <input name="regex" type="text" value="joe">
+          </div>
+        </div>
+        <div class="ui submit button">Submit</div>
+        <div class="ui error message"></div>
+      </form>
+      <div class="evaluated code">
+        $('.type.example form')
+          .form({
+            on: 'blur',
+            fields: {
+              integer: {
+                identifier  : 'integer',
+                rules: [
+                  {
+                    type   : 'integer[1..100]',
+                    prompt : 'Please enter an integer value'
+                  }
+                ]
+              },
+              decimal: {
+                identifier  : 'decimal',
+                rules: [
+                  {
+                    type   : 'decimal',
+                    prompt : 'Please enter a valid decimal'
+                  }
+                ]
+              },
+              number: {
+                identifier  : 'number',
+                rules: [
+                  {
+                    type   : 'number',
+                    prompt : 'Please enter a valid number'
+                  }
+                ]
+              },
+              email: {
+                identifier  : 'email',
+                rules: [
+                  {
+                    type   : 'email',
+                    prompt : 'Please enter a valid e-mail'
+                  }
+                ]
+              },
+              url: {
+                identifier  : 'url',
+                rules: [
+                  {
+                    type   : 'url',
+                    prompt : 'Please enter a url'
+                  }
+                ]
+              },
+              regex: {
+                identifier  : 'regex',
+                rules: [
+                  {
+                    type   : 'regExp[/^[a-z0-9_-]{4,16}$/]',
+                    prompt : 'Please enter a 4-16 letter username'
+                  }
+                ]
+              }
+            }
+          })
+        ;
+      </div>
+    </div>
+    <div class="payment example">
+      <h4 class="ui header">Payment</h4>
+      <p>Inputs can validate credit cards and other payment types.</p>
+
+      <table class="ui very basic collapsing celled table">
+        <tbody>
+          <tr>
+            <td class="four wide">Card Name</td>
+            <td class="six wide">Validation Name</td>
+            <td class="six wide">Test Card Number</td>
+          </tr>
+          <tr>
+            <td>Visa</td>
+            <td><code>visa</code></td>
+            <td>4565340519181845</td>
+          </tr>
+          <tr>
+            <td>American Express</td>
+            <td><code>amex</code></td>
+            <td>378282246310005</td>
+          </tr>
+          <tr>
+            <td>Mastercard</td>
+            <td><code>mastercard</code></td>
+            <td>5200828282828210</td>
+          </tr>
+          <tr>
+            <td>Discover</td>
+            <td><code>discover</code></td>
+            <td>6011111111111117</td>
+          </tr>
+          <tr>
+            <td>Unionpay</td>
+            <td><code>unionpay</code></td>
+            <td>6240008631401148</td>
+          </tr>
+          <tr>
+            <td>JCB</td>
+            <td><code>jcb</code></td>
+            <td>3530111333300000</td>
+          </tr>
+          <tr>
+            <td>Diner's Club</td>
+            <td><code>dinersClub</code></td>
+            <td>38520000023237</td>
+          </tr>
+          <tr>
+            <td>Maestro</td>
+            <td><code>maestro</code></td>
+            <td>6799990100000000019</td>
+          </tr>
+          <tr>
+            <td>Laser</td>
+            <td><code>laser</code></td>
+            <td>630490017740292441</td>
+          </tr>
+          <tr>
+            <td>Visa Electron</td>
+            <td><code>visaElectron</code></td>
+            <td>4917300800000000</td>
+          </tr>
+        </tbody>
+      </table>
+      <form class="ui form segment">
+        <div class="two fields">
+          <div class="field">
+            <label>Credit Card</label>
+            <input name="card" type="text" value="4444444444444444">
+          </div>
+          <div class="field">
+            <label>Certain Type</label>
+            <input name="exact-card" type="text" value="4444444444444444">
+          </div>
+        </div>
+        <div class="ui submit button">Submit</div>
+        <div class="ui error message"></div>
+      </form>
+      <div class="evaluated code">
+        $('.payment.example form')
+          .form({
+            on: 'blur',
+            fields: {
+              card: {
+                identifier  : 'card',
+                rules: [
+                  {
+                    type   : 'creditCard',
+                    prompt : 'Please enter a valid credit card'
+                  }
+                ]
+              },
+              exactCard: {
+                identifier  : 'exact-card',
+                rules: [
+                  {
+                    type   : 'creditCard[visa,amex]',
+                    prompt : 'Please enter a visa or amex card'
+                  }
+                ]
+              }
+            }
+          })
+        ;
+      </div>
+    </div>
+    <div class="match example">
+      <h4 class="ui header">Matching Fields</h4>
+      <p>Fields can be required to match, or not match other fields. You may consider using this with <a href="#optional-fields">optional fields</a>.</p>
+      <form class="ui form">
+        <div class="two fields">
+          <div class="field">
+            <label>Match 1</label>
+            <input name="match1" type="text" value="same">
+          </div>
+          <div class="field">
+            <label>Match 2</label>
+            <input name="match2" type="text" value="different">
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>Different 1</label>
+            <input name="different1" type="text" value="same">
+          </div>
+          <div class="field">
+            <label>Different 2</label>
+            <input name="different2" type="text" value="same">
+          </div>
+        </div>
+        <div class="ui submit button">Submit</div>
+        <div class="ui error message"></div>
+      </form>
+      <div class="evaluated code">
+        $('.match.example form')
+          .form({
+            on: 'blur',
+            fields: {
+              match: {
+                identifier  : 'match2',
+                rules: [
+                  {
+                    type   : 'match[match1]',
+                    prompt : 'Please put the same value in both fields'
+                  }
+                ]
+              },
+              different: {
+                identifier  : 'different2',
+                rules: [
+                  {
+                    type   : 'different[different1]',
+                    prompt : 'Please put different values for each field'
+                  }
+                ]
+              }
+            }
+          })
+        ;
+      </div>
+    </div>
+
+    <div class="length example">
+      <h4 class="ui header">Length</h4>
+      <p>Inputs can match against length of content</p>
+      <form class="ui form">
+        <div class="field">
+          <label>minLength</label>
+          <textarea name="minLength" cols="5"></textarea>
+        </div>
+        <div class="field">
+          <label>Exact Length</label>
+          <input name="exactLength" type="text" value="12345">
+        </div>
+        <div class="field">
+          <label>maxLength</label>
+          <textarea name="maxLength" cols="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla metus leo, scelerisque quis pretium non, ultricies in dolor. Vivamus pulvinar odio at nisl egestas tempor. Quisque nec diam gravida, convallis massa et, aliquam purus. Nunc eget aliquet leo. Morbi sodales mi placerat volutpat rhoncus. Pellentesque sed leo eu risus rutrum suscipit ut dapibus est. Curabitur lacus diam, viverra mollis purus ut, facilisis consectetur dui. Etiam molestie suscipit ligula, vitae lacinia mi tempor ac. Pellentesque accumsan porttitor nisi. Sed ac metus ac arcu feugiat posuere. Curabitur eget pharetra felis. Donec consectetur felis sed iaculis vulputate. Sed mollis ultrices consequat.</textarea>
+        </div>
+        <div class="ui submit button">Submit</div>
+        <div class="ui error message"></div>
+      </form>
+      <div class="evaluated code">
+        $('.length.example form')
+          .form({
+            on: 'blur',
+            fields: {
+              minLength: {
+                identifier  : 'minLength',
+                rules: [
+                  {
+                    type   : 'minLength[100]',
+                    prompt : 'Please enter at least 100 characters'
+                  }
+                ]
+              },
+              exactLength: {
+                identifier  : 'exactLength',
+                rules: [
+                  {
+                    type   : 'exactLength[6]',
+                    prompt : 'Please enter exactly 6 characters'
+                  }
+                ]
+              },
+              maxLength: {
+                identifier  : 'maxLength',
+                rules: [
+                  {
+                    type   : 'maxLength[100]',
+                    prompt : 'Please enter at most 100 characters'
+                  }
+                ]
+              },
+            }
+          })
+        ;
+      </div>
+    </div>
+
+
+    <div class="content example">
+      <h4 class="ui header">Specified Content</h4>
+      <p>Validation rules can specify content that should or should not appear inside an input</p>
+      <form class="ui form">
+        <div class="two fields">
+          <div class="field">
+            <label>is</label>
+            <input name="is" type="text" value="dogs">
+          </div>
+          <div class="field">
+            <label>isExactly</label>
+            <input name="isExactly" type="text" value="Dog">
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>not</label>
+            <input name="not" type="text" value="Dog">
+          </div>
+          <div class="field">
+            <label>notExactly</label>
+            <input name="notExactly" type="text" value="dog">
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>contains</label>
+            <input name="contains" type="text" value="poodle">
+          </div>
+          <div class="field">
+            <label>containsExactly</label>
+            <input name="containsExactly" type="text" value="Dogbert">
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>doesntContain</label>
+            <input name="doesntContain" type="text" value="Dogtown">
+          </div>
+          <div class="field">
+            <label>doesntContainExactly</label>
+            <input name="doesntContainExactly" type="text" value="dognapper">
+          </div>
+        </div>
+        <div class="ui submit button">Submit</div>
+        <div class="ui error message"></div>
+      </form>
+      <div class="evaluated code">
+        $('.content.example form')
+          .form({
+            on: 'blur',
+            fields: {
+              is: {
+                identifier  : 'is',
+                rules: [
+                  {
+                    type   : 'is[dog]',
+                    prompt : 'Please enter exactly "dog"'
+                  }
+                ]
+              },
+              isExactly: {
+                identifier  : 'isExactly',
+                rules: [
+                  {
+                    type   : 'isExactly[dog]',
+                    prompt : 'Please enter exactly "dog"'
+                  }
+                ]
+              },
+              not: {
+                identifier  : 'not',
+                rules: [
+                  {
+                    type   : 'not[dog]',
+                    prompt : 'Please enter a value, but not "dog"'
+                  }
+                ]
+              },
+              notExactly: {
+                identifier  : 'notExactly',
+                rules: [
+                  {
+                    type   : 'notExactly[dog]',
+                    prompt : 'Please enter a value, but not exactly "dog"'
+                  }
+                ]
+              },
+              contains: {
+                identifier  : 'contains',
+                rules: [
+                  {
+                    type   : 'contains[dog]',
+                    prompt : 'Please enter a value containing "dog"'
+                  }
+                ]
+              },
+              containsExactly: {
+                identifier  : 'containsExactly',
+                rules: [
+                  {
+                    type   : 'containsExactly[dog]',
+                    prompt : 'Please enter a value containing exactly "dog"'
+                  }
+                ]
+              },
+              doesntContain: {
+                identifier  : 'doesntContain',
+                rules: [
+                  {
+                    type   : 'doesntContain[dog]',
+                    prompt : 'Please enter a value not containing "dog"'
+                  }
+                ]
+              },
+              doesntContainExactly: {
+                identifier  : 'doesntContainExactly',
+                rules: [
+                  {
+                    type   : 'doesntContainExactly[dog]',
+                    prompt : 'Please enter a value not containing exactly "dog"'
+                  }
+                ]
+              }
+            }
+          })
+        ;
+      </div>
+    </div>
+
+    <div class="multi example">
+      <h4 class="ui header">Selection Count</h4>
+      <p>Multiple selects can specify how many options should be allowed.</p>
+      <form class="ui form">
+        <div class="three fields">
+          <div class="field">
+            <label>Exact Count</label>
+            <select name="exactCount" multiple class="ui dropdown">
+              <option value="">Select Values</option>
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Minimum Count</label>
+            <select name="minCount" multiple class="ui dropdown">
+              <option value="">Select Values</option>
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Maximum Count</label>
+            <select name="maxCount" multiple class="ui dropdown">
+              <option value="">Select Values</option>
+              <option value="1" selected>1</option>
+              <option value="2" selected>2</option>
+              <option value="3" selected>3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+        </div>
+        <div class="ui submit button">Submit</div>
+        <div class="ui error message"></div>
+      </form>
+      <div class="evaluated code">
+        $('.multi.example form')
+          .form({
+            on: 'blur',
+            fields: {
+              minCount: {
+                identifier  : 'minCount',
+                rules: [
+                  {
+                    type   : 'minCount[2]',
+                    prompt : 'Please select at least 2 values'
+                  }
+                ]
+              },
+              maxCount: {
+                identifier  : 'maxCount',
+                rules: [
+                  {
+                    type   : 'maxCount[2]',
+                    prompt : 'Please select a max of 2 values'
+                  }
+                ]
+              },
+              exactCount: {
+                identifier  : 'exactCount',
+                rules: [
+                  {
+                    type   : 'exactCount[2]',
+                    prompt : 'Please select 2 values'
+                  }
+                ]
+              }
+            }
+          })
+      </div>
+    </div>
+
+    <h2 class="ui dividing header">Form Examples</h2>
+
+    <div class="add example">
+      <h4 class="ui header">
+        Adding Rules Programmatically <div class="ui teal label">New in 2.2.11</div>
+      </h4>
+      <p>You can use the special behaviors <code>add field/rule</code>, <code>remove rule</code> and <code>remove field</code> to dynamically add or remove fields or rules. </p>
+      <div class="ui ignored info message">
+        <div class="ui header">Adding Multiple Rules and Complex Rules</div>
+        You can specify shorthand or full rule objects when adding rules. You can also specifiy fields as an array to modify multiple fields.</code>.
+      </div>
+      <div class="code">
+      // lets only validate username to start
+      $('.add.example .ui.form')
+        .form({
+          username: ['empty', 'minLength[5]']
+        })
+      ;
+      </div>
+      <div class="evaluated code">
+      // lets toggle some validation based on button
+      $('.add.example .ui.positive.button')
+        .on('click', function() {
+          $('.add.example .ui.form')
+            // adding longform
+            .form('add rule', 'gender', {
+              rules: [
+                {
+                  type   : 'empty',
+                  prompt : 'Entering your gender is necessary'
+                }
+              ]
+            })
+            // adding shorthand
+            .form('add rule', 'password', ['empty', 'minLength[5]'])
+          ;
+        })
+      ;
+      </div>
+      <div class="evaluated code">
+      $('.add.example .ui.negative.button')
+        .on('click', function() {
+          $('.add.example .ui.form')
+            // removing multiple at once
+            .form('remove fields', ['gender', 'password'])
+          ;
+        })
+      ;
+      </div>
+      <div class="ui positive button">Add Additional Validation</div>
+      <div class="ui negative button">Remove Additional Validation</div>
+      <form class="ui form segment">
+        <div class="two fields">
+          <div class="field">
+            <label>Username</label>
+            <input type="text" name="username">
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" name="password">
+          </div>
+        </div>
+        <div class="two fields">
+          <div class="field">
+            <label>Gender</label>
+            <div class="ui fluid selection dropdown">
+              <input type="hidden" name="gender">
+              <div class="default text">Gender</div>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item" data-value="1">Male</div>
+                <div class="item" data-value="0">Female</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui primary submit button">Submit</div>
+        <div class="ui clear button">Clear</div>
+        <div class="ui error message"></div>
+      </form>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Validating Dropdowns</h4>
+      <p><a href="/modules/dropdown.html">Dropdowns</a> can also be validated like other form fields. Simply match the validation rule to the <code>input</code> or <code>select</code> associated with the dropdown</p>
+      <div class="ignored code">
+      $('.ui.dropdown')
+        .dropdown()
+      ;
+      $('.ui.form')
+        .form({
+          fields: {
+            gender: 'empty',
+            name: 'empty'
+          }
+        })
+      ;
+      </div>
+      <form class="ui form segment">
+        <div class="two fields">
+          <div class="field">
+            <label>Name</label>
+            <input type="text" name="name">
+          </div>
+          <div class="field">
+            <label>Gender</label>
+            <div class="ui fluid selection dropdown">
+              <input type="hidden" name="gender">
+              <div class="default text">Gender</div>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item" data-value="1">Male</div>
+                <div class="item" data-value="0">Female</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui primary submit button">Submit</div>
+      </form>
+    </div>
+    <div class="data example">
+      <h4 class="ui header">Using Server Name Attributes</h4>
+      <p>Sometimes an integration requires you to use a specific value for <code>name</code>, or <code>id</code>. In these cases, you can match a form field using the <code>data-validate</code> property.</p>
+      <div class="ignored code">
+      $('.ui.form')
+        .form(
+          fields: {
+            name: 'empty'
+          }
+        })
+      ;
+      </div>
+      <form class="ui form segment">
+        <div class="field">
+          <label>Name</label>
+          <input type="text" name="SERVER_REQUIRED_NAME" data-validate="name">
+        </div>
+        <div class="ui primary submit button">Submit</div>
+      </form>
+    </div>
+
+    <div class="depends example">
+      <h4 class="ui header">
+        Dependent Fields
+        <div class="ui teal horizontal label">New in 2.2</div>
+      </h4>
+      <p>You can specify validation fields to only be used when other fields are present. Simply add <code>depends: 'id'</code> with the ID of the field that must be non-blank for this rule to evaluate.</p>
+      <div class="ignored code">
+      $('.ui.form')
+        .form({
+          fields: {
+            yearsPracticed: {
+              identifier : 'yearsPracticed',
+              depends    : 'isDoctor',
+              rules      : [
+                {
+                  type   : 'empty',
+                  prompt : 'Please enter the number of years you have been a doctor'
+                }
+              ]
+            }
+          }
+        })
+      ;
+      </div>
+      <form class="ui form segment">
+        <div class="inline field">
+          <div class="ui checkbox">
+            <input type="checkbox" name="isDoctor" />
+            <label>Are you a doctor?</label>
+          </div>
+        </div>
+        <div class="field">
+          <label>How long have you been a medical professional</label>
+          <input type="text" name="yearsPracticed">
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui primary submit button">Submit</div>
+        <div class="ui error message"></div>
+      </form>
+    </div>
+
+    <div class="optional example">
+      <h4 class="ui header">Optional Fields</h4>
+      <p>Adding the parameter <code>optional: true</code> will only add your validation rules when the field is <b>not empty</b>.
+      <div class="ignored code">
+      $('.ui.form')
+        .form(
+          fields: {
+            email: {
+              identifier : 'email',
+              rules: [
+                {
+                  type   : 'email',
+                  prompt : 'Please enter a valid e-mail'
+                }
+              ]
+            },
+            ccEmail: {
+              identifier : 'cc-email',
+              optional   : true,
+              rules: [
+                {
+                  type   : 'email',
+                  prompt : 'Please enter a valid second e-mail'
+                }
+              ]
+            }
+          }
+        })
+      ;
+      </div>
+      <form class="ui form segment">
+        <p>Your tickets are all ready to print. Where would you like to send a receipt?</p>
+        <div class="fields">
+          <div class="ten wide field">
+            <label>E-mail</label>
+            <input type="text" name="email">
+          </div>
+          <div class="six wide field">
+            <label>Additional E-mail</label>
+            <input type="text" name="cc-email">
+          </div>
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui primary submit button">Submit</div>
+        <div class="ui error message"></div>
+      </form>
+    </div>
+
+    <div class="optional example">
+      <h4 class="ui header">Setting Site Defaults</h4>
+      <p>You can specify site wide validation settings by modifying <code>$.fn.form.settings.defaults</code> that will apply on any form validation if the field appears in the form</b>.
+      <div class="code">
+      $.fn.form.settings.defaults = {
+        email: {
+          identifier : 'email',
+          rules: [
+            {
+              type   : 'email',
+              prompt : 'Please enter a valid e-mail'
+            }
+          ]
+        },
+        // this form doesn't have a cc email but it will not produce an error
+        ccEmail: {
+          identifier : 'cc-email',
+          optional   : true,
+          rules: [
+            {
+              type   : 'email',
+              prompt : 'Please enter a valid second e-mail'
+            }
+          ]
+        },
+      };
+      </div>
+      <form class="ui form segment">
+        <p>Your tickets are all ready to print. Where would you like to send a receipt?</p>
+        <div class="ten wide field">
+          <label>E-mail</label>
+          <input type="text" name="email">
+        </div>
+        <div class="ui primary submit button">Submit</div>
+        <div class="ui error message"></div>
+      </form>
+    </div>
+
+
+    <div class="example">
+      <h4 class="ui header">Displaying Error Messages</h4>
+      <p>Forms that contain a <a href="/collections/message.html">ui message</a> error block will automatically be filled in with form validation information.</p>
+      <div class="ui ignored info message">The template for error messages can be modified by adjusting settings.template.error</div>
+
+      <form class="ui form segment">
+        <p>Let's go ahead and get you signed up.</p>
+        <div class="two fields">
+          <div class="field">
+            <label>First Name</label>
+            <input placeholder="First Name" name="first-name" type="text">
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            <input placeholder="Last Name" name="last-name" type="text">
+          </div>
+        </div>
+        <div class="field">
+          <label>Username</label>
+          <input placeholder="Username" name="username" type="text">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" name="password">
+        </div>
+        <div class="inline field">
+          <div class="ui checkbox">
+            <input type="checkbox" name="terms" />
+            <label>I agree to the Terms and Conditions</label>
+          </div>
+        </div>
+        <div class="ui primary submit button">Submit</div>
+        <div class="ui error message"></div>
+      </form>
+    </div>
+
+    <div class="inline example">
+      <h4 class="ui header">Validating on Blur and other Events</h4>
+      <p>Validation messages can also appear inline. UI Forms automatically format <a href="/elements/label.html">labels</a> with the class name <code>prompt</code>. These validation prompts are also set to appear on input change instead of form submission.</p>
+      <div class="ui ignored warning message">This example also uses a different validation event. Each element will be validated on input blur instead of the default form submit.</div>
+      <div class="code" data-type="javascript">
+        $('.ui.form')
+          .form({
+            fields : validationRules,
+            inline : true,
+            on     : 'blur'
+          })
+        ;
+      </div>
+      <form class="ui form segment">
+        <p>Let's go ahead and get you signed up.</p>
+        <div class="two fields">
+          <div class="field">
+            <label>First Name</label>
+            <input placeholder="First Name" name="first-name" type="text">
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            <input placeholder="Last Name" name="last-name" type="text">
+          </div>
+        </div>
+        <div class="field">
+          <label>Username</label>
+          <input placeholder="Username" name="username" type="text">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" name="password">
+        </div>
+        <div class="inline field">
+          <div class="ui checkbox">
+            <input type="checkbox" name="terms" />
+            <label>I agree to the Terms and Conditions</label>
+          </div>
+        </div>
+        <div class="ui primary submit button">Submit</div>
+      </form>
+    </div>
+
+    <div class="dog example">
+      <h4 class="ui header">Creating Custom Validation</h4>
+      <p>You can use multiple arbitrary rules to validate a form</p>
+      <div class="ignore code">
+      $('.ui.form')
+        .form({
+          fields: {
+            dog: {
+              identifier: 'dog',
+              rules: [
+                {
+                  type: 'empty',
+                  prompt: 'You must have a dog to add'
+                },
+                {
+                  type: 'contains[fluffy]',
+                  prompt: 'I only want you to add fluffy dogs!'
+                },
+                {
+                  type: 'not[mean]',
+                  prompt: 'Why would you add a mean dog to the list?'
+                }
+              ]
+            }
+          }
+        })
+      ;
+      </div>
+      <form class="ui form segment">
+        <p>Let's go ahead and get you signed up.</p>
+        <div class="field">
+          <label>Dog</label>
+          <input placeholder="Dog" name="dog" type="text">
+        </div>
+        <div class="ui primary submit button">
+          <i class="add icon"></i>
+          Add Dog
+        </div>
+        <div class="ui error message"></div>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="ui tab" data-tab="settings">
+    <h2 class="ui dividing header">Behaviors</h2>
+
+    All the following behaviors can be called using the syntax
+
+    <div class="code" data-type="javascript">
+      $('.foo').form('behavior name', argumentOne, argumentTwo)
+    </div>
+
+    <table class="ui definition celled table">
+      <tr>
+        <td>submit</td>
+        <td>Submits selected form</td>
+      </tr>
+      <tr>
+        <td>is valid</td>
+        <td>Returns true/false whether a form passes its validation rules</td>
+      </tr>
+      <tr>
+        <td>add rule(field, rules)<div class="ui label">New in 2.2.11</div></td>
+        <td>Adds rule to existing rules for field, also aliased as <code>add field</code></td>
+      </tr>
+      <tr>
+        <td>add fields(fields) <div class="ui label">New in 2.2.11</div></td>
+        <td>Adds fields object to existing fields</td>
+      </tr>
+      <tr>
+        <td>remove rule(field, rules)<div class="ui label">New in 2.2.11</div></td>
+        <td>Removes specific rule from field leaving other rules</td>
+      </tr>
+      <tr>
+        <td>remove field(field)<div class="ui label">New in 2.2.11</div></td>
+        <td>Remove all validation for a field</td>
+      </tr>
+      <tr>
+        <td>add prompt(identifier, errors)</td>
+        <td>Adds error prompt to the field with the given identifier</td>
+      </tr>
+      <tr>
+        <td>is valid(fieldName)</td>
+        <td>Returns true/false whether a field passes its validation rules</td>
+      </tr>
+      <tr>
+        <td>validate form</td>
+        <td>Validates form, updates UI, and calls onSuccess or onFailure</td>
+      </tr>
+      <tr>
+        <td>validate field(fieldName)</td>
+        <td>Validates field, updates UI, and calls onSuccess or onFailure</td>
+      </tr>
+      <tr>
+        <td>get field(id)</td>
+        <td>Returns element with matching name, id, or data-validate metadata to ID</td>
+      </tr>
+      <tr>
+        <td>get value(id)</td>
+        <td>Returns value of element with id</td>
+      </tr>
+      <tr>
+        <td>get values(ids)</td>
+        <td>Returns object of element values that match array of ids. If no IDS are passed will return all fields</td>
+      </tr>
+      <tr>
+        <td>set value(id)</td>
+        <td>Sets value of element with id</td>
+      </tr>
+      <tr>
+        <td>set values(values)</td>
+        <td>Sets key/value pairs from passed values object to matching ids</td>
+      </tr>
+      <tr>
+        <td>get validation(element)</td>
+        <td>Returns validation rules for a given jQuery-referenced input field</td>
+      </tr>
+      <tr>
+        <td>has field(identifier)</td>
+        <td>Returns whether a field exists</td>
+      </tr>
+      <tr>
+        <td>add errors(errors)</td>
+        <td>Adds errors to form, given an array errors</td>
+      </tr>
+    </table>
+
+    <h2 class="ui dividing header">Settings</h2>
+
+    <div class="no example">
+      <h4 class="ui header">
+        Form Settings
+      </h4>
+      <p>Form settings modify the form validation behavior</p>
+
+      <table class="ui celled sortable definition table">
+        <thead>
+          <th>Setting</th>
+          <th class="six wide">Default</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>keyboardShortcuts</td>
+            <td>true</td>
+            <td>Adds keyboard shortcuts for enter and escape keys to submit form and blur fields respectively</td>
+          </tr>
+          <tr>
+            <td>on</td>
+            <td>submit</td>
+            <td>Event used to trigger validation. Can be either <b>submit</b>, <b>blur</b> or <b>change</b>.</td>
+          </tr>
+          <tr>
+            <td>revalidate</td>
+            <td>true</td>
+            <td>If set to true will revalidate fields with errors on input change</td>
+          </tr>
+          <tr>
+            <td>delay</td>
+            <td>true</td>
+            <td>Delay from last typed letter to validate a field when using <code>on: change</code> or when revalidating a field.</td>
+          </tr>
+          <tr>
+            <td>inline</td>
+            <td>false</td>
+            <td>Adds inline error on field validation error</td>
+          </tr>
+          <tr>
+            <td>transition</td>
+            <td>
+              scale
+            </td>
+            <td>Named transition to use when animating validation errors. Fade and slide down are available without including <a href="/modules/transition.html">ui transitions</a></td>
+          </tr>
+          <tr>
+            <td>duration</td>
+            <td>150</td>
+            <td>Animation speed for inline prompt</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="no example">
+      <h4 class="ui header">
+        Form Prompts
+      </h4>
+      <p>Settings to modify default form prompts</p>
+
+      <table class="ui celled sortable definition table">
+        <thead>
+          <th class="collapsing">Setting</th>
+          <th>Default</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>text</td>
+            <td>
+              <div class="code">
+              text: {
+                unspecifiedRule  : 'Please enter a valid value',
+                unspecifiedField : 'This field'
+              }
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>prompt</td>
+            <td>
+              <div class="code">
+              prompt: {
+                empty                : '{name} must have a value',
+                checked              : '{name} must be checked',
+                email                : '{name} must be a valid e-mail',
+                url                  : '{name} must be a valid url',
+                regExp               : '{name} is not formatted correctly',
+                integer              : '{name} must be an integer',
+                decimal              : '{name} must be a decimal number',
+                number               : '{name} must be set to a number',
+                is                   : '{name} must be \'{ruleValue}\'',
+                isExactly            : '{name} must be exactly \'{ruleValue}\'',
+                not                  : '{name} cannot be set to \'{ruleValue}\'',
+                notExactly           : '{name} cannot be set to exactly \'{ruleValue}\'',
+                contain              : '{name} cannot contain \'{ruleValue}\'',
+                containExactly       : '{name} cannot contain exactly \'{ruleValue}\'',
+                doesntContain        : '{name} must contain  \'{ruleValue}\'',
+                doesntContainExactly : '{name} must contain exactly \'{ruleValue}\'',
+                minLength            : '{name} must be at least {ruleValue} characters',
+                length               : '{name} must be at least {ruleValue} characters',
+                exactLength          : '{name} must be exactly {ruleValue} characters',
+                maxLength            : '{name} cannot be longer than {ruleValue} characters',
+                match                : '{name} must match {ruleValue} field',
+                different            : '{name} must have a different value than {ruleValue} field',
+                creditCard           : '{name} must be a valid credit card number',
+                minCount             : '{name} must have at least {ruleValue} choices',
+                exactCount           : '{name} must have exactly {ruleValue} choices',
+                maxCount             : '{name} must have {ruleValue} or less choices'
+              }
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="no example">
+      <h4 class="ui header">
+        Callbacks
+      </h4>
+      <p>Callbacks specify a function to occur after a specific behavior.</p>
+
+      <table class="ui celled sortable definition table">
+        <thead>
+          <th class="four wide">Setting</th>
+          <th>Context</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>onValid</td>
+            <td>field</td>
+            <td>Callback on each valid field</td>
+          </tr>
+          <tr>
+            <td>onInvalid</td>
+            <td>field</td>
+            <td>Callback on each invalid field</td>
+          </tr>
+          <tr>
+            <td>onSuccess(event, fields)</td>
+            <td>form</td>
+            <td>Callback if a form is all valid</td>
+          </tr>
+          <tr>
+            <td>onFailure(formErrors, fields)</td>
+            <td>form</td>
+            <td>Callback if any form field is invalid</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="no example">
+      <h4 class="ui header">
+        Templates
+      </h4>
+      <p>Templates are used to construct elements</p>
+      <div class="ui ignored info message">Templates are found in <code>settings.template</code>, to modify templates across all forms, modify <code>$.fn.form.settings.templates</code> to include your function. They must return HTML.</div>
+      <table class="ui celled sortable definition table">
+        <thead>
+          <th class="four wide">Template</th>
+          <th>Arguments</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>error</td>
+            <td>Errors (Array)</td>
+            <td>Constructs the contents of an error message</td>
+          </tr>
+          <tr>
+            <td>prompt</td>
+            <td>Errors (Array)</td>
+            <td>Constructs an element to prompt the user to an invalid field</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="no example">
+      <h4 class="ui header">
+        DOM Settings
+      </h4>
+      <p>DOM settings specify how this module should interface with the DOM</p>
+      <table class="ui celled sortable definition table">
+        <thead>
+          <th>Setting</th>
+          <th class="six wide">Default</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>namespace</td>
+            <td>form</td>
+            <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+          </tr>
+          <tr>
+            <td>selector</td>
+            <td>
+              <div class="code">
+        selector : {
+          message   : '.error.message',
+          field     : 'input, textarea, select',
+          group     : '.field',
+          input     : 'input',
+          prompt    : '.prompt',
+          submit    : '.submit'
+        }
+              </div>
+            </td>
+            <td>Selectors used to match functionality to DOM</td>
+          </tr>
+          <tr>
+            <td>metadata</td>
+            <td>
+              <div class="code">
+
+        metadata : {
+          validate: 'validate'
+        },
+              </div>
+            </td>
+            <td>
+            HTML5 metadata attributes
+            </td>
+          </tr>
+          <tr>
+            <td>className</td>
+            <td>
+              <div class="code">
+        className : {
+          active      : 'active',
+          placeholder : 'default',
+          disabled    : 'disabled',
+          visible     : 'visible'
+        }
+              </div>
+            </td>
+            <td>Class names used to attach style to state</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="no example">
+      <h4 class="ui header">
+        Debug Settings
+      </h4>
+      <p>Debug settings controls debug output to the console</p>
+
+      <table class="ui celled sortable definition table">
+        <thead>
+          <th>Setting</th>
+          <th class="four wide">Default</th>
+          <th>Description</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>name</td>
+            <td>Form</td>
+            <td>Name used in debug logs</td>
+          </tr>
+          <tr>
+            <td>debug</td>
+            <td>True</td>
+            <td>Provides standard debug output to console</td>
+          </tr>
+          <tr>
+            <td>performance</td>
+            <td>True</td>
+            <td>Provides standard debug output to console</td>
+          </tr>
+          <tr>
+            <td>verbose</td>
+            <td>True</td>
+            <td>Provides ancillary debug output to console</td>
+          </tr>
+          <tr>
+            <td>errors</td>
+            <td colspan="2">
+              <div class="code">
+        errors   : {
+          method   : 'The method you called is not defined.'
+        }
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

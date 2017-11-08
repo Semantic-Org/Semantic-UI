@@ -1,0 +1,872 @@
+---
+layout      : 'default'
+css         : 'checkbox'
+element     : 'checkbox'
+elementType : 'module'
+standalone  : true
+
+title       : 'Checkbox'
+description : "A checkbox allows a user to select a value from a small set of options, often binary"
+type        : 'UI Module'
+
+themes      : ['Default', 'Colored']
+---
+<script src="/javascript/checkbox.js"></script>
+<link rel="stylesheet/less" type="text/css" href="/src/definitions/modules/checkbox.less" />
+
+<%- @partial('header', { tabs: 'module' }) %>
+
+<div class="main ui container">
+
+  <div class="ui tab" data-tab="definition">
+
+
+    <h2 class="ui dividing header">Types</h2>
+
+    <div class="example">
+      <h4 class="ui header">Checkbox</h4>
+      <p>A standard checkbox</p>
+      <div class="ui checkbox">
+        <input type="checkbox" name="example" />
+        <label>Make my profile visible</label>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Radio</h4>
+      <p>A checkbox can be formatted as a radio element. This means it is an exclusive option.</p>
+
+      <div class="ui radio checkbox">
+        <input type="radio" name="radio" checked="checked" />
+        <label>Radio choice</label>
+      </div>
+    </div>
+    <div class="another example">
+      <div class="ui form">
+        <div class="inline fields">
+          <label>How often do you use checkboxes?</label>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="frequency" checked="checked" />
+              <label>Once a week</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="frequency" />
+              <label>2-3 times a week</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="frequency" />
+              <label>Once a day</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="frequency" />
+              <label>Twice a day</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="another example">
+      <div class="ui form">
+        <div class="grouped fields">
+          <label>How often do you use checkboxes?</label>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="example2" checked="checked" />
+              <label>Once a week</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="example2" />
+              <label>2-3 times a week</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="example2" />
+              <label>Once a day</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui radio checkbox">
+              <input type="radio" name="example2" />
+              <label>Twice a day</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Slider</h4>
+      <p>A checkbox can be formatted to emphasize the current selection state</p>
+      <div class="ui slider checkbox">
+        <input type="checkbox" name="newsletter" />
+        <label>Accept terms and conditions</label>
+      </div>
+    </div>
+
+    <div class="another example">
+      <div class="ui form">
+        <div class="grouped fields">
+          <label>Outbound Throughput</label>
+          <div class="field">
+            <div class="ui slider checkbox">
+              <input type="radio" name="throughput" checked="checked">
+              <label>20 mbps max</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui slider checkbox">
+              <input type="radio" name="throughput">
+              <label>10mbps max</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui slider checkbox">
+              <input type="radio" name="throughput">
+              <label>5mbps max</label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui slider checkbox checked">
+              <input type="radio" name="throughput">
+              <label>Unmetered</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Toggle</h4>
+      <p>A checkbox can be formatted to show an on or off choice</p>
+      <div class="ui toggle checkbox">
+        <input type="checkbox" name="public" />
+        <label>Subscribe to weekly newsletter</label>
+      </div>
+    </div>
+
+    <h2 class="ui dividing header">States</h2>
+
+    <div class="example">
+      <h4 class="ui header">Read-only</h4>
+      <p>A checkbox can be read-only and unable to change states</p>
+      <div class="ui read-only checkbox">
+        <input type="checkbox" />
+        <label>Read Only</label>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Checked</h4>
+      <p>A checkbox can be checked</p>
+      <div class="ui checked checkbox">
+        <input type="checkbox" checked />
+        <label>Active</label>
+      </div>
+    </div>
+
+    <div class="indeterminate example">
+      <h4 class="ui header">Indeterminate</h4>
+      <p>A checkbox can be indeterminate</p>
+      <div class="ui ignored info message">
+        An indeterminate state can only be set in Javascript, see examples section
+      </div>
+      <div class="ui checkbox">
+        <input type="checkbox" />
+        <label>Indeterminate</label>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Disabled</h4>
+      <p>A checkbox can be read-only and unable to change states</p>
+      <div class="ui ignored info message">
+        A checkbox can be disabled by either setting the disabled attribute on the hidden input, or class <code>disabled</code> on the <code>ui checkbox</code>
+      </div>
+      <div class="ui disabled checkbox">
+        <input type="checkbox" disabled="disabled" />
+        <label>Disabled</label>
+      </div>
+      <br>
+      <br>
+      <div class="ui toggle checkbox">
+        <input type="checkbox" disabled="disabled" />
+        <label>Disabled</label>
+      </div>
+    </div>
+
+    <h2 class="ui dividing header">Variations</h2>
+
+    <div class="fitted example">
+      <h4 class="ui header">Fitted</h4>
+      <p>A fitted checkbox does not leave padding for a label</p>
+      <div class="ui left floated compact segment">
+        <div class="ui fitted checkbox">
+          <input type="checkbox"/>
+          <label></label>
+        </div>
+      </div>
+      <div class="ui left floated compact segment">
+        <div class="ui fitted slider checkbox">
+          <input type="checkbox"/>
+          <label></label>
+        </div>
+      </div>
+      <div class="ui left floated compact segment">
+        <div class="ui fitted toggle checkbox">
+          <input type="checkbox"/>
+          <label></label>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="ui examples tab" data-tab="examples">
+
+    <h2>Examples</h2>
+    <div class="callback example">
+      <h4 class="ui header">Using Callbacks</h4>
+      <p>Checkbox has two versions of each state change behavior to let you determine whether the call should trigger checkbox callbacks.</p>
+      <p>Calling a behavior like <code>check</code> will trigger an elements callbacks, however using <code>set checked</code> will adjust the checkbox state <em>without triggering callbacks</em></p>
+      <p>This differentiation is important to differentiate between programmatic changes, and user-invoked changes to state.</p>
+      <div class="ui equal width stretched grid">
+        <div class="column">
+          <div class="ui segment">
+            <div class="ui top right attached label">
+              Example
+            </div>
+            <div class="ui checkbox">
+              <input type="checkbox" />
+              <label>Checkbox</label>
+            </div>
+            <div class="ui divider"></div>
+            <div class="ui radio checkbox">
+              <input type="radio" />
+              <label>Radio</label>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui console segment">
+            <div class="ui top right attached label">
+              Console
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui vertical buttons">
+            <div class="ui button" data-method="toggle">Toggle</div>
+            <div class="ui button" data-method="check">Check</div>
+            <div class="ui button" data-method="uncheck">Uncheck</div>
+            <div class="ui button" data-method="indeterminate">Indeterminate</div>
+            <div class="ui button" data-method="determinate">Determinate</div>
+            <div class="ui button" data-method="enable">Enable</div>
+            <div class="ui button" data-method="disable">Disable</div>
+          </div>
+          <div class="ui divider"></div>
+          <div class="ui vertical buttons">
+            <div class="ui button" data-method="set checked">Set Checked</div>
+            <div class="ui button" data-method="set unchecked">Set Unchecked</div>
+            <div class="ui button" data-method="set indeterminate">Set Indeterminate</div>
+            <div class="ui button" data-method="set determinate">Set Determinate</div>
+            <div class="ui button" data-method="set enabled">Set Enabled</div>
+            <div class="ui button" data-method="set disabled">Set Disabled</div>
+          </div>
+        </div>
+      </div>
+      <div class="evaluated code">
+        var
+          $console = $('.callback .console')
+        ;
+        $('.callback.example .checkbox')
+          .checkbox()
+          .first().checkbox({
+            onChecked: function() {
+              $console.append('onChecked called<br>');
+            },
+            onUnchecked: function() {
+              $console.append('onUnchecked called<br>');
+            },
+            onEnable: function() {
+              $console.append('onEnable called<br>');
+            },
+            onDisable: function() {
+              $console.append('onDisable called<br>');
+            },
+            onDeterminate: function() {
+              $console.append('onDeterminate called<br>');
+            },
+            onIndeterminate: function() {
+              $console.append('onIndeterminate called<br>');
+            },
+            onChange: function() {
+              $console.append('onChange called<br>');
+            }
+          })
+        ;
+        // bind events to buttons
+        $('.callback.example .button')
+          .on('click', function() {
+            $('.callback .checkbox').checkbox( $(this).data('method') );
+          })
+        ;
+      </div>
+    </div>
+    <div class="grouped example">
+      <h4 class="ui header">Grouped Checkboxes</h4>
+      <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/%3Aindeterminate" target="_blank"><code>indeterminate</code></a> state can be used to represent a value that is neither checked or unchecked.</p>
+      <p>This can be useful with groups where a "master" checkbox, should display the selections of several other checkboxes</p>
+
+      <div class="ui celled relaxed list">
+        <div class="item">
+          <div class="ui master checkbox">
+            <input type="checkbox" name="fruits" />
+            <label>Fruits</label>
+          </div>
+          <div class="list">
+            <div class="item">
+              <div class="ui child checkbox">
+                <input type="checkbox" name="apple" />
+                <label>Apple</label>
+              </div>
+            </div>
+            <div class="item">
+              <div class="ui child checkbox">
+                <input type="checkbox" name="orange" />
+                <label>Orange</label>
+              </div>
+            </div>
+            <div class="item">
+              <div class="ui child checkbox">
+                <input type="checkbox" name="pear" />
+                <label>Pear</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="ui master checkbox">
+            <input type="checkbox" name="vegetables" />
+            <label>Vegetables</label>
+          </div>
+          <div class="list">
+            <div class="item">
+              <div class="ui child checkbox">
+                <input type="checkbox" name="lettuce" />
+                <label>Lettuce</label>
+              </div>
+            </div>
+            <div class="item">
+              <div class="ui child checkbox">
+                <input type="checkbox" name="carrot" />
+                <label>Carrot</label>
+              </div>
+            </div>
+            <div class="item">
+              <div class="ui child checkbox">
+                <input type="checkbox" name="spinach" />
+                <label>Spinach</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="evaluated code" data-title="Master Checkboxes">
+        $('.list .master.checkbox')
+          .checkbox({
+            // check all children
+            onChecked: function() {
+              var
+                $childCheckbox  = $(this).closest('.checkbox').siblings('.list').find('.checkbox')
+              ;
+              $childCheckbox.checkbox('check');
+            },
+            // uncheck all children
+            onUnchecked: function() {
+              var
+                $childCheckbox  = $(this).closest('.checkbox').siblings('.list').find('.checkbox')
+              ;
+              $childCheckbox.checkbox('uncheck');
+            }
+          })
+        ;
+      </div>
+      <div class="evaluated code" data-title="Child Checkboxes">
+        $('.list .child.checkbox')
+          .checkbox({
+            // Fire on load to set parent value
+            fireOnInit : true,
+            // Change parent state on each child checkbox change
+            onChange   : function() {
+              var
+                $listGroup      = $(this).closest('.list'),
+                $parentCheckbox = $listGroup.closest('.item').children('.checkbox'),
+                $checkbox       = $listGroup.find('.checkbox'),
+                allChecked      = true,
+                allUnchecked    = true
+              ;
+              // check to see if all other siblings are checked or unchecked
+              $checkbox.each(function() {
+                if( $(this).checkbox('is checked') ) {
+                  allUnchecked = false;
+                }
+                else {
+                  allChecked = false;
+                }
+              });
+              // set parent checkbox state, but dont trigger its onChange callback
+              if(allChecked) {
+                $parentCheckbox.checkbox('set checked');
+              }
+              else if(allUnchecked) {
+                $parentCheckbox.checkbox('set unchecked');
+              }
+              else {
+                $parentCheckbox.checkbox('set indeterminate');
+              }
+            }
+          })
+        ;
+      </div>
+    </div>
+
+
+    <div class="cancel example">
+      <h4 class="ui header">Checking Conditions</h4>
+      <p><a href="/modules/checkbox.html">Checkboxes</a> include four new callbacks <code>beforeChecked</code>, <code>beforeUnchecked</code>, <code>beforeDeterminate</code>, and <code>beforeIndeterminate</code>, returning <code>false</code> from these callbacks will cancel the action from occuring before the input value is updated.</p>
+      <div class="ui checkbox">
+        <input type="checkbox" name="example" />
+        <label>Maybe this will work</label>
+      </div>
+      <div class="evaluated code" data-type="javascript">
+        $('.cancel.example .ui.checkbox')
+          .checkbox({
+            beforeChecked: function() {
+              var
+                luckyPerson = (Math.random() < 0.5)
+              ;
+              return luckyPerson;
+            }
+          })
+        ;
+      </div>
+    </div>
+
+    <div class="state example">
+      <h4 class="ui header">One-Way Choices</h4>
+      <p class="ignored">To make a user able to check a box, but unable to uncheck it, use the <code>uncheckable</code> setting.</p>
+      <p class="ignored">To always disable a checkbox, add the property <code>disabled</code> to your input.</p>
+      <p class="ignored">To make a checkbox read-only do not initialize it, or include the <code>read-only</code> class which will not allow events.</p>
+      <div class="evaluated code" data-type="javascript">
+        $('.state.example .checkbox')
+          .last()
+          .checkbox({
+            uncheckable: false
+          })
+        ;
+      </div>
+      <div class="ui form">
+        <div class="field">
+          <div class="ui checkbox" id="demo1">
+            <input type="checkbox" disabled="disabled" checked="checked" />
+            <label>Disabled</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui read-only checkbox" id="demo2">
+            <input type="checkbox" checked="checked" />
+            <label>Read-only</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui checkbox" id="demo3">
+            <input type="checkbox" />
+            <label>Uncheckable</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Attaching Events to other Elements</h4>
+      <p>Checkbox can use the <code>attach events</code> behavior to attach events easily to other activating elements. This defaults to toggling, but other behaviors can be used as well.</p>
+      <div class="evaluated code">
+        $('.test.checkbox').checkbox('attach events', '.toggle.button');
+        $('.test.checkbox').checkbox('attach events', '.check.button', 'check');
+        $('.test.checkbox').checkbox('attach events', '.uncheck.button', 'uncheck');
+      </div>
+      <div class="ui toggle button">Toggle</div>
+      <div class="ui positive check button">Check</div>
+      <div class="ui negative uncheck button">Uncheck</div>
+      <div class="ui six column center aligned stackable divided grid segment">
+        <div class="column">
+          <div class="ui test slider checkbox">
+            <input type="checkbox" />
+            <label>1</label>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui test toggle checkbox">
+            <input type="checkbox" checked="checked" />
+            <label>2</label>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui test checkbox">
+            <input type="checkbox" />
+            <label>3</label>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui test slider checkbox">
+            <input type="checkbox" checked="checked" />
+            <label>4</label>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui test toggle checkbox">
+            <input type="checkbox" />
+            <label>5</label>
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui test checkbox">
+            <input type="checkbox" />
+            <label>6</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui tab" data-tab="usage">
+    <h2 class="ui dividing header">Initializing</h2>
+
+    <div class="simple example">
+      <h4 class="ui header">Checkbox</h4>
+      <p>A checkbox does not require Javascript to function.</p>
+      <div class="ui checkbox">
+        <input type="checkbox">
+        <label>Label</label>
+      </div>
+      <div class="code" data-type="html">
+        <div class="ui checkbox">
+          <input type="checkbox">
+          <label>Label</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Full Featured Checkboxes</h4>
+      <p>Using Javascript with checkboxes will automatically make the checkbox's label trigger a change in the input and provide callback functions. Additionally, some states like <code>indeterminate</code> can only be triggered with Javascript.</p>
+      <div class="ui checkbox">
+        <input type="checkbox">
+        <label>Label</label>
+      </div>
+      <div class="code" data-type="html">
+        <div class="ui checkbox">
+          <input type="checkbox">
+          <label>Label</label>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="simple example">
+      <h4 class="ui header">Linked Labels</h4>
+      <p>If you just need labels to link without any other features of Javascript checkboxes, you can match the <code>for</code> attribute of the label to an input's id.</p>
+      <div class="ui checkbox">
+        <input id="example-id" type="checkbox">
+        <label for="example-id">Label</label>
+      </div>
+      <div class="code" data-type="html">
+        <div class="ui checkbox">
+          <input id="example-id" type="checkbox">
+          <label for="example-id">Label</label>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="ui dividing header">Behavior</h2
+      >
+    <p>Behaviors are accessible with Javascript using the syntax:<p>
+    <div class="code">
+    $('.ui.checkbox').checkbox(<i>behavior</i>, argumentOne, argumentTwo...);
+    </div>
+
+    <table class="ui definition celled table segment">
+      <tr>
+        <td>toggle</td>
+        <td>Switches a checkbox from current state</td>
+      </tr>
+      <tr>
+        <td>check</td>
+        <td>Set a checkbox state to checked</td>
+      </tr>
+      <tr>
+        <td>uncheck</td>
+        <td>Set a checkbox state to unchecked</td>
+      </tr>
+      <tr>
+        <td>indeterminate</td>
+        <td>Set as indeterminate checkbox</td>
+      </tr>
+      <tr>
+        <td>determinate</td>
+        <td>Set as determinate checkbox</td>
+      </tr>
+      <tr>
+        <td>enable</td>
+        <td>Enable interaction with a checkbox</td>
+      </tr>
+      <tr>
+        <td>set checked</td>
+        <td>Set a checkbox state to checked without callbacks</td>
+      </tr>
+      <tr>
+        <td>set unchecked</td>
+        <td>Set a checkbox state to unchecked without callbacks</td>
+      </tr>
+      <tr>
+        <td>set indeterminate</td>
+        <td>Set as indeterminate checkbox without callbacks</td>
+      </tr>
+      <tr>
+        <td>set determinate</td>
+        <td>Set as determinate checkbox without callbacks</td>
+      </tr>
+      <tr>
+        <td>set enabled</td>
+        <td>Enable interaction with a checkbox without callbacks</td>
+      </tr>
+      <tr>
+        <td>set disabled</td>
+        <td>Disable interaction with a checkbox without callbacks</td>
+      </tr>
+      <tr>
+        <td>attach events(selector, behavior)</td>
+        <td>Attach checkbox events to another element</td>
+      </tr>
+      <tr>
+        <td>is radio</td>
+        <td>Returns whether element is radio selection</td>
+      </tr>
+      <tr>
+        <td>is checked</td>
+        <td>Returns whether element is currently checked</td>
+      </tr>
+      <tr>
+        <td>is unchecked</td>
+        <td>Returns whether element is not checked</td>
+      </tr>
+      <tr>
+        <td>can change</td>
+        <td>Returns whether element is able to be changed</td>
+      </tr>
+      <tr>
+        <td>should allow check</td>
+        <td>Returns whether element can be checked (checking if already checked or `beforeChecked` would cancel)</td>
+      </tr>
+      <tr>
+        <td>should allow uncheck</td>
+        <td>Returns whether element can be unchecked (checking if already unchecked or `beforeUnchecked` would cancel)</td>
+      </tr>
+      <tr>
+        <td>should allow determinate</td>
+        <td>Returns whether element can be determinate (checking if already determinate or `beforeDeterminate` would cancel)</td>
+      </tr>
+      <tr>
+        <td>should allow indeterminate</td>
+        <td>Returns whether element can be indeterminate (checking if already indeterminate or `beforeIndeterminate` would cancel)</td>
+      </tr>
+      <tr>
+        <td>can uncheck</td>
+        <td>Returns whether element is able to be unchecked</td>
+      </tr>
+    </table>
+  </div>
+
+
+  <div class="ui tab" data-tab="settings">
+    <h2 class="ui dividing header">Checkbox</h2>
+
+    <p>These settings are specific to checkbox, and determine the parameters of its behavior</p>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <th class="three wide"></th>
+        <th class="three wide">Default</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>uncheckable</td>
+          <td>auto</td>
+          <td>Setting to true/false will determine whether an input will allow no selection. Auto will set disallow this behavior only for radio boxes</td>
+        </tr>
+        <tr>
+          <td>fireOnInit</td>
+          <td>false</td>
+          <td>Whether callbacks for checked status should be fired on init as well as change</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <th class="three wide"></th>
+        <th class="three wide">Context</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>onChange</td>
+          <td>HTML input element</td>
+          <td>Callback after a checkbox is either checked or unchecked.</td>
+        </tr>
+        <tr>
+          <td>onChecked</td>
+          <td>HTML input element</td>
+          <td>Callback after a checkbox is checked.</td>
+        </tr>
+        <tr>
+          <td>onIndeterminate</td>
+          <td>HTML input element</td>
+          <td>Callback after a checkbox is set to undeterminate.</td>
+        </tr>
+        <tr>
+          <td>onDeterminate</td>
+          <td>HTML input element</td>
+          <td>Callback after a checkbox is set to determinate.</td>
+        </tr>
+        <tr>
+          <td>onUnchecked</td>
+          <td>HTML input element</td>
+          <td>Callback after a checkbox is unchecked.</td>
+        </tr>
+        <tr>
+          <td>beforeChecked</td>
+          <td>HTML input element</td>
+          <td>Callback before a checkbox is checked. Can cancel change by returning <code>false</code></td>
+        </tr>
+        <tr>
+          <td>beforeIndeterminate</td>
+          <td>HTML input element</td>
+          <td>Callback before a checkbox is set to undeterminate. Can cancel change by returning <code>false</code></td>
+        </tr>
+        <tr>
+          <td>beforeDeterminate</td>
+          <td>HTML input element</td>
+          <td>Callback before a checkbox is set to determinate. Can cancel change by returning <code>false</code></td>
+        </tr>
+        <tr>
+          <td>beforeUnchecked</td>
+          <td>HTML input element</td>
+          <td>Callback before a checkbox is unchecked. Can cancel change by returning <code>false</code></td>
+        </tr>
+        <tr>
+          <td>onEnable</td>
+          <td>HTML input element</td>
+          <td>Callback after a checkbox is enabled.</td>
+        </tr>
+        <tr>
+          <td>onDisable</td>
+          <td>HTML input element</td>
+          <td>Callback after a checkbox is disabled.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="ui dividing header">Module</h2>
+
+    <p>These settings are native to all modules, and define how the component ties content to DOM attributes, and debugging settings for the module.</p>
+    <table class="ui sortable celled definition table">
+      <thead>
+        <th></th>
+        <th class="six wide">Default</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>name</td>
+          <td>Checkbox</td>
+          <td>Name used in log statements</td>
+        </tr>
+        <tr>
+          <td>namespace</td>
+          <td>checkbox</td>
+          <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+        </tr>
+        <tr>
+          <td>selector</td>
+          <td>
+            <div class="code" data-type="css">
+            selector : {
+              input  : 'input[type=checkbox], input[type=radio]',
+              label  : 'label'
+            }
+            </div>
+          </td>
+          <td>Selectors used to find parts of a module</td>
+        </tr>
+        <tr>
+          <td>className</td>
+          <td>
+            <div class="code">
+            className   : {
+              checked  : 'checked',
+              disabled : 'disabled',
+              radio    : 'radio',
+              readOnly : 'read-only'
+            }
+            </div>
+          </td>
+          <td>Class names used to determine element state</td>
+        </tr>
+        <tr>
+          <td>silent</td>
+          <td>False</td>
+          <td>Silences all console output including error messages, regardless of other debug settings.</td>
+        </tr>
+        <tr>
+          <td>debug</td>
+          <td>false</td>
+          <td>Debug output to console</td>
+        </tr>
+        <tr>
+          <td>performance</td>
+          <td>true</td>
+          <td>Show <code>console.table</code> output with performance metrics</td>
+        </tr>
+        <tr>
+          <td>verbose</td>
+          <td>false</td>
+          <td>Debug output includes all internal behaviors</td>
+        </tr>
+        <tr>
+          <td>errors</td>
+          <td colspan="2">
+            <div class="code">
+            error   : {
+              method   : 'The method you called is not defined.'
+            }
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

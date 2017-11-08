@@ -1,0 +1,246 @@
+---
+layout      : 'default'
+css         : 'started'
+standalone  : true
+order       : 4
+
+title       : 'Recipes'
+description : 'Additional integration paths for advanced users'
+type        : 'Introduction'
+---
+<%- @partial('header') %>
+
+<div class="main ui intro container">
+
+
+  <h2 class="ui dividing header">Custom Pipelines</h2>
+  <div class="no example">
+    <h4>Importing Gulp Tasks</h4>
+    <p>You don't have to use <a href="/introduction/build-tools.html">our gulp pipeline</a>, just import the task into your own <code>gulpfile</code></p>
+    <p>You can <a href="https://github.com/Semantic-Org/Example-External-Gulpfile" target="_blank">fork this example project</a> to see an example of how to import Semantic UI tasks into your project.</p>
+    <div class="ignored code" data-type="JS" data-title="Custom gulpfile.js">
+    var
+      gulp  = require('gulp'),
+      watch = require('./semantic/tasks/watch'),
+      build = require('./semantic/tasks/build')
+    ;
+    // import task with a custom task name
+    gulp.task('watch ui', watch);
+    gulp.task('build ui', build);
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Semantic.json Settings</h2>
+
+  <div class="no example">
+    <h4>Auto-Install</h4>
+    <p>Running <code>npm install</code> normally will launch an interactive installer, to allow this installer to run without user interaction include a special flag <code>autoInstall: true</code>in your <code>semantic.json</code> file.</p>
+    <div class="ignored code" data-type="JS" data-title="semantic.json">
+     {
+      // install will now automatically build your project files without user interaction
+      "autoInstall": true,
+
+      // these settings may be different
+      "base": "",
+      "paths": {
+        "source": {
+          "config": "src/theme.config",
+          "definitions": "src/definitions/",
+          "site": "src/site/",
+          "themes": "src/themes/"
+        },
+        "output": {
+          "packaged": "dist/",
+          "uncompressed": "dist/components/",
+          "compressed": "dist/components/",
+          "themes": "dist/themes/"
+        },
+        "clean": "dist/"
+      },
+      "permission": false,
+      "rtl": false,
+    }
+    </div>
+  </div>
+
+    <div class="no example">
+      <h4>Right-to-left (RTL) Languages</h4>
+      <p>Including the flag <code>rtl:true</code> will build Semantic UI using <a href="https://github.com/MohammadYounes/rtlcss" target="_blank">RTLCSS</a>.</p>
+      <p>To build both LTR and RTL versions use the flag <code>rtl: 'both'</code></p>
+      <div class="ignored code" data-type="JS" data-title="semantic.json">
+       {
+        // builds both LTR and RTL version
+        "rtl": "both",
+
+        // these settings may be different
+        "base": "",
+        "paths": {
+          "source": {
+            "config": "src/theme.config",
+            "definitions": "src/definitions/",
+            "site": "src/site/",
+            "themes": "src/themes/"
+          },
+          "output": {
+            "packaged": "dist/",
+            "uncompressed": "dist/components/",
+            "compressed": "dist/components/",
+            "themes": "dist/themes/"
+          },
+          "clean": "dist/"
+        },
+        "permission": false,
+      }
+      </div>
+  </div>
+
+  <h2 class="ui dividing header">Prototyping with Semantic UI</h2>
+  <div class="no example">
+    <h4>Sketch Files</h4>
+    <p>If you are looking to prototype layouts using <a href="http://bohemiancoding.com/sketch/" target="_blank">Sketch</a> with Semantic UI check out <a href="https://github.com/guacamoly/semantic-ui-kit-for-sketch" target="_blank">Semantic UI Sketch Files</a></p>
+    <img class="ui bordered rounded fluid image" src="https://github.com/guacamoly/semantic-ui-kit-for-sketch/raw/master/snapshot.jpg?raw=true">
+  </div>
+
+  <h2 class="ui dividing header">Single Components</h2>
+
+  <div class="no example">
+    <h4>CDN Releases</h4>
+    <p>Individual components are available on <a href="https://www.jsdelivr.com/projects/semantic-ui">jsDelivr</a></p>
+    <div class="code">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/<%= @getVersion() %>/semantic.min.css">
+    </div>
+    <div class="code">
+    <script src="https://cdn.jsdelivr.net/semantic-ui/<%= @getVersion() %>/semantic.min.js"></script>
+    </div>
+    <a class="ui button" href="https://www.jsdelivr.com/projects/semantic-ui" target="_blank">View All CDN Files</a>
+  </div>
+
+  <div class="no example">
+    <h4>Tagged Releases</h4>
+    <p>Component repos are released on NPM and as tagged releases on GitHub.</p>
+    <p>Check the list of repos available under <a href="https://github.com/Semantic-Org?utf8=%E2%9C%93&query=ui-">Semantic Org</a> on GitHub</p>
+    <p>Each component's release notes will automatically update with the relevant notes for that component from the main release.</p>
+    <div class="ignored code">
+     npm install semantic-ui-component
+    </div>
+  </div>
+
+  <div class="no example">
+    <h4>Server-Side Rendering</h4>
+    <p>Individual components repos include an <a href="https://github.com/Semantic-Org/Semantic-UI/blob/master/tasks/admin/components/create.js" target="_blank">auto-generated</a> <code>index.js</code> file to simplify <a href="http://www.sitepoint.com/understanding-module-exports-exports-node-js/" target="_blank"><code>require</code></a> use with NodeJS, for server-side rendering or with <a href="http://browserify.org/" target="_blank">Browserify</a>.</p>
+    <div class="ignored code">
+     npm install semantic-ui-dropdown
+    </div>
+    <div class="ignored code">
+      var
+        dropdown = require('semantic-ui-dropdown')
+      ;
+      foo.dropdown();
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Importing LESS</h2>
+
+  <div class="no example">
+    <h4>LESS Only Distribution</h4>
+    <p>A special distribution <a href="https://github.com/Semantic-Org/Semantic-UI-LESS">Semantic-UI-LESS</a> is available for projects that use custom integrations and do not require our build tools.</p>
+    <div class="ui ignored warning message">LESS source files are not prefixed, and will need to be run through <a href="https://github.com/postcss/autoprefixer">autoprefixer</a> before being used</div>
+  </div>
+
+  <div class="no example">
+    <h4>Importing Semantic</h4>
+    <p><code>semantic.less</code> is available in all releases as an entry point for importing multiple components from other LESS files.</p>
+    <div class="ignored code"  data-type="LESS" data-title="Importing LESS">
+      /* Import all components */
+      @import 'src/semantic';
+    </div>
+  </div>
+
+  <div class="no example">
+    <h4>Importing Components</h4>
+    <p>If you need to import individual components, you should scope each import to avoid inheritance issues.</p>
+    <div class="ignored code" data-type="LESS" data-title="Importing LESS Components">
+      /* Import specific components with scope */
+      & { @import 'src/definitions/elements/button'; }
+      & { @import 'src/definitions/elements/list'; }
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Running Docs Locally</h2>
+
+  <div class="no example">
+    <h4>Download Docs Server</h4>
+    <p>The easiest way to get <a href="https://github.com/Semantic-Org/Semantic-UI-Docs/">Semantic UI docs</a> is to clone the repo</p>
+    <div class="code">
+      git clone https://github.com/Semantic-Org/Semantic-UI-Docs.git
+    </div>
+  </div>
+  <div class="no example">
+    <h4>Install Dependencies</h4>
+    <p>Semantic UI's documentation is written in <a href="http://www.docpad.org" target="_blank">Docpad</a> an amazing static site generator built in NodeJS</p>
+    <div class="code">
+      cd docs/
+      npm install
+    </div>
+  </div>
+
+  <div class="no example">
+    <h4>A Note About Paths</h4>
+    <p>Semantic UI's <a href="introduction/build-tools.html">build tools</a> include two special commands <code>build-docs</code> and <code>serve-docs</code> for use with the documentation. These will pass changes from the ui/ folder directly to a live docs server.</p>
+    <p>These gulp tasks expect two sibling folders</p>
+    <div class="ui list">
+      <div class="item">
+        <i class="folder icon"></i>
+        <div class="content">
+          <div class="header">ui/</div>
+          <div class="description">Files from semantic ui repo</div>
+        </div>
+      </div>
+      <div class="item">
+        <i class="folder icon"></i>
+        <div class="content">
+          <div class="header">docs/</div>
+          <div class="description">Files from docs repo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="no example">
+    <h4>Build UI</h4>
+    <p>The first time you run docs you will need to build the whole project once</p>
+    <div class="code">
+      cd ui/
+      gulp build-docs
+    </div>
+  </div>
+  <div class="no example">
+    <h4>Run Docpad Server</h4>
+    <p>Docpad</p>
+    <div class="code">
+      cd docs/
+      # initial build may take several minutes
+      docpad run
+    </div>
+  </div>
+  <div class="no example">
+    <h4>Serve UI to Docs</h4>
+    <p>You can then continue to make modifications to UI and "serve" these files to a live docs instance to see your changes immediately</p>
+    <div class="code">
+      cd ui/
+      gulp serve-docs
+    </div>
+  </div>
+  <div class="no example">
+    <h4>Hosted Docs</h4>
+    <p>If you are managing your documentation you can automatically deploy to GitHub Pages using a built in <a href="https://github.com/docpad/docpad-plugin-ghpages">docpad gh-pages</a> plugin</p>
+    <p>For more information about GitHub Pages, check out the <a href="https://pages.github.com/" target="_blank">docs on GitHub</a></p>
+    <div class="code">
+      docpad deploy-ghpages --env static
+    </div>
+  </div>
+  <div class="no example">
+    <h4>Custom Docs Paths</h4>
+    <p>Doc task paths are specified in a file <a href="https://github.com/Semantic-Org/Semantic-UI/blob/master/tasks/config/docs.js"><code>tasks/config/docs.js</code></a> and can be adjusted to use any folder set-up necessary for your project.</p>
+  </div>
+
+</div>

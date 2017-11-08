@@ -1,0 +1,434 @@
+---
+layout     : 'blank'
+css        : 'hotfix'
+standalone : true
+
+title      : 'Layout Page'
+description: 'This page can be used to help make adjustments to the global docs layout partials'
+type       : 'Library'
+---
+<!-- TEST JS HERE !-->
+<!DOCTYPE html>
+<html>
+<head>
+  <%- @partial('meta') %>
+  <%- @partial('javascript') %>
+  <%- @partial('css') %>
+  <%- @partial('tracking') %>
+  <%- @partial('transifex') %>
+</head>
+<body id="example" class="<%= @document.css %>" ontouchstart="">
+  <% if @document.element is 'sidebar': %>
+  <%- @partial('demo-sidebar') %>
+  <% end %>
+  <%- @partial('sidebar') %>
+  <%- @partial('fixed-menu') %>
+  <div class="pusher">
+    <div class="full height">
+      <div class="toc">
+<% uiGlobals         = @getCollection("documents").findAll({type: $in: ['UI Global']},[{title: 1}]).toJSON() %>
+<% uiElements        = @getCollection("documents").findAll({type: $in: ['UI Element']},[{title: 1}]).toJSON() %>
+<% uiCollections     = @getCollection("documents").findAll({type: $in: ['UI Collection']},[{title: 1}]).toJSON() %>
+<% uiViews           = @getCollection("documents").findAll({type: $in: ['UI View']},[{title: 1}]).toJSON() %>
+<% uiModules         = @getCollection("documents").findAll({type: $in: ['UI Module']},[{title: 1}]).toJSON() %>
+<% uiBehavior        = @getCollection("documents").findAll({type: $in: ['UI Behavior']},[{title: 1}]).toJSON() %>
+
+<div class="ui vertical inverted sticky menu">
+  <a class="item" href="<%= @getZip() %>">
+    <i class="download icon"></i>
+    <b>Getting Started</b>
+  </a>
+  <div class="item">
+    <div class="header">Examples</div>
+    <div class="menu">
+      <a href="/globals/site.html" class="item">
+        Layouts
+      </a>
+      <a href="/kitchen-sink.html" class="item">
+        UI
+      </a>
+    </div>
+  </div>
+  <div class="item">
+    <div class="<%= if @document.elementType is 'global' then 'active ' %> header">Globals</div>
+    <div class="menu">
+      <% for element in uiGlobals: %>
+        <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+          <%= element.title %>
+          <% if element.status?: %>
+          <span class="ui mini empty yellow circular ui label"></span>
+          <% end %>
+        </a>
+      <% end %>
+    </div>
+  </div>
+  <div class="item">
+    <div class="<%= if @document.elementType is 'element' then 'active ' %> header">Elements</div>
+    <div class="menu">
+      <% for element in uiElements: %>
+        <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+          <%= element.title %>
+          <% if element.status?: %>
+          <span class="ui mini empty yellow circular ui label"></span>
+          <% end %>
+        </a>
+      <% end %>
+    </div>
+  </div>
+  <div class="item">
+    <div class="<%= if @document.elementType is 'collection' then 'active ' %> header">Collections</div>
+    <div class="menu">
+      <% for element in uiCollections: %>
+        <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+          <%= element.title %>
+          <% if element.status?: %>
+          <span class="ui mini empty yellow circular ui label"></span>
+          <% end %>
+        </a>
+      <% end %>
+    </div>
+  </div>
+  <div class="item">
+    <div class="<%= if @document.elementType is 'view' then 'active ' %> header">Views</div>
+    <div class="menu">
+      <% for element in uiViews: %>
+        <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+          <%= element.title %>
+          <% if element.status?: %>
+          <span class="ui mini empty yellow circular ui label"></span>
+          <% end %>
+        </a>
+      <% end %>
+    </div>
+  </div>
+  <div class="item">
+    <div class="<%= if @document.elementType is 'module' then 'active ' %> header">Modules</div>
+    <div class="menu">
+      <% for element in uiModules: %>
+        <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+          <%= element.title %>
+          <% if element.status?: %>
+          <span class="ui mini empty yellow circular ui label"></span>
+          <% end %>
+        </a>
+    <% end %>
+    </div>
+  </div>
+  <div class="item">
+    <div class="<%= if @document.elementType is 'behavior' then 'active ' %> header">Behaviors</div>
+    <div class="menu">
+      <% for element in uiBehavior: %>
+        <a class="<%= if element.id is @document.id then 'active ' %>item" href="<%= element.url %>">
+          <%= element.title %>
+          <% if element.status?: %>
+          <span class="ui mini empty yellow circular ui label"></span>
+          <% end %>
+        </a>
+      <% end %>
+    </div>
+  </div>
+</div>
+      </div>
+      <div class="article">
+        <% @tabs = {  definition: 'Definition', examples: 'Examples', usage: 'Usage', settings: 'Settings' } if @tabs == 'module' %>
+        <% @tabs = {  overview: 'Overview', usage: 'Usage', examples: 'Examples', settings: 'Settings' } if @tabs == 'behavior' %>
+        <div class="ui masthead vertical<% if @tabs?: %> tab<% end %> segment">
+          <div class="ui container">
+            <div class="introduction">
+
+              <h1 class="ui header">
+                <%=@document.title %>
+                <% if @document.status?: %><span class="ui red label"><%= @document.status %></span><% end %>
+                <div class="sub header">
+                  <% if 'developments' in @getEnvironments(): %>
+                  <% else: %>
+                  <iframe class="github" src="//ghbtns.com/github-btn.html?user=semantic-org&amp;repo=semantic-ui&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+                  <% end %>
+                  <%=@document.description %>
+                </div>
+              </h1>
+
+              <div class="ui hidden divider"></div>
+
+              <div class="ui right floated main menu">
+                <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
+                <a class="bug popup icon item" data-content="Edit This Page" href="https://github.com/Semantic-Org/Semantic-UI-Docs/edit/master/server/documents/<%= @document.elementType %>s/<%= @document.element %>.html.eco">
+                  <i class="edit icon"></i>
+                </a>
+                <a class="bug popup icon item" data-content="Submit Bug Report" href="https://github.com/Semantic-Org/Semantic-UI/issues/new?title=[<%= @document.title %>] - Bug Name">
+                  <i class="bug icon"></i>
+                </a>
+                <% end %>
+                <a class="github popup icon item" data-content="View project on GitHub" href="https://github.com/Semantic-Org/Semantic-UI">
+                  <i class="alternate github icon"></i>
+                </a>
+              </div>
+              <div class="ui right floated main menu">
+                <a class="music popup icon item" data-content="Play Music">
+                  <i class="music icon"></i>
+                </a>
+                <div class="ui language dropdown right floating icon item" id="languages" data-content="Select Language">
+                  <i class="world icon"></i>
+                  <div class="menu">
+                    <div class="header">Select Language</div>
+                    <div class="ui icon search input">
+                      <i class="search icon"></i>
+                      <input type="text" placeholder="Search languages...">
+                    </div>
+                    <%- @partial('languages') %>
+                  </div>
+                </div>
+              </div>
+
+              <% if @document.type is 'UI Module': %>
+        <!--       <a href="/module.html" class="ui right floated basic right labeled icon button">
+                Learn about Modules
+                <i class="help icon" data-title="What are Modules?" data-content="Modules are UI elements that include behaviors as part of their definition. Modules require some knowledge of Javascript to use."></i>
+              </a> -->
+              <% end %>
+              <% if @document.themes? && @document.themes.length > 1: %>
+              <div class="ui floating <% if @document.themes.length > 4: %>scrolling <% end %>dropdown theme basic button" data-element="<%= @document.element %>" data-type="<%= @document.elementType %>">
+                <span class="text"><%= @document.themes.length %> Themes</span>
+                <div class="menu transition hidden">
+                  <% for id, name of @document.themes: %>
+                    <div class="item" data-value="<%= name %>" data-text="<%= name %> Theme"><%= (name.charAt(0).toUpperCase() + name.slice(1)) %></div>
+                  <% end %>
+                </div>
+              </div>
+              <% end %>
+              <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
+              <div class="ui download primary button">
+                Download
+              </div>
+              <div class="ui flowing download popup">
+                <div class="ui divided equal width relaxed center aligned choice grid">
+                  <div class="framework column">
+                    <h4 class="ui center aligned header">UI Framework</h4>
+                    <div class="ui list">
+                      <div class="item"><i class="green check icon"></i> Themable</div>
+                      <div class="item"><i class="green check icon"></i> Build Tools</div>
+                    </div>
+                    <div class="ui primary fluid button">Choose</div>
+                  </div>
+                  <div class="standalone column">
+                    <h4 class="ui center aligned header">Standalone</h4>
+                    <div class="ui list">
+                      <div class="item">Default Theme</div>
+                      <div class="item">Precompiled</div>
+                    </div>
+                    <div class="ui fluid button basic">Choose</div>
+                  </div>
+                </div>
+                <div class="ui divided equal height relaxed center aligned framework grid">
+                  <div class="column">
+                    <div class="ui header">Semantic UI</div>
+                    <a class="ui primary button" href="https://github.com/Semantic-Org/Semantic-UI/archive/master.zip">
+                      Download ZIP
+                    </a>
+                    <a class="ui button" href="http://learnsemantic.com/guide/expert.html">Getting Started</a>
+                    <h4 class="ui header">Package Managers</h4>
+                    <div class="ui form">
+                      <div class="field">
+                        <label>NPM</label>
+                        <div class="ui fluid input">
+                          <input type="text" readonly="readonly" placeholder="Copy Link" value="npm install semantic-ui">
+                        </div>
+                      </div>
+                      <div class="field">
+                        <label>Git</label>
+                        <div class="ui fluid input">
+                          <input type="text" readonly="readonly" placeholder="Copy Link" value="https://github.com/Semantic-Org/Semantic-UI.git">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui divided equal height relaxed center aligned standalone grid">
+                  <div class="column">
+                    <div class="ui header">Standalone <%=@document.title %></div>
+                    <a class="ui primary button" href="https://github.com/Semantic-Org/UI-<%=@document.title %>/archive/master.zip">
+                      Download ZIP
+                    </a>
+                    <a class="ui button" href="https://github.com/Semantic-Org/UI-<%=@document.title %>/">
+                      View GitHub
+                    </a>
+                    <h4 class="ui header">Package Managers</h4>
+                    <div class="ui form">
+                      <div class="field">
+                        <label>Bower</label>
+                        <div class="ui fluid input">
+                          <input type="text" readonly="readonly" placeholder="Copy Link" value="bower install semantic-ui-<%=@document.element %>">
+                        </div>
+                      </div>
+                      <div class="field">
+                        <label>NPM</label>
+                        <div class="ui fluid input">
+                          <input type="text" readonly="readonly" placeholder="Copy Link" value="npm install semantic-ui-<%=@document.element %>">
+                        </div>
+                      </div>
+                      <div class="field">
+                        <label>Git</label>
+                        <div class="ui fluid input">
+                          <input type="text" readonly="readonly" placeholder="Copy Link" value="https://github.com/Semantic-Org/UI-<%=@document.title %>.git">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+            </div>
+            <div class="advertisement">
+              <% unless 'developments' in @getEnvironments(): %>
+              <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=semanticuicom" id="_carbonads_js"></script>
+              <% end %>
+            </div>
+            <% if @tabs?: %>
+            <% index = 0 %>
+            <% tabCount = 0 %>
+            <% numbers = ['', '', 'two item', 'three item', 'four item', 'five item', 'six item'] %>
+            <% colors = ['red', 'teal', 'blue', 'purple', 'black', 'orange'] %>
+              <% for id, name of @tabs: %>
+                <% tabCount++ %>
+              <% end %>
+              <div class="<%= numbers[tabCount] %> ui menu">
+                <% for id, name of @tabs: %>
+                  <a class="<%= if index == 0 then 'active ' %>item" data-tab="<%= id %>"><%= name %></a>
+                  <% index++ %>
+                <% end %>
+              </div>
+              <% index = 0 %>
+              <div class="fluid vertical ui menu">
+                <% for id, name of @tabs: %>
+                  <a class="<%= if index == 0 then 'active ' %>item" data-tab="<%= id %>"><%= name %></a>
+                  <% index++ %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="main ui container">
+
+          <h2 class="ui dividing header">Types</h2>
+
+          <div class="follow example">
+            <h4 class="ui header">Button</h4>
+            <p>A standard button</p>
+            <button class="ui button">
+              Follow
+            </button>
+          </div>
+          <div class="another example">
+            <div class="ui ignored warning message">
+              Although any tag can be used for a button, it will only be <a href="http://webaim.org/techniques/keyboard/tabindex">keyboard focusable</a> if you use a <code>&#x3C;button&#x3E;</code> tag or you add the property <code>tabindex="0"</code>.
+            </div>
+            <button class="ui button">
+              Button
+            </button>
+            <div class="ui button" tabindex="0">
+              Focusable
+            </div>
+          </div>
+
+          <div class="example">
+            <h4 class="ui header">Ordinality</h4>
+            <p>A button can be formatted to show different levels of emphasis</p>
+            <div class="ui ignored info message">Setting your brand colors to primary and secondary color variables in <code>site.variables</code> will allow you to use your color theming for UI elements</div>
+            <button class="ui primary button">
+              Save
+            </button>
+            <button class="ui button">
+              Discard
+            </button>
+          </div>
+          <div class="another example">
+            <button class="ui secondary button">
+              Okay
+            </button>
+            <button class="ui button">
+              Cancel
+            </button>
+          </div>
+
+          <div class="example">
+            <h4 class="ui header">Animated</h4>
+            <p>A button can animate to show hidden content</p>
+            <div class="ui ignored message">The button will be automatically sized according to the visible content size. Make sure there is enough room for the hidden content to show</div>
+            <div class="ui animated button" tabindex="0">
+              <div class="visible content">Next</div>
+              <div class="hidden content">
+                <i class="right arrow icon"></i>
+              </div>
+            </div>
+            <div class="ui vertical animated button" tabindex="0">
+              <div class="hidden content">Shop</div>
+              <div class="visible content">
+                <i class="shop icon"></i>
+              </div>
+            </div>
+            <div class="ui animated fade button" tabindex="0">
+              <div class="visible content">Sign-up for a Pro account</div>
+              <div class="hidden content">
+                $12.99 a month
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="example">
+            <h4 class="ui header">Icon</h4>
+            <p>A button can have only an icon</p>
+            <button class="ui icon button">
+              <i class="cloud icon"></i>
+            </button>
+          </div>
+
+          <div class="example">
+            <h4 class="ui header">Labeled Icon</h4>
+            <p>A button can have an icon and a label</p>
+            <button class="ui labeled icon button">
+              <i class="pause icon"></i>
+              Pause
+            </button>
+            <button class="ui right labeled icon button">
+              <i class="right arrow icon"></i>
+              Next
+            </button>
+          </div>
+
+          <div class="example">
+            <h4 class="ui header">Basic</h4>
+            <p>A basic button is less pronounced</p>
+            <button class="ui basic button">
+              <i class="icon user"></i>
+              Add Friend
+            </button>
+          </div>
+          <div class="another spaced example">
+            <button class="ui red basic button">Red</button>
+            <button class="ui orange basic button">Orange</button>
+            <button class="ui yellow basic button">Yellow</button>
+            <button class="ui olive basic button">Olive</button>
+            <button class="ui green basic button">Green</button>
+            <button class="ui teal basic button">Teal</button>
+            <button class="ui blue basic button">Blue</button>
+            <button class="ui violet basic button">Violet</button>
+            <button class="ui purple basic button">Purple</button>
+            <button class="ui pink basic button">Pink</button>
+            <button class="ui brown basic button">Brown</button>
+            <button class="ui grey basic button">Grey</button>
+            <button class="ui black basic button">Black</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%- @partial('footer') %>
+  </div>
+
+  <%- @partial('language-modal') %>
+  <%- @partial('dimmer-demo') %>
+  <%- @partial('less') %>
+</body>
+
+</html>

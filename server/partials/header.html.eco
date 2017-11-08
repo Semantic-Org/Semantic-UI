@@ -1,0 +1,208 @@
+
+<% @tabs = {  definition: 'Definition', examples: 'Examples', usage: 'Usage', settings: 'Settings' } if @tabs == 'module' %>
+<% @tabs = {  overview: 'Overview', usage: 'Usage', examples: 'Examples', settings: 'Settings' } if @tabs == 'behavior' %>
+<div class="ui masthead vertical<% if @tabs?: %> tab<% end %> segment">
+  <div class="ui container">
+    <div class="introduction">
+
+      <h1 class="ui header">
+        <%=@document.title %>
+        <% if @document.status?: %><span class="ui red label"><%= @document.status %></span><% end %>
+        <div class="sub header">
+          <% if 'development' in @getEnvironments(): %>
+          <% else: %>
+          <a class="twitter-share-button twitter"
+            href="http://twitter.com/share"
+            data-text="Semantic UI is a next generation UI framework"
+            data-url="http://semantic-ui.com"
+            data-via="semanticui">
+          </a>
+          <script type="text/javascript">
+          window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,"script","twitter-wjs"));
+          </script>
+          <iframe class="github" src="http://ghbtns.com/github-btn.html?user=semantic-org&amp;repo=semantic-ui&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+          <% end %>
+          <%=@document.description %>
+        </div>
+      </h1>
+
+      <div class="ui hidden divider"></div>
+
+      <div class="ui right floated main menu">
+        <a class="bug popup icon item" data-content="Edit This Page" href="https://github.com/Semantic-Org/Semantic-UI-Docs/edit/<%= @getBranch() %>/server/documents/<%= @document.relativePath %>">
+          <i class="edit icon"></i>
+        </a>
+        <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
+        <a class="bug popup icon item" data-content="Submit Bug Report" href="https://github.com/Semantic-Org/Semantic-UI/issues/new?title=[<%= @document.title %>] - Your Bug Name&body=**Steps to Reproduce**%0A1. Do something%0A2. Do something else.%0A3. Do one last thing.%0A%0A**Expected**%0AThe <%= @document.title %> should do this%0A%0A**Result**%0AThe <%= @document.title %> does not do this%0A%0A**Testcase**%0A(fork this to get started)%0Ahttp://jsfiddle.net/rduvhn8u/1/">
+          <i class="bug icon"></i>
+        </a>
+        <% end %>
+        <a class="github popup icon item" data-content="View project on GitHub" href="https://github.com/Semantic-Org/Semantic-UI">
+          <i class="alternate github icon"></i>
+        </a>
+      </div>
+      <div class="ui right floated main menu">
+        <a class="music popup icon item" data-content="Play Music">
+          <i class="music icon"></i>
+        </a>
+        <div class="ui language dropdown right floating icon item" id="languages" data-content="Select Language">
+          <i class="world icon"></i>
+          <div class="menu">
+            <div class="header">Select Language</div>
+            <div class="ui icon search input">
+              <i class="search icon"></i>
+              <input type="text" placeholder="Search languages...">
+            </div>
+            <%- @partial('languages') %>
+          </div>
+        </div>
+      </div>
+
+      <% if @document.type is 'UI Module': %>
+<!--       <a href="/module.html" class="ui right floated basic right labeled icon button">
+        Learn about Modules
+        <i class="help icon" data-title="What are Modules?" data-content="Modules are UI elements that include behaviors as part of their definition. Modules require some knowledge of Javascript to use."></i>
+      </a> -->
+      <% end %>
+      <% if @document.themes? && @document.themes.length > 1: %>
+      <div class="ui floating <% if @document.themes.length > 4: %>scrolling <% end %>dropdown theme basic button" data-element="<%= @document.element %>" data-type="<%= @document.elementType %>">
+        <span class="text"><%= @document.themes.length %> Themes</span>
+        <div class="menu transition hidden">
+          <% for id, name of @document.themes: %>
+            <div class="item" data-value="<%= name %>" data-text="<%= name %> Theme"><%= (name.charAt(0).toUpperCase() + name.slice(1)) %></div>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+      <% if @document.type is 'UI Element' or @document.type is 'UI View' or @document.type is 'UI Collection' or @document.type is 'UI Module': %>
+      <div class="ui download primary button">
+        Download
+      </div>
+      <div class="ui flowing download basic popup">
+        <div class="ui divided equal width relaxed center aligned choice grid">
+          <div class="framework column">
+            <h4 class="ui center aligned header">UI Framework</h4>
+            <div class="ui list">
+              <div class="item"><i class="green check icon"></i> Themable</div>
+              <div class="item"><i class="green check icon"></i> Build Tools</div>
+            </div>
+            <div class="ui primary fluid button">Choose</div>
+          </div>
+          <div class="standalone column">
+            <h4 class="ui center aligned header">Standalone</h4>
+            <div class="ui list">
+              <div class="item">Default Theme</div>
+              <div class="item">Precompiled</div>
+            </div>
+            <div class="ui fluid button basic">Choose</div>
+          </div>
+        </div>
+        <div class="ui divided equal height relaxed center aligned framework grid">
+          <div class="column">
+            <div class="ui header">Semantic UI</div>
+            <a class="ui primary button" href="https://github.com/Semantic-Org/Semantic-UI/archive/master.zip">
+              Download ZIP
+            </a>
+            <a class="ui button" href="/introduction/getting-started.html">Getting Started</a>
+            <h4 class="ui header">Package Managers</h4>
+            <div class="ui form">
+              <div class="field">
+                <label>NPM</label>
+                <div class="ui fluid input">
+                  <input type="text" readonly="readonly" placeholder="Copy Link" value="npm install semantic-ui">
+                </div>
+              </div>
+              <div class="field">
+                <label>Git</label>
+                <div class="ui fluid input">
+                  <input type="text" readonly="readonly" placeholder="Copy Link" value="https://github.com/Semantic-Org/Semantic-UI.git">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui divided equal height relaxed center aligned standalone grid">
+          <div class="column">
+            <div class="ui header">Standalone <%=@document.title %></div>
+            <a class="ui primary button" href="https://github.com/Semantic-Org/UI-<%=@document.title %>/archive/master.zip">
+              Download ZIP
+            </a>
+            <a class="ui button" href="https://github.com/Semantic-Org/UI-<%=@document.title %>/">
+              View GitHub
+            </a>
+            <h4 class="ui header">Package Managers</h4>
+            <div class="ui form">
+              <div class="field">
+                <label>Bower</label>
+                <div class="ui fluid input">
+                  <input type="text" readonly="readonly" placeholder="Copy Link" value="bower install semantic-ui-<%=@document.element %>">
+                </div>
+              </div>
+              <div class="field">
+                <label>NPM</label>
+                <div class="ui fluid input">
+                  <input type="text" readonly="readonly" placeholder="Copy Link" value="npm install semantic-ui-<%=@document.element %>">
+                </div>
+              </div>
+              <div class="field">
+                <label>Git</label>
+                <div class="ui fluid input">
+                  <input type="text" readonly="readonly" placeholder="Copy Link" value="https://github.com/Semantic-Org/UI-<%=@document.title %>.git">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <div class="advertisement">
+      <% unless 'development' in @getEnvironments(): %>
+      <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=semanticuicom" id="_carbonads_js"></script>
+      <% end %>
+    </div>
+    <% if @tabs?: %>
+    <% index = 0 %>
+    <% tabCount = 0 %>
+    <% numbers = ['', '', 'two item', 'three item', 'four item', 'five item', 'six item'] %>
+    <% colors = ['red', 'teal', 'blue', 'purple', 'black', 'orange'] %>
+      <% for id, name of @tabs: %>
+        <% tabCount++ %>
+      <% end %>
+      <div class="ui <%= numbers[tabCount] %> stackable tabs menu">
+        <% for id, name of @tabs: %>
+          <a class="<%= if index == 0 then 'active ' %>item" data-tab="<%= id %>"><%= name %></a>
+          <% index++ %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<% if 'development' in @getEnvironments(): %>
+<% else: %>
+  <script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+  <div class="bsa-cpc"></div>
+  <script>
+    (function(){
+      if(typeof _bsa !== 'undefined' && _bsa) {
+      _bsa.init('default', 'CVAIKK7I', 'placement:semanticuicom', {
+        target: '.bsa-cpc',
+        align: 'horizontal',
+        disable_css: 'true'
+      });
+        }
+    })();
+  </script>
+  <div class="ui vertical beg transition hidden segment">
+    <i class="large red delete link icon"></i>
+    <div class="ui red header">
+      <i class="disabled warning sign icon"></i>
+      <div class="content">
+        Want to Support Open Source? Whitelist Your Ad-Blocker.
+        <div class="sub header">
+          We promise to not show more than one small ad per page. Dont worry, hiding this message will make sure you won't get nagged again.
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

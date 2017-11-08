@@ -1,0 +1,101 @@
+<div class="ui standard demo button">Standard Modal</div>
+<div class="ui minimal demo button">Basic Modal</div>
+<div class="ui fullscreen demo button">Full-Screen Modal</div>
+
+<div class="ui standard demo modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Profile Picture
+  </div>
+  <div class="image content">
+    <div class="ui medium image">
+      <img src="/images/avatar/large/chris.jpg">
+    </div>
+    <div class="description">
+      <div class="ui header">We've auto-chosen a profile image for you.</div>
+      <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+      <p>Is it okay to use this photo?</p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black button">
+      Nope
+    </div>
+    <div class="ui positive right labeled icon button">
+      Yep, that's me
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
+
+<div class="ui basic demo modal">
+  <div class="header">
+    Archive Old Messages
+  </div>
+  <div class="image content">
+    <div class="image">
+      <i class="archive icon"></i>
+    </div>
+    <div class="description">
+      <p>Your inbox is getting full, would you like us to enable automatic archiving of old messages?</p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="two fluid ui inverted buttons">
+      <div class="ui red basic cancel inverted button">
+        <i class="remove icon"></i>
+        No
+      </div>
+      <div class="ui green ok basic inverted button">
+        <i class="checkmark icon"></i>
+        Yes
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui fullscreen demo modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Update Your Settings
+  </div>
+  <div class="content">
+    <div class="ui form">
+      <h4 class="ui dividing header">Give us your feedback</h4>
+      <div class="field">
+        <label>Feedback</label>
+        <textarea></textarea>
+      </div>
+      <div class="field">
+        <div class="ui checkbox">
+          <input type="checkbox" checked="checked" name="contact-me">
+          <label>It's okay to contact me.</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui button">Cancel</div>
+    <div class="ui green button">Send</div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+$(document)
+  .ready(function() {
+    $('.demo.modal')
+      .modal()
+    ;
+    $('.standard.demo.modal')
+      .modal('attach events', '.standard.demo.button')
+    ;
+    $('.basic.demo.modal')
+      .modal('attach events', '.minimal.demo.button')
+    ;
+    $('.fullscreen.demo.modal')
+      .modal('attach events', '.fullscreen.demo.button')
+    ;
+  })
+;
+</script>

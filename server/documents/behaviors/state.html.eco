@@ -1,0 +1,437 @@
+---
+layout      : 'default'
+css         : 'state'
+standalone  : true
+
+element     : 'State'
+elementType : 'draft'
+
+title       : 'State'
+description : 'State allows elements to trigger actions on a server'
+type        : 'Draft'
+---
+
+<script src="/javascript/library/serialize-object.js"></script>
+<script src="/javascript/state.js"></script>
+
+<%- @partial('header',  { tabs: { overview: 'Overview', usage: 'Usage',  behaviors: 'Behaviors',  settings: 'Settings' } }) %>
+
+<div class="main ui container">
+  <div class="ui active intro tab" data-tab="overview">
+
+    <div class="test example">
+      <h4 class="ui header">Activate Elements Programmatically</h4>
+      <p>State is designed to make the process of integrating data sources to UI components seamless, <a href="#state-state-management">tying State request state</a> to UI states automatically.</p>
+      <p>For example adding an State behavior to an <a href="/elements/input.html"><code>input</code></a> will occur <code>oninput</code>, while a <a href="/elements/button.html"><code>button</code></a>, will query the server <code>onclick</code>.</p>
+      <div class="ui icon input">
+        <i class="search icon"></i>
+        <input type="text" placeholder="Type here...">
+      </div>
+      <div class="ui hidden divider"></div>
+      <div class="ui primary button">Click Me</div>
+      <div class="ui disabled button">Disabled</div>
+    </div>
+
+
+  </div>
+
+  <div class="ui intro tab" data-tab="usage">
+
+  </div>
+
+  <div class="ui tab" data-tab="behaviors">
+
+    <h2 class="ui dividing header">Behavior</h2>
+
+    <p>All the following behaviors can be called using the syntax:</p>
+    <div class="code">
+    $('.your.element')
+      .state('behavior name', argumentOne, argumentTwo)
+    ;
+    </div>
+
+    <table class="ui definition celled sortable table segment">
+      <thead>
+        <th>Behavior</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>query</td>
+          <td>Execute query using existing State settings</td>
+        </tr>
+        <tr>
+          <td>add url data(url, data)</td>
+          <td>Adds data to existing templated url and returns full url string</td>
+        </tr>
+        <tr>
+          <td>get request</td>
+          <td>Gets promise for current State request</td>
+        </tr>
+        <tr>
+          <td>abort</td>
+          <td>Aborts current State request</td>
+        </tr>
+        <tr>
+          <td>reset</td>
+          <td>Removes loading and error state from element</td>
+        </tr>
+        <tr>
+          <td>was cancelled</td>
+          <td>Returns whether last request was cancelled</td>
+        </tr>
+        <tr>
+          <td>was failure</td>
+          <td>Returns whether last request was failure</td>
+        </tr>
+        <tr>
+          <td>was successful</td>
+          <td>Returns whether last request was successful</td>
+        </tr>
+        <tr>
+          <td>was complete</td>
+          <td>Returns whether last request was completed</td>
+        </tr>
+        <tr>
+          <td>is disabled</td>
+          <td>Returns whether element is disabled</td>
+        </tr>
+        <tr>
+          <td>is mocked</td>
+          <td>Returns whether element response is mocked</td>
+        </tr>
+        <tr>
+          <td>is loading</td>
+          <td>Returns whether element is loading</td>
+        </tr>
+        <tr>
+          <td>set loading</td>
+          <td>Sets loading state to element</td>
+        </tr>
+        <tr>
+          <td>set error</td>
+          <td>Sets error state to element</td>
+        </tr>
+        <tr>
+          <td>remove loading</td>
+          <td>Removes loading state to element</td>
+        </tr>
+        <tr>
+          <td>remove error</td>
+          <td>Removes error state to element</td>
+        </tr>
+        <tr>
+          <td>get event</td>
+          <td>Gets event that State request will occur on</td>
+        </tr>
+        <tr>
+          <td>get url encoded value(value)</td>
+          <td>Returns <code>encodeURIComponent</code> value only if value passsed is not already encoded
+        </tr>
+        <tr>
+          <td>read cached response(url)</td>
+          <td>Reads a locally cached response for a URL</td>
+        </tr>
+        <tr>
+          <td>write cached response(url, response)</td>
+          <td>Writes a cached response for a URL</td>
+        </tr>
+        <tr>
+          <td>create cache</td>
+          <td>Creates new cache, removing all locally cached URLs</td>
+        </tr>
+        <tr>
+          <td>destroy</td>
+          <td>Removes State settings from the page and all events</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+
+
+  <div class="ui tab" data-tab="settings">
+    <h2 class="ui dividing header">
+      State
+    </h2>
+
+    <h4 class="ui header">
+      Behavior
+    </h4>
+    <table class="ui sortable celled definition table">
+      <thead>
+        <th class="three wide"></th>
+        <th class="three wide">Default</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>automatic</td>
+          <td>true</td>
+          <td>Whether possible states should be determined automatically based on type of UI</td>
+        </tr>
+        <tr>
+          <td>sync</td>
+          <td>false</td>
+          <td>When set to <code>true</code> and state is used on multiple elements, state will be synced across all bound elements.</td>
+        </tr>
+        <tr>
+          <td>flashDuration</td>
+          <td>1000</td>
+          <td>Default duration to show text when using <code>flash text</code>.</td>
+        </tr>
+        <tr>
+          <td>context</td>
+          <td>false</td>
+          <td>When set to a selector, will use a delegated pattern to bind events from this element.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="ui header">
+      Request Settings
+    </h4>
+    <table class="ui sortable celled definition table">
+      <thead>
+        <th class="three wide"></th>
+        <th class="three wide">Default</th>
+        <th>Description</th>
+        <th>Possible Values</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>action</td>
+          <td>false</td>
+          <td>Named State action for query, originally specified in $.fn.settings.state</td>
+          <td>String or false</td>
+        </tr>
+        <tr>
+          <td>url</td>
+          <td>false</td>
+          <td>Templated URL for query, will override specified action</td>
+          <td>String or false</td>
+        </tr>
+        <tr>
+          <td>urlData</td>
+          <td>false</td>
+          <td>Variables to use for replacement</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>mockResponse</td>
+          <td>false</td>
+          <td>Can be set to a javascript object which will be returned automatically instead of requesting JSON from server </td>
+          <td>{} or false</td>
+        </tr>
+        <tr>
+          <td>mockResponseAsync(settings, callback)</td>
+          <td>false</td>
+          <td>When specified, this function can be used to retrieve content from a server and return it asynchronously <b>instead of</b> a standard AJAX call. The callback function should return the server response.</td>
+          <td>function or false</td>
+        </tr>
+        <tr>
+          <td>method</td>
+          <td>get</td>
+          <td>Method for transmitting request to server</td>
+          <td>post, get</td>
+        </tr>
+        <tr>
+          <td>dataType</td>
+          <td>JSON</td>
+          <td>Expected data type of response </td>
+          <td>xml, json, jsonp, script, html, text</td>
+        </tr>
+        <tr>
+          <td>data</td>
+          <td>{}</td>
+          <td>POST/GET Data to Send with Request</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="ui header">
+      Callbacks
+    </h4>
+
+    <table class="ui sortable celled definition table">
+      <thead>
+        <th class="three wide"></th>
+        <th class="three wide">Context</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>beforeSend(settings)</td>
+          <td>initialized element</td>
+          <td>Allows modifying settings before request, or cancelling request</td>
+        </tr>
+        <tr>
+          <td>beforeXHR(xhrObject)</td>
+          <td></td>
+          <td>Allows modifying XHR object for request</td>
+        </tr>
+        <tr>
+          <td>onRequest(promise, xhr)</td>
+          <td>state context</td>
+          <td>Callback that occurs when request is made. Receives both the state success promise and the xhr request promise.</td>
+        </tr>
+        <tr>
+          <td>onResponse(response)</td>
+          <td>state context</td>
+          <td>Allows modifying the server's response before parsed by other callbacks to determine State event success</td>
+        </tr>
+        <tr>
+          <td>successTest(response)</td>
+          <td></td>
+          <td>Determines whether completed JSON response should be <a href="#determining-json-success">treated as successful</a>
+          </td>
+        </tr>
+        <tr>
+          <td>onSuccess(response, element, xhr)</td>
+          <td>state context</td>
+          <td>Callback after successful response, JSON response must pass <code>successTest</code></td>
+        </tr>
+        <tr>
+          <td>onComplete(response, element, xhr)</td>
+          <td>state context</td>
+          <td>Callback on request complete regardless of conditions</td>
+        </tr>
+        <tr>
+          <td>onFailure(response, element)</td>
+          <td>state context</td>
+          <td>Callback on failed response, or JSON response that fails <code>successTest</code></td>
+        </tr>
+        <tr>
+          <td>onError(errorMessage, element, xhr)</td>
+          <td>state context</td>
+          <td>Callback on server error from returned status code, or XHR failure.</td>
+        </tr>
+        <tr>
+          <td>onAbort(errorMessage, element, xhr)</td>
+          <td>state context</td>
+          <td>Callback on abort caused by user clicking a link or manually cancelling request.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="ui dividing header">
+      Module
+    </h2>
+
+    <p>These settings are native to all modules, and define how the component ties content to DOM attributes, and debugging settings for the module.</p>
+
+    <table class="ui sortable celled definition table">
+      <thead>
+        <th></th>
+        <th class="six wide">Default</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>name</td>
+          <td>State</td>
+          <td>Name used in log statements</td>
+        </tr>
+        <tr>
+          <td>namespace</td>
+          <td>state</td>
+          <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+        </tr>
+        <tr>
+          <td>regExp</td>
+          <td>
+            <div class="code" data-type="css">
+            regExp  : {
+              required: /\{\$*[A-z0-9]+\}/g,
+              optional: /\{\/\$*[A-z0-9]+\}/g,
+            }
+            </div>
+          </td>
+          <td>Regular expressions used for template matching</td>
+        </tr>
+        <tr>
+          <td>selector</td>
+          <td>
+            <div class="code" data-type="css">
+            selector: {
+              disabled : '.disabled',
+              form     : 'form'
+            }
+            </div>
+          </td>
+          <td>Selectors used to find parts of a module</td>
+        </tr>
+        <tr>
+          <td>className</td>
+          <td>
+            <div class="code">
+            className: {
+              loading : 'loading',
+              error   : 'error'
+            }
+            </div>
+          </td>
+          <td>Class names used to determine element state</td>
+        </tr>
+        <tr>
+          <td>metadata</td>
+          <td>
+            <div class="code">
+            metadata: {
+              action  : 'action',
+              url     : 'url'
+            }
+            </div>
+          </td>
+          <td>Metadata used to store xhr and response promise</td>
+        </tr>
+        <tr>
+          <td>silent</td>
+          <td>False</td>
+          <td>Silences all console output including error messages, regardless of other debug settings.</td>
+        </tr>
+        <tr>
+          <td>debug</td>
+          <td>false</td>
+          <td>Debug output to console</td>
+        </tr>
+        <tr>
+          <td>performance</td>
+          <td>true</td>
+          <td>Show <code>console.table</code> output with performance metrics</td>
+        </tr>
+        <tr>
+          <td>verbose</td>
+          <td>false</td>
+          <td>Debug output includes all internal behaviors</td>
+        </tr>
+        <tr>
+          <td>errors</td>
+          <td colspan="2">
+            <div class="code">
+            // errors
+            error : {
+              beforeSend        : 'The before send function has aborted the request',
+              error             : 'There was an error with your request',
+              exitConditions    : 'State Request Aborted. Exit conditions met',
+              JSONParse         : 'JSON could not be parsed during error handling',
+              legacyParameters  : 'You are using legacy State success callback names',
+              missingAction     : 'State action used but no url was defined',
+              missingSerialize  : 'Required dependency jquery-serialize-object missing, using basic serialize',
+              missingURL        : 'No URL specified for state event',
+              noReturnedValue   : 'The beforeSend callback must return a settings object, beforeSend ignored.',
+              parseError        : 'There was an error parsing your request',
+              requiredParameter : 'Missing a required URL parameter: ',
+              statusMessage     : 'Server gave an error: ',
+              timeout           : 'Your request timed out'
+            }
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

@@ -1,0 +1,202 @@
+<div class="sidebar direction demo">
+
+  <div class="ui toggle dim checkbox">
+    <input type="checkbox" name="dim" />
+    <label>Dim Page</label>
+  </div>
+
+  <div class="ui hidden divider"></div>
+
+  <div class="ui buttons">
+    <div class="ui button" data-direction="left">
+      Left
+    </div>
+    <div class="ui active button" data-direction="right">
+      Right
+    </div>
+    <div class="ui button" data-direction="top">
+      Top
+    </div>
+    <div class="ui button" data-direction="bottom">
+      Bottom
+    </div>
+  </div>
+
+  <div class="ui hidden divider"></div>
+
+  <h5 class="ui header">Animation</h5>
+  <div class="ui button" data-transition="overlay">
+    Overlay
+  </div>
+  <div class="ui button" data-transition="push">
+    Push
+  </div>
+  <div class="ui button" data-transition="scale down">
+    Scale Down
+  </div>
+
+  <h5 class="ui header">Horizontal-Only Animation</h5>
+  <div class="ui button" data-transition="uncover">
+    Uncover
+  </div>
+  <div class="ui button" data-transition="slide along">
+    Slide Along
+  </div>
+  <div class="ui button" data-transition="slide out">
+    Slide Out
+  </div>
+</div>
+
+
+<div class="ui right demo sidebar vertical inverted menu">
+  <a class="header item">File Permissions</a>
+  <a class="item">Share on Social</a>
+  <a class="item">Share by E-mail</a>
+  <a class="item">Edit Permissions</a>
+  <a class="item">Delete Permanently</a>
+</div>
+
+<div class="ui left demo vertical inverted labeled icon sidebar menu">
+  <a class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a class="item">
+    <i class="block layout icon"></i>
+    Topics
+  </a>
+  <a class="item">
+    <i class="smile icon"></i>
+    Friends
+  </a>
+  <a class="item">
+    <i class="calendar icon"></i>
+    History
+  </a>
+  <a class="item">
+    <i class="mail icon"></i>
+    Messages
+  </a>
+  <a class="item">
+    <i class="chat icon"></i>
+    Discussions
+  </a>
+  <a class="item">
+    <i class="trophy icon"></i>
+    Achievements
+  </a>
+  <a class="item">
+    <i class="shop icon"></i>
+    Store
+  </a>
+  <a class="item">
+    <i class="settings icon"></i>
+    Settings
+  </a>
+</div>
+
+<div class="ui top demo sidebar ui segment">
+  <div class="ui center aligned page grid">
+    <div class="one column row">
+      <div class="sixteen wide column">
+        <h3 class="ui header">New Content Awaits</h3>
+      </div>
+    </div>
+    <div class="three column divided row">
+      <div class="column">
+        <img class="ui wireframe image" src="/images/wireframe/media-paragraph.png">
+      </div>
+      <div class="column">
+        <img class="ui wireframe image" src="/images/wireframe/media-paragraph.png">
+      </div>
+      <div class="column">
+        <img class="ui wireframe image" src="/images/wireframe/media-paragraph.png">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui bottom demo inverted nine item labeled icon sidebar menu">
+  <a class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a class="item">
+    <i class="block layout icon"></i>
+    Topics
+  </a>
+  <a class="item">
+    <i class="smile icon"></i>
+    Friends
+  </a>
+  <a class="item">
+    <i class="calendar icon"></i>
+    History
+  </a>
+  <a class="item">
+    <i class="mail icon"></i>
+    Messages
+  </a>
+  <a class="item">
+    <i class="chat icon"></i>
+    Discussions
+  </a>
+  <a class="item">
+    <i class="trophy icon"></i>
+    Achievements
+  </a>
+  <a class="item">
+    <i class="shop icon"></i>
+    Store
+  </a>
+  <a class="item">
+    <i class="settings icon"></i>
+    Settings
+  </a>
+</div>
+
+
+
+<script type="text/javascript">
+$(document)
+  .ready(function() {
+
+    $('.sidebar.direction.demo')
+      .find('.buttons .button')
+        .on('click', function() {
+          var
+            direction = $(this).data('direction')
+          ;
+          $(this).addClass('active').siblings().removeClass('active');
+          if(direction === 'top' || direction === 'bottom') {
+            $('.horizontal.button').addClass('disabled');
+          }
+          else {
+            $('.horizontal.button').removeClass('disabled');
+          }
+        })
+        .end()
+        .children('.button')
+        .on('click', function() {
+          var
+            transition = $(this).data('transition'),
+            direction  = $('.sidebar.direction.demo .buttons .button.active').data('direction'),
+            dimPage    = $('.sidebar.direction.demo .dim').checkbox('is checked')
+          ;
+          if( $(this).filter('.disabled').size() === 0) {
+            $('.' + direction + '.demo.sidebar')
+              .not('.styled')
+              .sidebar('setting', {
+                dimPage          : dimPage,
+                transition       : transition,
+                mobileTransition : transition
+              })
+            ;
+            $('.' + direction + '.demo.sidebar').not('.styled').sidebar('toggle');
+          }
+
+        })
+    ;
+  })
+;
+</script>

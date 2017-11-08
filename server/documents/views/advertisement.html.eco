@@ -1,0 +1,186 @@
+---
+layout      : 'default'
+css         : 'ad'
+
+element     : 'advertisement'
+elementType : 'view'
+
+title       : 'Advertisement'
+description : 'An ad displays third-party promotional content'
+type        : 'UI View'
+
+---
+
+<%- @partial('header') %>
+
+
+<div class="main ui container">
+
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="example">
+    <h4 class="ui header">Ad</h4>
+    <p>A standard ad</p>
+    <div class="ui ignored message">The following example uses a basic <a href="https://support.google.com/adsense/answer/181947?ctx=as2&rd=2&ref_topic=29033" target="_blank">AdSense implementation</a>. Your code will vary depending on your ad network.</div>
+    <div class="ui medium rectangle ad">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:300px;height:250px"
+           data-ad-client="ca-pub-4591861188995436"
+           data-ad-slot="4640466102"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <div class="ui leaderboard ad">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- Leaderboard -->
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:728px;height:90px"
+           data-ad-client="ca-pub-4591861188995436"
+           data-ad-slot="6710577704"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <div class="ui banner ad">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- Banner -->
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:468px;height:60px"
+           data-ad-client="ca-pub-4591861188995436"
+           data-ad-slot="9803644904"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+    <div class="existing code">
+      <div class="ui medium rectangle ad">
+        <!-- Ad Code Goes Here
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:300px;height:250px"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        !-->
+      </div>
+      <div class="ui leaderboard ad">
+      <!-- Leaderboard
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:728px;height:90px"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="XXXXXXXXXXXXXXXX"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      !-->
+      </div>
+      <div class="ui banner ad">
+      <!-- Banner
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:468px;height:60px"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="XXXXXXXXXXXXXXXX"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      !-->
+      </div>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Common Units</h4>
+    <p>An advertisement can appear in common ad unit sizes</p>
+    <div class="ui ignored info message">
+      These additional examples use the <code>test</code> variation to appear on the page. <code>ui ad</code> is best used as a wrapper for third party ad network content like <a href="http://www.google.com/adsense/start/" target="_blank">AdSense</a> or <a href="http://www.google.com/doubleclick/publishers/welcome/" target="_blank">DoubleClick</a>.
+    </div>
+    <div class="ui medium rectangle test ad" data-text="Medium Rectangle"></div>
+    <div class="ui banner test ad" data-text="Banner"></div>
+    <div class="ui leaderboard test ad" data-text="Leaderboard"></div>
+    <div class="ui large rectangle test ad" data-text="Large Rectangle"></div>
+    <div class="ui half page test ad" data-text="Half Page"></div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Mobile</h4>
+    <p>An ad can use common mobile ad sizes</p>
+    <div class="ui ignored info message">Mobile ads will automatically only appear on mobile browser viewports</div>
+    <div class="ui mobile leaderboard test ad" data-text="Mobile Leaderboard"></div>
+    <div class="ui mobile banner test ad" data-text="Mobile Banner"></div>
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Rectangle</h4>
+    <p>An ad can use a common rectangle ad unit size</p>
+    <div class="ui vertical rectangle test ad" data-text="Vertical Rectangle"></div>
+    <div class="ui small rectangle test ad" data-text="Small Rectangle"></div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Button</h4>
+    <p>An ad can use button ad unit size</p>
+    <div class="ui button test ad" data-text="Button"></div>
+    <div class="ui square button test ad" data-text="Square Button"></div>
+    <div class="ui small button test ad" data-text="Small Button"></div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Skyscraper</h4>
+    <p>An ad can use skyscraper ad unit size</p>
+    <div class="ui skyscraper test ad" data-text="Skyscraper"></div>
+    <div class="ui wide skyscraper test ad" data-text="Wide Skyscraper"></div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Banner</h4>
+    <p>An ad can use banner ad unit size</p>
+    <div class="ui banner test ad" data-text="Banner"></div>
+    <div class="ui vertical banner test ad" data-text="Vertical Banner"></div>
+    <div class="ui top banner test ad" data-text="Top Banner"></div>
+    <div class="ui half banner test ad" data-text="Half Banner"></div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Leaderboards</h4>
+    <p>An ad can use leaderboard ad unit size</p>
+    <div class="ui leaderboard test ad" data-text="Leaderboard"></div>
+    <div class="ui large leaderboard test ad" data-text="Large Leaderboard"></div>
+    <div class="ui billboard test ad" data-text="Billboard"></div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Panorama</h4>
+    <p>An ad can use panorama ad unit size</p>
+    <div class="ui panorama test ad" data-text="Panorama"></div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Netboard</h4>
+    <p>An ad can use netboard ad unit size</p>
+    <div class="ui netboard test ad" data-text="Netboard"></div>
+  </div>
+
+
+
+  <h2 class="ui dividing header">Variations</h2>
+
+  <div class="example">
+    <h4 class="ui header">Centered</h4>
+    <p>An advertisement can appear centered</p>
+    <div class="ui centered banner test ad"></div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Test</h4>
+    <p>A advertisement can be formatted to help verify placement</p>
+    <div class="ui info ignored message">You can adjust the text displayed for your test ad placement by changing the value of <code>data-text</code>
+    </div>
+    <div class="ui medium rectangle test ad" data-text="Ad Unit 1"></div>
+    <div class="ui medium rectangle test ad" data-text="Ad Unit 2"></div>
+  </div>
+
+</div>

@@ -1,0 +1,1789 @@
+---
+layout      : 'default'
+css         : 'icon'
+standalone  : true
+
+element     : 'icon'
+elementType : 'element'
+
+title       : 'Icon'
+description : 'An icon is a glyph used to represent something else'
+type        : 'UI Element'
+
+themes      : ['Default']
+---
+
+<%- @partial('header', { tabs: { icon: 'Icons', definition: 'Definition' } }) %>
+
+<script src="/javascript/icon.js"></script>
+
+<div class="main ui container">
+
+  <div class="ui active tab" data-tab="icon">
+
+    <h2 class="ui header">Icon Set</h2>
+    <p>An icon set contains an arbitrary number of glyphs</p>
+    <div class="ui ignored warning message">
+      Icons serve a very similar function to text in a page. In Semantic icons receive a special tag <code>&lt;i&gt;</code> which allow for an abbreviated markup when sitting along-side text.
+    </div>
+
+    <div class="ui ignored message">Semantic includes a complete port of <a href="http://fontawesome.io/whats-new/" target="_blank">Font Awesome 4.7.0</a> designed by <a href="http://www.twitter.com/davegandy">Dave Gandy</a> for its standard icon set.</div>
+
+    <div class="icon example">
+      <h4 class="ui header">Web Content</h4>
+      <p>Icons can represent types of content found on websites</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="add to calendar icon"></i>Add To Calendar</div>
+        <div class="column"><i class="address book icon"></i>Address Book</div>
+        <div class="column"><i class="address book outline icon"></i>Address Book Outline</div>
+        <div class="column"><i class="address card icon"></i>Address Card</div>
+        <div class="column"><i class="address card outline icon"></i>Address Card Outline</div>
+        <div class="column"><i class="alarm icon"></i>Alarm</div>
+        <div class="column"><i class="alarm mute icon"></i>Alarm Mute</div>
+        <div class="column"><i class="alarm mute outline icon"></i>Alarm Mute Outline</div>
+        <div class="column"><i class="alarm outline icon"></i>Alarm Outline</div>
+        <div class="column"><i class="at icon"></i>At</div>
+        <div class="column"><i class="browser icon"></i>Browser</div>
+        <div class="column"><i class="bug icon"></i>Bug</div>
+        <div class="column"><i class="calendar icon"></i>Calendar</div>
+        <div class="column"><i class="calendar outline icon"></i>Calendar Outline</div>
+        <div class="column"><i class="checked calendar icon"></i>Checked Calendar</div>
+        <div class="column"><i class="cloud icon"></i>Cloud</div>
+        <div class="column"><i class="code icon"></i>Code</div>
+        <div class="column"><i class="comment icon"></i>Comment</div>
+        <div class="column"><i class="comment outline icon"></i>Comment Outline</div>
+        <div class="column"><i class="comments icon"></i>Comments</div>
+        <div class="column"><i class="comments icon"></i>Comments</div>
+        <div class="column"><i class="comments outline icon"></i>Comments Outline</div>
+        <div class="column"><i class="copyright icon"></i>Copyright</div>
+        <div class="column"><i class="creative commons icon"></i>Creative Commons</div>
+        <div class="column"><i class="dashboard icon"></i>Dashboard</div>
+        <div class="column"><i class="delete calendar icon"></i>Delete Calendar</div>
+        <div class="column"><i class="external icon"></i>External</div>
+        <div class="column"><i class="external icon"></i>External</div>
+        <div class="column"><i class="external square icon"></i>External Square</div>
+        <div class="column"><i class="eyedropper icon"></i>Eyedropper</div>
+        <div class="column"><i class="feed icon"></i>Feed</div>
+        <div class="column"><i class="find icon"></i>Find</div>
+        <div class="column"><i class="hand pointer icon"></i>Hand Pointer</div>
+        <div class="column"><i class="handshake icon"></i>Handshake</div>
+        <div class="column"><i class="hashtag icon"></i>Hashtag</div>
+        <div class="column"><i class="heartbeat icon"></i>Heartbeat</div>
+        <div class="column"><i class="history icon"></i>History</div>
+        <div class="column"><i class="home icon"></i>Home</div>
+        <div class="column"><i class="hourglass empty icon"></i>Hourglass Empty</div>
+        <div class="column"><i class="hourglass end icon"></i>Hourglass End</div>
+        <div class="column"><i class="hourglass full icon"></i>Hourglass Full</div>
+        <div class="column"><i class="hourglass half icon"></i>Hourglass Half</div>
+        <div class="column"><i class="hourglass start icon"></i>Hourglass Start</div>
+        <div class="column"><i class="id badge icon"></i>Id Badge</div>
+        <div class="column"><i class="id card icon"></i>Id Card</div>
+        <div class="column"><i class="id card outline icon"></i>Id Card Outline</div>
+        <div class="column"><i class="idea icon"></i>Idea</div>
+        <div class="column"><i class="image icon"></i>Image</div>
+        <div class="column"><i class="inbox icon"></i>Inbox</div>
+        <div class="column"><i class="industry icon"></i>Industry</div>
+        <div class="column"><i class="lab icon"></i>Lab</div>
+        <div class="column"><i class="mail icon"></i>Mail</div>
+        <div class="column"><i class="mail outline icon"></i>Mail Outline</div>
+        <div class="column"><i class="mail square icon"></i>Mail Square</div>
+        <div class="column"><i class="mouse pointer icon"></i>Mouse Pointer</div>
+        <div class="column"><i class="open envelope icon"></i>Open Envelope</div>
+        <div class="column"><i class="open envelope outline icon"></i>Open Envelope Outline</div>
+        <div class="column"><i class="options icon"></i>Options</div>
+        <div class="column"><i class="paint brush icon"></i>Paint Brush</div>
+        <div class="column"><i class="payment icon"></i>Payment</div>
+        <div class="column"><i class="percent icon"></i>Percent</div>
+        <div class="column"><i class="podcast icon"></i>Podcast</div>
+        <div class="column"><i class="privacy icon"></i>Privacy</div>
+        <div class="column"><i class="protect icon"></i>Protect</div>
+        <div class="column"><i class="registered icon"></i>Registered</div>
+        <div class="column"><i class="remove from calendar icon"></i>Remove From Calendar</div>
+        <div class="column"><i class="search icon"></i>Search</div>
+        <div class="column"><i class="setting icon"></i>Setting</div>
+        <div class="column"><i class="settings icon"></i>Settings</div>
+        <div class="column"><i class="shop icon"></i>Shop</div>
+        <div class="column"><i class="shopping bag icon"></i>Shopping Bag</div>
+        <div class="column"><i class="shopping basket icon"></i>Shopping Basket</div>
+        <div class="column"><i class="sidebar icon"></i>Sidebar</div>
+        <div class="column"><i class="signal icon"></i>Signal</div>
+        <div class="column"><i class="sitemap icon"></i>Sitemap</div>
+        <div class="column"><i class="tag icon"></i>Tag</div>
+        <div class="column"><i class="tags icon"></i>Tags</div>
+        <div class="column"><i class="tasks icon"></i>Tasks</div>
+        <div class="column"><i class="terminal icon"></i>Terminal</div>
+        <div class="column"><i class="text telephone icon"></i>Text Telephone</div>
+        <div class="column"><i class="ticket icon"></i>Ticket</div>
+        <div class="column"><i class="trademark icon"></i>Trademark</div>
+        <div class="column"><i class="trophy icon"></i>Trophy</div>
+        <div class="column"><i class="window close icon"></i>Window Close</div>
+        <div class="column"><i class="window close outline icon"></i>Window Close Outline</div>
+        <div class="column"><i class="window maximize icon"></i>Window Maximize</div>
+        <div class="column"><i class="window minimize icon"></i>Window Minimize</div>
+        <div class="column"><i class="window restore icon"></i>Window Restore</div>
+      </div>
+      <div class="existing code">
+        <i class="add to calendar icon"></i>
+        <i class="address book icon"></i>
+        <i class="address book outline icon"></i>
+        <i class="address card icon"></i>
+        <i class="address card outline icon"></i>
+        <i class="alarm icon"></i>
+        <i class="alarm mute icon"></i>
+        <i class="alarm mute outline icon"></i>
+        <i class="alarm outline icon"></i>
+        <i class="at icon"></i>
+        <i class="browser icon"></i>
+        <i class="bug icon"></i>
+        <i class="calendar icon"></i>
+        <i class="calendar outline icon"></i>
+        <i class="checked calendar icon"></i>
+        <i class="cloud icon"></i>
+        <i class="code icon"></i>
+        <i class="comment icon"></i>
+        <i class="comment outline icon"></i>
+        <i class="comments icon"></i>
+        <i class="comments icon"></i>
+        <i class="comments outline icon"></i>
+        <i class="copyright icon"></i>
+        <i class="creative commons icon"></i>
+        <i class="dashboard icon"></i>
+        <i class="delete calendar icon"></i>
+        <i class="external icon"></i>
+        <i class="external icon"></i>
+        <i class="external square icon"></i>
+        <i class="eyedropper icon"></i>
+        <i class="feed icon"></i>
+        <i class="find icon"></i>
+        <i class="hand pointer icon"></i>
+        <i class="handshake icon"></i>
+        <i class="hashtag icon"></i>
+        <i class="heartbeat icon"></i>
+        <i class="history icon"></i>
+        <i class="home icon"></i>
+        <i class="hourglass empty icon"></i>
+        <i class="hourglass end icon"></i>
+        <i class="hourglass full icon"></i>
+        <i class="hourglass half icon"></i>
+        <i class="hourglass start icon"></i>
+        <i class="id badge icon"></i>
+        <i class="id card icon"></i>
+        <i class="id card outline icon"></i>
+        <i class="idea icon"></i>
+        <i class="image icon"></i>
+        <i class="inbox icon"></i>
+        <i class="industry icon"></i>
+        <i class="lab icon"></i>
+        <i class="mail icon"></i>
+        <i class="mail outline icon"></i>
+        <i class="mail square icon"></i>
+        <i class="mouse pointer icon"></i>
+        <i class="open envelope icon"></i>
+        <i class="open envelope outline icon"></i>
+        <i class="options icon"></i>
+        <i class="paint brush icon"></i>
+        <i class="payment icon"></i>
+        <i class="percent icon"></i>
+        <i class="podcast icon"></i>
+        <i class="privacy icon"></i>
+        <i class="protect icon"></i>
+        <i class="registered icon"></i>
+        <i class="remove from calendar icon"></i>
+        <i class="search icon"></i>
+        <i class="setting icon"></i>
+        <i class="settings icon"></i>
+        <i class="shop icon"></i>
+        <i class="shopping bag icon"></i>
+        <i class="shopping basket icon"></i>
+        <i class="sidebar icon"></i>
+        <i class="signal icon"></i>
+        <i class="sitemap icon"></i>
+        <i class="tag icon"></i>
+        <i class="tags icon"></i>
+        <i class="tasks icon"></i>
+        <i class="terminal icon"></i>
+        <i class="text telephone icon"></i>
+        <i class="ticket icon"></i>
+        <i class="trademark icon"></i>
+        <i class="trophy icon"></i>
+        <i class="window close icon"></i>
+        <i class="window close outline icon"></i>
+        <i class="window maximize icon"></i>
+        <i class="window minimize icon"></i>
+        <i class="window restore icon"></i>
+      </div>
+    </div>
+    <div class="icon example">
+      <h4 class="ui header">User Actions</h4>
+      <p>Icons can represent common actions a user can take</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="add to cart icon"></i>Add To Cart</div>
+        <div class="column"><i class="add user icon"></i>Add User</div>
+        <div class="column"><i class="adjust icon"></i>Adjust</div>
+        <div class="column"><i class="archive icon"></i>Archive</div>
+        <div class="column"><i class="ban icon"></i>Ban</div>
+        <div class="column"><i class="bookmark icon"></i>Bookmark</div>
+        <div class="column"><i class="call icon"></i>Call</div>
+        <div class="column"><i class="call square icon"></i>Call Square</div>
+        <div class="column"><i class="clone icon"></i>Clone</div>
+        <div class="column"><i class="cloud download icon"></i>Cloud Download</div>
+        <div class="column"><i class="cloud upload icon"></i>Cloud Upload</div>
+        <div class="column"><i class="talk icon"></i>Talk</div>
+        <div class="column"><i class="talk outline icon"></i>Talk Outline</div>
+        <div class="column"><i class="compress icon"></i>Compress</div>
+        <div class="column"><i class="configure icon"></i>Configure</div>
+        <div class="column"><i class="download icon"></i>Download</div>
+        <div class="column"><i class="edit icon"></i>Edit</div>
+        <div class="column"><i class="erase icon"></i>Erase</div>
+        <div class="column"><i class="exchange icon"></i>Exchange</div>
+        <div class="column"><i class="expand icon"></i>Expand</div>
+        <div class="column"><i class="external share icon"></i>External Share</div>
+        <div class="column"><i class="filter icon"></i>Filter</div>
+        <div class="column"><i class="hide icon"></i>Hide</div>
+        <div class="column"><i class="in cart icon"></i>In Cart</div>
+        <div class="column"><i class="lock icon"></i>Lock</div>
+        <div class="column"><i class="mail forward icon"></i>Mail Forward</div>
+        <div class="column"><i class="group object icon"></i>Group Object</div>
+        <div class="column"><i class="ungroup object icon"></i>Ungroup Object</div>
+        <div class="column"><i class="pin icon"></i>Pin</div>
+        <div class="column"><i class="print icon"></i>Print</div>
+        <div class="column"><i class="random icon"></i>Random</div>
+        <div class="column"><i class="recycle icon"></i>Recycle</div>
+        <div class="column"><i class="refresh icon"></i>Refresh</div>
+        <div class="column"><i class="remove bookmark icon"></i>Remove Bookmark</div>
+        <div class="column"><i class="remove user icon"></i>Remove User</div>
+        <div class="column"><i class="repeat icon"></i>Repeat</div>
+        <div class="column"><i class="reply all icon"></i>Reply All</div>
+        <div class="column"><i class="reply icon"></i>Reply</div>
+        <div class="column"><i class="retweet icon"></i>Retweet</div>
+        <div class="column"><i class="send icon"></i>Send</div>
+        <div class="column"><i class="send outline icon"></i>Send Outline</div>
+        <div class="column"><i class="share alternate icon"></i>Share Alternate</div>
+        <div class="column"><i class="share alternate square icon"></i>Share Alternate Square</div>
+        <div class="column"><i class="share icon"></i>Share</div>
+        <div class="column"><i class="share square icon"></i>Share Square</div>
+        <div class="column"><i class="sign in icon"></i>Sign In</div>
+        <div class="column"><i class="sign out icon"></i>Sign Out</div>
+        <div class="column"><i class="theme icon"></i>Theme</div>
+        <div class="column"><i class="translate icon"></i>Translate</div>
+        <div class="column"><i class="undo icon"></i>Undo</div>
+        <div class="column"><i class="unhide icon"></i>Unhide</div>
+        <div class="column"><i class="unlock alternate icon"></i>Unlock Alternate</div>
+        <div class="column"><i class="unlock icon"></i>Unlock</div>
+        <div class="column"><i class="upload icon"></i>Upload</div>
+        <div class="column"><i class="wait icon"></i>Wait</div>
+        <div class="column"><i class="wizard icon"></i>Wizard</div>
+        <div class="column"><i class="write icon"></i>Write</div>
+        <div class="column"><i class="write square icon"></i>Write Square</div>
+      </div>
+      <div class="existing code">
+        <i class="add to cart icon"></i>
+        <i class="add user icon"></i>
+        <i class="adjust icon"></i>
+        <i class="archive icon"></i>
+        <i class="ban icon"></i>
+        <i class="bookmark icon"></i>
+        <i class="call icon"></i>
+        <i class="call square icon"></i>
+        <i class="clone icon"></i>
+        <i class="cloud download icon"></i>
+        <i class="cloud upload icon"></i>
+        <i class="talk icon"></i>
+        <i class="talk outline icon"></i>
+        <i class="compress icon"></i>
+        <i class="configure icon"></i>
+        <i class="download icon"></i>
+        <i class="edit icon"></i>
+        <i class="erase icon"></i>
+        <i class="exchange icon"></i>
+        <i class="expand icon"></i>
+        <i class="external share icon"></i>
+        <i class="filter icon"></i>
+        <i class="hide icon"></i>
+        <i class="in cart icon"></i>
+        <i class="lock icon"></i>
+        <i class="mail forward icon"></i>
+        <i class="object group icon"></i>
+        <i class="object ungroup icon"></i>
+        <i class="pin icon"></i>
+        <i class="print icon"></i>
+        <i class="random icon"></i>
+        <i class="recycle icon"></i>
+        <i class="refresh icon"></i>
+        <i class="remove bookmark icon"></i>
+        <i class="remove user icon"></i>
+        <i class="repeat icon"></i>
+        <i class="reply all icon"></i>
+        <i class="reply icon"></i>
+        <i class="retweet icon"></i>
+        <i class="send icon"></i>
+        <i class="send outline icon"></i>
+        <i class="share alternate icon"></i>
+        <i class="share alternate square icon"></i>
+        <i class="share icon"></i>
+        <i class="share square icon"></i>
+        <i class="sign in icon"></i>
+        <i class="sign out icon"></i>
+        <i class="theme icon"></i>
+        <i class="translate icon"></i>
+        <i class="undo icon"></i>
+        <i class="unhide icon"></i>
+        <i class="unlock alternate icon"></i>
+        <i class="unlock icon"></i>
+        <i class="upload icon"></i>
+        <i class="wait icon"></i>
+        <i class="wizard icon"></i>
+        <i class="write icon"></i>
+        <i class="write square icon"></i>
+      </div>
+    </div>
+    <div class="icon example">
+      <h4 class="ui header">Message</h4>
+      <p>Icons can alert users to the type of message being displayed</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="announcement icon"></i>Announcement</div>
+        <div class="column"><i class="birthday icon"></i>Birthday</div>
+        <div class="column"><i class="help circle icon"></i>Help Circle</div>
+        <div class="column"><i class="help circle outline icon"></i>Help Circle Outline</div>
+        <div class="column"><i class="help icon"></i>Help</div>
+        <div class="column"><i class="info circle icon"></i>Info Circle</div>
+        <div class="column"><i class="info icon"></i>Info</div>
+        <div class="column"><i class="warning circle icon"></i>Warning Circle</div>
+        <div class="column"><i class="warning icon"></i>Warning</div>
+        <div class="column"><i class="warning sign icon"></i>Warning Sign</div>
+      </div>
+      <div class="existing code">
+        <i class="announcement icon"></i>
+        <i class="birthday: icon"></i>
+        <i class="help circle icon"></i>
+        <i class="help icon"></i>
+        <i class="info circle icon"></i>
+        <i class="info icon"></i>
+        <i class="warning circle icon"></i>
+        <i class="warning icon"></i>
+        <i class="warning sign icon"></i>
+      </div>
+    </div>
+
+    <div class="icon example">
+      <h4 class="ui header">User Types</h4>
+      <p>Icons can represent types of people</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="child icon"></i>Child</div>
+        <div class="column"><i class="doctor icon"></i>Doctor</div>
+        <div class="column"><i class="handicap icon"></i>Handicap</div>
+        <div class="column"><i class="spy icon"></i>Spy</div>
+        <div class="column"><i class="student icon"></i>Student</div>
+        <div class="column"><i class="user icon"></i>User</div>
+        <div class="column"><i class="user circle icon"></i> User Circle</div>
+        <div class="column"><i class="user circle outline icon"></i> User Circle Outline</div>
+        <div class="column"><i class="user outline icon"></i> User Outline</div>
+        <div class="column"><i class="users icon"></i>Users</div>
+      </div>
+      <div class="existing code">
+        <i class="child icon"></i>
+        <i class="doctor icon"></i>
+        <i class="handicap icon"></i>
+        <i class="spy icon"></i>
+        <i class="student icon"></i>
+        <i class="user icon"></i>
+        <i class="user circle"></i>
+        <i class="user circle outline"></i>
+        <i class="user outline"></i>
+        <i class="users icon"></i>
+      </div>
+    </div>
+
+    <div class="icon example">
+      <h4 class="ui header">Gender & Sexuality</h4>
+      <p>Icons can represent genders or types of sexuality</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="female icon"></i>Female</div>
+        <div class="column"><i class="gay icon"></i>Gay</div>
+        <div class="column"><i class="genderless icon"></i>Genderless</div>
+        <div class="column"><i class="heterosexual icon"></i>Heterosexual</div>
+        <div class="column"><i class="intergender icon"></i>Intergender</div>
+        <div class="column"><i class="lesbian icon"></i>Lesbian</div>
+        <div class="column"><i class="male icon"></i>Male</div>
+        <div class="column"><i class="man icon"></i>Man</div>
+        <div class="column"><i class="neuter icon"></i>Neuter</div>
+        <div class="column"><i class="non binary transgender icon"></i>Non Binary Transgender</div>
+        <div class="column"><i class="other gender horizontal icon"></i>Other Gender Horizontal</div>
+        <div class="column"><i class="other gender icon"></i>Other Gender</div>
+        <div class="column"><i class="other gender vertical icon"></i>Other Gender Vertical</div>
+        <div class="column"><i class="transgender icon"></i>Transgender</div>
+        <div class="column"><i class="woman icon"></i>Woman</div>
+      </div>
+      <div class="existing code">
+        <i class="female icon"></i>
+        <i class="gay icon"></i>
+        <i class="genderless icon"></i>
+        <i class="heterosexual icon"></i>
+        <i class="intergender icon"></i>
+        <i class="lesbian icon"></i>
+        <i class="male icon"></i>
+        <i class="man icon"></i>
+        <i class="neuter icon"></i>
+        <i class="non binary transgender icon"></i>
+        <i class="other gender horizontal icon"></i>
+        <i class="other gender icon"></i>
+        <i class="other gender vertical icon"></i>
+        <i class="transgender icon"></i>
+        <i class="woman icon"></i>
+      </div>
+    </div>
+
+    <div class="icon example">
+      <h4 class="ui header">Layout Adjustment</h4>
+      <p>Icons can alert users to common ways to adjust page layouts</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="block layout icon"></i>Block Layout</div>
+        <div class="column"><i class="crop icon"></i>Crop</div>
+        <div class="column"><i class="grid layout icon"></i>Grid Layout</div>
+        <div class="column"><i class="list layout icon"></i>List Layout</div>
+        <div class="column"><i class="maximize icon"></i>Maximize</div>
+        <div class="column"><i class="resize horizontal icon"></i>Resize Horizontal</div>
+        <div class="column"><i class="resize vertical icon"></i>Resize Vertical</div>
+        <div class="column"><i class="zoom icon"></i>Zoom</div>
+        <div class="column"><i class="zoom out icon"></i>Zoom Out</div>
+      </div>
+      <div class="existing code">
+        <i class="block layout icon"></i>
+        <i class="crop icon"></i>
+        <i class="grid layout icon"></i>
+        <i class="list layout icon"></i>
+        <i class="maximize icon"></i>
+        <i class="resize horizontal icon"></i>
+        <i class="resize vertical icon"></i>
+        <i class="zoom icon"></i>
+        <i class="zoom out icon"></i>
+      </div>
+    </div>
+
+    <div class="icon example">
+      <h4 class="ui header">Objects</h4>
+      <p>Icons can be used to represent common objects</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="anchor icon"></i>Anchor</div>
+        <div class="column"><i class="bar icon"></i>Bar</div>
+        <div class="column"><i class="bathtub icon"></i>Bathtub</div>
+        <div class="column"><i class="bomb icon"></i>Bomb</div>
+        <div class="column"><i class="book icon"></i>Book</div>
+        <div class="column"><i class="bullseye icon"></i>Bullseye</div>
+        <div class="column"><i class="calculator icon"></i>Calculator</div>
+        <div class="column"><i class="cocktail icon"></i>Cocktail</div>
+        <div class="column"><i class="diamond icon"></i>Diamond</div>
+        <div class="column"><i class="fax icon"></i>Fax</div>
+        <div class="column"><i class="fire extinguisher icon"></i>Fire Extinguisher</div>
+        <div class="column"><i class="fire icon"></i>Fire</div>
+        <div class="column"><i class="flag checkered icon"></i>Flag Checkered</div>
+        <div class="column"><i class="flag icon"></i>Flag</div>
+        <div class="column"><i class="flag outline icon"></i>Flag Outline</div>
+        <div class="column"><i class="gift icon"></i>Gift</div>
+        <div class="column"><i class="hand lizard icon"></i>Hand Lizard</div>
+        <div class="column"><i class="hand peace icon"></i>Hand Peace</div>
+        <div class="column"><i class="hand paper icon"></i>Hand Paper</div>
+        <div class="column"><i class="hand pointer icon"></i>Hand Pointer</div>
+        <div class="column"><i class="hand rock icon"></i>Hand Rock</div>
+        <div class="column"><i class="hand scissors icon"></i>Hand Scissors</div>
+        <div class="column"><i class="hand spock icon"></i>Hand Spock</div>
+        <div class="column"><i class="law icon"></i>Law</div>
+        <div class="column"><i class="leaf icon"></i>Leaf</div>
+        <div class="column"><i class="legal icon"></i>Legal</div>
+        <div class="column"><i class="lemon icon"></i>Lemon</div>
+        <div class="column"><i class="life ring icon"></i>Life Ring</div>
+        <div class="column"><i class="lightning icon"></i>Lightning</div>
+        <div class="column"><i class="magnet icon"></i>Magnet</div>
+        <div class="column"><i class="money icon"></i>Money</div>
+        <div class="column"><i class="moon icon"></i>Moon</div>
+        <div class="column"><i class="plane icon"></i>Plane</div>
+        <div class="column"><i class="puzzle icon"></i>Puzzle</div>
+        <div class="column"><i class="road icon"></i>Road</div>
+        <div class="column"><i class="rocket icon"></i>Rocket</div>
+        <div class="column"><i class="shipping icon"></i>Shipping</div>
+        <div class="column"><i class="shower icon"></i>Shower</div>
+        <div class="column"><i class="snowflake icon"></i>Snowflake</div>
+        <div class="column"><i class="soccer icon"></i>Soccer</div>
+        <div class="column"><i class="sticky note icon"></i>Sticky Note</div>
+        <div class="column"><i class="sticky note outline icon"></i>Sticky Note Outline</div>
+        <div class="column"><i class="suitcase icon"></i>Suitcase</div>
+        <div class="column"><i class="sun icon"></i>Sun</div>
+        <div class="column"><i class="thermometer empty icon"></i>Empty Thermometer Icon</div>
+        <div class="column"><i class="thermometer quarter icon"></i>Quarter Thermometer Icon</div>
+        <div class="column"><i class="thermometer half icon"></i>Half Thermometer Icon</div>
+        <div class="column"><i class="thermometer three quarters icon"></i>Three Quarters Thermometer Icon</div>
+        <div class="column"><i class="thermometer full icon"></i>Full Thermometer Icon</div>
+        <div class="column"><i class="travel icon"></i>Travel</div>
+        <div class="column"><i class="treatment icon"></i>Treatment</div>
+        <div class="column"><i class="tv icon"></i>TV</div>
+        <div class="column"><i class="umbrella icon"></i>Umbrella</div>
+        <div class="column"><i class="world icon"></i>World</div>
+      </div>
+      <div class="existing code">
+        <i class="anchor icon"></i>
+        <i class="bar icon"></i>
+        <i class="bathtub icon"></i>
+        <i class="bomb icon"></i>
+        <i class="book icon"></i>
+        <i class="bullseye icon"></i>
+        <i class="calculator icon"></i>
+        <i class="cocktail icon"></i>
+        <i class="diamond icon"></i>
+        <i class="fax icon"></i>
+        <i class="fire extinguisher icon"></i>
+        <i class="fire icon"></i>
+        <i class="flag checkered icon"></i>
+        <i class="flag icon"></i>
+        <i class="flag outline icon"></i>
+        <i class="gift icon"></i>
+        <i class="hand lizard icon"></i>
+        <i class="hand peace icon"></i>
+        <i class="hand paper icon"></i>
+        <i class="hand rock icon"></i>
+        <i class="hand scissors icon"></i>
+        <i class="hand spock icon"></i>
+        <i class="law icon"></i>
+        <i class="leaf icon"></i>
+        <i class="legal icon"></i>
+        <i class="lemon icon"></i>
+        <i class="life ring icon"></i>
+        <i class="lightning icon"></i>
+        <i class="magnet icon"></i>
+        <i class="money icon"></i>
+        <i class="moon icon"></i>
+        <i class="plane icon"></i>
+        <i class="puzzle icon"></i>
+        <i class="road icon"></i>
+        <i class="rocket icon"></i>
+        <i class="shipping icon"></i>
+        <i class="shower icon"></i>
+        <i class="snowflake icon"></i>
+        <i class="soccer icon"></i>
+        <i class="sticky note icon"></i>
+        <i class="sticky note outline icon"></i>
+        <i class="suitcase icon"></i>
+        <i class="sun icon"></i>
+        <i class="thermometer empty icon"></i>
+        <i class="thermometer quarter icon"></i>
+        <i class="thermometer half icon"></i>
+        <i class="thermometer three quarters icon"></i>
+        <i class="thermometer full icon"></i>
+        <i class="travel icon"></i>
+        <i class="treatment icon"></i>
+        <i class="tv icon"></i>
+        <i class="umbrella icon"></i>
+        <i class="world icon"></i>
+      </div>
+    </div>
+
+    <div class="icon example">
+      <h4 class="ui header">Shapes</h4>
+      <p>Icons can be used to create shapes</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="asterisk icon"></i>Asterisk</div>
+        <div class="column"><i class="certificate icon"></i>Certificate</div>
+        <div class="column"><i class="circle icon"></i>Circle</div>
+        <div class="column"><i class="circle notched icon"></i>Circle Notched</div>
+        <div class="column"><i class="circle thin icon"></i>Circle Thin</div>
+        <div class="column"><i class="crosshairs icon"></i>Crosshairs</div>
+        <div class="column"><i class="cube icon"></i>Cube</div>
+        <div class="column"><i class="cubes icon"></i>Cubes</div>
+        <div class="column"><i class="ellipsis horizontal icon"></i>Ellipsis Horizontal</div>
+        <div class="column"><i class="ellipsis vertical icon"></i>Ellipsis Vertical</div>
+        <div class="column"><i class="quote left icon"></i>Quote Left</div>
+        <div class="column"><i class="quote right icon"></i>Quote Right</div>
+        <div class="column"><i class="spinner icon"></i>Spinner</div>
+        <div class="column"><i class="square icon"></i>Square</div>
+        <div class="column"><i class="square outline icon"></i>Square Outline</div>
+      </div>
+      <div class="existing code">
+        <i class="asterisk icon"></i>
+        <i class="certificate icon"></i>
+        <i class="circle icon"></i>
+        <i class="circle notched icon"></i>
+        <i class="circle thin icon"></i>
+        <i class="crosshairs icon"></i>
+        <i class="cube icon"></i>
+        <i class="cubes icon"></i>
+        <i class="ellipsis horizontal icon"></i>
+        <i class="ellipsis vertical icon"></i>
+        <i class="quote left icon"></i>
+        <i class="quote right icon"></i>
+        <i class="spinner icon"></i>
+        <i class="square icon"></i>
+        <i class="square outline icon"></i>
+      </div>
+    </div>
+
+    <div class="icon example">
+      <h4 class="ui header">Item Selection</h4>
+      <p>Icons can show whether an item is included in a set</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="add circle icon"></i>Add Circle</div>
+        <div class="column"><i class="add square icon"></i>Add Square</div>
+        <div class="column"><i class="check circle icon"></i>Check Circle</div>
+        <div class="column"><i class="check circle outline icon"></i>Check Circle Outline</div>
+        <div class="column"><i class="check square icon"></i>Check Square</div>
+        <div class="column"><i class="checkmark box icon"></i>Checkmark Box</div>
+        <div class="column"><i class="checkmark icon"></i>Checkmark</div>
+        <div class="column"><i class="minus circle icon"></i>Minus Circle</div>
+        <div class="column"><i class="minus icon"></i>Minus</div>
+        <div class="column"><i class="minus square icon"></i>Minus Square</div>
+        <div class="column"><i class="minus square outline icon"></i>Minus Square Outline</div>
+        <div class="column"><i class="move icon"></i>Move</div>
+        <div class="column"><i class="plus icon"></i>Plus</div>
+        <div class="column"><i class="plus square outline icon"></i>Plus Square Outline</div>
+        <div class="column"><i class="radio icon"></i>Radio</div>
+        <div class="column"><i class="remove circle icon"></i>Remove Circle</div>
+        <div class="column"><i class="remove circle outline icon"></i>Remove Circle Outline</div>
+        <div class="column"><i class="remove icon"></i>Remove</div>
+        <div class="column"><i class="selected radio icon"></i>Selected Radio</div>
+        <div class="column"><i class="toggle off icon"></i>Toggle Off</div>
+        <div class="column"><i class="toggle on icon"></i>Toggle On</div>
+      </div>
+      <div class="existing code">
+        <i class="add circle icon"></i>
+        <i class="add square icon"></i>
+        <i class="check circle icon"></i>
+        <i class="check circle outline icon"></i>
+        <i class="check square icon"></i>
+        <i class="checkmark box icon"></i>
+        <i class="checkmark icon"></i>
+        <i class="minus circle icon"></i>
+        <i class="minus icon"></i>
+        <i class="minus square icon"></i>
+        <i class="minus square outline icon"></i>
+        <i class="move icon"></i>
+        <i class="plus icon"></i>
+        <i class="plus square outline icon"></i>
+        <i class="radio icon"></i>
+        <i class="remove circle icon"></i>
+        <i class="remove circle outline icon"></i>
+        <i class="remove icon"></i>
+        <i class="selected radio icon"></i>
+        <i class="toggle off icon"></i>
+        <i class="toggle on icon"></i>
+      </div>
+    </div>
+
+    <div class="icon example">
+      <h4 class="ui header">Media</h4>
+      <p>Icons can represent common media types</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="area chart icon"></i>Area Chart</div>
+        <div class="column"><i class="bar chart icon"></i>Bar Chart</div>
+        <div class="column"><i class="camera retro icon"></i>Camera Retro</div>
+        <div class="column"><i class="newspaper icon"></i>Newspaper</div>
+        <div class="column"><i class="film icon"></i>Film</div>
+        <div class="column"><i class="line chart icon"></i>Line Chart</div>
+        <div class="column"><i class="photo icon"></i>Photo</div>
+        <div class="column"><i class="pie chart icon"></i>Pie Chart</div>
+        <div class="column"><i class="sound icon"></i>Sound</div>
+      </div>
+      <div class="existing code">
+        <i class="area chart icon"></i>
+        <i class="bar chart icon"></i>
+        <i class="camera retro icon"></i>
+        <i class="film icon"></i>
+        <i class="line chart icon"></i>
+        <i class="newspaper icon"></i>
+        <i class="photo icon"></i>
+        <i class="pie chart icon"></i>
+        <i class="sound icon"></i>
+      </div>
+    </div>
+
+
+    <div class="icon example">
+      <h4 class="ui header">Pointers</h4>
+      <p>Icons can be used to indicate a direction</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="angle double down icon"></i>Angle Double Down</div>
+        <div class="column"><i class="angle double left icon"></i>Angle Double Left</div>
+        <div class="column"><i class="angle double right icon"></i>Angle Double Right</div>
+        <div class="column"><i class="angle double up icon"></i>Angle Double Up</div>
+        <div class="column"><i class="angle down icon"></i>Angle Down</div>
+        <div class="column"><i class="angle left icon"></i>Angle Left</div>
+        <div class="column"><i class="angle right icon"></i>Angle Right</div>
+        <div class="column"><i class="angle up icon"></i>Angle Up</div>
+        <div class="column"><i class="arrow circle down icon"></i>Arrow Circle Down</div>
+        <div class="column"><i class="arrow circle left icon"></i>Arrow Circle Left</div>
+        <div class="column"><i class="arrow circle outline down icon"></i>Arrow Circle Outline Down</div>
+        <div class="column"><i class="arrow circle outline left icon"></i>Arrow Circle Outline Left</div>
+        <div class="column"><i class="arrow circle outline right icon"></i>Arrow Circle Outline Right</div>
+        <div class="column"><i class="arrow circle outline up icon"></i>Arrow Circle Outline Up</div>
+        <div class="column"><i class="arrow circle right icon"></i>Arrow Circle Right</div>
+        <div class="column"><i class="arrow circle up icon"></i>Arrow Circle Up</div>
+        <div class="column"><i class="arrow down icon"></i>Arrow Down</div>
+        <div class="column"><i class="arrow left icon"></i>Arrow Left</div>
+        <div class="column"><i class="arrow right icon"></i>Arrow Right</div>
+        <div class="column"><i class="arrow up icon"></i>Arrow Up</div>
+        <div class="column"><i class="caret down icon"></i>Caret Down</div>
+        <div class="column"><i class="caret left icon"></i>Caret Left</div>
+        <div class="column"><i class="caret right icon"></i>Caret Right</div>
+        <div class="column"><i class="caret up icon"></i>Caret Up</div>
+        <div class="column"><i class="chevron circle down icon"></i>Chevron Circle Down</div>
+        <div class="column"><i class="chevron circle left icon"></i>Chevron Circle Left</div>
+        <div class="column"><i class="chevron circle right icon"></i>Chevron Circle Right</div>
+        <div class="column"><i class="chevron circle up icon"></i>Chevron Circle Up</div>
+        <div class="column"><i class="chevron down icon"></i>Chevron Down</div>
+        <div class="column"><i class="chevron left icon"></i>Chevron Left</div>
+        <div class="column"><i class="chevron right icon"></i>Chevron Right</div>
+        <div class="column"><i class="chevron up icon"></i>Chevron Up</div>
+        <div class="column"><i class="long arrow down icon"></i>Long Arrow Down</div>
+        <div class="column"><i class="long arrow left icon"></i>Long Arrow Left</div>
+        <div class="column"><i class="long arrow right icon"></i>Long Arrow Right</div>
+        <div class="column"><i class="long arrow up icon"></i>Long Arrow Up</div>
+        <div class="column"><i class="pointing down icon"></i>Pointing Down</div>
+        <div class="column"><i class="pointing left icon"></i>Pointing Left</div>
+        <div class="column"><i class="pointing right icon"></i>Pointing Right</div>
+        <div class="column"><i class="pointing up icon"></i>Pointing Up</div>
+        <div class="column"><i class="toggle down icon"></i>Toggle Down</div>
+        <div class="column"><i class="toggle left icon"></i>Toggle Left</div>
+        <div class="column"><i class="toggle right icon"></i>Toggle Right</div>
+        <div class="column"><i class="toggle up icon"></i>Toggle Up</div>
+      </div>
+      <div class="existing code">
+        <i class="angle double down icon"></i>
+        <i class="angle double left icon"></i>
+        <i class="angle double right icon"></i>
+        <i class="angle double up icon"></i>
+        <i class="angle down icon"></i>
+        <i class="angle left icon"></i>
+        <i class="angle right icon"></i>
+        <i class="angle up icon"></i>
+        <i class="arrow circle down icon"></i>
+        <i class="arrow circle left icon"></i>
+        <i class="arrow circle outline down icon"></i>
+        <i class="arrow circle outline left icon"></i>
+        <i class="arrow circle outline right icon"></i>
+        <i class="arrow circle outline up icon"></i>
+        <i class="arrow circle right icon"></i>
+        <i class="arrow circle up icon"></i>
+        <i class="arrow down icon"></i>
+        <i class="arrow left icon"></i>
+        <i class="arrow right icon"></i>
+        <i class="arrow up icon"></i>
+        <i class="caret down icon"></i>
+        <i class="caret left icon"></i>
+        <i class="caret right icon"></i>
+        <i class="caret up icon"></i>
+        <i class="chevron circle down icon"></i>
+        <i class="chevron circle left icon"></i>
+        <i class="chevron circle right icon"></i>
+        <i class="chevron circle up icon"></i>
+        <i class="chevron down icon"></i>
+        <i class="chevron left icon"></i>
+        <i class="chevron right icon"></i>
+        <i class="chevron up icon"></i>
+        <i class="long arrow down icon"></i>
+        <i class="long arrow left icon"></i>
+        <i class="long arrow right icon"></i>
+        <i class="long arrow up icon"></i>
+        <i class="pointing down icon"></i>
+        <i class="pointing left icon"></i>
+        <i class="pointing right icon"></i>
+        <i class="pointing up icon"></i>
+        <i class="toggle down icon"></i>
+        <i class="toggle left icon"></i>
+        <i class="toggle right icon"></i>
+        <i class="toggle up icon"></i>
+      </div>
+    </div>
+    <div class="icon example">
+      <h4 class="ui header">Mobile</h4>
+      <p>Icons can represent mobile devices, types of content found on mobile devices.</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="mobile icon"></i>Mobile</div>
+        <div class="column"><i class="tablet icon"></i>Tablet</div>
+        <div class="column"><i class="battery empty icon"></i>Battery Empty</div>
+        <div class="column"><i class="battery low icon"></i>Battery Low</div>
+        <div class="column"><i class="battery medium icon"></i>Battery Medium</div>
+        <div class="column"><i class="battery high icon"></i>High Battery</div>
+        <div class="column"><i class="battery full icon"></i>Battery Full</div>
+      </div>
+      <div class="existing code">
+        <i class="mobile icon"></i>
+        <i class="tablet icon"></i>
+        <i class="battery empty icon"></i>
+        <i class="battery low icon"></i>
+        <i class="battery medium icon"></i>
+        <i class="battery high icon"></i>
+        <i class="battery full icon"></i>
+      </div>
+    </div>
+    <div class="icon example">
+      <h4 class="ui header">Computer</h4>
+      <p>Icons can represent computing devices, or types of content found on a computer.</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="desktop icon"></i>Desktop</div>
+        <div class="column"><i class="disk outline icon"></i>Disk Outline</div>
+        <div class="column"><i class="game icon"></i>Game</div>
+        <div class="column"><i class="keyboard icon"></i>Keyboard</div>
+        <div class="column"><i class="laptop icon"></i>Laptop</div>
+        <div class="column"><i class="plug icon"></i>Plug</div>
+        <div class="column"><i class="power icon"></i>Power</div>
+      </div>
+      <div class="existing code">
+        <i class="desktop icon"></i>
+        <i class="disk outline icon"></i>
+        <i class="game icon"></i>
+        <i class="keyboard icon"></i>
+        <i class="laptop icon"></i>
+        <i class="plug icon"></i>
+        <i class="power icon"></i>
+      </div>
+    </div>
+    <div class="icon example">
+      <h4 class="ui header">Computer and File System</h4>
+      <p>Icons can represent elements of a computer and its file system</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="file archive outline icon"></i>File Archive Outline</div>
+        <div class="column"><i class="file audio outline icon"></i>File Audio Outline</div>
+        <div class="column"><i class="file code outline icon"></i>File Code Outline</div>
+        <div class="column"><i class="file excel outline icon"></i>File Excel Outline</div>
+        <div class="column"><i class="file icon"></i>File</div>
+        <div class="column"><i class="file image outline icon"></i>File Image Outline</div>
+        <div class="column"><i class="file outline icon"></i>File Outline</div>
+        <div class="column"><i class="file pdf outline icon"></i>File Pdf Outline</div>
+        <div class="column"><i class="file powerpoint outline icon"></i>File Powerpoint Outline</div>
+        <div class="column"><i class="file text icon"></i>File Text</div>
+        <div class="column"><i class="file text outline icon"></i>File Text Outline</div>
+        <div class="column"><i class="file video outline icon"></i>File Video Outline</div>
+        <div class="column"><i class="file word outline icon"></i>File Word Outline</div>
+        <div class="column"><i class="folder icon"></i>Folder</div>
+        <div class="column"><i class="folder open icon"></i>Folder Open</div>
+        <div class="column"><i class="folder open outline icon"></i>Folder Open Outline</div>
+        <div class="column"><i class="folder outline icon"></i>Folder Outline</div>
+        <div class="column"><i class="level down icon"></i>Level Down</div>
+        <div class="column"><i class="level up icon"></i>Level Up</div>
+        <div class="column"><i class="trash icon"></i>Trash</div>
+        <div class="column"><i class="trash outline icon"></i>Trash Outline</div>
+      </div>
+      <div class="existing code">
+        <i class="file archive outline icon"></i>
+        <i class="file audio outline icon"></i>
+        <i class="file code outline icon"></i>
+        <i class="file excel outline icon"></i>
+        <i class="file icon"></i>
+        <i class="file image outline icon"></i>
+        <i class="file outline icon"></i>
+        <i class="file pdf outline icon"></i>
+        <i class="file powerpoint outline icon"></i>
+        <i class="file text icon"></i>
+        <i class="file text outline icon"></i>
+        <i class="file video outline icon"></i>
+        <i class="file word outline icon"></i>
+        <i class="folder icon"></i>
+        <i class="folder open icon"></i>
+        <i class="folder open outline icon"></i>
+        <i class="folder outline icon"></i>
+        <i class="level down icon"></i>
+        <i class="level up icon"></i>
+        <i class="trash icon"></i>
+        <i class="trash outline icon"></i>
+      </div>
+    </div>
+
+    <div class="icon example">
+      <h4 class="ui header">Technologies</h4>
+      <p>Icons can represent common technologies</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="barcode icon"></i>Barcode</div>
+        <div class="column"><i class="bluetooth alternative icon"></i>Bluetooth Alternative</div>
+        <div class="column"><i class="bluetooth icon"></i>Bluetooth</div>
+        <div class="column"><i class="css3 icon"></i>Css3</div>
+        <div class="column"><i class="database icon"></i>Database</div>
+        <div class="column"><i class="fork icon"></i>Fork</div>
+        <div class="column"><i class="html5 icon"></i>Html5</div>
+        <div class="column"><i class="microchip icon"></i>Microchip</div>
+        <div class="column"><i class="openid icon"></i>Openid</div>
+        <div class="column"><i class="qrcode icon"></i>Qrcode</div>
+        <div class="column"><i class="rss icon"></i>Rss</div>
+        <div class="column"><i class="rss square icon"></i>Rss Square</div>
+        <div class="column"><i class="server icon"></i>Server</div>
+        <div class="column"><i class="usb icon"></i>USB</div>
+      </div>
+      <div class="existing code">
+        <i class="barcode icon"></i>
+        <i class="bluetooth alternative icon"></i>
+        <i class="bluetooth icon"></i>
+        <i class="css3 icon"></i>
+        <i class="database icon"></i>
+        <i class="fork icon"></i>
+        <i class="html5 icon"></i>
+        <i class="microchip icon"></i>
+        <i class="openid icon"></i>
+        <i class="qrcode icon"></i>
+        <i class="rss icon"></i>
+        <i class="rss square icon"></i>
+        <i class="server icon"></i>
+        <i class="usb icon"></i>
+      </div>
+    </div>
+
+    <div class="icon example">
+      <h4 class="ui header">Rating</h4>
+      <p>Icons can be used to represent users attitude towards content</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="empty heart icon"></i>Empty Heart</div>
+        <div class="column"><i class="empty star icon"></i>Empty Star</div>
+        <div class="column"><i class="frown icon"></i>Frown</div>
+        <div class="column"><i class="heart icon"></i>Heart</div>
+        <div class="column"><i class="meh icon"></i>Meh</div>
+        <div class="column"><i class="smile icon"></i>Smile</div>
+        <div class="column"><i class="star half empty icon"></i>Star Half Empty</div>
+        <div class="column"><i class="star half icon"></i>Star Half</div>
+        <div class="column"><i class="star icon"></i>Star</div>
+        <div class="column"><i class="thumbs down icon"></i>Thumbs Down</div>
+        <div class="column"><i class="thumbs outline down icon"></i>Thumbs Outline Down</div>
+        <div class="column"><i class="thumbs outline up icon"></i>Thumbs Outline Up</div>
+        <div class="column"><i class="thumbs up icon"></i>Thumbs Up</div>
+      </div>
+      <div class="existing code">
+        <i class="empty heart icon"></i>
+        <i class="empty star icon"></i>
+        <i class="frown icon"></i>
+        <i class="heart icon"></i>
+        <i class="meh icon"></i>
+        <i class="smile icon"></i>
+        <i class="star half empty icon"></i>
+        <i class="star half icon"></i>
+        <i class="star icon"></i>
+        <i class="thumbs down icon"></i>
+        <i class="thumbs outline down icon"></i>
+        <i class="thumbs outline up icon"></i>
+        <i class="thumbs up icon"></i>
+      </div>
+    </div>
+
+    <div class="icon example">
+      <h4 class="ui header">Audio</h4>
+      <p>Icons can be used to represent common ways to interact with audio</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="backward icon"></i>Backward</div>
+        <div class="column"><i class="closed captioning icon"></i>Closed Captioning</div>
+        <div class="column"><i class="eject icon"></i>Eject</div>
+        <div class="column"><i class="fast backward icon"></i>Fast Backward</div>
+        <div class="column"><i class="fast forward icon"></i>Fast Forward</div>
+        <div class="column"><i class="forward icon"></i>Forward</div>
+        <div class="column"><i class="music icon"></i>Music</div>
+        <div class="column"><i class="mute icon"></i>Mute</div>
+        <div class="column"><i class="pause circle icon"></i>Pause Circle</div>
+        <div class="column"><i class="pause circle outline icon"></i>Pause Circle Outline</div>
+        <div class="column"><i class="pause icon"></i>Pause</div>
+        <div class="column"><i class="play icon"></i>Play</div>
+        <div class="column"><i class="record icon"></i>Record</div>
+        <div class="column"><i class="step backward icon"></i>Step Backward</div>
+        <div class="column"><i class="step forward icon"></i>Step Forward</div>
+        <div class="column"><i class="stop circle icon"></i>Stop Circle</div>
+        <div class="column"><i class="stop circle outline icon"></i>Stop Circle Outline</div>
+        <div class="column"><i class="stop icon"></i>Stop</div>
+        <div class="column"><i class="unmute icon"></i>Unmute</div>
+        <div class="column"><i class="video play icon"></i>Video Play</div>
+        <div class="column"><i class="video play outline icon"></i>Video Play Outline</div>
+        <div class="column"><i class="volume down icon"></i>Volume Down</div>
+        <div class="column"><i class="volume off icon"></i>Volume Off</div>
+        <div class="column"><i class="volume up icon"></i>Volume Up</div>
+      </div>
+      <div class="existing code">
+        <i class="backward icon"></i>
+        <i class="closed captioning icon"></i>
+        <i class="eject icon"></i>
+        <i class="fast backward icon"></i>
+        <i class="fast forward icon"></i>
+        <i class="forward icon"></i>
+        <i class="music icon"></i>
+        <i class="mute icon"></i>
+        <i class="pause circle icon"></i>
+        <i class="pause circle outline icon"></i>
+        <i class="pause icon"></i>
+        <i class="play icon"></i>
+        <i class="record icon"></i>
+        <i class="step backward icon"></i>
+        <i class="step forward icon"></i>
+        <i class="stop circle icon"></i>
+        <i class="stop circle outline icon"></i>
+        <i class="stop icon"></i>
+        <i class="unmute icon"></i>
+        <i class="video play icon"></i>
+        <i class="video play outline icon"></i>
+        <i class="volume down icon"></i>
+        <i class="volume off icon"></i>
+        <i class="volume up icon"></i>
+      </div>
+    </div>
+
+    <div class="icon example">
+      <h4 class="ui header">Map</h4>
+      <p>Icons can be used to represent elements on a map</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="bicycle icon"></i>Bicycle</div>
+        <div class="column"><i class="building icon"></i>Building</div>
+        <div class="column"><i class="building outline icon"></i>Building Outline</div>
+        <div class="column"><i class="bus icon"></i>Bus</div>
+        <div class="column"><i class="car icon"></i>Car</div>
+        <div class="column"><i class="coffee icon"></i>Coffee</div>
+        <div class="column"><i class="compass icon"></i>Compass</div>
+        <div class="column"><i class="emergency icon"></i>Emergency</div>
+        <div class="column"><i class="first aid icon"></i>First Aid</div>
+        <div class="column"><i class="food icon"></i>Food</div>
+        <div class="column"><i class="h icon"></i>H</div>
+        <div class="column"><i class="hospital icon"></i>Hospital</div>
+        <div class="column"><i class="hotel icon"></i>Hotel</div>
+        <div class="column"><i class="location arrow icon"></i>Location Arrow</div>
+        <div class="column"><i class="map icon"></i>Map</div>
+        <div class="column"><i class="map outline icon"></i>Map Outline</div>
+        <div class="column"><i class="map pin icon"></i>Map Pin</div>
+        <div class="column"><i class="map signs icon"></i>Map Signs</div>
+        <div class="column"><i class="marker icon"></i>Marker</div>
+        <div class="column"><i class="military icon"></i>Military</div>
+        <div class="column"><i class="motorcycle icon"></i>Motorcycle</div>
+        <div class="column"><i class="paw icon"></i>Paw</div>
+        <div class="column"><i class="ship icon"></i>Ship</div>
+        <div class="column"><i class="space shuttle icon"></i>Space Shuttle</div>
+        <div class="column"><i class="spoon icon"></i>Spoon</div>
+        <div class="column"><i class="street view icon"></i>Street View</div>
+        <div class="column"><i class="subway icon"></i>Subway</div>
+        <div class="column"><i class="taxi icon"></i>Taxi</div>
+        <div class="column"><i class="train icon"></i>Train</div>
+        <div class="column"><i class="tv icon"></i>TV</div>
+        <div class="column"><i class="tree icon"></i>Tree</div>
+        <div class="column"><i class="university icon"></i>University</div>
+      </div>
+      <div class="existing code">
+        <i class="bicycle icon"></i>
+        <i class="building icon"></i>
+        <i class="building outline icon"></i>
+        <i class="bus icon"></i>
+        <i class="car icon"></i>
+        <i class="coffee icon"></i>
+        <i class="compass icon"></i>
+        <i class="emergency icon"></i>
+        <i class="first aid icon"></i>
+        <i class="food icon"></i>
+        <i class="h icon"></i>
+        <i class="hospital icon"></i>
+        <i class="hotel icon"></i>
+        <i class="location arrow icon"></i>
+        <i class="map icon"></i>
+        <i class="map outline icon"></i>
+        <i class="map pin icon"></i>
+        <i class="map signs icon"></i>
+        <i class="marker icon"></i>
+        <i class="military icon"></i>
+        <i class="motorcycle icon"></i>
+        <i class="paw icon"></i>
+        <i class="ship icon"></i>
+        <i class="space shuttle icon"></i>
+        <i class="spoon icon"></i>
+        <i class="street view icon"></i>
+        <i class="subway icon"></i>
+        <i class="taxi icon"></i>
+        <i class="train icon"></i>
+        <i class="television icon"></i>
+        <i class="tree icon"></i>
+        <i class="university icon"></i>
+      </div>
+    </div>
+
+    <div class="icon example">
+      <h4 class="ui header">Tables</h4>
+      <p>Icons can be used to represent common actions inside a table</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="columns icon"></i>Columns</div>
+        <div class="column"><i class="sort alphabet ascending icon"></i>Sort Alphabet Ascending</div>
+        <div class="column"><i class="sort alphabet descending icon"></i>Sort Alphabet Descending</div>
+        <div class="column"><i class="sort ascending icon"></i>Sort Ascending</div>
+        <div class="column"><i class="sort content ascending icon"></i>Sort Content Ascending</div>
+        <div class="column"><i class="sort content descending icon"></i>Sort Content Descending</div>
+        <div class="column"><i class="sort descending icon"></i>Sort Descending</div>
+        <div class="column"><i class="sort icon"></i>Sort</div>
+        <div class="column"><i class="sort numeric ascending icon"></i>Sort Numeric Ascending</div>
+        <div class="column"><i class="sort numeric descending icon"></i>Sort Numeric Descending</div>
+        <div class="column"><i class="table icon"></i>Table</div>
+      </div>
+      <div class="existing code">
+        <i class="columns icon"></i>
+        <i class="sort alphabet ascending icon"></i>
+        <i class="sort alphabet descending icon"></i>
+        <i class="sort ascending icon"></i>
+        <i class="sort content ascending icon"></i>
+        <i class="sort content descending icon"></i>
+        <i class="sort descending icon"></i>
+        <i class="sort icon"></i>
+        <i class="sort numeric ascending icon"></i>
+        <i class="sort numeric descending icon"></i>
+        <i class="table icon"></i>
+      </div>
+    </div>
+
+    <div class="icon example">
+      <h4 class="ui header">Text Editor</h4>
+      <p>Icons can represent common actions when editing text</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="align center icon"></i>Align Center</div>
+        <div class="column"><i class="align justify icon"></i>Align Justify</div>
+        <div class="column"><i class="align left icon"></i>Align Left</div>
+        <div class="column"><i class="align right icon"></i>Align Right</div>
+        <div class="column"><i class="attach icon"></i>Attach</div>
+        <div class="column"><i class="bold icon"></i>Bold</div>
+        <div class="column"><i class="copy icon"></i>Copy</div>
+        <div class="column"><i class="cut icon"></i>Cut</div>
+        <div class="column"><i class="font icon"></i>Font</div>
+        <div class="column"><i class="header icon"></i>Header</div>
+        <div class="column"><i class="indent icon"></i>Indent</div>
+        <div class="column"><i class="italic icon"></i>Italic</div>
+        <div class="column"><i class="linkify icon"></i>Linkify</div>
+        <div class="column"><i class="list icon"></i>List</div>
+        <div class="column"><i class="ordered list icon"></i>Ordered List</div>
+        <div class="column"><i class="outdent icon"></i>Outdent</div>
+        <div class="column"><i class="paragraph icon"></i>Paragraph</div>
+        <div class="column"><i class="paste icon"></i>Paste</div>
+        <div class="column"><i class="save icon"></i>Save</div>
+        <div class="column"><i class="strikethrough icon"></i>Strikethrough</div>
+        <div class="column"><i class="subscript icon"></i>Subscript</div>
+        <div class="column"><i class="superscript icon"></i>Superscript</div>
+        <div class="column"><i class="text cursor icon"></i>Text Cursor</div>
+        <div class="column"><i class="text height icon"></i>Text Height</div>
+        <div class="column"><i class="text width icon"></i>Text Width</div>
+        <div class="column"><i class="underline icon"></i>Underline</div>
+        <div class="column"><i class="unlinkify icon"></i>Unlinkify</div>
+        <div class="column"><i class="unordered list icon"></i>Unordered List</div>
+      </div>
+      <div class="existing code">
+        <i class="align center icon"></i>
+        <i class="align justify icon"></i>
+        <i class="align left icon"></i>
+        <i class="align right icon"></i>
+        <i class="attach icon"></i>
+        <i class="bold icon"></i>
+        <i class="copy icon"></i>
+        <i class="cut icon"></i>
+        <i class="font icon"></i>
+        <i class="header icon"></i>
+        <i class="indent icon"></i>
+        <i class="italic icon"></i>
+        <i class="linkify icon"></i>
+        <i class="list icon"></i>
+        <i class="ordered list icon"></i>
+        <i class="outdent icon"></i>
+        <i class="paragraph icon"></i>
+        <i class="paste icon"></i>
+        <i class="save icon"></i>
+        <i class="strikethrough icon"></i>
+        <i class="subscript icon"></i>
+        <i class="superscript icon"></i>
+        <i class="text cursor icon"></i>
+        <i class="text height icon"></i>
+        <i class="text width icon"></i>
+        <i class="underline icon"></i>
+        <i class="unlinkify icon"></i>
+        <i class="unordered list icon"></i>
+      </div>
+    </div>
+
+    <div class="icon example">
+      <h4 class="ui header">Currency</h4>
+      <p>Icons can represent units of currency</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="bitcoin icon"></i>Bitcoin</div>
+        <div class="column"><i class="dollar icon"></i>Dollar</div>
+        <div class="column"><i class="euro icon"></i>Euro</div>
+        <div class="column"><i class="lira icon"></i>Lira</div>
+        <div class="column"><i class="pound icon"></i>Pound</div>
+        <div class="column"><i class="ruble icon"></i>Ruble</div>
+        <div class="column"><i class="rupee icon"></i>Rupee</div>
+        <div class="column"><i class="shekel icon"></i>Shekel</div>
+        <div class="column"><i class="won icon"></i>Won</div>
+        <div class="column"><i class="yen icon"></i>Yen</div>
+      </div>
+      <div class="existing code">
+        <i class="bitcoin icon"></i>
+        <i class="dollar icon"></i>
+        <i class="euro icon"></i>
+        <i class="lira icon"></i>
+        <i class="pound icon"></i>
+        <i class="ruble icon"></i>
+        <i class="rupee icon"></i>
+        <i class="shekel icon"></i>
+        <i class="won icon"></i>
+        <i class="yen icon"></i>
+      </div>
+    </div>
+
+
+    <div class="icon example">
+      <h4 class="ui header">Payment Options</h4>
+      <p>Icons can represent common forms of payment</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="american express icon"></i>American Express</div>
+        <div class="column"><i class="credit card alternative icon"></i>Credit Card Alternative</div>
+        <div class="column"><i class="diners club icon"></i>Diners Club</div>
+        <div class="column"><i class="discover icon"></i>Discover</div>
+        <div class="column"><i class="google wallet icon"></i>Google Wallet</div>
+        <div class="column"><i class="japan credit bureau icon"></i>Japan Credit Bureau</div>
+        <div class="column"><i class="mastercard icon"></i>Mastercard</div>
+        <div class="column"><i class="paypal card icon"></i>Paypal Card</div>
+        <div class="column"><i class="paypal icon"></i>Paypal</div>
+        <div class="column"><i class="stripe icon"></i>Stripe</div>
+        <div class="column"><i class="visa icon"></i>Visa</div>
+      </div>
+      <div class="existing code">
+        <i class="american express icon"></i>
+        <i class="credit card alternative icon"></i>
+        <i class="diners club icon"></i>
+        <i class="discover icon"></i>
+        <i class="google wallet icon"></i>
+        <i class="japan credit bureau icon"></i>
+        <i class="mastercard icon"></i>
+        <i class="paypal card icon"></i>
+        <i class="paypal icon"></i>
+        <i class="stripe icon"></i>
+        <i class="visa icon"></i>
+      </div>
+    </div>
+    <div class="icon example">
+      <h4 class="ui header">Accessibility</h4>
+      <p>Icons can represent accessibility standards</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="wheelchair icon"></i>Wheelchair</div>
+        <div class="column"><i class="asl interpreting icon"></i>American Sign Language (ASL) Interpreting</div>
+        <div class="column"><i class="assistive listening systems icon"></i>Assistive Listening Systems</div>
+        <div class="column"><i class="audio description icon"></i>Audio Description</div>
+        <div class="column"><i class="blind icon"></i>Blind</div>
+        <div class="column"><i class="braille icon"></i>Braille</div>
+        <div class="column"><i class="deafness icon"></i>Deafness</div>
+        <div class="column"><i class="low vision icon"></i>Low Vision</div>
+        <div class="column"><i class="sign language icon"></i>Sign Language</div>
+        <div class="column"><i class="universal access icon"></i>Universal Access</div>
+        <div class="column"><i class="volume control phone icon"></i>Volume Control Phone</div>
+      </div>
+      <div class="existing code">
+        <i class="wheelchair icon"></i>
+        <i class="asl interpreting icon"></i>
+        <i class="assistive listening systems icon"></i>
+        <i class="audio description icon"></i>
+        <i class="blind icon"></i>
+        <i class="braille icon"></i>
+        <i class="deafness icon"></i>
+        <i class="low vision icon"></i>
+        <i class="sign language icon"></i>
+        <i class="universal access icon"></i>
+        <i class="volume control phone icon"></i>
+      </div>
+    </div>
+
+
+    <div class="icon example">
+      <h4 class="ui header">Brands</h4>
+      <p>Icons can represent logos to common brands</p>
+      <div class="ui doubling five column grid">
+        <div class="column"><i class="500px icon"></i>500px</div>
+        <div class="column"><i class="adn icon"></i>Adn</div>
+        <div class="column"><i class="amazon icon"></i>Amazon</div>
+        <div class="column"><i class="android icon"></i>Android</div>
+        <div class="column"><i class="angellist icon"></i>Angellist</div>
+        <div class="column"><i class="apple icon"></i>Apple</div>
+        <div class="column"><i class="bandcamp icon"></i>Bandcamp</div>
+        <div class="column"><i class="behance icon"></i>Behance</div>
+        <div class="column"><i class="behance square icon"></i>Behance Square</div>
+        <div class="column"><i class="bitbucket icon"></i>Bitbucket</div>
+        <div class="column"><i class="bitbucket square icon"></i>Bitbucket Square</div>
+        <div class="column"><i class="black tie icon"></i>Black Tie</div>
+        <div class="column"><i class="buysellads icon"></i>Buysellads</div>
+        <div class="column"><i class="chrome icon"></i>Chrome</div>
+        <div class="column"><i class="codepen icon"></i>Codepen</div>
+        <div class="column"><i class="codiepie icon"></i>Codiepie</div>
+        <div class="column"><i class="connectdevelop icon"></i>Connectdevelop</div>
+        <div class="column"><i class="contao icon"></i>Contao</div>
+        <div class="column"><i class="dashcube icon"></i>Dashcube</div>
+        <div class="column"><i class="delicious icon"></i>Delicious</div>
+        <div class="column"><i class="deviantart icon"></i>Deviantart</div>
+        <div class="column"><i class="digg icon"></i>Digg</div>
+        <div class="column"><i class="dribble icon"></i>Dribble</div>
+        <div class="column"><i class="dropbox icon"></i>Dropbox</div>
+        <div class="column"><i class="drupal icon"></i>Drupal</div>
+        <div class="column"><i class="eercast icon"></i>Eercast</div>
+        <div class="column"><i class="empire icon"></i>Empire</div>
+        <div class="column"><i class="envira gallery icon"></i>Envira Gallery</div>
+        <div class="column"><i class="etsy icon"></i>Etsy</div>
+        <div class="column"><i class="expeditedssl icon"></i>Expeditedssl</div>
+        <div class="column"><i class="facebook f icon"></i>Facebook F</div>
+        <div class="column"><i class="facebook icon"></i>Facebook</div>
+        <div class="column"><i class="facebook square icon"></i>Facebook Square</div>
+        <div class="column"><i class="firefox icon"></i>Firefox</div>
+        <div class="column"><i class="first order icon"></i>First Order</div>
+        <div class="column"><i class="flickr icon"></i>Flickr</div>
+        <div class="column"><i class="font awesome icon"></i>Font Awesome</div>
+        <div class="column"><i class="fonticons icon"></i>Fonticons</div>
+        <div class="column"><i class="fort awesome icon"></i>Fort Awesome</div>
+        <div class="column"><i class="forumbee icon"></i>Forumbee</div>
+        <div class="column"><i class="foursquare icon"></i>Foursquare</div>
+        <div class="column"><i class="free code camp icon"></i>Free Code Camp</div>
+        <div class="column"><i class="gg circle icon"></i>Gg Circle</div>
+        <div class="column"><i class="gg icon"></i>Gg</div>
+        <div class="column"><i class="git icon"></i>Git</div>
+        <div class="column"><i class="git square icon"></i>Git Square</div>
+        <div class="column"><i class="github alternate icon"></i>Github Alternate</div>
+        <div class="column"><i class="github icon"></i>Github</div>
+        <div class="column"><i class="github square icon"></i>Github Square</div>
+        <div class="column"><i class="gitlab icon"></i>Gitlab</div>
+        <div class="column"><i class="gittip icon"></i>Gittip</div>
+        <div class="column"><i class="glide g icon"></i>Glide G</div>
+        <div class="column"><i class="glide icon"></i>Glide</div>
+        <div class="column"><i class="google icon"></i>Google</div>
+        <div class="column"><i class="google plus circle icon"></i>Google Plus Circle</div>
+        <div class="column"><i class="google plus icon"></i>Google Plus</div>
+        <div class="column"><i class="google plus square icon"></i>Google Plus Square</div>
+        <div class="column"><i class="grav icon"></i>Grav</div>
+        <div class="column"><i class="hacker news icon"></i>Hacker News</div>
+        <div class="column"><i class="houzz icon"></i>Houzz</div>
+        <div class="column"><i class="imdb icon"></i>IMDB</div>
+        <div class="column"><i class="instagram icon"></i>Instagram</div>
+        <div class="column"><i class="internet explorer icon"></i>Internet Explorer</div>
+        <div class="column"><i class="ioxhost icon"></i>Ioxhost</div>
+        <div class="column"><i class="joomla icon"></i>Joomla</div>
+        <div class="column"><i class="jsfiddle icon"></i>Jsfiddle</div>
+        <div class="column"><i class="lastfm icon"></i>Lastfm</div>
+        <div class="column"><i class="lastfm square icon"></i>Lastfm Square</div>
+        <div class="column"><i class="leanpub icon"></i>Leanpub</div>
+        <div class="column"><i class="linkedin icon"></i>Linkedin</div>
+        <div class="column"><i class="linkedin square icon"></i>Linkedin Square</div>
+        <div class="column"><i class="linode icon"></i>Linode</div>
+        <div class="column"><i class="linux icon"></i>Linux</div>
+        <div class="column"><i class="maxcdn icon"></i>Maxcdn</div>
+        <div class="column"><i class="meanpath icon"></i>Meanpath</div>
+        <div class="column"><i class="medium icon"></i>Medium</div>
+        <div class="column"><i class="meetup icon"></i>Meetup</div>
+        <div class="column"><i class="microsoft edge icon"></i>Microsoft Edge</div>
+        <div class="column"><i class="mixcloud icon"></i>Mixcloud</div>
+        <div class="column"><i class="modx icon"></i>Modx</div>
+        <div class="column"><i class="odnoklassniki icon"></i>Odnoklassniki</div>
+        <div class="column"><i class="odnoklassniki square icon"></i>Odnoklassniki Square</div>
+        <div class="column"><i class="opencart icon"></i>Opencart</div>
+        <div class="column"><i class="opera icon"></i>Opera</div>
+        <div class="column"><i class="optinmonster icon"></i>Optinmonster</div>
+        <div class="column"><i class="pagelines icon"></i>Pagelines</div>
+        <div class="column"><i class="pied piper alternate icon"></i>Pied Piper Alternate</div>
+        <div class="column"><i class="pied piper hat icon"></i>Pied Piper Hat</div>
+        <div class="column"><i class="pied piper icon"></i>Pied Piper</div>
+        <div class="column"><i class="pinterest icon"></i>Pinterest</div>
+        <div class="column"><i class="pinterest square icon"></i>Pinterest Square</div>
+        <div class="column"><i class="pocket icon"></i>Pocket</div>
+        <div class="column"><i class="product hunt icon"></i>Product Hunt</div>
+        <div class="column"><i class="qq icon"></i>Qq</div>
+        <div class="column"><i class="quora icon"></i>Quora</div>
+        <div class="column"><i class="ravelry icon"></i>Ravelry</div>
+        <div class="column"><i class="rebel icon"></i>Rebel</div>
+        <div class="column"><i class="reddit alien icon"></i>Reddit Alien</div>
+        <div class="column"><i class="reddit icon"></i>Reddit</div>
+        <div class="column"><i class="reddit square icon"></i>Reddit Square</div>
+        <div class="column"><i class="renren icon"></i>Renren</div>
+        <div class="column"><i class="safari icon"></i>Safari</div>
+        <div class="column"><i class="scribd icon"></i>Scribd</div>
+        <div class="column"><i class="sellsy icon"></i>Sellsy</div>
+        <div class="column"><i class="shirtsinbulk icon"></i>Shirtsinbulk</div>
+        <div class="column"><i class="simplybuilt icon"></i>Simplybuilt</div>
+        <div class="column"><i class="skyatlas icon"></i>Skyatlas</div>
+        <div class="column"><i class="skype icon"></i>Skype</div>
+        <div class="column"><i class="slack icon"></i>Slack</div>
+        <div class="column"><i class="slideshare icon"></i>Slideshare</div>
+        <div class="column"><i class="snapchat ghost icon"></i>Snapchat Ghost</div>
+        <div class="column"><i class="snapchat icon"></i>Snapchat</div>
+        <div class="column"><i class="snapchat square icon"></i>Snapchat Square</div>
+        <div class="column"><i class="soundcloud icon"></i>Soundcloud</div>
+        <div class="column"><i class="spotify icon"></i>Spotify</div>
+        <div class="column"><i class="stack exchange icon"></i>Stack Exchange</div>
+        <div class="column"><i class="stack overflow icon"></i>Stack Overflow</div>
+        <div class="column"><i class="steam icon"></i>Steam</div>
+        <div class="column"><i class="steam square icon"></i>Steam Square</div>
+        <div class="column"><i class="stumbleupon circle icon"></i>Stumbleupon Circle</div>
+        <div class="column"><i class="stumbleupon icon"></i>Stumbleupon</div>
+        <div class="column"><i class="superpowers icon"></i>Superpowers</div>
+        <div class="column"><i class="telegram icon"></i>Telegram</div>
+        <div class="column"><i class="tencent weibo icon"></i>Tencent Weibo</div>
+        <div class="column"><i class="themeisle icon"></i>Themeisle</div>
+        <div class="column"><i class="trello icon"></i>Trello</div>
+        <div class="column"><i class="tripadvisor icon"></i>Tripadvisor</div>
+        <div class="column"><i class="tumblr icon"></i>Tumblr</div>
+        <div class="column"><i class="tumblr square icon"></i>Tumblr Square</div>
+        <div class="column"><i class="twitch icon"></i>Twitch</div>
+        <div class="column"><i class="twitter icon"></i>Twitter</div>
+        <div class="column"><i class="twitter square icon"></i>Twitter Square</div>
+        <div class="column"><i class="viacoin icon"></i>Viacoin</div>
+        <div class="column"><i class="viadeo icon"></i>Viadeo</div>
+        <div class="column"><i class="viadeo square icon"></i>Viadeo Square</div>
+        <div class="column"><i class="vimeo icon"></i>Vimeo</div>
+        <div class="column"><i class="vimeo square icon"></i>Vimeo Square</div>
+        <div class="column"><i class="vine icon"></i>Vine</div>
+        <div class="column"><i class="vk icon"></i>Vk</div>
+        <div class="column"><i class="wechat icon"></i>Wechat</div>
+        <div class="column"><i class="weibo icon"></i>Weibo</div>
+        <div class="column"><i class="whatsapp icon"></i>Whatsapp</div>
+        <div class="column"><i class="wikipedia icon"></i>Wikipedia</div>
+        <div class="column"><i class="windows icon"></i>Windows</div>
+        <div class="column"><i class="wordpress icon"></i>Wordpress</div>
+        <div class="column"><i class="wpbeginner icon"></i>Wpbeginner</div>
+        <div class="column"><i class="wpexplorer icon"></i>Wpexplorer</div>
+        <div class="column"><i class="wpforms icon"></i>Wpforms</div>
+        <div class="column"><i class="xing icon"></i>Xing</div>
+        <div class="column"><i class="xing square icon"></i>Xing Square</div>
+        <div class="column"><i class="y combinator icon"></i>Y Combinator</div>
+        <div class="column"><i class="yahoo icon"></i>Yahoo</div>
+        <div class="column"><i class="yelp icon"></i>Yelp</div>
+        <div class="column"><i class="yoast icon"></i>Yoast</div>
+        <div class="column"><i class="youtube icon"></i>Youtube</div>
+        <div class="column"><i class="youtube play icon"></i>Youtube Play</div>
+        <div class="column"><i class="youtube square icon"></i>Youtube Square</div>
+      </div>
+      <div class="existing code">
+        <i class="500px icon"></i>
+        <i class="adn icon"></i>
+        <i class="amazon icon"></i>
+        <i class="android icon"></i>
+        <i class="angellist icon"></i>
+        <i class="apple icon"></i>
+        <i class="bandcamp icon"></i>
+        <i class="behance icon"></i>
+        <i class="behance square icon"></i>
+        <i class="bitbucket icon"></i>
+        <i class="bitbucket square icon"></i>
+        <i class="black tie icon"></i>
+        <i class="buysellads icon"></i>
+        <i class="chrome icon"></i>
+        <i class="codepen icon"></i>
+        <i class="codiepie icon"></i>
+        <i class="connectdevelop icon"></i>
+        <i class="contao icon"></i>
+        <i class="dashcube icon"></i>
+        <i class="delicious icon"></i>
+        <i class="deviantart icon"></i>
+        <i class="digg icon"></i>
+        <i class="dribbble icon"></i>
+        <i class="dropbox icon"></i>
+        <i class="drupal icon"></i>
+        <i class="eercast icon"></i>
+        <i class="empire icon"></i>
+        <i class="envira gallery icon"></i>
+        <i class="etsy icon"></i>
+        <i class="expeditedssl icon"></i>
+        <i class="facebook f icon"></i>
+        <i class="facebook icon"></i>
+        <i class="facebook square icon"></i>
+        <i class="firefox icon"></i>
+        <i class="first order icon"></i>
+        <i class="flickr icon"></i>
+        <i class="font awesome icon"></i>
+        <i class="fonticons icon"></i>
+        <i class="fort awesome icon"></i>
+        <i class="forumbee icon"></i>
+        <i class="foursquare icon"></i>
+        <i class="free.code.camp icon"></i>
+        <i class="gg circle icon"></i>
+        <i class="gg icon"></i>
+        <i class="git icon"></i>
+        <i class="git square icon"></i>
+        <i class="github alternate icon"></i>
+        <i class="github icon"></i>
+        <i class="github square icon"></i>
+        <i class="gitlab icon"></i>
+        <i class="gittip icon"></i>
+        <i class="glide g icon"></i>
+        <i class="glide icon"></i>
+        <i class="google icon"></i>
+        <i class="google plus circle icon"></i>
+        <i class="google plus icon"></i>
+        <i class="google plus square icon"></i>
+        <i class="grav icon"></i>
+        <i class="hacker news icon"></i>
+        <i class="houzz icon"></i>
+        <i class="imdb icon"></i>
+        <i class="instagram icon"></i>
+        <i class="internet explorer icon"></i>
+        <i class="ioxhost icon"></i>
+        <i class="joomla icon"></i>
+        <i class="jsfiddle icon"></i>
+        <i class="lastfm icon"></i>
+        <i class="lastfm square icon"></i>
+        <i class="leanpub icon"></i>
+        <i class="linkedin icon"></i>
+        <i class="linkedin square icon"></i>
+        <i class="linode icon"></i>
+        <i class="linux icon"></i>
+        <i class="maxcdn icon"></i>
+        <i class="meanpath icon"></i>
+        <i class="medium icon"></i>
+        <i class="meetup icon"></i>
+        <i class="microsoft edge icon"></i>
+        <i class="mixcloud icon"></i>
+        <i class="modx icon"></i>
+        <i class="odnoklassniki icon"></i>
+        <i class="odnoklassniki square icon"></i>
+        <i class="opencart icon"></i>
+        <i class="opera icon"></i>
+        <i class="optinmonster icon"></i>
+        <i class="pagelines icon"></i>
+        <i class="pied piper alternate icon"></i>
+        <i class="pied piper hat icon"></i>
+        <i class="pied piper icon"></i>
+        <i class="pinterest icon"></i>
+        <i class="pinterest icon"></i>
+        <i class="pinterest square icon"></i>
+        <i class="pocket icon"></i>
+        <i class="product hunt icon"></i>
+        <i class="qq icon"></i>
+        <i class="quora icon"></i>
+        <i class="ravelry icon"></i>
+        <i class="rebel icon"></i>
+        <i class="reddit alien icon"></i>
+        <i class="reddit icon"></i>
+        <i class="reddit square icon"></i>
+        <i class="renren icon"></i>
+        <i class="safari icon"></i>
+        <i class="scribd icon"></i>
+        <i class="sellsy icon"></i>
+        <i class="shirtsinbulk icon"></i>
+        <i class="simplybuilt icon"></i>
+        <i class="skyatlas icon"></i>
+        <i class="skype icon"></i>
+        <i class="slack icon"></i>
+        <i class="slideshare icon"></i>
+        <i class="snapchat ghost icon"></i>
+        <i class="snapchat icon"></i>
+        <i class="snapchat square icon"></i>
+        <i class="soundcloud icon"></i>
+        <i class="spotify icon"></i>
+        <i class="stack exchange icon"></i>
+        <i class="stack overflow icon"></i>
+        <i class="steam icon"></i>
+        <i class="steam square icon"></i>
+        <i class="stumbleupon circle icon"></i>
+        <i class="stumbleupon icon"></i>
+        <i class="superpowers icon"></i>
+        <i class="telegram icon"></i>
+        <i class="tencent weibo icon"></i>
+        <i class="themeisle icon"></i>
+        <i class="trello icon"></i>
+        <i class="tripadvisor icon"></i>
+        <i class="tumblr icon"></i>
+        <i class="tumblr square icon"></i>
+        <i class="twitch icon"></i>
+        <i class="twitter icon"></i>
+        <i class="twitter square icon"></i>
+        <i class="viacoin icon"></i>
+        <i class="viadeo icon"></i>
+        <i class="viadeo square icon"></i>
+        <i class="vimeo icon"></i>
+        <i class="vimeo square icon"></i>
+        <i class="vine icon"></i>
+        <i class="vk icon"></i>
+        <i class="wechat icon"></i>
+        <i class="weibo icon"></i>
+        <i class="whatsapp icon"></i>
+        <i class="wikipedia icon"></i>
+        <i class="windows icon"></i>
+        <i class="wordpress icon"></i>
+        <i class="wpbeginner icon"></i>
+        <i class="wpexplorer icon"></i>
+        <i class="wpforms icon"></i>
+        <i class="xing icon"></i>
+        <i class="xing square icon"></i>
+        <i class="y combinator icon"></i>
+        <i class="yahoo icon"></i>
+        <i class="yelp icon"></i>
+        <i class="yoast icon"></i>
+        <i class="youtube icon"></i>
+        <i class="youtube play icon"></i>
+        <i class="youtube square icon"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui tab" data-tab="definition">
+
+    <h2 class="ui dividing header">States</h2>
+
+    <div class="example">
+      <h4 class="ui header">Disabled</h4>
+      <p>An icon can show that it is disabled</p>
+      <i class="disabled users icon"></i>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Loading</h4>
+      <p>An icon can be used as a simple loader</p>
+      <i class="spinner loading icon"></i>
+      <i class="notched circle loading icon"></i>
+      <i class="asterisk loading icon"></i>
+    </div>
+
+
+    <h2 class="ui dividing header">Variations</h2>
+
+    <div class="example">
+      <h4 class="ui header">Fitted</h4>
+      <p>An icon can be fitted, without any space to the left or right of it.</p>
+      Tight spacing
+      <i class="fitted help icon"></i>
+      Tight spacing
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Size</h4>
+      <p>An icon can vary in size</p>
+      <i class="mini home icon"></i>
+      <i class="tiny home icon"></i>
+      <i class="small home icon"></i>
+      <br>
+      <i class="home icon"></i>
+      <br>
+      <i class="large home icon"></i>
+      <br>
+      <i class="big home icon"></i>
+      <br>
+      <i class="huge home icon"></i>
+      <br>
+      <i class="massive home icon"></i>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Link</h4>
+      <p>An icon can be formatted as a link</p>
+      <i class="close link icon"></i>
+      <i class="help link icon"></i>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Flipped</h4>
+      <p>An icon can be flipped</p>
+      <i class="horizontally flipped cloud icon"></i>
+      <i class="vertically flipped cloud icon"></i>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Rotated</h4>
+      <p>An icon can be rotated</p>
+      <i class="clockwise rotated cloud icon"></i>
+      <i class="counterclockwise rotated cloud icon"></i>
+    </div>
+
+
+    <div class="example">
+      <h4 class="ui header">Circular</h4>
+      <p>An icon can be formatted to appear circular</p>
+      <i class="circular users icon"></i>
+      <i class="circular teal users icon"></i>
+      <i class="circular inverted users icon"></i>
+      <i class="circular inverted teal users icon"></i>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Bordered</h4>
+      <div class="ui ignored info message">
+        In <code>0.x.x</code> bordered was formally known as <code>squared</code>
+      </div>
+      <p>An icon can be formatted to appear bordered</p>
+      <i class="bordered users icon"></i>
+      <i class="bordered teal users icon"></i>
+      <i class="bordered inverted black users icon"></i>
+      <i class="bordered inverted teal users icon"></i>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Colored</h4>
+      <p>An icon can be formatted with different colors</p>
+      <i class="red users icon"></i>
+      <i class="orange users icon"></i>
+      <i class="yellow users icon"></i>
+      <i class="olive users icon"></i>
+      <i class="green users icon"></i>
+      <i class="teal users icon"></i>
+      <i class="blue users icon"></i>
+      <i class="violet users icon"></i>
+      <i class="purple users icon"></i>
+      <i class="pink users icon"></i>
+      <i class="brown users icon"></i>
+      <i class="grey users icon"></i>
+      <i class="black users icon"></i>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Inverted</h4>
+      <p>An icon can have its colors inverted for contrast</p>
+      <div class="ui inverted segment">
+        <i class="inverted users icon"></i>
+        <i class="inverted red users icon"></i>
+        <i class="inverted orange users icon"></i>
+        <i class="inverted yellow users icon"></i>
+        <i class="inverted olive users icon"></i>
+        <i class="inverted green users icon"></i>
+        <i class="inverted teal users icon"></i>
+        <i class="inverted blue users icon"></i>
+        <i class="inverted violet users icon"></i>
+        <i class="inverted purple users icon"></i>
+        <i class="inverted pink users icon"></i>
+        <i class="inverted brown users icon"></i>
+        <i class="inverted grey users icon"></i>
+      </div>
+    </div>
+
+    <h2 class="ui dividing header">Groups</h2>
+
+    <div class="example">
+      <h4 class="ui header">Icons</h4>
+      <p>Several icons can be used together as a group</p>
+      <i class="huge icons">
+        <i class="big thin circle icon"></i>
+        <i class="user icon"></i>
+      </i>
+    </div>
+    <div class="another example">
+      <i class="huge icons">
+        <i class="big red dont icon"></i>
+        <i class="black user icon"></i>
+      </i>
+      <i class="huge icons">
+        <i class="big loading sun icon"></i>
+        <i class="user icon"></i>
+      </i>
+    </div>
+    <div class="example" data-class="corner">
+      <h4 class="ui header">Corner Icon</h4>
+      <p>A group of icons can display a smaller corner icon</p>
+      <i class="huge icons">
+        <i class="puzzle icon"></i>
+        <i class="corner add icon"></i>
+      </i>
+    </div>
+    <div class="another example">
+      <i class="huge icons">
+        <i class="puzzle icon"></i>
+        <i class="top left corner add icon"></i>
+      </i>
+      <i class="huge icons">
+        <i class="puzzle icon"></i>
+        <i class="top right corner add icon"></i>
+      </i>
+      <i class="huge icons">
+        <i class="puzzle icon"></i>
+        <i class="bottom left corner add icon"></i>
+      </i>
+      <i class="huge icons">
+        <i class="puzzle icon"></i>
+        <i class="bottom right corner add icon"></i>
+      </i>
+    </div>
+    <div class="another example">
+      <h2 class="ui header">
+        <i class="large icons">
+          <i class="twitter icon"></i>
+          <i class="inverted corner add icon"></i>
+        </i>
+        Add on Twitter
+      </h2>
+    </div>
+
+  </div>
+
+</div>

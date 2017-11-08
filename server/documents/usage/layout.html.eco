@@ -1,0 +1,123 @@
+---
+layout      : 'default'
+css         : 'layouts'
+standalone  : true
+order       : 3
+
+title       : 'Layouts'
+description : 'Examples of using Semantic UI'
+type        : 'Usage'
+---
+
+<%- @partial('header') %>
+<div class="ui main intro container">
+  <h2 class="ui dividing header">Starter</h2>
+  <p>Examples to introduce components and their function</p>
+  <div class="ui three stackable doubling cards">
+    <a class="ui card" href="/examples/theming.html">
+      <div class="image">
+        <img src="/images/examples/theming.png">
+      </div>
+      <div class="content">
+        <div class="header">Theming</div>
+        <div class="description">
+          Examples of many common UI components, useful for testing custom themes.
+        </div>
+      </div>
+    </a>
+    <a class="ui card" href="/examples/responsive.html">
+      <div class="image">
+        <img src="/images/examples/responsive.png">
+      </div>
+      <div class="content">
+        <div class="header">Responsive</div>
+        <div class="description">
+          Patterns for adjusting display for different devices.
+        </div>
+      </div>
+    </a>
+    <a class="ui card" href="/examples/grid.html">
+      <div class="image">
+        <img src="/images/examples/grid.png">
+      </div>
+      <div class="content">
+        <div class="header">Grid</div>
+        <div class="description">
+          An introduction to using Semantic UI grids.
+        </div>
+      </div>
+    </a>
+    <a class="ui card" href="/examples/attached.html">
+      <div class="image">
+        <img src="/images/examples/attached.png">
+      </div>
+      <div class="content">
+        <div class="header">Attached Content</div>
+        <div class="description">
+          Examples of content that can attach to other content.
+        </div>
+      </div>
+    </a>
+    <a class="ui card" href="/examples/bootstrap.html">
+      <div class="image">
+        <img src="/images/examples/bootstrap.png">
+      </div>
+      <div class="content">
+        <div class="header">Bootstrap Migration</div>
+        <div class="description">
+          Examples of replacements for components found in Bootstrap.
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <h2 class="ui dividing header">Pages</h2>
+  <p>Starter page templates</p>
+  <div class="ui three doubling stackable cards">
+    <a class="ui card" href="/examples/homepage.html">
+      <div class="image">
+        <img src="/images/examples/homepage.png">
+      </div>
+      <div class="content">
+        <div class="header">Homepage</div>
+        <div class="description">
+          A simple, responsive homepage design with sidebar.
+        </div>
+      </div>
+    </a>
+    <a class="ui card" href="/examples/sticky.html">
+      <div class="image">
+        <img src="/images/examples/sticky.png">
+      </div>
+      <div class="content">
+        <div class="header">Sticky Menus</div>
+        <div class="description">
+         Using visibility APIs to fix content after passing position in page.
+        </div>
+      </div>
+    </a>
+    <a class="ui card" href="/examples/fixed.html">
+      <div class="image">
+        <img src="/images/examples/fixed.png">
+      </div>
+      <div class="content">
+        <div class="header">Fixed Menu</div>
+        <div class="description">
+          Using a fixed menu with page content.
+        </div>
+      </div>
+    </a>
+    <a class="ui card" href="/examples/login.html">
+      <div class="image">
+        <img src="/images/examples/login.png">
+      </div>
+      <div class="content">
+        <div class="header">Login Form</div>
+        <div class="description">
+          A full-screen login form.
+        </div>
+      </div>
+    </a>
+  </div>
+
+</div>

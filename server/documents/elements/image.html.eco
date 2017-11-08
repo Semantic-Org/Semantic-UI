@@ -1,0 +1,249 @@
+---
+layout      : 'default'
+css         : 'image'
+standalone  : true
+
+element     : 'image'
+elementType : 'element'
+
+title       : 'Image'
+description : 'An image is a graphic representation of something'
+type        : 'UI Element'
+
+themes      : ['Default']
+---
+
+<%- @partial('header') %>
+
+<div class="main ui container">
+
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="example" data-class="image" data-tag="img,svg">
+    <h4 class="ui header">Image</h4>
+    <p>An image</p>
+    <div class="ui ignored message">
+       Unless a size is specified, images will use the original dimensions of the image up to the size of its container.</code>.
+    </div>
+    <div class="ui ignored info message">
+      You can specify an <code>img</code> or <code>svg</code> as a <code>ui image</code> or use a child element.</code>
+    </div>
+    <img class="ui small image" src="/images/wireframe/image.png">
+  </div>
+  <div class="another example">
+    <div class="ui small image">
+      <img src="/images/wireframe/image.png">
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui small image">
+      <svg width="150" height="150">
+        <image xlink:href="/images/wireframe/image.png" x="0" y="0" width="100%" height="100%"></image>
+      </svg>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Image Link</h4>
+    <p>An image can be formatted to link to other content</p>
+    <a href="http://google.com" class="ui medium image">
+      <img src="/images/wireframe/image-text.png">
+    </a>
+  </div>
+
+  <h2 class="ui dividing header">
+    States
+  </h2>
+
+  <div class="example">
+    <h4 class="ui header">Hidden</h4>
+    <p>An image can be hidden</p>
+    <img class="hidden ui image" src="/images/wireframe/image.png">
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Disabled</h4>
+    <p>An image can show that it is disabled and cannot be selected</p>
+    <img class="disabled medium ui image" src="/images/wireframe/image.png">
+  </div>
+
+  <h2 class="ui dividing header">Variations</h2>
+
+  <div class="example">
+    <h4 class="ui header">Avatar</h4>
+    <p>An image may be formatted to appear inline with text as an avatar</p>
+    <img class="ui avatar image" src="/images/wireframe/square-image.png">
+    <span>Username</span>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Bordered</h4>
+    <p>An image may include a border to emphasize the edges of white or transparent content</p>
+    <img class="ui medium bordered image" src="/images/wireframe/white-image.png">
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Fluid</h4>
+    <p>An image can take up the width of its container</p>
+    <img class="ui fluid image" src="/images/wireframe/image.png">
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Rounded</h4>
+    <p>An image may appear rounded</p>
+    <img class="ui medium rounded image" src="/images/wireframe/square-image.png">
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Circular</h4>
+    <p>An image may appear circular</p>
+    <img class="ui medium circular image" src="/images/wireframe/square-image.png">
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Vertically Aligned</h4>
+    <p>An image can specify its vertical alignment</p>
+    <img class="ui top aligned tiny image" src="/images/wireframe/square-image.png">
+    <span>Top Aligned</span>
+    <div class="ui divider"></div>
+    <img class="ui middle aligned tiny image" src="/images/wireframe/square-image.png">
+    <span>Middle Aligned</span>
+    <div class="ui divider"></div>
+    <img class="ui bottom aligned tiny image" src="/images/wireframe/square-image.png">
+    <span>Bottom Aligned</span>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Centered</h4>
+    <p>An image can appear centered in a content block</p>
+    <div class="ui segment">
+      <img class="ui centered medium image" src="/images/wireframe/image.png">
+      <p>Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia facete scriptorem, est autem aliquip detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque electram, eos choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.</p>
+      <p>Audiam quaerendum eu sea, pro omittam definiebas ex. Te est latine definitiones. Quot wisi nulla ex duo. Vis sint solet expetenda ne, his te phaedrum referrentur consectetuer. Id vix fabulas oporteat, ei quo vide phaedrum, vim vivendum maiestatis in.</p>
+      <img class="ui small centered image" src="/images/wireframe/text-image.png">
+      <p>Eu quo homero blandit intellegebat. Incorrupte consequuntur mei id. Mei ut facer dolores adolescens, no illum aperiri quo, usu odio brute at. Qui te porro electram, ea dico facete utroque quo. Populo quodsi te eam, wisi everti eos ex, eum elitr altera utamur at. Quodsi convenire mnesarchum eu per, quas minimum postulant per id.</p>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Spaced</h4>
+    <p>An image can specify that it needs an additional spacing to separate it from nearby content</p>
+
+    <div class="ui segment">
+      <p>Te eum doming eirmod, nominati pertinacia <img class="ui mini spaced image" src="/images/wireframe/image.png"> argumentum ad his. Ex eam alia facete scriptorem, est autem aliquip detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque electram, eos choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.</p>
+    </div>
+  </div>
+
+  <div class="another example">
+      <p><img class="ui mini right spaced image" src="/images/wireframe/image.png">Audiam quaerendum eu sea, pro omittam definiebas ex. Te est latine definitiones. Quot wisi nulla ex duo. Vis sint solet expetenda ne, his te phaedrum referrentur consectetuer. Id vix fabulas oporteat, ei quo vide phaedrum, vim vivendum maiestatis in.</p>
+
+      <p>Eu quo homero blandit intellegebat. Incorrupte consequuntur mei id. Mei ut facer dolores adolescens, no illum aperiri quo, usu odio brute at. Qui te porro electram, ea dico facete utroque quo. Populo quodsi te eam, wisi everti eos ex, eum elitr altera utamur at. Quodsi convenire mnesarchum eu per, quas minimum postulant per id.<img class="ui mini left spaced image" src="/images/wireframe/image.png"></p>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Floated</h4>
+    <p>An image can sit to the left or right of other content</p>
+    <div class="ui segment">
+      <img class="ui small left floated image" src="/images/wireframe/text-image.png">
+      <p>Te eum doming eirmod, nominati pertinacia argumentum ad his. Ex eam alia facete scriptorem, est autem aliquip detraxit at. Usu ocurreret referrentur at, cu epicurei appellantur vix. Cum ea laoreet recteque electram, eos choro alterum definiebas in. Vim dolorum definiebas an. Mei ex natum rebum iisque.</p>
+      <img class="ui small right floated image" src="/images/wireframe/text-image.png">
+      <p>Audiam quaerendum eu sea, pro omittam definiebas ex. Te est latine definitiones. Quot wisi nulla ex duo. Vis sint solet expetenda ne, his te phaedrum referrentur consectetuer. Id vix fabulas oporteat, ei quo vide phaedrum, vim vivendum maiestatis in.</p>
+
+      <p>Eu quo homero blandit intellegebat. Incorrupte consequuntur mei id. Mei ut facer dolores adolescens, no illum aperiri quo, usu odio brute at. Qui te porro electram, ea dico facete utroque quo. Populo quodsi te eam, wisi everti eos ex, eum elitr altera utamur at. Quodsi convenire mnesarchum eu per, quas minimum postulant per id.</p>
+    </div>
+  </div>
+
+  <div class="clearing example">
+    <h4 class="ui header">Size</h4>
+    <p>An image may appear at different sizes</p>
+    <div class="ui ignored info message">
+      Semantic uses arbitrary default values for image sizes from mini to massive. It is recommended to update these with values used in your project in <code>image.variables</code>.
+    </div>
+    <table class="ui definition table">
+      <thead>
+        <tr>
+          <th>Class Name</th>
+          <th>Size</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mini</td>
+          <td>35px</td>
+        </tr>
+        <tr>
+          <td>Tiny</td>
+          <td>80px</td>
+        </tr>
+        <tr>
+          <td>Small</td>
+          <td>150px</td>
+        </tr>
+        <tr>
+          <td>Medium</td>
+          <td>300px</td>
+        </tr>
+        <tr>
+          <td>Large</td>
+          <td>450px</td>
+        </tr>
+        <tr>
+          <td>Big</td>
+          <td>600px</td>
+        </tr>
+        <tr>
+          <td>Huge</td>
+          <td>800px</td>
+        </tr>
+        <tr>
+          <td>Massive</td>
+          <td>960px</td>
+        </tr>
+      </tbody>
+    </table>
+    <img class="ui mini image" src="/images/wireframe/image.png">
+    <div class="ui hidden divider"></div>
+    <img class="ui tiny image" src="/images/wireframe/image.png">
+    <div class="ui hidden divider"></div>
+    <img class="ui small image" src="/images/wireframe/image.png">
+    <div class="ui hidden divider"></div>
+    <img class="ui medium image" src="/images/wireframe/image.png">
+
+    <div class="existing code">
+      <img class="ui mini image" src="/images/wireframe/image.png">
+      <img class="ui tiny image" src="/images/wireframe/image.png">
+      <img class="ui small image" src="/images/wireframe/image.png">
+      <img class="ui medium image" src="/images/wireframe/image.png">
+      <img class="ui large image" src="/images/wireframe/image.png">
+      <img class="ui big image" src="/images/wireframe/image.png">
+      <img class="ui huge image" src="/images/wireframe/image.png">
+      <img class="ui massive image" src="/images/wireframe/image.png">
+    </div>
+
+  </div>
+
+
+
+  <h2 class="ui dividing header">Groups</h2>
+
+  <div class="example">
+    <h4 class="ui header">Size</h4>
+    <p>A group of images can be formatted to have the same size.</p>
+    <div class="ui tiny images">
+      <img class="ui image" src="/images/wireframe/image.png">
+      <img class="ui image" src="/images/wireframe/image.png">
+      <img class="ui image" src="/images/wireframe/image.png">
+      <img class="ui image" src="/images/wireframe/image.png">
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui small images">
+      <img src="/images/wireframe/image.png">
+      <img src="/images/wireframe/image.png">
+      <img src="/images/wireframe/image.png">
+      <img src="/images/wireframe/image.png">
+    </div>
+  </div>
+
+</div>

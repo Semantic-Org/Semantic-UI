@@ -1,0 +1,106 @@
+---
+layout      : 'default'
+css         : 'download'
+
+title       : 'Download'
+description : 'Links to package managers and repositories'
+type        : 'Library'
+---
+
+<%- @partial('header', { tabs: {  framework: 'Framework',  components: 'Components', integrations: 'Integrations' } }) %>
+
+<div class="main ui container">
+
+  <div class="ui active tab" data-tab="framework">
+
+    <h2 class='ui header'>
+      Getting Semantic UI
+    </h2>
+
+    <a href="https://github.com/Semantic-Org/Semantic-UI/archive/1.0.zip" class="ui primary button">
+      <i class="download icon"></i> Download Zip
+    </a>
+
+    <h4 class="ui header">Git</h4>
+    <div class="bash code">
+      git clone git@github.com:Semantic-Org/Semantic-UI.git
+    </div>
+
+    <h4 class="ui header">Bower</h4>
+    <div class="bash code">
+      # install latest stable
+      bower install semantic-ui
+      # or specify a branch
+      bower install semantic-ui#1.0
+    </div>
+
+    <h4 class="ui header">wget</h4>
+    <div class="bash code">
+      wget https://github.com/Semantic-Org/Semantic-UI/archive/1.0.zip
+    </div>
+
+    <h4 class="ui header">NPM</h4>
+    <div class="bash code">
+      npm install semantic-ui
+    </div>
+
+    <h2 class='ui header'>
+      CDN
+    </h2>
+    <p>These Content Distribution Networks host the packaged library with all components.</p>
+    <p>Using these links is only recommended for projects that <b>do not require theming</b>.<p>
+
+    <h4 class="ui header">CDNJS</h4>
+    <div class="html code">
+      https://cdnjs.com/libraries/semantic-ui
+    </div>
+
+    <h4 class="ui header">JSDelivr</h4>
+    <div class="html code">
+      http://www.jsdelivr.com/#!semantic-ui
+    </div>
+
+    <h4 class="ui header">BootCSS (Chinese)</h4>
+    <div class="html code">
+      http://open.bootcss.com/semantic-ui/
+    </div>
+
+  </div>
+
+  <div class="ui tab" data-tab="components">
+
+    <h2 class='ui header'>
+      Single Components
+    </h2>
+
+    <p>Individual components are available pre-built with default theming. These may be useful for projects with strict dependency management, or when additional theming isn't necessary.</p>
+
+    <a class="ui button" href="https://github.com/Semantic-Org?query=ui-">
+      Components on GitHub
+      <i class="right chevron icon"></i>
+    </a>
+
+    <h4 class="ui header">Bower</h4>
+    <div class="bash code">
+    # component names correspond to element names
+    bower install semantic-ui-dropdown
+    </div>
+
+    <h4 class="ui header">NPM</h4>
+    <div class="bash code">
+    npm install semantic-ui-dropdown
+    </div>
+
+    <h4 class="ui header">Git</h4>
+    <div class="bash code">
+      # individual repos for each element by name
+      git clone git@github.com:Semantic-Org/UI-Dropdown.git
+    </div>
+
+  </div>
+
+  <div class="ui tab" data-tab="integrations">
+
+  </div>
+
+</div>

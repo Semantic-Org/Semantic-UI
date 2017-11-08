@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- @partial('meta') %>
+  <%- @partial('css') %>
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/home.css">
+  <link rel="stylesheet/less" type="text/css" href="/src/definitions/elements/button.less" />
+
+  <%- @partial('tracking') %>
+</head>
+<body id="example" class="<%= @document.css %>" ontouchstart="">
+
+  <%- @partial('sidebar') %>
+  <%- @partial('fixed-menu') %>
+
+  <div class="pusher">
+    <div class="full height">
+      <%- @content %>
+    </div>
+    <%- @partial('footer') %>
+  </div>
+
+  <%- @partial('language-modal') %>
+
+  <% if 'development' in @getEnvironments(): %>
+  <script>
+  (function () {
+    var
+      eventSupport = ('querySelector' in document && 'addEventListener' in window)
+      jsonSupport  = (typeof JSON !== 'undefined'),
+      jQuery       = (eventSupport && jsonSupport)
+        ? '/javascript/library/jquery.js'
+        : '/javascript/library/jquery.legacy.js'
+    ;
+    document.write('<script src="' + jQuery + '"><\/script>');
+  }());
+  </script>
+  <% else: %>
+  <script>
+  (function () {
+    var
+      eventSupport = ('querySelector' in document && 'addEventListener' in window)
+      jsonSupport  = (typeof JSON !== 'undefined'),
+      jQuery       = (eventSupport && jsonSupport)
+        ? '/javascript/library/jquery.min.js'
+        : '/javascript/library/jquery.legacy.min.js'
+    ;
+    document.write('<script src="' + jQuery + '"><\/script>');
+  }());
+  </script>
+  <% end %>
+
+  <%- @partial('transifex') %>
+  <script src="/javascript/library/highlight.min.js"></script>
+  <script src="/javascript/library/easing.min.js"></script>
+  <%- @partial('ui-javascript') %>
+  <script src="/javascript/docs.js"></script>
+  <script src="/javascript/home.js"></script>
+  <%- @partial('less') %>
+</body>
+
+</html>

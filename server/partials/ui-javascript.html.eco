@@ -1,0 +1,29 @@
+<% if 'development' in @getEnvironments(): %>
+
+<script src="/dist/components/accordion.js"></script>
+<script src="/dist/components/api.js"></script>
+<script src="/dist/components/checkbox.js"></script>
+<script src="/dist/components/dimmer.js"></script>
+<script src="/dist/components/dropdown.js"></script>
+<script src="/dist/components/embed.js"></script>
+<script src="/dist/components/form.js"></script>
+<script src="/dist/components/modal.js"></script>
+<script src="/dist/components/nag.js"></script>
+<script src="/dist/components/popup.js"></script>
+<script src="/dist/components/progress.js"></script>
+<script src="/dist/components/rating.js"></script>
+<script src="/dist/components/search.js"></script>
+<script src="/dist/components/shape.js"></script>
+<script src="/dist/components/sidebar.js"></script>
+<script src="/dist/components/site.js"></script>
+<script src="/dist/components/state.js"></script>
+<script src="/dist/components/sticky.js"></script>
+<script src="/dist/components/tab.js"></script>
+<script src="/dist/components/transition.js"></script>
+<script src="/dist/components/visibility.js"></script>
+
+<% else: %>
+
+<script src="/dist/semantic.min.js"></script>
+
+<% end %>

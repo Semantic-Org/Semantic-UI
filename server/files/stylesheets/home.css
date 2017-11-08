@@ -1,0 +1,760 @@
+/*******************************
+            Homepage
+*******************************/
+
+#example.index .pusher > .page {
+  background-color: #FFFFFF;
+}
+
+@media only screen and (max-width: 992px) {
+  html {
+    overflow-x: visible;
+    -webkit-overflow-scrolling: auto;
+  }
+}
+#example > .pusher {
+  display: block;
+  min-height: 0px;
+  flex-direction: initial;
+}
+#example > .pusher > .full.height {
+  display: block;
+  flex: none !important;
+}
+
+/*--------------
+    Masthead
+---------------*/
+
+#example.index .masthead.segment.zoomed h1 {
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0);
+  color: rgba(255, 255, 255, 1);
+}
+#example.index .masthead.zoomed:after {
+  opacity: 0;
+}
+#example.index .masthead.zoomed {
+  background-color: #25282A;
+}
+
+#example.index .masthead {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 0em;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0px;
+  border-bottom: none;
+
+  background-color: #000000;
+  background-position: 50% 50%;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+#example.index .masthead:after {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background-size: cover;
+
+  opacity: 0.45;
+}
+#example.index .masthead.bg1:after {
+  background-image: url("/images/backgrounds/1.jpg");
+}
+#example.index .masthead.bg2:after {
+  background-image: url("/images/backgrounds/2.jpg");
+}
+#example.index .masthead.bg3:after {
+  background-image: url("/images/backgrounds/3.jpg");
+}
+#example.index .masthead.bg4:after {
+  background-image: url("/images/backgrounds/4.jpg");
+}
+#example.index .masthead.bg5:after {
+  background-image: url("/images/backgrounds/5.jpg");
+}
+#example.index .masthead.bg6:after {
+  background-image: url("/images/backgrounds/6.jpg");
+}
+#example.index .masthead.bg7:after {
+  background-image: url("/images/backgrounds/7.jpg");
+}
+#example.index .masthead.bg8:after {
+  background-image: url("/images/backgrounds/8.jpg");
+}
+#example.index .masthead.bg9:after {
+  background-image: url("/images/backgrounds/9.jpg");
+}
+#example.index .masthead.bg10:after {
+  background-image: url("/images/backgrounds/10.jpg");
+}
+#example.index .masthead.bg11:after {
+  background-image: url("/images/backgrounds/11.jpg");
+}
+#example.index .masthead.bg12:after {
+  background-image: url("/images/backgrounds/12.jpg");
+}
+#example.index .masthead.bg13:after {
+  background-image: url("/images/backgrounds/13.jpg");
+}
+#example.index .masthead.bg14:after {
+  background-image: url("/images/backgrounds/14.jpg");
+}
+
+
+#example.index .masthead,
+#example.index .masthead:after {
+  -ms-transition:
+    background 6s cubic-bezier(0.680, -0.550, 0.265, 1.4) 0s,
+    opacity 6s cubic-bezier(0.680, -0.550, 0.265, 1.4) 0s
+  ;
+  -moz-transition:
+    background 6s cubic-bezier(0.680, -0.550, 0.265, 1.4) 0s,
+    opacity 6s cubic-bezier(0.680, -0.550, 0.265, 1.4) 0s
+  ;
+  -webkit-transition:
+    background 6s cubic-bezier(0.680, -0.550, 0.265, 1.4) 0s,
+    opacity 6s cubic-bezier(0.680, -0.550, 0.265, 1.4) 0s
+  ;
+  transition:
+    background 6s cubic-bezier(0.680, -0.550, 0.265, 1.4) 0s,
+    opacity 6s cubic-bezier(0.680, -0.550, 0.265, 1.4) 0s
+  ;
+}
+#example.index .masthead .container {
+  height: 55vh;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  min-height: 600px;
+
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+#example .masthead .container {
+  padding: 15rem 0em;
+}
+#example.index .following.bar iframe.github {
+  margin-top: 0px;
+}
+#example.index .following.bar .menu .item {
+  display: block;
+}
+#example.index.pushed .masthead,
+#example.index.pushed .following.bar {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+#example.index > .pusher > .footer {
+  padding-left: 0em;
+}
+
+#example.index .light.following.bar {
+  padding: 0em 0em;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #DDDDDD;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.04);
+}
+
+#example.index .masthead.segment .typed-cursor {
+  position: relative;
+  top: -0.05em;
+  left: -0.25em;
+  visibility: hidden;
+  opacity: 1;
+  -webkit-animation: blink 0.7s infinite;
+  -moz-animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite;
+  -webkit-transition: opacity 0.7s ease;
+  -moz-transition: opacity 0.7s ease;
+  transition: opacity 0.7s ease;
+}
+#example.index .masthead.segment .typed-cursor.stop {
+  opacity: 0;
+  -moz-animation-duration: 0s;
+  -webkit-animation-duration: 0s;
+  animation-duration: 0s;
+}
+@keyframes blink {
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes blink {
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes blink {
+  0% { opacity:1; }
+  50% { opacity:0; }
+  100% { opacity:1; }
+}
+
+#example.index .vertical.segment {
+  box-shadow: none;
+}
+
+#example.index .masthead.segment h1 {
+  font-size: 3em;
+  color: rgba(255, 255, 255, 1);
+  line-height: 1.2;
+  margin: 0px 0px 0px;
+  padding-bottom: 0px;
+  -moz-perspective: 500px;
+  -webkit-perspective: 500px;
+  perspective: 500px;
+
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+#example.index .masthead.segment h1 .tagline {
+  font-size: 0.75em;
+}
+#example.index .masthead.segment h1 > .library {
+  display: block;
+  font-size: 1.75em;
+  font-weight: bold;
+}
+#example.index .masthead.segment h1 b {
+  display: inline-block;
+  font-weight: 500;
+}
+#example.index .masthead.segment h1 .text {
+  display: inline-block;
+  font-weight: 300;
+  margin-left: -0.4em;
+}
+#example.index .masthead h2 {
+  font-weight: normal;
+  margin: 0px 0 16px 0px;
+  font-size: 1.75em;
+  border-bottom: none;
+  line-height: 1;
+}
+#example.index .masthead p {
+  font-size: 1.5em;
+  margin: 1em 0em 1.5em;
+  padding: 0px;
+}
+#example.index .ui.header {
+  font-weight: normal;
+}
+
+#example.index .introduction {
+  position: relative;
+  clear: both;
+  display: block;
+  text-align: center;
+}
+#example.index .introduction .buttons {
+  margin-top: 3em;
+}
+
+
+#example.index .advertisement {
+  display: none !important;
+  padding-left: 0;
+  position: absolute;
+  left: auto;
+  right: 6em;
+  top: 50%;
+  transform: translateY(-50%);
+  vertical-align: top;
+}
+#example.index .fixed.launch.button {
+  display: none;
+  top: 100px;
+}
+#example.index .main.menu {
+  top: 0px;
+}
+#example.index pre.console {
+  height: 120px;
+}
+
+/*--------------
+    Intro
+---------------*/
+
+#example .intro.segment h1 + p {
+  font-size: 22px;
+}
+
+/*--------------
+    Demo
+---------------*/
+
+#example .demo.row .example > .ui.label:not(.empty) {
+  margin-bottom: 1em;
+}
+#example .demo.row .ui.progress {
+  margin-bottom: 2.5em;
+}
+#example .demo.row h4 {
+  font-weight: bold !important;
+  margin: 0em 0em 1em !important;
+}
+#example .demo.row .example {
+  clear: both;
+  padding-top: 3em;
+  margin-top: 3em;
+}
+#example .demo.row .ui.menu,
+#example .demo.row .ui.card {
+  width: 100%;
+}
+#example .demo.row .ui.card {
+  width: 100%;
+  max-width: 400px;
+}
+
+/*--------------
+    Features
+---------------*/
+
+#example.index .hidden.code {
+  visibility: hidden;
+}
+
+#example.index .demo.row .example {
+  clear: both;
+  padding-top: 1.5em;
+  margin-top: 1.5em;
+}
+#example.index .demo.row .example:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+#example.index .demo.row .example:last-child {
+  margin-bottom: 0em;
+}
+
+/*--------------
+    Following
+---------------*/
+
+#example.index .following.bar {
+  position: fixed;
+  top: 0px;
+  z-index: 900;
+  left: 0%;
+  padding: 2em 0em;
+  width: 100%;
+  box-shadow: 0px 0px 0px 0px transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    padding 0.5s ease,
+    background 0.5s ease,
+    box-shadow 0.5s ease,
+    border 0.5s ease
+  ;
+}
+#example.index .following.bar > .menu .item {
+  transition: all 0.5s ease;
+}
+#example.index.pushed .following.bar .menu .item,
+#example.index.pushed .following.bar {
+  transition: none;
+}
+#example.index .following.bar .additional.item[data-site="learn"]:hover {
+  color: #D9499A;
+}
+#example.index .following.bar span.additional.item {
+  cursor: default;
+  color: rgba(0, 0, 0, 0.2);
+}
+#example.index .following.bar .inverted span.additional.item {
+  color: rgba(255, 255, 255, 0.2);
+}
+#example.index .following.bar .column > .menu {
+  margin-top: 0px;
+  height: 35px;
+}
+#example.index .following.bar .network.menu .item {
+  font-weight: bold;
+}
+#example.index .following.bar .item iframe {
+  margin-left: 10px;
+}
+#example.index .following.bar .network.menu .view-ui {
+  margin-right: 1em;
+}
+#example.index .light.following.bar .network.menu .view-ui {
+  color: #00B5AD;
+}
+#example.index .light.following.bar .inverted.network.menu .view-ui {
+  color: #6DFFFF;
+}
+#example.index .following .logo {
+  float: left;
+  width: 35px;
+  margin-right: 1em;
+}
+#example.index .following .logo .side {
+  width: 35px;
+}
+#example .masthead .version.label:after {
+  background-color: #000000 !important;
+}
+#example.index .following .version.label {
+  margin: 0.25em 0px 0px 1em;
+}
+
+
+/*--------------
+     Stripes
+---------------*/
+
+#example.index .stripe .grid .row {
+  margin: 2rem 0rem;
+}
+#example.index .feature.stripe .grid .row {
+  margin: 0rem;
+}
+#example.index .feature.stripe .column {
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+}
+#example.index .feature.stripe p {
+  -webkit-flex: 1 0 auto;
+  -moz-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  margin: 0.5em 0em 2em;
+}
+#example .stripe .ui.vertical.divider {
+  font-size: 1rem;
+}
+#example.index .feature.stripe .icon.header .icon.image {
+  width: auto;
+  height: 65px;
+  margin-bottom: 20px;
+}
+#example.index .stripe .icon.header .icon.image {
+  height: 65px;
+  margin-bottom: 20px;
+}
+#example.index .community.stripe {
+  box-shadow: 0 -1px 0 0 rgba(0, 0, 0, 0.1);
+  padding: 4em 0;
+}
+#example.index .stripe .icon.header i.icon {
+  font-size: 2em;
+}
+
+
+/* Final */
+#example.index .final.stripe {
+  border-top: 1px solid #DDDDDD;
+  background-color: #F8F8F8;
+}
+
+/* Alternate */
+#example .alternate.stripe {
+  background-color: #F2F3F5;
+}
+
+/* Inverted */
+#example.index .inverted.stripe {
+  background-color: #1B1C1D;
+}
+#example.index .inverted.stripe p {
+  color: #FFFFFF;
+}
+
+
+/*--------------
+    Legacy?
+---------------*/
+
+/* content */
+#example .solid,
+#example .stripe {
+  background-color: #FFFFFF;
+  padding: 10em 0px;
+  border-radius: 0em;
+  margin: 0em;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+#example .theming.stripe {
+  -webkit-transform: none;
+  transform: none;
+}
+
+#example .stripe h1 {
+  font-size: 40px;
+}
+#example .stripe h2 {
+  font-size: 26px;
+}
+#example .stripe h3 {
+  font-size: 20px;
+}
+#example .feature.stripe {
+  padding: 3em 0em;
+}
+#example .theming.stripe .left.aligned.column {
+  padding-top: 8em;
+}
+#example .theming.stripe .hljs.code {
+  height: 483px;
+  max-height: 483px;
+}
+#example .theming .source.grid {
+  display: none !important;
+  margin: 2rem 2rem -4rem;
+}
+#example .theming .source.grid.visible {
+  display: block;
+  display: flex !important;
+}
+
+#example .theming.stripe .buttons {
+  vertical-align: top;
+}
+#example .theming.stripe .button {
+  margin-bottom: 0.5em;
+}
+#example .stripe .column > p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 1em 0em;
+}
+
+#example .dark.stripe {
+  background-color: #333333;
+  background: url(/images/dark-bg.png) repeat;
+  color: #FFFFFF;
+}
+#example .stripe .column > .label {
+  margin-bottom: 1em;
+}
+
+#example .solid {
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+#example .solid .column {
+  color: #555555;
+}
+#example .solid .column p b {
+  color: rgba(0, 0, 0, 0.9);
+}
+#example .solid .column p {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/*--------------
+    Promo
+---------------*/
+
+#example.index .promo.stripe {
+  padding: 3em 0em;
+}
+
+
+/*--------------
+    Newsletter
+---------------*/
+
+#example.index .email.stripe {
+  padding: 5em 0em;
+}
+#example.index .email.stripe p {
+  margin: -0.5em 0em 1em;
+}
+#example.index .email.stripe .input {
+  width: 450px;
+}
+#example.index .email.stripe .submit.button {
+  margin-left: 1em;
+}
+
+
+@media only screen and (max-width : 400px) {
+  #example.index .advertisement {
+    display: none;
+    margin-left: -130px !important;
+  }
+  #example.index .carbonad {
+    width: 260px !important;
+  }
+  #example.index .masthead.segment h1  {
+    font-size: 1.75em !important;
+  }
+  #example.index .feature.stripe {
+    padding: 1em;
+  }
+}
+
+
+
+@media only screen and (max-width : 600px) {
+  #example.index .solid,
+  #example.index .stripe {
+    padding: 4em 0em;
+  }
+  #example.index .masthead.segment h1 .text {
+    margin-left: 0em;
+  }
+  #example.index .following.bar {
+    display: none;
+  }
+  #example.index .masthead:before {
+    display: none;
+  }
+  #example.index .following.bar .column {
+    text-align: center;
+  }
+  #example.index .following .logo {
+    float: none;
+  }
+  #example.index .codebase.stripe {
+    display: none;
+  }
+  #example.index .following .version.label {
+    vertical-align: top;
+    margin-top: 0em;
+  }
+  #example .masthead .container {
+    padding: 6rem 0rem;
+  }
+  #example.index .masthead.segment h1 {
+    font-size: 2.25em;
+  }
+  #example.index .email.stripe .input {
+    width: 100%;
+  }
+  #example.index .following .secondary.menu {
+    display: none;
+  }
+  #example.index .email.stripe .submit.button {
+    margin-top: 0.5em;
+  }
+  #example.index .stripe .icon.header .icon.image {
+    height: 50px;
+  }
+  #example.index .stripe {
+    padding: 2em 0em !important;
+  }
+}
+
+@media only screen and (max-width : 650px) {
+  #example.index .fixed.launch.button {
+    display: none;
+  }
+  #example .stripe h1 {
+    font-size: 32px;
+  }
+}
+@media only screen and (min-width : 650px) {
+  #example .theming .source.button {
+    display: none;
+  }
+  #example.index .main.menu {
+    display: none;
+  }
+
+  #example.index .fixed.launch.button {
+    display: none;
+  }
+}
+
+
+
+/* Homepage */
+@media only screen and (max-width : 810px) {
+  #example.index .masthead.segment h1 > .library {
+    font-size: 1.75em;
+  }
+  #example.index .feature.stripe p {
+    height: auto;
+    min-height: 0px;
+  }
+  #example.index .container {
+    margin-left: 0em;
+    margin-right: 0em;
+  }
+  #example .solid, #example .stripe {
+    padding: 6em 0em;
+  }
+  #example.index .masthead .container {
+    margin-top: 50px;
+  }
+  #example.index .following.bar span.additional.item {
+    display: none;
+    visibility: hidden !important;
+  }
+  #example.index .following.bar .network.menu .view-ui {
+    margin-right: 0.75em;
+  }
+  #example.index .masthead .container {
+    min-height: 350px;
+    height: auto;
+  }
+}
+
+
+@media only screen and (max-width : 1040px) {
+  #example.index .following.bar .network.menu .view-ui {
+    margin-right: 0.5em;
+  }
+}
+
+
+@media only screen and (max-width: 1300px) {
+  #example.index .advertisement {
+    position: absolute;
+    top: auto;
+    left: 50%;
+    bottom: 2rem;
+    margin-left: -175px;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+  #example.index .inverted.advertisement .carbonad-img {
+    margin-top: 0px;
+  }
+  #example.index #carbonads-container {
+    float: none;
+  }
+  #example.index .carbonad {
+    width: 340px;
+  }
+  #example.index .carbonad-text,
+  #example.index .carbonad-tag {
+    float: none;
+    display: block;
+    text-align: left;
+    margin-left: 160px;
+    width: 170px;
+  }
+}
