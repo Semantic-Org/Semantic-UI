@@ -1,0 +1,20 @@
+<% if 'development' in @getEnvironments(): %>
+  <script src="/javascript/library/jquery.js"></script>
+  <script src="/javascript/library/detect.js"></script>
+  <script src="/javascript/library/clipboard.js"></script>
+  <script src="/javascript/library/cookie.js"></script>
+  <script src="/javascript/library/easing.js"></script>
+  <script src="/javascript/library/highlight.min.js"></script>
+  <script src="/javascript/library/history.js"></script>
+  <script src="/javascript/library/tablesort.js"></script>
+<% else: %>
+  <script src="/javascript/library/detect.min.js"></script>
+  <script src="/javascript/library/jquery.min.js"></script>
+  <script src="/javascript/library/clipboard.min.js"></script>
+  <script src="/javascript/library/cookie.min.js"></script>
+  <script src="/javascript/library/easing.min.js"></script>
+  <script src="/javascript/library/highlight.min.js"></script>
+  <script src="/javascript/library/history.min.js"></script>
+  <script src="/javascript/library/tablesort.min.js"></script>
+<% end %>
+

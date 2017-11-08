@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Sidebar
+ * # Semantic UI 2.2.13 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -135,7 +135,7 @@ body.pushable {
   z-index: 2;
 }
 body.pushable > .pusher {
-  background: #FFFFFF;
+  background: #E4E9EC;
 }
 
 /* Pusher should inherit background from context */
@@ -206,11 +206,13 @@ body.pushable > .pusher {
 /* Shadow Direction */
 .ui.left.visible.sidebar,
 .ui.right.visible.sidebar {
-  box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
+  -webkit-box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
+          box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
 }
 .ui.top.visible.sidebar,
 .ui.bottom.visible.sidebar {
-  box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
+  -webkit-box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
+          box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
 }
 
 /* Visible On Load */
@@ -263,7 +265,7 @@ body.pushable > .pusher {
 /* Left / Right */
 .ui.thin.left.sidebar,
 .ui.thin.right.sidebar {
-  width: 150px;
+  width: 100px;
 }
 .ui[class*="very thin"].left.sidebar,
 .ui[class*="very thin"].right.sidebar {
@@ -285,8 +287,8 @@ body.pushable > .pusher {
 /* Left Visible */
 .ui.visible.thin.left.sidebar ~ .fixed,
 .ui.visible.thin.left.sidebar ~ .pusher {
-  -webkit-transform: translate3d(150px, 0, 0);
-          transform: translate3d(150px, 0, 0);
+  -webkit-transform: translate3d(100px, 0, 0);
+          transform: translate3d(100px, 0, 0);
 }
 .ui.visible[class*="very thin"].left.sidebar ~ .fixed,
 .ui.visible[class*="very thin"].left.sidebar ~ .pusher {
@@ -307,8 +309,8 @@ body.pushable > .pusher {
 /* Right Visible */
 .ui.visible.thin.right.sidebar ~ .fixed,
 .ui.visible.thin.right.sidebar ~ .pusher {
-  -webkit-transform: translate3d(-150px, 0, 0);
-          transform: translate3d(-150px, 0, 0);
+  -webkit-transform: translate3d(-100px, 0, 0);
+          transform: translate3d(-100px, 0, 0);
 }
 .ui.visible[class*="very thin"].right.sidebar ~ .fixed,
 .ui.visible[class*="very thin"].right.sidebar ~ .pusher {
@@ -624,3 +626,11 @@ body.pushable > .pusher {
          Site Overrides
 *******************************/
 
+.ui.sidebar.vertical.menu.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.ui.sidebar.vertical.menu.flex .item.push.bottom {
+  margin-top: auto;
+}

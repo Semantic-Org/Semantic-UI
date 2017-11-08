@@ -1,0 +1,98 @@
+
+/*******************************
+        Shapes Example
+*******************************/
+
+
+#example.shape .ui.header {
+  clear: both;
+  margin-top: 1rem;
+}
+
+#example .dog.shape {
+  margin: 0em 0em 3em;
+}
+
+#example .dog.shape .side .item {
+  margin: 0em;
+  min-height: 400px;
+}
+#example .dog.two.shape .side {
+  width: 315px;
+}
+#example .dog.two.shape .side:nth-child(n+1),
+#example .dog.two.shape .side:nth-child(n+1) .item {
+  width: 315px;
+}
+#example .dog.two.shape .side:nth-child(n+2),
+#example .dog.two.shape .side:nth-child(n+2) .item {
+  width: 150px;
+}
+#example .dog.two.shape .side:nth-child(n+3),
+#example .dog.two.shape .side:nth-child(n+3) .item {
+  width: 200px;
+}
+
+#example .dog.three.shape .side:nth-child(n+1),
+#example .dog.three.shape .side:nth-child(n+1) .item {
+  width: 215px;
+}
+#example .dog.three.shape .side:nth-child(n+2),
+#example .dog.three.shape .side:nth-child(n+2) .item {
+  width: 350px;
+}
+#example .dog.three.shape .side:nth-child(n+3),
+#example .dog.three.shape .side:nth-child(n+3) .item {
+  width: 140px;
+}
+
+
+#example .demo.shape .side {
+  width: 250px;
+  height: 250px;
+}
+
+#example .demo.shape .side img {
+  display: block;
+  margin: 0px auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#example .demo.shape .first.side {
+  background-color: #EEE0D8;
+}
+#example .demo.shape .second.side {
+  background-color: #EEE6D8;
+}
+#example .demo.shape .third.side {
+  background-color: #D8EED8;
+}
+
+#example .demo.shape .side b {
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  font-size: 80px;
+  margin-top: -48px;
+  text-align: center;
+}
+
+#example .demo.auto.shape .side {
+  width: auto;
+  height: auto;
+}
+
+#example .irregular.shape .first.side {
+  width: 200px;
+  height: 200px;
+}
+#example .irregular.shape .second.side {
+  width: 300px;
+  height: 300px;
+}
+#example .irregular.shape .third.side {
+  width: 500px;
+  height: 300px;
+}

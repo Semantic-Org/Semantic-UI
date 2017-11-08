@@ -1,0 +1,558 @@
+---
+layout      : 'default'
+css         : 'label'
+standalone  : true
+
+element     : 'label'
+elementType : 'element'
+
+title       : 'Label'
+description : 'A label displays content classification'
+type        : 'UI Element'
+
+themes      : ['Default', 'GitHub']
+---
+<link rel="stylesheet/less" type="text/css" href="/src/definitions/elements/label.less" />
+
+<%- @partial('header') %>
+
+<div class="main ui container">
+
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="example">
+    <h4 class="ui header">Label</h4>
+    <p>A label</p>
+    <div class="ui label">
+      <i class="mail icon"></i> 23
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Image</h4>
+    <p>A label can be formatted to emphasize an image</p>
+    <a class="ui image label">
+      <img src="/images/avatar/small/joe.jpg">
+      Joe
+    </a>
+    <a class="ui image label">
+      <img src="/images/avatar/small/elliot.jpg">
+      Elliot
+    </a>
+    <a class="ui image label">
+      <img src="/images/avatar/small/stevie.jpg">
+      Stevie
+    </a>
+  </div>
+  <div class="another example">
+    <a class="ui blue image label">
+      <img src="/images/avatar/small/veronika.jpg">
+      Veronika
+      <div class="detail">Friend</div>
+    </a>
+    <a class="ui teal image label">
+      <img src="/images/avatar/small/jenny.jpg">
+      Veronika
+      <div class="detail">Student</div>
+    </a>
+    <a class="ui yellow image label">
+      <img src="/images/avatar/small/christian.jpg">
+      Helen
+      <div class="detail">Co-worker</div>
+    </a>
+  </div>
+  <div class="another example">
+    <div class="ui image label">
+      <img src="/images/avatar/small/ade.jpg">
+      Adrienne
+      <i class="delete icon"></i>
+    </div>
+    <div class="ui image label">
+      <img src="/images/avatar/small/zoe.jpg">
+      Zoe
+      <i class="delete icon"></i>
+    </div>
+    <div class="ui image label">
+      <img src="/images/avatar/small/nan.jpg">
+      Nan
+      <i class="delete icon"></i>
+    </div>
+  </div>
+
+  <div class="example" data-class="pointing above, pointing below, left pointing, right pointing">
+    <h4 class="ui header">Pointing</h4>
+    <p>A label can point to content next to it</p>
+    <form class="ui fluid form">
+      <div class="field">
+        <input type="text" placeholder="First name">
+        <div class="ui pointing label">
+          Please enter a value
+        </div>
+      </div>
+      <div class="ui divider"></div>
+      <div class="field" placeholder="Last Name">
+        <div class="ui pointing below label">
+          Please enter a value
+        </div>
+        <input type="text">
+      </div>
+      <div class="ui divider"></div>
+      <div class="inline field">
+        <input type="text" placeholder="Username">
+        <div class="ui left pointing label">
+          That name is taken!
+        </div>
+      </div>
+      <div class="ui divider"></div>
+      <div class="inline field">
+        <div class="ui right pointing label">
+          Your password must be 6 characters or more
+        </div>
+        <input type="password">
+      </div>
+    </form>
+  </div>
+
+  <div class="another example">
+    <form class="ui fluid form">
+      <div class="field">
+        <input type="text" placeholder="First name">
+        <div class="ui pointing red basic label">
+          Please enter a value
+        </div>
+      </div>
+      <div class="ui divider"></div>
+      <div class="field" placeholder="Last Name">
+        <div class="ui pointing below red basic label">
+          Please enter a value
+        </div>
+        <input type="text">
+      </div>
+      <div class="ui divider"></div>
+      <div class="inline field">
+        <input type="text" placeholder="Username">
+        <div class="ui left pointing red basic label">
+          That name is taken!
+        </div>
+      </div>
+      <div class="ui divider"></div>
+      <div class="inline field">
+        <div class="ui right pointing red basic label">
+          Your password must be 6 characters or more
+        </div>
+        <input type="password">
+      </div>
+    </form>
+  </div>
+  <div class="example" data-class="left corner, right corner, corner">
+    <h4 class="ui header">Corner</h4>
+    <p>A label can position itself in the corner of an element</p>
+    <div class="ui ignored warning message">A corner label must be positioned inside a container with <b>position: relative</b> to display properly. If a container is rounded you will need to add <code>overflow:hidden</code> to the container to produce a rounded label.</div>
+    <div class="ui two column grid">
+      <div class="column">
+        <div class="ui fluid image">
+          <a class="ui left corner label">
+            <i class="heart icon"></i>
+          </a>
+          <img src="/images/wireframe/image.png">
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui fluid image">
+          <a class="ui red right corner label">
+            <i class="save icon"></i>
+          </a>
+          <img src="/images/wireframe/image.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="clearing example">
+    <h4 class="ui header">Tag</h4>
+    <p>A label can appear as a tag</p>
+    <a class="ui tag label">New</a>
+    <a class="ui red tag label">Upcoming</a>
+    <a class="ui teal tag label">Featured</a>
+  </div>
+
+  <div class="example" data-class="left ribbon, right ribbon, ribbon">
+    <h4 class="ui header">Ribbon</h4>
+    <p>A label can appear as a ribbon attaching itself to an element.</p>
+    <div class="ui two column grid">
+      <div class="column">
+        <div class="ui raised segment">
+          <a class="ui red ribbon label">Overview</a>
+          <span>Account Details</span>
+          <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+          <a class="ui blue ribbon label">Community</a> User Reviews
+          <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          <a class="ui orange right ribbon label">Specs</a>
+          <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+          <a class="ui teal right ribbon label">Reviews</a>
+          <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui two column grid">
+      <div class="column">
+        <div class="ui fluid image">
+          <div class="ui black ribbon label">
+            <i class="hotel icon"></i> Hotel
+          </div>
+          <img src="/images/wireframe/image.png">
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui fluid image">
+          <div class="ui blue ribbon label">
+            <i class="spoon icon"></i> Food
+          </div>
+          <img src="/images/wireframe/image.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="clearing example">
+    <h4 class="ui header">Attached</h4>
+    <p>A label can attach to a content segment</p>
+    <div class="ui ignored warning message">
+      <p>Attached labels attempt to intelligently pad other content to account for their position, but may not in all cases apply this padding correctly.</p>
+      <p>If this happens you may need to manually correct the padding of the other elements inside the container.
+    </div>
+    <div class="ui three column grid">
+      <div class="row">
+        <div class="column">
+          <div class="ui segment">
+            <div class="ui top attached label">HTML</div>
+            <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <div class="ui bottom attached label">CSS</div>
+            <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <div class="ui top right attached label">Code</div>
+            <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <div class="ui segment">
+            <div class="ui top left attached label">View</div>
+            <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <div class="ui bottom left attached label">User View</div>
+            <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+          </div>
+        </div>
+        <div class="column">
+          <div class="ui segment">
+            <div class="ui bottom right attached label">Admin View</div>
+            <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="existing code">
+    <div class="ui top attached label">HTML</div>
+    <div class="ui bottom attached label">CSS</div>
+    <div class="ui top right attached label">Code</div>
+    <div class="ui top left attached label">View</div>
+    <div class="ui bottom left attached label">User View</div>
+    <div class="ui bottom right attached label">Admin View</div>
+      </div>
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Horizontal</h4>
+    <p>A horizontal label is formatted to label content along-side it horizontally</p>
+    <div class="ui divided selection list">
+      <a class="item">
+        <div class="ui red horizontal label">Fruit</div>
+        Kumquats
+      </a>
+      <a class="item">
+        <div class="ui purple horizontal label">Candy</div>
+        Ice Cream
+      </a>
+      <a class="item">
+        <div class="ui red horizontal label">Fruit</div>
+        Orange
+      </a>
+      <a class="item">
+        <div class="ui horizontal label">Dog</div>
+        Poodle
+      </a>
+    </div>
+  </div>
+
+  <div class="example" data-class="floating">
+    <h4 class="ui header">Floating</h4>
+    <p>A label can float above another element</p>
+    <div class="ui compact menu">
+      <a class="item">
+        <i class="icon mail"></i> Messages
+        <div class="floating ui red label">22</div>
+      </a>
+      <a class="item">
+        <i class="icon users"></i> Friends
+        <div class="floating ui teal label">22</div>
+      </a>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Content</h2>
+
+  <div class="example" data-use-content="true">
+    <h4 class="ui header">Detail</h4>
+    <p>A label can contain a detail</p>
+    <div class="ui label">
+      Dogs
+      <div class="detail">214</div>
+    </div>
+  </div>
+
+  <div class="example" data-use-content="true" data-class="icon">
+    <h4 class="ui header">Icon</h4>
+    <p>A label can include an icon</p>
+    <a class="ui label">
+      <i class="mail icon"></i>
+      Mail
+    </a>
+    <a class="ui label">
+      Tag
+      <i class="delete icon"></i>
+    </a>
+  </div>
+
+  <div class="example" data-use-content="true" data-class="image" data-tag="img">
+    <h4 class="ui header">Image</h4>
+    <p>A label can include an image</p>
+    <a class="ui label">
+      <img class="ui right spaced avatar image" src="/images/avatar/small/elliot.jpg">
+      Elliot
+    </a>
+    <a class="ui label">
+      <img src="/images/avatar/small/stevie.jpg">
+      Stevie
+    </a>
+  </div>
+
+  <div class="example" data-use-content="true" data-tag="a">
+    <h4 class="ui header">Link</h4>
+    <p>A label can be a link or contain an item that links</p>
+    <a class="ui label">
+      <i class="mail icon"></i> 23
+    </a>
+  </div>
+  <div class="another example">
+    <div class="ui label">
+      <i class="mail icon"></i>
+      23
+      <a class="detail">View Mail</a>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Variations</h2>
+
+
+  <div class="example" data-class="empty circular, circular">
+    <h4 class="ui header">Circular</h4>
+    <p>A label can be circular</p>
+    <a class="ui red circular label">2</a>
+    <a class="ui orange circular label">2</a>
+    <a class="ui yellow circular label">2</a>
+    <a class="ui olive circular label">2</a>
+    <a class="ui green circular label">2</a>
+    <a class="ui teal circular label">2</a>
+    <a class="ui blue circular label">2</a>
+    <a class="ui violet circular label">2</a>
+    <a class="ui purple circular label">2</a>
+    <a class="ui pink circular label">2</a>
+    <a class="ui brown circular label">2</a>
+    <a class="ui grey circular label">2</a>
+    <a class="ui black circular label">2</a>
+  </div>
+  <div class="another example">
+    <a class="ui red empty circular label"></a>
+    <a class="ui orange empty circular label"></a>
+    <a class="ui yellow empty circular label"></a>
+    <a class="ui olive empty circular label"></a>
+    <a class="ui green empty circular label"></a>
+    <a class="ui teal empty circular label"></a>
+    <a class="ui blue empty circular label"></a>
+    <a class="ui violet empty circular label"></a>
+    <a class="ui purple empty circular label"></a>
+    <a class="ui pink empty circular label"></a>
+    <a class="ui brown empty circular label"></a>
+    <a class="ui grey empty circular label"></a>
+    <a class="ui black empty circular label"></a>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Basic
+      <div class="ui black label">New in 2.1</div>
+    </h4>
+    <p>A label can reduce its complexity</p>
+    <a class="ui basic label">Basic</a>
+    <a class="ui pointing basic label">Pointing</a>
+    <a class="ui basic image label">
+      <img src="/images/avatar/small/elliot.jpg">
+      Elliot
+    <a class="ui pointing red basic label">Red Pointing</a>
+    <a class="ui blue basic label">Blue</a>
+    </a>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Colored</h4>
+    <p>A label can have different colors</p>
+    <a class="ui red label">Red</a>
+    <a class="ui orange label">Orange</a>
+    <a class="ui yellow label">Yellow</a>
+    <a class="ui olive label">Olive</a>
+    <a class="ui green label">Green</a>
+    <a class="ui teal label">Teal</a>
+    <a class="ui blue label">Blue</a>
+    <a class="ui violet label">Violet</a>
+    <a class="ui purple label">Purple</a>
+    <a class="ui pink label">Pink</a>
+    <a class="ui brown label">Brown</a>
+    <a class="ui grey label">Grey</a>
+    <a class="ui black label">Black</a>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Size</h4>
+    <p>A label can be small or large</p>
+    <div class="ui mini label">
+      Mini
+    </div>
+    <div class="ui tiny label">
+      Tiny
+    </div>
+    <div class="ui small label">
+      Small
+    </div>
+    <div class="ui label">
+      Medium
+    </div>
+    <div class="ui large label">
+      Large
+    </div>
+    <div class="ui big label">
+      Big
+    </div>
+    <div class="ui huge label">
+      Huge
+    </div>
+    <div class="ui massive label">
+      Massive
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Groups</h2>
+
+  <div class="example">
+    <h4 class="ui header">Group Size</h4>
+    <p>Labels can share sizes together</p>
+    <div class="ui huge labels">
+      <div class="ui label">
+        Fun
+      </div>
+      <div class="ui label">
+        Happy
+      </div>
+      <div class="ui label">
+        Smart
+      </div>
+      <div class="ui label">
+        Witty
+      </div>
+    </div>
+  </div>
+  <div class="example">
+    <h4 class="ui header">Colored Group</h4>
+    <p>Labels can share colors together</p>
+    <div class="ui blue labels">
+      <a class="ui label">
+        Fun <i class="icon close"></i>
+      </a>
+      <a class="ui label">
+        Happy
+        <div class="detail">22</div>
+      </a>
+      <a class="ui label">
+        Smart
+      </a>
+      <a class="ui label">
+        Insane
+      </a>
+      <a class="ui label">
+        Exciting
+      </a>
+    </div>
+  </div>
+
+  <div class="example" data-class="tag">
+    <h4 class="ui header">Tag Group</h4>
+    <p>Labels can share tag formatting</p>
+    <div class="ui tag labels">
+      <a class="ui label">
+        $10.00
+      </a>
+      <a class="ui label">
+        $19.99
+      </a>
+      <a class="ui label">
+        $24.99
+      </a>
+      <a class="ui label">
+        $30.99
+      </a>
+      <a class="ui label">
+        $10.25
+      </a>
+    </div>
+  </div>
+
+  <div class="example" data-class="circular">
+    <h4 class="ui header">Circular Group</h4>
+    <p>Labels can share shapes</p>
+    <div class="ui circular labels">
+      <a class="ui label">
+        11
+      </a>
+      <a class="ui label">
+        22
+      </a>
+      <a class="ui label">
+        33
+      </a>
+      <a class="ui label">
+        44
+      </a>
+      <a class="ui label">
+        141
+      </a>
+    </div>
+  </div>
+
+</div>

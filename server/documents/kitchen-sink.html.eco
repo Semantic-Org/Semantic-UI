@@ -1,0 +1,254 @@
+---
+layout      : 'default'
+css         : 'custom'
+standalone  : true
+
+title       : 'All UI'
+type        : 'UI Examples'
+description : 'Examples of all user interface elements'
+---
+
+<%- @partial('header', { tabs: {  elements: 'Elements', collections: 'Collections', views: 'Views', modules: 'Modules' } }) %>
+
+<div class="main demo ui container">
+
+  <div class="ui active tab" data-tab="elements">
+    <h2 class="ui dividing header">
+      Elements
+    </h2>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/elements/button.html">Button</a>
+      </h4>
+      <%- @partial('examples/button') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/elements/divider.html">Divider</a>
+      </h4>
+      <%- @partial('examples/divider') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/elements/flag.html">Flag</a>
+      </h4>
+      <%- @partial('examples/flag') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/elements/header.html">Header</a>
+      </h4>
+      <%- @partial('examples/header') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/elements/icon.html">Icon</a>
+      </h4>
+      <%- @partial('examples/icon') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/elements/image.html">Image</a>
+      </h4>
+      <%- @partial('examples/image') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/elements/input.html">Input</a>
+      </h4>
+      <%- @partial('examples/input') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/elements/label.html">Label</a>
+      </h4>
+      <%- @partial('examples/label') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/elements/list.html">List</a>
+      </h4>
+      <%- @partial('examples/list') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/elements/loader.html">Loader</a>
+      </h4>
+      <%- @partial('examples/loader') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/elements/list.html">Reveal</a>
+      </h4>
+      <%- @partial('examples/reveal') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/elements/segment.html">Segment</a>
+      </h4>
+      <%- @partial('examples/segment') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/elements/step.html">Step</a>
+      </h4>
+      <%- @partial('examples/step') %>
+    </div>
+  </div>
+  <div class="ui tab" data-tab="collections">
+    <h2 class="ui dividing header">
+      Collections
+    </h2>
+
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/collections/breadcrumb.html">Breadcrumb</a>
+      </h4>
+      <%- @partial('examples/breadcrumb') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/collections/form.html">Form</a>
+      </h4>
+      <%- @partial('examples/form') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/collections/grid.html">Grid</a>
+      </h4>
+      <%- @partial('examples/grid') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/collections/menu.html">Menu</a>
+      </h4>
+      <%- @partial('examples/menu') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/collections/message.html">Message</a>
+      </h4>
+      <%- @partial('examples/message') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/collections/table.html">Table</a>
+      </h4>
+      <%- @partial('examples/table') %>
+    </div>
+  </div>
+  <div class="ui tab" data-tab="views">
+    <h2 class="ui dividing header">
+      Views
+    </h2>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/views/card.html">Card</a>
+      </h4>
+      <%- @partial('examples/card') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/views/feed.html">Feed</a>
+      </h4>
+      <%- @partial('examples/feed') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/views/item.html">Item</a>
+      </h4>
+      <%- @partial('examples/item') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/views/statistic.html">Statistic</a>
+      </h4>
+      <%- @partial('examples/statistic') %>
+    </div>
+  </div>
+  <div class="ui tab" data-tab="modules">
+    <h2 class="ui dividing header">
+      Modules
+    </h2>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/modules/accordion.html">Accordion</a>
+      </h4>
+      <%- @partial('examples/accordion') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/modules/checkbox.html">Checkbox</a>
+      </h4>
+      <%- @partial('examples/checkbox') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/modules/dimmer.html">Dimmer</a>
+      </h4>
+      <%- @partial('examples/dimmer') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/modules/dropdown.html">Dropdown</a>
+      </h4>
+      <%- @partial('examples/dropdown') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/modules/modal.html">Modal</a>
+      </h4>
+      <%- @partial('examples/modal') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/modules/popup.html">Popup</a>
+      </h4>
+      <%- @partial('examples/popup') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/modules/progress.html">Progress</a>
+      </h4>
+      <%- @partial('examples/progress') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/modules/rating.html">Rating</a>
+      </h4>
+      <%- @partial('examples/rating') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/modules/search.html">Search</a>
+      </h4>
+      <%- @partial('examples/search') %>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/modules/shape.html">Shape</a>
+      </h4>
+      <%- @partial('examples/shape') %>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/modules/sidebar.html">Sidebar</a>
+      </h4>
+      <%- @partial('examples/sidebar') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/modules/tab.html">Tab</a>
+      </h4>
+      <%- @partial('examples/tab') %>
+    </div>
+    <div class="example">
+      <h4 class="ui header">
+        <a href="/modules/transition.html">Transition</a>
+      </h4>
+      <%- @partial('examples/transition') %>
+    </div>
+  </div>
+</div>

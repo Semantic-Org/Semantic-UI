@@ -1,0 +1,36 @@
+<% currentCollection = @getCollection("documents").findAll({type: $in: [@document.type]},[{title: 1}]).toJSON() %>
+<% pageCount         = @pageCount(currentCollection) %>
+<% pageNumber        = @getPage(currentCollection, @document.id) %>
+<% pageCollection    = @getPageCollection(currentCollection, @document.id) %>
+
+<div class="ui fixed inverted main menu">
+  <div class="ui container">
+    <a class="launch icon item">
+      <i class="content icon"></i>
+    </a>
+    <% if @document.title: %>
+      <div class="item">
+        <%= @document.title %>
+      </div>
+    <% end %>
+    <div class="right menu">
+      <% if 'development' in @getEnvironments(): %>
+      <% else: %>
+      <div class="vertically fitted borderless item">
+        <iframe class="github" src="//ghbtns.com/github-btn.html?user=semantic-org&amp;repo=semantic-ui&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+      </div>
+      <% end %>
+      <!--
+      <div class="item">
+        <div class="ui hidden right aligned search input" id="search">
+          <div class="ui transparent icon input">
+            <input class="prompt" type="text" placeholder="Search...">
+            <i class="inverted search link icon" data-content="Search UI"></i>
+          </div>
+          <div class="results"></div>
+        </div>
+      </div>
+      -->
+    </div>
+  </div>
+</div>

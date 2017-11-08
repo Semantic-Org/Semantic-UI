@@ -1,0 +1,176 @@
+---
+layout      : 'default'
+css         : 'reveal'
+standalone  : true
+
+element     : 'reveal'
+elementType : 'element'
+
+title       : 'Reveal'
+description : 'A reveal displays additional content in place of previous content when activated'
+type        : 'UI Element'
+
+themes      : ['Default']
+---
+
+<%- @partial('header') %>
+
+<div class="main ui container">
+
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="example">
+    <h4 class="ui header">Fade</h4>
+    <p>An element can disappear to reveal content below</p>
+    <div class="ui fade reveal">
+      <div class="visible content">
+        <img src="/images/wireframe/square-image.png" class="ui small image">
+      </div>
+      <div class="hidden content">
+        <img src="/images/avatar/large/ade.jpg" class="ui small image">
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui small fade reveal image">
+      <img class="visible content" src="/images/wireframe/square-image.png">
+      <img class="hidden content" src="/images/avatar/large/ade.jpg">
+    </div>
+  </div>
+
+  <div class="example" data-class="move left, move right, move up, move down, move">
+    <h4 class="ui header">Move</h4>
+    <p>An element can move in a direction to reveal content</p>
+    <div class="ui move reveal">
+      <div class="visible content">
+        <img src="/images/wireframe/square-image.png" class="ui small image">
+      </div>
+      <div class="hidden content">
+        <img src="/images/avatar/large/chris.jpg" class="ui small image">
+      </div>
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui move right reveal">
+      <div class="visible content">
+        <img src="/images/wireframe/square-image.png" class="ui small image">
+      </div>
+      <div class="hidden content">
+        <img src="/images/avatar/large/jenny.jpg" class="ui small image">
+      </div>
+    </div>
+  </div>
+
+  <div class="another example">
+    <div class="ui move up reveal">
+      <div class="visible content">
+        <img src="/images/wireframe/square-image.png" class="ui small image">
+      </div>
+      <div class="hidden content">
+        <img src="/images/avatar/large/justen.jpg" class="ui small image">
+      </div>
+    </div>
+  </div>
+
+  <div class="another example">
+    <div class="ui move down reveal">
+      <div class="visible content">
+        <img src="/images/wireframe/square-image.png" class="ui small image">
+      </div>
+      <div class="hidden content">
+        <img src="/images/avatar/large/nan.jpg" class="ui small image">
+      </div>
+    </div>
+  </div>
+
+  <div class="example" data-class="rotate left, rotate">
+    <h4 class="ui header">Rotate</h4>
+    <p>An element can rotate to reveal content below</p>
+    <div class="ui small circular rotate reveal image">
+      <img src="/images/wireframe/square-image.png" class="visible content">
+      <img src="/images/avatar/large/stevie.jpg" class="hidden content">
+    </div>
+  </div>
+  <div class="another example">
+    <div class="ui small circular rotate left reveal image">
+      <img src="/images/wireframe/square-image.png" class="visible content">
+      <img src="/images/avatar/large/veronika.jpg" class="hidden content">
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Content</h2>
+
+  <div class="clearing example" data-use-content="true">
+    <h4 class="ui header">Visible Content</h4>
+    <p>A reveal may contain content that is visible before interaction</p>
+    <div class="ui ignored info message">
+      Visible and hidden content should be the same aspect ratio
+    </div>
+    <div class="ui small fade reveal image">
+      <img class="visible content" src="/images/avatar/large/ade.jpg">
+      <img class="hidden content" src="/images/wireframe/square-image.png">
+    </div>
+  </div>
+
+  <div class="clearing example" data-use-content="true">
+    <h4 class="ui header">Hidden Content</h4>
+    <p>A reveal may contain content that is hidden before user interaction</p>
+    <div class="ui small fade reveal image">
+      <img class="visible content" src="/images/wireframe/square-image.png">
+      <img class="hidden content" src="/images/avatar/large/ade.jpg">
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">States</h2>
+
+  <div class="example">
+    <h4 class="ui header">Active</h4>
+    <p>An active reveal displays its hidden content</p>
+    <div class="ui ignored info message">
+      Adding the class <code>active</code> can allow you to show the hidden contents programatically
+    </div>
+    <div class="ui active move left reveal">
+      <div class="visible content">
+        <img src="/images/wireframe/square-image.png" class="ui small image">
+      </div>
+      <div class="hidden content">
+        <img src="/images/avatar/large/nan.jpg" class="ui small image">
+      </div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Variations</h2>
+
+
+  <div class="example">
+    <h4 class="ui header">Instant</h4>
+    <p>An element can show its content without delay</p>
+    <div class="ui instant move reveal">
+      <div class="visible content">
+        <img src="/images/wireframe/square-image.png" class="ui small image">
+      </div>
+      <div class="hidden content">
+        <img src="/images/avatar/large/chris.jpg" class="ui small image">
+      </div>
+    </div>
+  </div>
+
+
+  <h2 class="ui dividing header">States</h2>
+
+  <div class="example">
+    <h4 class="ui header">Disabled</h4>
+    <p>A disabled reveal will not animate when hovered</p>
+    <div class="ui disabled move reveal">
+      <div class="visible content">
+        <img src="/images/wireframe/square-image.png" class="ui small image">
+      </div>
+      <div class="hidden content">
+        <img src="/images/avatar/large/chris.jpg" class="ui small image">
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

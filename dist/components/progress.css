@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Progress Bar
+ * # Semantic UI 2.2.13 - Progress Bar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -19,10 +19,11 @@
   max-width: 100%;
   border: none;
   margin: 1em 0em 2.5em;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   background: rgba(0, 0, 0, 0.1);
   padding: 0em;
-  border-radius: 0.28571429rem;
+  border-radius: 0.33333333rem;
 }
 .ui.progress:first-child {
   margin: 0em 0em 2.5em;
@@ -45,7 +46,7 @@
   width: 0%;
   min-width: 2em;
   background: #888888;
-  border-radius: 0.28571429rem;
+  border-radius: 0.33333333rem;
   -webkit-transition: width 0.1s ease, background-color 0.1s ease;
   transition: width 0.1s ease, background-color 0.1s ease;
 }
@@ -55,7 +56,7 @@
   white-space: nowrap;
   position: absolute;
   width: auto;
-  font-size: 0.92857143em;
+  font-size: 0.91666667em;
   top: 50%;
   right: 0.5em;
   left: auto;
@@ -179,7 +180,7 @@
 ---------------*/
 
 .ui.progress.success .bar {
-  background-color: #21BA45 !important;
+  background-color: #238A41 !important;
 }
 .ui.progress.success .bar,
 .ui.progress.success .bar::after {
@@ -239,7 +240,7 @@
   right: 0px;
   bottom: 0px;
   background: #FFFFFF;
-  border-radius: 0.28571429rem;
+  border-radius: 0.33333333rem;
   -webkit-animation: progress-active 2s ease infinite;
           animation: progress-active 2s ease infinite;
 }
@@ -301,7 +302,7 @@
   color: #FFFFFF;
 }
 .ui.inverted.progress.success > .label {
-  color: #21BA45;
+  color: #238A41;
 }
 .ui.inverted.progress.warning > .label {
   color: #F2C037;
@@ -328,7 +329,7 @@
   height: 0.2rem;
   padding: 0px;
   overflow: hidden;
-  border-radius: 0em 0em 0.28571429rem 0.28571429rem;
+  border-radius: 0em 0em 0.33333333rem 0.33333333rem;
 }
 .ui.progress.attached .bar {
   border-radius: 0em;
@@ -338,7 +339,7 @@
 .ui.progress.top.attached,
 .ui.progress.top.attached .bar {
   top: 0px;
-  border-radius: 0.28571429rem 0.28571429rem 0em 0em;
+  border-radius: 0.33333333rem 0.33333333rem 0em 0em;
 }
 .ui.progress.top.attached .bar {
   border-radius: 0em;
@@ -398,7 +399,7 @@
 
 /* Green */
 .ui.green.progress .bar {
-  background-color: #21BA45;
+  background-color: #238A41;
 }
 .ui.green.inverted.progress .bar {
   background-color: #2ECC40;
@@ -462,7 +463,7 @@
 
 /* Black */
 .ui.black.progress .bar {
-  background-color: #1B1C1D;
+  background-color: #2e2e2e;
 }
 .ui.black.inverted.progress .bar {
   background-color: #545454;
@@ -473,13 +474,13 @@
 ---------------*/
 
 .ui.tiny.progress {
-  font-size: 0.85714286rem;
+  font-size: 0.83333333rem;
 }
 .ui.tiny.progress .bar {
   height: 0.5em;
 }
 .ui.small.progress {
-  font-size: 0.92857143rem;
+  font-size: 0.91666667rem;
 }
 .ui.small.progress .bar {
   height: 1em;
@@ -491,13 +492,13 @@
   height: 1.75em;
 }
 .ui.large.progress {
-  font-size: 1.14285714rem;
+  font-size: 1.16666667rem;
 }
 .ui.large.progress .bar {
   height: 2.5em;
 }
 .ui.big.progress {
-  font-size: 1.28571429rem;
+  font-size: 1.25rem;
 }
 .ui.big.progress .bar {
   height: 3.5em;

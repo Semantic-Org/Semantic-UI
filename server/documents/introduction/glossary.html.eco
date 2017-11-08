@@ -1,0 +1,178 @@
+---
+layout      : 'default'
+css         : 'started'
+standalone  : true
+order       : 5
+
+title       : 'Glossary'
+description : 'Jargon specific to Semantic UI'
+type        : 'Introduction'
+---
+<%- @partial('header') %>
+
+<div class="main ui intro container">
+
+<h2 class="ui header">Terminology</h2>
+
+<div class="no example">
+  <h4>Types of Components</h4>
+  <p>Semantic UI classifies components into different definition types depending on its qualities. Each of these five types uses a unique definition format.</p>
+  <table class="ui large very padded definition table">
+    <tbody>
+      <tr>
+        <td class="three wide">Globals</td>
+        <td>
+          Globals are styles that are applied across a site. These include things like CSS resets, and sitewide font, link and sizing defaults.</p>
+          <p>Most importantly, globals include site-wide <a href="/usage/theming.html">theming variables</a> that other components can inherit and modify.</td>
+      </tr>
+      </tr>
+      <tr>
+        <td>Element</td>
+        <td>
+          UI elements are page elements with a single function. They can exist alone or in a plural form with elements sharing qualities.</p>
+          <p>For example, a group of <a href="/elements/button.html">buttons</a> may use <code>ui red buttons</code> as a grouping with individual <code>ui button</code> children.</td>
+      </tr>
+      <tr>
+        <td>Collection</td>
+        <td>
+          <p>Collections are heterogeneous groups of components which are usually found together. They describe a list of "usual suspects" which appear in a certain context. They may include and extend other ui elements for use in certain contexts—for example <a href="/collections/form.html">form</a> may extend <a href="/modules/dropdown.html">dropdown</a> or <a href="/elements/input.html">input</a>—as well as include their own content.</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Views</td>
+        <td>
+          <p>A view is a convention for presenting specific types of content that is usually consistent across a website. These include things like <a href="/views/comment.html">comments</a>, <a href="/views/feed.html">activity feeds</a>, or <a href="/views/card.html">cards</a>.</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Modules</td>
+        <td>
+          <p>Modules are components that include both a definition of how they appear and how they behave. These include components like, accordions, dropdowns, and popups.</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Behaviors</td>
+        <td>
+          <p>Behaviors are standalone Javascript components that describe how page elements should act, but not how they should appear. Behaviors include things like form validation, state management, and API request routing.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="no example">
+  <h4>Project Terminology</h4>
+  <p>Semantic UI classifies components into separate definition groupings.<p>
+
+  <table class="ui large very padded definition table">
+    <tbody>
+      <tr>
+        <td class="three wide">Component</td>
+        <td>
+          A component is a general term used to refer to any user interface element packaged for distribution.
+        </td>
+      </tr>
+      <tr>
+        <td>Definition</td>
+        <td>
+          <p>A definition is a set of CSS and Javascript which describe a component's essential qualities.</p>
+          <p>Definition use variables to express arbitrary parts of a component's appearance so that they can be changed with themes.</p>
+        </td>
+      </tr>
+      <tr>
+        <td>ui</td>
+        <td>
+          <p><code>ui</code> is a special class name used to distinguish parts of components from components.</p>
+          <p>For example, a <a href="/elements/list.html">list</a> will receive the class <code>ui list</code> because it has a corresponding definition, however a list item, will receive just the class <code>item</code>.</p>
+          <p>The ui class name helps encapsulate CSS rules by making sure all 'parts of a component' are defined in context to a 'whole' component.</p>
+          <p>It also helps make scanning unknown code simpler. If you see <code>ui</code> you know you are looking at a component.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="no example">
+  <h4>Definition Terminology</h4>
+  <p>When browsing Semantic UI definitions, you will see content grouped into different sections. These parts of a definition are consistent across definitions, and are common patterns for describing components.<p>
+
+  <table class="ui large very padded definition table">
+    <tbody>
+      <tr>
+        <td class="three wide">Component</td>
+        <td>
+          A component is a general term used to refer to any user interface element packaged for distribution.
+        </td>
+      </tr>
+      <tr>
+        <td>Definition</td>
+        <td>
+          <p>A definition is a set of CSS and Javascript which describe a component's essential qualities.</p>
+          <p>Definition use variables to express arbitrary parts of a component's appearance so that they can be changed with themes.</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Types</td>
+        <td>
+          <p>Types are versions of an element that modify the element's standard appearance.</p>
+          <p>Types cannot be used simultaneously on the same element. For example, "cats" and "dogs" are types of animals, but are <b>mutually exclusive</b>.</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Variations</td>
+        <td>
+          <p>Variations modify qualities of an element like size, or color.</p>
+          <p>Variations are <b>mutually inclusive</b>, and can be used together to modify an element.</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Content</td>
+        <td>
+          <p>Content are parts which only have meaning in the context of a component. Content use names which describe the type of expected content like header, description, menu, or item.</p>
+          <p>Content inside a collection or view often includes stubbed versions of other components. For example cards let you use <a href="/views/card.html#image">image content</a>, which can be extended by using <a href="/elements/image.html#variations">ui image variations</a>.
+        </td>
+      </tr>
+      <tr>
+        <td>States</td>
+        <td>
+          <p>States are modifications to an element that help indicate a change in <a href="http://www.usabilityfirst.com/glossary/affordance/" target="_blank">affordances</a>. Common states include <code>loading</code>, <code>disabled</code>, and <code>active</code>.</p>
+        </td>
+      </tr>
+      <tr>
+        <td>Behaviors</td>
+        <td>
+          <p>Behaviors are actions that a component can perform. Behaviors are represented by simple phrases like "set value" or "increment", that can be invoked in Javascript. Behaviors are automatically converted from spaced lowercase phrases to internal Javascript methods at invocation.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="no example">
+  <h4>General Terms</h4>
+
+  <p>These terms are general programming terms that may be used without explanation in other documentation pages.</p>
+
+  <table class="ui large very padded definition table">
+    <tr>
+      <td class="three wide">Namespace</td>
+      <td>A name given to an element for the explicit purpose of containing the application of properties.</p>
+      <p>In Semantic UI, components are given the class name <code>ui</code> to help distinguish them from parts of elements in code, and to provide a namespace for definitions which can limit the scope of CSS rules.</td>
+    </tr>
+    <tr>
+      <td>Gulp</td>
+      <td>Gulp is a tool for automating command line tasks <a href="http://www.gulpjs.com" target="_blank">Gulpjs.com</a></td>
+    </tr>
+    <tr>
+      <td>NPM</td>
+      <td>NPM is a package manager used for downloading Node JS packages.</td>
+    </tr>
+    <tr>
+      <td>Node JS</td>
+      <td>Node is a event driven programming language frequently used to run command line tools for front end development. <a href="http://www.nodejs.org" target="_blank">nodejs.org</a></td>
+    </tr>
+  </table>
+
+</div>
+
+</div>

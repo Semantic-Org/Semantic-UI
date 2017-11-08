@@ -1,0 +1,10 @@
+/*******************************
+       Right-To-Left
+     (Arabic / Persian)
+*******************************/
+
+
+html[lang="fa"],
+html[lang="ar"] {
+  direction: rtl;
+}

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Comment
+ * # Semantic UI 2.2.13 - Comment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -206,7 +206,8 @@
 .ui.threaded.comments .comment .comments {
   margin: -1.5em 0 -1em 1.25em;
   padding: 3em 0em 2em 2.25em;
-  box-shadow: -1px 0px 0px rgba(34, 36, 38, 0.15);
+  -webkit-box-shadow: -1px 0px 0px rgba(34, 36, 38, 0.15);
+          box-shadow: -1px 0px 0px rgba(34, 36, 38, 0.15);
 }
 
 /*--------------------
@@ -233,28 +234,28 @@
 --------------------*/
 
 .ui.mini.comments {
-  font-size: 0.78571429rem;
+  font-size: 0.75rem;
 }
 .ui.tiny.comments {
-  font-size: 0.85714286rem;
+  font-size: 0.83333333rem;
 }
 .ui.small.comments {
-  font-size: 0.92857143rem;
+  font-size: 0.91666667rem;
 }
 .ui.comments {
   font-size: 1rem;
 }
 .ui.large.comments {
-  font-size: 1.14285714rem;
+  font-size: 1.16666667rem;
 }
 .ui.big.comments {
-  font-size: 1.28571429rem;
+  font-size: 1.25rem;
 }
 .ui.huge.comments {
-  font-size: 1.42857143rem;
+  font-size: 1.41666667rem;
 }
 .ui.massive.comments {
-  font-size: 1.71428571rem;
+  font-size: 1.75rem;
 }
 
 

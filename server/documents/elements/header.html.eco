@@ -1,0 +1,330 @@
+---
+layout      : 'default'
+css         : 'header'
+standalone  : true
+
+element     : 'header'
+elementType : 'element'
+
+title       : 'Header'
+description : 'A header provides a short summary of content'
+type        : 'UI Element'
+
+themes      : ['Default', 'Classic', 'Bookish', 'Chubby', 'Material']
+---
+
+<%- @partial('header') %>
+<link rel="stylesheet/less" type="text/css" href="/src/definitions/elements/header.less" />
+<script src="/javascript/header.js"></script>
+
+<div class="main ui container">
+
+  <h2 class="ui dividing header">Types</h2>
+
+  <div class="example" data-tag="h1,h2,h3,h4,h5">
+    <h4 class="ui header">Page Headers</h4>
+    <p class="header">Headers may be oriented to give the hierarchy of a section in the context of the page</p>
+    <div class="ignored info ui message">Page headings are sized using <a href="https://j.eremy.net/confused-about-rem-and-em/" target="_blank"><code>rem</code></a> and are not affected by surrounding content size.</div>
+    <h1 class="ui header">First header</h1>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    <h2 class="ui header">Second header</h2>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    <h3 class="ui header">Third header</h3>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    <h4 class="ui header">Fourth header</h4>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    <h5 class="ui header">Fifth header</h5>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+  </div>
+
+  <div class="example" data-class="size">
+    <h4 class="ui header">Content Headers</h4>
+    <p>Headers may be oriented to give the importance of a section in the context of the content that surrounds it</p>
+    <div class="ignored info ui message">Content headings are sized with <a href="https://j.eremy.net/confused-about-rem-and-em/" target="_blank"><code>em</code></a> and are based on the font-size of their container.</div>
+    <div class="ui ignored icon font buttons">
+      <a class="increase ui button"> <i class="plus icon"></i></a>
+      <a class="decrease ui button"> <i class="minus icon"></i></a>
+    </div>
+    <div class="ui sizer vertical segment">
+      <div class="ui huge header">Huge Header</div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <div class="ui large header">Large Header</div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <div class="ui medium header">Medium Header</div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <div class="ui small header">Small Header</div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+      <div class="ui tiny header">Tiny Header</div>
+      <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Icon Headers</h4>
+    <p>A header can be formatted to emphasize an icon</p>
+    <h2 class="ui icon header">
+      <i class="settings icon"></i>
+      <div class="content">
+        Account Settings
+        <div class="sub header">Manage your account settings and set e-mail preferences.</div>
+      </div>
+    </h2>
+  </div>
+
+  <div class="another example">
+    <h2 class="ui center aligned icon header">
+      <i class="circular users icon"></i>
+      Friends
+    </h2>
+    <img class="ui centered wireframe image" src="/images/wireframe/centered-paragraph.png">
+  </div>
+
+  <div class="example" data-class="sub">
+    <h4 class="ui header">Sub Headers</h4>
+    <p>Headers may be formatted to label smaller or de-emphasized content.</p>
+    <h2 class="ui sub header">
+      Price
+    </h2>
+    <span>$10.99</span>
+  </div>
+
+  <div class="another example">
+    <div class="ui horizontal list">
+      <div class="item">
+        <img class="ui mini circular image" src="/images/avatar2/small/molly.png">
+        <div class="content">
+          <div class="ui sub header">Molly</div>
+          Coordinator
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui mini circular image" src="/images/avatar2/small/elyse.png">
+        <div class="content">
+          <div class="ui sub header">Elyse</div>
+          Developer
+        </div>
+      </div>
+      <div class="item">
+        <img src="/images/avatar2/small/eve.png" class="ui mini circular image">
+        <div class="content">
+          <div class="ui sub header">Eve</div>
+          Project Manager
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="ui dividing header">Content</h2>
+
+
+  <div class="example" data-use-content="true" data-class="image" data-tag="img">
+    <h4 class="ui header">Image</h4>
+    <p>A header may contain an <a href="/elements/image.html">image</a></p>
+    <h2 class="ui header">
+      <img class="ui image" src="/images/icons/school.png">
+      <div class="content">
+        Learn More
+      </div>
+    </h2>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+  </div>
+  <div class="another example">
+    <h2 class="ui header">
+      <img src="/images/avatar2/large/patrick.png" class="ui circular image">
+      Patrick
+    </h2>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+  </div>
+  <div class="another example">
+    <h2 class="ui header">
+      <img src="/images/icons/plugin.png">
+      <div class="content">
+        Plug-ins
+        <div class="sub header">Check out our plug-in marketplace</div>
+      </div>
+    </h2>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+  </div>
+
+
+  <div class="example" data-use-content="true" data-class="icon">
+    <h4 class="ui header">Icon</h4>
+    <p>A header may contain an <a href="/elements/icon.html">icon</a></p>
+    <h2 class="ui header">
+      <i class="plug icon"></i>
+      <div class="content">
+        Uptime Guarantee
+      </div>
+    </h2>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+  </div>
+  <div class="another example">
+    <h2 class="ui header">
+      <i class="settings icon"></i>
+      <div class="content">
+        Account Settings
+        <div class="sub header">Manage your preferences</div>
+      </div>
+    </h2>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+  </div>
+
+  <div class="example" data-use-content="true" data-class="sub">
+    <h4 class="ui header">Subheader</h4>
+    <p>Headers may contain subheaders</p>
+    <h2 class="ui header">
+      Account Settings
+      <div class="sub header">Manage your account settings and set e-mail preferences.</div>
+    </h2>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+  </div>
+  <div class="another example">
+    <h1 class="ui header">
+      H1
+      <div class="sub header">Sub Header</div>
+    </h1>
+    <h2 class="ui header">
+      H2
+      <div class="sub header">Sub Header</div>
+    </h2>
+    <h3 class="ui header">
+      H3
+      <div class="sub header">Sub Header</div>
+    </h3>
+    <h4 class="ui header">
+      H4
+      <div class="sub header">Sub Header</div>
+    </h4>
+    <h5 class="ui header">
+      H5
+      <div class="sub header">Sub Header</div>
+    </h5>
+  </div>
+
+  <h2 class="ui dividing header">States</h2>
+
+  <div class="example">
+    <h4 class="ui header">Disabled</h4>
+    <p>A header can show that it is inactive</p>
+    <div class="ui disabled header">
+      Disabled Header
+    </div>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+  </div>
+
+  <h2 class="ui dividing header">Variations</h2>
+
+
+  <div class="example">
+    <h4 class="ui header">Dividing</h4>
+    <p>A header can be formatted to divide itself from the content below it</p>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+    <h3 class="ui dividing header">
+      Dividing Header
+    </h3>
+    <img class="ui wireframe image" src="/images/wireframe/short-paragraph.png">
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Block</h4>
+    <p>A header can be formatted to appear inside a content block</p>
+    <h3 class="ui block header">
+      Block Header
+    </h3>
+    <img class="ui wireframe image" src="/images/wireframe/media-paragraph.png">
+
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Attached</h4>
+    <p>A header can be attached to other content, like a <a href="/elements/segment.html">segment</a></p>
+    <h3 class="ui top attached header">
+      Top Attached
+    </h3>
+    <div class="ui attached segment">
+      <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+    </div>
+    <h3 class="ui attached header">
+      Attached
+    </h3>
+    <div class="ui attached segment">
+      <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+    </div>
+    <h3 class="ui bottom attached header">
+      Bottom Attached
+    </h3>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Floating</h4>
+    <p>A header can sit to the left or right of other content</p>
+    <div class="ui clearing segment">
+      <h3 class="ui right floated header">
+        Go Forward
+      </h3>
+      <h3 class="ui left floated header">
+        Go Back
+      </h3>
+    </div>
+  </div>
+  <div class="clearing example">
+    <h4 class="ui header">Text Alignment</h4>
+    <p>A header can have its text aligned to a side</p>
+    <div class="ui segment">
+      <h3 class="ui right aligned header">
+        Right
+      </h3>
+      <h3 class="ui left aligned header">
+        Left
+      </h3>
+      <h3 class="ui justified header">
+        This should take up the full width even if only one line
+      </h3>
+      <h3 class="ui center aligned header">
+        Center
+      </h3>
+    </div>
+  </div>
+
+  <div class="example">
+    <h4 class="ui header">Colored</h4>
+    <p>A header can be formatted with different colors</p>
+    <h4 class="ui red header">Red</h4>
+    <h4 class="ui orange header">Orange</h4>
+    <h4 class="ui yellow header">Yellow</h4>
+    <h4 class="ui olive header">Olive</h4>
+    <h4 class="ui green header">Green</h4>
+    <h4 class="ui teal header">Teal</h4>
+    <h4 class="ui blue header">Blue</h4>
+    <h4 class="ui purple header">Purple</h4>
+    <h4 class="ui violet header">Violet</h4>
+    <h4 class="ui pink header">Pink</h4>
+    <h4 class="ui brown header">Brown</h4>
+    <h4 class="ui grey header">Grey</h4>
+  </div>
+
+
+  <div class="example">
+    <h4 class="ui header">Inverted</h4>
+    <p>A header can have its colors inverted for contrast</p>
+    <div class="ui ignored info message">
+      Inverted headers use modified light versions of your site's color scheme that are adapted to have more contrast on dark background
+    </div>
+    <div class="ui inverted segment">
+      <h4 class="ui red inverted header">Red</h4>
+      <h4 class="ui orange inverted header">Orange</h4>
+      <h4 class="ui yellow inverted header">Yellow</h4>
+      <h4 class="ui olive inverted header">Olive</h4>
+      <h4 class="ui green inverted header">Green</h4>
+      <h4 class="ui teal inverted header">Teal</h4>
+      <h4 class="ui blue inverted header">Blue</h4>
+      <h4 class="ui purple inverted header">Purple</h4>
+      <h4 class="ui violet inverted header">Violet</h4>
+      <h4 class="ui pink inverted header">Pink</h4>
+      <h4 class="ui brown inverted header">Brown</h4>
+      <h4 class="ui grey inverted header">Grey</h4>
+    </div>
+  </div>
+
+</div>

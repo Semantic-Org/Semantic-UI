@@ -1,0 +1,59 @@
+/*******************************
+          Customizer
+*******************************/
+
+#example.custom .accordion .title + .content {
+  padding: 0em;
+}
+#example.custom .download.list {
+  margin: 0em;
+}
+#example.custom .header {
+  position: relative;
+}
+#example.custom .header .all {
+  position: absolute;
+  right: 1em;
+}
+#example.custom .download.list .checkbox + .content {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+#example.custom .download.list .checkbox + .content .header {
+  transition: color 0.3s ease;
+  font-weight: normal;
+}
+#example.custom .download.list .content .description {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.9em;
+}
+
+#example.custom .main.container > h2:first-child {
+  margin-top: 0em;
+}
+#example.custom .download.list .checkbox.checked + .content {
+  opacity: 1;
+}
+#example.custom .download.list .checkbox.checked + .content .header {
+  color: #000000;
+  font-weight: bold;
+}
+
+/* Element Lists */
+#example.custom .download.list .item > .checkbox {
+  display: block;
+  float: left;
+  margin-top: 0.75em;
+  margin-left: 0.5em;
+}
+#example.custom .download.list .item > .content {
+  margin-left: 3em;
+}
+#example.custom .download.list .item .icon.button {
+  opacity: 0;
+  margin: 0.3em 0.3em 0em 0em;
+  transition: opacity 0.5s ease;
+}
+#example.custom .download.list .item:hover .icon.button {
+  opacity: 1;
+}

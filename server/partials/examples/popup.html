@@ -1,0 +1,121 @@
+<div class="popup demos">
+  <img src="/images/avatar/small/elliot.jpg" data-title="Elliot Fu" data-content="Elliot has been a member since July 2012" class="ui avatar image">
+  <img src="/images/avatar/small/stevie.jpg" data-title="Stevie Feliciano" data-content="Stevie has been a member since August 2013" class="ui avatar image">
+  <img src="/images/avatar/small/matt.jpg" data-title="Matt" data-content="Matt has been a member since July 2014" class="ui avatar image">
+
+  <div class="ui button">Fluid Popup</div>
+  <div class="ui fluid popup">
+    <div class="ui four column divided center aligned grid">
+      <div class="column">1</div>
+      <div class="column">2</div>
+      <div class="column">3</div>
+      <div class="column">4</div>
+    </div>
+  </div>
+
+  <div class="ui button" data-html="<div class='header'>User Rating</div><div class='content'><div class='ui star rating'><i class='active icon'></i><i class='active icon'></i><i class='active icon'></i><i class='icon'></i><i class='icon'></i></div></div>">HTML Content</div>
+  <div class="ui button">Basic Popup</div>
+  <div class="ui basic popup">
+    Basic pop-up
+  </div>
+  <div class="ui button">Small</div>
+  <div class="ui small popup">
+    Small pop-up
+  </div>
+  <div class="ui button">Large</div>
+  <div class="ui large popup">
+    Large pop-up
+  </div>
+  <div class="ui button" data-variation="inverted" data-content="Inverted pop-up">
+    Inverted
+  </div>
+  <div class="ui menu">
+    <a class="active item">
+      Link
+    </a>
+    <a class="browse item">
+      <i class="dropdown icon"></i>
+      Popup Link
+    </a>
+    <div class="ui flowing popup">
+      <div class="ui four column relaxed equal height divided grid">
+        <div class="ui column">
+          <h3 class="ui header">Fabrics</h3>
+          <div class="ui link list">
+            <a class="item">Cashmere</a>
+            <a class="item">Linen</a>
+            <a class="item">Cotton</a>
+            <a class="item">Viscose</a>
+          </div>
+        </div>
+        <div class="ui column">
+          <h3 class="ui header">Sizes</h3>
+          <div class="ui link list">
+            <a class="item">Small</a>
+            <a class="item">Medium</a>
+            <a class="item">Large</a>
+            <a class="item">Plus Sizes</a>
+          </div>
+        </div>
+        <div class="ui column">
+          <h3 class="ui header">Colors</h3>
+          <div class="ui link list">
+            <a class="item">Neutrals</a>
+            <a class="item">Brights</a>
+            <a class="item">Pastels</a>
+          </div>
+        </div>
+        <div class="ui column">
+          <h3 class="ui header">Types</h3>
+          <div class="ui link list">
+            <a class="item">Knitwear</a>
+            <a class="item">Outerwear</a>
+            <a class="item">Pants</a>
+            <a class="item">Shoes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="position no example">
+    <div class="ui segment">
+      <i class="square inverted red heart icon link" data-content="Top Left" data-position="top left"></i>
+      <i class="square inverted red heart icon link" data-content="Top Center" data-position="top center"></i>
+      <i class="square inverted red heart icon link" data-content="Top Right" data-position="top right"></i>
+      <i class="square inverted red heart icon link" data-content="Right Center" data-position="right center"></i>
+      <i class="square inverted red heart icon link" data-content="Bottom Right" data-position="bottom right"></i>
+      <i class="square inverted red heart icon link" data-content="Bottom Center" data-position="bottom center"></i>
+      <i class="square inverted red heart icon link" data-content="Bottom Left" data-position="bottom left"></i>
+      <i class="square inverted red heart icon link" data-content="Left Center" data-position="left center"></i>
+    </div>
+  </div>
+
+</div>
+
+<script type="text/javascript">
+$(document)
+  .ready(function() {
+    $('.popup.demos .position .icon')
+      .popup()
+    ;
+    $('.popup.demos .avatar')
+      .popup()
+    ;
+    $('.popup.demos .button')
+      .popup()
+    ;
+    $('.popup.demos .menu .browse')
+      .popup({
+        inline   : true,
+        hoverable: true,
+        position : 'bottom left',
+        delay: {
+          show: 300,
+          hide: 800
+        }
+      })
+    ;
+  })
+;
+</script>

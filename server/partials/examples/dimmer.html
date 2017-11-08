@@ -1,0 +1,132 @@
+<div class="dimmer demo">
+  <div class="ui segment">
+    <h3 class="ui header">
+      Dimmable Section
+    </h3>
+    <div class="ui small images">
+      <img class="ui wireframe image" src="/images/wireframe/image.png">
+      <img class="ui wireframe image" src="/images/wireframe/image.png">
+      <img class="ui wireframe image" src="/images/wireframe/image.png">
+    </div>
+    <img class="ui medium wireframe image" src="/images/wireframe/media-paragraph.png">
+    <div class="ui dimmer"></div>
+  </div>
+  <div class="ui ignored ignored icon buttons">
+    <div class="ui show button"><i class="plus icon"></i></div>
+    <div class="ui hide button"><i class="minus icon"></i></div>
+  </div>
+</div>
+<div class="dimmer demo">
+  <div class="ui segment">
+    <h3 class="ui header">
+      Inverted Dimmer
+    </h3>
+    <div class="ui small images">
+      <img class="ui wireframe image" src="/images/wireframe/image.png">
+      <img class="ui wireframe image" src="/images/wireframe/image.png">
+      <img class="ui wireframe image" src="/images/wireframe/image.png">
+    </div>
+    <img class="ui medium wireframe image" src="/images/wireframe/media-paragraph.png">
+    <div class="ui inverted dimmer"></div>
+  </div>
+  <div class="ui ignored ignored icon buttons">
+    <div class="ui show button"><i class="plus icon"></i></div>
+    <div class="ui hide button"><i class="minus icon"></i></div>
+  </div>
+</div>
+<div class="dimmer demo">
+  <div class="ui segment">
+    <h3 class="ui header">
+      Dimmer With Content
+    </h3>
+    <div class="ui small images">
+      <img class="ui wireframe image" src="/images/wireframe/image.png">
+      <img class="ui wireframe image" src="/images/wireframe/image.png">
+      <img class="ui wireframe image" src="/images/wireframe/image.png">
+    </div>
+    <img class="ui medium wireframe image" src="/images/wireframe/media-paragraph.png">
+    <div class="ui dimmer">
+      <div class="content">
+        <div class="center">
+          <h2 class="ui inverted icon header">
+            <i class="heart icon"></i>
+            Dimmed Message!
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui ignored ignored icon buttons">
+    <div class="ui show button"><i class="plus icon"></i></div>
+    <div class="ui hide button"><i class="minus icon"></i></div>
+  </div>
+</div>
+<div class="dimmer demo">
+  <div class="ui page button">
+    <i class="plus icon"></i> Page Dimmer
+  </div>
+</div>
+
+<style type="text/css">
+  .dimmer.demo:not(.page) {
+    margin: 2em 0em;
+  }
+  h4 + .dimmer.demo {
+    margin-top: 0em;
+  }
+</style>
+<script type="text/javascript">
+$(document)
+  .ready(function() {
+
+    // selector cache
+    var
+      $pageDimmer = $('.demo.page.dimmer'),
+      $demo       = $('.dimmer.demo'),
+      $showButton = $demo.find('.show.button'),
+      $pageButton = $demo.find('.page.button'),
+      $hideButton = $demo.find('.hide.button'),
+      // alias
+      handler
+    ;
+
+    // event handlers
+    handler = {
+      show: function() {
+        $(this)
+          .closest('.demo')
+            .find('.segment')
+              .dimmer('show')
+        ;
+      },
+      hide: function() {
+        $(this)
+          .closest('.demo')
+            .find('.segment')
+              .dimmer('hide')
+        ;
+      },
+      page: function() {
+        $('body > .demo.page.dimmer')
+          .dimmer('show')
+        ;
+      }
+    };
+
+    $pageDimmer
+      .dimmer()
+    ;
+
+    $pageButton
+      .on('click', handler.page)
+    ;
+    $showButton
+      .on('click', handler.show)
+    ;
+    $hideButton
+      .on('click', handler.hide)
+    ;
+
+  })
+;
+</script>

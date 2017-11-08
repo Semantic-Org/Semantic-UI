@@ -1,0 +1,2938 @@
+---
+layout      : 'default'
+css         : 'dropdown'
+standalone  : true
+
+title       : 'Dropdown'
+description : 'A dropdown allows a user to select a value from a series of options'
+type        : 'UI Module'
+
+element     : 'dropdown'
+elementType : 'module'
+
+themes      : ['Default', 'GitHub', 'Material']
+---
+
+<link rel="stylesheet/less" type="text/css" href="/src/definitions/modules/dropdown.less" />
+<script src="/javascript/dropdown.js"></script>
+
+
+<%- @partial('header', { tabs: 'module' }) %>
+
+<div class="main ui container">
+
+  <div class="ui active tab" data-tab="definition">
+    <h2 class="ui dividing header">Types</h2>
+
+    <div class="simple example">
+      <h4 class="ui header">Dropdown</h4>
+      <p>A dropdown</p>
+      <div class="ui dropdown">
+        <div class="text">File</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">New</div>
+          <div class="item">
+            <span class="description">ctrl + o</span>
+            Open...
+          </div>
+          <div class="item">
+            <span class="description">ctrl + s</span>
+            Save as...
+          </div>
+          <div class="item">
+            <span class="description">ctrl + r</span>
+            Rename
+          </div>
+          <div class="item">Make a copy</div>
+          <div class="item">
+            <i class="folder icon"></i>
+            Move to folder
+          </div>
+          <div class="item">
+            <i class="trash icon"></i>
+            Move to trash
+          </div>
+          <div class="divider"></div>
+          <div class="item">Download As...</div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            Publish To Web
+            <div class="menu">
+              <div class="item">Google Docs</div>
+              <div class="item">Google Drive</div>
+              <div class="item">Dropbox</div>
+              <div class="item">Adobe Creative Cloud</div>
+              <div class="item">Private FTP</div>
+              <div class="item">Another Service...</div>
+            </div>
+          </div>
+          <div class="item">E-mail Collaborators</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Selection</h4>
+      <p>A dropdown can be used to select between choices in a form</p>
+      <div class="ui ignored info message">
+        Selection dropdowns can be initialized directly on a <code>select</code> or with the matching HTML and a hidden <code>input</code>.
+      </div>
+      <div class="ui selection dropdown">
+        <input type="hidden" name="gender">
+        <i class="dropdown icon"></i>
+        <div class="default text">Gender</div>
+        <div class="menu">
+          <div class="item" data-value="1">Male</div>
+          <div class="item" data-value="0">Female</div>
+        </div>
+      </div>
+    </div>
+    <div class="another dropdown example">
+      <select class="ui dropdown">
+        <option value="">Gender</option>
+        <option value="1">Male</option>
+        <option value="0">Female</option>
+      </select>
+    </div>
+    <div class="another dropdown example">
+      <div class="ui fluid selection dropdown">
+        <input type="hidden" name="user">
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Friend</div>
+        <div class="menu">
+          <div class="item" data-value="jenny">
+            <img class="ui mini avatar image" src="/images/avatar/small/jenny.jpg">
+            Jenny Hess
+          </div>
+          <div class="item" data-value="elliot">
+            <img class="ui mini avatar image" src="/images/avatar/small/elliot.jpg">
+            Elliot Fu
+          </div>
+          <div class="item" data-value="stevie">
+            <img class="ui mini avatar image" src="/images/avatar/small/stevie.jpg">
+            Stevie Feliciano
+          </div>
+          <div class="item" data-value="christian">
+            <img class="ui mini avatar image" src="/images/avatar/small/christian.jpg">
+            Christian
+          </div>
+          <div class="item" data-value="matt">
+            <img class="ui mini avatar image" src="/images/avatar/small/matt.jpg">
+            Matt
+          </div>
+          <div class="item" data-value="justen">
+            <img class="ui mini avatar image" src="/images/avatar/small/justen.jpg">
+            Justen Kitsune
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Search Selection</h4>
+      <p>A selection dropdown can allow a user to search through a large list of choices.</p>
+      <div class="ui fluid search selection dropdown">
+        <input type="hidden" name="country">
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Country</div>
+        <%- @partial('examples/single/flag-menu') %>
+      </div>
+    </div>
+    <div class="another dropdown example">
+      <select class="ui search dropdown">
+        <%- @partial('examples/single/state-options') %>
+      </select>
+    </div>
+    <div class="dropdown example">
+      <h4 class="ui header">Multiple Selection</h4>
+      <p>A selection dropdown can allow multiple selections</p>
+      <select name="skills" multiple class="ui fluid dropdown">
+        <%- @partial('examples/single/skill-menu') %>
+      </select>
+    </div>
+    <div class="dropdown example">
+      <h4 class="ui header">Multiple Search Selection</h4>
+      <p>A selection dropdown can allow multiple search selections</p>
+      <select class="ui fluid search dropdown" multiple>
+        <%- @partial('examples/single/state-options') %>
+      </select>
+    </div>
+    <div class="another dropdown example">
+      <div class="ui ignored info message">
+        Dropdowns can support content that may not be allowed inside <code>option</code> tags when converting <code>select</code> elements. For more complex content like <code>flags</code> or <code>icons</code> you can use full dropdown markup
+      </div>
+      <div class="ui fluid multiple search selection dropdown">
+        <input type="hidden" name="country">
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Country</div>
+        <%- @partial('examples/single/flag-menu') %>
+
+      </div>
+    </div>
+
+
+    <div class="dropdown example">
+      <h4 class="ui header">Search Dropdown</h4>
+      <p>A dropdown can be searchable</p>
+      <div class="ui floating dropdown labeled search icon button">
+        <i class="world icon"></i>
+        <span class="text">Select Language</span>
+        <div class="menu">
+          <div class="item">Arabic</div>
+          <div class="item">Chinese</div>
+          <div class="item">Danish</div>
+          <div class="item">Dutch</div>
+          <div class="item">English</div>
+          <div class="item">French</div>
+          <div class="item">German</div>
+          <div class="item">Greek</div>
+          <div class="item">Hungarian</div>
+          <div class="item">Italian</div>
+          <div class="item">Japanese</div>
+          <div class="item">Korean</div>
+          <div class="item">Lithuanian</div>
+          <div class="item">Persian</div>
+          <div class="item">Polish</div>
+          <div class="item">Portuguese</div>
+          <div class="item">Russian</div>
+          <div class="item">Spanish</div>
+          <div class="item">Swedish</div>
+          <div class="item">Turkish</div>
+          <div class="item">Vietnamese</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Search In-Menu</h4>
+      <p>A dropdown can include a search prompt inside its menu</p>
+      <div class="ui floating dropdown labeled icon button">
+        <i class="filter icon"></i>
+        <span class="text">Filter Posts</span>
+        <div class="menu">
+          <div class="ui icon search input">
+            <i class="search icon"></i>
+            <input type="text" placeholder="Search tags...">
+          </div>
+          <div class="divider"></div>
+          <div class="header">
+            <i class="tags icon"></i>
+            Tag Label
+          </div>
+          <div class="scrolling menu">
+            <div class="item">
+              <div class="ui red empty circular label"></div>
+              Important
+            </div>
+            <div class="item">
+              <div class="ui blue empty circular label"></div>
+              Announcement
+            </div>
+            <div class="item">
+              <div class="ui black empty circular label"></div>
+              Cannot Fix
+            </div>
+            <div class="item">
+              <div class="ui purple empty circular label"></div>
+              News
+            </div>
+            <div class="item">
+              <div class="ui orange empty circular label"></div>
+              Enhancement
+            </div>
+            <div class="item">
+              <div class="ui empty circular label"></div>
+              Change Declined
+            </div>
+            <div class="item">
+              <div class="ui yellow empty circular label"></div>
+              Off Topic
+            </div>
+            <div class="item">
+              <div class="ui pink empty circular label"></div>
+              Interesting
+            </div>
+            <div class="item">
+              <div class="ui green empty circular label"></div>
+              Discussion
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="another dropdown example">
+      <div class="ui multiple dropdown">
+        <input type="hidden" name="filters">
+        <i class="filter icon"></i>
+        <span class="text">Filter Posts</span>
+        <div class="menu">
+          <div class="ui icon search input">
+            <i class="search icon"></i>
+            <input type="text" placeholder="Search tags...">
+          </div>
+          <div class="divider"></div>
+          <div class="header">
+            <i class="tags icon"></i>
+            Tag Label
+          </div>
+          <div class="scrolling menu">
+            <div class="item" data-value="important">
+              <div class="ui red empty circular label"></div>
+              Important
+            </div>
+            <div class="item" data-value="announcement">
+              <div class="ui blue empty circular label"></div>
+              Announcement
+            </div>
+            <div class="item" data-value="cannotfix">
+              <div class="ui black empty circular label"></div>
+              Cannot Fix
+            </div>
+            <div class="item" data-value="news">
+              <div class="ui purple empty circular label"></div>
+              News
+            </div>
+            <div class="item" data-value="enhancement">
+              <div class="ui orange empty circular label"></div>
+              Enhancement
+            </div>
+            <div class="item" data-value="off-topic">
+              <div class="ui yellow empty circular label"></div>
+              Off Topic
+            </div>
+            <div class="item" data-value="interesting">
+              <div class="ui pink empty circular label"></div>
+              Interesting
+            </div>
+            <div class="item" data-value="discussion">
+              <div class="ui green empty circular label"></div>
+              Discussion
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Inline</h4>
+      <p>A dropdown can be formatted to appear inline in other content</p>
+      <span>
+        Show me posts by
+        <div class="ui inline dropdown">
+          <div class="text">
+            <img class="ui avatar image" src="/images/avatar/small/jenny.jpg">
+            Jenny Hess
+          </div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item">
+              <img class="ui avatar image" src="/images/avatar/small/jenny.jpg">
+              Jenny Hess
+            </div>
+            <div class="item">
+              <img class="ui avatar image" src="/images/avatar/small/elliot.jpg">
+              Elliot Fu
+            </div>
+            <div class="item">
+              <img class="ui avatar image" src="/images/avatar/small/stevie.jpg">
+              Stevie Feliciano
+            </div>
+            <div class="item">
+              <img class="ui avatar image" src="/images/avatar/small/christian.jpg">
+              Christian
+            </div>
+            <div class="item">
+              <img class="ui avatar image" src="/images/avatar/small/matt.jpg">
+              Matt
+            </div>
+            <div class="item">
+              <img class="ui avatar image" src="/images/avatar/small/justen.jpg">
+              Justen Kitsune
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+
+    <div class="another dropdown example">
+      <h4 class="ui header">
+        <i class="trophy icon"></i>
+        <div class="content">
+          Trending repos
+          <div class="ui inline dropdown">
+            <div class="text">today</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="header">Adjust time span</div>
+              <div class="active item" data-text="today">Today</div>
+              <div class="item" data-text="this week">This Week</div>
+              <div class="item" data-text="this month">This Month</div>
+            </div>
+          </div>
+        </div>
+      </h4>
+    </div>
+
+    <div class="hover example">
+    <h4 class="ui header">Pointing</h4>
+    <p>A dropdown can be formatted so that its menu is pointing</p>
+      <div class="ui menu">
+        <a class="item">
+          Home
+        </a>
+        <div class="ui pointing dropdown link item">
+          <span class="text">Shopping</span>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="header">Categories</div>
+            <div class="item">
+              <i class="dropdown icon"></i>
+              <span class="text">Clothing</span>
+              <div class="menu">
+                <div class="header">Mens</div>
+                <div class="item">Shirts</div>
+                <div class="item">Pants</div>
+                <div class="item">Jeans</div>
+                <div class="item">Shoes</div>
+                <div class="divider"></div>
+                <div class="header">Womens</div>
+                <div class="item">Dresses</div>
+                <div class="item">Shoes</div>
+                <div class="item">Bags</div>
+              </div>
+            </div>
+            <div class="item">Home Goods</div>
+            <div class="item">Bedroom</div>
+            <div class="divider"></div>
+            <div class="header">Order</div>
+            <div class="item">Status</div>
+            <div class="item">Cancellations</div>
+          </div>
+        </div>
+        <a class="item">
+          Forums
+        </a>
+        <a class="item">
+          Contact Us
+        </a>
+      </div>
+    </div>
+    <div class="another hover example">
+      <div class="ui vertical menu">
+        <a class="item">
+          Home
+        </a>
+        <div class="ui left pointing dropdown link item">
+          <i class="dropdown icon"></i>
+          Messages
+          <div class="menu">
+            <div class="item">Inbox</div>
+            <div class="item">Starred</div>
+            <div class="item">Sent Mail</div>
+            <div class="item">Drafts (143)</div>
+            <div class="divider"></div>
+            <div class="item">Spam (1009)</div>
+            <div class="item">Trash</div>
+          </div>
+        </div>
+        <a class="item">
+          Browse
+        </a>
+        <a class="item">
+          Help
+        </a>
+      </div>
+    </div>
+    <div class="another button example">
+      <div class="ui icon top left pointing dropdown button">
+        <i class="wrench icon"></i>
+        <div class="menu">
+          <div class="header">Display Density</div>
+          <div class="item">Comfortable</div>
+          <div class="item">Cozy</div>
+          <div class="item">Compact</div>
+          <div class="ui divider"></div>
+          <div class="item">Settings</div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            <span class="text">Upload Settings</span>
+            <div class="menu">
+              <div class="item">
+                <i class="check icon"></i>
+                Convert Uploaded Files to PDF
+              </div>
+              <div class="item">
+                <i class="check icon"></i>
+                Digitize Text from Uploaded Files
+              </div>
+            </div>
+          </div>
+          <div class="item">Manage Apps</div>
+          <div class="item">Keyboard Shortcuts</div>
+          <div class="item">Help</div>
+        </div>
+      </div>
+    </div>
+    <div class="another button example">
+      <div class="ui ignored info message">Bottom pointing dropdown menus have sub-menus open upwards</div>
+      <div class="ui icon bottom left pointing dropdown button">
+        <i class="wrench icon"></i>
+        <div class="menu">
+          <div class="item">
+            <i class="dropdown icon"></i>
+            <span class="text">New</span>
+            <div class="menu">
+              <div class="item">Document</div>
+              <div class="item">Image</div>
+            </div>
+          </div>
+          <div class="item">Save As...</div>
+          <div class="item">Edit</div>
+        </div>
+      </div>
+      <div class="ui icon bottom right pointing dropdown button">
+        <i class="wrench icon"></i>
+        <div class="menu">
+          <div class="item">
+            <i class="dropdown icon"></i>
+            <span class="text">New</span>
+            <div class="menu">
+              <div class="item">Document</div>
+              <div class="item">Image</div>
+            </div>
+          </div>
+          <div class="item">Save As...</div>
+          <div class="item">Edit</div>
+        </div>
+      </div>
+    </div>
+    <div class="another button example">
+      <div class="ui labeled icon top right pointing dropdown button">
+        <i class="filter icon"></i>
+        <span class="text">Filter Posts</span>
+        <div class="menu">
+          <div class="ui search icon input">
+            <i class="search icon"></i>
+            <input type="text" name="search" placeholder="Search issues...">
+          </div>
+          <div class="divider"></div>
+          <div class="header">
+            <i class="tags icon"></i>
+            Filter by tag
+          </div>
+          <div class="item">
+            <div class="ui red empty circular label"></div>
+            Important
+          </div>
+          <div class="item">
+            <div class="ui blue empty circular label"></div>
+            Announcement
+          </div>
+          <div class="item">
+            <div class="ui black empty circular label"></div>
+            Discussion
+          </div>
+          <div class="divider"></div>
+          <div class="header">
+            <i class="calendar icon"></i>
+            Filter by date
+          </div>
+          <div class="item">
+            <i class="olive circle icon"></i>
+            This Week
+          </div>
+          <div class="item">
+            <i class="violet circle icon"></i>
+            This Month
+          </div>
+          <div class="item">
+            <i class="orange circle icon"></i>
+            This Year
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="another button example">
+      <div class="ui right pointing dropdown icon button">
+        <i class="settings icon"></i>
+        <div class="menu">
+          <div class="ui left search icon input">
+            <i class="search icon"></i>
+            <input type="text" name="search" placeholder="Search issues...">
+          </div>
+          <div class="divider"></div>
+          <div class="header">
+            <i class="tags icon"></i>
+            Filter by tag
+          </div>
+          <div class="item">
+            <div class="ui red empty circular label"></div>
+            Important
+          </div>
+          <div class="item">
+            <div class="ui blue empty circular label"></div>
+            Announcement
+          </div>
+          <div class="item">
+            <div class="ui black empty circular label"></div>
+            Discussion
+          </div>
+        </div>
+      </div>
+      <div class="ui left pointing dropdown icon button">
+        <i class="settings icon"></i>
+        <div class="menu">
+          <div class="ui left search icon input">
+            <i class="search icon"></i>
+            <input type="text" name="search" placeholder="Search issues...">
+          </div>
+          <div class="header">
+            <i class="tags icon"></i>
+            Tag Label
+          </div>
+          <div class="item">
+            <div class="ui red empty circular label"></div>
+            Important
+          </div>
+          <div class="item">
+            <div class="ui blue empty circular label"></div>
+            Announcement
+          </div>
+          <div class="item">
+            <div class="ui black empty circular label"></div>
+            Discussion
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="button example">
+      <h4 class="ui header">Floating</h4>
+      <p>A dropdown menu can appear to be floating below an element.</p>
+      <div class="ui teal buttons">
+        <div class="ui button">Save</div>
+        <div class="ui floating dropdown icon button">
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item"><i class="edit icon"></i> Edit Post</div>
+            <div class="item"><i class="delete icon"></i> Remove Post</div>
+            <div class="item"><i class="hide icon"></i> Hide Post</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Simple</h4>
+      <p>A simple dropdown can open without Javascript</p>
+      <div class="ui compact menu">
+        <div class="ui simple dropdown item">
+          Dropdown
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item">Choice 1</div>
+            <div class="item">Choice 2</div>
+            <div class="item">Choice 3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="ui dividing header">Content</h2>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Header</h4>
+      <p>A dropdown menu can contain a header</p>
+      <div class="ui floating labeled icon dropdown button">
+        <i class="filter icon"></i>
+        <span class="text">Filter</span>
+        <div class="menu">
+          <div class="header">
+            <i class="tags icon"></i>
+            Filter by tag
+          </div>
+          <div class="item">
+            Important
+          </div>
+          <div class="item">
+            Announcement
+          </div>
+          <div class="item">
+            Discussion
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dropdown example">
+      <h4 class="ui header">Divider</h4>
+      <p>A dropdown menu can contain dividers to separate related content</p>
+      <div class="ui floating labeled icon dropdown button">
+        <i class="filter icon"></i>
+        <span class="text">Filter</span>
+        <div class="menu">
+          <div class="header">
+            <i class="tags icon"></i>
+            Filter by tag
+          </div>
+          <div class="divider"></div>
+          <div class="item">
+            Important
+          </div>
+          <div class="item">
+            Announcement
+          </div>
+          <div class="item">
+            Discussion
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Icon</h4>
+      <p>A dropdown menu can contain an <a href="/elements/icon.html">icon</a>.</p>
+      <div class="ui floating labeled icon dropdown button">
+        <i class="filter icon"></i>
+        <span class="text">Filter</span>
+        <div class="menu">
+          <div class="header">
+            <i class="tags icon"></i>
+            Filter by tag
+          </div>
+          <div class="divider"></div>
+          <div class="item">
+            <i class="attention icon"></i>
+            Important
+          </div>
+          <div class="item">
+            <i class="comment icon"></i>
+            Announcement
+          </div>
+          <div class="item">
+            <i class="conversation icon"></i>
+            Discussion
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Description</h4>
+      <p>A dropdown menu can contain a description.</p>
+      <div class="ui ignored info message">
+        Using a description may require setting a minimum width on <code>menu</code> to prevent content overlap
+      </div>
+      <div class="ui floating labeled icon dropdown button">
+        <i class="filter icon"></i>
+        <span class="text">Filter Tags</span>
+        <div class="menu">
+          <div class="header">
+            Filter by tag
+          </div>
+          <div class="divider"></div>
+          <div class="item">
+            <span class="description">2 new</span>
+            <span class="text">Important</span>
+          </div>
+          <div class="item">
+            <span class="description">10 new</span>
+            <span class="text">Hopper</span>
+          </div>
+          <div class="item">
+            <span class="description">5 new</span>
+            <span class="text">Discussion</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Label</h4>
+      <p>A dropdown menu can contain a <a href="/elements/label.html">label</a>.</p>
+      <div class="ui floating labeled icon dropdown button">
+        <i class="filter icon"></i>
+        <span class="text">Filter</span>
+        <div class="menu">
+          <div class="header">
+            Search Issues
+          </div>
+          <div class="ui left icon input">
+            <i class="search icon"></i>
+            <input type="text" name="search" placeholder="Search...">
+          </div>
+          <div class="header">
+            <i class="tags icon"></i>
+            Filter by tag
+          </div>
+          <div class="item">
+            <div class="ui red empty circular label"></div>
+            Important
+          </div>
+          <div class="item">
+            <div class="ui blue empty circular label"></div>
+            Announcement
+          </div>
+          <div class="item">
+            <div class="ui black empty circular label"></div>
+            Discussion
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Message</h4>
+      <p>A dropdown menu can contain a <a href="/collections/message.html">message</a>.</p>
+      <div class="ui floating labeled icon dropdown button">
+        <i class="filter icon"></i>
+        <span class="text">Login</span>
+        <div class="menu">
+          <div class="ui error message">
+            <div class="header">Error</div>
+            <p>You must log-in to see all categories</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Floated Content</h4>
+      <p>A dropdown menu can contain floated content.</p>
+      <div class="ui ignored info message">Floated content may stack to two lines without manually setting a width when or using a <code>fluid</code> dropdown
+      </div>
+      <div class="ui fluid selection dropdown">
+        <i class="dropdown icon"></i>
+        <span class="default text">Select Type</span>
+        <div class="menu">
+          <div class="item">
+            <i class="attention right floated icon"></i>
+            Important
+          </div>
+          <div class="item">
+            <i class="comment right floated icon"></i>
+            Announcement
+          </div>
+          <div class="item">
+            <i class="conversation right floated icon"></i>
+            Discussion
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="dropdown example">
+      <h4 class="ui header">Input</h4>
+      <p>A dropdown menu can contain an <a href="/elements/input.html">input</a></p>
+      <div class="ui floating labeled icon dropdown button">
+        <i class="filter icon"></i>
+        <span class="text">Filter</span>
+        <div class="menu">
+          <div class="header">
+            Search Issues
+          </div>
+          <div class="ui left icon input">
+            <i class="search icon"></i>
+            <input type="text" name="search" placeholder="Search...">
+          </div>
+          <div class="header">
+            <i class="tags icon"></i>
+            Filter by tag
+          </div>
+          <div class="divider"></div>
+          <div class="item">
+            <div class="ui red empty circular label"></div>
+            Important
+          </div>
+          <div class="item">
+            <div class="ui blue empty circular label"></div>
+            Announcement
+          </div>
+          <div class="item">
+            <div class="ui black empty circular label"></div>
+            Discussion
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Image</h4>
+      <p>A dropdown menu can contain an <a href="/elements/image.html">image</a></p>
+      <div class="ui floating labeled icon dropdown button">
+        <i class="add user icon"></i>
+        <span class="text">Add User</span>
+        <div class="menu">
+          <div class="header">
+            People You Might Know
+          </div>
+          <div class="item">
+            <img class="ui avatar image" src="/images/avatar/small/jenny.jpg">
+            Jenny Hess
+          </div>
+          <div class="item">
+            <img class="ui avatar image" src="/images/avatar/small/elliot.jpg">
+            Elliot Fu
+          </div>
+          <div class="item">
+            <img class="ui avatar image" src="/images/avatar/small/stevie.jpg">
+            Stevie Feliciano
+          </div>
+          <div class="header">
+            Your Friends' Friends
+          </div>
+          <div class="item">
+            <img class="ui avatar image" src="/images/avatar/small/christian.jpg">
+            Christian
+          </div>
+          <div class="item">
+            <img class="ui avatar image" src="/images/avatar/small/matt.jpg">
+            Matt
+          </div>
+          <div class="item">
+            <img class="ui avatar image" src="/images/avatar/small/justen.jpg">
+            Justen Kitsune
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="ui dividing header">States</h2>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Loading</h4>
+      <p>A dropdown can show that it is currently loading data</p>
+      <div class="ui loading dropdown">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+    <div class="another dropdown example">
+      <div class="ui loading fluid multiple search selection dropdown">
+        <input type="hidden" name="country" value="kp">
+        <i class="dropdown icon"></i>
+        <input class="search">
+        <div class="default text">Search...</div>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+    <div class="another dropdown example">
+      <div class="ui loading selection dropdown">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+    <div class="dropdown example">
+      <h4 class="ui header">Error</h4>
+      <p>An errored dropdown can alert a user to a problem</p>
+      <div class="ui floating dropdown error">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+    <div class="another dropdown example">
+      <div class="ui selection dropdown error">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Active</h4>
+      <p>An active dropdown has its menu open</p>
+      <div class="ui ignored info message">An active state will only automatically open a <code>ui simple dropdown</code>. To activate a normal dropdown use <code>$('.ui.dropdown').dropdown('show');</code></div>
+      <div class="ui simple active dropdown">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4 class="ui header">Disabled</h4>
+      <p>A disabled dropdown menu or item does not allow user interaction</p>
+      <div class="ui disabled dropdown">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+    <div class="another dropdown example">
+      <div class="ui dropdown">
+        Disabled Item <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="disabled item">Disabled</div>
+          <div class="item">Choice 3</div>
+        </div>
+      </div>
+    </div>
+
+
+    <h2 class="ui dividing header">Variations</h2>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Scrolling</h4>
+      <p>A dropdown can have its menu scroll</p>
+      <div class="ui ignored warning message">
+        Scrolling dropdowns are incompatible with the usage of <code>sub menu</code>.
+      </div>
+      <div class="ui scrolling dropdown">
+        <input type="hidden" name="gender">
+        <div class="default text">Select choice</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Choice 1</div>
+          <div class="item">Choice 2</div>
+          <div class="item">Choice 3</div>
+          <div class="item">Choice 4</div>
+          <div class="item">Choice 5</div>
+          <div class="item">Choice 6</div>
+          <div class="item">Choice 7</div>
+          <div class="item">Choice 8</div>
+          <div class="item">Choice 9</div>
+          <div class="item">Choice 10</div>
+          <div class="item">Choice 11</div>
+          <div class="item">Choice 12</div>
+          <div class="item">Choice 13</div>
+          <div class="item">Choice 14</div>
+          <div class="item">Choice 15</div>
+        </div>
+      </div>
+    </div>
+    <div class="another dropdown example">
+      <div class="ui dropdown">
+        <i class="filter icon"></i>
+        <span class="text">Filter Posts</span>
+        <div class="menu">
+          <div class="ui icon search input">
+            <i class="search icon"></i>
+            <input type="text" placeholder="Search tags...">
+          </div>
+          <div class="divider"></div>
+          <div class="header">
+            <i class="tags icon"></i>
+            Tag Label
+          </div>
+          <div class="scrolling menu">
+            <div class="item">
+              <div class="ui red empty circular label"></div>
+              Important
+            </div>
+            <div class="item">
+              <div class="ui blue empty circular label"></div>
+              Announcement
+            </div>
+            <div class="item">
+              <div class="ui black empty circular label"></div>
+              Cannot Fix
+            </div>
+            <div class="item">
+              <div class="ui purple empty circular label"></div>
+              News
+            </div>
+            <div class="item">
+              <div class="ui orange empty circular label"></div>
+              Enhancement
+            </div>
+            <div class="item">
+              <div class="ui empty circular label"></div>
+              Change Declined
+            </div>
+            <div class="item">
+              <div class="ui yellow empty circular label"></div>
+              Off Topic
+            </div>
+            <div class="item">
+              <div class="ui pink empty circular label"></div>
+              Interesting
+            </div>
+            <div class="item">
+              <div class="ui green empty circular label"></div>
+              Discussion
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Compact</h4>
+      <p>A compact dropdown has no minimum width</p>
+      <div class="ui compact selection dropdown">
+        <i class="dropdown icon"></i>
+        <div class="text">Compact</div>
+        <div class="menu">
+          <div class="item">A</div>
+          <div class="item">B</div>
+          <div class="item">C</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Fluid</h4>
+      <p>A dropdown can take the full width of its parent</p>
+      <div class="ui vertical menu">
+        <a class="item">Link 1</a>
+        <a class="item">Link 2</a>
+        <div class="header item">All Sections</div>
+        <div class="ui item">
+          <div class="ui fluid selection dropdown">
+            <div class="text">More</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item">Choice 1</div>
+              <div class="item">Choice 2</div>
+              <div class="item">Choice 3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Menu Direction</h4>
+      <p>A dropdown menu or sub-menu can specify the direction it should open</p>
+      <div class="ui ignored info message">
+        Specifying <code>left</code> on a menu will make all child menus open in the same direction implicitly. To have a dropdown icon appear on the left side on a child menu, you will need to use <code>left dropdown example</code>
+      </div>
+      <div class="ui floating labeled icon dropdown button">
+        <i class="dropdown icon"></i>
+        <span class="text">Menu</span>
+        <div class="menu">
+          <div class="item">
+            <i class="left dropdown icon"></i>
+            <span class="text">Left</span>
+            <div class="left menu">
+              <div class="item">1</div>
+              <div class="item">2</div>
+              <div class="item">3</div>
+            </div>
+          </div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            <span class="text">Right</span>
+            <div class="right menu">
+              <div class="item">1</div>
+              <div class="item">2</div>
+              <div class="item">3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="another dropdown example">
+      <div class="ui floating labeled icon dropdown button">
+        <i class="dropdown icon"></i>
+        <span class="text">Menu</span>
+        <div class="left menu">
+          <div class="item">
+            <i class="dropdown icon"></i>
+            <span class="text">Left</span>
+            <div class="menu">
+              <div class="item">
+                <i class="dropdown icon"></i>
+                <span class="text">Still Left</span>
+                <div class="menu">
+                  <div class="item">1</div>
+                  <div class="item">2</div>
+                  <div class="item">3</div>
+                </div>
+              </div>
+              <div class="item">2</div>
+              <div class="item">3</div>
+            </div>
+          </div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            <span class="text">Left 2</span>
+            <div class="menu">
+              <div class="item">1</div>
+              <div class="item">2</div>
+              <div class="item">3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="ui tab" data-tab="examples">
+
+    <h2 class="ui header">Selection Dropdowns</h2>
+
+    <div class="max example">
+      <h4 class="ui header">Maximum Selections</h4>
+      <p>Using <code>maxSelections</code> lets you force a maximum number of selections. You can also use <a href="behaviors/form.html#validation-rules">form validation</a> rules to specify minimum and maximum validation settings for multi-selects inside forms.</p>
+
+      <div class="ui sub header">Selection</div>
+      <select multiple name="skills" class="ui fluid normal dropdown">
+        <%- @partial('examples/single/skill-menu') %>
+      </select>
+
+      <div class="ui sub header">Search Selection</div>
+      <div class="ui fluid multiple search normal selection dropdown">
+        <input type="hidden" name="country">
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Country</div>
+        <%- @partial('examples/single/flag-menu') %>
+      </div>
+
+      <div class="ui sub header">Without Labels</div>
+      <div class="ui fluid multiple search special selection dropdown">
+        <input type="hidden" name="country">
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Country</div>
+        <%- @partial('examples/single/flag-menu') %>
+      </div>
+
+      <div class="evaluated code" data-type="javascript">
+        $('.max.example .ui.normal.dropdown')
+          .dropdown({
+            maxSelections: 3
+          })
+        ;
+        $('.max.example .ui.special.dropdown')
+          .dropdown({
+            useLabels: false,
+            maxSelections: 3
+          })
+        ;
+      </div>
+    </div>
+
+    <div class="tag example">
+      <h4 class="ui header">Tagging and User Additions</h4>
+      <p>Using <code>allowAdditions: true</code> gives users the ability to add their own options. This can work with either single or multiple search select dropdowns</p>
+
+      <div class="ui ignored warning message">
+        Although all dropdowns support <code>select</code> initialization, custom choices <b>will not be saved on page refresh</b> unless you use a hidden input. This is because <code>option</code> created dynamically are not preserved on page refresh.
+      </div>
+
+      <div class="ui sub header">Single</div>
+      <select name="skills" class="ui fluid search dropdown">
+        <%- @partial('examples/single/skill-menu') %>
+      </select>
+
+      <div class="ui sub header">Multiple</div>
+      <div class="ui fluid multiple search selection dropdown">
+        <input name="tags" type="hidden" />
+        <i class="dropdown icon"></i>
+        <div class="default text">Skills</div>
+        <div class="menu">
+          <%- @partial('examples/single/preset-menu') %>
+        </div>
+      </div>
+
+      <div class="evaluated code" data-type="javascript">
+        $('.tag.example .ui.dropdown')
+          .dropdown({
+            allowAdditions: true
+          })
+        ;
+      </div>
+    </div>
+
+    <div class="no label example">
+      <h4 class="ui header">Text Labels</h4>
+      <p>Sometimes multiselect include options which are long and would appear awkwardly as labels. Setting <code>useLabels: false</code> will display a selected count, and allow reselection directly from the menu.</p>
+      <div class="ui ignored info message">
+        You can customize any of the messages displayed by adjusting templates in <code>settings.message</code>
+      </div>
+      <select multiple name="binary" class="ui fluid dropdown">
+        <option value="">Select Tag</option>
+        <option value="10001010">10001010</option>
+        <option value="10001011">10001011</option>
+        <option value="11001110">11001110</option>
+        <option value="10011110">10011110</option>
+      </select>
+
+      <div class="ui horizontal divider">or</div>
+
+      <div class="ui fluid multiple search selection dropdown">
+        <input type="hidden" name="country">
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Country</div>
+        <%- @partial('examples/single/flag-menu') %>
+      </div>
+
+      <div class="evaluated code" data-type="javascript">
+        $('.no.label.example .ui.dropdown')
+          .dropdown({
+            useLabels: false
+          })
+        ;
+      </div>
+    </div>
+
+    <div class="clear dropdown example">
+      <h4 class="ui header">Clearing Dropdown</h4>
+      <p>You can reset a form field to its placeholder value</p>
+      <div class="ui multiple selection dropdown">
+        <input name="gender" type="hidden" value="0,1" />
+        <i class="dropdown icon"></i>
+        <div class="default text">Default</div>
+        <div class="menu">
+            <div class="item" data-value="0">Value</div>
+            <div class="item" data-value="1">Another Value</div>
+        </div>
+       </div>
+      <div class="ui selection dropdown">
+        <input name="gender" type="hidden" />
+        <div class="default text">Select a value</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+            <div class="item" data-value="0">Value</div>
+            <div class="item" data-value="1">Another Value</div>
+        </div>
+       </div>
+
+      <div class="ui button">
+        Clear
+      </div>
+      <div class="evaluated code" data-type="javascript">
+        $('.clear.example .button')
+          .on('click', function() {
+            $('.clear.example .ui.dropdown')
+              .dropdown('clear')
+            ;
+          })
+        ;
+      </div>
+    </div>
+
+    <div class="restore dropdown example">
+      <h4 class="ui header">Restoring Defaults</h4>
+      <p>You can restore a dropdown to its value set on page load using the <code>restore defaults</code> behavior. If no default text is set on load, restore defaults will restore placeholder text</p>
+      <div class="ui multiple selection dropdown">
+        <input name="gender" type="hidden" value="default,default2" />
+        <i class="dropdown icon"></i>
+        <div class="default text">Default</div>
+        <div class="menu">
+            <div class="item" data-value="0">Value</div>
+            <div class="item" data-value="1">Another Value</div>
+            <div class="item" data-value="default">Default Value</div>
+            <div class="item" data-value="default2">Second Default</div>
+        </div>
+      </div>
+      <div class="ui divider"></div>
+      <div class="ui selection dropdown">
+        <input name="gender" type="hidden" value="default" />
+        <i class="dropdown icon"></i>
+        <div class="default text">Select a value</div>
+        <div class="menu">
+            <div class="item" data-value="0">Value</div>
+            <div class="item" data-value="1">Another Value</div>
+        </div>
+       </div>
+      <div class="ui divider"></div>
+      <div class="ui selection dropdown">
+        <input name="gender" type="hidden" value="default" />
+        <i class="dropdown icon"></i>
+        <div class="text">Default Value</div>
+        <div class="menu">
+            <div class="item" data-value="0">Value</div>
+            <div class="item" data-value="1">Another Value</div>
+            <div class="item" data-value="default">Default Value</div>
+        </div>
+       </div>
+      <div class="ui divider"></div>
+      <div class="ui primary button">
+          Restore All Dropdowns
+      </div>
+      <div class="evaluated code" data-type="javascript">
+        $('.restore.example .button')
+          .on('click', function() {
+            $('.restore.example .ui.dropdown')
+              .dropdown('restore defaults')
+            ;
+          })
+        ;
+      </div>
+    </div>
+
+
+    <div class="upward example">
+      <h4 class="ui header">Upward</h4>
+      <p>A dropdown menu will automatically change which direction it opens if it cant fit on screen. If you need a dropdown to open in a specific direction you can specify it when initializing a dropdown.</p>
+      <div class="code" data-demo="true">
+        $('.upward.example .dropdown')
+          .dropdown({
+            direction: 'upward'
+          })
+        ;
+      </div>
+      <div class="ui top attached segment">
+        <img class="ui wireframe image" src="/images/wireframe/paragraph.png">
+      </div>
+      <div class="ui bottom attached menu">
+        <div class="ui upward dropdown item">
+          <i class="settings icon"></i>
+          <div class="menu">
+            <div class="item">
+              <i class="dropdown icon"></i>
+              <span class="text">New</span>
+              <div class="menu">
+                <div class="item">Document</div>
+                <div class="item">Image</div>
+              </div>
+            </div>
+            <div class="item">Save As...</div>
+            <div class="item">Edit</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <h2 class="ui dividing header">Remote Content</h2>
+
+    <div class="remote filter no example">
+      <h4 class="ui header">Match Search Query on Server</h4>
+      <p>Search selection dropdowns can specify <a href="/behaviors/api.html">API settings</a> for retrieving values remotely, this can use either a named API <code>action</code> or <code>url</code>.</p>
+      <p class="ignored">Using API can allow users to select choices from large datasets that would be too large to include directly in page markups.</p>
+      <p class="ignored">If your backend is not designed to return the correct markup you can use API's <code><a href="/behaviors/api.html#adjusting-server-responses">onResponse</a></code> callback to adjust the format of an API response after it is received from the server.</p>
+      <p class="ignored">Requests for the same API endpoints will automatically cached locally, to avoid server roundtrips. You can disable this by adjusting the <code>cache</code> API setting.</p>
+      <div class="ui ignored positive message">When a user refreshes the page, selection labels are automatically recreated by using <code>sessionStorage</code> to store the corresponding names for selected values. You can disable this feature by setting <code>saveRemoteData: false</code></div>
+
+
+      <div class="ui form">
+        <div class="two fields">
+          <div class="field">
+            <label>Favorite Animal</label>
+            <div class="ui search selection dropdown">
+              <input type="hidden">
+              <i class="dropdown icon"></i>
+              <input type="text" class="search">
+              <div class="default text">Select one...</div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Favorite Animals</label>
+            <div class="ui multiple search selection dropdown">
+              <input type="hidden">
+              <i class="dropdown icon"></i>
+              <input type="text" class="search">
+              <div class="default text">Select...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="evaluated code" data-type="javascript">
+        $('.remote.filter.example .ui.dropdown')
+          .dropdown({
+            apiSettings: {
+              // this url parses query server side and returns filtered results
+              url: '//api.semantic-ui.com/tags/{query}'
+            },
+          })
+        ;
+      </div>
+      <div class="code" data-type="JSON">
+      // Expected server response
+      {
+          "success": true,
+          "results": [
+            {
+              // name displayed in dropdown
+              "name"  : "Choice 1",
+
+              // selected value
+              "value" : "value1",
+
+              // name displayed after selection (optional)
+              "text"  : "Choice 1"
+
+              // whether field should be displayed as disabled (optional)
+              "disabled"  : false
+
+            },
+            {
+              "name"  : "Choice 2",
+              "value" : "value2",
+              "text"  : "Choice 2"
+            },
+            {
+              "name"  : "Choice 3",
+              "value" : "value3",
+              "text"  : "Choice 3"
+            },
+            {
+              "name"  : "Choice 4",
+              "value" : "value4",
+              "text"  : "Choice 4"
+            },
+            {
+              "name"  : "Choice 5",
+              "value" : "value5",
+              "text"  : "Choice 5"
+            }
+          ]
+      }
+      </div>
+    </div>
+
+    <div class="remote choices no example">
+      <h4 class="ui header">Return All Choices Remotely</h4>
+      <p>When possible choicesets are large, ideally API results should only return values <b>matching the passed query term</b> to reduce transmissions over the wire. However if there are only a few hundred or less choices, you may consider returning the full set of results from an API endpoint and filtering them against the query clientside using the setting <code>filterRemoteData: true</code>.</p>
+      <div class="ui form">
+        <div class="three fields">
+          <div class="field">
+            <label>Favorite Animal</label>
+            <div class="ui selection dropdown">
+              <input type="hidden">
+              <i class="dropdown icon"></i>
+              <div class="default text">Select one...</div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Favorite Animal</label>
+            <div class="ui search selection dropdown">
+              <input type="hidden">
+              <i class="dropdown icon"></i>
+              <input type="text" class="search">
+              <div class="default text">Select one...</div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Favorite Animals</label>
+            <div class="ui multiple search selection dropdown">
+              <input type="hidden">
+              <i class="dropdown icon"></i>
+              <input type="text" class="search">
+              <div class="default text">Select...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="evaluated code" data-type="javascript">
+        $('.remote.choices.example .ui.dropdown')
+          .dropdown({
+            apiSettings: {
+              // this url just returns a list of tags (with API response expected above)
+              url: '//api.semantic-ui.com/tags/'
+            },
+            filterRemoteData: true
+          })
+        ;
+      </div>
+    </div>
+
+    <h2 class="ui header">Menus</h2>
+
+    <div class="transition example">
+      <h4 class="ui header">Changing Transitions</h4>
+      <p>A dropdown can specify a different <a href="/modules/transition.html">transition</a>.</p>
+
+      <div class="code" data-type="javascript">
+      $('.dropdown')
+        .dropdown({
+          // you can use any ui transition
+          transition: 'drop'
+        })
+      ;
+      </div>
+
+      <div class="ui teal buttons">
+        <div class="ui button">Toggle</div>
+        <div class="ui floating dropdown icon button">
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-value="drop">Drop</div>
+            <div class="item" data-value="horizontal flip">Horizontal Flip</div>
+            <div class="item" data-value="fade up">Fade Up</div>
+            <div class="item" data-value="scale">Scale</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Multiple Levels</h4>
+      <p>A dropdown menu can also contain sub menus inside of it</p>
+      My favorite animal breed is
+      <div class="ui inline dropdown">
+        <input type="hidden" name="gender">
+        <div class="text">Shiba Inu</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">
+            <i class="dropdown icon"></i>
+            <span class="text">Dogs</span>
+            <div class="menu">
+              <div class="item">Shiba Inu</div>
+              <div class="item">
+                <i class="dropdown icon"></i>
+                <span class="text">Poodle</span>
+                <div class="menu">
+                  <div class="item">Toy</div>
+                  <div class="item">Standard</div>
+                </div>
+              </div>
+              <div class="item">Labrador</div>
+            </div>
+          </div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            <span class="text">Cats</span>
+            <div class="menu">
+              <div class="item">Aegean</div>
+              <div class="item">Balinese</div>
+              <div class="item">Persian</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category example">
+      <h4 class="ui header">Category Selection</h4>
+      <p>Using a multi-level menu with <code>allowCategorySelection: true</code> will allow items with sub-menus to be selected.</p>
+      <div class="ui ignored code" data-type="javascript">
+        $('.category.example .ui.dropdown')
+          .dropdown({
+            allowCategorySelection: true
+          })
+        ;
+      </div>
+      <div class="ui dropdown button">
+        <span class="text">Choose Category</span>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">
+            <span class="text">Category 1</span>
+          </div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            <span class="text">Category 2</span>
+            <div class="menu">
+              <div class="item">Item 2A</div>
+              <div class="item">Item 2B</div>
+              <div class="item">Item 2C</div>
+            </div>
+          </div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            <span class="text">Category 3</span>
+            <div class="menu">
+              <div class="item">Item 3A</div>
+              <div class="item">Item 3B</div>
+              <div class="item">Item 3C</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="dropdown example">
+      <h4 class="ui header">Preserving User Selections</h4>
+      <p>This example uses a preset text value to preserve the menu item on page navigation</p>
+      <div class="ui ignored info icon message">
+        <i class="help circle icon"></i>
+        <div class="content">
+          <p>A dropdown will automatically select on page load any menu item that includes the current value of <code>text</code> or your dropdown's <code>hidden input</code> value.</p>
+          <p>This is used to preserve a user's selection on page navigation and will automatically remove and default text placeholder formatting.</p>
+        </div>
+      </div>
+
+
+      Current action: <div class="ui inline dropdown">
+        <div class="text">Hide</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Edit</div>
+          <div class="item">Remove</div>
+          <div class="item">Hide</div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <h2 class="ui header">Adjusting Actions</h2>
+
+    <div class="button example">
+      <h4 class="ui header">Combo Dropdowns</h4>
+      <div class="ignored">
+        <p>A <a href="/elements/button.html">button</a> can be formatted with a dropdown.</p>
+        <p>Using the <code>combo</code> action will change the preceding element to the selected value.</p>
+      </div>
+      <div class="evaluated code" data-type="javascript">
+      $('.combo.dropdown')
+        .dropdown({
+          action: 'combo'
+        })
+      ;
+      </div>
+
+      <div class="ui teal buttons">
+        <div class="ui button">Save</div>
+        <div class="ui combo top right pointing dropdown icon button">
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item"><i class="edit icon"></i> Edit</div>
+            <div class="item"><i class="delete icon"></i> Delete</div>
+            <div class="item"><i class="hide icon"></i> Hide</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="link example">
+      <h4 class="ui header">Link Dropdowns</h4>
+      <div class="ignored">
+        <p>Dropdowns support different default actions that can occur when an item is selected. For example, you can set your dropdown not to change its text, or select a value from its menu.</p>
+        <div class="evaluated code" data-type="javascript">
+        $('.link.example .dropdown')
+          .dropdown({
+            action: 'hide'
+          })
+        ;
+        </div>
+      </div>
+      <div class="ui hidden divider"></div>
+      <div class="ui floating dropdown button">
+        <div class="text">Go to</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <a class="item" href="#link1"><i class="home icon"></i> Home</a>
+          <a class="item" href="#link2"><i class="users icon"></i> Browse</a>
+          <a class="item" href="#link3"><i class="search icon"></i> Search</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="ui header">Coupling</h2>
+
+    <div class="dropdown example">
+    <h4 class="ui header">Button Group</h4>
+      <p>A <a href="/elements/button.html">button group</a> can be formatted to show additional content as a dropdown</p>
+      <div class="ui icon buttons">
+        <div class="ui top left pointing dropdown button">
+          <i class="user icon"></i>
+          <div class="menu">
+            <div class="item"><i class="edit icon"></i>Edit User</div>
+            <div class="item"><i class="delete icon"></i>Remove User</div>
+            <div class="item"><i class="hide icon"></i>Make Invisible</div>
+          </div>
+        </div>
+        <div class="ui top left pointing dropdown button">
+          <i class="users icon"></i>
+          <div class="menu">
+            <div class="item"><i class="edit icon"></i>Edit Group</div>
+            <div class="item"><i class="delete icon"></i>Remove Group</div>
+            <div class="item"><i class="hide icon"></i>Hide from Group</div>
+          </div>
+        </div>
+        <div class="ui top right pointing dropdown button">
+          <i class="settings icon"></i>
+          <div class="menu">
+            <div class="item"><i class="edit icon"></i> Edit</div>
+            <div class="item"><i class="delete icon"></i> Remove</div>
+            <div class="item"><i class="hide icon"></i> Hide</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hover example">
+      <h4 class="ui header">Menu</h4>
+      <p>A <a href="/collections/menu.html">menu</a> element can contain a dropdown</p>
+        <div class="ui menu">
+          <a class="item">
+            Home
+          </a>
+          <a class="ui dropdown item">
+            Messages
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item">
+                <i class="dropdown icon"></i>
+                <span class="text">Categories</span>
+                <div class="menu">
+                  <div class="item">Unread</div>
+                  <div class="item">Promotions</div>
+                  <div class="item">Updates</div>
+                </div>
+              </div>
+              <div class="item">Archive</div>
+            </div>
+          </a>
+          <a class="item">
+            Browse
+          </a>
+        </div>
+    </div>
+
+    <div class="dropdown example">
+      <h4 class="ui header">Form</h4>
+      <p>A dropdown can be formatted to allow selection inside a <a href="/collections/form.html">form</a></p>
+      <div class="ui form segment">
+        <div class="two fields">
+          <div class="field">
+            <label>First Name</label>
+            <input placeholder="First Name" type="text">
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            <input placeholder="Last Name" type="text">
+          </div>
+        </div>
+        <div class="field">
+          <label>Gender</label>
+          <div class="ui dropdown selection">
+            <input type="hidden" name="gender">
+            <div class="default text">Select Gender</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item" data-value="male">Male</div>
+              <div class="item" data-value="female">Female</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ui tab" data-tab="usage">
+    <h2 class="ui dividing header">Initializing</h2>
+
+    <div class="no example">
+      <h4 class="ui header">Initializing Existing HTML</h4>
+      <p>Initializing a dropdown with pre-existing HTML allows for greater performance than initializing a dropdown directly on a <code>select</code> element.</p>
+      <div class="ui ignored info message">Any select element initialized as dropdown will also be hidden until Javascript can create HTML, this is to avoid the flash of unstyled content, and the change in element height adjusting page flow.</div>
+      <div class="code" data-label="HTML" data-type="html">
+        <div class="ui dropdown">
+          <input type="hidden" name="gender">
+          <i class="dropdown icon"></i>
+          <div class="default text">Gender</div>
+          <div class="menu">
+            <div class="item" data-value="male">Male</div>
+            <div class="item" data-value="female">Female</div>
+          </div>
+        </div>
+      </div>
+      <div class="code" data-label="Javascript" data-type="javascript">
+        $('.ui.dropdown')
+          .dropdown()
+        ;
+      </div>
+    </div>
+    <div class="js example">
+      <h4 class="ui header">
+        Initializing with Javascript Only
+        <div class="ui teal label">New in 2.2.12</div>
+      </h4>
+      <p>You can specify a list of values in the settings object to avoid having to stub the html yourself.</p>
+      <p>Adding <code>selected: true</code> to an item will have that item selected by default.</p>
+      <p>You can also use the <code>placeholder</code> setting to specify placeholder text before an option is selected.</p>
+      <div class="code" data-label="HTML" data-type="html">
+        <div class="ui dropdown">
+          <div class="text"></div>
+          <i class="dropdown icon"></i>
+        </div>
+      </div>
+      <div class="code" data-label="Javascript" data-type="javascript">
+        $('.ui.dropdown')
+          .dropdown({
+            values: [
+              {
+                name: 'Male',
+                value: 'male'
+              },
+              {
+                name     : 'Female',
+                value    : 'female',
+                selected : true
+              }
+            ]
+          })
+        ;
+      </div>
+    </div>
+    <div class="no dropdown example">
+      <h4 class="ui header">Specifying Different Text &amp; Hidden Input Values</h4>
+      <p>You can specify different values for selected text, and selected form values by adding <code>data-text</code> or <code>data-value</code> to any item. This is useful if you include additional data, like icons, that you want to appear only inside the dropdown menu.</p>
+      <div class="ui ignored info message">If you don't specify a value (either in the `select` or via a `data-value` property, then the input value will be set to the lowercased text in the element.</div>
+
+      <div class="code" data-label="HTML" data-type="html">
+        <div class="ui selection dropdown">
+          <input type="hidden" name="gender">
+          <i class="dropdown icon"></i>
+          <div class="default text">Gender</div>
+          <div class="menu">
+            <div class="item" data-value="male" data-text="Male">
+              <i class="male icon"></i>
+              Male
+            </div>
+            <div class="item" data-value="female" data-text="Female">
+              <i class="female icon"></i>
+              Female
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui selection dropdown">
+        <input type="hidden" name="gender">
+        <i class="dropdown icon"></i>
+        <div class="default text">Gender</div>
+        <div class="menu">
+          <div class="item" data-value="male" data-text="Male">
+            <i class="male icon"></i>
+            Male
+          </div>
+          <div class="item" data-value="female" data-text="Female">
+            <i class="female icon"></i>
+            Female
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="no example">
+      <h4 class="ui header">Converting Form Elements</h4>
+      <p>For convenience, <code>select</code> elements can automatically be converted to <code>selection dropdown</code>. A select options with blank string values will be converted to prompt text.</p>
+      <div class="code" data-label="HTML" data-type="html">
+        <select name="gender" class="ui dropdown" id="select">
+          <option value="">Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <div class="code" data-type="javascript" data-demo="true">
+        $('#select')
+          .dropdown()
+        ;
+      </div>
+      <select class="ui dropdown" name="gender" id="select">
+        <option value="">Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+    <div class="no example">
+      <h4 class="ui header">Hybrid Form Initialization</h4>
+      <p>As a third option, you can include a wrapper around your <code>select</code> so that it will appear correctly on page load, but will then <b>populate the hidden menu</b> when Javascript fires. In this case, the <code>select</code> element does not receive the <code>ui dropdown</code> class.</p>
+      <div class="code" data-label="HTML" data-type="html">
+        <div class="ui vertical menu" id="hybrid">
+          <div class="ui dropdown item">
+            <i class="dropdown icon"></i>
+            Colors
+            <select>
+              <option>Red</option>
+              <option>Black</option>
+              <option>Blue</option>
+              <option>Green</option>
+            </select>
+          </div>
+          <div class="ui dropdown item">
+            <i class="dropdown icon"></i>
+            Sizes
+            <select>
+              <option>Small</option>
+              <option>Medium</option>
+              <option>Large</option>
+              <option>Huge</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="code" data-type="javascript" data-demo="true">
+        $('#hybrid select')
+          .dropdown({
+            on: 'hover'
+          })
+        ;
+      </div>
+      <div class="ui vertical menu" id="hybrid">
+          <div class="ui dropdown item">
+            <i class="dropdown icon"></i>
+            Colors
+            <select>
+              <option>Red</option>
+              <option>Black</option>
+              <option>Blue</option>
+              <option>Green</option>
+            </select>
+          </div>
+          <div class="ui dropdown item">
+            <i class="dropdown icon"></i>
+            Sizes
+            <select>
+              <option>Small</option>
+              <option>Medium</option>
+              <option>Large</option>
+              <option>Huge</option>
+            </select>
+          </div>
+        </div>
+    </div>
+
+    <div class="no example">
+      <h4 class="ui header">Searching Dropdowns</h4>
+      <p>Using a <code>search selection dropdown</code> will allow you users to search more easily through large lists. This can also be converted directly from a form select element.</p>
+      <div class="code" data-type="javascript" data-demo="true">
+        $('#search-select')
+          .dropdown()
+        ;
+      </div>
+      <select class="ui search selection dropdown" id="search-select">
+        <%- @partial('examples/single/state-options') %>
+      </select>
+      <div class="ui ignored hidden divider"></div>
+      <div class="code" data-label="HTML" data-type="html">
+        <select class="ui search selection dropdown" id="search-select">
+          <option value="">State</option>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <!-- Saving your scroll sanity !-->
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </div>
+    </div>
+    <div class="no example">
+      <h4 class="ui header">Multiple Selections</h4>
+      <p>You can allow multiple selections by the <code>multiple</code> property on a <code>select</code> element, or by including the class <code>multiple</code> on a dropdown.</p>
+      <p>When a hidden input is used values will be passed through a single value separated by a delimiter. The default is "," but this can be changed by adjusting the <code>delimiter</code> setting.</p>
+      <div class="code" data-type="javascript" data-demo="true">
+        $('#multi-select')
+          .dropdown()
+        ;
+      </div>
+
+      <select class="ui search selection dropdown" multiple id="multi-select">
+        <%- @partial('examples/single/state-options') %>
+      </select>
+
+      <div class="ui ignored hidden divider"></div>
+
+      <h5 class="ui sub header">Dropdown</h5>
+      <div class="code" data-label="HTML" data-type="html">
+        <div class="ui multiple selection dropdown">
+          <!-- This will receive comma separated value like OH,TX,WY !-->
+          <input name="states" type="hidden" />
+          <i class="dropdown icon"></i>
+          <div class="default text">States</div>
+          <div class="menu">
+            <div class="item" data-value="AL">Alabama</div>
+            <div class="item" data-value="AK">Alaska</div>
+            <div class="item" data-value="AZ">Arizona</div>
+            <div class="item" data-value="AR">Arkansas</div>
+            <div class="item" data-value="CA">California</div>
+            <!-- Saving your scroll sanity !-->
+            <div class="item" data-value="OH">Ohio</div>
+            <div class="item" data-value="OK">Oklahoma</div>
+            <div class="item" data-value="OR">Oregon</div>
+            <div class="item" data-value="PA">Pennsylvania</div>
+            <div class="item" data-value="RI">Rhode Island</div>
+            <div class="item" data-value="SC">South Carolina</div>
+            <div class="item" data-value="SD">South Dakota</div>
+            <div class="item" data-value="TN">Tennessee</div>
+            <div class="item" data-value="TX">Texas</div>
+            <div class="item" data-value="UT">Utah</div>
+            <div class="item" data-value="VT">Vermont</div>
+            <div class="item" data-value="VA">Virginia</div>
+            <div class="item" data-value="WA">Washington</div>
+            <div class="item" data-value="WV">West Virginia</div>
+            <div class="item" data-value="WI">Wisconsin</div>
+            <div class="item" data-value="WY">Wyoming</div>
+          </div>
+        </div>
+      </div>
+
+      <h5 class="ui sub header">Select</h5>
+      <div class="code" data-label="HTML" data-type="html">
+        <select name="states" class="ui selection dropdown" multiple id="multi-select">
+          <option value="">States</option>
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="no example">
+      <h4 class="ui header">Specifying Select Action</h4>
+      <p>Dropdowns have multiple built-in actions that can occur on item selection. You can specify a built-in action by passing its name to <code>settings.action</code> or pass a custom function that performs an action.</p>
+
+      <table class="ui definition sortable celled table segment">
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>activate (Default)</td>
+            <td>Selects current item, adjusts dropdown value and changes dropdown text</td>
+          </tr>
+          <tr>
+            <td>combo</td>
+            <td>Same as activate, but updates previous elements text instead of self</td>
+          </tr>
+          <tr>
+            <td>select</td>
+            <td>Selects current item from menu and stores value, but does not change dropdown text</td>
+          </tr>
+          <tr>
+            <td>hide</td>
+            <td>Hides the dropdown menu and stores value, but does not change text</td>
+          </tr>
+          <tr>
+            <td>function(text, value){}</td>
+            <td>Custom action</td>
+          </tr>
+          <tr>
+            <td>nothing</td>
+            <td>Does nothing</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>To specify a different built in action, simply specify the name.</p>
+      <div class="code" data-type="javascript" data-label="Specified Action">
+        $('.dropdown')
+          .dropdown({
+            action: 'combo'
+          })
+        ;
+      </div>
+      <p>To trigger <b>only your custom action</b> and no default action, specify your own function for <code>settings.action</code>.</p>
+      <div class="code" data-type="javascript" data-label="Custom Action">
+        $('.dropdown')
+          .dropdown({
+            action: function(text, value) {
+              // nothing built in occurs
+            }
+          })
+        ;
+      </div>
+
+      <p>If you want to have both a built in action occur, and your own custom action use <code>onChange</code> in combination with <code>action</code></p>
+
+      <div class="code" data-type="javascript" data-label="Custom Action">
+        $('.dropdown')
+          .dropdown({
+            action: 'hide',
+            onChange: function(value, text, $selectedItem) {
+              // custom action
+            }
+          })
+        ;
+      </div>
+
+
+    </div>
+
+
+
+    <h2 class="ui dividing header">Behavior</h2>
+
+    <p>All the following behaviors can be called using the syntax:</p>
+    <div class="code">
+    $('.your.element')
+      .dropdown('behavior name', argumentOne, argumentTwo)
+    ;
+    </div>
+
+    <table class="ui definition sortable celled table segment">
+      <thead>
+        <tr>
+          <th>Behavior</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>change values (values)</td>
+          <td>Changes dropdown to use new values</td>
+        </tr>
+        <tr>
+          <td>refresh</td>
+          <td>Refreshes all cached selectors and data</td>
+        </tr>
+        <tr>
+          <td>toggle</td>
+          <td>Toggles current visibility of dropdown</td>
+        </tr>
+        <tr>
+          <td>show</td>
+          <td>Shows dropdown</td>
+        </tr>
+        <tr>
+          <td>hide</td>
+          <td>Hides dropdown</td>
+        </tr>
+        <tr>
+          <td>clear</td>
+          <td>Clears dropdown of selection</td>
+        </tr>
+        <tr>
+          <td>hide others</td>
+          <td>Hides all other dropdowns that is not current dropdown</td>
+        </tr>
+        <tr>
+          <td>restore defaults</td>
+          <td>Restores dropdown text and value to its value on page load</td>
+        </tr>
+        <tr>
+          <td>restore default text</td>
+          <td>Restores dropdown text to its value on page load</td>
+        </tr>
+        <tr>
+          <td>restore placeholder text</td>
+          <td>Restores dropdown text to its prompt, placeholder text</td>
+        </tr>
+        <tr>
+          <td>restore default value</td>
+          <td>Restores dropdown value to its value on page load</td>
+        </tr>
+        <tr>
+          <td>save defaults</td>
+          <td>Saves current text and value as new defaults (for use with restore)</td>
+        </tr>
+        <tr>
+          <td>set selected(value)</td>
+          <td>Sets value as selected</td>
+        </tr>
+        <tr>
+          <td>remove selected(value)</td>
+          <td>Remove value from selected</td>
+        </tr>
+        <tr>
+          <td>set selected([value1, value2])</td>
+          <td>Adds a group of values as selected</td>
+        </tr>
+        <tr>
+          <td>set exactly([value1, value2])</td>
+          <td>Sets selected values to exactly specified values, removing current selection</td>
+        </tr>
+        <tr>
+          <td>set text(text)</td>
+          <td>Sets dropdown text to a value</td>
+        </tr>
+        <tr>
+          <td>set value(value)</td>
+          <td>Sets dropdown input to value (does not update display state)</td>
+        </tr>
+        <tr>
+          <td>get text</td>
+          <td>Returns current dropdown text</td>
+        </tr>
+        <tr>
+          <td>get value</td>
+          <td>Returns current dropdown input value</td>
+        </tr>
+        <tr>
+          <td>get item(value)</td>
+          <td>Returns DOM element that matches a given input value</td>
+        </tr>
+        <tr>
+          <td>bind touch events</td>
+          <td>Adds touch events to element</td>
+        </tr>
+        <tr>
+          <td>bind mouse events</td>
+          <td>Adds mouse events to element</td>
+        </tr>
+        <tr>
+          <td>bind intent</td>
+          <td>Binds a click to document to determine if you click away from a dropdown</td>
+        </tr>
+        <tr>
+          <td>unbind intent</td>
+          <td>Unbinds document intent click</td>
+        </tr>
+        <tr>
+        <td>determine intent</td>
+          <td>Returns whether event occurred inside dropdown</td>
+        </tr>
+        <tr>
+          <td>determine select action(text, value)</td>
+          <td>Triggers preset item selection action based on settings passing text/value</td>
+        </tr>
+        <tr>
+          <td>set active</td>
+          <td>Sets dropdown to active state
+        <tr>
+          <td>set visible</td>
+          <td>Sets dropdown to visible state</td>
+        </tr>
+        <tr>
+          <td>remove active</td>
+          <td>Removes dropdown active state
+        <tr>
+          <td>remove visible</td>
+          <td>Removes dropdown visible state</td>
+        </tr>
+        <tr>
+          <td>is selection</td>
+          <td>Returns whether dropdown is a selection dropdown</td>
+        </tr>
+        <tr>
+          <td>is animated</td>
+          <td>Returns whether dropdown is animated</td>
+        </tr>
+        <tr>
+          <td>is visible</td>
+          <td>Returns whether dropdown is visible</td>
+        </tr>
+        <tr>
+          <td>is hidden</td>
+          <td>Returns whether dropdown is hidden</td>
+        </tr>
+        <tr>
+          <td>get default text</td>
+          <td>Returns dropdown value as set on page load</td>
+        </tr>
+        <tr>
+          <td>get placeholder text</td>
+          <td>Returns placeholder text</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ui tab" data-tab="settings">
+
+    <h2 class="ui dividing header">
+      Dropdown
+    </h2>
+
+    <div class="no example">
+
+    <h4 class="ui header">
+      Frequently Used Settings
+    </h4>
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>values</td>
+          <td>false</td>
+          <td>When specified allows you to initialize dropdown with specific values. See usage guide for details.</td>
+        </tr>
+        <tr>
+          <td>on</td>
+          <td>click</td>
+          <td>Event used to trigger dropdown (Hover, Click, Custom Event)</td>
+        </tr>
+        <tr>
+          <td>allowReselection</td>
+          <td>false</td>
+          <td>When set to <code>true</code> will fire <code>onChange</code> even when the value a user select matches the currently selected value.</td>
+        </tr>
+        <tr>
+          <td>allowAdditions</td>
+          <td>false</td>
+          <td>Whether search selection should allow users to add their own selections, works for single or multiselect.</td>
+        </tr>
+        <tr>
+          <td>hideAdditions</td>
+          <td>true</td>
+          <td>When disabled user additions will appear in the results menu using a specially formatted selection item formatted by <code>templates.addition</code>.</td>
+        </tr>
+        <tr>
+          <td>action</td>
+          <td>auto</td>
+          <td>
+          <p>Sets a default action to occur. (See usage guide)</p>
+          <div class="ui vertical divided list">
+            <div class="item">
+              <div class="header">activate (default)</div>
+              <div class="description">Updates dropdown text with selected value, sets element state to active, updates any hidden fields if available</div>
+            </div>
+            <div class="item">
+              <div class="header">select</div>
+              <div class="description">activates menu and updates input fields, but does not change current text</div>
+            </div>
+            <div class="item">
+              <div class="header">combo</div>
+              <div class="description">changes text of previous sibling element</div>
+            </div>
+            <div class="item">
+              <div class="header">nothing</div>
+              <div class="description">no action occurs</div>
+            </div>
+            <div class="item">
+              <div class="header">hide</div>
+              <div class="description">Dropdown menu is hidden</div>
+            </div>
+            <div class="item">
+              <div class="header">function(text, value, element){}</div>
+              <div class="description">custom function is executed with values specified in callback</div>
+            </div>
+          </div>
+        </tr>
+        <tr>
+          <td>minCharacters</td>
+          <td>1</td>
+          <td>The minimum characters for a search to begin showing results</td>
+        </tr>
+        <tr>
+          <td>match</td>
+          <td>both</td>
+          <td>When using <code>search selection</code> specifies how to match values.
+          <div class="ui vertical divided list">
+            <div class="item">
+              <div class="header">both</div>
+              <div class="description">Matches against text and value</div>
+            </div>
+            <div class="item">
+              <div class="header">value</div>
+              <div class="description">matches against value only</div>
+            </div>
+            <div class="item">
+              <div class="header">text</div>
+              <div class="description">matches against text only</div>
+            </div>
+          </div>
+        </tr>
+        <tr>
+          <td>selectOnKeydown</td>
+          <td>true</td>
+          <td>Whether dropdown should select new option when using keyboard shortcuts. Setting to <code>false</code> will require <code>enter</code> or left click to confirm a choice.</td>
+        </tr>
+        <tr>
+          <td>forceSelection</td>
+          <td>true</td>
+          <td>Whether search selection will force currently selected choice when element is blurred.</td>
+        </tr>
+        <tr>
+          <td>allowCategorySelection</td>
+          <td>false</td>
+          <td>Whether menu items with sub-menus (categories) should be selectable</td>
+        </tr>
+        <tr>
+          <td>placeholder</td>
+          <td>auto</td>
+          <td>
+            <div class="ui vertical divided list">
+              <div class="item">
+                <div class="header">auto</div>
+                <div class="description">Convert option with "" (blank string) value to placeholder text</div>
+              </div>
+              <div class="item">
+                <div class="header">value</div>
+                <div class="description">Sets string value to placeholder text, leaves "" value</div>
+              </div>
+              <div class="item">
+                <div class="header">false</div>
+                <div class="description">Leaves "" value as a selectable option</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="no example">
+
+    <h4 class="ui header">
+      Remote Settings
+    </h4>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>apiSettings</td>
+          <td>false</td>
+          <td>Can be set to an object to specify <a href="/behaviors/api.html">API settings</a> for retrieving remote selection menu content from an API endpoint</td>
+        </tr>
+        <tr>
+          <td>fields</td>
+          <td>
+            <div class="code" data-type="css">
+            fields: {
+              remoteValues : 'results', // grouping for api results
+              values       : 'values', // grouping for all dropdown values
+              name         : 'name',   // displayed dropdown text
+              value        : 'value'   // actual dropdown value
+            }
+            </div>
+          </td>
+          <td>List mapping dropdown content to JSON Property when using API</td>
+        </tr>
+        <tr>
+          <td>filterRemoteData</td>
+          <td>false</td>
+          <td>Whether results returned from API should be filtered by query before being displayed</td>
+        </tr>
+        <tr>
+          <td>saveRemoteData</td>
+          <td>true</td>
+          <td>When enabled will automatically store selected name/value pairs in <code>sessionStorage</code> to preserve user selection on page refresh. Disabling will clear remote dropdown values on refresh.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="no example">
+
+    <h4 class="ui header">
+      Multiple Select Settings
+    </h4>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+        <th>Setting</th>
+        <th class="eight wide">Default</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>useLabels</td>
+          <td>
+           true
+          </td>
+          <td>Whether multiselect should use labels. Must be set to true when <code>allowAdditions</code> is <code>true</code></td>
+        </tr>
+        <tr>
+          <td>maxSelections</td>
+          <td>
+           false
+          </td>
+          <td>When set to a number, sets the maximum number of selections</td>
+        </tr>
+        <tr>
+          <td>glyphWidth</td>
+          <td>
+           1.0714
+          </td>
+          <td>Maximum glyph width, used to calculate search size. This is usually size of a "W" in your font in <code>em</code></td>
+        </tr>
+        <tr>
+          <td>label</td>
+          <td>
+            <div class="code">
+            label: {
+              transition : 'horizontal flip',
+              duration   : 200,
+              variation  : false
+            }
+            </div>
+          </td>
+          <td>Allows customization of multi-select labels</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="no example">
+    <h4 class="ui header">
+      Additional Settings
+    </h4>
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>direction</td>
+          <td>'auto'</td>
+          <td>When set to <code>auto</code> determines direction based on whether dropdown can fit on screen. Set to <code>upward</code> or <code>downward</code> to always force a direction.</td>
+        </tr>
+        <tr>
+          <td>keepOnScreen</td>
+          <td>true</td>
+          <td>Whether dropdown should try to keep itself on screen by checking whether menus display position in its <code>context</code> (Default context is page).</td>
+        </tr>
+        <tr>
+          <td>context</td>
+          <td>window</td>
+          <td>Element context to use when checking whether can show when <code>keepOnScreen: true</code></td>
+        </tr>
+        <tr>
+          <td>fullTextSearch</td>
+          <td>false</td>
+          <td>Specifying to "true" will use a fuzzy full text search, setting to "exact" will force the exact search to be matched somewhere in the string</td>
+        </tr>
+        <tr>
+          <td>preserveHTML</td>
+          <td>true</td>
+          <td>Whether HTML included in dropdown values should be preserved. (Allows icons to show up in selected value)</td>
+        </tr>
+        <tr>
+          <td>sortSelect</td>
+          <td>false</td>
+          <td>Whether to sort values when creating a dropdown automatically from a select element.</td>
+        </tr>
+        <tr>
+          <td>showOnFocus</td>
+          <td>true</td>
+          <td>Whether to show dropdown menu automatically on element focus.</td>
+        </tr>
+        <tr>
+          <td>allowTab</td>
+          <td>true</td>
+          <td>Whether to allow the element to be navigable by keyboard, by automatically creating a <code>tabindex</code></td>
+        </tr>
+        <tr>
+          <td>transition</td>
+          <td>
+            auto (slide down / slide up)
+          </td>
+          <td>Named transition to use when animating menu in and out. Defaults to <code>slide down</code> or <code>slide up</code> depending on dropdown direction. Fade and slide down are available without including <a href="/modules/transition.html">ui transitions</a></td>
+        </tr>
+        <tr>
+          <td>duration</td>
+          <td>
+            200
+          </td>
+          <td>Duration of animation events</td>
+        </tr>
+        <tr>
+          <td>keys</td>
+          <td>
+          <div class="code">
+          keys : {
+            backspace  : 8,
+            delimiter  : 188, // comma
+            deleteKey  : 46,
+            enter      : 13,
+            escape     : 27,
+            pageUp     : 33,
+            pageDown   : 34,
+            leftArrow  : 37,
+            upArrow    : 38,
+            rightArrow : 39,
+            downArrow  : 40
+          }
+          </div>
+          </td>
+          <td>
+            The <code>keycode</code> used to represent keyboard shortcuts. To avoid issues with some foreign languages, you can pass <code>false</code> for comma delimiter's value
+          </td>
+        </tr>
+        <tr>
+          <td>delay</td>
+          <td>
+          <div class="code">
+          delay : {
+            hide   : 300,
+            show   : 200,
+            search : 50,
+            touch  : 50
+          }
+          </div>
+          </td>
+          <td>Time in milliseconds to debounce show or hide behavior when <code>on: hover</code> is used, or when touch is used.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+    <h4 class="ui header">
+      Callbacks
+    </h4>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+          <th class="six wide"></th>
+          <th>Context</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>onChange(value, text, $choice)</td>
+          <td>Dropdown</td>
+          <td>Is called after a dropdown value changes. Receives the name and value of selection and the active menu element</td>
+        </tr>
+        <tr>
+          <td>onAdd(addedValue, addedText, $addedChoice)</td>
+          <td>Dropdown</td>
+          <td>Is called after a dropdown selection is added using a multiple select dropdown, only receives the added value</td>
+        </tr>
+        <tr>
+          <td>onRemove(removedValue, removedText, $removedChoice)</td>
+          <td>Dropdown</td>
+          <td>Is called after a dropdown selection is removed using a multiple select dropdown, only receives the removed value</td>
+        </tr>
+        <tr>
+          <td>onLabelCreate(value, text)</td>
+          <td>$label (jQDOM)</td>
+          <td>Allows you to modify a label before it is added. Expects the jQ DOM element for a label to be returned.</td>
+        </tr>
+        <tr>
+          <td>onLabelRemove(value)</td>
+          <td>$label (jqDOM)</td>
+          <td>Called when a label is remove, <code>return false;</code> will prevent the label from being removed.</td>
+        </tr>
+        <tr>
+          <td>onLabelSelect($selectedLabels)</td>
+          <td>Dropdown</td>
+          <td>Is called after a label is selected by a user</td>
+        </tr>
+        <tr>
+          <td>onNoResults(searchValue)</td>
+          <td>Dropdown</td>
+          <td>Is called after a dropdown is searched with no matching values</td>
+        </tr>
+        <tr>
+          <td>onShow</td>
+          <td>Dropdown</td>
+          <td>Is called before a dropdown is shown. If <code>false</code> is returned, dropdown will not be shown.</td>
+        </tr>
+        <tr>
+          <td>onHide</td>
+          <td>Dropdown</td>
+          <td>Is called before a dropdown is hidden. If <code>false</code> is returned, dropdown will not be hidden.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="ui header">
+      Module Settings
+    </h4>
+
+    <h3 class="ui header">
+      DOM Settings
+      <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
+    </h3>
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="four wide">Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>namespace</td>
+          <td>dropdown</td>
+          <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+        </tr>
+        <tr>
+          <td>message</td>
+          <td colspan="2">
+            <p>
+              You can specify site wide messages by modifying <code>$.fn.dropdown.settings.message</code>
+              that will apply on any dropdown if it appears in the page.
+            </p>
+            <div class="code">
+            message: {
+              addResult     : 'Add <b>{term}</b>',
+              count         : '{count} selected',
+              maxSelections : 'Max {maxCount} selections',
+              noResults     : 'No results found.'
+            }
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>selector</td>
+          <td colspan="2">
+            <div class="code" data-type="html">
+            selector : {
+              addition     : '.addition',
+              dropdown     : '.ui.dropdown',
+              icon         : '> .dropdown.icon',
+              input        : '> input[type="hidden"], > select',
+              item         : '.item',
+              label        : '> .label',
+              remove       : '> .label > .delete.icon',
+              siblingLabel : '.label',
+              menu         : '.menu',
+              message      : '.message',
+              menuIcon     : '.dropdown.icon',
+              search       : 'input.search, .menu > .search > input',
+              text         : '> .text:not(.icon)'
+            }
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>regExp</td>
+          <td colspan="2">
+            <div class="code">
+            regExp : {
+              escape   : /[-[\]{}()*+?.,\\^$|#\s]/g,
+            }
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>metadata</td>
+          <td colspan="2">
+            <div class="code">
+            metadata : {
+              defaultText     : 'defaultText',
+              defaultValue    : 'defaultValue',
+              placeholderText : 'placeholderText',
+              text            : 'text',
+              value           : 'value'
+            }
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>className</td>
+          <td colspan="2">
+            <div class="code">
+            className : {
+              active      : 'active',
+              addition    : 'addition',
+              animating   : 'animating',
+              disabled    : 'disabled',
+              dropdown    : 'ui dropdown',
+              filtered    : 'filtered',
+              hidden      : 'hidden transition',
+              item        : 'item',
+              label       : 'ui label',
+              loading     : 'loading',
+              menu        : 'menu',
+              message     : 'message',
+              multiple    : 'multiple',
+              placeholder : 'default',
+              search      : 'search',
+              selected    : 'selected',
+              selection   : 'selection',
+              upward      : 'upward',
+              visible     : 'visible'
+            }
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>name</td>
+          <td>Dropdown</td>
+          <td>Name used in debug logs</td>
+        </tr>
+        <tr>
+          <td>silent</td>
+          <td>False</td>
+          <td>Silences all console output including error messages, regardless of other debug settings.</td>
+        </tr>
+        <tr>
+          <td>debug</td>
+          <td>False</td>
+          <td>Provides standard debug output to console</td>
+        </tr>
+        <tr>
+          <td>performance</td>
+          <td>True</td>
+          <td>Provides standard debug output to console</td>
+        </tr>
+        <tr>
+          <td>verbose</td>
+          <td>True</td>
+          <td>Provides ancillary debug output to console</td>
+        </tr>
+        <tr>
+          <td>error</td>
+          <td colspan="2">
+            <div class="code">
+            error   : {
+              action       : 'You called a dropdown action that was not defined',
+              alreadySetup : 'Once a select has been initialized behaviors must be called on the created ui dropdown',
+              labels       : 'Allowing user additions currently requires the use of labels.',
+              method       : 'The method you called is not defined.',
+              noTransition : 'This module requires ui transitions <https://github.com/Semantic-Org/UI-Transition>'
+            }
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+

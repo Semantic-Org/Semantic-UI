@@ -1,0 +1,54 @@
+<% if 'development' in @getEnvironments(): %>
+
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/icon.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/reset.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/site.css">
+
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/button.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/container.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/divider.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/flag.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/header.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/image.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/input.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/label.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/list.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/loader.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/rail.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/reveal.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/segment.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/step.css">
+
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/breadcrumb.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/form.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/grid.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/menu.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/message.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/table.css">
+
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/ad.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/card.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/comment.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/feed.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/item.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/statistic.css">
+
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/accordion.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/checkbox.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/dimmer.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/dropdown.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/embed.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/modal.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/nag.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/popup.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/progress.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/rating.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/search.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/shape.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/sidebar.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/sticky.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/tab.css">
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/components/transition.css">
+<% else: %>
+<link rel="stylesheet" type="text/css" class="ui" href="/dist/semantic.min.css">
+<% end %>

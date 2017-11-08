@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- @partial('meta') %>
+  <%- @partial('javascript') %>
+  <%- @partial('css') %>
+  <%- @partial('tracking') %>
+  <%- @partial('transifex') %>
+</head>
+<body id="example" class="<%= @document.css %>" ontouchstart="">
+  <% if @document.element is 'sidebar': %>
+  <%- @partial('demo-sidebar') %>
+  <% end %>
+  <%- @partial('sidebar') %>
+  <%- @partial('fixed-menu') %>
+  <div class="pusher">
+    <div class="full height">
+      <div class="toc">
+        <div class="ui vertical inverted sticky menu">
+        <%- @partial('site-menu') %>
+        </div>
+      </div>
+      <div class="article">
+        <%- @content %>
+      </div>
+    </div>
+    <%- @partial('footer') %>
+  </div>
+
+  <%- @partial('language-modal') %>
+  <%- @partial('dimmer-demo') %>
+  <%- @partial('less') %>
+</body>
+</html>

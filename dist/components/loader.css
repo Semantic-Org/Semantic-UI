@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Loader
+ * # Semantic UI 2.2.13 - Loader
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -55,7 +55,8 @@
   border-color: #767676 transparent transparent;
   border-style: solid;
   border-width: 0.2em;
-  box-shadow: 0px 0px 0px 1px transparent;
+  -webkit-box-shadow: 0px 0px 0px 1px transparent;
+          box-shadow: 0px 0px 0px 1px transparent;
 }
 
 /* Active Animation */
@@ -83,51 +84,51 @@
 /* Sizes */
 .ui.mini.loader:before,
 .ui.mini.loader:after {
-  width: 1rem;
-  height: 1rem;
-  margin: 0em 0em 0em -0.5rem;
+  width: 1.16666667rem;
+  height: 1.16666667rem;
+  margin: 0em 0em 0em -0.58333333rem;
 }
 .ui.tiny.loader:before,
 .ui.tiny.loader:after {
-  width: 1.14285714rem;
-  height: 1.14285714rem;
-  margin: 0em 0em 0em -0.57142857rem;
+  width: 1.33333333rem;
+  height: 1.33333333rem;
+  margin: 0em 0em 0em -0.66666667rem;
 }
 .ui.small.loader:before,
 .ui.small.loader:after {
-  width: 1.71428571rem;
-  height: 1.71428571rem;
-  margin: 0em 0em 0em -0.85714286rem;
+  width: 2rem;
+  height: 2rem;
+  margin: 0em 0em 0em -1rem;
 }
 .ui.loader:before,
 .ui.loader:after {
-  width: 2.28571429rem;
-  height: 2.28571429rem;
-  margin: 0em 0em 0em -1.14285714rem;
+  width: 2.66666667rem;
+  height: 2.66666667rem;
+  margin: 0em 0em 0em -1.33333333rem;
 }
 .ui.large.loader:before,
 .ui.large.loader:after {
-  width: 3.42857143rem;
-  height: 3.42857143rem;
-  margin: 0em 0em 0em -1.71428571rem;
+  width: 4rem;
+  height: 4rem;
+  margin: 0em 0em 0em -2rem;
 }
 .ui.big.loader:before,
 .ui.big.loader:after {
-  width: 3.71428571rem;
-  height: 3.71428571rem;
-  margin: 0em 0em 0em -1.85714286rem;
+  width: 4.33333333rem;
+  height: 4.33333333rem;
+  margin: 0em 0em 0em -2.16666667rem;
 }
 .ui.huge.loader:before,
 .ui.huge.loader:after {
-  width: 4.14285714rem;
-  height: 4.14285714rem;
-  margin: 0em 0em 0em -2.07142857rem;
+  width: 4.83333333rem;
+  height: 4.83333333rem;
+  margin: 0em 0em 0em -2.41666667rem;
 }
 .ui.massive.loader:before,
 .ui.massive.loader:after {
-  width: 4.57142857rem;
-  height: 4.57142857rem;
-  margin: 0em 0em 0em -2.28571429rem;
+  width: 5.33333333rem;
+  height: 5.33333333rem;
+  margin: 0em 0em 0em -2.66666667rem;
 }
 
 /*-------------------
@@ -213,85 +214,85 @@
 /* Loader */
 .ui.inverted.dimmer .ui.mini.loader,
 .ui.mini.loader {
-  width: 1rem;
-  height: 1rem;
-  font-size: 0.78571429em;
+  width: 1.16666667rem;
+  height: 1.16666667rem;
+  font-size: 0.75em;
 }
 .ui.inverted.dimmer .ui.tiny.loader,
 .ui.tiny.loader {
-  width: 1.14285714rem;
-  height: 1.14285714rem;
-  font-size: 0.85714286em;
+  width: 1.33333333rem;
+  height: 1.33333333rem;
+  font-size: 0.83333333em;
 }
 .ui.inverted.dimmer .ui.small.loader,
 .ui.small.loader {
-  width: 1.71428571rem;
-  height: 1.71428571rem;
-  font-size: 0.92857143em;
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.91666667em;
 }
 .ui.inverted.dimmer .ui.loader,
 .ui.loader {
-  width: 2.28571429rem;
-  height: 2.28571429rem;
+  width: 2.66666667rem;
+  height: 2.66666667rem;
   font-size: 1em;
 }
 .ui.inverted.dimmer .ui.large.loader,
 .ui.large.loader {
-  width: 3.42857143rem;
-  height: 3.42857143rem;
-  font-size: 1.14285714em;
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.16666667em;
 }
 .ui.inverted.dimmer .ui.big.loader,
 .ui.big.loader {
-  width: 3.71428571rem;
-  height: 3.71428571rem;
-  font-size: 1.28571429em;
+  width: 4.33333333rem;
+  height: 4.33333333rem;
+  font-size: 1.25em;
 }
 .ui.inverted.dimmer .ui.huge.loader,
 .ui.huge.loader {
-  width: 4.14285714rem;
-  height: 4.14285714rem;
-  font-size: 1.42857143em;
+  width: 4.83333333rem;
+  height: 4.83333333rem;
+  font-size: 1.41666667em;
 }
 .ui.inverted.dimmer .ui.massive.loader,
 .ui.massive.loader {
-  width: 4.57142857rem;
-  height: 4.57142857rem;
-  font-size: 1.71428571em;
+  width: 5.33333333rem;
+  height: 5.33333333rem;
+  font-size: 1.75em;
 }
 
 /* Text Loader */
 .ui.mini.text.loader {
-  min-width: 1rem;
-  padding-top: 1.78571429rem;
+  min-width: 1.16666667rem;
+  padding-top: 1.91666667rem;
 }
 .ui.tiny.text.loader {
-  min-width: 1.14285714rem;
-  padding-top: 1.92857143rem;
+  min-width: 1.33333333rem;
+  padding-top: 2.08333333rem;
 }
 .ui.small.text.loader {
-  min-width: 1.71428571rem;
-  padding-top: 2.5rem;
+  min-width: 2rem;
+  padding-top: 2.75rem;
 }
 .ui.text.loader {
-  min-width: 2.28571429rem;
-  padding-top: 3.07142857rem;
+  min-width: 2.66666667rem;
+  padding-top: 3.41666667rem;
 }
 .ui.large.text.loader {
-  min-width: 3.42857143rem;
-  padding-top: 4.21428571rem;
+  min-width: 4rem;
+  padding-top: 4.75rem;
 }
 .ui.big.text.loader {
-  min-width: 3.71428571rem;
-  padding-top: 4.5rem;
+  min-width: 4.33333333rem;
+  padding-top: 5.08333333rem;
 }
 .ui.huge.text.loader {
-  min-width: 4.14285714rem;
-  padding-top: 4.92857143rem;
+  min-width: 4.83333333rem;
+  padding-top: 5.58333333rem;
 }
 .ui.massive.text.loader {
-  min-width: 4.57142857rem;
-  padding-top: 5.35714286rem;
+  min-width: 5.33333333rem;
+  padding-top: 6.08333333rem;
 }
 
 /*-------------------

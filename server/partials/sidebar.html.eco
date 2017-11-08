@@ -1,0 +1,8 @@
+<div class="ui vertical inverted sidebar menu" id="toc">
+  <%- @partial('site-menu') %>
+</div>
+
+<div class="ui black big launch right attached fixed button">
+  <i class="content icon"></i>
+  <span class="text">Menu</span>
+</div>

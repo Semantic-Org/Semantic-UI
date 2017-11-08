@@ -1,0 +1,11 @@
+/*******************************
+         Site Overrides
+*******************************/
+
+.ui.sidebar.vertical.menu.flex {
+  display: flex;
+}
+
+.ui.sidebar.vertical.menu.flex .item.push.bottom {
+  margin-top: auto;
+}

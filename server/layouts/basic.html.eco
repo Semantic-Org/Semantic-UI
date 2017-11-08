@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <link rel="image_src" type="image/jpeg" href="images/share.png" />
+
+  <!-- Site Properties -->
+  <%- @getBlock('meta').toHTML() %>
+  <title><%= @getPreparedTitle() %></title>
+
+  <meta name="description" content="<%= @getPreparedDescription() %>" />
+  <meta name="keywords" content="<%= @getPreparedKeywords() %>" />
+
+  <% if 'development' in @getEnvironments(): %>
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/reset.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/site.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/icon.css">
+
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/button.css">
+
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/divider.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/flag.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/header.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/image.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/input.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/label.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/list.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/loader.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/rail.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/reveal.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/segment.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/step.css">
+
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/breadcrumb.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/form.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/grid.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/menu.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/message.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/table.css">
+
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/card.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/comment.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/feed.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/item.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/statistic.css">
+
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/modal.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/accordion.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/dropdown.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/nag.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/popup.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/progress.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/rating.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/sidebar.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/search.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/shape.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/sticky.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/tab.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/checkbox.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/dimmer.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/transition.css">
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/components/video.css">
+  <% else: %>
+  <link rel="stylesheet" type="text/css" class="ui" href="/dist/semantic.min.css">
+  <% end %>
+
+  <link rel="stylesheet" type="text/css" href="/stylesheets/doc-icon.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
+
+  <% if 'development' in @getEnvironments(): %>
+  <script>
+  (function () {
+    var
+      eventSupport = ('querySelector' in document && 'addEventListener' in window)
+      jsonSupport  = (typeof JSON !== 'undefined'),
+      jQuery       = (eventSupport && jsonSupport)
+        ? '/javascript/library/jquery.js'
+        : '/javascript/library/jquery.legacy.js'
+    ;
+    document.write('<script src="' + jQuery + '"><\/script>');
+  }());
+  </script>
+  <% else: %>
+  <script>
+  (function () {
+    var
+      eventSupport = ('querySelector' in document && 'addEventListener' in window)
+      jsonSupport  = (typeof JSON !== 'undefined'),
+      jQuery       = (eventSupport && jsonSupport)
+        ? '/javascript/library/jquery.min.js'
+        : '/javascript/library/jquery.legacy.min.js'
+    ;
+    document.write('<script src="' + jQuery + '"><\/script>');
+  }());
+  </script>
+  <% end %>
+  <script src="/javascript/library/history.js"></script>
+  <script src="/javascript/library/easing.js"></script>
+  <script src="/javascript/library/ace/ace.js"></script>
+  <script src="/javascript/library/tablesort.js"></script>
+  <script src="/javascript/library/typing.js"></script>
+
+  <% if 'development' in @getEnvironments(): %>
+  <script src="/dist/components/site.js"></script>
+  <script src="/dist/components/behaviors/api.js"></script>
+  <script src="/dist/components/behaviors/visibility.js"></script>
+  <script src="/dist/components/behaviors/state.js"></script>
+  <script src="/dist/components/accordion.js"></script>
+  <script src="/dist/components/checkbox.js"></script>
+  <script src="/dist/components/dimmer.js"></script>
+  <script src="/dist/components/dropdown.js"></script>
+  <script src="/dist/components/modal.js"></script>
+  <script src="/dist/components/nag.js"></script>
+  <script src="/dist/components/popup.js"></script>
+  <script src="/dist/components/progress.js"></script>
+  <script src="/dist/components/rating.js"></script>
+  <script src="/dist/components/search.js"></script>
+  <script src="/dist/components/shape.js"></script>
+  <script src="/dist/components/sidebar.js"></script>
+  <script src="/dist/components/sticky.js"></script>
+  <script src="/dist/components/tab.js"></script>
+  <script src="/dist/components/transition.js"></script>
+  <script src="/dist/components/video.js"></script>
+  <% else: %>
+  <script src="/dist/definitions/javascript/semantic.min.js"></script>
+  <% end %>
+
+  <script src="/javascript/semantic.js"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-44039803-2', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  <script type="text/javascript">
+    window.liveSettings = {
+      api_key    : '9ede3015b9f84c1aabc81ab839c55d74',
+      parse_attr : [
+        'data-title',
+        'data-content'
+      ],
+      detectlang   : true,
+      autocollect  : true,
+      ignore_tags  : ['i'],
+      parse_attr   : ['data-title', 'data-content', 'data-text'],
+      ignore_class : ["code", "ace_editor"]
+    };
+  </script>
+  <script type="text/javascript" src="http://cdn.transifex.com/live.js"></script>
+</head>
+<body id="example" class="pushable <%= @document.css %>" ontouchstart="">
+  <%- @content %>
+  <script src="/javascript/library/less.js"></script>
+</body>
+
+</html>

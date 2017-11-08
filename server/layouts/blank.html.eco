@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- @partial('meta') %>
+  <%- @partial('library-javascript') %>
+  <%- @partial('ui-javascript') %>
+  <%- @partial('ui-css') %>
+</head>
+<body class="<%= @document.css %>" ontouchstart="">
+  <%- @content %>
+</body>
+</html>

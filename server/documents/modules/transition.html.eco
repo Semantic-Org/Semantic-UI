@@ -1,0 +1,806 @@
+---
+layout      : 'default'
+css         : 'transition'
+element     : 'transition'
+elementType : 'module'
+standalone  : true
+
+title       : 'Transition'
+description : 'A transition is an animation usually used to move content in or out of view'
+type        : 'UI Module'
+---
+
+<%- @partial('header', { tabs: 'module' }) %>
+<script src="/javascript/transition.js"></script>
+
+<div class="main ui container">
+
+  <div class="ui active tab" data-tab="definition">
+    <div class="fixed column">
+      <div class="demo content ui sticky">
+        <img src="/images/leaves/1.png" class="ui autumn leaf image">
+      </div>
+    </div>
+    <div class="examples">
+
+      <h2 class="ui dividing header">Transitions</h2>
+
+      <div class="no example">
+        <h4 class="ui header">Scale</h4>
+        <p>An element can scale into or out of view</p>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('scale')
+        ;
+        </div>
+      </div>
+
+      <div class="no example">
+        <h4 class="ui header">Fade</h4>
+        <p>An element can fade into or out of view descending and ascending</p>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('fade')
+        ;
+        </div>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('fade up')
+        ;
+        </div>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('fade down')
+        ;
+        </div>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('fade left')
+        ;
+        </div>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('fade right')
+        ;
+        </div>
+      </div>
+
+      <div class="no example">
+        <h4 class="ui header">Flip</h4>
+        <p>An element can flip into or out of view vertically or horizontally</p>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('horizontal flip')
+        ;
+        </div>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('vertical flip')
+        ;
+        </div>
+      </div>
+
+      <div class="no example">
+        <h4 class="ui header">Drop</h4>
+        <p>An element can drop into view from above </p>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('drop')
+        ;
+        </div>
+      </div>
+
+      <div class="no example">
+        <h4 class="ui header">Fly</h4>
+        <p>An element can fly in from off canvas</p>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('fly left')
+        ;
+        </div>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('fly right')
+        ;
+        </div>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('fly up')
+        ;
+        </div>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('fly down')
+        ;
+        </div>
+      </div>
+
+      <div class="no example">
+        <h4 class="ui header">Swing</h4>
+        <p>An element can swing into view</p>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('swing left')
+        ;
+        </div>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('swing right')
+        ;
+        </div>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('swing up')
+        ;
+        </div>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('swing down')
+        ;
+        </div>
+      </div>
+
+
+      <div class="no example">
+        <h4 class="ui header">Browse</h4>
+
+        <p>An element can appear and disappear as part of a series</p>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('browse')
+        ;
+        </div>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('browse right')
+        ;
+        </div>
+      </div>
+
+      <div class="no example">
+        <h4 class="ui header">Slide</h4>
+        <p>An element can appear to slide in from above or below
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('slide down')
+        ;
+        </div>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('slide up')
+        ;
+        </div>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('slide left')
+        ;
+        </div>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('slide right')
+        ;
+        </div>
+      </div>
+
+      <h2 class="ui dividing header">Static Animations</h2>
+
+      <div class="no example">
+        <h4 class="ui header">Jiggle</h4>
+        <p>An element can jiggle to draw attention to its shape</p>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('jiggle')
+        ;
+        </div>
+      </div>
+      <div class="no example">
+        <h4 class="ui header">Flash</h4>
+        <p>An element can flash to draw attention to itself</p>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('flash')
+        ;
+        </div>
+      </div>
+      <div class="no example">
+        <h4 class="ui header">Shake</h4>
+        <p>An element can shake to draw attention to its position</p>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('shake')
+        ;
+        </div>
+      </div>
+      <div class="no example">
+        <h4 class="ui header">Pulse</h4>
+        <p>An element can pulse to draw attention to its visibility</p>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('pulse')
+        ;
+        </div>
+      </div>
+      <div class="no example">
+        <h4 class="ui header">Tada</h4>
+        <p>An element can give user positive feedback for an action</p>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('tada')
+        ;
+        </div>
+      </div>
+      <div class="no example">
+        <h4 class="ui header">Bounce</h4>
+        <p>An element can bounce to politely remind you of itself</p>
+        <div class="code" data-demo="true">
+        $('.autumn.leaf')
+          .transition('bounce')
+        ;
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="ui tab" data-tab="examples">
+    <div class="fixed column">
+      <div class="ui sticky">
+        <img src="/images/leaves/5.png" class="ui long leaf image">
+      </div>
+    </div>
+    <div class="examples">
+      <h2 class="ui dividing header">Visibility</h2>
+      <p>After the animation queue finishes for an element, its final visibility state is determined. If an animation is an outward transition, the final visibility status will be hidden. If an animation is inward the element will be visible after the animation finishes.</p>
+      <div class="code" data-type="javascript" data-demo="true" data-title="Disappearing element">
+      $('.long.leaf.image')
+        .transition('scale')
+      ;
+      </div>
+
+      <h2 class="ui dividing header">Specifying a direction</h2>
+      <p>To force an animation direction, add either <code>in</code> or <code>out</code> to the animation name.</p>
+      <div class="code" data-demo="true" data-title="Specifying a direction">
+      $('.long.leaf.image')
+        // if a direction if specified it will be obeyed
+        .transition('horizontal flip in')
+        .transition('vertical flip in')
+      ;
+      </div>
+
+      <h2 class="ui dividing header">Automatic Direction</h2>
+
+      <p>If an animation direction is not specified it will automatically be determined based on the elements current visibility. For example, if the element is visible the animation "fade out" will be called, if the animation is not visible "fade in".</p>
+
+      <div class="code" data-demo="true" data-title="Automatically choosing direction">
+      $('.long.leaf.image')
+        // fade up out is used if available
+        .transition('fade up')
+        // this is now fade up in
+        .transition('fade up')
+      ;
+      </div>
+
+      <h2 class="ui dividing header">Grouped Transitions</h2>
+
+      <h4 class="ui header">Animation Intervals</h4>
+      <p>When animating several different items in a group you may want to use an interval so that each item appears consecutively</p>
+      <div class="code" data-demo="true" data-title="Animation Intervals">
+      $('.jiggle.images .image')
+        .transition({
+          animation : 'jiggle',
+          duration  : 800,
+          interval  : 200
+        })
+      ;
+      </div>
+      <div class="ui small jiggle images">
+        <img src="/images/wireframe/image.png" class="ui wireframe image">
+        <img src="/images/wireframe/image.png" class="ui wireframe image">
+        <img src="/images/wireframe/image.png" class="ui wireframe image">
+      </div>
+      <h4 class="ui header">Animation Order</h4>
+      <p>When hiding groups of elements, the default setting uses <code>reverse: 'auto'</code>. This will automatically reverse the order of animations from back-to-front when hiding elements to avoid layout reflows. When showing elements the order will return to its normal sequence.</p>
+      <div class="code" data-demo="true" data-title="Reversing Animation Order" data-type="javascript">
+      $('.sequenced.images .image')
+        .transition({
+          animation : 'scale',
+          reverse   : 'auto', // default setting
+          interval  : 200
+        })
+      ;
+      </div>
+      <div class="ui small sequenced images">
+        <img src="/images/wireframe/image.png" class="ui wireframe image">
+        <img src="/images/wireframe/image.png" class="ui wireframe image">
+        <img src="/images/wireframe/image.png" class="ui wireframe image">
+        <img src="/images/wireframe/image.png" class="ui wireframe image">
+        <img src="/images/wireframe/image.png" class="ui wireframe image">
+        <img src="/images/wireframe/image.png" class="ui wireframe image">
+      </div>
+
+      <h4 class="ui header">Forcing Order</h4>
+      <p>If you need to manually force reverse animations regardless of the animation direction, you can use <code>reverse: true</code>.</p>
+      <div class="code" data-demo="true" data-title="Reversing Animation Order">
+      $('.reverse.images .image')
+        .transition({
+          animation : 'pulse',
+          reverse   : true,
+          interval  : 200
+        })
+      ;
+      </div>
+      <div class="ui small reverse images">
+        <img src="/images/wireframe/image.png" class="ui wireframe image">
+        <img src="/images/wireframe/image.png" class="ui wireframe image">
+        <img src="/images/wireframe/image.png" class="ui wireframe image">
+      </div>
+
+      <h2 class="ui dividing header">Static Animations</h2>
+      <p>Animations that do not have an in or out animation defined, will maintain their current visibility after running</p>
+      <div class="code" data-demo="true" data-title="Static transitions">
+      $('.long.leaf.image')
+        .transition('pulse')
+      ;
+      </div>
+
+      <h2 class="ui dividing header">Looping</h2>
+      <p>Animation loops can be controlled by setting looping. Callbacks will occur after each loop cycle</p>
+      <div class="code" data-demo="true" data-title="Starting looping">
+      $('.long.leaf.image')
+        .transition('set looping')
+        .transition('bounce', '2000ms')
+      ;
+      </div>
+      <div class="code" data-demo="true" data-title="Ending looping">
+      $('.long.leaf.image')
+        .transition('remove looping')
+      ;
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ui tab" data-tab="usage">
+    <div class="fixed column">
+      <div class="ui sticky">
+        <img src="/images/leaves/4.png" class="ui green leaf image">
+      </div>
+    </div>
+    <div class="examples">
+      <h2 class="ui dividing header">Introduction</h2>
+
+      <p>UI Transitions provide a wrapper for using CSS transitions in Javascript providing cross-browser callbacks, advanced queuing, and feature detection.</p>
+      <p>Transitions are loosely coupled with other ui modules like <a href="/modules/dropdown.html">dropdowns</a> and <a href="/modules/modal.html">modals</a> to provide element transitions</p>
+
+      <h3 class="ui header">Types</h3>
+      <p>Transitions are separated into three categories. <b>Inward transitions</b>, <b>outward transitions</b>, and <b>static transitions</b>. These three categories determine the visibility of the element after the animation completes.</p>
+
+      <h2 class="ui dividing header">Usage</h2>
+
+      <h3 class="ui header">Initializing</h3>
+
+      <p>If a transition is called without any arguments all default settings will be used.</p>
+
+      <div class="code" data-demo="true" data-title="Initializing a transition">
+      $('.green.leaf')
+        // default everything
+        .transition()
+      ;
+      </div>
+
+      <h3 class="ui header">Passing in settings</h3>
+      <p>Transitions use similar argument shorthand as <a href="http://api.jquery.com/animate/">animate</a>. You can specify callback functions, animation duration, and other settings using the same arguments. Durations can be specified as strings with CSS shorthand, or with numbers.</p>
+      <div class="code" data-demo="true" data-title="Settings objects">
+      $('.green.leaf')
+        .transition({
+          animation  : 'scale',
+          duration   : '2s',
+          onComplete : function() {
+            alert('done');
+          }
+        })
+      ;
+      </div>
+
+      <h3 class="ui header">Display Type</h3>
+
+      <p>Animations can be used on any display type not just block level elements. For example you can animate a button while preserving its <code>inline-block</code> status.</p>
+      <div class="code" data-demo="true" data-title="Queueing animations">
+      $('.test.button')
+        .transition('horizontal flip', '500ms')
+      ;
+      </div>
+      <div class="ui divider"></div>
+      <div class="ui teal test labeled icon button">
+        <i class="icon user"></i> Sign-up
+      </div>
+
+      <h3 class="ui header">Queuing animations</h3>
+
+      <p>Animations called in sequence will be queued. Any queued animation will automatically determine the transition direction if none is specified.</p>
+      <div class="code" data-demo="true" data-title="Queueing animations">
+      $('.green.leaf')
+        .transition('horizontal flip', '500ms')
+        .transition('horizontal flip', 500, function() {
+          alert('done!');
+        })
+      ;
+      </div>
+
+
+      <h3 class="ui header">Stopping Animations</h3>
+
+      <p>Animations can be stopped using three methods. <code>stop</code> will end the current animation, <code>stop all</code> will end animation and remove queued animations, and <code>clear queue</code> will continue the current playback but remove queued animations.</p>
+
+      <div class="code" data-demo="true" data-title="Stopping Animations">
+      // only first horizontal flip cancelled
+      $('.green.leaf')
+        .transition('horizontal flip')
+        .transition('horizontal flip')
+        .transition('horizontal flip')
+        .transition('stop')
+        .transition('vertical flip')
+      ;
+      </div>
+      <div class="code" data-demo="true" data-title="Stopping All Animations">
+      // all horizontal flip cancelled
+      $('.green.leaf')
+        .transition('horizontal flip')
+        .transition('horizontal flip')
+        .transition('horizontal flip')
+        .transition('stop all')
+        .transition('vertical flip')
+      ;
+      </div>
+      <div class="code" data-demo="true" data-title="Clearing Animation Queue">
+      // all queued animations cancelled
+      $('.green.leaf')
+        .transition('horizontal flip')
+        .transition('horizontal flip')
+        .transition('vertical flip')
+        .transition('clear queue')
+      ;
+      </div>
+
+      <h3 class="ui header">Hide/Show Without Transition</h3>
+
+      <p>You can use transitions <code>show</code> and <code>hide</code> behavior to hide content without animation. This will preserve the display type, like <code>flex</code> or <code>table-cell</code> of an element just like animations.</p>
+
+      <div class="ui ignored info message">Transition only use inline styles when an element's final display state is not <code>block</code>, or when an element cannot be hidden without an inline override.</div>
+
+      <div class="code" data-demo="true" data-title="Toggling State">
+      $('.demo.table tr:last-child')
+        .transition('toggle')
+      ;
+      </div>
+      <div class="code" data-demo="true" data-title="Hiding">
+      $('.demo.table td:last-child')
+        .transition('hide')
+      ;
+      </div>
+
+      <table class="ui demo table">
+        <tbody>
+          <tr>
+            <td>John Lilki</td>
+            <td>jhlilk22@yahoo.com</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>Jamie Harington</td>
+            <td>jamieharingonton@yahoo.com</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Jill Lewis</td>
+            <td>jilsewris22@yahoo.com</td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 class="ui dividing header">Behavior</h2>
+
+      <p>All the following behaviors can be called using the syntax:</p>
+      <div class="code">
+      $('.your.element')
+        .transition('behavior name', argumentOne, argumentTwo)
+      ;
+      </div>
+
+      <table class="ui definition sortable celled table segment">
+        <thead>
+          <tr>
+          <th>Behavior</th>
+          <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>stop</td>
+            <td>Stop current animation and preserve queue</td>
+          </tr>
+          <tr>
+            <td>stop all</td>
+            <td>Stop current animation and queued animations</td>
+          </tr>
+          <tr>
+            <td>clear queue</td>
+            <td>Clears all queued animations</td>
+          </tr>
+          <tr>
+            <td>show</td>
+            <td>Stop current animation and show element</td>
+          </tr>
+          <tr>
+            <td>hide</td>
+            <td>Stop current animation and hide element</td>
+          </tr>
+          <tr>
+            <td>toggle</td>
+            <td>Toggles between hide and show</td>
+          </tr>
+          <tr>
+            <td>force repaint</td>
+            <td>Forces reflow using a more expensive but stable method</td>
+          </tr>
+          <tr>
+            <td>repaint</td>
+            <td>Triggers reflow on element</td>
+          </tr>
+          <tr>
+            <td>reset</td>
+            <td>Resets all conditions changes during transition</td>
+          </tr>
+          <tr>
+            <td>looping</td>
+            <td>Enables animation looping</td>
+          </tr>
+          <tr>
+            <td>remove looping</td>
+            <td>Removes looping state from element</td>
+          </tr>
+          <tr>
+            <td>disable</td>
+            <td>Adds disabled state (stops ability to animate)</td>
+          </tr>
+          <tr>
+            <td>enable</td>
+            <td>Removes disabled state</td>
+          </tr>
+          <tr>
+            <td>set duration(duration)</td>
+            <td>Modifies element animation duration</td>
+          </tr>
+          <tr>
+            <td>save conditions</td>
+            <td>Saves all class names and styles to cache to be retrieved after animation</td>
+          </tr>
+          <tr>
+            <td>restore conditions</td>
+            <td>Adds back cached names and styles to element</td>
+          </tr>
+          <tr>
+            <td>get animation name</td>
+            <td>Returns vendor prefixed animation property for animationname</td>
+          </tr>
+          <tr>
+            <td>get animation event</td>
+            <td>Returns vendor prefixed animation property for animationend</td>
+          </tr>
+          <tr>
+            <td>is visible</td>
+            <td>Returns whether element is currently visible</td>
+          </tr>
+          <tr>
+            <td>is animating</td>
+            <td>Returns whether transition is currently occurring</td>
+          </tr>
+          <tr>
+            <td>is looping</td>
+            <td>Returns whether animation looping is set</td>
+          </tr>
+          <tr>
+            <td>is supported</td>
+            <td>Returns whether animations are supported</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="ui tab" data-tab="settings">
+
+    <h3 class="ui header">
+      Transition Settings
+      <div class="sub header">Form settings modify the transition behavior</div>
+    </h3>
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>animation</td>
+          <td>fade</td>
+          <td>Named animation event to used. Must be defined in CSS.</td>
+        </tr>
+        <tr>
+          <td>interval</td>
+          <td>0</td>
+          <td>Interval in MS between each elements transition</td>
+        </tr>
+        <tr>
+          <td>reverse</td>
+          <td>auto</td>
+          <td>When an interval is specified, sets order of animations. <code>auto</code> reverses only animations that are hiding.</td>
+        </tr>
+        <tr>
+          <td>displayType</td>
+          <td>false</td>
+          <td>Specify the final display type (block, inline-block etc) so that it doesn't have to be calculated.</td>
+        </tr>
+        <tr>
+          <td>duration</td>
+          <td>500ms</td>
+          <td>Duration of the CSS transition animation</td>
+        </tr>
+        <tr>
+          <td>useFailSafe</td>
+          <td>true</td>
+          <td>If enabled a <code>timeout</code> will be added to ensure <code>animationend</code> callback occurs even if element is hidden</td>
+        </tr>
+        <tr>
+          <td>allowRepeats</td>
+          <td>false</td>
+          <td>If enabled will allow same animation to be queued while it is already occurring</td>
+        </tr>
+        <tr>
+          <td>queue</td>
+          <td>true</td>
+          <td>Whether to automatically queue animation if another is occurring</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+      Callbacks
+      <div class="sub header">Callbacks specify a function to occur after a specific behavior.</div>
+    </h3>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+        <th class="four wide">Setting</th>
+        <th>Context</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>onShow</td>
+          <td>transitioned element</td>
+          <td>Callback on each transition that changes visibility to shown</td>
+        </tr>
+        <tr>
+          <td>onHide</td>
+          <td>transitioned element</td>
+          <td>Callback on each transition that changes visibility to hidden</td>
+        </tr>
+        <tr>
+          <td>onStart</td>
+          <td>transitioned element</td>
+          <td>Callback on animation start, useful for queued animations</td>
+        </tr>
+        <tr>
+          <td>onComplete</td>
+          <td>transitioned element</td>
+          <td>Callback on each transition complete</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+      DOM Settings
+      <div class="sub header">DOM settings specify how this module should interface with the DOM</div>
+    </h3>
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+        <th>Setting</th>
+        <th class="six wide">Default</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>namespace</td>
+          <td>transition</td>
+          <td>Event namespace. Makes sure module teardown does not effect other events attached to an element.</td>
+        </tr>
+        <tr>
+          <td>className</td>
+          <td>
+            <div class="code">
+  className   : {
+    animating  : 'animating',
+    disabled   : 'disabled',
+    hidden     : 'hidden',
+    inward     : 'in',
+    loading    : 'loading',
+    looping    : 'looping',
+    outward    : 'out',
+    transition : 'transition',
+    visible    : 'visible'
+  }
+            </div>
+          </td>
+          <td>Class names used to attach style to state</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ui horizontal divider"><i class="icon setting"></i></div>
+
+    <h3 class="ui header">
+      Debug Settings
+      <div class="sub header">Debug settings controls debug output to the console</div>
+    </h3>
+
+    <table class="ui celled sortable definition table segment">
+      <thead>
+        <tr>
+        <th>Setting</th>
+        <th class="four wide">Default</th>
+        <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>name</td>
+          <td>Transition</td>
+          <td>Name used in debug logs</td>
+        </tr>
+        <tr>
+          <td>silent</td>
+          <td>False</td>
+          <td>Silences all console output including error messages, regardless of other debug settings.</td>
+        </tr>
+        <tr>
+          <td>debug</td>
+          <td>False</td>
+          <td>Provides standard debug output to console</td>
+        </tr>
+        <tr>
+          <td>performance</td>
+          <td>True</td>
+          <td>Provides standard debug output to console</td>
+        </tr>
+        <tr>
+          <td>verbose</td>
+          <td>True</td>
+          <td>Provides ancillary debug output to console</td>
+        </tr>
+        <tr>
+          <td>errors</td>
+          <td colspan="2">
+            <div class="code">
+  errors   : {
+    noAnimation : 'There is no CSS animation matching the one you specified.',
+    method      : 'The method you called is not defined'
+  }
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
