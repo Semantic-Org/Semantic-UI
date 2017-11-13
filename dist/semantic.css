@@ -29536,7 +29536,7 @@ body.dimmable > .dimmer {
 }
 
  .dropdown a.ui.label {
-   display: inline-block!important;
+   display: inline-block;
  }
 
 /*--------------
