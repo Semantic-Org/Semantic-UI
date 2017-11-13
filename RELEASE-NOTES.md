@@ -4,6 +4,8 @@
 
 **Bugs**
 - **Visibility** - Fixes issue where `bottomPassed` and `topPassed` would not fire under some conditions
+- **Dropdown** - Fixes issue where dropdowns might accidentally animate closed two times when quickly tabbing through fields
+
 
 ### Version 2.2.13 - Aug 07, 2017
 
