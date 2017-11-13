@@ -162,7 +162,10 @@ $.fn.transition = function() {
             : index * settings.interval
           ;
           module.debug('Delaying animation by', delay);
-          setTimeout(module.animate, delay);
+          if(delay > 0) {
+            module.set.delay(delay);
+          }
+          requestAnimationFrame(module.animate);
         },
 
         animate: function(overrideSettings) {
@@ -330,6 +333,14 @@ $.fn.transition = function() {
             module.start.animation(animationClass);
 
           },
+          delay: function(delay) {
+            delay = delay || settings.delay;
+            delay = (typeof delay == 'number')
+              ? delay + 'ms'
+              : delay
+            ;
+            $module.css('animation-delay', delay)
+          },
           duration: function(animationName, duration) {
             duration = duration || settings.duration;
             duration = (typeof duration == 'number')
@@ -399,6 +410,9 @@ $.fn.transition = function() {
             if(settings.useFailSafe) {
               module.add.failSafe();
             }
+            if(!settings.interval && settings.delay > 0) {
+              module.set.delay(settings.delay);
+            }
             module.set.duration(settings.duration);
             settings.onStart.call(element);
           }
@@ -433,6 +447,7 @@ $.fn.transition = function() {
               ;
               module.verbose('Removing animation class', module.cache);
             }
+            module.remove.delay();
             module.remove.duration();
           }
         },
@@ -440,7 +455,7 @@ $.fn.transition = function() {
         add: {
           failSafe: function() {
             var
-              duration = module.get.duration()
+              duration = module.get.timeToComplete()
             ;
             module.timer = setTimeout(function() {
               $module.triggerHandler(animationEnd);
@@ -470,6 +485,11 @@ $.fn.transition = function() {
             $module
               .removeClass(className.inward)
               .removeClass(className.outward)
+            ;
+          },
+          delay: function() {
+            $module
+              .css('animation-delay', '')
             ;
           },
           duration: function() {
@@ -599,6 +619,25 @@ $.fn.transition = function() {
               return direction;
             }
             return false;
+          },
+          timeToComplete: function() {
+            var
+              duration = module.get.duration() || 0,
+              delay    = module.get.delay() || 0
+            ;
+            return duration + delay;
+          },
+          delay: function(delay) {
+            delay = delay || settings.delay;
+            if(delay === false) {
+              delay = $module.css('animation-delay') || 0;
+            }
+            return (typeof delay === 'string')
+              ? (delay.indexOf('ms') > -1)
+                ? parseFloat(delay)
+                : parseFloat(delay) * 1000
+              : duration
+            ;
           },
           duration: function(duration) {
             duration = duration || settings.duration;
@@ -1061,6 +1100,7 @@ $.fn.transition.settings = {
   // animation duration
   animation     : 'fade',
   duration      : false,
+  delay         : false,
 
   // new animations will occur after previous ones
   queue         : true,
