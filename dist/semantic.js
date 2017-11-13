@@ -19349,17 +19349,15 @@ $.fn.transition = function() {
               elementClass = $module.attr('class');
               tagName      = $module.prop('tagName');
 
-              $clone = $('<' + tagName + ' />').addClass( elementClass ).insertAfter($module);
+                $clone = $('<' + tagName + ' />').addClass( elementClass ).appendTo(document.body);
                 currentAnimation = $clone
-                .appendTo('body')
-                .addClass('clone')
-                .addClass(animation)
-                .removeClass(className.inward)
-                .removeClass(className.outward)
-                .addClass(className.animating)
-                .addClass(className.transition)
-                .css('animationName')
-              ;
+                    .addClass(animation)
+                    .removeClass(className.inward)
+                    .removeClass(className.outward)
+                    .addClass(className.animating)
+                    .addClass(className.transition)
+                    .css('animationName')
+                ;
               inAnimation = $clone
                 .addClass(className.inward)
                 .css('animationName')
