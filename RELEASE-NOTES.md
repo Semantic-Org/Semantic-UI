@@ -5,6 +5,7 @@
 **Bugs**
 - **Visibility** - Fixes issue where `bottomPassed` and `topPassed` would not fire under some conditions
 - **Dropdown** - Fixes issue where dropdowns might accidentally animate closed two times when quickly tabbing through fields
+- **Popup** - Fixed an error which could cause popup not to move to right offset context when using a different target setting.
 
 
 ### Version 2.2.13 - Aug 07, 2017
