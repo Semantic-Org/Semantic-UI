@@ -7568,7 +7568,7 @@ $.fn.dropdown = function(parameters) {
             calculations = {
               context: {
                 scrollTop : $context.scrollTop(),
-                offset    : $context.offset(),
+                offset    : $context.get(0) !== window ? $context.offset() : 0,
                 height    : $context.outerHeight()
               },
               menu : {
