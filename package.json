@@ -15,7 +15,8 @@
   },
   "scripts": {
     "install": "gulp install",
-    "test": "karma start --auto-watch=true --single-run=false"
+    "test": "karma start",
+    "test:4eva": "karma start --auto-watch=true --single-run=false"
   },
   "peerDependencies": {
     "better-console": "*",
