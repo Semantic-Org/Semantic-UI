@@ -14,7 +14,8 @@
     "url": "https://github.com/Semantic-Org/Semantic-UI/issues"
   },
   "scripts": {
-    "install": "gulp install"
+    "install": "gulp install",
+    "test": "karma start --auto-watch=true --single-run=false"
   },
   "peerDependencies": {
     "better-console": "*",
@@ -55,6 +56,7 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-chmod": "^2.0.0",
+    "gulp-clean-css": "^3.7.0",
     "gulp-clone": "^1.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-concat-css": "^2.3.0",
@@ -66,11 +68,9 @@
     "gulp-if": "^2.0.2",
     "gulp-json-editor": "^2.2.1",
     "gulp-less": "^3.3.2",
-    "gulp-clean-css": "^3.7.0",
     "gulp-notify": "^3.0.0",
     "gulp-plumber": "^1.1.0",
     "gulp-print": "^2.0.1",
-    "prompt-sui": "^3.2.1",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.6.1",
     "gulp-rtlcss": "^1.0.0",
@@ -81,6 +81,7 @@
     "map-stream": "^0.1.0",
     "merge-stream": "^1.0.0",
     "mkdirp": "^0.5.1",
+    "prompt-sui": "^3.2.1",
     "require-dot-file": "^0.4.0",
     "run-sequence": "^2.1.0",
     "wrench-sui": "^0.0.3",
@@ -92,7 +93,15 @@
     "gulp-debug": "*",
     "gulp-git": "*",
     "gulp-tap": "*",
-    "merge-stream": "*"
+    "jasmine-core": "^2.8.0",
+    "karma": "0.11.X",
+    "karma-cli": "0.1.X",
+    "karma-chrome-launcher": "2.X",
+    "karma-coverage": "1.X",
+    "karma-jasmine": "0.1.5",
+    "karma-spec-reporter": "^0.0.31",
+    "merge-stream": "*",
+    "phantomjs-prebuilt": "^2.1.16"
   },
   "style": "dist/semantic.css"
 }

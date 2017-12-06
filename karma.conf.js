@@ -13,9 +13,10 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // require jquery
-      'server/files/javascript/library/jquery.js',
+      // 'server/files/javascript/library/jquery.js',
+      './node_modules/jquery/dist/jquery.js',
       // read css from compiled css
-      'docs/build/uncompressed/**/*.css',
+      // 'docs/build/uncompressed/**/*.css',
       // read js from src js
       'src/definitions/**/*.js',
       // require helpers
@@ -72,7 +73,7 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // If browser does not capture in given timeout [ms], kill it
