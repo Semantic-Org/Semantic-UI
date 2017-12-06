@@ -94,7 +94,6 @@
     "gulp-debug": "*",
     "gulp-git": "*",
     "gulp-tap": "*",
-    "jasmine-core": "^2.8.0",
     "karma": "0.11.X",
     "karma-cli": "0.1.X",
     "karma-chrome-launcher": "2.X",
