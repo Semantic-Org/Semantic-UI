@@ -26,10 +26,13 @@ module.exports = {
   // folder paths
   paths: {
     source: {
-      config      : 'src/theme.config',
-      definitions : 'src/definitions/',
-      site        : 'src/site/',
-      themes      : 'src/themes/'
+      config            : 'src/theme.config',
+      globalsConfig     : 'src/globals.config',
+      extraConfig       : 'src/extra.config',
+      componentsConfig  : 'src/components.config',
+      definitions       : 'src/definitions/',
+      site              : 'src/site/',
+      themes            : 'src/themes/'
     },
     output: {
       packaged     : 'dist/',

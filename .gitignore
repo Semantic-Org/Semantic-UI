@@ -5,6 +5,10 @@ src/**/site/
 theme.config
 semantic.json
 tasks/**/oauth.js
+examples/dist
+src/globals.config
+src/extra.config
+src/components.config
 
 # Numerous always-ignore extensions
 *.diff

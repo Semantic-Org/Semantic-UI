@@ -74,10 +74,12 @@ module.exports = function(callback) {
   /*--------------
       Watch CSS
   ---------------*/
-
   gulp
     .watch([
       source.config,
+      source.globalsConfig,
+      source.extraConfig,
+      source.componentsConfig + '/**.**',
       source.definitions   + '/**/*.less',
       source.site          + '/**/*.{overrides,variables}',
       source.themes        + '/**/*.{overrides,variables}'
@@ -93,7 +95,10 @@ module.exports = function(callback) {
         isDefinition,
         isPackagedTheme,
         isSiteTheme,
-        isConfig
+        isConfig,
+        isComponent,
+        isGlobalsConfig,
+        isExtraConfig
       ;
 
       // log modified file
@@ -106,7 +111,11 @@ module.exports = function(callback) {
       ---------------*/
 
       // recompile on *.override , *.variable change
-      isConfig        = (file.path.indexOf('theme.config') !== -1 || file.path.indexOf('site.variables') !== -1);
+      // only recompile the component whose bound element changed ex: if button changes, only re-build the button component 
+      isComponent     = (file.path.indexOf('components.config/') !== -1 || file.path.indexOf('site.variables') !== -1);
+      isGlobalsConfig = file.path.indexOf('globals.config') !== -1;
+      isExtraConfig   = file.path.indexOf('extra.config') !== -1;
+      isConfig        = isGlobalsConfig || isExtraConfig ||  (file.path.indexOf('theme.config') !== -1 || file.path.indexOf('site.variables') !== -1);
       isPackagedTheme = (file.path.indexOf(source.themes) !== -1);
       isSiteTheme     = (file.path.indexOf(source.site) !== -1);
       isDefinition    = (file.path.indexOf(source.definitions) !== -1);
@@ -116,6 +125,11 @@ module.exports = function(callback) {
         // impossible to tell which file was updated in theme.config, rebuild all
         gulp.start('build-css');
         return;
+      } else if(isComponent) {
+        lessPath = file.path.replace('components.config/', 'definitions/')
+        lessPath = lessPath.replace('.', '/')
+        lessPath = util.replaceExtension(lessPath, '.less');        
+        lessPath = lessPath.replace(tasks.regExp.theme, source.definitions);
       }
       else if(isPackagedTheme) {
         console.log('Change detected in packaged theme');
