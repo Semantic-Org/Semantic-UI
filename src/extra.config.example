@@ -1,0 +1,19 @@
+
+/*******************************
+            Folders
+*******************************/
+
+/* Path to theme packages */
+@themesFolder : 'themes';
+
+/* Path to site override folder */
+@siteFolder  : 'site';
+
+
+/*******************************
+         Import Theme
+*******************************/
+
+@import "theme.less";
+
+/* End Config */
