@@ -603,11 +603,8 @@ $.fn.form = function(parameters) {
                 }
                 else {
                   if(isRadio) {
-                    if(values[name] === undefined) {
-                      values[name] = (isChecked)
-                        ? true
-                        : false
-                      ;
+                    if(values[name] === undefined || values[name] == false ) {
+                      values[name] = (isChecked) ? value || true : false;
                     }
                   }
                   else if(isCheckbox) {
