@@ -40,7 +40,7 @@
 /* Icon */
 @iconOpacity: 1;
 @iconSize: 1.5em;
-@iconOffset: @lineHeightOffset;
+@iconOffset: 0em;
 @iconMargin: 0.75rem;
 @iconAlignment: middle;
 

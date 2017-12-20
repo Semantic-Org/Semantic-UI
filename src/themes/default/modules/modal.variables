@@ -98,6 +98,12 @@
 @invertedBoxShadow: 1px 3px 10px 2px rgba(0, 0, 0, 0.2);
 
 /*-------------------
+       States
+--------------------*/
+
+@loadingZIndex: -1;
+
+/*-------------------
         Types
 --------------------*/
 
@@ -114,6 +120,9 @@
 /* Scrolling Margin */
 @scrollingMargin: 3.5rem;
 @mobileScrollingMargin: 1rem;
+
+/* Scrolling Content */
+@scrollingContentMaxHeight: calc(80vh - 10em);
 
 /*-------------------
       Variations

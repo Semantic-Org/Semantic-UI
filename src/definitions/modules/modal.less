@@ -323,6 +323,12 @@
              States
 *******************************/
 
+.ui.loading.modal {
+  display: block;
+  visibility: hidden;
+  z-index: @loadingZIndex;
+}
+
 .ui.active.modal {
   display: block;
 }
@@ -375,6 +381,13 @@
     margin-top: @mobileScrollingMargin !important;
     margin-bottom: @mobileScrollingMargin !important;
   }
+}
+
+/* Scrolling Content */
+
+.ui.modal .scrolling.content {
+  max-height: @scrollingContentMaxHeight;
+  overflow: auto;
 }
 
 

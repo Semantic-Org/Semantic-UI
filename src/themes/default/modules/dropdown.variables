@@ -94,6 +94,7 @@
 
 /* Menu Image */
 @menuImageMaxHeight: 2em;
+@menuImageVerticalMargin: -(@menuImageMaxHeight - 1em) / 2;
 
 /* Item Sub-Element */
 @itemElementFloat: none;
@@ -159,7 +160,7 @@
 @selectionIconZIndex: 3;
 @selectionIconHitbox: @selectionVerticalPadding;
 @selectionIconMargin: -@selectionIconHitbox;
-@selectionIconPadding: @selectionIconHitbox;
+@selectionIconPadding: @selectionIconHitbox / @dropdownIconSize;
 @selectionIconTransition: opacity @defaultDuration @defaultEasing;
 
 @selectionMenuBorderRadius: 0em 0em @borderRadius @borderRadius;
@@ -341,10 +342,11 @@
 
 /* Flyout Direction */
 @leftMenuDropdownIconFloat: left;
-@leftMenuDropdownIconMargin: @itemLineHeightOffset @itemElementDistance 0em 0em;
+@leftMenuDropdownIconMargin: @itemLineHeightOffset 0em 0em 0em;
 
 /* Left */
 @leftSubMenuBorderRadius: @borderRadius;
+@leftSubMenuMargin: 0em @subMenuDistanceAway 0em 0em;
 
 /* Simple */
 @simpleTransitionDuration: @defaultDuration;
@@ -361,13 +363,13 @@
 
 @pointingArrowBackground: @white;
 @pointingArrowZIndex: 2;
-@pointingArrowBoxShadow: -@menuBorderWidth -@menuBorderWidth 0px @menuBorderWidth @menuBorderColor;
+@pointingArrowBoxShadow: -@menuBorderWidth -@menuBorderWidth 0px 0px @menuBorderColor;
 @pointingArrowSize: @relative7px;
 
 @pointingMenuDistance: @mini;
 @pointingMenuBorderRadius: @borderRadius;
-@pointingArrowBoxShadow: -@menuBorderWidth -@menuBorderWidth 0px @menuBorderWidth @menuBorderColor;
+@pointingArrowBoxShadow: -@menuBorderWidth -@menuBorderWidth 0px 0px @menuBorderColor;
 
 /* Pointing Upward */
 @pointingUpwardMenuBorderRadius: @borderRadius;
-@pointingUpwardArrowBoxShadow: @menuBorderWidth @menuBorderWidth 0px @menuBorderWidth @menuBorderColor;
+@pointingUpwardArrowBoxShadow: @menuBorderWidth @menuBorderWidth 0px 0px @menuBorderColor;
