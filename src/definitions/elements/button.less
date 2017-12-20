@@ -900,12 +900,15 @@
 }
 
 /* Fluid Labeled */
-.ui.fluid[class*="left labeled"].icon.button,
-.ui.fluid[class*="right labeled"].icon.button {
-  padding-left: @horizontalPadding !important;
+.ui.fluid[class*="left labeled"].icon.button {
+  padding-left: @labeledIconPadding !important;
   padding-right: @horizontalPadding !important;
 }
 
+.ui.fluid[class*="right labeled"].icon.button {
+  padding-left: @horizontalPadding !important;
+  padding-right: @labeledIconPadding !important;
+}
 
 
 
