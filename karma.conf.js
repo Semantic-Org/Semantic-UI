@@ -13,9 +13,10 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // require jquery
-      'server/files/javascript/library/jquery.js',
+      // 'server/files/javascript/library/jquery.js',
+      './node_modules/jquery/dist/jquery.js',
       // read css from compiled css
-      'docs/build/uncompressed/**/*.css',
+      // 'docs/build/uncompressed/**/*.css',
       // read js from src js
       'src/definitions/**/*.js',
       // require helpers
@@ -62,7 +63,7 @@ module.exports = function(config) {
     logLevel: config.LOG_INFO,
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    autoWatch: false,
 
     // Start these browsers, currently available:
     // - Chrome
@@ -72,7 +73,7 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // If browser does not capture in given timeout [ms], kill it
@@ -80,6 +81,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: true
   });
 };

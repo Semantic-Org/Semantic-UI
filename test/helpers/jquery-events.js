@@ -1,4 +1,8 @@
 (function($) {
+    $.prototype.size = function size() {
+        return this.length;
+    }
+    
     $.events = function(selector, root) {
         var s = [];
         $(selector || '*', root).addBack().each(function() {
