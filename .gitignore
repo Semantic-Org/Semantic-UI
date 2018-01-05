@@ -34,3 +34,4 @@ nbproject
 *.sublime-project
 *.sublime-workspace
 .build*
+.idea

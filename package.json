@@ -55,7 +55,7 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-chmod": "^2.0.0",
-    "gulp-clone": "^1.0.0",
+    "gulp-clone": "1.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-concat-css": "^2.3.0",
     "gulp-copy": "1.0.0",
