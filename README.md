@@ -19,13 +19,13 @@ Semantic allows developers to build beautiful websites fast, with **concise HTML
 
 ## 2.2 Release
 
-Semantic UI `2.2` is now available (June 2016). Read up on [what's new](http://www.semantic-ui.com/introduction/new.html) in the docs.
+Semantic UI `2.2` is now available (June 2016). Read up on [what's new](https://semantic-ui.com/introduction/new.html) in the docs.
 
 Migration info from `1.x` can be found in the [2.0 release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md#version-200---march-xx-2015)
 
 ## User Support
 
-Please help us keep the issue tracker organized. For all questions that do not include a specific [JSFiddle test case](https://jsfiddle.net/ca0rovs3/) (bug reports), or feature request please use our user forums at [http://forums.semantic-ui.com](http://forums.semantic-ui.com) to discuss.
+Please help us keep the issue tracker organized. For all questions that do not include a specific [JSFiddle test case](https://jsfiddle.net/ca0rovs3/) (bug reports), or feature request please use our user forums at [https://forums.semantic-ui.com](https://forums.semantic-ui.com) to discuss.
 
 Visit our [contributing guide](https://github.com/Semantic-Org/Semantic-UI/blob/master/CONTRIBUTING.md) for more on what should be posted to GitHub Issues.
 
@@ -39,8 +39,8 @@ npm install semantic-ui  # Use themes, import build/watch tasks into your own gu
 Semantic UI includes an interactive installer to help setup your project
 ![Getting Started](https://dl.dropboxusercontent.com/u/2657007/install.gif)
 
-* For more details on setup visit our [getting started guide](http://semantic-ui.com/introduction/getting-started.html).
-* To learn more about theming please read our [theming guide](http://www.semantic-ui.com/usage/theming.html)
+* For more details on setup visit our [getting started guide](https://semantic-ui.com/introduction/getting-started.html).
+* To learn more about theming please read our [theming guide](https://semantic-ui.com/usage/theming.html)
 
 #### Additional Versions
 
@@ -52,7 +52,7 @@ CSS Only | `npm install semantic-ui-css` | [CSS Repo](https://github.com/Semanti
 [EmberJS](http://emberjs.com/) | `ember install:addon semantic-ui-ember` | [Ember Repo](https://github.com/Semantic-Org/Semantic-UI-Ember)
 |[Meteor](https://www.meteor.com/) - [LESS](https://github.com/less/less.js/) | `meteor add semantic:ui` | [Meteor Repo](https://github.com/Semantic-Org/Semantic-UI-Meteor) |
 |[Meteor](https://www.meteor.com/) - CSS | `meteor add semantic:ui-css` | [CSS Repo](https://github.com/Semantic-Org/Semantic-UI-CSS) |
-[Bower](http://bower.io/) | `bower install semantic-ui` |
+[Bower](https://bower.io/) | `bower install semantic-ui` |
 
 Check out our [integration wiki](https://github.com/Semantic-Org/Semantic-UI/wiki/Integration) for more options.
 
@@ -64,12 +64,12 @@ Check out our [integration wiki](https://github.com/Semantic-Org/Semantic-UI/wik
 * iOS Safari 7+
 * Microsoft Edge 12+
 
-Although some components will work in IE9, [grids](http://semantic-ui.com/collections/grid.html) and other [flexbox](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes) components are not supported by IE9 and may not appear correctly.
+Although some components will work in IE9, [grids](https://semantic-ui.com/collections/grid.html) and other [flexbox](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes) components are not supported by IE9 and may not appear correctly.
 
 ## Community
 
 #### Getting Help
-Please **do not post** usage questions to GitHub Issues. For these types of questions use our [Gitter chatroom](https://gitter.im/Semantic-Org/Semantic-UI), [Semantic UI forums](http://forums.semantic-ui.com) or [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui).
+Please **do not post** usage questions to GitHub Issues. For these types of questions use our [Gitter chatroom](https://gitter.im/Semantic-Org/Semantic-UI) or [Discord server](https://discord.gg/7vqmGxa), [Semantic-UI Forums](https://forums.semantic-ui.com) or [StackOverflow](https://stackoverflow.com/questions/tagged/semantic-ui).
 
 #### Submitting Bugs and Enhancements
 [GitHub Issues](https://github.com/Semantic-Org/Semantic-UI/issues) is for suggesting enhancements and reporting bugs. Before submiting a bug make sure you do the following:
@@ -94,9 +94,9 @@ Resource | Description
 --- | --- |
 Bugs & Feature Requests |  All bug submission **require** a link to a test case, and a set of steps to reproduce the issue. You can make a test case by forking this [JSFiddle](https://jsfiddle.net/ca0rovs3/), then submit your [bug report on GitHub Issues](https://github.com/Semantic-Org/Semantic-UI/issues)
 Live Chat | Join our [Gitter.im Room](https://gitter.im/Semantic-Org/Semantic-UI)
-Message Board | [ProjectTalk Board](http://www.projecttalk.io/boards/Semantic-Org%2FSemantic-UI)
-Newsletter Updates | Sign up for updates at [semantic-ui.com](http://www.semantic-ui.com)
-Additional Resources  | Submit a question on [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui) or ask our [Google Group](https://groups.google.com/forum/#!forum/semantic-ui)
+Discord Server | Join the [Discord Server](https://discord.gg/7vqmGxa)
+Newsletter Updates | Sign up for updates at [semantic-ui.com](https://semantic-ui.com)
+Additional Resources  | Submit a question on [StackOverflow](https://stackoverflow.com/questions/tagged/semantic-ui) or ask our [Google Group](https://groups.google.com/forum/#!forum/semantic-ui)
 
 #### Places to Help
 
