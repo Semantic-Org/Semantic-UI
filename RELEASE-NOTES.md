@@ -4,6 +4,7 @@
 
 **Critical Bugs**
 - **Form** - Fixes issue where radio checkbox would not return correct value from `get values` **Thanks @tincdev** #5713 #6043
+- **Modal** - Fixes issue where an oversized modal would appear behind an existing modal when using `allowMultiple: true` and a second modal that is larger than the sreen height. #2423
 
 **Enhancements**
 - **Button** - Youtube's red color now matches their current brand guidelines **Thanks @hammy2899** #6110
@@ -11,7 +12,6 @@
 - **Reveal** - `ribbon label` can now work with `reveal` #5681
 
 **Bugs**
-- **Form** - Fixe
 - **Dropdown** - Fixed issue where dropdown could incorrectly open upward and leftward opening when using `context` setting due to an incorrect offset calculation. **Thanks @dannyBies** #5974 #5366
 - **Visibility** - Fixes issue where `bottomPassed` and `topPassed` would not fire under some conditions
 - **Dropdown** - Fixes issue where dropdowns might accidentally animate closed two times when quickly tabbing through fields
