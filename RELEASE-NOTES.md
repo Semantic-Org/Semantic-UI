@@ -1,12 +1,15 @@
 ## RELEASE NOTES
 
-### Version 2.2.14 - Oct 18, 2017
+### Version 2.2.14 - Jan 28, 2028
+
+**Enhancements**
+- **Button** - Youtube's red color now matches their current brand guidelines **Thanks @hammy2899**
 
 **Bugs**
+- **Dropdown** - Fixed issue where dropdown could incorrectly open upward and leftward opening when using `context` setting due to an incorrect offset calculation. **Thanks @dannyBies** #5974 #5366
 - **Visibility** - Fixes issue where `bottomPassed` and `topPassed` would not fire under some conditions
 - **Dropdown** - Fixes issue where dropdowns might accidentally animate closed two times when quickly tabbing through fields
 - **Popup** - Fixed an error which could cause popup not to move to right offset context when using a different target setting.
-
 
 ### Version 2.2.13 - Aug 07, 2017
 
