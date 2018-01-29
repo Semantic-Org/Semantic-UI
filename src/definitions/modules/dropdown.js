@@ -2435,7 +2435,6 @@ $.fn.dropdown = function(parameters) {
             var
               escapedValue = module.escape.value(value),
               hasInput     = ($input.length > 0),
-              isAddition   = !module.has.value(value),
               currentValue = module.get.values(),
               stringValue  = (value !== undefined)
                 ? String(value)
@@ -2538,8 +2537,8 @@ $.fn.dropdown = function(parameters) {
                       module.save.remoteData(selectedText, selectedValue);
                     }
                     if(settings.useLabels) {
-                      module.add.value(selectedValue, selectedText, $selected);
                       module.add.label(selectedValue, selectedText, shouldAnimate);
+                      module.add.value(selectedValue, selectedText, $selected);
                       module.set.activeItem($selected);
                       module.filterActive();
                       module.select.nextAvailable($selectedItem);
@@ -2587,8 +2586,8 @@ $.fn.dropdown = function(parameters) {
             ;
             $label = settings.onLabelCreate.call($label, escapedValue, text);
 
-            if(module.has.label(value)) {
-              module.debug('Label already exists, skipping', escapedValue);
+            if(module.has.value(value)) {
+              module.debug('User selection already exists, skipping', escapedValue);
               return;
             }
             if(settings.label.variation) {
@@ -2727,6 +2726,10 @@ $.fn.dropdown = function(parameters) {
               currentValue = module.get.values(),
               newValue
             ;
+            if(module.has.value(addedValue)) {
+              module.debug('Value already selected');
+              return;
+            }
             if(addedValue === '') {
               module.debug('Cannot select blank values from multiselect');
               return;
@@ -3058,6 +3061,12 @@ $.fn.dropdown = function(parameters) {
             return (module.get.query() !== '');
           },
           value: function(value) {
+            return (settings.ignoreAdditionCase)
+              ? module.has.valueIgnoringCase(value)
+              : module.has.valueMatchingCase(value)
+            ;
+          },
+          valueMatchingCase: function(value) {
             var
               values   = module.get.values(),
               hasValue = $.isArray(values)
@@ -3068,6 +3077,22 @@ $.fn.dropdown = function(parameters) {
               ? true
               : false
             ;
+          },
+          valueIgnoringCase: function(value) {
+            var
+              values   = module.get.values(),
+              hasValue = false
+            ;
+            if(!$.isArray(values)) {
+              values = [values];
+            }
+            $.each(values, function(index, existingValue) {
+              if(String(value).toLowerCase() == String(existingValue).toLowerCase()) {
+                hasValue = true;
+                return false;
+              }
+            });
+            return hasValue;
           }
         },
 
@@ -3669,7 +3694,8 @@ $.fn.dropdown.settings = {
   forceSelection         : true,       // force a choice on blur with search selection
 
   allowAdditions         : false,      // whether multiple select should allow user added values
-  hideAdditions          : true,      // whether or not to hide special message prompting a user they can enter a value
+  ignoreAdditionCase     : true,       // whether to ignore case when adding a user selection
+  hideAdditions          : true,       // whether or not to hide special message prompting a user they can enter a value
 
   maxSelections          : false,      // When set to a number limits the number of selections to this count
   useLabels              : true,       // whether multiple select should filter currently active selections from choices
