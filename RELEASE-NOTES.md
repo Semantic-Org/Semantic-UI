@@ -8,6 +8,7 @@
 **Enhancements**
 - **Button** - Youtube's red color now matches their current brand guidelines **Thanks @hammy2899** #6110
 - **Flag** - Adds missing flag for England **Thanks @zyzniewski** #5944
+- **Reveal** - `ribbon label` can now work with `reveal` #5681
 
 **Bugs**
 - **Form** - Fixe
