@@ -5,6 +5,7 @@
 **Critical Bugs**
 - **Form** - Fixes issue where radio checkbox would not return correct value from `get values` **Thanks @tincdev** #5713 #6043
 - **Modal** - Fixes issue where an oversized modal would appear behind an existing modal when using `allowMultiple: true` and a second modal that is larger than the sreen height. #2423
+- **Checkbox** - Fixes issue where `toggle checkbox` box shadow was missing **Thanks @banandrew** #5096
 
 **Enhancements**
 - **Button** - Youtube's red color now matches their current brand guidelines **Thanks @hammy2899** #6110
