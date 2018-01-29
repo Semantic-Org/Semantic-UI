@@ -2,15 +2,22 @@
 
 ### Version 2.2.14 - Jan 28, 2028
 
+**Critical Bugs**
+- **Form** - Fixes issue where radio checkbox would not return correct value from `get values` **Thanks @tincdev** #5713 #6043
+
 **Enhancements**
 - **Button** - Youtube's red color now matches their current brand guidelines **Thanks @hammy2899** #6110
 - **Flag** - Adds missing flag for England **Thanks @zyzniewski** #5944
 
 **Bugs**
+- **Form** - Fixe
 - **Dropdown** - Fixed issue where dropdown could incorrectly open upward and leftward opening when using `context` setting due to an incorrect offset calculation. **Thanks @dannyBies** #5974 #5366
 - **Visibility** - Fixes issue where `bottomPassed` and `topPassed` would not fire under some conditions
 - **Dropdown** - Fixes issue where dropdowns might accidentally animate closed two times when quickly tabbing through fields
 - **Popup** - Fixed an error which could cause popup not to move to right offset context when using a different target setting.
+
+**Build Tools**
+- **CSS Build** - Fixed issue where package `gulp-clone` was only set to use > `1.0` causing issues with gulp builds due to upstream error #6067
 
 ### Version 2.2.13 - Aug 07, 2017
 
