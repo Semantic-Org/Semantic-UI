@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Reveal
+ * # Semantic UI 2.2.14 - Reveal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -238,6 +238,15 @@
 }
 .ui.disabled.reveal:hover > .hidden.hidden.content {
   display: none !important;
+}
+
+
+/*******************************
+           Coupling
+*******************************/
+
+.ui.reveal > .ui.ribbon.label {
+  z-index: 5;
 }
 
 

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Sidebar
+ * # Semantic UI 2.2.14 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -206,11 +206,13 @@ body.pushable > .pusher {
 /* Shadow Direction */
 .ui.left.visible.sidebar,
 .ui.right.visible.sidebar {
-  box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
+  -webkit-box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
+          box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
 }
 .ui.top.visible.sidebar,
 .ui.bottom.visible.sidebar {
-  box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
+  -webkit-box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
+          box-shadow: 0px 0px 20px rgba(34, 36, 38, 0.15);
 }
 
 /* Visible On Load */

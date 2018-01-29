@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Tab
+ * # Semantic UI 2.2.14 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -75,7 +75,8 @@
   border-color: #767676 transparent transparent;
   border-style: solid;
   border-width: 0.2em;
-  box-shadow: 0px 0px 0px 1px transparent;
+  -webkit-box-shadow: 0px 0px 0px 1px transparent;
+          box-shadow: 0px 0px 0px 1px transparent;
 }
 
 

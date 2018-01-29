@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Label
+ * # Semantic UI 2.2.14 - Label
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -150,7 +150,8 @@ a.ui.label {
   background: #E8E8E8;
   padding: 0.5833em 0.833em 0.5833em 0.5em;
   border-radius: 0.28571429rem;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.image.label img {
   display: inline-block;
@@ -205,7 +206,8 @@ a.ui.label {
   background-color: #FFFFFF !important;
   width: 0.5em;
   height: 0.5em;
-  box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
   border-radius: 500rem;
 }
 
@@ -1045,7 +1047,8 @@ a.ui.basic.black.label:hover {
   background: none #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /* Link */
@@ -1053,8 +1056,10 @@ a.ui.basic.label:hover {
   text-decoration: none;
   background: none #FFFFFF;
   color: #1e70bf;
-  box-shadow: 1px solid rgba(34, 36, 38, 0.15);
-  box-shadow: none;
+  -webkit-box-shadow: 1px solid rgba(34, 36, 38, 0.15);
+          box-shadow: 1px solid rgba(34, 36, 38, 0.15);
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /* Pointing */
@@ -1069,7 +1074,8 @@ a.ui.basic.label:hover {
 .ui.label.fluid,
 .ui.fluid.labels > .label {
   width: 100%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 /*-------------------
