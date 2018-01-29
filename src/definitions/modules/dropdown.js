@@ -3061,7 +3061,7 @@ $.fn.dropdown = function(parameters) {
             return (module.get.query() !== '');
           },
           value: function(value) {
-            return (settings.ignoreAdditionCase)
+            return (settings.ignoreCase)
               ? module.has.valueIgnoringCase(value)
               : module.has.valueMatchingCase(value)
             ;
@@ -3694,7 +3694,7 @@ $.fn.dropdown.settings = {
   forceSelection         : true,       // force a choice on blur with search selection
 
   allowAdditions         : false,      // whether multiple select should allow user added values
-  ignoreAdditionCase     : true,       // whether to ignore case when adding a user selection
+  ignoreCase             : false,       // whether to consider values not matching in case to be the same
   hideAdditions          : true,       // whether or not to hide special message prompting a user they can enter a value
 
   maxSelections          : false,      // When set to a number limits the number of selections to this count

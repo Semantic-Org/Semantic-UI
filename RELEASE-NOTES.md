@@ -11,6 +11,7 @@
 - **Button** - Youtube's red color now matches their current brand guidelines **Thanks @hammy2899** #6110
 - **Flag** - Adds missing flag for England **Thanks @zyzniewski** #5944
 - **Reveal** - `ribbon label` can now work with `reveal` #5681
+- **Dropdown** - Added new setting `ignoreCase` (defaults to false) that will prevent values from being added that match existing values (case insensitive). This is particularly useful when using allowAdditions for tagging to not allow case insensitive matches.
 
 **Bugs**
 - **Dropdown** - Fixed issue where dropdownsdown could incorrectly open upward and leftward opening when using `context` setting due to an incorrect offset calculation. **Thanks @dannyBies** #5974 #5366
