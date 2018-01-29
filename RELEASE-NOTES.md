@@ -3,7 +3,8 @@
 ### Version 2.2.14 - Jan 28, 2028
 
 **Enhancements**
-- **Button** - Youtube's red color now matches their current brand guidelines **Thanks @hammy2899**
+- **Button** - Youtube's red color now matches their current brand guidelines **Thanks @hammy2899** #6110
+- **Flag** - Adds missing flag for England **Thanks @zyzniewski** #5944
 
 **Bugs**
 - **Dropdown** - Fixed issue where dropdown could incorrectly open upward and leftward opening when using `context` setting due to an incorrect offset calculation. **Thanks @dannyBies** #5974 #5366
