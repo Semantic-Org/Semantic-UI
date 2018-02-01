@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Step
+ * # Semantic UI 2.2.14 - Step
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -26,7 +26,8 @@
           align-items: stretch;
   margin: 1em 0em;
   background: '';
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   line-height: 1.14285714em;
   border-radius: 0.28571429rem;
   border: 1px solid rgba(34, 36, 38, 0.15);
@@ -72,12 +73,15 @@
   padding: 1.14285714em 2em;
   background: #FFFFFF;
   color: rgba(0, 0, 0, 0.87);
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border-radius: 0em;
   border: none;
   border-right: 1px solid rgba(34, 36, 38, 0.15);
-  -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+  -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, -webkit-box-shadow 0.1s ease;
+  transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, -webkit-box-shadow 0.1s ease;
   transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+  transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease;
 }
 
 /* Arrow */
@@ -95,8 +99,10 @@
   border-style: solid;
   border-color: rgba(34, 36, 38, 0.15);
   border-width: 0px 1px 1px 0px;
-  -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+  -webkit-transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, -webkit-box-shadow 0.1s ease;
+  transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, -webkit-box-shadow 0.1s ease;
   transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease;
+  transition: background-color 0.1s ease, opacity 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease;
   -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
           transform: translateY(-50%) translateX(50%) rotate(-45deg);
 }
@@ -163,7 +169,6 @@
       -ms-flex: 0 1 auto;
           flex: 0 1 auto;
   -ms-flex-item-align: middle;
-      -ms-grid-row-align: middle;
       align-self: middle;
 }
 .ui.steps .step > .icon ~ .content {
@@ -202,7 +207,6 @@
   text-align: center;
   content: counters(ordered, ".");
   -ms-flex-item-align: middle;
-      -ms-grid-row-align: middle;
       align-self: middle;
   margin-right: 1rem;
   font-size: 2.5em;
@@ -213,7 +217,6 @@
 .ui.ordered.steps .step > * {
   display: block;
   -ms-flex-item-align: middle;
-      -ms-grid-row-align: middle;
       align-self: middle;
 }
 

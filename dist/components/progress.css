@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Progress Bar
+ * # Semantic UI 2.2.14 - Progress Bar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -19,7 +19,8 @@
   max-width: 100%;
   border: none;
   margin: 1em 0em 2.5em;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   background: rgba(0, 0, 0, 0.1);
   padding: 0em;
   border-radius: 0.28571429rem;

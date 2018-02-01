@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Loader
+ * # Semantic UI 2.2.14 - Loader
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -55,7 +55,8 @@
   border-color: #767676 transparent transparent;
   border-style: solid;
   border-width: 0.2em;
-  box-shadow: 0px 0px 0px 1px transparent;
+  -webkit-box-shadow: 0px 0px 0px 1px transparent;
+          box-shadow: 0px 0px 0px 1px transparent;
 }
 
 /* Active Animation */
@@ -185,8 +186,7 @@
 *******************************/
 
 .ui.indeterminate.loader:after {
-  -webkit-animation-direction: reverse;
-          animation-direction: reverse;
+  animation-direction: reverse;
   -webkit-animation-duration: 1.2s;
           animation-duration: 1.2s;
 }

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Reset
+ * # Semantic UI 2.2.14 - Reset
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -18,10 +18,12 @@
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
 }
 html {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 /* iPad Input Shadows */
@@ -107,7 +109,8 @@ figure {
  * 2. Show the overflow in Edge and IE.
  */
 hr {
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   
 /* 1 */
   height: 0;
@@ -155,7 +158,8 @@ abbr[title] {
   text-decoration: underline;
   
 /* 2 */
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   
 /* 2 */
 }
@@ -342,7 +346,8 @@ fieldset {
  *    `fieldset` elements in all browsers.
  */
 legend {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   
 /* 1 */
   color: inherit;
@@ -385,7 +390,8 @@ textarea {
  */
 [type="checkbox"],
 [type="radio"] {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   
 /* 1 */
   padding: 0;

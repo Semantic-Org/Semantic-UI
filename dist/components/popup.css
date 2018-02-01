@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Popup
+ * # Semantic UI 2.2.14 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -33,7 +33,8 @@
   font-style: normal;
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
-  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+          box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
 }
 .ui.popup > .header {
   padding: 0em;
@@ -54,7 +55,8 @@
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   z-index: 2;
-  box-shadow: 1px 1px 0px 0px #bababc;
+  -webkit-box-shadow: 1px 1px 0px 0px #bababc;
+          box-shadow: 1px 1px 0px 0px #bababc;
 }
 
 
@@ -85,7 +87,8 @@
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   z-index: 2;
-  box-shadow: 1px 1px 0px 0px #bababc;
+  -webkit-box-shadow: 1px 1px 0px 0px #bababc;
+          box-shadow: 1px 1px 0px 0px #bababc;
 }
 
 /* Popup */
@@ -106,7 +109,8 @@
   font-style: normal;
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
-  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+          box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
   z-index: 1;
 }
 
@@ -205,7 +209,8 @@
 
 /* Arrow */
 [data-tooltip][data-inverted]:before {
-  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
 
 /* Arrow Position */
@@ -218,7 +223,8 @@
   background: #1B1C1D;
   color: #FFFFFF;
   border: none;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 [data-tooltip][data-inverted]:after .header {
   background-color: none;
@@ -366,15 +372,18 @@
 /* Arrow */
 [data-position~="bottom"][data-tooltip]:before {
   background: #FFFFFF;
-  box-shadow: -1px -1px 0px 0px #bababc;
+  -webkit-box-shadow: -1px -1px 0px 0px #bababc;
+          box-shadow: -1px -1px 0px 0px #bababc;
 }
 [data-position="left center"][data-tooltip]:before {
   background: #FFFFFF;
-  box-shadow: 1px -1px 0px 0px #bababc;
+  -webkit-box-shadow: 1px -1px 0px 0px #bababc;
+          box-shadow: 1px -1px 0px 0px #bababc;
 }
 [data-position="right center"][data-tooltip]:before {
   background: #FFFFFF;
-  box-shadow: -1px 1px 0px 0px #bababc;
+  -webkit-box-shadow: -1px 1px 0px 0px #bababc;
+          box-shadow: -1px 1px 0px 0px #bababc;
 }
 [data-position~="top"][data-tooltip]:before {
   background: #FFFFFF;
@@ -383,15 +392,18 @@
 /* Inverted Arrow Color */
 [data-inverted][data-position~="bottom"][data-tooltip]:before {
   background: #1B1C1D;
-  box-shadow: -1px -1px 0px 0px #bababc;
+  -webkit-box-shadow: -1px -1px 0px 0px #bababc;
+          box-shadow: -1px -1px 0px 0px #bababc;
 }
 [data-inverted][data-position="left center"][data-tooltip]:before {
   background: #1B1C1D;
-  box-shadow: 1px -1px 0px 0px #bababc;
+  -webkit-box-shadow: 1px -1px 0px 0px #bababc;
+          box-shadow: 1px -1px 0px 0px #bababc;
 }
 [data-inverted][data-position="right center"][data-tooltip]:before {
   background: #1B1C1D;
-  box-shadow: -1px 1px 0px 0px #bababc;
+  -webkit-box-shadow: -1px 1px 0px 0px #bababc;
+          box-shadow: -1px 1px 0px 0px #bababc;
 }
 [data-inverted][data-position~="top"][data-tooltip]:before {
   background: #1B1C1D;
@@ -488,7 +500,8 @@
   left: 50%;
   right: auto;
   bottom: auto;
-  box-shadow: -1px -1px 0px 0px #bababc;
+  -webkit-box-shadow: -1px -1px 0px 0px #bababc;
+          box-shadow: -1px -1px 0px 0px #bababc;
 }
 .ui.bottom.left.popup {
   margin-left: 0em;
@@ -500,7 +513,8 @@
   right: auto;
   bottom: auto;
   margin-left: 0em;
-  box-shadow: -1px -1px 0px 0px #bababc;
+  -webkit-box-shadow: -1px -1px 0px 0px #bababc;
+          box-shadow: -1px -1px 0px 0px #bababc;
 }
 .ui.bottom.right.popup {
   margin-right: 0em;
@@ -512,7 +526,8 @@
   bottom: auto;
   left: auto;
   margin-left: 0em;
-  box-shadow: -1px -1px 0px 0px #bababc;
+  -webkit-box-shadow: -1px -1px 0px 0px #bababc;
+          box-shadow: -1px -1px 0px 0px #bababc;
 }
 
 /*--- Above ---*/
@@ -556,7 +571,8 @@
   bottom: auto;
   left: auto;
   margin-top: -0.30714286em;
-  box-shadow: 1px -1px 0px 0px #bababc;
+  -webkit-box-shadow: 1px -1px 0px 0px #bababc;
+          box-shadow: 1px -1px 0px 0px #bababc;
 }
 
 /*--- Right Center  ---*/
@@ -568,7 +584,8 @@
   bottom: auto;
   right: auto;
   margin-top: -0.30714286em;
-  box-shadow: -1px 1px 0px 0px #bababc;
+  -webkit-box-shadow: -1px 1px 0px 0px #bababc;
+          box-shadow: -1px 1px 0px 0px #bababc;
 }
 
 /* Arrow Color By Location */
@@ -678,7 +695,8 @@
   background: #1B1C1D;
   color: #FFFFFF;
   border: none;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.inverted.popup .header {
   background-color: none;
@@ -686,7 +704,8 @@
 }
 .ui.inverted.popup:before {
   background-color: #1B1C1D;
-  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
 
 /*--------------

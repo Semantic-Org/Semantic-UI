@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Visibility
+ * # Semantic UI 2.2.14 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -927,8 +927,8 @@ $.fn.visibility = function(parameters) {
             // visibility
             element.topPassed        = (screen.top >= element.top);
             element.bottomPassed     = (screen.top >= element.bottom);
-            element.topVisible       = (screen.bottom >= element.top) && !element.bottomPassed;
-            element.bottomVisible    = (screen.bottom >= element.bottom) && !element.topPassed;
+            element.topVisible       = (screen.bottom >= element.top) && !element.topPassed;
+            element.bottomVisible    = (screen.bottom >= element.bottom) && !element.bottomPassed;
             element.pixelsPassed     = 0;
             element.percentagePassed = 0;
 

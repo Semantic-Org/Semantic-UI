@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Feed
+ * # Semantic UI 2.2.14 - Feed
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -61,7 +61,6 @@
   width: 2.5em;
   height: auto;
   -ms-flex-item-align: stretch;
-      -ms-grid-row-align: stretch;
       align-self: stretch;
   text-align: left;
 }
@@ -96,7 +95,6 @@
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   -ms-flex-item-align: stretch;
-      -ms-grid-row-align: stretch;
       align-self: stretch;
   text-align: left;
   word-wrap: break-word;
@@ -216,7 +214,8 @@
   background: none;
   border: none;
   border-radius: 0;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   padding: 0em;
   color: rgba(0, 0, 0, 0.6);
 }
