@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Form
+ * # Semantic UI 2.2.14 - Form
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -111,7 +111,8 @@
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
-  box-shadow: 0em 0em 0em 0em transparent inset;
+  -webkit-box-shadow: 0em 0em 0em 0em transparent inset;
+          box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
 }
@@ -127,7 +128,8 @@
   outline: none;
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
-  box-shadow: 0em 0em 0em 0em transparent inset;
+  -webkit-box-shadow: 0em 0em 0em 0em transparent inset;
+          box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
   font-size: 1em;
@@ -163,7 +165,8 @@
   background: #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
   border-radius: 0.28571429rem;
-  box-shadow: 0em 0em 0em 0em transparent inset;
+  -webkit-box-shadow: 0em 0em 0em 0em transparent inset;
+          box-shadow: 0em 0em 0em 0em transparent inset;
   padding: 0.62em 1em;
   color: rgba(0, 0, 0, 0.87);
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
@@ -285,19 +288,22 @@
 ---------------------*/
 
 .ui.form .field.field input:-webkit-autofill {
-  box-shadow: 0px 0px 0px 100px #FFFFF0 inset !important;
+  -webkit-box-shadow: 0px 0px 0px 100px #FFFFF0 inset !important;
+          box-shadow: 0px 0px 0px 100px #FFFFF0 inset !important;
   border-color: #E5DFA1 !important;
 }
 
 /* Focus */
 .ui.form .field.field input:-webkit-autofill:focus {
-  box-shadow: 0px 0px 0px 100px #FFFFF0 inset !important;
+  -webkit-box-shadow: 0px 0px 0px 100px #FFFFF0 inset !important;
+          box-shadow: 0px 0px 0px 100px #FFFFF0 inset !important;
   border-color: #D5C315 !important;
 }
 
 /* Error */
 .ui.form .error.error input:-webkit-autofill {
-  box-shadow: 0px 0px 0px 100px #FFFAF0 inset !important;
+  -webkit-box-shadow: 0px 0px 0px 100px #FFFAF0 inset !important;
+          box-shadow: 0px 0px 0px 100px #FFFAF0 inset !important;
   border-color: #E0B4B4 !important;
 }
 
@@ -366,14 +372,16 @@
   border-color: #85B7D9;
   border-radius: 0.28571429rem;
   background: #FFFFFF;
-  box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
+  -webkit-box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
+          box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
 }
 .ui.form textarea:focus {
   color: rgba(0, 0, 0, 0.95);
   border-color: #85B7D9;
   border-radius: 0.28571429rem;
   background: #FFFFFF;
-  box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
+  -webkit-box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
+          box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
   -webkit-appearance: none;
 }
 
@@ -475,7 +483,8 @@
   border-color: #E0B4B4;
   color: #9F3A38;
   border-radius: '';
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.form .field.error textarea:focus,
 .ui.form .field.error select:focus,
@@ -495,7 +504,8 @@
   border-color: #E0B4B4;
   color: #9F3A38;
   -webkit-appearance: none;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /* Preserve Native Select Stylings */
@@ -628,7 +638,8 @@
   border-color: #767676 rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1);
   border-style: solid;
   border-width: 0.2em;
-  box-shadow: 0px 0px 0px 1px transparent;
+  -webkit-box-shadow: 0px 0px 0px 1px transparent;
+          box-shadow: 0px 0px 0px 1px transparent;
   visibility: visible;
   z-index: 101;
 }
@@ -725,7 +736,8 @@
   background: #FFFFFF;
   border-color: rgba(255, 255, 255, 0.1);
   color: rgba(0, 0, 0, 0.87);
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /*--------------------
@@ -780,7 +792,8 @@
 }
 .ui.form .fields > .field:first-child {
   border-left: none;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /* Other Combinations */

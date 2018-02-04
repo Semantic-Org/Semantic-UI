@@ -146,6 +146,7 @@
 @useCustomScrollbars: true;
 
 @customScrollbarWidth: 10px;
+@customScrollbarHeight: 10px;
 
 @trackBackground: rgba(0, 0, 0, 0.1);
 @trackBorderRadius: 0px;
@@ -452,7 +453,7 @@
 @twitterColor    : #55ACEE;
 @googlePlusColor : #DD4B39;
 @linkedInColor   : #1F88BE;
-@youtubeColor    : #CC181E;
+@youtubeColor    : #FF0000;
 @pinterestColor  : #BD081C;
 @vkColor         : #4D7198;
 @instagramColor  : #49769C;

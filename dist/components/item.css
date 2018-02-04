@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Item
+ * # Semantic UI 2.2.14 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -29,9 +29,12 @@
   padding: 0em;
   border: none;
   border-radius: 0rem;
-  box-shadow: none;
-  -webkit-transition: box-shadow 0.1s ease;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transition: -webkit-box-shadow 0.1s ease;
+  transition: -webkit-box-shadow 0.1s ease;
   transition: box-shadow 0.1s ease;
+  transition: box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease;
   z-index: '';
 }
 .ui.items > .item a {
@@ -86,7 +89,6 @@
   padding: 0em;
   max-height: '';
   -ms-flex-item-align: top;
-      -ms-grid-row-align: top;
       align-self: top;
 }
 .ui.items > .item > .image > img {
@@ -112,7 +114,8 @@
   background: none;
   margin: 0em;
   padding: 0em;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   font-size: 1em;
   border: none;
   border-radius: 0em;
@@ -131,7 +134,6 @@
   display: block;
   margin-left: 0em;
   -ms-flex-item-align: top;
-      -ms-grid-row-align: top;
       align-self: top;
   padding-left: 1.5em;
 }
@@ -165,7 +167,6 @@
 
 .ui.items > .item .content img {
   -ms-flex-item-align: middle;
-      -ms-grid-row-align: middle;
       align-self: middle;
   width: '';
 }
@@ -306,7 +307,8 @@
   top: 0em;
   left: 0em;
   color: rgba(0, 0, 0, 0.4);
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   -webkit-transition: color 0.1s ease;
   transition: color 0.1s ease;
   border-top: none;
@@ -393,7 +395,6 @@
 }
 .ui.items > .item > .image + [class*="middle aligned"].content {
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
       align-self: center;
 }
 .ui.items > .item > .image + [class*="bottom aligned"].content {

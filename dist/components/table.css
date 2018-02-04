@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Table
+ * # Semantic UI 2.2.14 - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20,7 +20,8 @@
   background: #FFFFFF;
   margin: 1em 0em;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border-radius: 0.28571429rem;
   text-align: left;
   color: rgba(0, 0, 0, 0.87);
@@ -49,7 +50,8 @@
 
 /* Headers */
 .ui.table thead {
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.table thead th {
   cursor: auto;
@@ -79,7 +81,8 @@
 
 /* Footer */
 .ui.table tfoot {
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.table tfoot th {
   cursor: auto;
@@ -163,14 +166,16 @@
   .ui.table:not(.unstackable) tr {
     padding-top: 1em;
     padding-bottom: 1em;
-    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
+    -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
+            box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
   }
   .ui.table:not(.unstackable) tr > th,
   .ui.table:not(.unstackable) tr > td {
     background: none;
     border: none !important;
     padding: 0.25em 0.75em !important;
-    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
   }
   .ui.table:not(.unstackable) th:first-child,
   .ui.table:not(.unstackable) td:first-child {
@@ -179,7 +184,8 @@
   
 /* Definition Table */
   .ui.definition.table:not(.unstackable) thead th:first-child {
-    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
   }
 }
 
@@ -237,22 +243,26 @@
   background: transparent;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.4);
-  box-shadow: -1px -1px 0px 1px #FFFFFF;
+  -webkit-box-shadow: -1px -1px 0px 1px #FFFFFF;
+          box-shadow: -1px -1px 0px 1px #FFFFFF;
 }
 .ui.definition.table tfoot:not(.full-width) th:first-child {
   pointer-events: none;
   background: transparent;
   font-weight: rgba(0, 0, 0, 0.4);
   color: normal;
-  box-shadow: 1px 1px 0px 1px #FFFFFF;
+  -webkit-box-shadow: 1px 1px 0px 1px #FFFFFF;
+          box-shadow: 1px 1px 0px 1px #FFFFFF;
 }
 
 /* Remove Border */
 .ui.celled.definition.table thead:not(.full-width) th:first-child {
-  box-shadow: 0px -1px 0px 1px #FFFFFF;
+  -webkit-box-shadow: 0px -1px 0px 1px #FFFFFF;
+          box-shadow: 0px -1px 0px 1px #FFFFFF;
 }
 .ui.celled.definition.table tfoot:not(.full-width) th:first-child {
-  box-shadow: 0px 1px 0px 1px #FFFFFF;
+  -webkit-box-shadow: 0px 1px 0px 1px #FFFFFF;
+          box-shadow: 0px 1px 0px 1px #FFFFFF;
 }
 
 /* Highlight Defining Column */
@@ -262,7 +272,8 @@
   font-weight: bold;
   color: rgba(0, 0, 0, 0.95);
   text-transform: '';
-  box-shadow: '';
+  -webkit-box-shadow: '';
+          box-shadow: '';
   text-align: '';
   font-size: 1em;
   padding-left: '';
@@ -292,7 +303,8 @@
 
 .ui.table tr.positive,
 .ui.table td.positive {
-  box-shadow: 0px 0px 0px #A3C293 inset;
+  -webkit-box-shadow: 0px 0px 0px #A3C293 inset;
+          box-shadow: 0px 0px 0px #A3C293 inset;
 }
 .ui.table tr.positive,
 .ui.table td.positive {
@@ -306,7 +318,8 @@
 
 .ui.table tr.negative,
 .ui.table td.negative {
-  box-shadow: 0px 0px 0px #E0B4B4 inset;
+  -webkit-box-shadow: 0px 0px 0px #E0B4B4 inset;
+          box-shadow: 0px 0px 0px #E0B4B4 inset;
 }
 .ui.table tr.negative,
 .ui.table td.negative {
@@ -320,7 +333,8 @@
 
 .ui.table tr.error,
 .ui.table td.error {
-  box-shadow: 0px 0px 0px #E0B4B4 inset;
+  -webkit-box-shadow: 0px 0px 0px #E0B4B4 inset;
+          box-shadow: 0px 0px 0px #E0B4B4 inset;
 }
 .ui.table tr.error,
 .ui.table td.error {
@@ -334,7 +348,8 @@
 
 .ui.table tr.warning,
 .ui.table td.warning {
-  box-shadow: 0px 0px 0px #C9BA9B inset;
+  -webkit-box-shadow: 0px 0px 0px #C9BA9B inset;
+          box-shadow: 0px 0px 0px #C9BA9B inset;
 }
 .ui.table tr.warning,
 .ui.table td.warning {
@@ -348,7 +363,8 @@
 
 .ui.table tr.active,
 .ui.table td.active {
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.87) inset;
+  -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.87) inset;
+          box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.87) inset;
 }
 .ui.table tr.active,
 .ui.table td.active {
@@ -399,19 +415,22 @@
   .ui[class*="tablet stackable"].table tr {
     padding-top: 1em;
     padding-bottom: 1em;
-    box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
+    -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
+            box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.1) inset !important;
   }
   .ui[class*="tablet stackable"].table tr > th,
   .ui[class*="tablet stackable"].table tr > td {
     background: none;
     border: none !important;
     padding: 0.25em 0.75em;
-    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
   }
   
 /* Definition Table */
   .ui.definition[class*="tablet stackable"].table thead th:first-child {
-    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
   }
 }
 
@@ -542,7 +561,8 @@
   margin: 0em -1px;
   width: calc(100% +  2px );
   max-width: calc(100% +  2px );
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border: 1px solid #D4D4D5;
 }
 .ui.attached + .ui.attached.table:not(.top) {
@@ -567,7 +587,8 @@
   margin-top: 0em;
   top: 0px;
   margin-bottom: 1em;
-  box-shadow: none, none;
+  -webkit-box-shadow: none, none;
+          box-shadow: none, none;
   border-radius: 0em 0em 0.28571429rem 0.28571429rem;
 }
 .ui[class*="bottom attached"].table:last-child {
@@ -919,11 +940,13 @@
 
 /* Inverted */
 .ui.inverted.sortable.table thead th.sorted {
+  background: rgba(255, 255, 255, 0.15) -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: rgba(255, 255, 255, 0.15) -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: rgba(255, 255, 255, 0.15) linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   color: #ffffff;
 }
 .ui.inverted.sortable.table thead th:hover {
+  background: rgba(255, 255, 255, 0.08) -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: rgba(255, 255, 255, 0.08) -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: rgba(255, 255, 255, 0.08) linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   color: #ffffff;
@@ -985,11 +1008,13 @@
 .ui.basic.table {
   background: transparent;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.basic.table thead,
 .ui.basic.table tfoot {
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.basic.table th {
   background: transparent;

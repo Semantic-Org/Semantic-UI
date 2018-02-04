@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Flag
+ * # Semantic UI 2.2.14 - Flag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -299,6 +299,10 @@ i.flag.egypt:before {
 i.flag.eh:before,
 i.flag.western.sahara:before {
   background-position: 0px -1664px;
+}
+i.flag.gb.eng:before,
+i.flag.england:before {
+  background-position: 0px -1690px;
 }
 i.flag.er:before,
 i.flag.eritrea:before {

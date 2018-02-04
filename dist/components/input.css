@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Input
+ * # Semantic UI 2.2.14 - Input
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -43,9 +43,12 @@
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
-  -webkit-transition: box-shadow 0.1s ease, border-color 0.1s ease;
+  -webkit-transition: border-color 0.1s ease, -webkit-box-shadow 0.1s ease;
+  transition: border-color 0.1s ease, -webkit-box-shadow 0.1s ease;
   transition: box-shadow 0.1s ease, border-color 0.1s ease;
-  box-shadow: none;
+  transition: box-shadow 0.1s ease, border-color 0.1s ease, -webkit-box-shadow 0.1s ease;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /*--------------------
@@ -92,7 +95,8 @@
   border-color: rgba(0, 0, 0, 0.3);
   background: #FAFAFA;
   color: rgba(0, 0, 0, 0.87);
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /*--------------------
@@ -126,7 +130,8 @@
   border-color: #767676 transparent transparent;
   border-style: solid;
   border-width: 0.2em;
-  box-shadow: 0px 0px 0px 1px transparent;
+  -webkit-box-shadow: 0px 0px 0px 1px transparent;
+          box-shadow: 0px 0px 0px 1px transparent;
 }
 
 /*--------------------
@@ -138,7 +143,8 @@
   border-color: #85B7D9;
   background: #FFFFFF;
   color: rgba(0, 0, 0, 0.8);
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.input.focus input::-webkit-input-placeholder,
 .ui.input input:focus::-webkit-input-placeholder {
@@ -161,7 +167,8 @@
   background-color: #FFF6F6;
   border-color: #E0B4B4;
   color: #9F3A38;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /* Error Placeholder */
@@ -200,7 +207,8 @@
   border-color: transparent !important;
   background-color: transparent !important;
   padding: 0em !important;
-  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
   border-radius: 0px !important;
 }
 

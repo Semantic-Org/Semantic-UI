@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Shape
+ * # Semantic UI 2.2.14 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -54,7 +54,8 @@
   padding: 2em;
   background-color: #E6E6E6;
   color: rgba(0, 0, 0, 0.87);
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
 }
 .ui.cube.shape .side > .content {
   width: 100%;

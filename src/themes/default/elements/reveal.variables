@@ -10,6 +10,7 @@
 @bottomZIndex: 2;
 @topZIndex: 3;
 @activeZIndex: 4;
+@overlayZIndex: 5;
 
 /* Types */
 @rotateDegrees: 110deg;

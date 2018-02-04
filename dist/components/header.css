@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.12 - Header
+ * # Semantic UI 2.2.14 - Header
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -301,15 +301,19 @@ h5.ui.header .sub.header {
   color: rgba(255, 255, 255, 0.8);
 }
 .ui.inverted.attached.header {
+  background: #545454 -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: #545454 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #545454 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border-color: transparent;
 }
 .ui.inverted.block.header {
+  background: #545454 -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.05)));
   background: #545454 -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.05));
   background: #545454 linear-gradient(transparent, rgba(0, 0, 0, 0.05));
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 .ui.inverted.block.header {
   border-bottom: none;
@@ -632,7 +636,8 @@ a.ui.inverted.grey.header:hover {
 .ui.block.header {
   background: #F3F4F5;
   padding: 0.78571429rem 1rem;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border: 1px solid #D4D4D5;
   border-radius: 0.28571429rem;
 }
@@ -661,7 +666,8 @@ a.ui.inverted.grey.header:hover {
   padding: 0.78571429rem 1rem;
   margin-left: -1px;
   margin-right: -1px;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border: 1px solid #D4D4D5;
 }
 .ui.attached.block.header {
