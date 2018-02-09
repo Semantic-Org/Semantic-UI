@@ -450,12 +450,12 @@
 --------------------*/
 
 @facebookColor   : #3B5998;
-@twitterColor    : #55ACEE;
+@twitterColor    : #1DA1F3;
 @googlePlusColor : #DD4B39;
-@linkedInColor   : #1F88BE;
+@linkedInColor   : #0077B5;
 @youtubeColor    : #FF0000;
 @pinterestColor  : #BD081C;
-@vkColor         : #4D7198;
+@vkColor         : #45668E;
 
 @instagramColorBlue         : #405de6;
 @instagramColorPurple       : #ff1e82;
