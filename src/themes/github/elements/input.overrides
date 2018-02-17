@@ -13,7 +13,7 @@
   border: none !important;
 }
 .ui.labeled.input .label {
-  font-weight: normal;
+  font-weight: @fontWeightNormal;
   align-self: center;
   font-size: 12px;
   margin: @2px;

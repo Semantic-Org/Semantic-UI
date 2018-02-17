@@ -10,6 +10,6 @@
 @styledActiveChildTitleBackground: transparent;
 
 @styledTitlePadding: 1.25em;
-@styledTitleFontWeight: bold;
+@styledTitleFontWeight: @fontWeightBold;
 @styledContentPadding: 1.5em 3.25em;
 @styledChildContentPadding: @styledContentPadding;

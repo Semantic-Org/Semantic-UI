@@ -6,10 +6,10 @@
 
 h1.ui.header,
 .ui.huge.header {
-  font-weight: normal;
+  font-weight: @fontWeightNormal;
 }
 
 h2.ui.header,
 .ui.large.header {
-  font-weight: normal;
+  font-weight: @fontWeightNormal;
 }

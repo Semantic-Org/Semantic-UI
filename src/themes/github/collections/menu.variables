@@ -6,7 +6,7 @@
 @itemHorizontalPadding: 1.25em;
 
 @background: #FFFFFF linear-gradient(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
-@fontWeight: normal;
+@fontWeight: @fontWeightNormal;
 
 @activeBorderSize: 0em;
 

@@ -3,7 +3,7 @@
 --------------------*/
 
 @headerFont : 'Source Sans Pro', Helvetica Neue, Helvetica, Arial, sans-serif;
-@fontWeight: bold;
+@fontWeight: @fontWeightBold;
 @textTransform: none;
 
 /* HTML Headings */

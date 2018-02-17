@@ -54,13 +54,13 @@
 @datePadding: 0em;
 @dateColor: @lightTextColor;
 @dateFontSize: @relativeMedium;
-@dateFontWeight: normal;
+@dateFontWeight: @fontWeightNormal;
 @dateFontStyle: normal;
 
 /* Summary */
 @summaryMargin: 0em;
 @summaryFontSize: @relativeMedium;
-@summaryFontWeight: bold;
+@summaryFontWeight: @fontWeightBold;
 @summaryColor: @textColor;
 
 /* Summary Image */
@@ -81,7 +81,7 @@
 @summaryDateColor: @dateColor;
 
 /* User */
-@userFontWeight: bold;
+@userFontWeight: @fontWeightBold;
 @userDistance: 0em;
 @userImageWidth: @summaryImageWidth;
 @userImageHeight: @summaryImageHeight;

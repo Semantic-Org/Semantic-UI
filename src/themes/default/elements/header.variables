@@ -24,7 +24,7 @@
 /* Sub Heading */
 @subHeadingDistance: @2px;
 @subHeadingFontSize: @relativeTiny;
-@subHeadingFontWeight: bold;
+@subHeadingFontWeight: @fontWeightBold;
 @subHeadingTextTransform: uppercase;
 @subHeadingColor: '';
 

@@ -16,7 +16,7 @@
 @borderBoxShadowColor: #E1E8ED;
 
 @textTransform: none;
-@fontWeight: bold;
+@fontWeight: @fontWeightBold;
 @textColor: #333333;
 
 @horizontalPadding: 1.284em;

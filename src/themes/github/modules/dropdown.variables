@@ -21,7 +21,7 @@
 @menuHeaderPadding: @relative6px @itemHorizontalPadding;
 @menuHeaderFontSize: @relative12px;
 @menuHeaderTextTransform: none;
-@menuHeaderFontWeight: normal;
+@menuHeaderFontWeight: @fontWeightNormal;
 @menuHeaderColor: #767676;
 
 @menuDividerMargin: @relative8px 0em;

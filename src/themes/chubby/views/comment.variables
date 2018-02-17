@@ -32,7 +32,7 @@
 @authorFontSize: 1em;
 @authorColor: @primaryColor;
 @authorHoverColor: @primaryColorHover;
-@authorFontWeight: bold;
+@authorFontWeight: @fontWeightBold;
 
 @metadataDisplay: block;
 @metadataSpacing: 0em;

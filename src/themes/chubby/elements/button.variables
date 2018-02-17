@@ -6,7 +6,7 @@
 @pageFont: 'Source Sans Pro', Arial, sans-serif;
 
 @textTransform: none;
-@fontWeight: normal;
+@fontWeight: @fontWeightNormal;
 @textColor: #333333;
 
 @verticalPadding: 1.1em;
@@ -14,7 +14,7 @@
 @invertedBorderSize: 3px;
 
 @basicBorderRadius: 0.4em;
-@basicFontWeight: bold;
+@basicFontWeight: @fontWeightBold;
 @basicTextTransform: uppercase;
 
 @blue: #4A88CB;

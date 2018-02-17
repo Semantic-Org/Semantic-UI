@@ -11,7 +11,7 @@
 
 @itemVerticalPadding: 1.25em;
 @itemHorizontalPadding: 2em;
-@itemFontWeight: bold;
+@itemFontWeight: @fontWeightBold;
 
 @activeItemBackground: @primaryColor;
 @activeItemTextColor: @white;

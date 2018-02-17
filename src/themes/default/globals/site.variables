@@ -12,6 +12,10 @@
 @headerFont        : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 @pageFont          : @fontName, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 
+@fontWeightNormal  : 400;
+@fontWeightBold    : 700;
+@fontWeightIcon    : 400;
+
 @googleFontName    : @fontName;
 @importGoogleFonts : true;
 @googleFontSizes   : '400,700,400italic,700italic';
@@ -57,7 +61,7 @@
   Page Heading
 ---------------*/
 
-@headerFontWeight : bold;
+@headerFontWeight : @fontWeightBold;
 @headerLineHeight : unit((18 / 14), em);
 
 @h1 : unit((28 / 14), rem);
