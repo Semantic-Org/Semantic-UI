@@ -989,3 +989,4 @@ i.icon.s15:before { content: "\f2cd"; }
 i.icon.bath:before { content: "\f2cd"; }
 i.icon.times.rectangle:before { content: "\f2d3"; }
 i.icon.times.rectangle.outline:before { content: "\f2d4"; }
+i.icon.five.hundred.px:before { content: "\f26e"; }
