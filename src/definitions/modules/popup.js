@@ -502,9 +502,10 @@ $.fn.popup = function(parameters) {
           },
           calculations: function() {
             var
-              targetElement    = $target[0],
-              isWindow         = ($boundary[0] == window),
-              targetPosition   = (settings.inline || (settings.popup && settings.movePopup))
+              $popupOffsetParent = module.get.offsetParent($popup),
+              targetElement      = $target[0],
+              isWindow           = ($boundary[0] == window),
+              targetPosition     = (settings.inline || (settings.popup && settings.movePopup))
                 ? $target.position()
                 : $target.offset(),
               screenPosition = (isWindow)
@@ -548,6 +549,17 @@ $.fn.popup = function(parameters) {
                 height : $boundary.height()
               }
             };
+
+            // if popup offset context is not same as target, then adjust calculations
+            if($popupOffsetParent.get(0) !== $offsetParent.get(0)) {
+              var
+                popupOffset        = $popupOffsetParent.offset()
+              ;
+              calculations.target.top -= popupOffset.top;
+              calculations.target.left -= popupOffset.left;
+              calculations.parent.width = $popupOffsetParent.outerWidth();
+              calculations.parent.height = $popupOffsetParent.outerHeight();
+            }
 
             // add in container calcs if fluid
             if( settings.setFluidWidth && module.is.fluid() ) {

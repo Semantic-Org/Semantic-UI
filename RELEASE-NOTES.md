@@ -2,6 +2,9 @@
 
 ### Version 2.3.0 - Feb 19, 2018
 
+**Enhancements**
+- **Popup** - Popup can now position elements correctly even when they have a different offset context than their activating element. Like in [this example](https://jsfiddle.net/g853mc03/)
+
 **Bugs**
 - **Modal** - Modal `autofocus` setting now checks to see if currently focused element is in modal, avoiding issues where focus could be set in `onVisible` or `onShow`
 
