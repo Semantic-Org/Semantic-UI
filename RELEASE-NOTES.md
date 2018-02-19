@@ -3,6 +3,7 @@
 ### Version 2.3.0 - Feb 19, 2018
 
 **Major Enhancements**
+- **Icons** - Font Awesome 5 is now included in Semantic UI **Thanks @hammy2829** #6085
 - **Search** - Category search can now work with local search by adding a `category` property to any result and specifying `type: 'category'`
 - **Search** - Category results now has `exact` matching
 - **Modal** - Modal has been rewritten to use `flexbox`. No need to call `refresh()` to recalculate vertical centering.
@@ -16,6 +17,11 @@
 
 **Bugs**
 - **Modal** - Modal `autofocus` setting now checks to see if currently focused element is in modal, avoiding issues where focus could be set in `onVisible` or `onShow`
+
+**Doc Updates**
+- **Icons** - Icon documentation now has a search that will copy the relevent icon html to clipboard
+- **Icons** - Icon documentation now lists publicly all icon aliases
+
 
 ### Version 2.2.14 - Jan 29, 2018
 
