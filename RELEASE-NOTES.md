@@ -5,7 +5,7 @@
 **Major Enhancements**
 - **Icons** - Font Awesome 5 is now included in Semantic UI **Thanks @hammy2899** #6085
 - **Search** - Category search can now work with local search by adding a `category` property to any result and specifying `type: 'category'`
-- **Theming** - Added global variables for reassigning `normal` and `bold` font weights for custom font stacks.
+- **Theming** - Added global variables for reassigning `normal` and `bold` font weights for custom font stacks. **Thanks @jaridmargolin** #6167
 - **Search** - Category results now has `exact` matching
 - **Modal** - Modal has been rewritten to use `flexbox`. No need to call `refresh()` to recalculate vertical centering.
 - **Modal** - Modals now have a setting `centered` which can be used to disable vertical centering. This can be useful for modals with content that changes dynamically to prevent content from jumping in position.
