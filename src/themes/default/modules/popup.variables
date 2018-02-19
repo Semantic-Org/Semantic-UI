@@ -43,7 +43,7 @@
 @border: @borderWidth solid @borderColor;
 
 /* Arrow */
-@arrowBackground: @white;
+@arrowBackground: @background;
 @arrowZIndex: 2;
 @arrowJitter: 0.05em;
 @arrowOffset: -(@arrowSize / 2) + @arrowJitter;
