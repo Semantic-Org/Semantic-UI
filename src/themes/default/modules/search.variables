@@ -152,7 +152,7 @@
 @categoryNameBackground: transparent;
 @categoryNameFont: @pageFont;
 @categoryNameFontSize: 1em;
-@categoryNameFloat: left;
+@categoryNameWhitespace: nowrap;
 @categoryNamePadding: 0.4em 1em;
 @categoryNameFontWeight: bold;
 @categoryNameColor: @lightTextColor;
