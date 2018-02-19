@@ -15,7 +15,7 @@
 @horizontalPadding : 0.8em;
 @borderRadius      : @relative3px;
 @color             : #222222;
-@fontWeight        : normal;
+@fontWeight        : @fontWeightNormal;
 @textTransform     : none;
 
 @backgroundColor      : @white;
@@ -94,4 +94,3 @@
 
 /* Inverted */
 @invertedBorderSize: 1px;
-

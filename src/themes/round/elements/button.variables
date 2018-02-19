@@ -9,7 +9,7 @@
 @textTransform: uppercase;
 @backgroundColor: #FFFFFF;
 @backgroundImage: none;
-@fontWeight: bold;
+@fontWeight: @fontWeightBold;
 @textColor: rgba(0, 0, 0, 0.6);
 @boxShadow:
   0px 0px 0px 2px rgba(0, 0, 0, 0.2) inset

@@ -5,7 +5,7 @@
 /* Button Variables */
 @pageFont: Helvetica Neue, Helvetica, Arial, sans-serif;
 @textTransform: none;
-@fontWeight: bold;
+@fontWeight: @fontWeightBold;
 @textColor: #333333;
 
 @textShadow: 0px 1px 0px rgba(255, 255, 255, 0.9);
@@ -54,7 +54,7 @@
 @labeledIconBorder: transparent;
 @labeledIconPadding: (@horizontalPadding + 2.25em);
 
-@basicFontWeight: bold;
+@basicFontWeight: @fontWeightBold;
 @basicTextColor: @linkColor;
 @basicHoverTextColor: @linkHoverColor;
 

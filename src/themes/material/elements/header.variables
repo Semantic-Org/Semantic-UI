@@ -3,7 +3,7 @@
 --------------------*/
 
 @headerFont : 'Roboto', Arial, sans-serif;
-@fontWeight: normal;
+@fontWeight: @fontWeightNormal;
 
 @iconSize: 2em;
 @iconOffset: 0.2em;

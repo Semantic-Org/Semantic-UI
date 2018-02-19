@@ -17,7 +17,7 @@
 
 @verticalPadding: 0.833em;
 @horizontalPadding: 1em;
-@fontWeight: normal;
+@fontWeight: @fontWeightNormal;
 @fontStyle: normal;
 @borderRadius: @defaultBorderRadius;
 

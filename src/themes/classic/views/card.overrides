@@ -48,7 +48,7 @@
 /* Title */
 @titleMargin: 0em;
 @titleFont: @headerFont;
-@titleFontWeight: bold;
+@titleFontWeight: @fontWeightBold;
 @titleFontSize: 1.25em;
 @titleColor: @darkTextColor;
 

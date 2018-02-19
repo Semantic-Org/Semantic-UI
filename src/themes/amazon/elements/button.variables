@@ -6,7 +6,7 @@
 @pageFont: Helvetica Neue, Helvetica, Arial, sans-serif;
 @textTransform: none;
 @textColor: #111111;
-@fontWeight: normal;
+@fontWeight: @fontWeightNormal;
 @transition:
   opacity @defaultDuration @defaultEasing,
   background-color @defaultDuration @defaultEasing,

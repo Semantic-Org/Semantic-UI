@@ -11,7 +11,7 @@
 @itemHorizontalPadding: 1.5em;
 
 @menuHeaderFontSize: @small;
-@menuHeaderFontWeight: bold;
+@menuHeaderFontWeight: @fontWeightBold;
 @menuHeaderTextTransform: none;
 
 @selectionBorderEmWidth: 0em;
