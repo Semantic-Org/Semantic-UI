@@ -223,7 +223,6 @@
 @basicTableHeaderBackground: transparent;
 @basicTableCellBackground: transparent;
 @basicTableHeaderDivider: none;
-@basicTableCellBorder: 1px solid rgba(0, 0, 0, 0.1);
 @basicTableCellPadding: '';
 @basicTableStripedBackground: @transparentBlack;
 
