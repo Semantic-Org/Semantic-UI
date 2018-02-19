@@ -71,7 +71,7 @@
 
 /* Header */
 @headerMargin: '';
-@headerFontWeight: bold;
+@headerFontWeight: @bold;
 @headerFontSize: @relativeBig;
 @headerLineHeightOffset: -(@lineHeight - 1em) / 2;
 @headerColor: @darkTextColor;

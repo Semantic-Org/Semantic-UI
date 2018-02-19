@@ -5,6 +5,7 @@
 **Major Enhancements**
 - **Icons** - Font Awesome 5 is now included in Semantic UI **Thanks @hammy2899** #6085
 - **Search** - Category search can now work with local search by adding a `category` property to any result and specifying `type: 'category'`
+- **Theming** - Added global variables for reassigning `normal` and `bold` font weights for custom font stacks.
 - **Search** - Category results now has `exact` matching
 - **Modal** - Modal has been rewritten to use `flexbox`. No need to call `refresh()` to recalculate vertical centering.
 - **Modal** - Modals now have a setting `centered` which can be used to disable vertical centering. This can be useful for modals with content that changes dynamically to prevent content from jumping in position.
@@ -14,7 +15,8 @@
 - **Dimmer** - Dimmers now have centered content with a single wrapping `content` element.
 - **Popup** - Popup will now align the center of the arrow (not the edge of the popup) when it would be reasonable (up to 2x arrow's offset from edge). [See this explanation](http://oi66.tinypic.com/2zr2ckk.jpg)
 - **Popup** - Popup can now position elements correctly even when they have a different offset context than their activating element. Like in [this example](https://jsfiddle.net/g853mc03/)
-- **Popup** - Popup `arrowBackground` now inherits from `background` #6059 **Thanks @devsli**
+- **Popup** - `arrowBackground` now inherits from `background` #6059 **Thanks @devsli**
+- **Popup** - Adds new variable `headerFontWeight`
 
 **Bugs**
 - **Modal** - Modal `autofocus` setting now checks to see if currently focused element is in modal, avoiding issues where focus could be set in `onVisible` or `onShow`

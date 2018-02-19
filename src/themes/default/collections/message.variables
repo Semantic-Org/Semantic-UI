@@ -33,7 +33,7 @@
 
 /* Header */
 @headerFontSize: @relativeLarge;
-@headerFontWeight: bold;
+@headerFontWeight: @bold;
 @headerDisplay: block;
 @headerDistance: 0rem;
 @headerMargin: -@headerLineHeightOffset 0em @headerDistance 0em;

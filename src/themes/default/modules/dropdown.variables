@@ -56,7 +56,7 @@
 @itemVerticalPadding: @mini;
 @itemHorizontalPadding: @large;
 @itemPadding: @itemVerticalPadding @itemHorizontalPadding;
-@itemFontWeight: normal;
+@itemFontWeight: @normal;
 @itemLineHeight: 1em;
 @itemLineHeightOffset: (@itemLineHeight - 1em);
 @itemTextTransform: none;
@@ -74,7 +74,7 @@
 /* Menu Header */
 @menuHeaderColor: @darkTextColor;
 @menuHeaderFontSize: @relative11px;
-@menuHeaderFontWeight: bold;
+@menuHeaderFontWeight: @bold;
 @menuHeaderTextTransform: uppercase;
 @menuHeaderMargin: 1rem 0rem 0.75rem;
 @menuHeaderPadding: 0em @itemHorizontalPadding;
@@ -112,7 +112,7 @@
 
 /* Message */
 @messagePadding: @selectionItemPadding;
-@messageFontWeight: normal;
+@messageFontWeight: @normal;
 @messageColor: @unselectedTextColor;
 
 /* Floated Content */
@@ -198,7 +198,7 @@
 @selectionFocusMenuBoxShadow: @raisedShadow;
 
 /* Visible */
-@selectionVisibleTextFontWeight: normal;
+@selectionVisibleTextFontWeight: @normal;
 @selectionVisibleTextColor: @hoveredTextColor;
 
 @selectionVisibleBorderColor: @focusedFormMutedBorderColor;
@@ -234,7 +234,7 @@
 /* Inline */
 @inlineIconMargin: 0em @relative7px 0em @relative3px;
 @inlineTextColor: inherit;
-@inlineTextFontWeight: bold;
+@inlineTextFontWeight: @bold;
 @inlineMenuDistance: @relative3px;
 @inlineMenuBorderRadius: @borderRadius;
 
@@ -294,7 +294,7 @@
 @activeItemZIndex: @menuZIndex + 1;
 @activeItemBackground: transparent;
 @activeItemBoxShadow: none;
-@activeItemFontWeight: bold;
+@activeItemFontWeight: @bold;
 @activeItemColor: @selectedTextColor;
 
 /* Selected */
