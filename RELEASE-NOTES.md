@@ -1,5 +1,10 @@
 ## RELEASE NOTES
 
+### Version 2.3.0 - Feb 19, 2018
+
+**Bugs**
+- **Modal** - Modal `autofocus` setting now checks to see if currently focused element is in modal, avoiding issues where focus could be set in `onVisible` or `onShow`
+
 ### Version 2.2.14 - Jan 29, 2018
 
 **Critical Bugs**
