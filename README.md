@@ -19,7 +19,7 @@ Semantic allows developers to build beautiful websites fast, with **concise HTML
 
 ## 2.2 Release
 
-Semantic UI `2.2` is now available (June 2016). Read up on [what's new](http://www.semantic-ui.com/introduction/new.html) in the docs.
+Semantic UI `2.2` is now available. Read up on [what's new](http://www.semantic-ui.com/introduction/new.html) in the docs.
 
 Migration info from `1.x` can be found in the [2.0 release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md#version-200---march-xx-2015)
 
