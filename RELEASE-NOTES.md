@@ -22,6 +22,8 @@
 - **Icons** - Icon documentation now has a search that will copy the relevent icon html to clipboard
 - **Icons** - Icon documentation now lists publicly all icon aliases
 
+**Doc Bugs**
+- **UI Examples** - Fixe some improper html in UI examples included with repo #6127 **Thanks @perdian**
 
 ### Version 2.2.14 - Jan 29, 2018
 
