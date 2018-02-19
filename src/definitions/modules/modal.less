@@ -333,7 +333,20 @@
            Variations
 *******************************/
 
-/* A modal that cannot fit on the page */
+/*--------------
+   Top Aligned
+---------------*/
+
+/* Top Aligned Modal */
+.modals.dimmer[class*="top aligned"] .modal {
+  margin: @topAlignedMargin auto;
+}
+
+/*--------------
+    Scrolling
+---------------*/
+
+/* Scrolling Dimmer */
 .scrolling.dimmable.dimmed {
   overflow: hidden;
 }
@@ -351,7 +364,7 @@
   margin: @scrollingMargin auto !important;
 }
 
-/* undetached scrolling */
+/* Undetached Scrolling */
 .scrolling.undetached.dimmable.dimmed {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -364,7 +377,6 @@
   left: 50%;
   margin-top: @scrollingMargin !important;
 }
-
 
 /* Scrolling Content */
 .ui.modal .scrolling.content {

@@ -36,6 +36,7 @@
 
   text-align: @textAlign;
   vertical-align: @verticalAlign;
+  padding: @padding;
 
   background-color: @backgroundColor;
   opacity: @hiddenOpacity;
@@ -111,6 +112,17 @@
 /*******************************
            Variations
 *******************************/
+
+/*--------------
+    Alignment
+---------------*/
+
+.ui[class*="top aligned"].dimmer {
+  justify-content: flex-start;
+}
+.ui[class*="bottom aligned"].dimmer {
+  justify-content: flex-end;
+}
 
 /*--------------
       Page

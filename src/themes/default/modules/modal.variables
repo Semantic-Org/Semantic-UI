@@ -117,9 +117,13 @@
 @basicInvertedModalColor: @textColor;
 @basicInvertedModalHeaderColor: @darkTextColor;
 
+/* Top Aligned */
+@topAlignedMargin: 5vh;
+@mobileTopAlignedMargin: 1rem;
+
 /* Scrolling Margin */
-@scrollingMargin: 5vh;
-@mobileScrollingMargin: 1rem;
+@scrollingMargin: @topAlignedMargin;
+@mobileScrollingMargin: @mobileTopAlignedMargin;
 
 /* Scrolling Content */
 @scrollingContentMaxHeight: calc(80vh - 10em);

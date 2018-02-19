@@ -108,6 +108,10 @@ $.fn.modal = function(parameters) {
             var
               defaultSettings = {
                 debug      : settings.debug,
+                variation  : settings.centered
+                  ? ''
+                  : 'top aligned'
+                ,
                 dimmerName : 'modals'
               },
               dimmerSettings = $.extend(true, defaultSettings, settings.dimmerSettings)
@@ -627,6 +631,10 @@ $.fn.modal = function(parameters) {
                 dimmerName : 'modals',
                 variation  : false,
                 closable   : 'auto',
+                variation  : settings.centered
+                  ? ''
+                  : 'top aligned'
+                ,
                 duration   : {
                   show     : settings.duration,
                   hide     : settings.duration
@@ -889,6 +897,8 @@ $.fn.modal.settings = {
 
   inverted       : false,
   blurring       : false,
+
+  centered       : true,
 
   dimmerSettings : {
     closable : false,
