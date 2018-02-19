@@ -3,7 +3,7 @@
 ### Version 2.3.0 - Feb 19, 2018
 
 **Major Enhancements**
-- **Icons** - Font Awesome 5 is now included in Semantic UI **Thanks @hammy2829** #6085
+- **Icons** - Font Awesome 5 is now included in Semantic UI **Thanks @hammy2899** #6085
 - **Search** - Category search can now work with local search by adding a `category` property to any result and specifying `type: 'category'`
 - **Search** - Category results now has `exact` matching
 - **Modal** - Modal has been rewritten to use `flexbox`. No need to call `refresh()` to recalculate vertical centering.
