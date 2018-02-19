@@ -799,6 +799,7 @@ i.icon.cart:before { content: "\f07a"; }
 i.icon.shopping.cart:before { content: "\f07a"; }
 i.icon.bar.graph:before { content: "\f080"; }
 i.icon.key:before { content: "\f084"; }
+i.icon.cog:before { content: "\f013"; }
 i.icon.cogs:before { content: "\f085"; }
 i.icon.discussions:before { content: "\f086"; }
 i.icon.like.outline:before { content: "\f087"; }
