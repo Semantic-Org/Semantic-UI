@@ -29,10 +29,6 @@
 /* Hidden (Default) */
 @hiddenOpacity: 0;
 
-/* Content */
-@contentDisplay: table;
-@contentChildDisplay: table-cell;
-
 /* Visible */
 @visibleOpacity: 1;
 
