@@ -22,7 +22,7 @@
 @textTransform: none;
 @tapColor: transparent;
 @fontFamily: @pageFont;
-@fontWeight: bold;
+@fontWeight: @bold;
 @textColor: rgba(0, 0, 0, 0.6);
 @textShadow: none;
 @invertedTextShadow: @textShadow;
@@ -152,8 +152,8 @@
 
 @orBackgroundColor: @white;
 @orTextShadow: @invertedTextShadow;
-@orTextStyle: normal;
-@orTextWeight: bold;
+@orTextStyle: @normal;
+@orTextWeight: @bold;
 @orTextColor: @lightTextColor;
 
 
@@ -198,7 +198,7 @@
 @basicColoredBorderSize: 1px;
 
 @basicBackground: transparent none;
-@basicFontWeight: normal;
+@basicFontWeight: @normal;
 @basicBorder: 1px solid @borderColor;
 @basicBoxShadow: 0px 0px 0px @basicBorderSize @borderColor inset;
 @basicLoadingColor: @offWhite;

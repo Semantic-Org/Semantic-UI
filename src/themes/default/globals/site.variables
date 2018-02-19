@@ -20,6 +20,10 @@
 @googleProtocol    : 'https://';
 @googleFontRequest : '@{googleFontName}:@{googleFontSizes}&subset=@{googleSubset}';
 
+
+@bold              : bold;
+@normal            : normal;
+
 /*-------------------
       Base Sizes
 --------------------*/
@@ -57,7 +61,7 @@
   Page Heading
 ---------------*/
 
-@headerFontWeight : bold;
+@headerFontWeight : @bold;
 @headerLineHeight : unit((18 / 14), em);
 
 @h1 : unit((28 / 14), rem);

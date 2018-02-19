@@ -48,7 +48,7 @@
 @authorFontSize: 1em;
 @authorColor: @textColor;
 @authorHoverColor: @linkHoverColor;
-@authorFontWeight: bold;
+@authorFontWeight: @bold;
 
 /* Metadata */
 @metadataDisplay: inline-block;
