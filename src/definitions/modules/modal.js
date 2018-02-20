@@ -241,26 +241,23 @@ $.fn.modal = function(parameters) {
             module.hide();
           },
           click: function(event) {
+            if(!settings.closable) {
+              module.verbose('Dimmer clicked but closable setting is disabled');
+              return;
+            }
             var
               $target   = $(event.target),
               isInModal = ($target.closest(selector.modal).length > 0),
               isInDOM   = $.contains(document.documentElement, event.target)
             ;
-            if(!isInModal && isInDOM) {
-              if(settings.closable) {
-                module.debug('Dimmer clicked, hiding all modals');
-                if( module.is.active() ) {
-                  module.remove.clickaway();
-                  if(settings.allowMultiple) {
-                    module.hide();
-                  }
-                  else {
-                    module.hideAll();
-                  }
-                }
+            if(!isInModal && isInDOM && module.is.active()) {
+              module.debug('Dimmer clicked, hiding all modals');
+              module.remove.clickaway();
+              if(settings.allowMultiple) {
+                module.hide();
               }
               else {
-                module.debug('Dimmer clicked, but closable is set to false');
+                module.hideAll();
               }
             }
           },

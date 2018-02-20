@@ -11,12 +11,13 @@
 **Minor Enhancements**
 - **Theming** - Added global variables for reassigning `normal` and `bold` font weights for custom font stacks. **Thanks @jaridmargolin** #6167
 - **Search** - Category results now has `exact` setting matching dropdown for `fullTextSearch` preventing fuzzy search
-
-**Other Enhancements**
 - **Search** - Category results will now responsively adjust `title` row if titles are long instead of forcing a title width
 - **Dimmer** - Dimmers now have centered content with a single wrapping `content` element.
 - **Popup** - Popup will now align the center of the arrow (not the edge of the popup) when it would be reasonable (up to 2x arrow's offset from edge). [See this explanation](http://oi66.tinypic.com/2zr2ckk.jpg)
 - **Popup** - Popup can now position elements correctly even when they have a different offset context than their activating element. Like in [this example](https://jsfiddle.net/g853mc03/)
+- **Modal** - You can now modify `closable` setting after init **Thanks @mdehoog** #3396
+
+**Tiny Enhancements**
 - **Popup** - `arrowBackground` now inherits from `background` #6059 **Thanks @devsli**
 - **Popup** - Adds new variable `headerFontWeight`
 
