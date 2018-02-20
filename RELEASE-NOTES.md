@@ -26,6 +26,7 @@
 - **Table** - Fixes tr not having correct border on first row when using multiple `tbody` **Thanks @Mlukman** #4458
 - **Popup** - Popup will now use `content` specified in settings before `title` attribute #4614 **Thanks @aaronbhansen**
 - **Form Validation** - Fixes bug where `on: 'change'` would still show validation prompts on `blur` when using `inline: true` #4423 **Thanks @avalanche1**
+- **Dimmer** - Fixes issue with `inverted dimmer` with `content` having wrong text color **Thanks @rijk** #4631
 
 **Doc Updates**
 - **Icons** - Icon documentation now has a search that will copy the relevent icon html to clipboard
