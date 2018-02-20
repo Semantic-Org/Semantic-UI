@@ -16,6 +16,7 @@
 - **Popup** - Popup will now align the center of the arrow (not the edge of the popup) when it would be reasonable (up to 2x arrow's offset from edge). [See this explanation](http://oi66.tinypic.com/2zr2ckk.jpg)
 - **Popup** - Popup can now position elements correctly even when they have a different offset context than their activating element. Like in [this example](https://jsfiddle.net/g853mc03/)
 - **Modal** - You can now modify `closable` setting after init **Thanks @mdehoog** #3396
+- **Transition** - Adds new `glow` transition for highlighting an element on the page
 
 **Tiny Enhancements**
 - **Popup** - `arrowBackground` now inherits from `background` #6059 **Thanks @devsli**
@@ -28,6 +29,7 @@
 - **Popup** - Popup will now use `content` specified in settings before `title` attribute #4614 **Thanks @aaronbhansen**
 - **Form Validation** - Fixes bug where `on: 'change'` would still show validation prompts on `blur` when using `inline: true` #4423 **Thanks @avalanche1**
 - **Dimmer** - Fixes issue with `inverted dimmer` with `content` having wrong text color **Thanks @rijk** #4631
+- **Images / Transition** - Fixed issue where `ui images` would show nested images with `transition hidden` as block (Fixes sequential img animation demo in docs)
 
 **Doc Updates**
 - **Icons** - Icon documentation now has a search that will copy the relevent icon html to clipboard
