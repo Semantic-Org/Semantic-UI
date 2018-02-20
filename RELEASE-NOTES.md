@@ -70,7 +70,7 @@ To preserve functionality `movePopup` default has remained as `true` (moving the
 - **Icons** - Icon documentation now lists publicly all icon aliases
 
 **Doc Bugs**
-- **UI Examples** - Fixe some improper html in UI examples included with repo [#6127](https://github.com/Semantic-Org/Semantic-UI/issues/6127) **Thanks @perdian**
+- **UI Examples** - Fixes some improper html in UI examples included with repo [#6127](https://github.com/Semantic-Org/Semantic-UI/issues/6127) **Thanks @perdian**
 - **Admin** - Fixes bug in admin script that caused leaked global vars **Thanks @esbena** [#6136](https://github.com/Semantic-Org/Semantic-UI/issues/6136)
 
 ### Version 2.2.14 - Jan 29, 2018
