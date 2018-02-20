@@ -421,4 +421,14 @@
   font-size: @relativeMassive;
 }
 
+/*--------------
+      Mobile
+---------------*/
+
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui.search .results {
+    max-width: @mobileMaxWidth;
+  }
+}
+
 .loadUIOverrides();

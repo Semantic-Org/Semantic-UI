@@ -33,9 +33,14 @@
 
 - **Popup** - Popup can now position elements correctly even when they have a different offset context than their activating element. Like in [this example](https://jsfiddle.net/g853mc03/).
 
+- **Popup** - Popup will now align the center of the arrow (not the edge of the popup) when it would be reasonable (up to 2x arrow's offset from edge). [See this explanation](http://oi66.tinypic.com/2zr2ckk.jpg)
+
 To preserve functionality `movePopup` default has remained as `true` (moving the popup to the same offset context), however now setting `movePopup: false` should now always position correctly. Be sure to use `movePopup: true` to avoid issues with `ui popup` inside `menu`, `input` or other places where it may inherit rules from its activating element or its context.
 
+- **Transition** - Adds new `glow` transition for highlighting an element on the page, and `zoom` animation for scaling elements without opacity tween.
+
 - **Modal** - Modal has been rewritten to use `flexbox`. No need to call `refresh()` to recalculate vertical centering.
+
 - **Modal** - Modals now have a setting `centered` which can be used to disable vertical centering. This can be useful for modals with content that changes dynamically to prevent content from jumping in position.
 
 **Minor Enhancements**
@@ -43,13 +48,12 @@ To preserve functionality `movePopup` default has remained as `true` (moving the
 - **Search** - Category results now has `exact` setting matching dropdown for `fullTextSearch` preventing fuzzy search
 - **Search** - Category results will now responsively adjust `title` row if titles are long instead of forcing a title width
 - **Dimmer** - Dimmers now have centered content with a single wrapping `content` element.
-- **Popup** - Popup will now align the center of the arrow (not the edge of the popup) when it would be reasonable (up to 2x arrow's offset from edge). [See this explanation](http://oi66.tinypic.com/2zr2ckk.jpg)
 - **Modal** - You can now modify `closable` setting after init **Thanks @mdehoog** #3396
-- **Transition** - Adds new `glow` transition for highlighting an element on the page
 
 **Tiny Enhancements**
 - **Popup** - `arrowBackground` now inherits from `background` #6059 **Thanks @devsli**
 - **Popup** - Adds new variable `headerFontWeight`
+- **Search** - Search now has responsive styles for mobile to prevent results being large than page width.
 
 **Bugs**
 - **Modal** - Modal `autofocus` setting now checks to see if currently focused element is in modal, avoiding issues where focus could be set in `onVisible` or `onShow`
