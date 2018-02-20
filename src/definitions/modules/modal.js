@@ -109,7 +109,7 @@ $.fn.modal = function(parameters) {
               defaultSettings = {
                 debug      : settings.debug,
                 variation  : settings.centered
-                  ? ''
+                  ? false
                   : 'top aligned'
                 ,
                 dimmerName : 'modals'
@@ -515,7 +515,7 @@ $.fn.modal = function(parameters) {
           },
           clickaway: function() {
             $dimmer
-              .off('click' + elementNamespace)
+              .off('click' + elementEventNamespace)
             ;
           },
           bodyStyle: function() {
@@ -615,7 +615,7 @@ $.fn.modal = function(parameters) {
           },
           clickaway: function() {
             $dimmer
-              .on('click' + elementNamespace, module.event.click)
+              .on('click' + elementEventNamespace, module.event.click)
             ;
           },
           dimmerSettings: function() {
@@ -627,10 +627,9 @@ $.fn.modal = function(parameters) {
               defaultSettings = {
                 debug      : settings.debug,
                 dimmerName : 'modals',
-                variation  : false,
                 closable   : 'auto',
                 variation  : settings.centered
-                  ? ''
+                  ? false
                   : 'top aligned'
                 ,
                 duration   : {
