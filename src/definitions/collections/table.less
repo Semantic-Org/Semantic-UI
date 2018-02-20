@@ -122,6 +122,11 @@
   border-top: none;
 }
 
+/* Repeated tbody */
+.ui.table tbody + tbody tr:first-child td {
+  border-top: @rowBorder;
+}
+
 /* Table Cells */
 .ui.table td {
   padding: @cellVerticalPadding @cellHorizontalPadding;
