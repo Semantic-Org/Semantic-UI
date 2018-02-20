@@ -269,12 +269,12 @@ $.fn.modal = function(parameters) {
               escapeKey = 27
             ;
             if(keyCode == escapeKey) {
-              if(settings.closable) {
+              if(settings.closable && settings.closable !== 'click') {
                 module.debug('Escape key pressed hiding modal');
                 module.hide();
               }
               else {
-                module.debug('Escape key pressed, but closable is set to false');
+                module.debug('Escape key pressed, but closable is set to ' + settings.closable);
               }
               event.preventDefault();
             }
@@ -512,7 +512,7 @@ $.fn.modal = function(parameters) {
             $module.removeClass(className.active);
           },
           clickaway: function() {
-            if(settings.closable) {
+            if(settings.closable && settings.closable !== 'escapeKey') {
               $dimmer
                 .off('click' + elementEventNamespace)
               ;
@@ -614,7 +614,7 @@ $.fn.modal = function(parameters) {
             }
           },
           clickaway: function() {
-            if(settings.closable) {
+            if(settings.closable && settings.closable !== 'escapeKey') {
               $dimmer
                 .on('click' + elementEventNamespace, module.event.click)
               ;
