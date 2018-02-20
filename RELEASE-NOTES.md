@@ -5,12 +5,14 @@
 **Major Enhancements**
 - **Icons** - Font Awesome 5 is now included in Semantic UI **Thanks @hammy2899** #6085
 - **Search** - Category search can now work with local search by adding a `category` property to any result and specifying `type: 'category'`
-- **Theming** - Added global variables for reassigning `normal` and `bold` font weights for custom font stacks. **Thanks @jaridmargolin** #6167
-- **Search** - Category results now has `exact` matching
 - **Modal** - Modal has been rewritten to use `flexbox`. No need to call `refresh()` to recalculate vertical centering.
 - **Modal** - Modals now have a setting `centered` which can be used to disable vertical centering. This can be useful for modals with content that changes dynamically to prevent content from jumping in position.
 
-**Enhancements**
+**Minor Enhancements**
+- **Theming** - Added global variables for reassigning `normal` and `bold` font weights for custom font stacks. **Thanks @jaridmargolin** #6167
+- **Search** - Category results now has `exact` setting matching dropdown for `fullTextSearch` preventing fuzzy search
+
+**Other Enhancements**
 - **Search** - Category results will now responsively adjust `title` row if titles are long instead of forcing a title width
 - **Dimmer** - Dimmers now have centered content with a single wrapping `content` element.
 - **Popup** - Popup will now align the center of the arrow (not the edge of the popup) when it would be reasonable (up to 2x arrow's offset from edge). [See this explanation](http://oi66.tinypic.com/2zr2ckk.jpg)
@@ -22,6 +24,7 @@
 - **Modal** - Modal `autofocus` setting now checks to see if currently focused element is in modal, avoiding issues where focus could be set in `onVisible` or `onShow`
 - **Menu** - Fixes `big` and `huge` sizes being swapped in menu **Thanks @jeremy091** #5902 #5899
 - **Table** - Fixes tr not having correct border on first row when using multiple `tbody` **Thanks @Mlukman** #4458
+- **Popup** - Popup will now use `content` specified in settings before `title` attribute
 
 **Doc Updates**
 - **Icons** - Icon documentation now has a search that will copy the relevent icon html to clipboard
