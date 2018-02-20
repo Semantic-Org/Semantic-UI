@@ -49,6 +49,7 @@ To preserve functionality `movePopup` default has remained as `true` (moving the
 - **Search** - Category results will now responsively adjust `title` row if titles are long instead of forcing a title width
 - **Dimmer** - Dimmers now have centered content with a single wrapping `content` element.
 - **Modal** - You can now modify `closable` setting after init **Thanks @mdehoog** [#3396]((https://github.com/Semantic-Org/Semantic-UI/issues/3396)
+- **Accordion** - Added `onChanging` callback for accordion that occurs before animation in both directions **Thanks @GammeGames** [#5892](https://github.com/Semantic-Org/Semantic-UI/pull/5892)
 
 **Tiny Enhancements**
 - **Popup** - `arrowBackground` now inherits from `background` [#6059]((https://github.com/Semantic-Org/Semantic-UI/issues/6059) **Thanks @devsli**
