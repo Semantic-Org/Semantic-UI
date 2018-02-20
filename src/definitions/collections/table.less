@@ -118,7 +118,8 @@
 .ui.table tr td {
   border-top: @rowBorder;
 }
-.ui.table tr:first-child td {
+.ui.table tbody:first-child tr:first-child td,
+.ui.table > tr:first-child td {
   border-top: none;
 }
 
