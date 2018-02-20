@@ -24,7 +24,7 @@
 - **Modal** - Modal `autofocus` setting now checks to see if currently focused element is in modal, avoiding issues where focus could be set in `onVisible` or `onShow`
 - **Menu** - Fixes `big` and `huge` sizes being swapped in menu **Thanks @jeremy091** #5902 #5899
 - **Table** - Fixes tr not having correct border on first row when using multiple `tbody` **Thanks @Mlukman** #4458
-- **Popup** - Popup will now use `content` specified in settings before `title` attribute
+- **Popup** - Popup will now use `content` specified in settings before `title` attribute #4614 **Thanks @aaronbhansen**
 
 **Doc Updates**
 - **Icons** - Icon documentation now has a search that will copy the relevent icon html to clipboard
