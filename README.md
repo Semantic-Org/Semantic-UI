@@ -93,7 +93,6 @@ Resource | Description
 --- | --- |
 Bugs & Feature Requests |  All bug submission **require** a link to a test case, and a set of steps to reproduce the issue. You can make a test case by forking this [JSFiddle](https://jsfiddle.net/ca0rovs3/), then submit your [bug report on GitHub Issues](https://github.com/Semantic-Org/Semantic-UI/issues)
 Live Chat | Join our [Gitter.im Room](https://gitter.im/Semantic-Org/Semantic-UI)
-Message Board | [ProjectTalk Board](http://www.projecttalk.io/boards/Semantic-Org%2FSemantic-UI)
 Newsletter Updates | Sign up for updates at [semantic-ui.com](http://www.semantic-ui.com)
 Additional Resources  | Submit a question on [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui) or ask our [Google Group](https://groups.google.com/forum/#!forum/semantic-ui)
 
