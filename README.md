@@ -36,8 +36,7 @@ Visit our [contributing guide](https://github.com/Semantic-Org/Semantic-UI/blob/
 npm install semantic-ui  # Use themes, import build/watch tasks into your own gulpfile.
 ```
 
-Semantic UI includes an interactive installer to help setup your project
-![Getting Started](https://dl.dropboxusercontent.com/u/2657007/install.gif)
+Semantic UI includes an interactive installer to help setup your project.
 
 * For more details on setup visit our [getting started guide](http://semantic-ui.com/introduction/getting-started.html).
 * To learn more about theming please read our [theming guide](http://www.semantic-ui.com/usage/theming.html)
