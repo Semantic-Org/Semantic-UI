@@ -25,7 +25,7 @@ Migration info from `1.x` can be found in the [2.0 release notes](https://github
 
 ## User Support
 
-Please help us keep the issue tracker organized. For all questions that do not include a specific [JSFiddle test case](https://jsfiddle.net/ca0rovs3/) (bug reports), or feature request please use our user forums at [http://forums.semantic-ui.com](http://forums.semantic-ui.com) to discuss.
+Please help us keep the issue tracker organized. For technical questions that do not include a specific [JSFiddle test case](https://jsfiddle.net/ca0rovs3/) (bug reports), or feature request please use [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui) to find a solution.
 
 Visit our [contributing guide](https://github.com/Semantic-Org/Semantic-UI/blob/master/CONTRIBUTING.md) for more on what should be posted to GitHub Issues.
 
@@ -69,7 +69,7 @@ Although some components will work in IE9, [grids](http://semantic-ui.com/collec
 ## Community
 
 #### Getting Help
-Please **do not post** usage questions to GitHub Issues. For these types of questions use our [Gitter chatroom](https://gitter.im/Semantic-Org/Semantic-UI), [Semantic UI forums](http://forums.semantic-ui.com) or [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui).
+Please **do not post** usage questions to GitHub Issues. For these types of questions use our [Gitter chatroom] or [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui).
 
 #### Submitting Bugs and Enhancements
 [GitHub Issues](https://github.com/Semantic-Org/Semantic-UI/issues) is for suggesting enhancements and reporting bugs. Before submiting a bug make sure you do the following:
