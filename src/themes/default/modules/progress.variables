@@ -42,7 +42,7 @@
 @progressOffset: -0.5em;
 @progressColor: @invertedLightTextColor;
 @progressTextShadow: none;
-@progressFontWeight: bold;
+@progressFontWeight: @bold;
 @progressTextAlign: left;
 
 /* Label */
@@ -57,7 +57,7 @@
 @labelOffset: (@labelHeight - 1.3em);
 @labelColor: @textColor;
 @labelTextShadow: none;
-@labelFontWeight: bold;
+@labelFontWeight: @bold;
 @labelTextAlign: center;
 @labelTransition: color 0.4s @defaultEasing;
 

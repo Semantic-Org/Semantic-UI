@@ -1,5 +1,77 @@
 ## RELEASE NOTES
 
+### Version 2.3.0 - Feb 19, 2018
+
+**Major Enhancements**
+- **Icons** - Font Awesome 5 is now included in Semantic UI **Thanks @hammy2899** [#6085]((https://github.com/Semantic-Org/Semantic-UI/issues/6085)
+
+- **Search** - Category search can now work with local search by adding a `category` property to any result and specifying `type: 'category'`
+
+```javascript
+  var categoryContent = [
+    { category: 'South America', title: 'Brazil' },
+    { category: 'South America', title: 'Peru' },
+    { category: 'North America', title: 'Canada' },
+    { category: 'Asia', title: 'South Korea' },
+    { category: 'Asia', title: 'Japan' },
+    { category: 'Asia', title: 'China' },
+    { category: 'Europe', title: 'Denmark' },
+    { category: 'Europe', title: 'England' },
+    { category: 'Europe', title: 'France' },
+    { category: 'Europe', title: 'Germany' },
+    { category: 'Africa', title: 'Ethiopia' },
+    { category: 'Africa', title: 'Nigeria' },
+    { category: 'Africa', title: 'Zimbabwe' },
+  ];
+  $('.ui.search')
+    .search({
+      type: 'category',
+      source: categoryContent
+    })
+  ;
+```
+
+- **Popup** - Popup can now position elements correctly even when they have a different offset context than their activating element. Like in [this example](https://jsfiddle.net/g853mc03/).
+
+- **Popup** - Popup will now align the center of the arrow (not the edge of the popup) when it would be reasonable (up to 2x arrow's offset from edge). [See this explanation](http://oi66.tinypic.com/2zr2ckk.jpg)
+
+To preserve functionality `movePopup` default has remained as `true` (moving the popup to the same offset context), however now setting `movePopup: false` should now always position correctly. Be sure to use `movePopup: true` to avoid issues with `ui popup` inside `menu`, `input` or other places where it may inherit rules from its activating element or its context.
+
+- **Transition** - Adds new `glow` transition for highlighting an element on the page, and `zoom` animation for scaling elements without opacity tween.
+
+- **Modal** - Modal has been rewritten to use `flexbox`. No need to call `refresh()` to recalculate vertical centering.
+
+- **Modal** - Modals now have a setting `centered` which can be used to disable vertical centering. This can be useful for modals with content that changes dynamically to prevent content from jumping in position.
+
+**Minor Enhancements**
+- **Theming** - Added global variables for reassigning `normal` and `bold` font weights for custom font stacks. **Thanks @jaridmargolin** [#6167]((https://github.com/Semantic-Org/Semantic-UI/issues/6167)
+- **Search** - Category results now has `exact` setting matching dropdown for `fullTextSearch` preventing fuzzy search
+- **Search** - Category results will now responsively adjust `title` row if titles are long instead of forcing a title width
+- **Dimmer** - Dimmers now have centered content with a single wrapping `content` element.
+- **Modal** - You can now modify `closable` setting after init **Thanks @mdehoog** [#3396]((https://github.com/Semantic-Org/Semantic-UI/issues/3396)
+- **Accordion** - Added `onChanging` callback for accordion that occurs before animation in both directions **Thanks @GammeGames** [#5892](https://github.com/Semantic-Org/Semantic-UI/pull/5892)
+
+**Tiny Enhancements**
+- **Popup** - `arrowBackground` now inherits from `background` [#6059]((https://github.com/Semantic-Org/Semantic-UI/issues/6059) **Thanks @devsli**
+- **Popup** - Adds new variable `headerFontWeight`
+- **Search** - Search now has responsive styles for mobile to prevent results being large than page width.
+
+**Bugs**
+- **Modal** - Modal `autofocus` setting now checks to see if currently focused element is in modal, avoiding issues where focus could be set in `onVisible` or `onShow`
+- **Menu** - Fixes `big` and `huge` sizes being swapped in menu **Thanks @jeremy091** [#5902]((https://github.com/Semantic-Org/Semantic-UI/issues/5902) [#5899]((https://github.com/Semantic-Org/Semantic-UI/issues/5899)
+- **Table** - Fixes tr not having correct border on first row when using multiple `tbody` **Thanks @Mlukman** [#4458]((https://github.com/Semantic-Org/Semantic-UI/issues/4458)
+- **Popup** - Popup will now use `content` specified in settings before `title` attribute [#4614]((https://github.com/Semantic-Org/Semantic-UI/issues/4614) **Thanks @aaronbhansen**
+- **Form Validation** - Fixes bug where `on: 'change'` would still show validation prompts on `blur` when using `inline: true` [#4423]((https://github.com/Semantic-Org/Semantic-UI/issues/4423) **Thanks @avalanche1**
+- **Dimmer** - Fixes issue with `inverted dimmer` with `content` having wrong text color **Thanks @rijk** [#4631]((https://github.com/Semantic-Org/Semantic-UI/issues/4631)
+- **Images / Transition** - Fixed issue where `ui images` would show nested images with `transition hidden` as block (Fixes sequential img animation demo in docs)
+
+**Doc Updates**
+- **Icons** - Icon documentation now has a search that will copy the relevent icon html to clipboard
+- **Icons** - Icon documentation now lists publicly all icon aliases
+
+**Doc Bugs**
+- **UI Examples** - Fixe some improper html in UI examples included with repo #6127 **Thanks @perdian**
+
 ### Version 2.2.14 - Jan 29, 2018
 
 **Critical Bugs**

@@ -122,6 +122,11 @@
   border-top: none;
 }
 
+/* Repeated tbody */
+.ui.table tbody + tbody tr:first-child td {
+  border-top: @rowBorder;
+}
+
 /* Table Cells */
 .ui.table td {
   padding: @cellVerticalPadding @cellHorizontalPadding;
@@ -186,7 +191,7 @@
   }
   .ui.table:not(.unstackable) th:first-child,
   .ui.table:not(.unstackable) td:first-child {
-    font-weight: bold;
+    font-weight: @responsiveCellHeaderFontWeight;
   }
 
   /* Definition Table */
@@ -888,7 +893,7 @@
 .ui.sortable.table thead th:after {
   display: none;
   font-style: normal;
-  font-weight: normal;
+  font-weight: @normal;
   text-decoration: inherit;
   content: '';
   height: 1em;
