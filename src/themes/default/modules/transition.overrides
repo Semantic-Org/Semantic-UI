@@ -776,6 +776,38 @@
 }
 
 
+/*--------------
+      Zoom
+---------------*/
+
+.transition.zoom.in {
+  animation-name: zoomIn;
+}
+.transition.zoom.out {
+  animation-name: zoomOut;
+}
+@keyframes zoomIn {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes zoomOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(0);
+  }
+}
+
+
 /*******************************
        Static Animations
 *******************************/
