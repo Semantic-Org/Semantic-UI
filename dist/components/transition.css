@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.14 - Transition
+ * # Semantic UI 2.3.0 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1646,6 +1646,67 @@
   }
 }
 
+/*--------------
+      Zoom
+---------------*/
+
+.transition.zoom.in {
+  -webkit-animation-name: zoomIn;
+          animation-name: zoomIn;
+}
+.transition.zoom.out {
+  -webkit-animation-name: zoomOut;
+          animation-name: zoomOut;
+}
+@-webkit-keyframes zoomIn {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes zoomIn {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@-webkit-keyframes zoomOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+@keyframes zoomOut {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
 
 /*******************************
        Static Animations
@@ -1691,6 +1752,16 @@
           animation-duration: 750ms;
   -webkit-animation-name: jiggle;
           animation-name: jiggle;
+}
+.transition.glow {
+  -webkit-animation-duration: 2000ms;
+          animation-duration: 2000ms;
+  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+.transition.glow {
+  -webkit-animation-name: glow;
+          animation-name: glow;
 }
 
 /* Flash */
@@ -1895,7 +1966,7 @@
   }
 }
 
-/* Rubberband */
+/* Jiggle */
 @-webkit-keyframes jiggle {
   0% {
     -webkit-transform: scale3d(1, 1, 1);
@@ -1954,6 +2025,30 @@
   100% {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1);
+  }
+}
+
+/* Glow */
+@-webkit-keyframes glow {
+  0% {
+    background-color: #FCFCFD;
+  }
+  30% {
+    background-color: #FFF6CD;
+  }
+  100% {
+    background-color: #FCFCFD;
+  }
+}
+@keyframes glow {
+  0% {
+    background-color: #FCFCFD;
+  }
+  30% {
+    background-color: #FFF6CD;
+  }
+  100% {
+    background-color: #FCFCFD;
   }
 }
 

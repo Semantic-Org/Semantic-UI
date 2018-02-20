@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.14 - Image
+ * # Semantic UI 2.3.0 - Image
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -42,6 +42,10 @@ img.ui.image {
 .ui.hidden.transition.images,
 .ui.hidden.transition.image {
   display: block;
+  visibility: hidden;
+}
+.ui.images > .hidden.transition {
+  display: inline-block;
   visibility: hidden;
 }
 .ui.disabled.images,

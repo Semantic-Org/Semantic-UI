@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.14 - Search
+ * # Semantic UI 2.3.0 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -298,13 +298,17 @@
 .ui.category.search .results {
   width: 28em;
 }
+.ui.category.search .results.animating,
+.ui.category.search .results.visible {
+  display: table;
+}
 
 /* Category */
 .ui.category.search > .results .category {
+  display: table-row;
   background: #F3F4F5;
   -webkit-box-shadow: none;
           box-shadow: none;
-  border-bottom: 1px solid rgba(34, 36, 38, 0.1);
   -webkit-transition: background 0.1s ease, border-color 0.1s ease;
   transition: background 0.1s ease, border-color 0.1s ease;
 }
@@ -322,31 +326,33 @@
   border-radius: 0em 0em 0.28571429rem 0em;
 }
 
+/* Category Result Name */
+.ui.category.search > .results .category > .name {
+  display: table-cell;
+  text-overflow: ellipsis;
+  width: 100px;
+  white-space: nowrap;
+  background: transparent;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  padding: 0.4em 1em;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.1);
+}
+
 /* Category Result */
-.ui.category.search > .results .category .result {
+.ui.category.search > .results .category .results {
+  display: table-cell;
   background: #FFFFFF;
-  margin-left: 100px;
   border-left: 1px solid rgba(34, 36, 38, 0.15);
+  border-bottom: 1px solid rgba(34, 36, 38, 0.1);
+}
+.ui.category.search > .results .category .result {
   border-bottom: 1px solid rgba(34, 36, 38, 0.1);
   -webkit-transition: background 0.1s ease, border-color 0.1s ease;
   transition: background 0.1s ease, border-color 0.1s ease;
   padding: 0.85714286em 1.14285714em;
-}
-.ui.category.search > .results .category:last-child .result:last-child {
-  border-bottom: none;
-}
-
-/* Category Result Name */
-.ui.category.search > .results .category > .name {
-  width: 100px;
-  background: transparent;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  font-size: 1em;
-  float: 1em;
-  float: left;
-  padding: 0.4em 1em;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.4);
 }
 
 
@@ -400,6 +406,16 @@
 }
 .ui.massive.search {
   font-size: 1.71428571em;
+}
+
+/*--------------
+      Mobile
+---------------*/
+
+@media only screen and (max-width: 767px) {
+  .ui.search .results {
+    max-width: calc(100vw - 2rem);
+  }
 }
 
 

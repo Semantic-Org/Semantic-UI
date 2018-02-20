@@ -3,7 +3,7 @@
 ### Version 2.3.0 - Feb 19, 2018
 
 **Major Enhancements**
-- **Icons** - Font Awesome 5 is now included in Semantic UI **Thanks @hammy2899** [#6085]((https://github.com/Semantic-Org/Semantic-UI/issues/6085)
+- **Icons** - Font Awesome 5 is now included in Semantic UI **Thanks @hammy2899** [#6085](https://github.com/Semantic-Org/Semantic-UI/issues/6085)
 
 - **Search** - Category search can now work with local search by adding a `category` property to any result and specifying `type: 'category'`
 
@@ -44,25 +44,25 @@ To preserve functionality `movePopup` default has remained as `true` (moving the
 - **Modal** - Modals now have a setting `centered` which can be used to disable vertical centering. This can be useful for modals with content that changes dynamically to prevent content from jumping in position.
 
 **Minor Enhancements**
-- **Theming** - Added global variables for reassigning `normal` and `bold` font weights for custom font stacks. **Thanks @jaridmargolin** [#6167]((https://github.com/Semantic-Org/Semantic-UI/issues/6167)
+- **Theming** - Added global variables for reassigning `normal` and `bold` font weights for custom font stacks. **Thanks @jaridmargolin** [#6167](https://github.com/Semantic-Org/Semantic-UI/issues/6167)
 - **Search** - Category results now has `exact` setting matching dropdown for `fullTextSearch` preventing fuzzy search
 - **Search** - Category results will now responsively adjust `title` row if titles are long instead of forcing a title width
 - **Dimmer** - Dimmers now have centered content with a single wrapping `content` element.
-- **Modal** - You can now modify `closable` setting after init **Thanks @mdehoog** [#3396]((https://github.com/Semantic-Org/Semantic-UI/issues/3396)
+- **Modal** - You can now modify `closable` setting after init **Thanks @mdehoog** [#3396](https://github.com/Semantic-Org/Semantic-UI/issues/3396)
 - **Accordion** - Added `onChanging` callback for accordion that occurs before animation in both directions **Thanks @GammeGames** [#5892](https://github.com/Semantic-Org/Semantic-UI/pull/5892)
 
 **Tiny Enhancements**
-- **Popup** - `arrowBackground` now inherits from `background` [#6059]((https://github.com/Semantic-Org/Semantic-UI/issues/6059) **Thanks @devsli**
+- **Popup** - `arrowBackground` now inherits from `background` [#6059](https://github.com/Semantic-Org/Semantic-UI/issues/6059) **Thanks @devsli**
 - **Popup** - Adds new variable `headerFontWeight`
 - **Search** - Search now has responsive styles for mobile to prevent results being large than page width.
 
 **Bugs**
 - **Modal** - Modal `autofocus` setting now checks to see if currently focused element is in modal, avoiding issues where focus could be set in `onVisible` or `onShow`
-- **Menu** - Fixes `big` and `huge` sizes being swapped in menu **Thanks @jeremy091** [#5902]((https://github.com/Semantic-Org/Semantic-UI/issues/5902) [#5899]((https://github.com/Semantic-Org/Semantic-UI/issues/5899)
-- **Table** - Fixes tr not having correct border on first row when using multiple `tbody` **Thanks @Mlukman** [#4458]((https://github.com/Semantic-Org/Semantic-UI/issues/4458)
-- **Popup** - Popup will now use `content` specified in settings before `title` attribute [#4614]((https://github.com/Semantic-Org/Semantic-UI/issues/4614) **Thanks @aaronbhansen**
-- **Form Validation** - Fixes bug where `on: 'change'` would still show validation prompts on `blur` when using `inline: true` [#4423]((https://github.com/Semantic-Org/Semantic-UI/issues/4423) **Thanks @avalanche1**
-- **Dimmer** - Fixes issue with `inverted dimmer` with `content` having wrong text color **Thanks @rijk** [#4631]((https://github.com/Semantic-Org/Semantic-UI/issues/4631)
+- **Menu** - Fixes `big` and `huge` sizes being swapped in menu **Thanks @jeremy091** [#5902](https://github.com/Semantic-Org/Semantic-UI/issues/5902) [#5899](https://github.com/Semantic-Org/Semantic-UI/issues/5899)
+- **Table** - Fixes tr not having correct border on first row when using multiple `tbody` **Thanks @Mlukman** [#4458](https://github.com/Semantic-Org/Semantic-UI/issues/4458)
+- **Popup** - Popup will now use `content` specified in settings before `title` attribute [#4614](https://github.com/Semantic-Org/Semantic-UI/issues/4614) **Thanks @aaronbhansen**
+- **Form Validation** - Fixes bug where `on: 'change'` would still show validation prompts on `blur` when using `inline: true` [#4423](https://github.com/Semantic-Org/Semantic-UI/issues/4423) **Thanks @avalanche1**
+- **Dimmer** - Fixes issue with `inverted dimmer` with `content` having wrong text color **Thanks @rijk** [#4631](https://github.com/Semantic-Org/Semantic-UI/issues/4631)
 - **Images / Transition** - Fixed issue where `ui images` would show nested images with `transition hidden` as block (Fixes sequential img animation demo in docs)
 
 **Doc Updates**
@@ -70,7 +70,8 @@ To preserve functionality `movePopup` default has remained as `true` (moving the
 - **Icons** - Icon documentation now lists publicly all icon aliases
 
 **Doc Bugs**
-- **UI Examples** - Fixe some improper html in UI examples included with repo #6127 **Thanks @perdian**
+- **UI Examples** - Fixe some improper html in UI examples included with repo [#6127](https://github.com/Semantic-Org/Semantic-UI/issues/6127) **Thanks @perdian**
+- **Admin** - Fixes bug in admin script that caused leaked global vars **Thanks @esbena** [#6136](https://github.com/Semantic-Org/Semantic-UI/issues/6136)
 
 ### Version 2.2.14 - Jan 29, 2018
 
