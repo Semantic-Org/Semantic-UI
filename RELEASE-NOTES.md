@@ -4,7 +4,37 @@
 
 **Major Enhancements**
 - **Icons** - Font Awesome 5 is now included in Semantic UI **Thanks @hammy2899** #6085
+
 - **Search** - Category search can now work with local search by adding a `category` property to any result and specifying `type: 'category'`
+
+```javascript
+  var categoryContent = [
+    { category: 'South America', title: 'Brazil' },
+    { category: 'South America', title: 'Peru' },
+    { category: 'North America', title: 'Canada' },
+    { category: 'Asia', title: 'South Korea' },
+    { category: 'Asia', title: 'Japan' },
+    { category: 'Asia', title: 'China' },
+    { category: 'Europe', title: 'Denmark' },
+    { category: 'Europe', title: 'England' },
+    { category: 'Europe', title: 'France' },
+    { category: 'Europe', title: 'Germany' },
+    { category: 'Africa', title: 'Ethiopia' },
+    { category: 'Africa', title: 'Nigeria' },
+    { category: 'Africa', title: 'Zimbabwe' },
+  ];
+  $('.ui.search')
+    .search({
+      type: 'category',
+      source: categoryContent
+    })
+  ;
+```
+
+- **Popup** - Popup can now position elements correctly even when they have a different offset context than their activating element. Like in [this example](https://jsfiddle.net/g853mc03/).
+
+To preserve functionality `movePopup` has remained as `true` (moving the popup to the same offset context), however now setting `movePopup: false` should in all cases position correctly, helping prevent sticky inheritance issues caused by moving the DOM tree around.
+
 - **Modal** - Modal has been rewritten to use `flexbox`. No need to call `refresh()` to recalculate vertical centering.
 - **Modal** - Modals now have a setting `centered` which can be used to disable vertical centering. This can be useful for modals with content that changes dynamically to prevent content from jumping in position.
 
@@ -14,7 +44,6 @@
 - **Search** - Category results will now responsively adjust `title` row if titles are long instead of forcing a title width
 - **Dimmer** - Dimmers now have centered content with a single wrapping `content` element.
 - **Popup** - Popup will now align the center of the arrow (not the edge of the popup) when it would be reasonable (up to 2x arrow's offset from edge). [See this explanation](http://oi66.tinypic.com/2zr2ckk.jpg)
-- **Popup** - Popup can now position elements correctly even when they have a different offset context than their activating element. Like in [this example](https://jsfiddle.net/g853mc03/)
 - **Modal** - You can now modify `closable` setting after init **Thanks @mdehoog** #3396
 - **Transition** - Adds new `glow` transition for highlighting an element on the page
 
