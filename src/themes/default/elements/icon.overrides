@@ -59,24 +59,24 @@ i.icon.angle.down:before { content: "\f107"; }
 i.icon.angle.left:before { content: "\f104"; }
 i.icon.angle.right:before { content: "\f105"; }
 i.icon.angle.up:before { content: "\f106"; }
-i.icon.arrow.alternate.circle.down.outline:before { content: "\f608"; }
-i.icon.arrow.alternate.circle.down:before { content: "\f358"; }
-i.icon.arrow.alternate.circle.left.outline:before { content: "\f605"; }
-i.icon.arrow.alternate.circle.left:before { content: "\f359"; }
-i.icon.arrow.alternate.circle.right.outline:before { content: "\f304"; }
-i.icon.arrow.alternate.circle.right:before { content: "\f35a"; }
-i.icon.arrow.alternate.circle.up.outline:before { content: "\f305"; }
-i.icon.arrow.alternate.circle.up:before { content: "\f35b"; }
-i.icon.arrow.circle.down:before { content: "\f0ab"; }
-i.icon.arrow.circle.left:before { content: "\f0a8"; }
-i.icon.arrow.circle.right:before { content: "\f0a9"; }
-i.icon.arrow.circle.up:before { content: "\f0aa"; }
-i.icon.arrow.down:before { content: "\f063"; }
-i.icon.arrow.left:before { content: "\f060"; }
-i.icon.arrow.right:before { content: "\f061"; }
-i.icon.arrow.up:before { content: "\f062"; }
-i.icon.arrows.alternate.horizontal:before { content: "\f337"; }
-i.icon.arrows.alternate.vertical:before { content: "\f338"; }
+i.icon.arrow.alternate.circle.down.outline:before { content: "\f680"; }
+i.icon.arrow.alternate.circle.down:before { content: "\f681"; }
+i.icon.arrow.alternate.circle.left.outline:before { content: "\f682"; }
+i.icon.arrow.alternate.circle.left:before { content: "\f683"; }
+i.icon.arrow.alternate.circle.right.outline:before { content: "\f684"; }
+i.icon.arrow.alternate.circle.right:before { content: "\f685"; }
+i.icon.arrow.alternate.circle.up.outline:before { content: "\f686"; }
+i.icon.arrow.alternate.circle.up:before { content: "\f687"; }
+i.icon.arrow.circle.down:before { content: "\f689"; }
+i.icon.arrow.circle.left:before { content: "\f690"; }
+i.icon.arrow.circle.right:before { content: "\f691"; }
+i.icon.arrow.circle.up:before { content: "\f692"; }
+i.icon.arrow.down:before { content: "\f693"; }
+i.icon.arrow.left:before { content: "\f694"; }
+i.icon.arrow.right:before { content: "\f695"; }
+i.icon.arrow.up:before { content: "\f696"; }
+i.icon.arrows.alternate.horizontal:before { content: "\f697"; }
+i.icon.arrows.alternate.vertical:before { content: "\f698"; }
 i.icon.arrows.alternate:before { content: "\f0b2"; }
 i.icon.caret.down:before { content: "\f0d7"; }
 i.icon.caret.left:before { content: "\f0d9"; }
@@ -103,7 +103,7 @@ i.icon.chevron.up:before { content: "\f077"; }
 i.icon.cloud.download.alternate:before { content: "\f600"; }
 i.icon.cloud.upload.alternate:before { content: "\f601"; }
 i.icon.download:before { content: "\f019"; }
-i.icon.exchange.alternate:before { content: "\f362"; }
+i.icon.exchange.alternate:before { content: "\f699"; }
 i.icon.expand.arrows.alternate:before { content: "\f31e"; }
 i.icon.external.link.alternate:before { content: "\f35d"; }
 i.icon.external.link.square.alternate:before { content: "\f360"; }
@@ -233,7 +233,7 @@ i.icon.edit.outline:before { content: "\f336"; }
 i.icon.edit:before { content: "\f044"; }
 i.icon.envelope.open.outline:before { content: "\f337"; }
 i.icon.envelope.open:before { content: "\f2b6"; }
-i.icon.envelope.outline:before { content: "\f338"; }
+i.icon.envelope.outline:before { content: "\f701"; }
 i.icon.envelope.square:before { content: "\f199"; }
 i.icon.envelope:before { content: "\f0e0"; }
 i.icon.eraser:before { content: "\f12d"; }
@@ -405,7 +405,6 @@ i.icon.heading:before { content: "\f1dc"; }
 i.icon.i.cursor:before { content: "\f246"; }
 i.icon.indent:before { content: "\f03c"; }
 i.icon.italic:before { content: "\f033"; }
-i.icon.link:before { content: "\f0c1"; }
 i.icon.list.alternate.outline:before { content: "\f381"; }
 i.icon.list.alternate:before { content: "\f022"; }
 i.icon.ordered.list:before { content: "\f0cb"; }
@@ -569,7 +568,7 @@ i.icon.times:before { content: "\f00d"; }
 i.icon.toggle.off:before { content: "\f204"; }
 i.icon.toggle.on:before { content: "\f205"; }
 i.icon.trophy:before { content: "\f091"; }
-i.icon.user.circle.outline:before { content: "\f606"; }
+i.icon.user.circle.outline:before { content: "\f700"; }
 i.icon.user.circle:before { content: "\f2bd"; }
 i.icon.user.outline:before { content: "\f641"; }
 i.icon.user:before { content: "\f007"; }
@@ -699,7 +698,6 @@ i.icon.thermometer.three.quarters:before { content: "\f2c8"; }
 /* Users & People */
 i.icon.child:before { content: "\f1ae"; }
 i.icon.female:before { content: "\f182"; }
-i.icon.user.circle.outline:before { content: "\f410"; }
 i.icon.user.plus:before { content: "\f234"; }
 i.icon.user.times:before { content: "\f235"; }
 i.icon.users:before { content: "\f0c0"; }
@@ -1325,6 +1323,8 @@ i.icon.zip:before { content: "\f187"; }
 i.icon.zoom.in:before { content: "\f00e"; }
 i.icon.zoom.out:before { content: "\f010"; }
 i.icon.zoom:before { content: "\f00e"; }
+i.icon.email.outline:before { content: "\f701"; }
+i.icon.email:before { content: "\f0e0"; }
 
 /*
   Icons which where removed in FontAwesome 5
