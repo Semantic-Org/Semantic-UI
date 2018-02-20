@@ -20,6 +20,7 @@
 
 **Bugs**
 - **Modal** - Modal `autofocus` setting now checks to see if currently focused element is in modal, avoiding issues where focus could be set in `onVisible` or `onShow`
+- **Menu** - Fixes `big` and `huge` sizes being swapped in menu **Thanks @jeremy091** #5902 #5899
 
 **Doc Updates**
 - **Icons** - Icon documentation now has a search that will copy the relevent icon html to clipboard
