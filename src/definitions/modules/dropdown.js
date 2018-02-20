@@ -2577,17 +2577,18 @@ $.fn.dropdown = function(parameters) {
                 ? $search
                 : $text,
               escapedValue = module.escape.value(value),
+              lableDataValue = (settings.ignoreCase) ? String(escapedValue).toLowerCase() : escapedValue,
               $label
             ;
             $label =  $('<a />')
               .addClass(className.label)
-              .attr('data-' + metadata.value, escapedValue)
+              .attr('data-' + metadata.value, lableDataValue)
               .html(templates.label(escapedValue, text))
             ;
             $label = settings.onLabelCreate.call($label, escapedValue, text);
 
-            if(module.has.label(value)) {
-              module.debug('Label already exists, skipping', escapedValue);
+            if(module.has.label(lableDataValue)) {
+              module.debug('Label already exists, skipping', lableDataValue);
               return;
             }
             if(settings.label.variation) {
