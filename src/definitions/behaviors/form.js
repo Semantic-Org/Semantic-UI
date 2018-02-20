@@ -358,7 +358,7 @@ $.fn.form = function(parameters) {
                   module.validate.field( validationRules );
                 }
               }
-              else if(settings.on == 'blur') {
+              else if(settings.on == 'blur' || settings.on == 'change') {
                 if(validationRules) {
                   module.validate.field( validationRules );
                 }
