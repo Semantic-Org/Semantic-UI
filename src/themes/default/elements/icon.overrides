@@ -705,7 +705,7 @@ i.icon.user.times:before { content: "\f235"; }
 i.icon.users:before { content: "\f0c0"; }
 
 /* Brands */
-i.icon.\35 00px:before { content: "\f26e"; }
+i.icon.500px:before { content: "\f26e"; }
 i.icon.accessible.icon:before { content: "\f368"; }
 i.icon.accusoft:before { content: "\f369"; }
 i.icon.adn:before { content: "\f170"; }
