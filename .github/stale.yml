@@ -6,8 +6,8 @@ daysUntilClose: 30
 
 # Issues with these labels will never be considered stale
 exemptLabels:
-  - pinned
-  - security
+  - Confirmed Bug
+  - Needs Milestone
 
 # Label to use when marking an issue as stale
 staleLabel: stale
