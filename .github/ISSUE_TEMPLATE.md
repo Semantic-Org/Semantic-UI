@@ -3,7 +3,6 @@
       Chat - https://gitter.im/Semantic-Org/Semantic-UI
       SO - https://stackoverflow.com/questions/tagged/semantic-ui?sort=votes
 
-
 ✔ BUGS → This form is required:
 ✔ Enhancements → Only specific enhancements with detailed descriptions.
 
