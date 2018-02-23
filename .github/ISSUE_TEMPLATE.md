@@ -4,7 +4,7 @@
       SO - https://stackoverflow.com/questions/tagged/semantic-ui?sort=votes
 
 ✔ BUGS → This form is required:
-✔ Enhancements → Only specific enhancements with detailed descriptions.
+✔ Enhancements → Be specific. Assume backwards compatibility is a necessity. Suggest implementation when possible.
 
 ### Title (Put in field above)
 Use the format: [Component] Component Should Do X
