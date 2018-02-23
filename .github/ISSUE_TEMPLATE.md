@@ -72,6 +72,12 @@ Describe the bug you are having
 ## How to reproduce
 A step by step guide on how to reproduce the bug
 
+## Expected behavior
+The result which you where expecting
+
+## Resulting behavior
+The actual result 
+
 ## Environment Information
 - Operating System (OS version)
 - Browser (Browser version)
