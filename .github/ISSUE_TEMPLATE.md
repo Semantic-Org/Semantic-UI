@@ -4,7 +4,7 @@
       SO - https://stackoverflow.com/questions/tagged/semantic-ui?sort=votes
 
 ✔ Enhancements → Be specific. Assume backwards compatibility is a necessity. Suggest implementation when possible.
-✔ BUGS → <3 <3 <3. Keep in mind some bugs may not be immediately fixable due to backwards compatability or css limitations.
+✔ BUGS → ❤❤❤. Keep in mind some bugs may not be immediately fixable due to backwards compatability or css limitations.
 
 ### Title (Put in field above)
 Use the format: [Component] Component Should Do X
