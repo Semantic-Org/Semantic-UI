@@ -7,10 +7,9 @@
 ✔ BUGS → This form is required:
 ✔ Enhancements → Only specific enhancements with detailed descriptions.
 
-### Issue Titles
+### Title (Put in field above)
 Use the format: [Component] Component Should Do X
-
-For example: [Checkbox] onChange Should Fire when update triggered via DOM
+i.e. [Checkbox] onChange Should Fire When Update Triggered via DOM
 
 ### Steps
 
