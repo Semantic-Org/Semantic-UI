@@ -10,7 +10,7 @@
 
 Key Features
 * 50+ UI elements
-* 3000 + CSS variables
+* 3000+ CSS variables
 * 3 Levels of variable inheritance (similar to SublimeText)
 * Built with EM values for responsive design
 * Flexbox friendly
