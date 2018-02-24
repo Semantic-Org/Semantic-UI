@@ -29,7 +29,7 @@
 @loadingDuration: 2s;
 
 @circularSize: 2em;
-@circularPadding: 0.5em 0.5em;
+@circularPadding: 0.5em 0;
 @circularShadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
 
 @borderedSize: 2em;
