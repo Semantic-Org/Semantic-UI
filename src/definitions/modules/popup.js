@@ -1015,7 +1015,7 @@ $.fn.popup = function(parameters) {
             if(settings.on == 'hover' && openedWithTouch) {
               module.bind.touchClose();
             }
-            if(settings.on == 'click' && settings.closable) {
+            if(settings.closable) {
               module.bind.clickaway();
             }
           },
