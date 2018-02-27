@@ -1,5 +1,14 @@
 ## RELEASE NOTES
 
+### Version 2.3.1 - Feb 23, 2018
+
+**Bugs**
+- **Icons** - Fixes some icons that were incorrectly named. **Thanks hammy2899** [#6181](https://github.com/Semantic-Org/Semantic-UI/pull/6181) [#6180](https://github.com/Semantic-Org/Semantic-UI/pull/6180) [#6176](https://github.com/Semantic-Org/Semantic-UI/pull/6176) [#6175](https://github.com/Semantic-Org/Semantic-UI/pull/6175)
+- **Icons** - Increased specifity on `fitted icon` to fix compatibility with other components [#6125](https://github.com/Semantic-Org/Semantic-UI/issues/6125)
+
+**Docs**
+- Fixes CDN links in docs **Thanks @KSH-code**
+
 ### Version 2.3.0 - Feb 20, 2018
 
 **Major Enhancements**
