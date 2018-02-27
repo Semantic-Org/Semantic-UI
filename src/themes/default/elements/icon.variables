@@ -6,14 +6,37 @@
    Icon Variables
 --------------------*/
 
-@fontName: 'icons';
-@fallbackSRC: url("@{fontPath}/@{fontName}.eot");
-@src:
-  url("@{fontPath}/@{fontName}.eot?#iefix") format('embedded-opentype'),
-  url("@{fontPath}/@{fontName}.woff2") format('woff2'),
-  url("@{fontPath}/@{fontName}.woff") format('woff'),
-  url("@{fontPath}/@{fontName}.ttf") format('truetype'),
-  url("@{fontPath}/@{fontName}.svg#icons") format('svg')
+@importSolidIcons: true;
+@solidFontName: 'solid-icons';
+@solidFallbackSRC: url("@{fontPath}/@{solidFontName}.eot");
+@solidSrc:
+  url("@{fontPath}/@{solidFontName}.eot?#iefix") format('embedded-opentype'),
+  url("@{fontPath}/@{solidFontName}.woff2") format('woff2'),
+  url("@{fontPath}/@{solidFontName}.woff") format('woff'),
+  url("@{fontPath}/@{solidFontName}.ttf") format('truetype'),
+  url("@{fontPath}/@{solidFontName}.svg#icons") format('svg')
+;
+
+@importRegularIcons: true;
+@regularFontName: 'regular-icons';
+@regularFallbackSRC: url("@{fontPath}/@{regularFontName}.eot");
+@regularSrc:
+  url("@{fontPath}/@{regularFontName}.eot?#iefix") format('embedded-opentype'),
+  url("@{fontPath}/@{regularFontName}.woff2") format('woff2'),
+  url("@{fontPath}/@{regularFontName}.woff") format('woff'),
+  url("@{fontPath}/@{regularFontName}.ttf") format('truetype'),
+  url("@{fontPath}/@{regularFontName}.svg#icons") format('svg')
+;
+
+@importBrandIcons: true;
+@brandFontName: 'brand-icons';
+@brandFallbackSRC: url("@{fontPath}/@{brandFontName}.eot");
+@brandSrc:
+  url("@{fontPath}/@{brandFontName}.eot?#iefix") format('embedded-opentype'),
+  url("@{fontPath}/@{brandFontName}.woff2") format('woff2'),
+  url("@{fontPath}/@{brandFontName}.woff") format('woff'),
+  url("@{fontPath}/@{brandFontName}.ttf") format('truetype'),
+  url("@{fontPath}/@{brandFontName}.svg#icons") format('svg')
 ;
 
 @opacity: 1;
