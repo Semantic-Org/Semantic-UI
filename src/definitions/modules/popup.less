@@ -126,6 +126,10 @@
   z-index: @tooltipZIndex;
 }
 
+[data-tooltip][data-single-line]:after {
+  white-space: nowrap !important;
+}
+
 /* Default Position (Top Center) */
 [data-tooltip]:not([data-position]):before {
   top: auto;
