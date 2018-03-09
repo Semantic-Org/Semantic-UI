@@ -814,7 +814,103 @@
   border-top-width: 0px;
 }
 
+/*-------------------
+       Tertiary
+--------------------*/
 
+/* Underline Mixin */
+
+.ui.tertiary.underline.button {
+  box-shadow+: inset 0 -@tertiaryLineHeight 0 @tertiaryLineColor !important;
+}
+
+.ui.tertiary.underline.hover.button {
+  box-shadow+: inset 0 -@tertiaryLineHeight 0 @tertiaryHoverLineColor !important;
+}
+
+.ui.tertiary.underline.focus.button {
+  box-shadow+: inset 0 -@tertiaryLineHeight 0 @tertiaryFocusLineColor !important;
+}
+
+.ui.tertiary.underline.active.button {
+  box-shadow+: inset 0 -@tertiaryLineHeight 0 @tertiaryActiveLineColor !important;
+}
+
+/* Overline Mixin */
+
+.ui.tertiary.overline.button {
+  box-shadow+: inset 0 @tertiaryLineHeight 0 @tertiaryLineColor !important;
+}
+
+.ui.tertiary.overline.hover.button {
+  box-shadow+: inset 0 @tertiaryLineHeight 0 @tertiaryHoverLineColor !important;
+}
+
+.ui.tertiary.overline.focus.button {
+  box-shadow+: inset 0 @tertiaryLineHeight 0 @tertiaryFocusLineColor !important;
+}
+
+.ui.tertiary.overline.active.button {
+  box-shadow+: inset 0 @tertiaryLineHeight 0 @tertiaryActiveLineColor !important;
+}
+
+.ui.tertiary.button {
+  box-shadow: none !important;
+  & when (@tertiaryWithUnderline = true) {
+    .ui.tertiary.underline.button();
+  }
+
+  & when (@tertiaryWithOverline = true) {
+    .ui.tertiary.overline.button();
+  }
+  background: none !important;
+  transition: color @defaultDuration @defaultEasing !important;
+  border-radius: 0;
+  color: @tertiaryTextColor !important;
+  margin: 
+    (@verticalPadding  - @tertiaryLinePadding)
+    (@horizontalMargin + @horizontalPadding)
+    (@verticalPadding + @shadowOffset + @verticalMargin - @tertiaryLinePadding)
+    @horizontalPadding
+    !important;
+  padding: @tertiaryLinePadding !important;
+}
+
+.ui.tertiary.button:hover {
+  box-shadow: none !important;
+  & when (@tertiaryHoverWithUnderline = true) {
+    .ui.tertiary.underline.hover.button();
+  }
+
+  & when (@tertiaryHoverWithOverline = true) {
+    .ui.tertiary.overline.hover.button();
+  }
+  color: @tertiaryHoverColor !important;
+}
+
+.ui.tertiary.button:focus {
+  box-shadow: none !important;
+  & when (@tertiaryFocusWithUnderline = true) {
+    .ui.tertiary.underline.focus.button();
+  }
+
+  & when (@tertiaryFocusWithOverline = true) {
+    .ui.tertiary.overline.focus.button();
+  }
+  color: @tertiaryFocusColor !important;
+}
+
+.ui.tertiary.button:active {
+  box-shadow: none !important;
+  & when (@tertiaryActiveWithUnderline = true) {
+    .ui.tertiary.underline.active.button();
+  }
+
+  & when (@tertiaryActiveWithOverline = true) {
+    .ui.tertiary.overline.active.button();
+  }
+  color: @tertiaryActiveColor !important;
+}
 
 /*--------------
   Labeled Icon
@@ -1373,6 +1469,41 @@
 .ui.inverted.black.basic.button:active {
   box-shadow: 0px 0px 0px @invertedBorderSize @lightBlackDown inset !important;
   color: @white !important;
+}
+
+/* Tertiary */
+.ui.tertiary.black.buttons .button,
+.ui.tertiary.black.buttons .tertiary.button,
+.ui.tertiary.black.button {
+  color: @black !important;
+}
+
+.ui.tertiary.black.buttons .button:hover,
+.ui.tertiary.black.buttons button:hover,
+.ui.tertiary.black.button:hover {
+  color: @black !important;
+  box-shadow: inset 0 -@tertiaryLineHeight 0 @black !important;
+}
+
+.ui.tertiary.black.buttons .button:focus,
+.ui.tertiary.black.buttons .tertiary.button:focus,
+.ui.tertiary.black.button:focus {
+  color: @blackFocus !important;
+  box-shadow: inset 0 -@tertiaryLineHeight 0 @black !important;
+}
+
+.ui.tertiary.black.buttons .active.button,
+.ui.tertiary.black.buttons .tertiary.active.button,
+.ui.tertiary.black.active.button {
+  color: @blackDown !important;
+  box-shadow: none !important;
+}
+
+.ui.tertiary.black.buttons .button:active,
+.ui.tertiary.black.buttons .tertiary.button:active,
+.ui.tertiary.black.button:active {
+  color: @blackDown !important;
+  box-shadow: none !important;
 }
 
 /*--- Grey ---*/
