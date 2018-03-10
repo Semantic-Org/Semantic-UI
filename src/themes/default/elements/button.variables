@@ -253,7 +253,7 @@
 /*------------- 
    Tertiary
 -------------*/
-@tertiaryLinePadding: 0.4em;
+@tertiaryLinePadding: 0.5em;
 @tertiaryLineHeight: 0.2em;
 @tertiaryTextColor: @textColor;
 @tertiaryLineColor: lighten(@tertiaryTextColor, 20%);
