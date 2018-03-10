@@ -254,14 +254,12 @@
    Tertiary
 -------------*/
 @tertiaryLinePadding: 0.4em;
-@tertiaryLineHeight: 0.15em;
+@tertiaryLineHeight: 0.2em;
 @tertiaryTextColor: @textColor;
 @tertiaryLineColor: lighten(@tertiaryTextColor, 20%);
-@tertiaryBackgroundColor: none;
-
-/* Display text-decoration lines */
-@tertiaryWithUnderline: true;
+@tertiaryWithUnderline: false;
 @tertiaryWithOverline: false;
+@tertiaryBackgroundColor: none;
 
 /* Tertiary Hover */
 @tertiaryHoverColor: lighten(fadein(@tertiaryTextColor, 100%), 20%);
