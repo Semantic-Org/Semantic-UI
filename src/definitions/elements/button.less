@@ -818,98 +818,71 @@
        Tertiary
 --------------------*/
 
-/* Underline Mixin */
-
-.ui.tertiary.underline.button {
-  box-shadow+: inset 0 -@tertiaryLineHeight 0 @tertiaryLineColor !important;
-}
-
-.ui.tertiary.underline.hover.button {
-  box-shadow+: inset 0 -@tertiaryLineHeight 0 @tertiaryHoverLineColor !important;
-}
-
-.ui.tertiary.underline.focus.button {
-  box-shadow+: inset 0 -@tertiaryLineHeight 0 @tertiaryFocusLineColor !important;
-}
-
-.ui.tertiary.underline.active.button {
-  box-shadow+: inset 0 -@tertiaryLineHeight 0 @tertiaryActiveLineColor !important;
-}
-
 /* Overline Mixin */
-
-.ui.tertiary.overline.button {
-  box-shadow+: inset 0 @tertiaryLineHeight 0 @tertiaryLineColor !important;
-}
-
-.ui.tertiary.overline.hover.button {
-  box-shadow+: inset 0 @tertiaryLineHeight 0 @tertiaryHoverLineColor !important;
-}
-
-.ui.tertiary.overline.focus.button {
-  box-shadow+: inset 0 @tertiaryLineHeight 0 @tertiaryFocusLineColor !important;
-}
-
-.ui.tertiary.overline.active.button {
-  box-shadow+: inset 0 @tertiaryLineHeight 0 @tertiaryActiveLineColor !important;
-}
 
 .ui.tertiary.button {
   box-shadow: none !important;
-  & when (@tertiaryWithUnderline = true) {
-    .ui.tertiary.underline.button();
-  }
-
-  & when (@tertiaryWithOverline = true) {
-    .ui.tertiary.overline.button();
-  }
   background: none !important;
   transition: color @defaultDuration @defaultEasing !important;
   border-radius: 0;
-  color: @tertiaryTextColor !important;
   margin: 
     (@verticalPadding  - @tertiaryLinePadding)
-    (@horizontalMargin + @horizontalPadding)
+    (@horizontalMargin)
     (@verticalPadding + @shadowOffset + @verticalMargin - @tertiaryLinePadding)
-    @horizontalPadding
+    0
     !important;
   padding: @tertiaryLinePadding !important;
+
+  & when (@tertiaryWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 @tertiaryLineColor !important;
+  }
+
+  & when (@tertiaryWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 @tertiaryLineColor !important;
+  }
+  color: @tertiaryTextColor !important;
+  background: @tertiaryBackgroundColor !important;
 }
 
 .ui.tertiary.button:hover {
   box-shadow: none !important;
+
   & when (@tertiaryHoverWithUnderline = true) {
-    .ui.tertiary.underline.hover.button();
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 @tertiaryHoverLineColor !important;
   }
 
   & when (@tertiaryHoverWithOverline = true) {
-    .ui.tertiary.overline.hover.button();
+    box-shadow+: inset 0 @tertiaryLineHeight 0 @tertiaryHoverLineColor !important;
   }
   color: @tertiaryHoverColor !important;
+  background: @tertiaryHoverBackgroundColor !important;
 }
 
 .ui.tertiary.button:focus {
-  box-shadow: none !important;
   & when (@tertiaryFocusWithUnderline = true) {
-    .ui.tertiary.underline.focus.button();
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 @tertiaryFocusLineColor !important;
   }
 
   & when (@tertiaryFocusWithOverline = true) {
-    .ui.tertiary.overline.focus.button();
+    box-shadow+: inset 0 @tertiaryLineHeight 0 @tertiaryFocusLineColor !important;
   }
   color: @tertiaryFocusColor !important;
+  background: @tertiaryFocusBackgroundColor !important;
 }
 
 .ui.tertiary.button:active {
   box-shadow: none !important;
   & when (@tertiaryActiveWithUnderline = true) {
-    .ui.tertiary.underline.active.button();
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 @tertiaryActiveLineColor !important;
+    border-radius+: @borderRadius @borderRadius 0 0;
   }
 
   & when (@tertiaryActiveWithOverline = true) {
-    .ui.tertiary.overline.active.button();
+    box-shadow+: inset 0 @tertiaryLineHeight 0 @tertiaryActiveLineColor !important;
+    border-radius+: 0 0 @borderRadius @borderRadius;
   }
   color: @tertiaryActiveColor !important;
+  background: @tertiaryActiveBackgroundColor !important;
 }
 
 /*--------------
@@ -1475,35 +1448,67 @@
 .ui.tertiary.black.buttons .button,
 .ui.tertiary.black.buttons .tertiary.button,
 .ui.tertiary.black.button {
+  box-shadow: none !important;
+
+  & when (@tertiaryWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 lighten(@black, 20%) !important;
+  }
+
+  & when (@tertiaryWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 lighten(@black, 20%) !important;
+  }
   color: @black !important;
 }
 
 .ui.tertiary.black.buttons .button:hover,
 .ui.tertiary.black.buttons button:hover,
 .ui.tertiary.black.button:hover {
-  color: @black !important;
-  box-shadow: inset 0 -@tertiaryLineHeight 0 @black !important;
+  box-shadow: none !important;
+
+  & when (@tertiaryHoverWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 lighten(@blackHover, 40%) !important;
+  }
+
+  & when (@tertiaryHoverWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 lighten(@blackHover, 40%) !important;
+  }
+
+  color: lighten(@blackHover, 20%) !important;
 }
 
 .ui.tertiary.black.buttons .button:focus,
 .ui.tertiary.black.buttons .tertiary.button:focus,
 .ui.tertiary.black.button:focus {
-  color: @blackFocus !important;
-  box-shadow: inset 0 -@tertiaryLineHeight 0 @black !important;
+  box-shadow: none !important;
+
+  & when (@tertiaryFocusWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 lighten(@blackFocus, 40%) !important;
+  }
+
+  & when (@tertiaryFocusWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 lighten(@blackFocus, 40%) !important;
+  }
+
+  color: lighten(@blackFocus, 20%) !important;
 }
 
 .ui.tertiary.black.buttons .active.button,
 .ui.tertiary.black.buttons .tertiary.active.button,
-.ui.tertiary.black.active.button {
-  color: @blackDown !important;
-  box-shadow: none !important;
-}
-
+.ui.tertiary.black.active.button,
 .ui.tertiary.black.buttons .button:active,
 .ui.tertiary.black.buttons .tertiary.button:active,
 .ui.tertiary.black.button:active {
-  color: @blackDown !important;
   box-shadow: none !important;
+
+  & when (@tertiaryActiveWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 lighten(@blackActive, 20%) !important;
+  }
+
+  & when (@tertiaryActiveWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 lighten(@blackActive, 20%) !important;
+  }
+
+  color: @blackActive !important;
 }
 
 /*--- Grey ---*/
@@ -1643,6 +1648,73 @@
 .ui.inverted.grey.basic.button:active {
   box-shadow: 0px 0px 0px @invertedBorderSize @lightGreyDown inset !important;
   color: @white !important;
+}
+
+/* Tertiary */
+.ui.tertiary.grey.buttons .button,
+.ui.tertiary.grey.buttons .tertiary.button,
+.ui.tertiary.grey.button {
+  box-shadow: none !important;
+
+  & when (@tertiaryWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@grey, 20%) !important;
+  }
+
+  & when (@tertiaryWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@grey, 20%) !important;
+  }
+  color: @grey !important;
+}
+
+.ui.tertiary.grey.buttons .button:hover,
+.ui.tertiary.grey.buttons button:hover,
+.ui.tertiary.grey.button:hover {
+  box-shadow: none !important;
+
+  & when (@tertiaryHoverWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@greyHover, 20%) !important;
+  }
+
+  & when (@tertiaryHoverWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@greyHover, 20%) !important;
+  }
+
+  color: desaturate(@greyHover, 20%) !important;
+}
+
+.ui.tertiary.grey.buttons .button:focus,
+.ui.tertiary.grey.buttons .tertiary.button:focus,
+.ui.tertiary.grey.button:focus {
+  box-shadow: none !important;
+
+  & when (@tertiaryFocusWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@greyFocus, 20%) !important;
+  }
+
+  & when (@tertiaryFocusWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@greyFocus, 20%) !important;
+  }
+
+  color: desaturate(@greyFocus, 20%) !important;
+}
+
+.ui.tertiary.grey.buttons .active.button,
+.ui.tertiary.grey.buttons .tertiary.active.button,
+.ui.tertiary.grey.active.button,
+.ui.tertiary.grey.buttons .button:active,
+.ui.tertiary.grey.buttons .tertiary.button:active,
+.ui.tertiary.grey.button:active {
+  box-shadow: none !important;
+
+  & when (@tertiaryActiveWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@greyActive, 20%) !important;
+  }
+
+  & when (@tertiaryActiveWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@greyActive, 20%) !important;
+  }
+
+  color: @greyActive !important;
 }
 
 
@@ -1785,6 +1857,73 @@
   color: @lightBrown !important;
 }
 
+/* Tertiary */
+.ui.tertiary.brown.buttons .button,
+.ui.tertiary.brown.buttons .tertiary.button,
+.ui.tertiary.brown.button {
+  box-shadow: none !important;
+
+  & when (@tertiaryWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@brown, 20%) !important;
+  }
+
+  & when (@tertiaryWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@brown, 20%) !important;
+  }
+  color: @brown !important;
+}
+
+.ui.tertiary.brown.buttons .button:hover,
+.ui.tertiary.brown.buttons button:hover,
+.ui.tertiary.brown.button:hover {
+  box-shadow: none !important;
+
+  & when (@tertiaryHoverWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@brownHover, 20%) !important;
+  }
+
+  & when (@tertiaryHoverWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@brownHover, 20%) !important;
+  }
+
+  color: desaturate(@brownHover, 20%) !important;
+}
+
+.ui.tertiary.brown.buttons .button:focus,
+.ui.tertiary.brown.buttons .tertiary.button:focus,
+.ui.tertiary.brown.button:focus {
+  box-shadow: none !important;
+
+  & when (@tertiaryFocusWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@brownFocus, 20%) !important;
+  }
+
+  & when (@tertiaryFocusWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@brownFocus, 20%) !important;
+  }
+
+  color: desaturate(@brownFocus, 20%) !important;
+}
+
+.ui.tertiary.brown.buttons .active.button,
+.ui.tertiary.brown.buttons .tertiary.active.button,
+.ui.tertiary.brown.active.button,
+.ui.tertiary.brown.buttons .button:active,
+.ui.tertiary.brown.buttons .tertiary.button:active,
+.ui.tertiary.brown.button:active {
+  box-shadow: none !important;
+
+  & when (@tertiaryActiveWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@brownActive, 20%) !important;
+  }
+
+  & when (@tertiaryActiveWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@brownActive, 20%) !important;
+  }
+
+  color: @brownActive !important;
+}
+
 /*--- Blue ---*/
 .ui.blue.buttons .button,
 .ui.blue.button {
@@ -1922,6 +2061,73 @@
 .ui.inverted.blue.basic.button:active {
   box-shadow: 0px 0px 0px @invertedBorderSize @lightBlueDown inset !important;
   color: @lightBlue !important;
+}
+
+/* Tertiary */
+.ui.tertiary.blue.buttons .button,
+.ui.tertiary.blue.buttons .tertiary.button,
+.ui.tertiary.blue.button {
+  box-shadow: none !important;
+
+  & when (@tertiaryWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@blue, 20%) !important;
+  }
+
+  & when (@tertiaryWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@blue, 20%) !important;
+  }
+  color: @blue !important;
+}
+
+.ui.tertiary.blue.buttons .button:hover,
+.ui.tertiary.blue.buttons button:hover,
+.ui.tertiary.blue.button:hover {
+  box-shadow: none !important;
+
+  & when (@tertiaryHoverWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@blueHover, 20%) !important;
+  }
+
+  & when (@tertiaryHoverWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@blueHover, 20%) !important;
+  }
+
+  color: desaturate(@blueHover, 20%) !important;
+}
+
+.ui.tertiary.blue.buttons .button:focus,
+.ui.tertiary.blue.buttons .tertiary.button:focus,
+.ui.tertiary.blue.button:focus {
+  box-shadow: none !important;
+
+  & when (@tertiaryFocusWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@blueFocus, 20%) !important;
+  }
+
+  & when (@tertiaryFocusWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@blueFocus, 20%) !important;
+  }
+
+  color: desaturate(@blueFocus, 20%) !important;
+}
+
+.ui.tertiary.blue.buttons .active.button,
+.ui.tertiary.blue.buttons .tertiary.active.button,
+.ui.tertiary.blue.active.button,
+.ui.tertiary.blue.buttons .button:active,
+.ui.tertiary.blue.buttons .tertiary.button:active,
+.ui.tertiary.blue.button:active {
+  box-shadow: none !important;
+
+  & when (@tertiaryActiveWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@blueActive, 20%) !important;
+  }
+
+  & when (@tertiaryActiveWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@blueActive, 20%) !important;
+  }
+
+  color: @blueActive !important;
 }
 
 /*--- Green ---*/
@@ -2064,6 +2270,73 @@
   color: @lightGreen !important;
 }
 
+/* Tertiary */
+.ui.tertiary.green.buttons .button,
+.ui.tertiary.green.buttons .tertiary.button,
+.ui.tertiary.green.button {
+  box-shadow: none !important;
+
+  & when (@tertiaryWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@green, 20%) !important;
+  }
+
+  & when (@tertiaryWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@green, 20%) !important;
+  }
+  color: @green !important;
+}
+
+.ui.tertiary.green.buttons .button:hover,
+.ui.tertiary.green.buttons button:hover,
+.ui.tertiary.green.button:hover {
+  box-shadow: none !important;
+
+  & when (@tertiaryHoverWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@greenHover, 20%) !important;
+  }
+
+  & when (@tertiaryHoverWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@greenHover, 20%) !important;
+  }
+
+  color: desaturate(@greenHover, 20%) !important;
+}
+
+.ui.tertiary.green.buttons .button:focus,
+.ui.tertiary.green.buttons .tertiary.button:focus,
+.ui.tertiary.green.button:focus {
+  box-shadow: none !important;
+
+  & when (@tertiaryFocusWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@greenFocus, 20%) !important;
+  }
+
+  & when (@tertiaryFocusWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@greenFocus, 20%) !important;
+  }
+
+  color: desaturate(@greenFocus, 20%) !important;
+}
+
+.ui.tertiary.green.buttons .active.button,
+.ui.tertiary.green.buttons .tertiary.active.button,
+.ui.tertiary.green.active.button,
+.ui.tertiary.green.buttons .button:active,
+.ui.tertiary.green.buttons .tertiary.button:active,
+.ui.tertiary.green.button:active {
+  box-shadow: none !important;
+
+  & when (@tertiaryActiveWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@greenActive, 20%) !important;
+  }
+
+  & when (@tertiaryActiveWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@greenActive, 20%) !important;
+  }
+
+  color: @greenActive !important;
+}
+
 /*--- Orange ---*/
 .ui.orange.buttons .button,
 .ui.orange.button {
@@ -2203,6 +2476,73 @@
   color: @lightOrange !important;
 }
 
+/* Tertiary */
+.ui.tertiary.orange.buttons .button,
+.ui.tertiary.orange.buttons .tertiary.button,
+.ui.tertiary.orange.button {
+  box-shadow: none !important;
+
+  & when (@tertiaryWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@orange, 20%) !important;
+  }
+
+  & when (@tertiaryWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@orange, 20%) !important;
+  }
+  color: @orange !important;
+}
+
+.ui.tertiary.orange.buttons .button:hover,
+.ui.tertiary.orange.buttons button:hover,
+.ui.tertiary.orange.button:hover {
+  box-shadow: none !important;
+
+  & when (@tertiaryHoverWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@orangeHover, 20%) !important;
+  }
+
+  & when (@tertiaryHoverWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@orangeHover, 20%) !important;
+  }
+
+  color: desaturate(@orangeHover, 20%) !important;
+}
+
+.ui.tertiary.orange.buttons .button:focus,
+.ui.tertiary.orange.buttons .tertiary.button:focus,
+.ui.tertiary.orange.button:focus {
+  box-shadow: none !important;
+
+  & when (@tertiaryFocusWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@orangeFocus, 20%) !important;
+  }
+
+  & when (@tertiaryFocusWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@orangeFocus, 20%) !important;
+  }
+
+  color: desaturate(@orangeFocus, 20%) !important;
+}
+
+.ui.tertiary.orange.buttons .active.button,
+.ui.tertiary.orange.buttons .tertiary.active.button,
+.ui.tertiary.orange.active.button,
+.ui.tertiary.orange.buttons .button:active,
+.ui.tertiary.orange.buttons .tertiary.button:active,
+.ui.tertiary.orange.button:active {
+  box-shadow: none !important;
+
+  & when (@tertiaryActiveWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@orangeActive, 20%) !important;
+  }
+
+  & when (@tertiaryActiveWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@orangeActive, 20%) !important;
+  }
+
+  color: @orangeActive !important;
+}
+
 /*--- Pink ---*/
 .ui.pink.buttons .button,
 .ui.pink.button {
@@ -2340,6 +2680,73 @@
 .ui.inverted.pink.basic.button:active {
   box-shadow: 0px 0px 0px @invertedBorderSize @lightPinkDown inset !important;
   color: @lightPink !important;
+}
+
+/* Tertiary */
+.ui.tertiary.pink.buttons .button,
+.ui.tertiary.pink.buttons .tertiary.button,
+.ui.tertiary.pink.button {
+  box-shadow: none !important;
+
+  & when (@tertiaryWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@pink, 20%) !important;
+  }
+
+  & when (@tertiaryWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@pink, 20%) !important;
+  }
+  color: @pink !important;
+}
+
+.ui.tertiary.pink.buttons .button:hover,
+.ui.tertiary.pink.buttons button:hover,
+.ui.tertiary.pink.button:hover {
+  box-shadow: none !important;
+
+  & when (@tertiaryHoverWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@pinkHover, 20%) !important;
+  }
+
+  & when (@tertiaryHoverWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@pinkHover, 20%) !important;
+  }
+
+  color: desaturate(@pinkHover, 20%) !important;
+}
+
+.ui.tertiary.pink.buttons .button:focus,
+.ui.tertiary.pink.buttons .tertiary.button:focus,
+.ui.tertiary.pink.button:focus {
+  box-shadow: none !important;
+
+  & when (@tertiaryFocusWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@pinkFocus, 20%) !important;
+  }
+
+  & when (@tertiaryFocusWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@pinkFocus, 20%) !important;
+  }
+
+  color: desaturate(@pinkFocus, 20%) !important;
+}
+
+.ui.tertiary.pink.buttons .active.button,
+.ui.tertiary.pink.buttons .tertiary.active.button,
+.ui.tertiary.pink.active.button,
+.ui.tertiary.pink.buttons .button:active,
+.ui.tertiary.pink.buttons .tertiary.button:active,
+.ui.tertiary.pink.button:active {
+  box-shadow: none !important;
+
+  & when (@tertiaryActiveWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@pinkActive, 20%) !important;
+  }
+
+  & when (@tertiaryActiveWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@pinkActive, 20%) !important;
+  }
+
+  color: @pinkActive !important;
 }
 
 
@@ -2482,6 +2889,73 @@
   color: @lightViolet !important;
 }
 
+/* Tertiary */
+.ui.tertiary.violet.buttons .button,
+.ui.tertiary.violet.buttons .tertiary.button,
+.ui.tertiary.violet.button {
+  box-shadow: none !important;
+
+  & when (@tertiaryWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@violet, 20%) !important;
+  }
+
+  & when (@tertiaryWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@violet, 20%) !important;
+  }
+  color: @violet !important;
+}
+
+.ui.tertiary.violet.buttons .button:hover,
+.ui.tertiary.violet.buttons button:hover,
+.ui.tertiary.violet.button:hover {
+  box-shadow: none !important;
+
+  & when (@tertiaryHoverWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@violetHover, 20%) !important;
+  }
+
+  & when (@tertiaryHoverWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@violetHover, 20%) !important;
+  }
+
+  color: desaturate(@violetHover, 20%) !important;
+}
+
+.ui.tertiary.violet.buttons .button:focus,
+.ui.tertiary.violet.buttons .tertiary.button:focus,
+.ui.tertiary.violet.button:focus {
+  box-shadow: none !important;
+
+  & when (@tertiaryFocusWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@violetFocus, 20%) !important;
+  }
+
+  & when (@tertiaryFocusWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@violetFocus, 20%) !important;
+  }
+
+  color: desaturate(@violetFocus, 20%) !important;
+}
+
+.ui.tertiary.violet.buttons .active.button,
+.ui.tertiary.violet.buttons .tertiary.active.button,
+.ui.tertiary.violet.active.button,
+.ui.tertiary.violet.buttons .button:active,
+.ui.tertiary.violet.buttons .tertiary.button:active,
+.ui.tertiary.violet.button:active {
+  box-shadow: none !important;
+
+  & when (@tertiaryActiveWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@violetActive, 20%) !important;
+  }
+
+  & when (@tertiaryActiveWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@violetActive, 20%) !important;
+  }
+
+  color: @violetActive !important;
+}
+
 /*--- Purple ---*/
 .ui.purple.buttons .button,
 .ui.purple.button {
@@ -2621,6 +3095,73 @@
   color: @lightPurple !important;
 }
 
+/* Tertiary */
+.ui.tertiary.purple.buttons .button,
+.ui.tertiary.purple.buttons .tertiary.button,
+.ui.tertiary.purple.button {
+  box-shadow: none !important;
+
+  & when (@tertiaryWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@purple, 20%) !important;
+  }
+
+  & when (@tertiaryWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@purple, 20%) !important;
+  }
+  color: @purple !important;
+}
+
+.ui.tertiary.purple.buttons .button:hover,
+.ui.tertiary.purple.buttons button:hover,
+.ui.tertiary.purple.button:hover {
+  box-shadow: none !important;
+
+  & when (@tertiaryHoverWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@purpleHover, 20%) !important;
+  }
+
+  & when (@tertiaryHoverWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@purpleHover, 20%) !important;
+  }
+
+  color: desaturate(@purpleHover, 20%) !important;
+}
+
+.ui.tertiary.purple.buttons .button:focus,
+.ui.tertiary.purple.buttons .tertiary.button:focus,
+.ui.tertiary.purple.button:focus {
+  box-shadow: none !important;
+
+  & when (@tertiaryFocusWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@purpleFocus, 20%) !important;
+  }
+
+  & when (@tertiaryFocusWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@purpleFocus, 20%) !important;
+  }
+
+  color: desaturate(@purpleFocus, 20%) !important;
+}
+
+.ui.tertiary.purple.buttons .active.button,
+.ui.tertiary.purple.buttons .tertiary.active.button,
+.ui.tertiary.purple.active.button,
+.ui.tertiary.purple.buttons .button:active,
+.ui.tertiary.purple.buttons .tertiary.button:active,
+.ui.tertiary.purple.button:active {
+  box-shadow: none !important;
+
+  & when (@tertiaryActiveWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@purpleActive, 20%) !important;
+  }
+
+  & when (@tertiaryActiveWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@purpleActive, 20%) !important;
+  }
+
+  color: @purpleActive !important;
+}
+
 /*--- Red ---*/
 .ui.red.buttons .button,
 .ui.red.button {
@@ -2758,6 +3299,73 @@
 .ui.inverted.red.basic.button:active {
   box-shadow: 0px 0px 0px @invertedBorderSize @lightRedDown inset !important;
   color: @lightRed !important;
+}
+
+/* Tertiary */
+.ui.tertiary.red.buttons .button,
+.ui.tertiary.red.buttons .tertiary.button,
+.ui.tertiary.red.button {
+  box-shadow: none !important;
+
+  & when (@tertiaryWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@red, 20%) !important;
+  }
+
+  & when (@tertiaryWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@red, 20%) !important;
+  }
+  color: @red !important;
+}
+
+.ui.tertiary.red.buttons .button:hover,
+.ui.tertiary.red.buttons button:hover,
+.ui.tertiary.red.button:hover {
+  box-shadow: none !important;
+
+  & when (@tertiaryHoverWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@redHover, 20%) !important;
+  }
+
+  & when (@tertiaryHoverWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@redHover, 20%) !important;
+  }
+
+  color: desaturate(@redHover, 20%) !important;
+}
+
+.ui.tertiary.red.buttons .button:focus,
+.ui.tertiary.red.buttons .tertiary.button:focus,
+.ui.tertiary.red.button:focus {
+  box-shadow: none !important;
+
+  & when (@tertiaryFocusWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@redFocus, 20%) !important;
+  }
+
+  & when (@tertiaryFocusWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@redFocus, 20%) !important;
+  }
+
+  color: desaturate(@redFocus, 20%) !important;
+}
+
+.ui.tertiary.red.buttons .active.button,
+.ui.tertiary.red.buttons .tertiary.active.button,
+.ui.tertiary.red.active.button,
+.ui.tertiary.red.buttons .button:active,
+.ui.tertiary.red.buttons .tertiary.button:active,
+.ui.tertiary.red.button:active {
+  box-shadow: none !important;
+
+  & when (@tertiaryActiveWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@redActive, 20%) !important;
+  }
+
+  & when (@tertiaryActiveWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@redActive, 20%) !important;
+  }
+
+  color: @redActive !important;
 }
 
 
@@ -2900,6 +3508,73 @@
   color: @lightTeal !important;
 }
 
+/* Tertiary */
+.ui.tertiary.teal.buttons .button,
+.ui.tertiarteal.buttons .tertiary.button,
+.ui.tertiary.teal.button {
+  box-shadow: none !important;
+
+  & when (@tertiaryWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@teal, 20%) !important;
+  }
+
+  & when (@tertiaryWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@teal, 20%) !important;
+  }
+  color: @teal !important;
+}
+
+.ui.tertiary.teal.buttons .button:hover,
+.ui.tertiary.teal.buttons button:hover,
+.ui.tertiary.teal.button:hover {
+  box-shadow: none !important;
+
+  & when (@tertiaryHoverWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@tealHover, 20%) !important;
+  }
+
+  & when (@tertiaryHoverWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@tealHover, 20%) !important;
+  }
+
+  color: desaturate(@tealHover, 20%) !important;
+}
+
+.ui.tertiary.teal.buttons .button:focus,
+.ui.tertiary.teal.buttons .tertiary.button:focus,
+.ui.tertiary.teal.button:focus {
+  box-shadow: none !important;
+
+  & when (@tertiaryFocusWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@tealFocus, 20%) !important;
+  }
+
+  & when (@tertiaryFocusWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@tealFocus, 20%) !important;
+  }
+
+  color: desaturate(@tealFocus, 20%) !important;
+}
+
+.ui.tertiary.teal.buttons .active.button,
+.ui.tertiary.teal.buttons .tertiary.active.button,
+.ui.tertiary.teal.active.button,
+.ui.tertiary.teal.buttons .button:active,
+.ui.tertiary.teal.buttons .tertiary.button:active,
+.ui.tertiary.teal.button:active {
+  box-shadow: none !important;
+
+  & when (@tertiaryActiveWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@tealActive, 20%) !important;
+  }
+
+  & when (@tertiaryActiveWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@tealActive, 20%) !important;
+  }
+
+  color: @tealActive !important;
+}
+
 
 /*--- Olive ---*/
 .ui.olive.buttons .button,
@@ -3038,6 +3713,73 @@
 .ui.inverted.olive.basic.button:active {
   box-shadow: 0px 0px 0px @invertedBorderSize @lightOliveDown inset !important;
   color: @lightOlive !important;
+}
+
+/* Tertiary */
+.ui.tertiary.olive.buttons .button,
+.ui.tertiary.olive.buttons .tertiary.button,
+.ui.tertiary.olive.button {
+  box-shadow: none !important;
+
+  & when (@tertiaryWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@olive, 20%) !important;
+  }
+
+  & when (@tertiaryWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@olive, 20%) !important;
+  }
+  color: @olive !important;
+}
+
+.ui.tertiary.olive.buttons .button:hover,
+.ui.tertiary.olive.buttons button:hover,
+.ui.tertiary.olive.button:hover {
+  box-shadow: none !important;
+
+  & when (@tertiaryHoverWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@oliveHover, 20%) !important;
+  }
+
+  & when (@tertiaryHoverWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@oliveHover, 20%) !important;
+  }
+
+  color: desaturate(@oliveHover, 20%) !important;
+}
+
+.ui.tertiary.olive.buttons .button:focus,
+.ui.tertiary.olive.buttons .tertiary.button:focus,
+.ui.tertiary.olive.button:focus {
+  box-shadow: none !important;
+
+  & when (@tertiaryFocusWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@oliveFocus, 20%) !important;
+  }
+
+  & when (@tertiaryFocusWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@oliveFocus, 20%) !important;
+  }
+
+  color: desaturate(@oliveFocus, 20%) !important;
+}
+
+.ui.tertiary.olive.buttons .active.button,
+.ui.tertiary.olive.buttons .tertiary.active.button,
+.ui.tertiary.olive.active.button,
+.ui.tertiary.olive.buttons .button:active,
+.ui.tertiary.olive.buttons .tertiary.button:active,
+.ui.tertiary.olive.button:active {
+  box-shadow: none !important;
+
+  & when (@tertiaryActiveWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@oliveActive, 20%) !important;
+  }
+
+  & when (@tertiaryActiveWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@oliveActive, 20%) !important;
+  }
+
+  color: @oliveActive !important;
 }
 
 /*--- Yellow ---*/
@@ -3179,6 +3921,72 @@
   color: @lightYellow !important;
 }
 
+/* Tertiary */
+.ui.tertiary.yellow.buttons .button,
+.ui.tertiary.yellow.buttons .tertiary.button,
+.ui.tertiary.yellow.button {
+  box-shadow: none !important;
+
+  & when (@tertiaryWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@yellow, 20%) !important;
+  }
+
+  & when (@tertiaryWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@yellow, 20%) !important;
+  }
+  color: @yellow !important;
+}
+
+.ui.tertiary.yellow.buttons .button:hover,
+.ui.tertiary.yellow.buttons button:hover,
+.ui.tertiary.yellow.button:hover {
+  box-shadow: none !important;
+
+  & when (@tertiaryHoverWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@yellowHover, 20%) !important;
+  }
+
+  & when (@tertiaryHoverWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@yellowHover, 20%) !important;
+  }
+
+  color: desaturate(@yellowHover, 20%) !important;
+}
+
+.ui.tertiary.yellow.buttons .button:focus,
+.ui.tertiary.yellow.buttons .tertiary.button:focus,
+.ui.tertiary.yellow.button:focus {
+  box-shadow: none !important;
+
+  & when (@tertiaryFocusWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@yellowFocus, 20%) !important;
+  }
+
+  & when (@tertiaryFocusWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@yellowFocus, 20%) !important;
+  }
+
+  color: desaturate(@yellowFocus, 20%) !important;
+}
+
+.ui.tertiary.yellow.buttons .active.button,
+.ui.tertiary.yellow.buttons .tertiary.active.button,
+.ui.tertiary.yellow.active.button,
+.ui.tertiary.yellow.buttons .button:active,
+.ui.tertiary.yellow.buttons .tertiary.button:active,
+.ui.tertiary.yellow.button:active {
+  box-shadow: none !important;
+
+  & when (@tertiaryActiveWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@yellowActive, 20%) !important;
+  }
+
+  & when (@tertiaryActiveWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@yellowActive, 20%) !important;
+  }
+
+  color: @yellowActive !important;
+}
 
 /*-------------------
        Primary
@@ -3255,6 +4063,73 @@
   margin-left: -@basicColoredBorderSize;
 }
 
+/* Tertiary */
+.ui.tertiary.primary.buttons .button,
+.ui.tertiary.primary.buttons .tertiary.button,
+.ui.tertiary.primary.button {
+  box-shadow: none !important;
+
+  & when (@tertiaryWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@primaryColor, 20%) !important;
+  }
+
+  & when (@tertiaryWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@primaryColor, 20%) !important;
+  }
+  color: @primaryColor !important;
+}
+
+.ui.tertiary.primary.buttons .button:hover,
+.ui.tertiary.primary.buttons button:hover,
+.ui.tertiary.primary.button:hover {
+  box-shadow: none !important;
+
+  & when (@tertiaryHoverWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@primaryColorHover, 20%) !important;
+  }
+
+  & when (@tertiaryHoverWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@primaryColorHover, 20%) !important;
+  }
+
+  color: desaturate(@primaryColorHover, 20%) !important;
+}
+
+.ui.tertiary.primary.buttons .button:focus,
+.ui.tertiary.primary.buttons .tertiary.button:focus,
+.ui.tertiary.primary.button:focus {
+  box-shadow: none !important;
+
+  & when (@tertiaryFocusWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 desaturate(@primaryColorFocus, 20%) !important;
+  }
+
+  & when (@tertiaryFocusWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 desaturate(@primaryColorFocus, 20%) !important;
+  }
+
+  color: desaturate(@primaryColorFocus, 20%) !important;
+}
+
+.ui.tertiary.primary.buttons .active.button,
+.ui.tertiary.primary.buttons .tertiary.active.button,
+.ui.tertiary.primary.active.button,
+.ui.tertiary.primary.buttons .button:active,
+.ui.tertiary.primary.buttons .tertiary.button:active,
+.ui.tertiary.primary.button:active {
+  box-shadow: none !important;
+
+  & when (@tertiaryActiveWithUnderline = true) {
+    box-shadow+: inset 0 -@tertiaryLineHeight 0 saturate(@primaryColorActive, 20%) !important;
+  }
+
+  & when (@tertiaryActiveWithOverline = true) {
+    box-shadow+: inset 0 @tertiaryLineHeight 0 saturate(@primaryColorActive, 20%) !important;
+  }
+
+  color: @primaryColorActive !important;
+}
+
 /*-------------------
       Secondary
 --------------------*/
@@ -3329,6 +4204,7 @@
 .ui.buttons:not(.vertical) > .basic.primary.button:not(:first-child) {
   margin-left: -@basicColoredBorderSize;
 }
+
 
 /*---------------
     Positive
