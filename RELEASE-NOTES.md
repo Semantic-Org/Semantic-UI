@@ -9,6 +9,7 @@
 - **Icons** - Fixes some icons that were incorrectly named. **Thanks hammy2899** [#6181](https://github.com/Semantic-Org/Semantic-UI/pull/6181) [#6180](https://github.com/Semantic-Org/Semantic-UI/pull/6180) [#6176](https://github.com/Semantic-Org/Semantic-UI/pull/6176) [#6175](https://github.com/Semantic-Org/Semantic-UI/pull/6175)
 - **Icons** - Increased specifity on `fitted icon` to fix compatibility with other components [#6125](https://github.com/Semantic-Org/Semantic-UI/issues/6125)
 - **Visibility** - Fixed bug that could cause `onScreen` to not work properly for elements that are longer than screen.
+- **CSS Variables** - Added use of `@normal` for normal font weight for all non-default themes included in repo. #6227
 
 **Docs**
 - Fixes CDN links in docs **Thanks @KSH-code**
