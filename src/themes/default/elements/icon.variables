@@ -21,7 +21,7 @@
 ---------------*/
 
 /* Outline Icons */
-@importOutlineIcons: false;
+@importOutlineIcons: true;
 @outlineFontName: 'outline-icons';
 @outlineSrc:
   url("@{fontPath}/@{outlineFontName}.eot?#iefix") format('embedded-opentype'),
