@@ -2586,7 +2586,7 @@ $.fn.dropdown = function(parameters) {
             ;
             $label = settings.onLabelCreate.call($label, escapedValue, text);
 
-            if(module.has.value(value)) {
+            if(module.has.label(value)) {
               module.debug('User selection already exists, skipping', escapedValue);
               return;
             }
