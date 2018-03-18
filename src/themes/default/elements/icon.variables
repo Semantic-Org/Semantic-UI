@@ -61,12 +61,12 @@
 @loadingDuration: 2s;
 
 @circularSize: 2em;
-@circularPadding: 0.5em 0.5em;
+@circularPadding: 0.5em 0em;
 @circularShadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
 
 @borderedSize: 2em;
 @borderedVerticalPadding: ((@borderedSize - @height) / 2);
-@borderedHorizontalPadding: ((@borderedSize - @width) / 2);
+@borderedHorizontalPadding: 0em;
 @borderedShadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
 
 @cornerIconSize: 0.45em;

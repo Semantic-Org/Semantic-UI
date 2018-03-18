@@ -4,15 +4,19 @@
 
 **Critical Bugs**
 - **Dropdown** - Fixed issue in `2.3.0` that could cause multiselect dropdowns initialized by converting `<select>` to not add initial selected options. #6123
+- **Search** - Fixes using category search with `fullTextSearch: 'exact'` returning duplicate results #6223 #6221 @Thanks @prudho
+- **Icon** - Fixes `centered` and `bordered` icons appearing incorrectly with FA5 **Thanks @w96k** #6192
+- **Icons** - Adds fixes for some missing icons from modifications for FA5 in `2.3.0` **Thanks hammy2899** #6181 #6175
+
+**Enhancements**
+- **Search** - Adds disabled variation **Thanks @prudho** #6225
 
 **Bugs**
 - **Dropdown** - Fixed `onChange` missing `text` from callback when dropdown is set to `action: 'select'` #4183 #4510
-- **Search** - Fixes using category search with `fullTextSearch: 'exact'` returning duplicate results #6223 #6221 @Thanks @prudho
-- **Icons** - Reported FontAwesome 5 with a much higher accuracy which fixes all reported issues **Thanks hammy2899** [#6181](https://github.com/Semantic-Org/Semantic-UI/pull/6181) [#6180](https://github.com/Semantic-Org/Semantic-UI/pull/6180) [#6176](https://github.com/Semantic-Org/Semantic-UI/pull/6176) [#6175](https://github.com/Semantic-Org/Semantic-UI/pull/6175)
-- **Icons** - Added ability to choose whether solid, outline and brand icons should be included in your theme via the `@importSolidIcons`, `importRegularIcons` and `@importBrandIcons` variables **Thanks hammy2899**  
-- **Icons** - Fixes some icons that were incorrectly named. **Thanks hammy2899** [#6181](https://github.com/Semantic-Org/Semantic-UI/pull/6181) [#6180](https://github.com/Semantic-Org/Semantic-UI/pull/6180) [#6176](https://github.com/Semantic-Org/Semantic-UI/pull/6176) [#6175](https://github.com/Semantic-Org/Semantic-UI/pull/6175)
-- **Icons** - Increased specifity on `fitted icon` to fix compatibility with other components [#6125](https://github.com/Semantic-Org/Semantic-UI/issues/6125)
-- **Visibility** - Fixed bug that could cause `onScreen` to not work properly for elements that are longer than screen.
+- **Icons** - Fixes some icons that were incorrectly named. **Thanks hammy2899** #6181
+- **Icons** - Added ability to choose whether solid, outline and brand icons should be included in your theme via the `@importSolidIcons`, `importRegularIcons` and `@importBrandIcons` variables **Thanks hammy2899**
+- **Icons** - Increased specifity on `fitted icon` to fix compatibility with other components #6125
+- **Visibility** - Fixed bug that could cause `onScreen` callback to not occur properly for elements that are taller than screen.
 - **CSS Variables** - Added use of `@normal` for normal font weight for all non-default themes included in repo. #6227
 
 **Docs**
