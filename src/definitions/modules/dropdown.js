@@ -10,7 +10,7 @@
 
 ;(function ($, window, document, undefined) {
 
-"use strict";
+'use strict';
 
 window = (typeof window != 'undefined' && window.Math == Math)
   ? window
@@ -2283,7 +2283,7 @@ $.fn.dropdown = function(parameters) {
             var
               length = module.get.query().length
             ;
-            $search.val( text.substr(0 , length));
+            $search.val( text.substr(0, length));
           },
           scrollPosition: function($item, forceScroll) {
             var
@@ -3889,7 +3889,7 @@ $.fn.dropdown.settings.templates = {
           ? 'disabled '
           : ''
       ;
-      html += '<div class="'+ maybeDisabled +'item" data-value="' + option[fields.value] + '"' + maybeText + '>'
+      html += '<div class="'+ maybeDisabled +'item" data-value="' + option[fields.value] + '"' + maybeText + '>';
       html +=   option[fields.name];
       html += '</div>';
     });

@@ -10,7 +10,7 @@
 
 ;(function ($, window, document, undefined) {
 
-"use strict";
+'use strict';
 
 window = (typeof window != 'undefined' && window.Math == Math)
   ? window
