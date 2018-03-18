@@ -23,49 +23,16 @@
              Icon
 *******************************/
 
-.loadSolidIcons() when (@importSolidIcons) {
-  @font-face {
-    font-family: @fontName;
-    src: @solidFallbackSRC;
-    src: @solidSrc;
-    font-style: normal;
-    font-weight: @normal;
-    font-variant: normal;
-    text-decoration: inherit;
-    text-transform: none;
-  }
+@font-face {
+  font-family: 'Icons';
+  src: @fallbackSRC;
+  src: @src;
+  font-style: normal;
+  font-weight: @normal;
+  font-variant: normal;
+  text-decoration: inherit;
+  text-transform: none;
 }
-
-.loadRegularIcons() when (@importRegularIcons) {
-  @font-face {
-    font-family: @regularFontName;
-    src: @regularFallbackSRC;
-    src: @regularSrc;
-    font-style: normal;
-    font-weight: @normal;
-    font-variant: normal;
-    text-decoration: inherit;
-    text-transform: none;
-  }
-}
-
-.loadBrandIcons() when (@importBrandIcons) {
-  @font-face {
-    font-family: @brandFontName;
-    src: @brandFallbackSRC;
-    src: @brandSrc;
-    font-style: normal;
-    font-weight: @normal;
-    font-variant: normal;
-    text-decoration: inherit;
-    text-transform: none;
-  }
-}
-
-.loadSolidIcons();
-.loadRegularIcons();
-.loadBrandIcons();
-
 
 i.icon {
   display: inline-block;
@@ -76,7 +43,7 @@ i.icon {
   width: @width;
   height: @height;
 
-  font-family: @fontName;
+  font-family: 'Icons';
   font-style: normal;
   font-weight: @normal;
   text-decoration: inherit;
@@ -91,10 +58,6 @@ i.icon {
 
 i.icon:before {
   background: none !important;
-}
-
-i.icon.outline {
-  font-family: @regularFontName;
 }
 
 /*******************************
