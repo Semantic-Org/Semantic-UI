@@ -2,35 +2,39 @@
              Icon
 *******************************/
 
-/*-------------------
-   Icon Variables
---------------------*/
+/*--------------
+   Font Files
+---------------*/
 
-@importSolidIcons: true;
-@fontName: 'solid-icons';
-@solidFallbackSRC: url("@{fontPath}/@{fontName}.eot");
-@solidSrc:
+@fontName: 'icons';
+@src:
   url("@{fontPath}/@{fontName}.eot?#iefix") format('embedded-opentype'),
   url("@{fontPath}/@{fontName}.woff2") format('woff2'),
   url("@{fontPath}/@{fontName}.woff") format('woff'),
   url("@{fontPath}/@{fontName}.ttf") format('truetype'),
   url("@{fontPath}/@{fontName}.svg#icons") format('svg')
 ;
+@fallbackSRC: url("@{fontPath}/@{fontName}.eot");
 
-@importRegularIcons: true;
-@regularFontName: 'regular-icons';
-@regularFallbackSRC: url("@{fontPath}/@{regularFontName}.eot");
-@regularSrc:
-  url("@{fontPath}/@{regularFontName}.eot?#iefix") format('embedded-opentype'),
-  url("@{fontPath}/@{regularFontName}.woff2") format('woff2'),
-  url("@{fontPath}/@{regularFontName}.woff") format('woff'),
-  url("@{fontPath}/@{regularFontName}.ttf") format('truetype'),
-  url("@{fontPath}/@{regularFontName}.svg#icons") format('svg')
+/*--------------
+ Optional Files
+---------------*/
+
+/* Outline Icons */
+@importOutlineIcons: false;
+@outlineFontName: 'outline-icons';
+@outlineSrc:
+  url("@{fontPath}/@{outlineFontName}.eot?#iefix") format('embedded-opentype'),
+  url("@{fontPath}/@{outlineFontName}.woff2") format('woff2'),
+  url("@{fontPath}/@{outlineFontName}.woff") format('woff'),
+  url("@{fontPath}/@{outlineFontName}.ttf") format('truetype'),
+  url("@{fontPath}/@{outlineFontName}.svg#icons") format('svg')
 ;
+@outlineFallbackSRC: url("@{fontPath}/@{outlineFontName}.eot");
 
+/* Brand Icons */
 @importBrandIcons: true;
 @brandFontName: 'brand-icons';
-@brandFallbackSRC: url("@{fontPath}/@{brandFontName}.eot");
 @brandSrc:
   url("@{fontPath}/@{brandFontName}.eot?#iefix") format('embedded-opentype'),
   url("@{fontPath}/@{brandFontName}.woff2") format('woff2'),
@@ -38,7 +42,13 @@
   url("@{fontPath}/@{brandFontName}.ttf") format('truetype'),
   url("@{fontPath}/@{brandFontName}.svg#icons") format('svg')
 ;
+@brandFallbackSRC: url("@{fontPath}/@{brandFontName}.eot");
 
+/*--------------
+   Definition
+---------------*/
+
+/* Icon Variables */
 @opacity: 1;
 @width: @iconWidth;
 @height: 1em;
@@ -46,7 +56,6 @@
 
 
 /* Variations */
-
 @linkOpacity: 0.8;
 @linkDuration: 0.3s;
 @loadingDuration: 2s;
