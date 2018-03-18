@@ -2579,6 +2579,9 @@ $.fn.dropdown = function(parameters) {
               escapedValue = module.escape.value(value),
               $label
             ;
+            if(settings.ignoreCase) {
+              escapedValue = escapedValue.toLowerCase();
+            }
             $label =  $('<a />')
               .addClass(className.label)
               .attr('data-' + metadata.value, escapedValue)
@@ -3043,6 +3046,9 @@ $.fn.dropdown = function(parameters) {
               escapedValue = module.escape.value(value),
               $labels      = $module.find(selector.label)
             ;
+            if(settings.ignoreCase) {
+              escapedValue = escapedValue.toLowerCase();
+            }
             return ($labels.filter('[data-' + metadata.value + '="' + module.escape.string(escapedValue) +'"]').length > 0);
           },
           maxSelections: function() {
