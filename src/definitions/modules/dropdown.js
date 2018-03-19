@@ -445,7 +445,6 @@ $.fn.dropdown = function(parameters) {
           $module
             .removeData(metadata.defaultText)
             .removeData(metadata.defaultValue)
-            .removeData(metadata.placeholderText)
           ;
         },
 
