@@ -488,7 +488,9 @@ $.fn.dropdown = function(parameters) {
                 callback.call(element);
               });
             }
-          }
+          } else if (!module.has.items()) {
+			      module.event.text.focus();
+		      }
         },
 
         hide: function(callback) {
