@@ -20,6 +20,7 @@
 /* Global */
 @site       : 'default';
 @reset      : 'default';
+@utility    : 'default';
 
 /* Elements */
 @button     : 'default';

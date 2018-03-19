@@ -46,6 +46,7 @@ module.exports = {
     // global
     'reset',
     'site',
+    'utility',
 
     // elements
     'button',

@@ -1,0 +1,6 @@
+/*******************************
+            Utility
+*******************************/
+
+@horizontalMargin: @relativeMedium;
+@verticalMargin: @relativeMedium;
