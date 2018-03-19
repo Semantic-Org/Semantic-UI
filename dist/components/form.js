@@ -1616,6 +1616,8 @@ $.fn.form.settings = {
         validation
       ;
 
+      cardNumber = cardNumber.replace(/[^0-9]/gim, '');
+
       if(typeof cardNumber !== 'string' || cardNumber.length === 0) {
         return;
       }
