@@ -194,7 +194,7 @@ $.api = $.fn.api = function(parameters) {
 
           // Add form content
           if(settings.serializeForm) {
-            settings.data = module.add.formData(settings.data);
+            settings.data = module.get.formData();
           }
 
           // call beforesend and get any settings changes
@@ -419,34 +419,6 @@ $.api = $.fn.api = function(parameters) {
               }
             }
             return url;
-          },
-          formData: function(data) {
-            var
-              canSerialize = ($.fn.serializeObject !== undefined),
-              formData     = (canSerialize)
-                ? $form.serializeObject()
-                : $form.serialize(),
-              hasOtherData
-            ;
-            data         = data || settings.data;
-            hasOtherData = $.isPlainObject(data);
-
-            if(hasOtherData) {
-              if(canSerialize) {
-                module.debug('Extending existing data with form data', data, formData);
-                data = $.extend(true, {}, data, formData);
-              }
-              else {
-                module.error(error.missingSerialize);
-                module.debug('Cant extend data. Replacing data with form data', data, formData);
-                data = formData;
-              }
-            }
-            else {
-              module.debug('Adding form data', formData);
-              data = formData;
-            }
-            return data;
           }
         },
 
@@ -691,6 +663,18 @@ $.api = $.fn.api = function(parameters) {
         },
 
         get: {
+           formData: function () {
+            var
+              canSerialize = ($.fn.serializeObject !== undefined),
+              formData = (canSerialize)
+                ? $form.serializeObject()
+                : $form.serialize()
+            ;
+            if(!canSerialize) {
+                module.error(error.missingSerialize);
+            }
+            return formData
+          },
           responseFromXHR: function(xhr) {
             return $.isPlainObject(xhr)
               ? (module.is.expectingJSON())
