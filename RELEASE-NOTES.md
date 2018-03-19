@@ -8,7 +8,7 @@
 > A general solution will most likely require branching code for IE11 which will disable flex (as IE11 doesnt correctly implement the latest spec for [absolute positioned flex containers](https://developers.google.com/web/updates/2016/06/absolute-positioned-children)).
 
 **Critical Bugs**
-- **Dropdown** - Fixed issue in `2.3.0` that could cause multiselect dropdowns initialized by converting `<select>` to not add initial selected options. **Thanks @martinduparc** [#6123](https://github.com/Semantic-Org/Semantic-UI/issues/6123)
+- **Dropdown** - Fixed issue in `2.3.0` that could cause multiselect dropdowns initialized by converting `<select>` to not add initial selected options. [#6123](https://github.com/Semantic-Org/Semantic-UI/issues/6123)
 - **Search** - Fixes using category search with `fullTextSearch: 'exact'` **@Thanks @prudho** returning duplicate results [#6223](https://github.com/Semantic-Org/Semantic-UI/issues/6223) [#6221](https://github.com/Semantic-Org/Semantic-UI/issues/6221)
 - **Icon** - Fixes `centered` and `bordered` icons appearing incorrectly with FA5 **Thanks @w96k** [#6192](https://github.com/Semantic-Org/Semantic-UI/issues/6192)
 - **Icons** - Fixes missing aliases/incorrect icons from Font Awesome 5 port in `2.3.0` **Thanks hammy2899** [#6181](https://github.com/Semantic-Org/Semantic-UI/issues/6181) [#6175](https://github.com/Semantic-Org/Semantic-UI/issues/6175) [#6176](https://github.com/Semantic-Org/Semantic-UI/issues/6176) [#6174](https://github.com/Semantic-Org/Semantic-UI/issues/6174) [#6175](https://github.com/Semantic-Org/Semantic-UI/issues/6175)
