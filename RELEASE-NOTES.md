@@ -25,6 +25,7 @@
 
 **Docs**
 - Fixes CDN links in docs **Thanks @KSH-code**
+- Fixed issue where iframes may not load correctly in `/examples/theming.html` #6269
 
 ### Version 2.3.0 - Feb 20, 2018
 
