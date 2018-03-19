@@ -903,7 +903,7 @@ $.fn.modal.settings = {
   closable       : true,
   autofocus      : true,
   
-  // whether return focus to the element out of a viewport
+  // whether to return focus to the element out of a viewport
   // after the modal window is closed
   focusInvisible : true,
 
