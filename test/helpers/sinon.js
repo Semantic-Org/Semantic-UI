@@ -346,7 +346,12 @@ define.amd = true;
         var i, l, j, k;
         for (i = 0, l = array.length; i < l; ++i) {
             if (match(array[i], subset[0])) {
-                for (j = 0, k = subset.length; j < k; ++j) {
+                k = subset.length
+                // if subset overflows the array length from i return false
+                if (i + k - 1 >= l) {
+                    return false;
+                }
+                for (j = 0; j < k; ++j) {
                     if (!match(array[i + j], subset[j])) { return false; }
                 }
                 return true;
