@@ -1,0 +1,124 @@
+/*!
+ * # Semantic UI 2.2.4 - Breadcrumb
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+/*******************************
+           Breadcrumb
+*******************************/
+
+.ui.breadcrumb {
+  line-height: 1;
+  display: inline-block;
+  margin: 0em 0em;
+  vertical-align: middle;
+}
+.ui.breadcrumb:first-child {
+  margin-top: 0em;
+}
+.ui.breadcrumb:last-child {
+  margin-bottom: 0em;
+}
+
+
+/*******************************
+          Content
+*******************************/
+
+
+/* Divider */
+.ui.breadcrumb .divider {
+  display: inline-block;
+  opacity: 0.7;
+  margin: 0em 0.21428571rem 0em;
+  font-size: 0.92857143em;
+  color: rgba(0, 0, 0, 0.4);
+  vertical-align: baseline;
+}
+
+/* Link */
+.ui.breadcrumb a {
+  color: #4183C4;
+}
+.ui.breadcrumb a:hover {
+  color: #1e70bf;
+}
+
+/* Icon Divider */
+.ui.breadcrumb .icon.divider {
+  font-size: 0.85714286em;
+  vertical-align: baseline;
+}
+
+/* Section */
+.ui.breadcrumb a.section {
+  cursor: pointer;
+}
+.ui.breadcrumb .section {
+  display: inline-block;
+  margin: 0em;
+  padding: 0em;
+}
+
+/* Loose Coupling */
+.ui.breadcrumb.segment {
+  display: inline-block;
+  padding: 0.78571429em 1em;
+}
+
+
+/*******************************
+            States
+*******************************/
+
+.ui.breadcrumb .active.section {
+  font-weight: bold;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+.ui.mini.breadcrumb {
+  font-size: 0.78571429rem;
+}
+.ui.tiny.breadcrumb {
+  font-size: 0.85714286rem;
+}
+.ui.small.breadcrumb {
+  font-size: 0.92857143rem;
+}
+.ui.breadcrumb {
+  font-size: 1rem;
+}
+.ui.large.breadcrumb {
+  font-size: 1.14285714rem;
+}
+.ui.big.breadcrumb {
+  font-size: 1.28571429rem;
+}
+.ui.huge.breadcrumb {
+  font-size: 1.42857143rem;
+}
+.ui.massive.breadcrumb {
+  font-size: 1.71428571rem;
+}
+
+
+/*******************************
+         Theme Overrides
+*******************************/
+
+
+
+/*******************************
+         Site Overrides
+*******************************/
+
