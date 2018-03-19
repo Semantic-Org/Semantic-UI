@@ -1,0 +1,162 @@
+ /*
+ * # Semantic - Codeblock
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+/*******************************
+            Theme
+*******************************/
+
+@type    : 'view';
+@element : 'codeblock';
+
+@import '../../theme.config';
+
+/*******************************
+            Standard
+*******************************/
+
+/*--------------
+     Codeblock
+---------------*/
+.ui.codeblock{
+    padding:0;
+    background-color:@backgroundColor;
+    border:@borderWidth solid @borderColor;
+    border-radius:@borderRadius;
+}
+
+/*--------------
+     Header
+---------------*/
+.ui.codeblock .header:not(.ui){
+    margin:0;
+    background:@headerBackgroundColor;
+    color:@headerColor;
+    padding:@headerPadding;
+    border-bottom:@borderWidth solid @borderColor;
+    border-radius: @borderRadius @borderRadius 0 0;
+    font-weight:bold;
+}
+
+.ui.codeblock .header:not(.ui):after{ 
+    /* Clearfix */
+    display:block;
+    content:' ';
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+
+/*--------------
+     Code
+---------------*/
+.ui.codeblock .code:not(.icon){
+    display: inline-block;
+    width:100%;
+    font-family:@codeFont;
+    overflow-y:auto;
+}
+
+.ui.codeblock .code:not(.icon)>pre{
+    padding:@codePadding;
+    margin:0;
+}
+
+/*--------------
+     Gutter
+---------------*/
+.ui.codeblock .code:not(.icon)>.gutter{
+    background:@gutterBackgroundColor;
+    color:@metaColor;
+    padding:@gutterPadding;
+    text-align: @gutterTextAlign;
+    border-right:@borderWidth solid @borderColor;
+    float:left;
+}
+
+.ui.codeblock .code:not(.icon)>.gutter>span{
+    cursor:pointer;
+}
+
+/*--------------
+     Footer
+---------------*/
+.ui.codeblock .footer{
+    border-top:@borderWidth solid @borderColor;  
+    padding:@footerPadding;
+    margin:0;
+    color:@metaColor;
+    position:relative;
+}
+.ui.codeblock .footer .divider:not(.ui){
+    display:inline-block;
+    margin: 0 @footerDividerMargin;
+}
+.ui.codeblock .footer .divider:not(.ui):after{
+    content:'';
+    position: absolute;
+    top: @footerDividerPadding;
+    bottom: @footerDividerPadding;
+    width: 1px;
+    border-left: 1px solid @footerDividerColor;
+}
+
+
+/*--------------
+     Links
+---------------*/
+.ui.codeblock a:not(.ui){
+    transition:@linkTransition;   
+}
+/* Header */
+.ui.codeblock .header a:not(.ui) {
+    color: @headerLinkColor;
+}
+.ui.codeblock .header a:not(.ui):hover {
+    color: @headerLinkHoverColor;
+}
+
+/* Footer */
+.ui.codeblock .footer a:not(.ui) {
+    color: @footerLinkColor;
+}
+.ui.codeblock .footer a:not(.ui):hover {
+    color: @footerLinkHoverColor;
+}
+
+/*--------------
+     Floated
+---------------*/
+.ui.codeblock [class*="left floated"] {
+    float: left;
+}
+.ui.codeblock [class*="right floated"] {
+    float: right;
+}
+
+/*******************************
+           Variations
+*******************************/
+
+/*--------------
+      Size
+---------------*/
+
+.ui.codeblock {
+    font-size: @medium;
+}
+
+.ui.codeblock .footer.small{
+    font-size: @small;
+}
+
+.loadUIOverrides();

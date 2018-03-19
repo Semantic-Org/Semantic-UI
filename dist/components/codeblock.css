@@ -1,0 +1,160 @@
+ /*
+ * # Semantic UI - 1.8.1
+ * https://github.com/Semantic-Org/Semantic-UI
+ * http://www.semantic-ui.com/
+ *
+ * Copyright 2014 Contributors
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+
+/*******************************
+            Standard
+*******************************/
+
+
+/*--------------
+     Codeblock
+---------------*/
+
+.ui.codeblock {
+  padding: 0;
+  background-color: #ffffff;
+  border: 1px solid #d4d4d5;
+  border-radius: 0.2857rem;
+}
+
+/*--------------
+     Header
+---------------*/
+
+.ui.codeblock .header {
+  margin: 0;
+  background: #f0f0f0;
+  color: rgba(0, 0, 0, 0.85);
+  padding: 1em;
+  border-bottom: 1px solid #d4d4d5;
+  border-radius: 0.2857rem 0.2857rem 0 0;
+  font-weight: bold;
+}
+.ui.codeblock .header:after {
+  
+/* Clearfix */
+  display: block;
+  content: ' ';
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+/*--------------
+     Code
+---------------*/
+
+.ui.codeblock .code:not(.icon) {
+  display: inline-block;
+  width: 100%;
+  font-family: monospace;
+  overflow-y: auto;
+}
+.ui.codeblock .code:not(.icon) > pre {
+  padding: 0.5em;
+  margin: 0;
+}
+
+/*--------------
+     Gutter
+---------------*/
+
+.ui.codeblock .code:not(.icon) > .gutter {
+  background: #ffffff;
+  color: rgba(0, 0, 0, 0.4);
+  padding: 0.5em;
+  text-align: right;
+  border-right: 1px solid #d4d4d5;
+  float: left;
+}
+.ui.codeblock .code > .gutter > span {
+  cursor: pointer;
+}
+
+/*--------------
+     Footer
+---------------*/
+
+.ui.codeblock .footer {
+  border-top: 1px solid #d4d4d5;
+  padding: 1em;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+.ui.codeblock .footer .divider {
+  display: inline-block;
+  margin: 0 0.5em;
+}
+.ui.codeblock .footer .divider:after {
+  content: '';
+  position: absolute;
+  top: 0.75em;
+  bottom: 0.75em;
+  width: 1px;
+  border-left: 1px solid rgba(40, 40, 40, 0.3);
+}
+
+/*--------------
+     Links
+---------------*/
+
+.ui.codeblock a {
+  -webkit-transition: color 0.2s ease;
+          transition: color 0.2s ease;
+}
+
+/* Header */
+.ui.codeblock .header a:not(.ui) {
+  color: rgba(0, 0, 0, 0.85);
+}
+.ui.codeblock .header a:not(.ui):hover {
+  color: #00b2f3;
+}
+
+/* Footer */
+.ui.codeblock .footer a:not(.ui) {
+  color: rgba(0, 0, 0, 0.4);
+}
+.ui.codeblock .footer a:not(.ui):hover {
+  color: #00b2f3;
+}
+
+/*--------------
+     Floated
+---------------*/
+
+.ui.codeblock [class*="left floated"] {
+  float: left;
+}
+.ui.codeblock [class*="right floated"] {
+  float: right;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+
+/*--------------
+      Size
+---------------*/
+
+.ui.codeblock {
+  font-size: 1rem;
+}
+.ui.codeblock .footer.small {
+  font-size: 0.92857143rem;
+}
