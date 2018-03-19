@@ -2,9 +2,14 @@
 
 ### Version 2.3.1 - Mar 18, 2018
 
+**Note on Flex Modals**
+There will be an update shortly to resolve issues related to flex modals when using multiple modals and `detachable: false`, in order to not hold up this release, we've decided to move forward without a general solve.
+
+A general solution will most likely require branching code for IE11 which will disable flex (as IE11 doesnt correctly implement the latest spec for [absolute positioned flex containers](https://developers.google.com/web/updates/2016/06/absolute-positioned-children)).
+
 **Critical Bugs**
 - **Dropdown** - Fixed issue in `2.3.0` that could cause multiselect dropdowns initialized by converting `<select>` to not add initial selected options. #6123
-- **Search** - Fixes using category search with `fullTextSearch: 'exact'` returning duplicate results #6223 #6221 @Thanks @prudho
+- **Search** - Fixes using category search with `fullTextSearch: 'exact'` **@Thanks @prudho** returning duplicate results #6223 #6221
 - **Icon** - Fixes `centered` and `bordered` icons appearing incorrectly with FA5 **Thanks @w96k** #6192
 - **Icons** - Fixes missing aliases/incorrect icons from Font Awesome 5 port in `2.3.0` **Thanks hammy2899** #6181 #6175 #6176 #6174 #6175
 - **Icons** - Fixed issue where `link icon` were appearing incorrectly due to changes in icons #6180

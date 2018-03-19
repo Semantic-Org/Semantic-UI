@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.3.0 - Reveal
+ * # Semantic UI 2.3.1 - Reveal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -55,6 +55,7 @@
 .ui.slide.reveal > .content {
   display: block;
   width: 100%;
+  white-space: normal;
   float: left;
   margin: 0em;
   -webkit-transition: -webkit-transform 0.5s ease 0.1s;
@@ -153,6 +154,7 @@
 .ui.move.reveal > .content {
   display: block;
   float: left;
+  white-space: normal;
   margin: 0em;
   -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1) 0.1s;
   transition: -webkit-transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1) 0.1s;
