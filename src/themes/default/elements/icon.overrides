@@ -214,8 +214,6 @@ i.icon.clock:before { content: "\f017"; }
 i.icon.clone:before { content: "\f24d"; }
 i.icon.closed.captioning:before { content: "\f20a"; }
 i.icon.cloud:before { content: "\f0c2"; }
-i.icon.cloud.download.alternate:before { content: "\f381"; }
-i.icon.cloud.upload.alternate:before { content: "\f382"; }
 i.icon.cloudscale:before { content: "\f383"; }
 i.icon.cloudsmith:before { content: "\f384"; }
 i.icon.cloudversify:before { content: "\f385"; }
@@ -1180,7 +1178,6 @@ i.icon.external.square:before { content: "\f360"; }
 i.icon.external:before { content: "\f35d"; }
 i.icon.facebook.official:before { content: "\f082"; }
 i.icon.food:before { content: "\f2e7"; }
-i.icon.heart.empty:before { content: "\f004"; }
 i.icon.hourglass.zero:before { content: "\f253"; }
 i.icon.level.down:before { content: "\f3be"; }
 i.icon.level.up:before { content: "\f3bf"; }
@@ -1197,7 +1194,6 @@ i.icon.resize.vertical:before { content: "\f338"; }
 i.icon.sign.in:before { content: "\f2f6"; }
 i.icon.sign.out:before { content: "\f2f5"; }
 i.icon.spoon:before { content: "\f2e5"; }
-i.icon.star.empty:before { content: "\f089"; }
 i.icon.star.half.empty:before { content: "\f089"; }
 i.icon.star.half.full:before { content: "\f089"; }
 i.icon.ticket:before { content: "\f3ff"; }
@@ -1345,6 +1341,15 @@ i.icon.youtube.play:before { content: "\f167"; }
   i.icon.window.minimize.outline:before { content: "\f2d1"; }
   i.icon.window.restore.outline:before { content: "\f2d2"; }
   i.icon.disk.outline:before { content: "\f369"; }
+
+  /* Outline Aliases */
+  i.icon.heart.empty,
+  i.icon.star.empty {
+    font-family: @outlineFontName;
+  }
+  i.icon.heart.empty:before { content: "\f004"; }
+  i.icon.star.empty:before { content: "\f089"; }
+
 }
 .loadOutlineIcons();
 
