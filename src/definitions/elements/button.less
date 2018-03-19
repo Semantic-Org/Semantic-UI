@@ -132,17 +132,16 @@
 .ui.loading.loading.loading.loading.loading.loading.button {
   position: relative;
   cursor: default;
-  text-shadow: none !important;
-  color: transparent !important;
   opacity: @loadingOpacity;
   pointer-events: @loadingPointerEvents;
   transition: @loadingTransition;
+  padding-left: @horizontalPadding * 2;
 }
 .ui.loading.button:before {
   position: absolute;
   content: '';
   top: 50%;
-  left: 50%;
+  left: @horizontalPadding;
 
   margin: @loaderMargin;
   width: @loaderSize;
@@ -155,7 +154,7 @@
   position: absolute;
   content: '';
   top: 50%;
-  left: 50%;
+  left: @horizontalPadding;
 
   margin: @loaderMargin;
   width: @loaderSize;
@@ -172,6 +171,21 @@
 
   box-shadow: 0px 0px 0px 1px transparent;
 }
+
+
+/* Specificity hack */
+.ui.loading.loading.loading.loading.loading.loading.button.without.text {
+  text-shadow: none !important;
+  color: transparent !important;
+  padding-left: @horizontalPadding;
+}
+.ui.loading.button.without.text:before {
+  left: 50%;
+}
+.ui.loading.button.without.text:after {
+  left: 50%;
+}
+
 .ui.labeled.icon.loading.button .icon {
   background-color: transparent;
   box-shadow: none;
