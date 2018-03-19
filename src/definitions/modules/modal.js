@@ -447,7 +447,6 @@ $.fn.modal = function(parameters) {
           ;
           if( $visibleModals.length > 0 ) {
             module.debug('Hiding all visible modals');
-            module.hideDimmer();
             $visibleModals
               .modal('hide modal', callback)
             ;
