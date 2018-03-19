@@ -2422,6 +2422,9 @@ $.fn.dropdown = function(parameters) {
             else if(settings.direction == 'upward') {
               module.set.upward($menu);
             }
+            else if(settings.direction == 'downward') {
+              module.remove.upward($menu);
+            }
           },
           upward: function($currentMenu) {
             var $element = $currentMenu || $module;
