@@ -66,6 +66,7 @@ $.fn.modal = function(parameters) {
         $allModals,
         $otherModals,
         $focusedElement,
+        $focusedElementVisible,
         $dimmable,
         $dimmer,
 
@@ -497,13 +498,21 @@ $.fn.modal = function(parameters) {
             ;
             if(!inCurrentModal) {
               $focusedElement = $(document.activeElement).blur();
+              
+              var
+                elementTop = $focusedElement.offset().top,
+                elementBottom = elementTop + $focusedElement.outerHeight(),
+                viewportTop = $(window).scrollTop(),
+                viewportBottom = viewportTop + $(window).height();
+
+              $focusedElementVisible = elementBottom > viewportTop && elementTop < viewportBottom;
             }
           }
         },
 
         restore: {
           focus: function() {
-            if($focusedElement && $focusedElement.length > 0) {
+            if($focusedElement && $focusedElement.length > 0 && $focusedElementVisible) {
               $focusedElement.focus();
             }
           }
