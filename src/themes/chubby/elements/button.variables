@@ -6,7 +6,7 @@
 @pageFont: 'Source Sans Pro', Arial, sans-serif;
 
 @textTransform: none;
-@fontWeight: normal;
+@fontWeight: @normal;
 @textColor: #333333;
 
 @verticalPadding: 1.1em;

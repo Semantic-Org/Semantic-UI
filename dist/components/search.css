@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.3.0 - Search
+ * # Semantic UI 2.3.1 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -250,6 +250,18 @@
 }
 .ui.search > .results .result.active .description {
   color: rgba(0, 0, 0, 0.85);
+}
+
+/*--------------------
+        Disabled
+----------------------*/
+
+
+/* Disabled */
+.ui.disabled.search {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.45;
 }
 
 

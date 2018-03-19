@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.3.0 - Image
+ * # Semantic UI 2.3.1 - Image
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -291,8 +291,8 @@ img.ui.bordered.image {
   margin: 0em -0.25rem 0rem;
 }
 .ui.images .image,
-.ui.images img,
-.ui.images svg {
+.ui.images > img,
+.ui.images > svg {
   display: inline-block;
   margin: 0em 0.25rem 0.5rem;
 }
