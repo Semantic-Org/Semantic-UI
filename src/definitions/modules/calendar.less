@@ -1,0 +1,23 @@
+.ui.calendar.grid {
+  border-radius: 0.2857rem;
+  box-shadow: 0px 0px 0px 1px #d4d4d5 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  .column:not(.row) {
+    text-align: center !important;
+    width: 14.485714% !important;
+    &.disabled {
+      background-color: #efefef !important;
+      color: #d4d4d5 !important;
+      cursor: default !important;
+      // opacity: .3!important;
+    }
+    &.grey {
+      background-color: #e0e0e0;
+      color: rgba(0,0,0,.6);
+    }
+  }
+  .column.disabled + .column.disabled {
+    box-shadow: -1px 0 0 0 #e7e7e8;
+  }
+}
