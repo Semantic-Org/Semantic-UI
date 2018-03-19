@@ -18,6 +18,7 @@
 - **Icons** - Added ability to choose whether solid, outline and brand icons should be included in your theme via the `@importSolidIcons`, `importRegularIcons` and `@importBrandIcons` variables **Thanks hammy2899**
 - **Icons** - Increased specifity on `fitted icon` to fix compatibility with other components #6125
 - **Visibility** - Fixed bug that could cause `onScreen` callback to not occur properly for elements that are taller than screen.
+- **Menu** - Fixes `disabled item` showing hover style for `secondary menu` **Thanks @tcmal** #6268
 - **CSS Variables** - Added use of `@normal` for normal font weight for all non-default themes included in repo. #6227
 
 **Docs**
