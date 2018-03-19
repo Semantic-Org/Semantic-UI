@@ -24,6 +24,7 @@
 
 .ui.modal {
   display: none;
+  position: absolute;
   z-index: @zIndex;
   text-align: left;
 
@@ -278,6 +279,18 @@
   box-shadow: @invertedBoxShadow;
 }
 
+/*--------------
+      Flex
+---------------*/
+
+.ui.flex.dimmer > .ui.modal {
+  margin-top: auto !important;
+  margin-left: auto !important;
+  left: auto !important;
+  top: auto !important;
+}
+
+
 /*******************************
              Types
 *******************************/
@@ -341,7 +354,8 @@
 
 /* Top Aligned Modal */
 .modals.dimmer[class*="top aligned"] .modal {
-  margin: @topAlignedMargin auto;
+  margin-top: @topAlignedMargin;
+  margin-bottom: @topAlignedMargin;
 }
 
 /*--------------
@@ -359,11 +373,9 @@
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
-.scrolling.dimmable > .dimmer {
-  position: fixed;
-}
 .modals.dimmer .ui.scrolling.modal {
-  margin: @scrollingMargin auto !important;
+  margin-top: @scrollingMargin !important;
+  margin-bottom: @scrollingBottomMargin !important;
 }
 
 /* Undetached Scrolling */

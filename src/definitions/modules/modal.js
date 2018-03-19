@@ -108,11 +108,10 @@ $.fn.modal = function(parameters) {
             var
               defaultSettings = {
                 debug      : settings.debug,
+                dimmerName : 'modals',
                 variation  : settings.centered
                   ? false
                   : 'top aligned'
-                ,
-                dimmerName : 'modals'
               },
               dimmerSettings = $.extend(true, defaultSettings, settings.dimmerSettings)
             ;
@@ -322,17 +321,17 @@ $.fn.modal = function(parameters) {
             : function(){}
           ;
           if( module.is.animating() || !module.is.active() ) {
-
-            module.showDimmer();
-            module.cacheSizes();
-            module.set.screenHeight();
-            module.set.type();
-            module.set.clickaway();
-
             if( !settings.allowMultiple && module.others.active() ) {
               module.hideOthers(module.showModal);
             }
             else {
+
+              module.showDimmer();
+              module.cacheSizes();
+              module.set.screenHeight();
+              module.set.type();
+              module.set.clickaway();
+
               if(settings.allowMultiple && settings.detachable) {
                 $module.detach().appendTo($dimmer);
               }
@@ -526,9 +525,9 @@ $.fn.modal = function(parameters) {
           },
           screenHeight: function() {
             module.debug('Removing page height');
-            $body
+            /*$body
               .css('height', '')
-            ;
+            ;*/
           },
           keyboardShortcuts: function() {
             module.verbose('Removing keyboard shortcuts');
@@ -628,14 +627,13 @@ $.fn.modal = function(parameters) {
                 debug      : settings.debug,
                 dimmerName : 'modals',
                 closable   : 'auto',
-                variation  : settings.centered
-                  ? false
-                  : 'top aligned'
-                ,
                 duration   : {
                   show     : settings.duration,
                   hide     : settings.duration
-                }
+                },
+                variation  : settings.centered
+                  ? ''
+                  : 'top aligned'
               },
               dimmerSettings = $.extend(true, defaultSettings, settings.dimmerSettings)
             ;

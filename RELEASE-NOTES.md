@@ -2,6 +2,11 @@
 
 ### Version 2.3.1 - Mar 18, 2018
 
+**Major Changes**
+- **Modal** - Flexbox modals have been modified to be opt-in using the setting `mode: flex`. This was a tough choice, but currently [only comforming browsers support absolute in flex propertly](https://developers.google.com/web/updates/2016/06/absolute-positioned-children), (I'm looking at you IE11).
+
+Flex modals should now work properly in chrome with multiple modals. However in IE11 flex modals will not appear centered correctly.
+
 **Critical Bugs**
 - **Dropdown** - Fixed issue in `2.3.0` that could cause multiselect dropdowns initialized by converting `<select>` to not add initial selected options. #6123
 - **Search** - Fixes using category search with `fullTextSearch: 'exact'` returning duplicate results #6223 #6221 @Thanks @prudho
@@ -19,6 +24,7 @@
 - **Icons** - Added ability to choose whether solid, outline and brand icons should be included in your theme via the `@importSolidIcons`, `importRegularIcons` and `@importBrandIcons` variables **Thanks hammy2899**
 - **Icons** - Increased specifity on `fitted icon` to fix compatibility with other components #6125
 - **Visibility** - Fixed bug that could cause `onScreen` callback to not occur properly for elements that are taller than screen.
+- **Modal** - Fixed issue with `allowMultiple: false` when second modal is `scrolling` where first modal would shift positions to align top when animating out before the scrollable modal would show
 - **Menu** - Fixes `disabled item` showing hover style for `secondary menu` **Thanks @tcmal** #6268
 - **CSS Variables** - Added use of `@normal` for normal font weight for all non-default themes included in repo. #6227
 - **Image** - Fixes margin being applied twice to `ui images` #6224

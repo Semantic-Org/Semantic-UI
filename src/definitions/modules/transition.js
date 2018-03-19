@@ -708,10 +708,12 @@ $.fn.transition = function() {
                   .attr('class', elementClass)
                   .removeAttr('style')
                   .removeClass(className.hidden)
-                  .removeClass(className.visible)
+                  .addClass(className.visible)
+                  .addClass(className.loading)
                   .show()
                   .css('display')
                 ;
+                debugger;
                 module.verbose('Determining final display state', displayType);
                 module.save.displayType(displayType);
               }
