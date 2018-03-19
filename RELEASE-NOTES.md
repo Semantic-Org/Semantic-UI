@@ -22,6 +22,7 @@
 - **Menu** - Fixes `disabled item` showing hover style for `secondary menu` **Thanks @tcmal** #6268
 - **CSS Variables** - Added use of `@normal` for normal font weight for all non-default themes included in repo. #6227
 - **Image** - Fixes margin being applied twice to `ui images` #6224
+- **Reveal** - Fix `whitespace: nowrap;` applying to content inside `slide reveal` and `move reveal`
 
 **Docs**
 - Fixes CDN links in docs **Thanks @KSH-code**
