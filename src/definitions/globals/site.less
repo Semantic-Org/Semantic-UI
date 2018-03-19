@@ -110,6 +110,14 @@ p:first-child {
 p:last-child {
   margin-bottom: 0em;
 }
+@text-colors: red, orange, yellow, olive, green, teal, blue, violet, purple, pink, brown, grey, black, white;
+.text {
+    .-(@i: length(@text-colors)) when (@i > 0) {
+        @c: extract(@text-colors, @i);
+        &.@{c} { color: @@c }
+        .-((@i - 1));
+    }.-;
+}
 
 /*-------------------
         Links
