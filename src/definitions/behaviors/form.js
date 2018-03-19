@@ -1025,6 +1025,11 @@ $.fn.form = function(parameters) {
               module.error(error.noRule, ruleName);
               return;
             }
+            if ($field.css('display') === 'none' || (
+                $field.parents('.field').length && $field.parents('.field').eq(0).css('display') === 'none')
+                ) {
+                  return true;
+            }
             // cast to string avoiding encoding special values
             value = (value === undefined || value === '' || value === null)
               ? ''
