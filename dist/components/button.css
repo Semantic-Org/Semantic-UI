@@ -474,6 +474,11 @@
   color: #FFFFFF;
   text-shadow: none;
 }
+.ui.facebook.button:focus {
+  background-color: #304d8a;
+  color: #FFFFFF;
+  text-shadow: none;
+}
 .ui.facebook.button:active {
   background-color: #2d4373;
   color: #FFFFFF;
@@ -490,6 +495,11 @@
           box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
 }
 .ui.twitter.button:hover {
+  background-color: #35a2f4;
+  color: #FFFFFF;
+  text-shadow: none;
+}
+.ui.twitter.button:focus {
   background-color: #35a2f4;
   color: #FFFFFF;
   text-shadow: none;
@@ -514,6 +524,11 @@
   color: #FFFFFF;
   text-shadow: none;
 }
+.ui.google.plus.button:focus {
+  background-color: #e0321c;
+  color: #FFFFFF;
+  text-shadow: none;
+}
 .ui.google.plus.button:active {
   background-color: #c23321;
   color: #FFFFFF;
@@ -527,6 +542,11 @@
   text-shadow: none;
 }
 .ui.linkedin.button:hover {
+  background-color: #147baf;
+  color: #FFFFFF;
+  text-shadow: none;
+}
+.ui.linkedin.button:focus {
   background-color: #147baf;
   color: #FFFFFF;
   text-shadow: none;
@@ -551,6 +571,11 @@
   color: #FFFFFF;
   text-shadow: none;
 }
+.ui.youtube.button:focus {
+  background-color: #bd0d13;
+  color: #FFFFFF;
+  text-shadow: none;
+}
 .ui.youtube.button:active {
   background-color: #cc0000;
   color: #FFFFFF;
@@ -567,6 +592,11 @@
           box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
 }
 .ui.instagram.button:hover {
+  background-color: #3d698e;
+  color: #FFFFFF;
+  text-shadow: none;
+}
+.ui.instagram.button:focus {
   background-color: #3d698e;
   color: #FFFFFF;
   text-shadow: none;
@@ -591,6 +621,11 @@
   color: #FFFFFF;
   text-shadow: none;
 }
+.ui.pinterest.button:focus {
+  background-color: #ac0013;
+  color: #FFFFFF;
+  text-shadow: none;
+}
 .ui.pinterest.button:active {
   background-color: #8c0615;
   color: #FFFFFF;
@@ -606,6 +641,10 @@
           box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
 }
 .ui.vk.button:hover {
+  background-color: #41648a;
+  color: #FFFFFF;
+}
+.ui.vk.button:focus {
   background-color: #41648a;
   color: #FFFFFF;
 }
