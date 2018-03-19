@@ -31,7 +31,10 @@ var
 
   // rtl
   buildRTL     = require('./tasks/rtl/build'),
-  watchRTL     = require('./tasks/rtl/watch')
+  watchRTL     = require('./tasks/rtl/watch'),
+
+  // tests
+  karmaRun     = require('./tasks/karma')
 ;
 
 
@@ -55,6 +58,8 @@ gulp.task('version', 'Displays current version of Semantic', version);
 
 gulp.task('install', 'Runs set-up', install);
 gulp.task('check-install', 'Displays current version of Semantic', checkInstall);
+
+gulp.task('karma', 'Starts Karma test runner', karmaRun);
 
 /*--------------
       Docs
