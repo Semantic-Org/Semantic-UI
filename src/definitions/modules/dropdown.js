@@ -2409,11 +2409,11 @@ $.fn.dropdown = function(parameters) {
               // reset position
               module.remove.upward();
 
-              if(settings.direction == 'auto-upward' && module.can.openUpward($menu) {
+              if(settings.direction == 'auto-upward' && module.can.openUpward($menu)) {
                 module.set.upward($menu);
               }
               else if(settings.direction == 'auto' && !module.can.openDownward($menu)) {
-                module.remove.upward($menu);
+                module.set.upward($menu);
               }
               if(!module.is.leftward($menu) && !module.can.openRightward($menu)) {
                 module.set.leftward($menu);
