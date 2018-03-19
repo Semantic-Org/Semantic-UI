@@ -10,6 +10,7 @@
 
 **Enhancements**
 - **Search** - Adds disabled variation **Thanks @prudho** #6225
+- **Form Validation** - Form prompt can now be returned by a function **Thanks @xDaizu** #6016 #3864
 
 **Bugs**
 - **Dropdown** - Fixed `onChange` missing `text` from callback when dropdown is set to `action: 'select'` #4183 #4510
