@@ -93,7 +93,7 @@ module.exports = {
             theme,
             element
           ;
-          if(error.filename.match(/theme.less/)) {
+          if(error.fileName.match(/theme.less/)) {
             if(error.line == 5) {
               element  = regExp.variable.exec(error.message)[1];
               if(element) {
