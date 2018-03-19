@@ -499,20 +499,22 @@ $.fn.modal = function(parameters) {
             if(!inCurrentModal) {
               $focusedElement = $(document.activeElement).blur();
               
-              var
-                elementTop = $focusedElement.offset().top,
-                elementBottom = elementTop + $focusedElement.outerHeight(),
-                viewportTop = $(window).scrollTop(),
-                viewportBottom = viewportTop + $(window).height();
+              if(!settings.focusInvisible) {
+                var
+                  elementTop = $focusedElement.offset().top,
+                  elementBottom = elementTop + $focusedElement.outerHeight(),
+                  viewportTop = $(window).scrollTop(),
+                  viewportBottom = viewportTop + $(window).height();
 
-              $focusedElementVisible = elementBottom > viewportTop && elementTop < viewportBottom;
+                $focusedElementVisible = elementBottom > viewportTop && elementTop < viewportBottom;
+              }
             }
           }
         },
 
         restore: {
           focus: function() {
-            if($focusedElement && $focusedElement.length > 0 && $focusedElementVisible) {
+            if($focusedElement && $focusedElement.length > 0 && (settings.focusInvisible || $focusedElementVisible)) {
               $focusedElement.focus();
             }
           }
@@ -900,6 +902,10 @@ $.fn.modal.settings = {
   detachable     : true,
   closable       : true,
   autofocus      : true,
+  
+  // whether return focus to the element out of a viewport
+  // after the modal window is closed
+  focusInvisible : true,
 
   inverted       : false,
   blurring       : false,
