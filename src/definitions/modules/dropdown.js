@@ -2405,15 +2405,15 @@ $.fn.dropdown = function(parameters) {
             }
           },
           direction: function($menu) {
-            if(settings.direction == 'auto') {
+            if(settings.direction == 'auto' || settings.direction == 'auto-upward') {
               // reset position
               module.remove.upward();
 
-              if(module.can.openDownward($menu)) {
-                module.remove.upward($menu);
-              }
-              else {
+              if(settings.direction == 'auto-upward' && module.can.openUpward($menu) {
                 module.set.upward($menu);
+              }
+              else if(settings.direction == 'auto' && !module.can.openDownward($menu)) {
+                module.remove.upward($menu);
               }
               if(!module.is.leftward($menu) && !module.can.openRightward($menu)) {
                 module.set.leftward($menu);
@@ -3230,9 +3230,15 @@ $.fn.dropdown = function(parameters) {
             return false;
           },
           openDownward: function($subMenu) {
+            return module.can.openVertically($subMenu, true);
+          },
+          openUpward: function($subMenu) {
+            return module.can.openVertically($subMenu);
+          },
+          openVertically: function($subMenu, downward) {
             var
               $currentMenu    = $subMenu || $menu,
-              canOpenDownward = true,
+              canOpen         = true,
               onScreen        = {},
               calculations
             ;
@@ -3259,20 +3265,36 @@ $.fn.dropdown = function(parameters) {
               above : (calculations.context.scrollTop) <= calculations.menu.offset.top - calculations.context.offset.top - calculations.menu.height,
               below : (calculations.context.scrollTop + calculations.context.height) >= calculations.menu.offset.top - calculations.context.offset.top + calculations.menu.height
             };
-            if(onScreen.below) {
-              module.verbose('Dropdown can fit in context downward', onScreen);
-              canOpenDownward = true;
-            }
-            else if(!onScreen.below && !onScreen.above) {
-              module.verbose('Dropdown cannot fit in either direction, favoring downward', onScreen);
-              canOpenDownward = true;
+            if (downward) {
+              if(onScreen.below) {
+                module.verbose('Dropdown can fit in context downward', onScreen);
+                canOpen = true;
+              }
+              else if(!onScreen.below && !onScreen.above) {
+                module.verbose('Dropdown cannot fit in either direction, favoring downward', onScreen);
+                canOpen = true;
+              }
+              else {
+                module.verbose('Dropdown cannot fit below, opening upward', onScreen);
+                canOpen = false;
+              }
             }
             else {
-              module.verbose('Dropdown cannot fit below, opening upward', onScreen);
-              canOpenDownward = false;
+              if(onScreen.above) {
+                module.verbose('Dropdown can fit in context upward', onScreen);
+                canOpen = true;
+              }
+              else if(!onScreen.below && !onScreen.above) {
+                module.verbose('Dropdown cannot fit in either direction, favoring upward', onScreen);
+                canOpen = true;
+              }
+              else {
+                module.verbose('Dropdown cannot fit above, opening downward', onScreen);
+                canOpen = false;
+              }
             }
             $currentMenu.removeClass(className.loading);
-            return canOpenDownward;
+            return canOpen;
           },
           openRightward: function($subMenu) {
             var
@@ -3681,7 +3703,7 @@ $.fn.dropdown.settings = {
   throttle               : 200,        // How long to wait after last user input to search remotely
 
   context                : window,     // Context to use when determining if on screen
-  direction              : 'auto',     // Whether dropdown should always open in one direction
+  direction              : 'auto',     // Whether dropdown should always open in one direction (auto, auto-upward, downward or upward)
   keepOnScreen           : true,       // Whether dropdown should check whether it is on screen before showing
 
   match                  : 'both',     // what to match against with search selection (both, text, or label)
