@@ -6,6 +6,7 @@
   "homepage": "http://www.semantic-ui.com",
   "author": "Jack Lukic <jack@semantic-ui.com>",
   "license": "MIT",
+  "main": "dist/semantic.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/Semantic-Org/Semantic-UI.git"
