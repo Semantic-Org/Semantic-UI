@@ -92,6 +92,7 @@ $.fn.dimmer = function(parameters) {
 
           module.bind.events();
           module.set.dimmable();
+          module.set.variation();
           module.instantiate();
         },
 
