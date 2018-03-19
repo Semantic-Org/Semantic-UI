@@ -19,7 +19,7 @@
 - **Form Validation** - Form can now return their validation prompt dynamically based on their current value. **Thanks @xDaizu** [#6016](https://github.com/Semantic-Org/Semantic-UI/issues/6016) [#3864](https://github.com/Semantic-Org/Semantic-UI/issues/3864)
 
 **Bugs**
-- **Dropdown** - Fixed `onChange` missing `text` from callback when dropdown is set to `action: 'select'` [#4183](https://github.com/Semantic-Org/Semantic-UI/issues/4183) [#4510](https://github.com/Semantic-Org/Semantic-UI/issues/4510)
+- **Dropdown** - Fixed `onChange` missing `text` from callback when dropdown is set to `action: 'select'` **Thanks @martinduparc**  [#4183](https://github.com/Semantic-Org/Semantic-UI/issues/4183) [#4510](https://github.com/Semantic-Org/Semantic-UI/issues/4510)
 - **Icons** - Fixes some icons that were incorrectly named. **Thanks hammy2899** [#6181](https://github.com/Semantic-Org/Semantic-UI/issues/6181)
 - **Icons** - Added ability to choose whether solid, outline and brand icons should be included in your theme via the `@importSolidIcons`, `importRegularIcons` and `@importBrandIcons` variables **Thanks hammy2899**
 - **Icons** - Increased specifity on `fitted icon` to fix compatibility with other components [#6125](https://github.com/Semantic-Org/Semantic-UI/issues/6125)
