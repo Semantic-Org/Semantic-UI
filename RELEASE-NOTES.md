@@ -1,12 +1,13 @@
 ## RELEASE NOTES
 
-### Version 2.3.1 - Feb 23, 2018
+### Version 2.3.1 - Mar 18, 2018
 
 **Critical Bugs**
 - **Dropdown** - Fixed issue in `2.3.0` that could cause multiselect dropdowns initialized by converting `<select>` to not add initial selected options. #6123
 - **Search** - Fixes using category search with `fullTextSearch: 'exact'` returning duplicate results #6223 #6221 @Thanks @prudho
 - **Icon** - Fixes `centered` and `bordered` icons appearing incorrectly with FA5 **Thanks @w96k** #6192
-- **Icons** - Adds fixes for some missing icons from modifications for FA5 in `2.3.0` **Thanks hammy2899** #6181 #6175
+- **Icons** - Fixes missing aliases/incorrect icons from Font Awesome 5 port in `2.3.0` **Thanks hammy2899** #6181 #6175 #6176 #6174 #6175
+- **Icons** - Fixed issue where `link icon` were appearing incorrectly due to changes in icons #6180
 
 **Enhancements**
 - **Search** - Adds disabled variation **Thanks @prudho** #6225
@@ -20,6 +21,7 @@
 - **Visibility** - Fixed bug that could cause `onScreen` callback to not occur properly for elements that are taller than screen.
 - **Menu** - Fixes `disabled item` showing hover style for `secondary menu` **Thanks @tcmal** #6268
 - **CSS Variables** - Added use of `@normal` for normal font weight for all non-default themes included in repo. #6227
+- **Image** - Fixes margin being applied twice to `ui images` #6224
 
 **Docs**
 - Fixes CDN links in docs **Thanks @KSH-code**
