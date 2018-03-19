@@ -282,12 +282,12 @@ ol.ui.list ol li,
 }
 .ui.horizontal.list > .item {
   display: inline-block;
-  margin-left: @horizontalSpacing;
+  margin-right: @horizontalSpacing;
   font-size: 1rem;
 }
-.ui.horizontal.list:not(.celled) > .item:first-child {
-  margin-left: 0em !important;
-  padding-left: 0em !important;
+.ui.horizontal.list:not(.celled) > .item:last-child {
+  margin-right: 0em !important;
+  padding-right: 0em !important;
 }
 .ui.horizontal.list .list {
   padding-left: 0em;
@@ -948,4 +948,3 @@ ol.ui.horizontal.list li:before,
 }
 
 .loadUIOverrides();
-
