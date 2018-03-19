@@ -174,7 +174,6 @@ if(manager.name == 'NPM') {
     .replace('{root}', manager.root)
   ;
   // set default path to detected PM root
-  rootQuestions[0].default = manager.root;
   rootQuestions[1].default = manager.root;
 
   // insert PM questions after "Install Type" question
