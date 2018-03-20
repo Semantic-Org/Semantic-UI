@@ -489,23 +489,32 @@ a.ui.card:hover,
 --------------------*/
 
 /* Red */
-.ui.red.cards > .card,
-.ui.cards > .red.card,
-.ui.red.card {
+.ui.red.cards > .card:not(.inverted),
+.ui.cards > .red.card:not(.inverted),
+.ui.red.card:not(.inverted) {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @red,
     @shadowBoxShadow
   ;
 }
-.ui.red.cards > .card:hover,
-.ui.cards > .red.card:hover,
-.ui.red.card:hover {
+.ui.red.cards > .card:not(.inverted):hover,
+.ui.cards > .red.card:not(.inverted):hover,
+.ui.red.card:not(.inverted):hover {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @redHover,
     @shadowHoverBoxShadow
   ;
+}
+
+.ui.red.cards > .card.inverted,
+.ui.red.cards.inverted > .card,
+.ui.cards > .red.card.inverted,
+.ui.cards.inverted > .red.card,
+.ui.red.card.inverted {
+  background-color: @red !important;
+  color: @white !important;
 }
 
 /* Orange */
@@ -528,6 +537,15 @@ a.ui.card:hover,
   ;
 }
 
+.ui.orange.cards > .card.inverted,
+.ui.orange.cards.inverted > .card,
+.ui.cards > .orange.card.inverted,
+.ui.cards.inverted > .orange.card,
+.ui.orange.card.inverted {
+  background-color: @orange !important;
+  color: @white !important;
+}
+
 /* Yellow */
 .ui.yellow.cards > .card,
 .ui.cards > .yellow.card,
@@ -538,6 +556,7 @@ a.ui.card:hover,
     @shadowBoxShadow
   ;
 }
+
 .ui.yellow.cards > .card:hover,
 .ui.cards > .yellow.card:hover,
 .ui.yellow.card:hover {
@@ -546,6 +565,15 @@ a.ui.card:hover,
     0px @coloredShadowDistance 0px 0px @yellowHover,
     @shadowHoverBoxShadow
   ;
+}
+
+.ui.yellow.cards > .card.inverted,
+.ui.yellow.cards.inverted > .card,
+.ui.cards > .yellow.card.inverted,
+.ui.cards.inverted > .yellow.card,
+.ui.yellow.card.inverted {
+  background-color: @yellow !important;
+  color: @white !important;
 }
 
 /* Olive */
@@ -558,6 +586,7 @@ a.ui.card:hover,
     @shadowBoxShadow
   ;
 }
+
 .ui.olive.cards > .card:hover,
 .ui.cards > .olive.card:hover,
 .ui.olive.card:hover {
@@ -566,6 +595,15 @@ a.ui.card:hover,
     0px @coloredShadowDistance 0px 0px @oliveHover,
     @shadowHoverBoxShadow
   ;
+}
+
+.ui.olive.cards > .card.inverted,
+.ui.olive.cards.inverted > .card,
+.ui.cards > .olive.card.inverted,
+.ui.cards.inverted > .olive.card,
+.ui.olive.card.inverted {
+  background-color: @olive !important;
+  color: @white !important;
 }
 
 /* Green */
@@ -588,6 +626,15 @@ a.ui.card:hover,
   ;
 }
 
+.ui.green.cards > .card.inverted,
+.ui.green.cards.inverted > .card,
+.ui.cards > .green.card.inverted,
+.ui.cards.inverted > .green.card,
+.ui.green.card.inverted {
+  background-color: @green !important;
+  color: @white !important;
+}
+
 /* Teal */
 .ui.teal.cards > .card,
 .ui.cards > .teal.card,
@@ -606,6 +653,15 @@ a.ui.card:hover,
     0px @coloredShadowDistance 0px 0px @tealHover,
     @shadowHoverBoxShadow
   ;
+}
+
+.ui.teal.cards > .card.inverted,
+.ui.teal.cards.inverted > .card,
+.ui.cards > .teal.card.inverted,
+.ui.cards.inverted > .teal.card,
+.ui.teal.card.inverted {
+  background-color: @teal !important;
+  color: @white !important;
 }
 
 /* Blue */
@@ -628,6 +684,15 @@ a.ui.card:hover,
   ;
 }
 
+.ui.blue.cards > .card.inverted,
+.ui.blue.cards.inverted > .card,
+.ui.cards > .blue.card.inverted,
+.ui.cards.inverted > .blue.card,
+.ui.blue.card.inverted {
+  background-color: @blue !important;
+  color: @white !important;
+}
+
 /* Violet */
 .ui.violet.cards > .card,
 .ui.cards > .violet.card,
@@ -646,6 +711,15 @@ a.ui.card:hover,
     0px @coloredShadowDistance 0px 0px @violetHover,
     @shadowHoverBoxShadow
   ;
+}
+
+.ui.violet.cards > .card.inverted,
+.ui.violet.cards.inverted > .card,
+.ui.cards > .violet.card.inverted,
+.ui.cards.inverted > .violet.card,
+.ui.violet.card.inverted {
+  background-color: @violet !important;
+  color: @white !important;
 }
 
 /* Purple */
@@ -668,6 +742,15 @@ a.ui.card:hover,
   ;
 }
 
+.ui.purple.cards > .card.inverted,
+.ui.purple.cards.inverted > .card,
+.ui.cards > .purple.card.inverted,
+.ui.cards.inverted > .purple.card,
+.ui.purple.card.inverted {
+  background-color: @purple !important;
+  color: @white !important;
+}
+
 /* Pink */
 .ui.pink.cards > .card,
 .ui.cards > .pink.card,
@@ -686,6 +769,15 @@ a.ui.card:hover,
     0px @coloredShadowDistance 0px 0px @pinkHover,
     @shadowHoverBoxShadow
   ;
+}
+
+.ui.pink.cards > .card.inverted,
+.ui.pink.cards.inverted > .card,
+.ui.cards > .pink.card.inverted,
+.ui.cards.inverted > .pink.card,
+.ui.pink.card.inverted {
+  background-color: @pink !important;
+  color: @white !important;
 }
 
 /* Brown */
@@ -708,6 +800,15 @@ a.ui.card:hover,
   ;
 }
 
+.ui.brown.cards > .card.inverted,
+.ui.brown.cards.inverted > .card,
+.ui.cards > .brown.card.inverted,
+.ui.cards.inverted > .brown.card,
+.ui.brown.card.inverted {
+  background-color: @brown !important;
+  color: @white !important;
+}
+
 /* Grey */
 .ui.grey.cards > .card,
 .ui.cards > .grey.card,
@@ -728,6 +829,15 @@ a.ui.card:hover,
   ;
 }
 
+.ui.grey.cards > .card.inverted,
+.ui.grey.cards.inverted > .card,
+.ui.cards > .grey.card.inverted,
+.ui.cards.inverted > .grey.card,
+.ui.grey.card.inverted {
+  background-color: @grey !important;
+  color: @white !important;
+}
+
 /* Black */
 .ui.black.cards > .card,
 .ui.cards > .black.card,
@@ -746,6 +856,15 @@ a.ui.card:hover,
     0px @coloredShadowDistance 0px 0px @blackHover,
     @shadowHoverBoxShadow
   ;
+}
+
+.ui.black.cards > .card.inverted,
+.ui.black.cards.inverted > .card,
+.ui.cards > .black.card.inverted,
+.ui.cards.inverted > .black.card,
+.ui.black.card.inverted {
+  background-color: @black !important;
+  color: @white !important;
 }
 
 /*--------------
