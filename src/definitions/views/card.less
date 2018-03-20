@@ -174,7 +174,7 @@
 
 .ui.cards.inverted > .card > .content > .header,
 .ui.card.inverted > .content > .header {
-  color: @white;
+  color: @invertedTextColor;
 }
 
 /* Default Header Size */
@@ -254,6 +254,12 @@
   color: @descriptionColor;
 }
 
+.ui.cards.inverted > .card > .content > .description,
+.ui.card.inverted > .content > .description {
+  color: @invertedTextColor !important;
+}
+
+
 /*--------------
     Paragraph
 ---------------*/
@@ -276,6 +282,11 @@
   font-size: @metaFontSize;
   color: @metaColor;
 }
+.ui.cards.inverted > .card .meta,
+.ui.card.inverted .meta {
+  color: @invertedMutedTextColor !important;
+}
+
 .ui.cards > .card .meta *,
 .ui.card .meta * {
   margin-right: @metaSpacing;
@@ -301,9 +312,19 @@
   color: @contentLinkColor;
   transition: @contentLinkTransition;
 }
-.ui.cards > .card > .content a:not(.ui):hover,
-.ui.card > .content a:not(.ui):hover {
+.ui.cards.inverted > .card > .content a:not(.ui):hover,
+.ui.card.inverted > .content a:not(.ui):hover {
   color: @contentLinkHoverColor;
+}
+
+/* Generic - Inverted */
+.ui.cards.inverted > .card > .content a:not(.ui),
+.ui.card.inverted > .content a:not(.ui) {
+  color: @invertedTextColor !important;
+}
+.ui.cards.inverted > .card > .content a:not(.ui):hover,
+.ui.card.inverted > .content a:not(.ui):hover {
+  color: @invertedHoveredTextColor !important;
 }
 
 /* Header */
@@ -316,6 +337,16 @@
   color: @headerLinkHoverColor;
 }
 
+/* Header - Inverted */
+.ui.cards.inverted > .card > .content a.header,
+.ui.card.inverted > .content a.header {
+  color: @invertedTextColor !important;
+}
+.ui.cards.inverted > .card > .content a.header:hover,
+.ui.card.inverted > .content a.header:hover {
+  color: @invertedHoveredTextColor !important;
+}
+
 /* Meta */
 .ui.cards > .card .meta > a:not(.ui),
 .ui.card .meta > a:not(.ui) {
@@ -324,6 +355,16 @@
 .ui.cards > .card .meta > a:not(.ui):hover,
 .ui.card .meta > a:not(.ui):hover {
   color: @metaLinkHoverColor;
+}
+
+/* Meta - Inverted */
+.ui.cards.inverted > .card .meta > a:not(.ui),
+.ui.card.inverted .meta > a:not(.ui) {
+  color: @invertedMutedTextColor !important;
+}
+.ui.cards.inverted > .card .meta > a:not(.ui):hover,
+.ui.card.inverted .meta > a:not(.ui):hover {
+  color: @invertedLightTextColor !important;
 }
 
 /*--------------
@@ -420,6 +461,14 @@
   color: @extraLinkHoverColor;
 }
 
+.ui.cards.inverted > .card > .extra a:not(.ui),
+.ui.card.inverted > .extra a:not(.ui) {
+  color: @invertedMutedTextColor !important;
+}
+.ui.cards.inverted > .card > .extra a:not(.ui):hover,
+.ui.card.inverted > .extra a:not(.ui):hover {
+  color: @invertedLightTextColor !important;
+}
 
 /*******************************
            Variations
@@ -519,7 +568,7 @@ a.ui.card:hover,
 .ui.cards.inverted > .red.card,
 .ui.red.card.inverted {
   background-color: @red !important;
-  color: @white !important;
+  color: @invertedTextColor !important;
 }
 
 /* Orange */
@@ -548,7 +597,7 @@ a.ui.card:hover,
 .ui.cards.inverted > .orange.card,
 .ui.orange.card.inverted {
   background-color: @orange !important;
-  color: @white !important;
+  color: @invertedTextColor !important;
 }
 
 /* Yellow */
@@ -578,7 +627,7 @@ a.ui.card:hover,
 .ui.cards.inverted > .yellow.card,
 .ui.yellow.card.inverted {
   background-color: @yellow !important;
-  color: @white !important;
+  color: @invertedTextColor !important;
 }
 
 /* Olive */
@@ -608,7 +657,7 @@ a.ui.card:hover,
 .ui.cards.inverted > .olive.card,
 .ui.olive.card.inverted {
   background-color: @olive !important;
-  color: @white !important;
+  color: @invertedTextColor !important;
 }
 
 /* Green */
@@ -637,7 +686,7 @@ a.ui.card:hover,
 .ui.cards.inverted > .green.card,
 .ui.green.card.inverted {
   background-color: @green !important;
-  color: @white !important;
+  color: @invertedTextColor !important;
 }
 
 /* Teal */
@@ -666,7 +715,7 @@ a.ui.card:hover,
 .ui.cards.inverted > .teal.card,
 .ui.teal.card.inverted {
   background-color: @teal !important;
-  color: @white !important;
+  color: @invertedTextColor !important;
 }
 
 /* Blue */
@@ -695,7 +744,7 @@ a.ui.card:hover,
 .ui.cards.inverted > .blue.card,
 .ui.blue.card.inverted {
   background-color: @blue !important;
-  color: @white !important;
+  color: @invertedTextColor !important;
 }
 
 /* Violet */
@@ -724,7 +773,7 @@ a.ui.card:hover,
 .ui.cards.inverted > .violet.card,
 .ui.violet.card.inverted {
   background-color: @violet !important;
-  color: @white !important;
+  color: @invertedTextColor !important;
 }
 
 /* Purple */
@@ -753,7 +802,7 @@ a.ui.card:hover,
 .ui.cards.inverted > .purple.card,
 .ui.purple.card.inverted {
   background-color: @purple !important;
-  color: @white !important;
+  color: @invertedTextColor !important;
 }
 
 /* Pink */
@@ -782,7 +831,7 @@ a.ui.card:hover,
 .ui.cards.inverted > .pink.card,
 .ui.pink.card.inverted {
   background-color: @pink !important;
-  color: @white !important;
+  color: @invertedTextColor !important;
 }
 
 /* Brown */
@@ -811,7 +860,7 @@ a.ui.card:hover,
 .ui.cards.inverted > .brown.card,
 .ui.brown.card.inverted {
   background-color: @brown !important;
-  color: @white !important;
+  color: @invertedTextColor !important;
 }
 
 /* Grey */
@@ -840,7 +889,7 @@ a.ui.card:hover,
 .ui.cards.inverted > .grey.card,
 .ui.grey.card.inverted {
   background-color: @grey !important;
-  color: @white !important;
+  color: @invertedTextColor !important;
 }
 
 /* Black */
@@ -869,7 +918,7 @@ a.ui.card:hover,
 .ui.cards.inverted > .black.card,
 .ui.black.card.inverted {
   background-color: @black !important;
-  color: @white !important;
+  color: @invertedTextColor !important;
 }
 
 /*--------------
