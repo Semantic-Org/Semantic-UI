@@ -1,3 +1,36 @@
 /*******************************
          Theme Overrides
 *******************************/
+
+
+/*-------------------
+  Inverted dropdowns
+--------------------*/
+.ui.menu .ui.inverted.inverted.dropdown.item .menu {
+  background: @invertedDropdownBackground;
+  box-shadow: @invertedDropdownMenuBoxShadow;
+}
+
+.ui.menu .ui.inverted.dropdown .menu > .item {
+  color: @invertedDropdownItemColor !important;
+}
+
+.ui.menu .ui.inverted.dropdown .menu > .active.item {
+  background: @invertedDropdownActiveItemBackground !important;
+  color: @invertedDropdownActiveItemColor !important;
+}
+
+.ui.menu .ui.inverted.dropdown .menu > .item:hover {
+  background: @invertedDropdownHoveredItemBackground !important;
+  color: @invertedDropdownHoveredItemColor !important;
+}
+
+.ui.menu .ui.inverted.dropdown .menu > .selected.item {
+  background: @invertedDropdownSelectedItemBackground !important;
+  color: @invertedDropdownSelectedItemColor !important;
+}
+
+/* Vertical */
+.ui.vertical.menu .inverted.dropdown.item .menu {
+  box-shadow: @invertedDropdownMenuBoxShadow;
+}
