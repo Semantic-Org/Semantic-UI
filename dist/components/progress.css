@@ -116,30 +116,6 @@
   background-color: #66DA81;
 }
 
-/* Indicating Label */
-.ui.indicating.progress[data-percent^="1"] .label,
-.ui.indicating.progress[data-percent^="2"] .label {
-  color: rgba(0, 0, 0, 0.87);
-}
-.ui.indicating.progress[data-percent^="3"] .label {
-  color: rgba(0, 0, 0, 0.87);
-}
-.ui.indicating.progress[data-percent^="4"] .label,
-.ui.indicating.progress[data-percent^="5"] .label {
-  color: rgba(0, 0, 0, 0.87);
-}
-.ui.indicating.progress[data-percent^="6"] .label {
-  color: rgba(0, 0, 0, 0.87);
-}
-.ui.indicating.progress[data-percent^="7"] .label,
-.ui.indicating.progress[data-percent^="8"] .label {
-  color: rgba(0, 0, 0, 0.87);
-}
-.ui.indicating.progress[data-percent^="9"] .label,
-.ui.indicating.progress[data-percent^="100"] .label {
-  color: rgba(0, 0, 0, 0.87);
-}
-
 /* Single Digits */
 .ui.indicating.progress[data-percent="1"] .bar,
 .ui.indicating.progress[data-percent="2"] .bar,
@@ -151,22 +127,6 @@
 .ui.indicating.progress[data-percent="8"] .bar,
 .ui.indicating.progress[data-percent="9"] .bar {
   background-color: #D95C5C;
-}
-.ui.indicating.progress[data-percent="1"] .label,
-.ui.indicating.progress[data-percent="2"] .label,
-.ui.indicating.progress[data-percent="3"] .label,
-.ui.indicating.progress[data-percent="4"] .label,
-.ui.indicating.progress[data-percent="5"] .label,
-.ui.indicating.progress[data-percent="6"] .label,
-.ui.indicating.progress[data-percent="7"] .label,
-.ui.indicating.progress[data-percent="8"] .label,
-.ui.indicating.progress[data-percent="9"] .label {
-  color: rgba(0, 0, 0, 0.87);
-}
-
-/* Indicating Success */
-.ui.indicating.progress.success .label {
-  color: #1A531B;
 }
 
 
