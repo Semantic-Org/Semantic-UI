@@ -56,6 +56,10 @@ img.ui.image {
   display: block;
   visibility: hidden;
 }
+.ui.images > .hidden.transition {
+  display: inline-block;
+  visibility: hidden;
+}
 
 
 .ui.disabled.images,
@@ -315,8 +319,8 @@ img.ui.bordered.image {
 }
 
 .ui.images .image,
-.ui.images img,
-.ui.images svg {
+.ui.images > img,
+.ui.images > svg {
   display: inline-block;
   margin: 0em @imageHorizontalMargin @imageVerticalMargin;
 }

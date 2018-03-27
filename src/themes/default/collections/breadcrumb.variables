@@ -30,4 +30,4 @@
        States
 --------------------*/
 
-@activeFontWeight: bold;
+@activeFontWeight: @bold;

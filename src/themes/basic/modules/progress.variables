@@ -10,6 +10,6 @@
 @progressWidth: 100%;
 @progressTextAlign: center;
 
-@labelFontWeight: normal;
+@labelFontWeight: @normal;
 @labelTextAlign: left;
 @labelHeight: 1.5em;

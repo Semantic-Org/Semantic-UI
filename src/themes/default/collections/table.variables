@@ -47,7 +47,7 @@
 @headerVerticalPadding: @relativeSmall;
 @headerHorizontalPadding: @cellHorizontalPadding;
 @headerFontStyle: none;
-@headerFontWeight: bold;
+@headerFontWeight: @bold;
 @headerTextTransform: none;
 @headerBoxShadow: none;
 
@@ -61,8 +61,8 @@
 @footerColor: @textColor;
 @footerVerticalPadding: @cellVerticalPadding;
 @footerHorizontalPadding: @cellHorizontalPadding;
-@footerFontStyle: normal;
-@footerFontWeight: normal;
+@footerFontStyle: @normal;
+@footerFontWeight: @normal;
 @footerTextTransform: none;
 
 /* Responsive Size */
@@ -73,6 +73,7 @@
 @responsiveCellVerticalPadding: 0.25em;
 @responsiveCellHorizontalPadding: 0.75em;
 @responsiveCellBoxShadow: none !important;
+@responsiveCellHeaderFontWeight: @bold;
 
 /*-------------------
        Types
@@ -83,14 +84,14 @@
 
 @definitionHeaderBackground: transparent;
 @definitionHeaderColor: @unselectedTextColor;
-@definitionHeaderFontWeight: normal;
+@definitionHeaderFontWeight: @normal;
 
 @definitionFooterBackground: @definitionHeaderBackground;
 @definitionFooterColor: @definitionHeaderColor;
 @definitionFooterFontWeight: @definitionHeaderFontWeight;
 
 @definitionColumnBackground: @subtleTransparentBlack;
-@definitionColumnFontWeight: bold;
+@definitionColumnFontWeight: @bold;
 @definitionColumnColor: @selectedTextColor;
 @definitionColumnFontSize: @relativeMedium;
 @definitionColumnTextTransform: '';
@@ -213,7 +214,7 @@
 
 @invertedDefinitionColumnBackground: @subtleTransparentWhite;
 @invertedDefinitionColumnColor: @invertedSelectedTextColor;
-@invertedDefinitionColumnFontWeight: bold;
+@invertedDefinitionColumnFontWeight: @bold;
 
 /* Basic */
 @basicTableBackground: transparent;

@@ -2,12 +2,11 @@
              Icon
 *******************************/
 
-/*-------------------
-   Icon Variables
---------------------*/
+/*--------------
+   Font Files
+---------------*/
 
 @fontName: 'icons';
-@fallbackSRC: url("@{fontPath}/@{fontName}.eot");
 @src:
   url("@{fontPath}/@{fontName}.eot?#iefix") format('embedded-opentype'),
   url("@{fontPath}/@{fontName}.woff2") format('woff2'),
@@ -15,7 +14,41 @@
   url("@{fontPath}/@{fontName}.ttf") format('truetype'),
   url("@{fontPath}/@{fontName}.svg#icons") format('svg')
 ;
+@fallbackSRC: url("@{fontPath}/@{fontName}.eot");
 
+/*--------------
+ Optional Files
+---------------*/
+
+/* Outline Icons */
+@importOutlineIcons: true;
+@outlineFontName: 'outline-icons';
+@outlineSrc:
+  url("@{fontPath}/@{outlineFontName}.eot?#iefix") format('embedded-opentype'),
+  url("@{fontPath}/@{outlineFontName}.woff2") format('woff2'),
+  url("@{fontPath}/@{outlineFontName}.woff") format('woff'),
+  url("@{fontPath}/@{outlineFontName}.ttf") format('truetype'),
+  url("@{fontPath}/@{outlineFontName}.svg#icons") format('svg')
+;
+@outlineFallbackSRC: url("@{fontPath}/@{outlineFontName}.eot");
+
+/* Brand Icons */
+@importBrandIcons: true;
+@brandFontName: 'brand-icons';
+@brandSrc:
+  url("@{fontPath}/@{brandFontName}.eot?#iefix") format('embedded-opentype'),
+  url("@{fontPath}/@{brandFontName}.woff2") format('woff2'),
+  url("@{fontPath}/@{brandFontName}.woff") format('woff'),
+  url("@{fontPath}/@{brandFontName}.ttf") format('truetype'),
+  url("@{fontPath}/@{brandFontName}.svg#icons") format('svg')
+;
+@brandFallbackSRC: url("@{fontPath}/@{brandFontName}.eot");
+
+/*--------------
+   Definition
+---------------*/
+
+/* Icon Variables */
 @opacity: 1;
 @width: @iconWidth;
 @height: 1em;
@@ -23,18 +56,17 @@
 
 
 /* Variations */
-
 @linkOpacity: 0.8;
 @linkDuration: 0.3s;
 @loadingDuration: 2s;
 
 @circularSize: 2em;
-@circularPadding: 0.5em 0.5em;
+@circularPadding: 0.5em 0em;
 @circularShadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
 
 @borderedSize: 2em;
 @borderedVerticalPadding: ((@borderedSize - @height) / 2);
-@borderedHorizontalPadding: ((@borderedSize - @width) / 2);
+@borderedHorizontalPadding: 0em;
 @borderedShadow: 0em 0em 0em 0.1em rgba(0, 0, 0, 0.1) inset;
 
 @cornerIconSize: 0.45em;

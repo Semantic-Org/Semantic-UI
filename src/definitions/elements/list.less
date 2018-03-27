@@ -421,16 +421,16 @@ ol.ui.list ol li,
   color: @linkListItemColor;
   transition: @linkListTransition;
 }
-.ui.link.list a.item:hover,
-.ui.link.list .item a:not(.ui):hover {
+.ui.link.list.list a.item:hover,
+.ui.link.list.list .item a:not(.ui):hover {
   color: @linkListItemHoverColor;
 }
-.ui.link.list a.item:active,
-.ui.link.list .item a:not(.ui):active {
+.ui.link.list.list a.item:active,
+.ui.link.list.list .item a:not(.ui):active {
   color: @linkListItemDownColor;
 }
-.ui.link.list .active.item,
-.ui.link.list .active.item a:not(.ui) {
+.ui.link.list.list .active.item,
+.ui.link.list.list .active.item a:not(.ui) {
   color: @linkListItemActiveColor;
 }
 
@@ -440,16 +440,16 @@ ol.ui.list ol li,
 .ui.inverted.link.list .item a:not(.ui) {
   color: @invertedLinkListItemColor;
 }
-.ui.inverted.link.list a.item:hover,
-.ui.inverted.link.list .item a:not(.ui):hover {
+.ui.inverted.link.list.list a.item:hover,
+.ui.inverted.link.list.list .item a:not(.ui):hover {
   color: @invertedLinkListItemHoverColor;
 }
-.ui.inverted.link.list a.item:active,
-.ui.inverted.link.list .item a:not(.ui):active {
+.ui.inverted.link.list.list a.item:active,
+.ui.inverted.link.list.list .item a:not(.ui):active {
   color: @invertedLinkListItemDownColor;
 }
-.ui.inverted.link.list a.active.item,
-.ui.inverted.link.list .active.item a:not(.ui) {
+.ui.inverted.link.list.list a.active.item,
+.ui.inverted.link.list.list .active.item a:not(.ui) {
   color: @invertedLinkListItemActiveColor;
 }
 
@@ -471,7 +471,7 @@ ol.ui.list ol li,
 .ui.selection.list > .item:last-child {
   margin-bottom: 0em;
 }
-.ui.selection.list.list >  .item:hover,
+.ui.selection.list.list > .item:hover,
 .ui.selection.list > .item:hover {
   background: @selectionListHoverBackground;
   color: @selectionListHoverColor;
@@ -563,7 +563,7 @@ ul.ui.list li:before,
   position: absolute;
   top: auto;
   left: auto;
-  font-weight: normal;
+  font-weight: @normal;
   margin-left: @bulletOffset;
   content: @bulletCharacter;
   opacity: @bulletOpacity;

@@ -776,6 +776,38 @@
 }
 
 
+/*--------------
+      Zoom
+---------------*/
+
+.transition.zoom.in {
+  animation-name: zoomIn;
+}
+.transition.zoom.out {
+  animation-name: zoomOut;
+}
+@keyframes zoomIn {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes zoomOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(0);
+  }
+}
+
+
 /*******************************
        Static Animations
 *******************************/
@@ -783,6 +815,7 @@
 /*--------------
     Emphasis
 ---------------*/
+
 
 .flash.transition {
   animation-duration: 750ms;
@@ -808,6 +841,14 @@
   animation-duration: 750ms;
   animation-name: jiggle;
 }
+.transition.glow {
+  animation-duration: 2000ms;
+  animation-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+}
+.transition.glow {
+  animation-name: glow;
+}
+
 
 /* Flash */
 @keyframes flash {
@@ -881,7 +922,7 @@
 
 }
 
-/* Rubberband */
+/* Jiggle */
 @keyframes jiggle {
   0% {
     transform: scale3d(1, 1, 1);
@@ -906,5 +947,16 @@
   }
 }
 
-
+/* Glow */
+@keyframes glow {
+  0% {
+    background-color: #FCFCFD;
+  }
+  30% {
+    background-color: #FFF6CD;
+  }
+  100% {
+    background-color: #FCFCFD;
+  }
+}
 

@@ -25,7 +25,7 @@
 
 /* Value */
 @valueFont: @pageFont;
-@valueFontWeight: normal;
+@valueFontWeight: @normal;
 @valueLineHeight: 1em;
 @valueColor: @black;
 @valueTextTransform: uppercase;
@@ -35,7 +35,7 @@
 @topLabelDistance: 0rem;
 @bottomLabelDistance: 0rem;
 @labelFont: @headerFont;
-@labelFontWeight: bold;
+@labelFontWeight: @bold;
 @labelColor: @textColor;
 @labelLineHeight: @relativeLarge;
 @labelTextTransform: uppercase;
@@ -43,7 +43,7 @@
 /* Text */
 @textValueLineHeight: 1em;
 @textValueMinHeight: 2em;
-@textValueFontWeight: bold;
+@textValueFontWeight: @bold;
 
 /* Label Image */
 @imageHeight: 3rem;

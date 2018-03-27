@@ -24,17 +24,15 @@
 
 .ui.modal {
   display: none;
-  position: fixed;
   z-index: @zIndex;
-
-  top: 50%;
-  left: 50%;
   text-align: left;
 
   background: @background;
   border: @border;
   box-shadow: @boxShadow;
   transform-origin: @transformOrigin;
+
+  flex: 0 0 auto;
 
   border-radius: @borderRadius;
   user-select: text;
@@ -338,12 +336,24 @@
 *******************************/
 
 /*--------------
+   Top Aligned
+---------------*/
+
+/* Top Aligned Modal */
+.modals.dimmer[class*="top aligned"] .modal {
+  margin: @topAlignedMargin auto;
+}
+
+/*--------------
     Scrolling
 ---------------*/
 
-/* A modal that cannot fit on the page */
+/* Scrolling Dimmer */
 .scrolling.dimmable.dimmed {
   overflow: hidden;
+}
+.scrolling.dimmable > .dimmer {
+  justify-content: flex-start;
 }
 .scrolling.dimmable.dimmed > .dimmer {
   overflow: auto;
@@ -353,11 +363,10 @@
   position: fixed;
 }
 .modals.dimmer .ui.scrolling.modal {
-  position: static !important;
   margin: @scrollingMargin auto !important;
 }
 
-/* undetached scrolling */
+/* Undetached Scrolling */
 .scrolling.undetached.dimmable.dimmed {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -371,25 +380,11 @@
   margin-top: @scrollingMargin !important;
 }
 
-/* Coupling with Sidebar */
-.undetached.dimmable.dimmed > .pusher {
-  z-index: auto;
-}
-
-@media only screen and (max-width : @largestTabletScreen) {
-  .modals.dimmer .ui.scrolling.modal {
-    margin-top: @mobileScrollingMargin !important;
-    margin-bottom: @mobileScrollingMargin !important;
-  }
-}
-
 /* Scrolling Content */
-
 .ui.modal .scrolling.content {
   max-height: @scrollingContentMaxHeight;
   overflow: auto;
 }
-
 
 /*--------------
    Full Screen

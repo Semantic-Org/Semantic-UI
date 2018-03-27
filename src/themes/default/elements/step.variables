@@ -47,14 +47,14 @@
 
 /* Title */
 @titleFontFamily: @headerFont;
-@titleFontWeight: bold;
+@titleFontWeight: @bold;
 @titleFontSize: @relativeLarge;
 @titleColor: @darkTextColor;
 
 /* Description */
 @descriptionDistance: 0.25em;
 @descriptionFontSize: @relativeSmall;
-@descriptionFontWeight: normal;
+@descriptionFontWeight: @normal;
 @descriptionColor: @textColor;
 
 
@@ -98,7 +98,7 @@
 @attachedWidth: ~"calc(100% + "-@attachedHorizontalOffset * 2~")";
 
 @orderedFontFamily: inherit;
-@orderedFontWeight: bold;
+@orderedFontWeight: @bold;
 
 /*-------------------
        States

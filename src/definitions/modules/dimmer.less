@@ -36,6 +36,7 @@
 
   text-align: @textAlign;
   vertical-align: @verticalAlign;
+  padding: @padding;
 
   background-color: @backgroundColor;
   opacity: @hiddenOpacity;
@@ -45,6 +46,10 @@
   animation-duration: @duration;
   transition: @transition;
 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   user-select: none;
   will-change: opacity;
   z-index: @zIndex;
@@ -52,14 +57,7 @@
 
 /* Dimmer Content */
 .ui.dimmer > .content {
-  width: 100%;
-  height: 100%;
-  display: @contentDisplay;
   user-select: text;
-}
-.ui.dimmer > .content > * {
-  display: @contentChildDisplay;
-  vertical-align: @verticalAlign;
   color: @textColor;
 }
 
@@ -90,26 +88,41 @@
             States
 *******************************/
 
+/* Animating */
 .animating.dimmable:not(body),
 .dimmed.dimmable:not(body) {
   overflow: @overflow;
 }
 
+/* Animating / Active / Visible */
 .dimmed.dimmable > .ui.animating.dimmer,
 .dimmed.dimmable > .ui.visible.dimmer,
 .ui.active.dimmer {
-  display: block;
+  display: flex;
   opacity: @visibleOpacity;
 }
 
+/* Disabled */
 .ui.disabled.dimmer {
   width: 0 !important;
   height: 0 !important;
 }
 
+
 /*******************************
            Variations
 *******************************/
+
+/*--------------
+    Alignment
+---------------*/
+
+.ui[class*="top aligned"].dimmer {
+  justify-content: flex-start;
+}
+.ui[class*="bottom aligned"].dimmer {
+  justify-content: flex-end;
+}
 
 /*--------------
       Page
@@ -170,7 +183,7 @@ body.dimmable > .dimmer {
   background-color: @invertedBackgroundColor;
 }
 .ui.inverted.dimmer > .content > * {
-  color: @textColor;
+  color: @invertedTextColor;
 }
 
 /*--------------

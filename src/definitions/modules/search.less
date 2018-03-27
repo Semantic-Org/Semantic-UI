@@ -34,7 +34,7 @@
 
   text-shadow: none;
   font-style: normal;
-  font-weight: normal;
+  font-weight: @normal;
 
   line-height: @promptLineHeight;
   padding: @promptPadding;
@@ -270,6 +270,18 @@
   color: @resultActiveDescriptionColor;
 }
 
+/*--------------------
+        Disabled
+----------------------*/
+
+/* Disabled */
+.ui.disabled.search {
+  cursor: default;
+  pointer-events: none;
+  opacity: @disabledOpacity;
+}
+
+
 /*******************************
            Types
 *******************************/
@@ -315,11 +327,16 @@
   width: @categoryResultsWidth;
 }
 
+.ui.category.search .results.animating,
+.ui.category.search .results.visible {
+  display: table;
+}
+
 /* Category */
 .ui.category.search > .results .category {
+  display: table-row;
   background: @categoryBackground;
   box-shadow: @categoryBoxShadow;
-  border-bottom: @categoryDivider;
   transition: @categoryTransition;
 }
 
@@ -336,30 +353,32 @@
   border-radius: 0em 0em @resultsBorderRadius 0em;
 }
 
-/* Category Result */
-.ui.category.search > .results .category .result {
-  background: @categoryResultBackground;
-  margin-left: @categoryNameWidth;
-  border-left: @categoryResultLeftBorder;
-  border-bottom: @categoryResultDivider;
-  transition: @categoryResultTransition;
-  padding: @categoryResultPadding;
-}
-.ui.category.search > .results .category:last-child .result:last-child {
-  border-bottom: @categoryResultLastDivider;
-}
-
 /* Category Result Name */
 .ui.category.search > .results .category > .name {
+  display: table-cell;
+  text-overflow: ellipsis;
   width: @categoryNameWidth;
+  white-space: @categoryNameWhitespace;
   background: @categoryNameBackground;
   font-family: @categoryNameFont;
   font-size: @categoryNameFontSize;
-  float: @categoryNameFontSize;
-  float: @categoryNameFloat;
   padding: @categoryNamePadding;
   font-weight: @categoryNameFontWeight;
   color: @categoryNameColor;
+  border-bottom: @categoryDivider;
+}
+
+/* Category Result */
+.ui.category.search > .results .category .results {
+  display: table-cell;
+  background: @categoryResultBackground;
+  border-left: @categoryResultLeftBorder;
+  border-bottom: @categoryDivider;
+}
+.ui.category.search > .results .category .result {
+  border-bottom: @categoryResultDivider;
+  transition: @categoryResultTransition;
+  padding: @categoryResultPadding;
 }
 
 /*******************************
@@ -412,6 +431,16 @@
 }
 .ui.massive.search {
   font-size: @relativeMassive;
+}
+
+/*--------------
+      Mobile
+---------------*/
+
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui.search .results {
+    max-width: @mobileMaxWidth;
+  }
 }
 
 .loadUIOverrides();

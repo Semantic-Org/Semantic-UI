@@ -29,12 +29,12 @@
 
 .ui.input {
   position: relative;
-  font-weight: normal;
+  font-weight: @normal;
   font-style: normal;
   display: inline-flex;
   color: @inputColor;
 }
-.ui.input input {
+.ui.input > input {
   margin: 0em;
   max-width: 100%;
   flex: 1 0 auto;
@@ -62,13 +62,13 @@
 
 /* browsers require these rules separate */
 
-.ui.input input::-webkit-input-placeholder {
+.ui.input > input::-webkit-input-placeholder {
   color: @placeholderColor;
 }
-.ui.input input::-moz-placeholder {
+.ui.input > input::-moz-placeholder {
   color: @placeholderColor;
 }
-.ui.input input:-ms-input-placeholder {
+.ui.input > input:-ms-input-placeholder {
   color: @placeholderColor;
 }
 
@@ -86,7 +86,7 @@
   opacity: @disabledOpacity;
 }
 
-.ui.disabled.input input,
+.ui.disabled.input > input,
 .ui.input:not(.disabled) input[disabled] {
   pointer-events: none;
 }
@@ -95,7 +95,7 @@
         Active
 ---------------------*/
 
-.ui.input input:active,
+.ui.input > input:active,
 .ui.input.down input {
   border-color: @downBorderColor;
   background: @downBackground;
@@ -147,23 +147,23 @@
         Focus
 ---------------------*/
 
-.ui.input.focus input,
-.ui.input input:focus  {
+.ui.input.focus > input,
+.ui.input > input:focus  {
   border-color: @focusBorderColor;
   background: @focusBackground;
   color: @focusColor;
   box-shadow: @focusBoxShadow;
 }
-.ui.input.focus input::-webkit-input-placeholder,
-.ui.input input:focus::-webkit-input-placeholder {
+.ui.input.focus > input::-webkit-input-placeholder,
+.ui.input > input:focus::-webkit-input-placeholder {
   color: @placeholderFocusColor;
 }
-.ui.input.focus input::-moz-placeholder,
-.ui.input input:focus::-moz-placeholder {
+.ui.input.focus > input::-moz-placeholder,
+.ui.input > input:focus::-moz-placeholder {
   color: @placeholderFocusColor;
 }
-.ui.input.focus input:-ms-input-placeholder,
-.ui.input input:focus:-ms-input-placeholder {
+.ui.input.focus > input:-ms-input-placeholder,
+.ui.input > input:focus:-ms-input-placeholder {
   color: @placeholderFocusColor;
 }
 
@@ -173,7 +173,7 @@
         Error
 ---------------------*/
 
-.ui.input.error input {
+.ui.input.error > input {
   background-color: @errorBackground;
   border-color: @errorBorder;
   color: @errorColor;
@@ -181,24 +181,24 @@
 }
 
 /* Error Placeholder */
-.ui.input.error input::-webkit-input-placeholder {
+.ui.input.error > input::-webkit-input-placeholder {
   color: @placeholderErrorColor;
 }
-.ui.input.error input::-moz-placeholder {
+.ui.input.error > input::-moz-placeholder {
   color: @placeholderErrorColor;
 }
-.ui.input.error input:-ms-input-placeholder {
+.ui.input.error > input:-ms-input-placeholder {
   color: @placeholderErrorColor !important;
 }
 
 /* Focused Error Placeholder */
-.ui.input.error input:focus::-webkit-input-placeholder {
+.ui.input.error > input:focus::-webkit-input-placeholder {
   color: @placeholderErrorFocusColor;
 }
-.ui.input.error input:focus::-moz-placeholder {
+.ui.input.error > input:focus::-moz-placeholder {
   color: @placeholderErrorFocusColor;
 }
-.ui.input.error input:focus:-ms-input-placeholder {
+.ui.input.error > input:focus:-ms-input-placeholder {
   color: @placeholderErrorFocusColor !important;
 }
 
@@ -211,7 +211,7 @@
 ---------------------*/
 
 
-.ui.transparent.input input {
+.ui.transparent.input > input {
   border-color: transparent !important;
   background-color: transparent !important;
   padding: 0em !important;
@@ -236,17 +236,17 @@
 .ui.transparent.inverted.input {
   color: @transparentInvertedColor;
 }
-.ui.transparent.inverted.input input {
+.ui.transparent.inverted.input > input {
   color: inherit;
 }
 
-.ui.transparent.inverted.input input::-webkit-input-placeholder {
+.ui.transparent.inverted.input > input::-webkit-input-placeholder {
   color: @transparentInvertedPlaceholderColor;
 }
-.ui.transparent.inverted.input input::-moz-placeholder {
+.ui.transparent.inverted.input > input::-moz-placeholder {
   color: @transparentInvertedPlaceholderColor;
 }
-.ui.transparent.inverted.input input:-ms-input-placeholder {
+.ui.transparent.inverted.input > input:-ms-input-placeholder {
   color: @transparentInvertedPlaceholderColor;
 }
 
@@ -273,7 +273,7 @@
 .ui.icon.input > i.icon:not(.link) {
   pointer-events: none;
 }
-.ui.icon.input input {
+.ui.icon.input > input {
   padding-right: @iconMargin !important;
 }
 
@@ -344,17 +344,17 @@
 }
 
 /* Regular Label on Right */
-.ui[class*="right labeled"].input input {
+.ui[class*="right labeled"].input > input {
   border-top-right-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
   border-right-color: transparent !important;
 }
-.ui[class*="right labeled"].input input + .label {
+.ui[class*="right labeled"].input > input + .label {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
 
-.ui[class*="right labeled"].input input:focus {
+.ui[class*="right labeled"].input > input:focus {
   border-right-color: @focusBorderColor !important;
 }
 
@@ -367,7 +367,7 @@
 }
 
 /* Spacing with corner label */
-.ui[class*="corner labeled"]:not([class*="left corner labeled"]).labeled.input input {
+.ui[class*="corner labeled"]:not([class*="left corner labeled"]).labeled.input > input {
   padding-right: @labeledMargin !important;
 }
 .ui[class*="corner labeled"].icon.input:not([class*="left corner labeled"]) > input {
@@ -378,7 +378,7 @@
 }
 
 /* Left Labeled */
-.ui[class*="left corner labeled"].labeled.input input {
+.ui[class*="left corner labeled"].labeled.input > input {
   padding-left: @labeledMargin !important;
 }
 .ui[class*="left corner labeled"].icon.input > input {
@@ -434,7 +434,7 @@
 }
 
 /* Input Focus */
-.ui.action.input:not([class*="left action"]) input:focus {
+.ui.action.input:not([class*="left action"]) > input:focus {
   border-right-color: @focusBorderColor !important;
 }
 
@@ -464,7 +464,7 @@
 ---------------------*/
 
 /* Standard */
-.ui.inverted.input input {
+.ui.inverted.input > input {
   border: none;
 }
 

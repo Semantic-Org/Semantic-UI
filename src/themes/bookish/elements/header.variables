@@ -3,7 +3,7 @@
 --------------------*/
 
 @headerFont : 'Karma', 'Times New Roman', serif;
-@fontWeight: normal;
+@fontWeight: @normal;
 
 @iconSize: 1.5em;
 @iconOffset: 0.2em;

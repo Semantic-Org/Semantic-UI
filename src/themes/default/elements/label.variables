@@ -16,7 +16,7 @@
 @horizontalPadding: 0.833em;
 @borderRadius: @absoluteBorderRadius;
 @textTransform: none;
-@fontWeight: bold;
+@fontWeight: @bold;
 @borderWidth: 1px;
 @border: 0px solid transparent;
 
@@ -45,7 +45,7 @@
 @imageHeight: (1em + @verticalPadding * 2);
 
 /* Detail */
-@detailFontWeight: bold;
+@detailFontWeight: @bold;
 @detailOpacity: 0.8;
 @detailIconDistance: 0.25em;
 @detailMargin: 1em;
@@ -208,7 +208,7 @@
 
 /* Corner Text */
 @cornerTextWidth: 3em;
-@cornerTextWeight: bold;
+@cornerTextWeight: @bold;
 @cornerTextSize: 1em;
 
 /* Horizontal */
