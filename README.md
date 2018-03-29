@@ -45,6 +45,7 @@ Semantic UI includes an interactive installer to help setup your project.
 
 Environment | Install Script | Repo
 --- | --- | --- |
+[React](https://reactjs.org/) | `npm install semantic-ui-react` | [React Repo](https://github.com/Semantic-Org/Semantic-UI-React)
 CSS Only | `npm install semantic-ui-css` | [CSS Repo](https://github.com/Semantic-Org/Semantic-UI-CSS)
 [LESS](https://github.com/less/less.js/) Only | `npm install semantic-ui-less` | [LESS Repo](https://github.com/Semantic-Org/Semantic-UI-LESS)
 [LESS](https://github.com/less/less.js/) plugin | `npm install less-plugin-semantic-ui` | [LESS Plugin Repo](https://github.com/bassjobsen/less-plugin-semantic-ui/)
