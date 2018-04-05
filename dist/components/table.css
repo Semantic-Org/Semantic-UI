@@ -27,6 +27,7 @@
   color: rgba(0, 0, 0, 0.87);
   border-collapse: separate;
   border-spacing: 0px;
+  overflow: hidden;
 }
 .ui.table:first-child {
   margin-top: 0em;
