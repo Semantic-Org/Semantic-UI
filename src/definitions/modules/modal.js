@@ -564,21 +564,7 @@ $.fn.modal = function(parameters) {
         },
 
         can: {
-          fit: function() {
-            var
-              contextHeight  = module.cache.contextHeight,
-              verticalCenter = module.cache.contextHeight / 2,
-              topOffset      = module.cache.topOffset,
-              scrollHeight   = module.cache.scrollHeight,
-              height         = module.cache.height,
-              paddingHeight  = settings.padding,
-              startPosition  = (verticalCenter + topOffset)
-            ;
-            return (scrollHeight > height)
-              ? (startPosition + scrollHeight + paddingHeight < contextHeight)
-              : (height + (paddingHeight * 2) < contextHeight)
-            ;
-          }
+          fit: function() { return false; } /* This might be removed */
         },
 
         is: {
