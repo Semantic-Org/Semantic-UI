@@ -45,8 +45,8 @@
 .ui.checkbox input[type="radio"] {
   cursor: pointer;
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   opacity: 0 !important;
   outline: none;
   z-index: 3;
@@ -73,8 +73,8 @@
 .ui.checkbox .box:before,
 .ui.checkbox label:before {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
 
   width: @checkboxSize;
   height: @checkboxSize;
@@ -384,7 +384,7 @@
   content: '';
   transform: none;
   border: none !important;
-  left: 0em;
+  left: 0;
   z-index: 1;
 
   top: @sliderLineVerticalOffset;
@@ -413,7 +413,7 @@
   width: @sliderHandleSize;
   height: @sliderHandleSize;
   top: @sliderHandleOffset;
-  left: 0em;
+  left: 0;
   transform: none;
 
   border-radius: @circularRadius;
@@ -520,7 +520,7 @@
   width: @toggleHandleSize;
   height: @toggleHandleSize;
   top: @toggleHandleOffset;
-  left: 0em;
+  left: 0;
 
   border-radius: @circularRadius;
   transition: @toggleHandleTransition;
@@ -582,7 +582,7 @@
 
 .ui.fitted.checkbox .box,
 .ui.fitted.checkbox label {
-  padding-left: 0em !important;
+  padding-left: 0 !important;
 }
 
 .ui.fitted.toggle.checkbox,

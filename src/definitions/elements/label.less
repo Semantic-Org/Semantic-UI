@@ -43,10 +43,10 @@
 }
 
 .ui.label:first-child {
-  margin-left: 0em;
+  margin-left: 0;
 }
 .ui.label:last-child {
-  margin-right: 0em;
+  margin-right: 0;
 }
 
 /* Link */
@@ -75,7 +75,7 @@ a.ui.label {
 /* Icon */
 .ui.label > .icon {
   width: auto;
-  margin: 0em @iconDistance 0em 0em;
+  margin: 0 @iconDistance 0 0;
 }
 
 /* Detail */
@@ -87,7 +87,7 @@ a.ui.label {
   opacity: @detailOpacity;
 }
 .ui.label > .detail .icon {
-  margin: 0em @detailIconDistance 0em 0em;
+  margin: 0 @detailIconDistance 0 0;
 }
 
 
@@ -95,7 +95,7 @@ a.ui.label {
 .ui.label > .close.icon,
 .ui.label > .delete.icon {
   cursor: pointer;
-  margin-right: 0em;
+  margin-right: 0;
   margin-left: @deleteMargin;
   font-size: @deleteSize;
   opacity: @deleteOpacity;
@@ -110,7 +110,7 @@ a.ui.label {
 --------------------*/
 
 .ui.labels > .label {
-  margin: 0em @groupHorizontalMargin @groupVerticalMargin 0em;
+  margin: 0 @groupHorizontalMargin @groupVerticalMargin 0;
 }
 
 
@@ -145,7 +145,7 @@ a.ui.label {
   margin-top: @attachedSegmentPadding !important;
 }
 .ui.bottom.attached.label:first-child ~ :last-child:not(.attached) {
-  margin-top: 0em;
+  margin-top: 0;
   margin-bottom: @attachedSegmentPadding !important;
 }
 
@@ -156,8 +156,8 @@ a.ui.label {
 
 .ui.image.label {
   width: auto !important;
-  margin-top: 0em;
-  margin-bottom: 0em;
+  margin-top: 0;
+  margin-bottom: 0;
   max-width: 9999px;
   vertical-align: baseline;
   text-transform: none;
@@ -181,7 +181,7 @@ a.ui.label {
   background: @imageLabelDetailBackground;
   margin: @imageLabelDetailMargin;
   padding: @imageLabelDetailPadding;
-  border-radius: 0em @imageLabelBorderRadius @imageLabelBorderRadius 0em;
+  border-radius: 0 @imageLabelBorderRadius @imageLabelBorderRadius 0;
 }
 
 /*-------------------
@@ -195,7 +195,7 @@ a.ui.label {
   padding-left: @tagHorizontalPadding;
   padding-right: @tagHorizontalPadding;
 
-  border-radius: 0em @borderRadius @borderRadius 0em;
+  border-radius: 0 @borderRadius @borderRadius 0;
   transition: @tagTransition;
 }
 .ui.tag.labels .label:before,
@@ -239,10 +239,10 @@ a.ui.label {
 
 .ui.corner.label {
   position: absolute;
-  top: 0em;
-  right: 0em;
-  margin: 0em;
-  padding: 0em;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
   text-align: center;
 
   border-color: @backgroundColor;
@@ -260,18 +260,18 @@ a.ui.label {
 .ui.corner.label:after {
   position: absolute;
   content: "";
-  right: 0em;
-  top: 0em;
+  right: 0;
+  top: 0;
   z-index: -1;
 
-  width: 0em;
-  height: 0em;
+  width: 0;
+  height: 0;
   background-color: transparent !important;
 
-  border-top: 0em solid transparent;
+  border-top: 0 solid transparent;
   border-right: @cornerTriangleSize solid transparent;
   border-bottom: @cornerTriangleSize solid transparent;
-  border-left: 0em solid transparent;
+  border-left: 0 solid transparent;
 
   border-right-color: inherit;
   transition: @cornerTriangleTransition;
@@ -283,20 +283,20 @@ a.ui.label {
   top: @cornerIconTopOffset;
   left: @cornerIconLeftOffset;
   font-size: @cornerIconSize;
-  margin: 0em;
+  margin: 0;
 }
 
 /* Left Corner */
 .ui.left.corner.label,
 .ui.left.corner.label:after {
   right: auto;
-  left: 0em;
+  left: 0;
 }
 .ui.left.corner.label:after {
   border-top: @cornerTriangleSize solid transparent;
   border-right: @cornerTriangleSize solid transparent;
-  border-bottom: 0em solid transparent;
-  border-left: 0em solid transparent;
+  border-bottom: 0 solid transparent;
+  border-left: 0 solid transparent;
 
   border-top-color: inherit;
 }
@@ -320,9 +320,9 @@ a.ui.label {
 
 .ui.ribbon.label {
   position: relative;
-  margin: 0em;
+  margin: 0;
   min-width: max-content;
-  border-radius: 0em @borderRadius @borderRadius 0em;
+  border-radius: 0 @borderRadius @borderRadius 0;
   border-color: @ribbonShadowColor;
 }
 
@@ -335,12 +335,12 @@ a.ui.label {
   background-color: transparent !important;
 
   border-style: solid;
-  border-width: 0em @ribbonTriangleSize @ribbonTriangleSize 0em;
+  border-width: 0 @ribbonTriangleSize @ribbonTriangleSize 0;
   border-color: transparent;
   border-right-color: inherit;
 
-  width: 0em;
-  height: 0em;
+  width: 0;
+  height: 0;
 }
 /* Positioning */
 .ui.ribbon.label {
@@ -359,14 +359,14 @@ a.ui.label {
 .ui[class*="right ribbon"].label {
   text-align: left;
   transform: translateX(-100%);
-  border-radius: @borderRadius 0em 0em @borderRadius;
+  border-radius: @borderRadius 0 0 @borderRadius;
 }
 .ui[class*="right ribbon"].label:after {
   left: auto;
   right: 0%;
 
   border-style: solid;
-  border-width: @ribbonTriangleSize @ribbonTriangleSize 0em 0em;
+  border-width: @ribbonTriangleSize @ribbonTriangleSize 0 0;
   border-color: transparent;
   border-top-color: inherit;
 }
@@ -405,45 +405,45 @@ a.ui.label {
 .ui.attached.label {
   width: 100%;
   position: absolute;
-  margin: 0em;
-  top: 0em;
-  left: 0em;
+  margin: 0;
+  top: 0;
+  left: 0;
 
   padding: @attachedVerticalPadding @attachedHorizontalPadding;
 
-  border-radius: @attachedCornerBorderRadius @attachedCornerBorderRadius 0em 0em;
+  border-radius: @attachedCornerBorderRadius @attachedCornerBorderRadius 0 0;
 }
 .ui[class*="bottom attached"].label {
   top: auto;
-  bottom: 0em;
-  border-radius: 0em 0em @attachedCornerBorderRadius @attachedCornerBorderRadius;
+  bottom: 0;
+  border-radius: 0 0 @attachedCornerBorderRadius @attachedCornerBorderRadius;
 }
 
 .ui[class*="top left attached"].label {
   width: auto;
-  margin-top: 0em !important;
-  border-radius: @attachedCornerBorderRadius 0em @attachedBorderRadius 0em;
+  margin-top: 0 !important;
+  border-radius: @attachedCornerBorderRadius 0 @attachedBorderRadius 0;
 }
 
 .ui[class*="top right attached"].label {
   width: auto;
   left: auto;
-  right: 0em;
-  border-radius: 0em @attachedCornerBorderRadius 0em @attachedBorderRadius;
+  right: 0;
+  border-radius: 0 @attachedCornerBorderRadius 0 @attachedBorderRadius;
 }
 .ui[class*="bottom left attached"].label {
   width: auto;
   top: auto;
-  bottom: 0em;
-  border-radius: 0em @attachedBorderRadius 0em @attachedCornerBorderRadius;
+  bottom: 0;
+  border-radius: 0 @attachedBorderRadius 0 @attachedCornerBorderRadius;
 }
 .ui[class*="bottom right attached"].label {
   top: auto;
-  bottom: 0em;
+  bottom: 0;
   left: auto;
-  right: 0em;
+  right: 0;
   width: auto;
-  border-radius: @attachedBorderRadius 0em @attachedCornerBorderRadius 0em;
+  border-radius: @attachedBorderRadius 0 @attachedCornerBorderRadius 0;
 }
 
 
@@ -1061,7 +1061,7 @@ a.ui.basic.label:hover {
 
 .ui.horizontal.labels .label,
 .ui.horizontal.label {
-  margin: 0em @horizontalLabelMargin 0em 0em;
+  margin: 0 @horizontalLabelMargin 0 0;
 
   padding: @horizontalLabelVerticalPadding @horizontalPadding;
   min-width: @horizontalLabelMinWidth;
@@ -1086,8 +1086,8 @@ a.ui.basic.label:hover {
 }
 .ui.empty.circular.labels .label,
 .ui.empty.circular.label {
-  min-width: 0em;
-  min-height: 0em;
+  min-width: 0;
+  min-height: 0;
   overflow: hidden;
   width: @emptyCircleSize;
   height: @emptyCircleSize;
@@ -1133,7 +1133,7 @@ a.ui.basic.label:hover {
 }
 .ui.pointing.label:before,
 .ui[class*="pointing above"].label:before {
-  border-width: @borderWidth 0px 0px @borderWidth;
+  border-width: @borderWidth 0 0 @borderWidth;
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
   top: 0%;
   left: 50%;
@@ -1141,12 +1141,12 @@ a.ui.basic.label:hover {
 /*--- Below ---*/
 .ui[class*="bottom pointing"].label,
 .ui[class*="pointing below"].label {
-  margin-top: 0em;
+  margin-top: 0;
   margin-bottom: @pointingVerticalDistance;
 }
 .ui[class*="bottom pointing"].label:before,
 .ui[class*="pointing below"].label:before {
-  border-width: 0px @borderWidth @borderWidth 0px;
+  border-width: 0 @borderWidth @borderWidth 0;
   top: auto;
   right: auto;
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
@@ -1155,24 +1155,24 @@ a.ui.basic.label:hover {
 }
 /*--- Left ---*/
 .ui[class*="left pointing"].label {
-  margin-top: 0em;
+  margin-top: 0;
   margin-left: @pointingHorizontalDistance;
 }
 .ui[class*="left pointing"].label:before {
-  border-width: 0px 0px @borderWidth @borderWidth;
+  border-width: 0 0 @borderWidth @borderWidth;
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
   bottom: auto;
   right: auto;
   top: 50%;
-  left: 0em;
+  left: 0;
 }
 /*--- Right ---*/
 .ui[class*="right pointing"].label {
-  margin-top: 0em;
+  margin-top: 0;
   margin-right: @pointingHorizontalDistance;
 }
 .ui[class*="right pointing"].label:before {
-  border-width: @borderWidth @borderWidth 0px 0px;
+  border-width: @borderWidth @borderWidth 0 0;
   transform: translateX(50%) translateY(-50%) rotate(45deg);
   top: 50%;
   right: 0%;
@@ -1215,7 +1215,7 @@ a.ui.basic.label:hover {
   z-index: @floatingZIndex;
   top: @floatingTopOffset;
   left: 100%;
-  margin: 0em 0em 0em @floatingLeftOffset !important;
+  margin: 0 0 0 @floatingLeftOffset !important;
 }
 
 /*-------------------

@@ -26,7 +26,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: stretch;
-  padding: 0em;
+  padding: 0;
 }
 
 /*----------------------
@@ -87,7 +87,7 @@
   justify-content: inherit;
   align-items: stretch;
   width: 100% !important;
-  padding: 0rem;
+  padding: 0;
   padding-top: (@rowSpacing / 2);
   padding-bottom: (@rowSpacing / 2);
 }
@@ -102,8 +102,8 @@
   padding-bottom: (@rowSpacing / 2);
 }
 .ui.grid > .row > .column {
-  margin-top: 0em;
-  margin-bottom: 0em;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /*-------------------
@@ -121,10 +121,10 @@
 
 /* Collapse Margin on Consecutive Grid */
 .ui.grid > .ui.grid:first-child {
-  margin-top: 0em;
+  margin-top: 0;
 }
 .ui.grid > .ui.grid:last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 
 /* Segment inside Aligned Grid */
@@ -162,8 +162,8 @@
     width: @mobileWidth;
     padding-left: @mobileGutter;
     padding-right: @mobileGutter;
-    margin-left: 0em;
-    margin-right: 0em;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
@@ -1000,15 +1000,15 @@
 -----------------------*/
 
 .ui.padded.grid:not(.vertically):not(.horizontally) {
-  margin: 0em !important;
+  margin: 0 !important;
 }
 [class*="horizontally padded"].ui.grid {
-  margin-left: 0em !important;
-  margin-right: 0em !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 [class*="vertically padded"].ui.grid {
-  margin-top: 0em !important;
-  margin-bottom: 0em !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 /*----------------------
@@ -1037,12 +1037,12 @@
 .ui[class*="vertically divided"].grid > .row > .column {
   margin-top: (@rowSpacing / 2);
   margin-bottom: (@rowSpacing / 2);
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 .ui[class*="vertically divided"].grid > .row {
-  margin-top: 0em;
-  margin-bottom: 0em;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 
@@ -1055,7 +1055,7 @@
 
 /* No space on top of first row */
 .ui[class*="vertically divided"].grid > .row:first-child > .column {
-  margin-top: 0em;
+  margin-top: 0;
 }
 
 
@@ -1074,8 +1074,8 @@
 .ui[class*="vertically divided"].grid > .row:before {
   position: absolute;
   content: "";
-  top: 0em;
-  left: 0px;
+  top: 0;
+  left: 0;
 
   width: ~"calc(100% - "@gutterWidth~")";
   height: 1px;
@@ -1132,8 +1132,8 @@
 
 .ui.celled.grid > .row {
   width: 100% !important;
-  margin: 0em;
-  padding: 0em;
+  margin: 0;
+  padding: 0;
   box-shadow: @celledRowDivider;
 }
 .ui.celled.grid > .column:not(.row),
@@ -1162,7 +1162,7 @@
 /* Internally Celled */
 .ui[class*="internally celled"].grid {
   box-shadow: none;
-  margin: 0em;
+  margin: 0;
 }
 .ui[class*="internally celled"].grid > .row:first-child {
   box-shadow: none;
@@ -1533,8 +1533,8 @@
   }
   .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {
-    margin: 0em !important;
-    padding: 0em !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   .ui.grid > .doubling.row > .column,
   .ui.doubling.grid > .row > .column {
@@ -1542,7 +1542,7 @@
     padding-top: (@rowSpacing / 2) !important;
     padding-bottom: (@rowSpacing / 2) !important;
     box-shadow: none !important;
-    margin: 0em;
+    margin: 0;
   }
   .ui[class*="two column"].doubling.grid > .row > .column,
   .ui[class*="two column"].doubling.grid > .column:not(.row),
@@ -1625,14 +1625,14 @@
 @media only screen and (max-width: @largestMobileScreen) {
   .ui.grid > .doubling.row,
   .ui.doubling.grid > .row {
-    margin: 0em !important;
-    padding: 0em !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   .ui.grid > .doubling.row > .column,
   .ui.doubling.grid > .row > .column {
     padding-top: (@rowSpacing / 2) !important;
     padding-bottom: (@rowSpacing / 2) !important;
-    margin: 0em !important;
+    margin: 0 !important;
     box-shadow: none !important;
   }
   .ui[class*="two column"].doubling:not(.stackable).grid > .row > .column,
@@ -1719,8 +1719,8 @@
 @media only screen and (max-width: @largestMobileScreen) {
   .ui.stackable.grid {
     width: auto;
-    margin-left: 0em !important;
-    margin-right: 0em !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
   .ui.stackable.grid > .row > .wide.column,
   .ui.stackable.grid > .wide.column,
@@ -1730,20 +1730,20 @@
   .ui.stackable.grid > .column:not(.row),
   .ui.grid > .stackable.stackable.row > .column {
     width: 100% !important;
-    margin: 0em 0em !important;
+    margin: 0 0 !important;
     box-shadow: none !important;
     padding: (@stackableRowSpacing / 2) (@stackableGutter / 2) !important;
   }
   .ui.stackable.grid:not(.vertically) > .row {
-    margin: 0em;
-    padding: 0em;
+    margin: 0;
+    padding: 0;
   }
 
   /* Coupling */
   .ui.container > .ui.stackable.grid > .column,
   .ui.container > .ui.stackable.grid > .row > .column {
-    padding-left: 0em !important;
-    padding-right: 0em !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   /* Don't pad inside segment or nested grid */
@@ -1782,8 +1782,8 @@
   }
   .ui.stackable.divided:not(.vertically).grid > .column:not(.row),
   .ui.stackable.divided:not(.vertically).grid > .row > .column {
-    padding-left: 0em !important;
-    padding-right: 0em !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
 }

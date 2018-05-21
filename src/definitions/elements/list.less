@@ -32,15 +32,15 @@ ol.ui.list,
 ul.ui.list:first-child,
 ol.ui.list:first-child,
 .ui.list:first-child {
-  margin-top: 0em;
-  padding-top: 0em;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 ul.ui.list:last-child,
 ol.ui.list:last-child,
 .ui.list:last-child {
-  margin-bottom: 0em;
-  padding-bottom: 0em;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 /*******************************
@@ -76,13 +76,13 @@ ul.ui.list li:first-child,
 ol.ui.list li:first-child,
 .ui.list .list > .item:first-child,
 .ui.list > .item:first-child {
-  padding-top: 0em;
+  padding-top: 0;
 }
 ul.ui.list li:last-child,
 ol.ui.list li:last-child,
 .ui.list .list > .item:last-child,
 .ui.list > .item:last-child {
-  padding-bottom: 0em;
+  padding-bottom: 0;
 }
 
 /* Child List */
@@ -90,7 +90,7 @@ ul.ui.list ul,
 ol.ui.list ol,
 .ui.list .list {
   clear: both;
-  margin: 0em;
+  margin: 0;
   padding: @childListPadding;
 }
 
@@ -107,7 +107,7 @@ ol.ui.list ol li,
 .ui.list .list > .item > i.icon,
 .ui.list > .item > i.icon {
   display: table-cell;
-  margin: 0em;
+  margin: 0;
   padding-top: @iconOffset;
   padding-right: @iconDistance;
   vertical-align: @iconContentVerticalAlign;
@@ -125,7 +125,7 @@ ol.ui.list ol li,
 .ui.list > .item > .image {
   display: table-cell;
   background-color: transparent;
-  margin: 0em;
+  margin: 0;
   vertical-align: @imageAlign;
 }
 .ui.list .list > .item > .image:not(:only-child):not(img),
@@ -154,7 +154,7 @@ ol.ui.list ol li,
 .ui.list > .item > .image + .content,
 .ui.list > .item > .icon + .content {
   display: table-cell;
-  padding: 0em 0em 0em @contentDistance;
+  padding: 0 0 0 @contentDistance;
   vertical-align: @contentVerticalAlign;
 }
 .ui.list .list > .item > img.image + .content,
@@ -163,15 +163,15 @@ ol.ui.list ol li,
 }
 .ui.list .list > .item > .content > .list,
 .ui.list > .item > .content > .list {
-  margin-left: 0em;
-  padding-left: 0em;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 /* Header */
 .ui.list .list > .item .header,
 .ui.list > .item .header {
   display: block;
-  margin: 0em;
+  margin: 0;
   font-family: @itemHeaderFontFamily;
   font-weight: @itemHeaderFontWeight;
   color: @itemHeaderColor;
@@ -260,11 +260,11 @@ ol.ui.list ol li,
 }
 .ui.menu .ui.list .list > .item:first-child,
 .ui.menu .ui.list > .item:first-child {
-  padding-top: 0em;
+  padding-top: 0;
 }
 .ui.menu .ui.list .list > .item:last-child,
 .ui.menu .ui.list > .item:last-child {
-  padding-bottom: 0em;
+  padding-bottom: 0;
 }
 
 
@@ -278,7 +278,7 @@ ol.ui.list ol li,
 
 .ui.horizontal.list {
   display: inline-block;
-  font-size: 0em;
+  font-size: 0;
 }
 .ui.horizontal.list > .item {
   display: inline-block;
@@ -286,12 +286,12 @@ ol.ui.list ol li,
   font-size: 1rem;
 }
 .ui.horizontal.list:not(.celled) > .item:first-child {
-  margin-left: 0em !important;
-  padding-left: 0em !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
 }
 .ui.horizontal.list .list {
-  padding-left: 0em;
-  padding-bottom: 0em;
+  padding-left: 0;
+  padding-bottom: 0;
 }
 
 .ui.horizontal.list > .item > .image,
@@ -312,8 +312,8 @@ ol.ui.list ol li,
 
 /* Horizontal List */
 .ui.horizontal.list > .item > i.icon {
-  margin: 0em;
-  padding: 0em @horizontalIconDistance 0em 0em;
+  margin: 0;
+  padding: 0 @horizontalIconDistance 0 0;
 }
 .ui.horizontal.list > .item > .icon,
 .ui.horizontal.list > .item > .icon + .content {
@@ -469,7 +469,7 @@ ol.ui.list ol li,
 }
 .ui.selection.list .list > .item:last-child,
 .ui.selection.list > .item:last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 .ui.selection.list.list > .item:hover,
 .ui.selection.list > .item:hover {
@@ -514,7 +514,7 @@ ol.ui.list ol li,
 .ui.divided.selection.list .list > .item,
 .ui.celled.selection.list > .item,
 .ui.divided.selection.list > .item {
-  border-radius: 0em;
+  border-radius: 0;
 }
 
 /*-------------------
@@ -533,8 +533,8 @@ ol.ui.list ol li,
 --------------------*/
 .ui.fitted.list:not(.selection) .list > .item,
 .ui.fitted.list:not(.selection) > .item {
-  padding-left: 0em;
-  padding-right: 0em;
+  padding-left: 0;
+  padding-right: 0;
 }
 .ui.fitted.selection.list .list > .item,
 .ui.fitted.selection.list > .item {
@@ -585,7 +585,7 @@ ul.ui.list ul,
 /* Horizontal Bulleted */
 ul.ui.horizontal.bulleted.list,
 .ui.horizontal.bulleted.list {
-  margin-left: 0em;
+  margin-left: 0;
 }
 ul.ui.horizontal.bulleted.list li,
 .ui.horizontal.bulleted.list > .item {
@@ -593,7 +593,7 @@ ul.ui.horizontal.bulleted.list li,
 }
 ul.ui.horizontal.bulleted.list li:first-child,
 .ui.horizontal.bulleted.list > .item:first-child {
-  margin-left: 0em;
+  margin-left: 0;
 }
 ul.ui.horizontal.bulleted.list li::before,
 .ui.horizontal.bulleted.list > .item::before {
@@ -667,13 +667,13 @@ ol.ui.list ol li:before,
 /* Horizontal Ordered */
 ol.ui.horizontal.list,
 .ui.ordered.horizontal.list {
-  margin-left: 0em;
+  margin-left: 0;
 }
 ol.ui.horizontal.list li:before,
 .ui.ordered.horizontal.list .list > .item:before,
 .ui.ordered.horizontal.list > .item:before {
   position: static;
-  margin: 0em @horizontalOrderedCountDistance 0em 0em;
+  margin: 0 @horizontalOrderedCountDistance 0 0;
 }
 
 /*-------------------
@@ -702,8 +702,8 @@ ol.ui.horizontal.list li:before,
 /* Divided bulleted */
 .ui.divided.bulleted.list:not(.horizontal),
 .ui.divided.bulleted.list .list {
-  margin-left: 0em;
-  padding-left: 0em;
+  margin-left: 0;
+  padding-left: 0;
 }
 .ui.divided.bulleted.list > .item:not(.horizontal) {
   padding-left: @bulletDistance;
@@ -711,15 +711,15 @@ ol.ui.horizontal.list li:before,
 
 /* Divided Ordered */
 .ui.divided.ordered.list {
-  margin-left: 0em;
+  margin-left: 0;
 }
 .ui.divided.ordered.list .list > .item,
 .ui.divided.ordered.list > .item {
   padding-left: @orderedCountDistance;
 }
 .ui.divided.ordered.list .item .list {
-  margin-left: 0em;
-  margin-right: 0em;
+  margin-left: 0;
+  margin-right: 0;
   padding-bottom: @itemVerticalPadding;
 }
 .ui.divided.ordered.list .item .list > .item {
@@ -729,13 +729,13 @@ ol.ui.horizontal.list li:before,
 /* Divided Selection */
 .ui.divided.selection.list .list > .item,
 .ui.divided.selection.list > .item {
-  margin: 0em;
-  border-radius: 0em;
+  margin: 0;
+  border-radius: 0;
 }
 
 /* Divided horizontal */
 .ui.divided.horizontal.list {
-  margin-left: 0em;
+  margin-left: 0;
 }
 .ui.divided.horizontal.list > .item:not(:first-child) {
   padding-left: @horizontalDividedSpacing;
@@ -746,7 +746,7 @@ ol.ui.horizontal.list li:before,
 .ui.divided.horizontal.list > .item {
   border-top: none;
   border-left: @dividedBorder;
-  margin: 0em;
+  margin: 0;
   line-height: @horizontalDividedLineHeight;
 }
 .ui.horizontal.divided.list > .item:first-child {
@@ -783,15 +783,15 @@ ol.ui.horizontal.list li:before,
 
 /* Sub Menu */
 .ui.celled.list .item .list > .item {
-  border-width: 0px;
+  border-width: 0;
 }
 .ui.celled.list .list > .item:first-child {
-  border-top-width: 0px;
+  border-top-width: 0;
 }
 
 /* Celled Bulleted */
 .ui.celled.bulleted.list {
-  margin-left: 0em;
+  margin-left: 0;
 }
 .ui.celled.bulleted.list .list > .item,
 .ui.celled.bulleted.list > .item {
@@ -805,15 +805,15 @@ ol.ui.horizontal.list li:before,
 
 /* Celled Ordered */
 .ui.celled.ordered.list {
-  margin-left: 0em;
+  margin-left: 0;
 }
 .ui.celled.ordered.list .list > .item,
 .ui.celled.ordered.list > .item {
   padding-left: @orderedCountDistance;
 }
 .ui.celled.ordered.list .item .list {
-  margin-left: 0em;
-  margin-right: 0em;
+  margin-left: 0;
+  margin-right: 0;
   padding-bottom: @itemVerticalPadding;
 }
 .ui.celled.ordered.list .list > .item {
@@ -822,13 +822,13 @@ ol.ui.horizontal.list li:before,
 
 /* Celled Horizontal */
 .ui.horizontal.celled.list {
-  margin-left: 0em;
+  margin-left: 0;
 }
 .ui.horizontal.celled.list .list > .item,
 .ui.horizontal.celled.list > .item {
   border-top: none;
   border-left: @celledBorder;
-  margin: 0em;
+  margin: 0;
   padding-left: @horizontalCelledSpacing;
   padding-right: @horizontalCelledSpacing;
 

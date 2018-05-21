@@ -49,7 +49,7 @@
 .ui.header .sub.header {
   display: block;
   font-weight: @normal;
-  padding: 0em;
+  padding: 0;
   margin: @subHeaderMargin;
   font-size: @subHeaderFontSize;
   line-height: @subHeaderLineHeight;
@@ -71,7 +71,7 @@
 /* With Text Node */
 .ui.header .icon:only-child {
   display: inline-block;
-  padding: 0em;
+  padding: 0;
   margin-right: @iconMargin;
 }
 
@@ -220,7 +220,7 @@ h5.ui.header .sub.header {
 ---------------*/
 
 .ui.sub.header {
-  padding: 0em;
+  padding: 0;
   margin-bottom: @subHeadingDistance;
   font-weight: @subHeadingFontWeight;
   font-size: @subHeadingFontSize;
@@ -250,12 +250,12 @@ h5.ui.header .sub.header {
 .ui.icon.header {
   display: inline-block;
   text-align: center;
-  margin: @iconHeaderTopMargin 0em @iconHeaderBottomMargin;
+  margin: @iconHeaderTopMargin 0 @iconHeaderBottomMargin;
 }
 .ui.icon.header:after {
   content: '';
   display: block;
-  height: 0px;
+  height: 0;
   clear: both;
   visibility: hidden;
 }
@@ -269,14 +269,14 @@ h5.ui.header .sub.header {
   width: auto;
   height: auto;
   line-height: 1;
-  padding: 0em;
+  padding: 0;
   font-size: @iconHeaderSize;
-  margin: 0em auto @iconHeaderMargin;
+  margin: 0 auto @iconHeaderMargin;
   opacity: @iconHeaderOpacity;
 }
 .ui.icon.header .content {
   display: block;
-  padding: 0em;
+  padding: 0;
 }
 .ui.icon.header .circular.icon {
   font-size: @circularHeaderIconSize;
@@ -285,7 +285,7 @@ h5.ui.header .sub.header {
   font-size: @squareHeaderIconSize;
 }
 .ui.block.icon.header .icon {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 .ui.icon.header.aligned {
   margin-left: auto;
@@ -582,12 +582,12 @@ a.ui.inverted.grey.header:hover {
 .ui.floated.header,
 .ui[class*="left floated"].header {
   float: left;
-  margin-top: 0em;
+  margin-top: 0;
   margin-right: @floatedMargin;
 }
 .ui[class*="right floated"].header {
   float: right;
-  margin-top: 0em;
+  margin-top: 0;
   margin-left: @floatedMargin;
 }
 
@@ -596,7 +596,7 @@ a.ui.inverted.grey.header:hover {
 --------------------*/
 
 .ui.fitted.header {
-  padding: 0em;
+  padding: 0;
 }
 
 
@@ -665,19 +665,19 @@ a.ui.inverted.grey.header:hover {
 }
 
 .ui.attached:not(.top):not(.bottom).header {
-  margin-top: 0em;
-  margin-bottom: 0em;
+  margin-top: 0;
+  margin-bottom: 0;
   border-top: none;
-  border-radius: 0em;
+  border-radius: 0;
 }
 .ui.top.attached.header {
-  margin-bottom: 0em;
-  border-radius: @attachedBorderRadius @attachedBorderRadius 0em 0em;
+  margin-bottom: 0;
+  border-radius: @attachedBorderRadius @attachedBorderRadius 0 0;
 }
 .ui.bottom.attached.header {
-  margin-top: 0em;
+  margin-top: 0;
   border-top: none;
-  border-radius: 0em 0em @attachedBorderRadius @attachedBorderRadius;
+  border-radius: 0 0 @attachedBorderRadius @attachedBorderRadius;
 }
 
 /* Attached Sizes */
