@@ -24,7 +24,7 @@
 .ui.message {
   position: relative;
   min-height: 1em;
-  margin: @verticalMargin 0em;
+  margin: @verticalMargin 0;
   background: @background;
   padding: @padding;
   line-height: @lineHeight;
@@ -35,10 +35,10 @@
 }
 
 .ui.message:first-child {
-  margin-top: 0em;
+  margin-top: 0;
 }
 .ui.message:last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 
 
@@ -62,13 +62,13 @@
 /* Paragraph */
 .ui.message p {
   opacity: @messageTextOpacity;
-  margin: @messageParagraphMargin 0em;
+  margin: @messageParagraphMargin 0;
 }
 .ui.message p:first-child {
-  margin-top: 0em;
+  margin-top: 0;
 }
 .ui.message p:last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 .ui.message .header + p {
   margin-top: @headerParagraphDistance;
@@ -77,22 +77,22 @@
 /* List */
 .ui.message .list:not(.ui) {
   text-align: left;
-  padding: 0em;
+  padding: 0;
   opacity: @listOpacity;
   list-style-position: @listStylePosition;
-  margin: @listMargin 0em 0em;
+  margin: @listMargin 0 0;
 }
 .ui.message .list:not(.ui):first-child {
-  margin-top: 0em;
+  margin-top: 0;
 }
 .ui.message .list:not(.ui):last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 .ui.message .list:not(.ui) li {
   position: relative;
   list-style-type: none;
-  margin: 0em 0em @listItemMargin @listItemIndent;
-  padding: 0em;
+  margin: 0 0 @listItemMargin @listItemIndent;
+  padding: 0;
 }
 .ui.message .list:not(.ui) li:before {
   position: absolute;
@@ -102,7 +102,7 @@
   vertical-align: baseline;
 }
 .ui.message .list:not(.ui) li:last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 
 
@@ -115,7 +115,7 @@
 .ui.message > .close.icon {
   cursor: pointer;
   position: absolute;
-  margin: 0em;
+  margin: 0;
   top: @closeTopDistance;
   right: @closeRightDistance;
   opacity: @closeOpacity;
@@ -127,10 +127,10 @@
 
 /* First / Last Element */
 .ui.message > :first-child {
-  margin-top: 0em;
+  margin-top: 0;
 }
 .ui.message > :last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 
 /*******************************
@@ -188,18 +188,18 @@
 
 .ui.attached.message {
   margin-bottom: @attachedYOffset;
-  border-radius: @borderRadius @borderRadius 0em 0em;
+  border-radius: @borderRadius @borderRadius 0 0;
   box-shadow: @attachedBoxShadow;
   margin-left: @attachedXOffset;
   margin-right: @attachedXOffset;
 }
 .ui.attached + .ui.attached.message:not(.top):not(.bottom) {
   margin-top: @attachedYOffset;
-  border-radius: 0em;
+  border-radius: 0;
 }
 .ui.bottom.attached.message {
   margin-top: @attachedYOffset;
-  border-radius: 0em 0em @borderRadius @borderRadius;
+  border-radius: 0 0 @borderRadius @borderRadius;
   box-shadow: @attachedBottomBoxShadow;
 }
 .ui.bottom.attached.message:not(:last-child) {

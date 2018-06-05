@@ -201,11 +201,11 @@ img.ui.bordered.image {
 
 .ui[class*="left spaced"].image {
   margin-left: @spacedDistance;
-  margin-right: 0em;
+  margin-right: 0;
 }
 
 .ui[class*="right spaced"].image {
-  margin-left: 0em;
+  margin-left: 0;
   margin-right: @spacedDistance;
 }
 
@@ -222,14 +222,14 @@ img.ui.bordered.image {
 .ui.right.floated.images,
 .ui.right.floated.image {
   float: right;
-  margin-right: 0em;
+  margin-right: 0;
   margin-bottom: @floatedVerticalMargin;
   margin-left: @floatedHorizontalMargin;
 }
 
 .ui.floated.images:last-child,
 .ui.floated.image:last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 
 
@@ -314,15 +314,15 @@ img.ui.bordered.image {
 *******************************/
 
 .ui.images {
-  font-size: 0em;
-  margin: 0em -@imageHorizontalMargin 0rem;
+  font-size: 0;
+  margin: 0 -@imageHorizontalMargin 0rem;
 }
 
 .ui.images .image,
 .ui.images > img,
 .ui.images > svg {
   display: inline-block;
-  margin: 0em @imageHorizontalMargin @imageVerticalMargin;
+  margin: 0 @imageHorizontalMargin @imageVerticalMargin;
 }
 
 .loadUIOverrides();

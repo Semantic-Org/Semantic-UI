@@ -26,8 +26,8 @@
 .ui.popup {
   display: none;
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
 
   /* Fixes content being squished when inline (moz only) */
   min-width: min-content;
@@ -47,7 +47,7 @@
   box-shadow: @boxShadow;
 }
 .ui.popup > .header {
-  padding: 0em;
+  padding: 0;
 
   font-family: @headerFont;
   font-size: @headerFontSize;
@@ -424,12 +424,12 @@
 ---------------*/
 
 .ui.popup {
-  margin: 0em;
+  margin: 0;
 }
 
 /* Extending from Top */
 .ui.top.popup {
-  margin: 0em 0em @popupDistanceAway;
+  margin: 0 0 @popupDistanceAway;
 }
 .ui.top.left.popup {
   transform-origin: left bottom;
@@ -443,17 +443,17 @@
 
 /* Extending from Vertical Center */
 .ui.left.center.popup {
-  margin: 0em @popupDistanceAway 0em 0em;
+  margin: 0 @popupDistanceAway 0 0;
   transform-origin: right 50%;
 }
 .ui.right.center.popup {
-  margin: 0em 0em 0em @popupDistanceAway;
+  margin: 0 0 0 @popupDistanceAway;
   transform-origin: left 50%;
 }
 
 /* Extending from Bottom */
 .ui.bottom.popup {
-  margin: @popupDistanceAway 0em 0em;
+  margin: @popupDistanceAway 0 0;
 }
 .ui.bottom.left.popup {
   transform-origin: left top;
@@ -488,7 +488,7 @@
   left: @arrowDistanceFromEdge;
   right: auto;
   bottom: auto;
-  margin-left: 0em;
+  margin-left: 0;
   box-shadow: @bottomArrowBoxShadow;
 }
 
@@ -501,7 +501,7 @@
   right: @arrowDistanceFromEdge;
   bottom: auto;
   left: auto;
-  margin-left: 0em;
+  margin-left: 0;
   box-shadow: @bottomArrowBoxShadow;
 }
 
@@ -522,7 +522,7 @@
   left: @arrowDistanceFromEdge;
   top: auto;
   right: auto;
-  margin-left: 0em;
+  margin-left: 0;
 }
 .ui.top.right.popup {
   margin-right: @boxArrowOffset;
@@ -533,7 +533,7 @@
   right: @arrowDistanceFromEdge;
   top: auto;
   left: auto;
-  margin-left: 0em;
+  margin-left: 0;
 }
 
 /*--- Left Center ---*/
@@ -609,7 +609,7 @@
 }
 
 .ui.visible.popup {
-  transform: translateZ(0px);
+  transform: translateZ(0);
   backface-visibility: hidden;
 }
 

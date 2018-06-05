@@ -33,10 +33,10 @@
 }
 
 .ui.comments:first-child {
-  margin-top: 0em;
+  margin-top: 0;
 }
 .ui.comments:last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 
 /*--------------
@@ -68,8 +68,8 @@
 }
 .ui.comments .comment .comments:before{
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
 }
 .ui.comments .comment .comments .comment {
   border: @nestedCommentBorder;
@@ -91,7 +91,7 @@
 .ui.comments .comment img.avatar,
 .ui.comments .comment .avatar img {
   display: block;
-  margin: 0em auto;
+  margin: 0 auto;
   width: 100%;
   height: 100%;
   border-radius: @avatarBorderRadius;
@@ -137,10 +137,10 @@
 }
 .ui.comments .comment .metadata > * {
   display: inline-block;
-  margin: 0em @metadataContentSpacing 0em 0em;
+  margin: 0 @metadataContentSpacing 0 0;
 }
 .ui.comments .comment .metadata > :last-child {
-  margin-right: 0em;
+  margin-right: 0;
 }
 
 /*--------------------
@@ -166,11 +166,11 @@
 .ui.comments .comment .actions a {
   cursor: pointer;
   display: inline-block;
-  margin: 0em @actionContentDistance 0em 0em;
+  margin: 0 @actionContentDistance 0 0;
   color: @actionLinkColor;
 }
 .ui.comments .comment .actions a:last-child {
-  margin-right: 0em;
+  margin-right: 0;
 }
 .ui.comments .comment .actions a.active,
 .ui.comments .comment .actions a:hover {
