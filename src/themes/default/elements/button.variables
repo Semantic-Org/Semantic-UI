@@ -250,6 +250,38 @@
 @basicGroupBorder: @basicBorderSize solid @borderColor;
 @basicGroupBoxShadow: none;
 
+/*------------- 
+   Tertiary
+-------------*/
+@tertiaryLinePadding: 0.5em;
+@tertiaryLineHeight: 0.2em;
+@tertiaryTextColor: @textColor;
+@tertiaryLineColor: lighten(@tertiaryTextColor, 20%);
+@tertiaryWithUnderline: false;
+@tertiaryWithOverline: false;
+@tertiaryBackgroundColor: none;
+
+/* Tertiary Hover */
+@tertiaryHoverColor: lighten(fadein(@tertiaryTextColor, 100%), 20%);
+@tertiaryHoverLineColor: lighten(@tertiaryHoverColor, 20%);
+@tertiaryHoverWithUnderline: true;
+@tertiaryHoverWithOverline: false;
+@tertiaryHoverBackgroundColor: none;
+
+/* Tertiary Focus */
+@tertiaryFocusColor: lighten(fadein(@tertiaryTextColor, 100%), 20%);
+@tertiaryFocusLineColor: lighten(@tertiaryHoverColor, 20%);
+@tertiaryFocusWithUnderline: true;
+@tertiaryFocusWithOverline: false;
+@tertiaryFocusBackgroundColor: none;
+
+/* Tertiary Active */
+@tertiaryActiveColor: lighten(@tertiaryHoverColor, 20%);
+@tertiaryActiveLineColor: lighten(@tertiaryActiveColor, 20%);
+@tertiaryActiveWithUnderline: true;
+@tertiaryActiveWithOverline: false;
+@tertiaryActiveBackgroundColor: @basicDownBackground;
+
 /*-------------------
       Variations
 --------------------*/
