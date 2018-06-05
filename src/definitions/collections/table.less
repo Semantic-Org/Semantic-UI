@@ -37,10 +37,10 @@
 }
 
 .ui.table:first-child {
-  margin-top: 0em;
+  margin-top: 0;
 }
 .ui.table:last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 
 /*******************************
@@ -76,13 +76,13 @@
 }
 
 .ui.table thead tr:first-child > th:first-child {
-  border-radius: @borderRadius 0em 0em 0em;
+  border-radius: @borderRadius 0 0 0;
 }
 .ui.table thead tr:first-child > th:last-child {
-  border-radius: 0em @borderRadius 0em 0em;
+  border-radius: 0 @borderRadius 0 0;
 }
 .ui.table thead tr:first-child > th:only-child {
-  border-radius: @borderRadius @borderRadius 0em 0em;
+  border-radius: @borderRadius @borderRadius 0 0;
 }
 
 /* Footer */
@@ -105,13 +105,13 @@
   border-left: none;
 }
 .ui.table tfoot tr:first-child > th:first-child {
-  border-radius: 0em 0em 0em @borderRadius;
+  border-radius: 0 0 0 @borderRadius;
 }
 .ui.table tfoot tr:first-child > th:last-child {
-  border-radius: 0em 0em @borderRadius 0em;
+  border-radius: 0 0 @borderRadius 0;
 }
 .ui.table tfoot tr:first-child > th:only-child {
-  border-radius: 0em 0em @borderRadius @borderRadius;
+  border-radius: 0 0 @borderRadius @borderRadius;
 }
 
 /* Table Row */
@@ -138,12 +138,12 @@
   vertical-align: @iconVerticalAlign;
 }
 .ui.table > .icon:only-child {
-  margin: 0em;
+  margin: 0;
 }
 
 /* Table Segment */
 .ui.table.segment {
-  padding: 0em;
+  padding: 0;
 }
 .ui.table.segment:after {
   display: none;
@@ -168,7 +168,7 @@
   }
 
   .ui.table:not(.unstackable) {
-    padding: 0em;
+    padding: 0;
   }
   .ui.table:not(.unstackable) thead {
     display: @responsiveHeaderDisplay;
@@ -252,7 +252,7 @@
   background: @definitionHeaderBackground;
   font-weight: @definitionHeaderFontWeight;
   color: @definitionHeaderColor;
-  box-shadow: -@borderWidth -@borderWidth 0px @borderWidth @definitionPageBackground;
+  box-shadow: -@borderWidth -@borderWidth 0 @borderWidth @definitionPageBackground;
 }
 
 .ui.definition.table tfoot:not(.full-width) th:first-child {
@@ -260,15 +260,15 @@
   background: @definitionFooterBackground;
   font-weight: @definitionFooterColor;
   color: @definitionFooterFontWeight;
-  box-shadow: @borderWidth @borderWidth 0px @borderWidth @definitionPageBackground;
+  box-shadow: @borderWidth @borderWidth 0 @borderWidth @definitionPageBackground;
 }
 
 /* Remove Border */
 .ui.celled.definition.table thead:not(.full-width) th:first-child {
-  box-shadow: 0px -@borderWidth 0px @borderWidth @definitionPageBackground;
+  box-shadow: 0 -@borderWidth 0 @borderWidth @definitionPageBackground;
 }
 .ui.celled.definition.table tfoot:not(.full-width) th:first-child {
-  box-shadow: 0px @borderWidth 0px @borderWidth @definitionPageBackground;
+  box-shadow: 0 @borderWidth 0 @borderWidth @definitionPageBackground;
 }
 
 /* Highlight Defining Column */
@@ -406,7 +406,7 @@
   }
 
   .ui[class*="tablet stackable"].table {
-    padding: 0em;
+    padding: 0;
   }
   .ui[class*="tablet stackable"].table thead {
     display: @responsiveHeaderDisplay;
@@ -509,7 +509,7 @@
 
 /* Selectable Cell Link */
 .ui.table tbody tr td.selectable {
-  padding: 0em;
+  padding: 0;
 }
 .ui.table tbody tr td.selectable > a:not(.ui) {
   display: block;
@@ -557,10 +557,10 @@
 
 /* Middle */
 .ui.attached.table {
-  top: 0px;
-  bottom: 0px;
-  border-radius: 0px;
-  margin: 0em @attachedHorizontalOffset;
+  top: 0;
+  bottom: 0;
+  border-radius: 0;
+  margin: 0 @attachedHorizontalOffset;
   width: @attachedWidth;
   max-width: @attachedWidth;
   box-shadow: @attachedBoxShadow;
@@ -572,27 +572,27 @@
 
 /* Top */
 .ui[class*="top attached"].table {
-  bottom: 0px;
-  margin-bottom: 0em;
+  bottom: 0;
+  margin-bottom: 0;
   top: @attachedTopOffset;
   margin-top: @verticalMargin;
-  border-radius: @borderRadius @borderRadius 0em 0em;
+  border-radius: @borderRadius @borderRadius 0 0;
 }
 .ui.table[class*="top attached"]:first-child {
-  margin-top: 0em;
+  margin-top: 0;
 }
 
 /* Bottom */
 .ui[class*="bottom attached"].table {
-  bottom: 0px;
-  margin-top: 0em;
+  bottom: 0;
+  margin-top: 0;
   top: @attachedBottomOffset;
   margin-bottom: @verticalMargin;
   box-shadow: @attachedBottomBoxShadow;
-  border-radius: 0em 0em @borderRadius @borderRadius;
+  border-radius: 0 0 @borderRadius @borderRadius;
 }
 .ui[class*="bottom attached"].table:last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 
 /*--------------
@@ -899,7 +899,7 @@
   height: 1em;
   width: @sortableIconWidth;
   opacity: @sortableIconOpacity;
-  margin: 0em 0em 0em @sortableIconDistance;
+  margin: 0 0 0 @sortableIconDistance;
   font-family: @sortableIconFont;
 }
 .ui.sortable.table thead th.ascending:after {
@@ -1031,14 +1031,14 @@
 }
 .ui[class*="very basic"].table:not(.sortable):not(.striped) th:first-child,
 .ui[class*="very basic"].table:not(.sortable):not(.striped) td:first-child {
-  padding-left: 0em;
+  padding-left: 0;
 }
 .ui[class*="very basic"].table:not(.sortable):not(.striped) th:last-child,
 .ui[class*="very basic"].table:not(.sortable):not(.striped) td:last-child {
-  padding-right: 0em;
+  padding-right: 0;
 }
 .ui[class*="very basic"].table:not(.sortable):not(.striped) thead tr:first-child th {
-  padding-top: 0em;
+  padding-top: 0;
 }
 
 /*--------------

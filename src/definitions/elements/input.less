@@ -35,7 +35,7 @@
   color: @inputColor;
 }
 .ui.input > input {
-  margin: 0em;
+  margin: 0;
   max-width: 100%;
   flex: 1 0 auto;
   outline: none;
@@ -139,7 +139,7 @@
   border-style: solid;
   border-width: @loaderLineWidth;
 
-  box-shadow: 0px 0px 0px 1px transparent;
+  box-shadow: 0 0 0 1px transparent;
 }
 
 
@@ -214,9 +214,9 @@
 .ui.transparent.input > input {
   border-color: transparent !important;
   background-color: transparent !important;
-  padding: 0em !important;
+  padding: 0 !important;
   box-shadow: none !important;
-  border-radius: 0px !important;
+  border-radius: 0 !important;
 }
 
 /* Transparent Icon */
@@ -224,12 +224,12 @@
   width: @transparentIconWidth;
 }
 .ui.transparent.icon.input > input {
-  padding-left: 0em !important;
+  padding-left: 0 !important;
   padding-right: @transparentIconMargin !important;
 }
 .ui.transparent[class*="left icon"].input > input {
   padding-left: @transparentIconMargin !important;
-  padding-right: 0em !important;
+  padding-right: 0 !important;
 }
 
 /* Transparent Inverted */
@@ -260,14 +260,14 @@
   position: absolute;
   line-height: 1;
   text-align: center;
-  top: 0px;
-  right: 0px;
-  margin: 0em;
+  top: 0;
+  right: 0;
+  margin: 0;
   height: 100%;
 
   width: @iconWidth;
   opacity: @iconOpacity;
-  border-radius: 0em @borderRadius @borderRadius 0em;
+  border-radius: 0 @borderRadius @borderRadius 0;
   transition: @iconTransition;
 }
 .ui.icon.input > i.icon:not(.link) {
@@ -298,7 +298,7 @@
 .ui[class*="left icon"].input > i.icon {
   right: auto;
   left: @borderWidth;
-  border-radius: @borderRadius 0em 0em @borderRadius;
+  border-radius: @borderRadius 0 0 @borderRadius;
 }
 .ui[class*="left icon"].input > i.circular.icon {
   right: auto;
@@ -331,12 +331,12 @@
 
 /* Regular Label on Left */
 .ui.labeled.input:not([class*="corner labeled"]) .label:first-child {
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .ui.labeled.input:not([class*="corner labeled"]) .label:first-child + input {
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
   border-left-color: transparent;
 }
 .ui.labeled.input:not([class*="corner labeled"]) .label:first-child + input:focus {
@@ -345,13 +345,13 @@
 
 /* Regular Label on Right */
 .ui[class*="right labeled"].input > input {
-  border-top-right-radius: 0px !important;
-  border-bottom-right-radius: 0px !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
   border-right-color: transparent !important;
 }
 .ui[class*="right labeled"].input > input + .label {
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .ui[class*="right labeled"].input > input:focus {
@@ -363,7 +363,7 @@
   top: @labelCornerTop;
   right: @labelCornerRight;
   font-size: @labelCornerSize;
-  border-radius: 0em @borderRadius 0em 0em;
+  border-radius: 0 @borderRadius 0 0;
 }
 
 /* Spacing with corner label */
@@ -418,19 +418,19 @@
 
 /* Button on Right */
 .ui.action.input:not([class*="left action"]) > input {
-  border-top-right-radius: 0px !important;
-  border-bottom-right-radius: 0px !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
   border-right-color: transparent !important;
 }
 .ui.action.input:not([class*="left action"]) > .dropdown:not(:first-child),
 .ui.action.input:not([class*="left action"]) > .button:not(:first-child),
 .ui.action.input:not([class*="left action"]) > .buttons:not(:first-child) > .button {
-  border-radius: 0px;
+  border-radius: 0;
 }
 .ui.action.input:not([class*="left action"]) > .dropdown:last-child,
 .ui.action.input:not([class*="left action"]) > .button:last-child,
 .ui.action.input:not([class*="left action"]) > .buttons:last-child > .button {
-  border-radius: 0px @borderRadius @borderRadius 0px;
+  border-radius: 0 @borderRadius @borderRadius 0;
 }
 
 /* Input Focus */
@@ -440,19 +440,19 @@
 
 /* Button on Left */
 .ui[class*="left action"].input > input {
-  border-top-left-radius: 0px !important;
-  border-bottom-left-radius: 0px !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
   border-left-color: transparent !important;
 }
 .ui[class*="left action"].input > .dropdown,
 .ui[class*="left action"].input > .button,
 .ui[class*="left action"].input > .buttons > .button {
-  border-radius: 0px;
+  border-radius: 0;
 }
 .ui[class*="left action"].input > .dropdown:first-child,
 .ui[class*="left action"].input > .button:first-child,
 .ui[class*="left action"].input > .buttons:first-child > .button {
-  border-radius: @borderRadius 0px 0px @borderRadius;
+  border-radius: @borderRadius 0 0 @borderRadius;
 }
 /* Input Focus */
 .ui[class*="left action"].input > input:focus {
@@ -476,7 +476,7 @@
   display: flex;
 }
 .ui.fluid.input > input {
-  width: 0px !important;
+  width: 0 !important;
 }
 
 /*--------------------

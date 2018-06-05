@@ -237,10 +237,10 @@
   opacity: 0;
 
   position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: @activePulseColor;
 
   border-radius: @barBorderRadius;
@@ -314,28 +314,28 @@
   background: @attachedBackground;
   position: relative;
   border: none;
-  margin: 0em;
+  margin: 0;
 }
 .ui.progress.attached,
 .ui.progress.attached .bar {
   display: block;
   height: @attachedHeight;
-  padding: 0px;
+  padding: 0;
   overflow: hidden;
-  border-radius: 0em 0em @attachedBorderRadius @attachedBorderRadius;
+  border-radius: 0 0 @attachedBorderRadius @attachedBorderRadius;
 }
 .ui.progress.attached .bar {
-  border-radius: 0em;
+  border-radius: 0;
 }
 
 /* top attached */
 .ui.progress.top.attached,
 .ui.progress.top.attached .bar {
-  top: 0px;
-  border-radius: @attachedBorderRadius @attachedBorderRadius 0em 0em;
+  top: 0;
+  border-radius: @attachedBorderRadius @attachedBorderRadius 0 0;
 }
 .ui.progress.top.attached .bar {
-  border-radius: 0em;
+  border-radius: 0;
 }
 
 /* Coupling */

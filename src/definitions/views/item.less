@@ -27,7 +27,7 @@
 
 .ui.items > .item {
   display: @display;
-  margin: @itemSpacing 0em;
+  margin: @itemSpacing 0;
   width: @width;
   min-height: @minHeight;
   background: @background;
@@ -52,10 +52,10 @@
 }
 
 .ui.items:first-child {
-  margin-top: 0em !important;
+  margin-top: 0 !important;
 }
 .ui.items:last-child {
-  margin-bottom: 0em !important;
+  margin-bottom: 0 !important;
 }
 
 /*--------------
@@ -65,16 +65,16 @@
 .ui.items > .item:after {
   display: block;
   content: ' ';
-  height: 0px;
+  height: 0;
   clear: both;
   overflow: hidden;
   visibility: hidden;
 }
 .ui.items > .item:first-child {
-  margin-top: 0em;
+  margin-top: 0;
 }
 .ui.items > .item:last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 
 
@@ -124,7 +124,7 @@
 .ui.items > .item > .content:after {
   display: block;
   content: ' ';
-  height: 0px;
+  height: 0;
   clear: both;
   overflow: hidden;
   visibility: hidden;
@@ -196,10 +196,10 @@
 ---------------*/
 
 .ui.items > .item > .content p {
-  margin: 0em 0em @paragraphDistance;
+  margin: 0 0 @paragraphDistance;
 }
 .ui.items > .item > .content p:last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 
 /*--------------
@@ -216,11 +216,11 @@
   margin-right: @metaSpacing;
 }
 .ui.items > .item .meta :last-child {
-  margin-right: 0em;
+  margin-right: 0;
 }
 
 .ui.items > .item .meta [class*="right floated"] {
-  margin-right: 0em;
+  margin-right: 0;
   margin-left: @metaSpacing;
 }
 
@@ -310,16 +310,16 @@
   border-top: @extraDivider;
 }
 .ui.items > .item .extra > * {
-  margin: (@extraRowSpacing / 2) @extraHorizontalSpacing (@extraRowSpacing / 2) 0em;
+  margin: (@extraRowSpacing / 2) @extraHorizontalSpacing (@extraRowSpacing / 2) 0;
 }
 .ui.items > .item .extra > [class*="right floated"] {
-  margin: (@extraRowSpacing / 2) 0em (@extraRowSpacing / 2) @extraHorizontalSpacing;
+  margin: (@extraRowSpacing / 2) 0 (@extraRowSpacing / 2) @extraHorizontalSpacing;
 }
 
 .ui.items > .item .extra:after {
   display: block;
   content: ' ';
-  height: 0px;
+  height: 0;
   clear: both;
   overflow: hidden;
   visibility: hidden;
@@ -339,14 +339,14 @@
 /* Tablet Only */
 @media only screen and (min-width: @tabletBreakpoint) and (max-width: @largestTabletScreen) {
   .ui.items > .item {
-    margin: @tabletItemSpacing 0em;
+    margin: @tabletItemSpacing 0;
   }
   .ui.items > .item > .image:not(.ui) {
     width: @tabletImageWidth;
   }
   .ui.items > .item > .image + .content {
     display: block;
-    padding: 0em 0em 0em @tabletContentImageDistance;
+    padding: 0 0 0 @tabletContentImageDistance;
   }
 
 }
@@ -355,7 +355,7 @@
 @media only screen and (max-width: @largestMobileScreen) {
   .ui.items:not(.unstackable) > .item {
     flex-direction: column;
-    margin: @mobileItemSpacing 0em;
+    margin: @mobileItemSpacing 0;
   }
   .ui.items:not(.unstackable) > .item > .image {
     display: block;
@@ -370,7 +370,7 @@
   }
   .ui.items:not(.unstackable) > .item > .image + .content {
     display: block;
-    padding: @mobileContentImageDistance 0em 0em;
+    padding: @mobileContentImageDistance 0 0;
   }
 }
 
@@ -400,10 +400,10 @@
 ---------------*/
 
 .ui.relaxed.items > .item {
-  margin: @relaxedItemSpacing 0em;
+  margin: @relaxedItemSpacing 0;
 }
 .ui[class*="very relaxed"].items > .item {
-  margin: @veryRelaxedItemSpacing 0em;
+  margin: @veryRelaxedItemSpacing 0;
 }
 
 
@@ -428,12 +428,12 @@
 
 /* Relaxed Divided */
 .ui.relaxed.divided.items > .item {
-  margin: 0em;
-  padding: @relaxedItemSpacing 0em;
+  margin: 0;
+  padding: @relaxedItemSpacing 0;
 }
 .ui[class*="very relaxed"].divided.items > .item {
-  margin: 0em;
-  padding: @veryRelaxedItemSpacing 0em;
+  margin: 0;
+  padding: @veryRelaxedItemSpacing 0;
 }
 
 

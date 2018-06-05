@@ -38,8 +38,8 @@
 
   height: 100% !important;
   max-height: 100%;
-  border-radius: 0em !important;
-  margin: 0em !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
   overflow-y: auto !important;
   z-index: @topLayer;
 }
@@ -56,11 +56,11 @@
 
 .ui.left.sidebar {
   right: auto;
-  left: 0px;
+  left: 0;
   transform: translate3d(-100%, 0, 0);
 }
 .ui.right.sidebar {
-  right: 0px !important;
+  right: 0 !important;
   left: auto !important;
   transform: translate3d(100%, 0%, 0);
 }
@@ -71,13 +71,13 @@
   height: auto !important;
 }
 .ui.top.sidebar {
-  top: 0px !important;
+  top: 0 !important;
   bottom: auto !important;
   transform: translate3d(0, -100%, 0);
 }
 .ui.bottom.sidebar {
   top: auto !important;
-  bottom: 0px !important;
+  bottom: 0 !important;
   transform: translate3d(0, 100%, 0);
 }
 
@@ -89,7 +89,7 @@
 .pushable {
   height: 100%;
   overflow-x: hidden;
-  padding: 0em !important;
+  padding: 0 !important;
 }
 
 /* Whole Page */
@@ -149,8 +149,8 @@ body.pushable > .pusher {
 
 .pushable > .pusher:after {
   position: fixed;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
   content: '';
   background-color: @dimmerColor;
   overflow: hidden;
@@ -165,7 +165,7 @@ body.pushable > .pusher {
 ---------------*/
 
 .ui.sidebar.menu .item {
-  border-radius: 0em !important;
+  border-radius: 0 !important;
 }
 
 /*******************************

@@ -49,12 +49,12 @@
 
 .ui.form .field:last-child,
 .ui.form .fields:last-child .field {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 
 .ui.form .fields .field {
   clear: both;
-  margin: 0em;
+  margin: 0;
 }
 
 
@@ -112,7 +112,7 @@
 .ui.form input[type="file"],
 .ui.form input[type="url"] {
   font-family: @inputFont;
-  margin: 0em;
+  margin: 0;
   outline: none;
   -webkit-appearance: none;
   tap-highlight-color:  rgba(255, 255, 255, 0);
@@ -131,7 +131,7 @@
 
 /* Text Area */
 .ui.form textarea {
-  margin: 0em;
+  margin: 0;
   -webkit-appearance: none;
   tap-highlight-color:  rgba(255, 255, 255, 0);
 
@@ -243,7 +243,7 @@
 .ui.form .two.fields .ui.input input,
 .ui.form .wide.field .ui.input input {
   flex: 1 0 auto;
-  width: 0px;
+  width: 0;
 }
 
 
@@ -259,7 +259,7 @@
 
 /* Assumptions */
 .ui.form .message:first-child {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 /*--------------------
@@ -279,11 +279,11 @@
 }
 .ui.form .inline.fields .field .prompt:before,
 .ui.form .inline.field .prompt:before {
-  border-width: 0px 0px @inlinePromptBorderWidth @inlinePromptBorderWidth;
+  border-width: 0 0 @inlinePromptBorderWidth @inlinePromptBorderWidth;
   bottom: auto;
   right: auto;
   top: 50%;
-  left: 0em;
+  left: 0;
 }
 
 
@@ -296,19 +296,19 @@
 ---------------------*/
 
 .ui.form .field.field input:-webkit-autofill {
-  box-shadow: 0px 0px 0px 100px @inputAutoFillBackground inset !important;
+  box-shadow: 0 0 0 100 @inputAutoFillBackground inset !important;
   border-color: @inputAutoFillBorder !important;
 }
 
 /* Focus */
 .ui.form .field.field input:-webkit-autofill:focus {
-  box-shadow: 0px 0px 0px 100px @inputAutoFillFocusBackground inset !important;
+  box-shadow: 0 0 0 100 @inputAutoFillFocusBackground inset !important;
   border-color: @inputAutoFillFocusBorder !important;
 }
 
 /* Error */
 .ui.form .error.error input:-webkit-autofill {
-  box-shadow: 0px 0px 0px 100px @inputAutoFillErrorBackground inset !important;
+  box-shadow: 0 0 0 100 @inputAutoFillErrorBackground inset !important;
   border-color: @inputAutoFillErrorBorder !important;
 }
 
@@ -643,7 +643,7 @@
   border-style: solid;
   border-width: @loaderLineWidth;
 
-  box-shadow: 0px 0px 0px 1px transparent;
+  box-shadow: 0 0 0 1px transparent;
   visibility: visible;
   z-index: @loaderLineZIndex;
 }
@@ -744,7 +744,7 @@
   margin: @groupedMargin;
 }
 .ui.form .grouped.fields:last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 
 .ui.form .grouped.fields > label {
@@ -759,7 +759,7 @@
 .ui.form .grouped.inline.fields .field {
   display: block;
   margin: @groupedFieldMargin;
-  padding: 0em;
+  padding: 0;
 }
 
 /*--------------------
@@ -847,7 +847,7 @@
   .ui.form:not(.unstackable) .ten.fields:not(.unstackable) > .fields,
   .ui.form:not(.unstackable) .ten.fields:not(.unstackable) > .field {
     width: @oneColumn !important;
-    margin: 0em 0em @rowDistance;
+    margin: 0 0 @rowDistance;
   }
 }
 
@@ -936,7 +936,7 @@
     width: @oneColumn !important;
   }
   .ui.form .fields {
-    margin-bottom: 0em;
+    margin-bottom: 0;
   }
 }
 
@@ -959,7 +959,7 @@
   align-items: center;
 }
 .ui.form .inline.fields .field {
-  margin: 0em;
+  margin: 0;
   padding: @inlineFieldsMargin;
 }
 
@@ -971,8 +971,8 @@
 .ui.form .inline.field > p {
   display: inline-block;
   width: auto;
-  margin-top: 0em;
-  margin-bottom: 0em;
+  margin-top: 0;
+  margin-bottom: 0;
   vertical-align: baseline;
   font-size: @inlineLabelFontSize;
   font-weight: @inlineLabelFontWeight;
@@ -993,8 +993,8 @@
   display: inline-block;
   width: auto;
 
-  margin-top: 0em;
-  margin-bottom: 0em;
+  margin-top: 0;
+  margin-bottom: 0;
 
   vertical-align: middle;
   font-size: @inlineInputSize;
@@ -1003,11 +1003,11 @@
 /* Label */
 .ui.form .inline.fields .field > :first-child,
 .ui.form .inline.field > :first-child {
-  margin: 0em @inlineLabelDistance 0em 0em;
+  margin: 0 @inlineLabelDistance 0 0;
 }
 .ui.form .inline.fields .field > :only-child,
 .ui.form .inline.field > :only-child {
-  margin: 0em;
+  margin: 0;
 }
 
 /* Wide */

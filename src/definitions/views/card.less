@@ -53,10 +53,10 @@
 }
 
 .ui.card:first-child {
-  margin-top: 0em;
+  margin-top: 0;
 }
 .ui.card:last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 
 /*--------------
@@ -80,7 +80,7 @@
 .ui.card:after {
   display: block;
   content: ' ';
-  height: 0px;
+  height: 0;
   clear: both;
   overflow: hidden;
   visibility: hidden;
@@ -99,13 +99,13 @@
 
 .ui.cards > .card > :first-child,
 .ui.card > :first-child {
-  border-radius: @borderRadius @borderRadius 0em 0em !important;
+  border-radius: @borderRadius @borderRadius 0 0 !important;
   border-top: none !important;
 }
 
 .ui.cards > .card > :last-child,
 .ui.card > :last-child {
-  border-radius: 0em 0em @borderRadius @borderRadius !important;
+  border-radius: 0 0 @borderRadius @borderRadius !important;
 }
 
 .ui.cards > .card > :only-child,
@@ -158,7 +158,7 @@
 .ui.card > .content:after {
   display: block;
   content: ' ';
-  height: 0px;
+  height: 0;
   clear: both;
   overflow: hidden;
   visibility: hidden;
@@ -255,11 +255,11 @@
 
 .ui.cards > .card > .content p,
 .ui.card > .content p {
-  margin: 0em 0em @paragraphDistance;
+  margin: 0 0 @paragraphDistance;
 }
 .ui.cards > .card > .content p:last-child,
 .ui.card > .content p:last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 
 /*--------------
@@ -277,12 +277,12 @@
 }
 .ui.cards > .card .meta :last-child,
 .ui.card .meta :last-child {
-  margin-right: 0em;
+  margin-right: 0;
 }
 
 .ui.cards > .card .meta [class*="right floated"],
 .ui.card .meta [class*="right floated"] {
-  margin-right: 0em;
+  margin-right: 0;
   margin-left: @metaSpacing;
 }
 
@@ -392,7 +392,7 @@
 .ui.cards > .card > .extra,
 .ui.card > .extra {
   max-width: 100%;
-  min-height: 0em !important;
+  min-height: 0 !important;
   flex-grow: 0;
   border-top: @extraDivider !important;
   position: @extraPosition;
@@ -494,7 +494,7 @@ a.ui.card:hover,
 .ui.red.card {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @red,
+    0 @coloredShadowDistance 0 0 @red,
     @shadowBoxShadow
   ;
 }
@@ -503,7 +503,7 @@ a.ui.card:hover,
 .ui.red.card:hover {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @redHover,
+    0 @coloredShadowDistance 0 0 @redHover,
     @shadowHoverBoxShadow
   ;
 }
@@ -514,7 +514,7 @@ a.ui.card:hover,
 .ui.orange.card {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @orange,
+    0 @coloredShadowDistance 0 0 @orange,
     @shadowBoxShadow
   ;
 }
@@ -523,7 +523,7 @@ a.ui.card:hover,
 .ui.orange.card:hover {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @orangeHover,
+    0 @coloredShadowDistance 0 0 @orangeHover,
     @shadowHoverBoxShadow
   ;
 }
@@ -534,7 +534,7 @@ a.ui.card:hover,
 .ui.yellow.card {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @yellow,
+    0 @coloredShadowDistance 0 0 @yellow,
     @shadowBoxShadow
   ;
 }
@@ -543,7 +543,7 @@ a.ui.card:hover,
 .ui.yellow.card:hover {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @yellowHover,
+    0 @coloredShadowDistance 0 0 @yellowHover,
     @shadowHoverBoxShadow
   ;
 }
@@ -554,7 +554,7 @@ a.ui.card:hover,
 .ui.olive.card {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @olive,
+    0 @coloredShadowDistance 0 0 @olive,
     @shadowBoxShadow
   ;
 }
@@ -563,7 +563,7 @@ a.ui.card:hover,
 .ui.olive.card:hover {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @oliveHover,
+    0 @coloredShadowDistance 0 0 @oliveHover,
     @shadowHoverBoxShadow
   ;
 }
@@ -574,7 +574,7 @@ a.ui.card:hover,
 .ui.green.card {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @green,
+    0 @coloredShadowDistance 0 0 @green,
     @shadowBoxShadow
   ;
 }
@@ -583,7 +583,7 @@ a.ui.card:hover,
 .ui.green.card:hover {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @greenHover,
+    0 @coloredShadowDistance 0 0 @greenHover,
     @shadowHoverBoxShadow
   ;
 }
@@ -594,7 +594,7 @@ a.ui.card:hover,
 .ui.teal.card {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @teal,
+    0 @coloredShadowDistance 0 0 @teal,
     @shadowBoxShadow
   ;
 }
@@ -603,7 +603,7 @@ a.ui.card:hover,
 .ui.teal.card:hover {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @tealHover,
+    0 @coloredShadowDistance 0 0 @tealHover,
     @shadowHoverBoxShadow
   ;
 }
@@ -614,7 +614,7 @@ a.ui.card:hover,
 .ui.blue.card {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @blue,
+    0 @coloredShadowDistance 0 0 @blue,
     @shadowBoxShadow
   ;
 }
@@ -623,7 +623,7 @@ a.ui.card:hover,
 .ui.blue.card:hover {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @blueHover,
+    0 @coloredShadowDistance 0 0 @blueHover,
     @shadowHoverBoxShadow
   ;
 }
@@ -634,7 +634,7 @@ a.ui.card:hover,
 .ui.violet.card {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @violet,
+    0 @coloredShadowDistance 0 0 @violet,
     @shadowBoxShadow
   ;
 }
@@ -643,7 +643,7 @@ a.ui.card:hover,
 .ui.violet.card:hover {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @violetHover,
+    0 @coloredShadowDistance 0 0 @violetHover,
     @shadowHoverBoxShadow
   ;
 }
@@ -654,7 +654,7 @@ a.ui.card:hover,
 .ui.purple.card {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @purple,
+    0 @coloredShadowDistance 0 0 @purple,
     @shadowBoxShadow
   ;
 }
@@ -663,7 +663,7 @@ a.ui.card:hover,
 .ui.purple.card:hover {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @purpleHover,
+    0 @coloredShadowDistance 0 0 @purpleHover,
     @shadowHoverBoxShadow
   ;
 }
@@ -674,7 +674,7 @@ a.ui.card:hover,
 .ui.pink.card {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @pink,
+    0 @coloredShadowDistance 0 0 @pink,
     @shadowBoxShadow
   ;
 }
@@ -683,7 +683,7 @@ a.ui.card:hover,
 .ui.pink.card:hover {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @pinkHover,
+    0 @coloredShadowDistance 0 0 @pinkHover,
     @shadowHoverBoxShadow
   ;
 }
@@ -694,7 +694,7 @@ a.ui.card:hover,
 .ui.brown.card {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @brown,
+    0 @coloredShadowDistance 0 0 @brown,
     @shadowBoxShadow
   ;
 }
@@ -703,7 +703,7 @@ a.ui.card:hover,
 .ui.brown.card:hover {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @brownHover,
+    0 @coloredShadowDistance 0 0 @brownHover,
     @shadowHoverBoxShadow
   ;
 }
@@ -714,7 +714,7 @@ a.ui.card:hover,
 .ui.grey.card {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @grey,
+    0 @coloredShadowDistance 0 0 @grey,
     @shadowBoxShadow
   ;
 }
@@ -723,7 +723,7 @@ a.ui.card:hover,
 .ui.grey.card:hover {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @greyHover,
+    0 @coloredShadowDistance 0 0 @greyHover,
     @shadowHoverBoxShadow
   ;
 }
@@ -734,7 +734,7 @@ a.ui.card:hover,
 .ui.black.card {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @black,
+    0 @coloredShadowDistance 0 0 @black,
     @shadowBoxShadow
   ;
 }
@@ -743,7 +743,7 @@ a.ui.card:hover,
 .ui.black.card:hover {
   box-shadow:
     @borderShadow,
-    0px @coloredShadowDistance 0px 0px @blackHover,
+    0 @coloredShadowDistance 0 0 @blackHover,
     @shadowHoverBoxShadow
   ;
 }
@@ -839,7 +839,7 @@ a.ui.card:hover,
   width: @nineCard;
   margin-left: @nineCardSpacing;
   margin-right: @nineCardSpacing;
-  font-size: 10px;
+  font-size: 10;
 }
 
 .ui.ten.cards {
@@ -1036,7 +1036,7 @@ a.ui.card:hover,
     display: block !important;
   }
   .ui.stackable.cards .card:first-child {
-    margin-top: 0em !important;
+    margin-top: 0 !important;
   }
   .ui.stackable.cards > .card {
     display: block !important;

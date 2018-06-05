@@ -40,12 +40,12 @@
 
 /* First Steps */
 .ui.steps:first-child {
-  margin-top: 0em;
+  margin-top: 0;
 }
 
 /* Last Steps */
 .ui.steps:last-child {
-  margin-bottom: 0em;
+  margin-bottom: 0;
 }
 
 
@@ -98,16 +98,16 @@
 /* First Step */
 .ui.steps .step:first-child {
   padding-left: @horizontalPadding;
-  border-radius: @stepsBorderRadius 0em 0em @stepsBorderRadius;
+  border-radius: @stepsBorderRadius 0 0 @stepsBorderRadius;
 }
 
 /* Last Step */
 .ui.steps .step:last-child {
-  border-radius: 0em @stepsBorderRadius @stepsBorderRadius 0em;
+  border-radius: 0 @stepsBorderRadius @stepsBorderRadius 0;
 }
 .ui.steps .step:last-child {
   border-right: none;
-  margin-right: 0em;
+  margin-right: 0;
 }
 
 /* Only Step */
@@ -147,7 +147,7 @@
 .ui.steps .step > .icon {
   line-height: 1;
   font-size: @iconSize;
-  margin: 0em @iconDistance 0em 0em;
+  margin: 0 @iconDistance 0 0;
 }
 .ui.steps .step > .icon,
 .ui.steps .step > .icon ~ .content {
@@ -218,11 +218,11 @@
 }
 .ui.vertical.steps .step:first-child {
   padding: @verticalPadding @horizontalPadding;
-  border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+  border-radius: @stepsBorderRadius @stepsBorderRadius 0 0;
 }
 .ui.vertical.steps .step:last-child {
   border-bottom: none;
-  border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+  border-radius: 0 0 @stepsBorderRadius @stepsBorderRadius;
 }
 .ui.vertical.steps .step:only-child {
   border-radius: @stepsBorderRadius;
@@ -273,10 +273,10 @@
   }
   .ui.steps:not(.unstackable) .step:first-child {
     padding: @verticalPadding @horizontalPadding;
-    border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+    border-radius: @stepsBorderRadius @stepsBorderRadius 0 0;
   }
   .ui.steps:not(.unstackable) .step:last-child {
-    border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+    border-radius: 0 0 @stepsBorderRadius @stepsBorderRadius;
   }
 
   /* Arrow */
@@ -292,7 +292,7 @@
   /* Icon */
   .ui.steps:not(.unstackable) .step > .icon,
   .ui.ordered.steps:not(.unstackable) .step:before {
-    margin: 0em 0em @mobileIconDistance 0em;
+    margin: 0 0 @mobileIconDistance 0;
   }
 
 }
@@ -407,10 +407,10 @@
 }
 .ui[class*="tablet stackable"].steps .step:first-child {
   padding: @verticalPadding @horizontalPadding;
-  border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+  border-radius: @stepsBorderRadius @stepsBorderRadius 0 0;
 }
 .ui[class*="tablet stackable"].steps .step:last-child {
-  border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+  border-radius: 0 0 @stepsBorderRadius @stepsBorderRadius;
 }
 
 /* Arrow */
@@ -426,7 +426,7 @@
 /* Icon */
 .ui[class*="tablet stackable"].steps .step > .icon,
 .ui[class*="tablet stackable"].ordered.steps .step:before {
-  margin: 0em 0em @mobileIconDistance 0em;
+  margin: 0 0 @mobileIconDistance 0;
 }
 
 }
@@ -448,27 +448,27 @@
 /* Top */
 .ui.attached.steps {
   width: @attachedWidth !important;
-  margin: 0em @attachedHorizontalOffset @attachedVerticalOffset;
+  margin: 0 @attachedHorizontalOffset @attachedVerticalOffset;
   max-width: @attachedWidth;
-  border-radius: @stepsBorderRadius @stepsBorderRadius 0em 0em;
+  border-radius: @stepsBorderRadius @stepsBorderRadius 0 0;
 }
 .ui.attached.steps .step:first-child {
-  border-radius: @stepsBorderRadius 0em 0em 0em;
+  border-radius: @stepsBorderRadius 0 0 0;
 }
 .ui.attached.steps .step:last-child {
-  border-radius: 0em @stepsBorderRadius 0em 0em;
+  border-radius: 0 @stepsBorderRadius 0 0;
 }
 
 /* Bottom */
 .ui.bottom.attached.steps {
-  margin: @attachedVerticalOffset @attachedHorizontalOffset 0em;
-  border-radius: 0em 0em @stepsBorderRadius @stepsBorderRadius;
+  margin: @attachedVerticalOffset @attachedHorizontalOffset 0;
+  border-radius: 0 0 @stepsBorderRadius @stepsBorderRadius;
 }
 .ui.bottom.attached.steps .step:first-child {
-  border-radius: 0em 0em 0em @stepsBorderRadius;
+  border-radius: 0 0 0 @stepsBorderRadius;
 }
 .ui.bottom.attached.steps .step:last-child {
-  border-radius: 0em 0em @stepsBorderRadius 0em;
+  border-radius: 0 0 @stepsBorderRadius 0;
 }
 
 /*-------------------
