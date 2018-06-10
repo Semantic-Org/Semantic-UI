@@ -27,7 +27,7 @@
 }
 
 .ui.search > .prompt {
-  margin: 0em;
+  margin: 0;
   outline: none;
   -webkit-appearance: none;
   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
@@ -334,8 +334,7 @@
 
 /* Category */
 .ui.category.search > .results .category {
-  display: table-row;
-  background: @categoryBackground;
+  display: flex;
   box-shadow: @categoryBoxShadow;
   transition: @categoryTransition;
 }
@@ -355,11 +354,11 @@
 
 /* Category Result Name */
 .ui.category.search > .results .category > .name {
-  display: table-cell;
+  overflow: hidden;
   text-overflow: ellipsis;
   width: @categoryNameWidth;
   white-space: @categoryNameWhitespace;
-  background: @categoryNameBackground;
+  background: @categoryBackground;
   font-family: @categoryNameFont;
   font-size: @categoryNameFontSize;
   padding: @categoryNamePadding;
@@ -370,7 +369,7 @@
 
 /* Category Result */
 .ui.category.search > .results .category .results {
-  display: table-cell;
+  flex: 1;
   background: @categoryResultBackground;
   border-left: @categoryResultLeftBorder;
   border-bottom: @categoryDivider;
