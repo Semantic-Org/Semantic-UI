@@ -454,13 +454,24 @@
 --------------------*/
 
 @facebookColor   : #3B5998;
-@twitterColor    : #55ACEE;
+@twitterColor    : #1DA1F3;
 @googlePlusColor : #DD4B39;
-@linkedInColor   : #1F88BE;
+@linkedInColor   : #0077B5;
 @youtubeColor    : #FF0000;
 @pinterestColor  : #BD081C;
-@vkColor         : #4D7198;
-@instagramColor  : #49769C;
+@vkColor         : #45668E;
+
+@instagramColorBlue         : #405de6;
+@instagramColorPurple       : #ff1e82;
+@instagramColorViolet       : #e1306c;
+@instagramColorOrange       : #f77737;
+@instagramColorLight        : #ffdc80;
+@instagramColorYellow       : #fcaf45;
+
+@instagramColor  : radial-gradient(75% 75% at 30% 115%, @instagramColorLight 25%, @instagramColorYellow 45%, @instagramColorOrange 60%, rgba(0,0,0,0) 95%), linear-gradient(-8deg, @instagramColorViolet 5%, @instagramColorPurple 45%, @instagramColorBlue 95%);
+
+@telegramColor   : #0088CC;
+@whatsAppColor   : #25D366;
 
 /*-------------------
       Borders
@@ -774,9 +785,20 @@
 @googlePlusHoverColor : saturate(darken(@googlePlusColor, 5), 10, relative);
 @linkedInHoverColor   : saturate(darken(@linkedInColor, 5), 10, relative);
 @youtubeHoverColor    : saturate(darken(@youtubeColor, 5), 10, relative);
-@instagramHoverColor  : saturate(darken(@instagramColor, 5), 10, relative);
 @pinterestHoverColor  : saturate(darken(@pinterestColor, 5), 10, relative);
 @vkHoverColor         : saturate(darken(@vkColor, 5), 10, relative);
+
+@instagramHoverColorBlue    : saturate(darken(@instagramColorBlue, 5), 10, relative);
+@instagramHoverColorPurple  : saturate(darken(@instagramColorPurple, 5), 10, relative);
+@instagramHoverColorViolet  : saturate(darken(@instagramColorViolet, 5), 10, relative);
+@instagramHoverColorOrange  : saturate(darken(@instagramColorOrange, 5), 10, relative);
+@instagramHoverColorLight   : saturate(darken(@instagramColorLight, 5), 10, relative);
+@instagramHoverColorYellow  : saturate(darken(@instagramColorYellow, 5), 10, relative);
+
+@instagramHoverColor  : radial-gradient(75% 75% at 30% 115%, @instagramHoverColorLight 25%, @instagramHoverColorYellow 45%, @instagramHoverColorOrange 60%, rgba(0,0,0,0) 95%), linear-gradient(-8deg, @instagramHoverColorViolet 5%, @instagramHoverColorPurple 45%, @instagramHoverColorBlue 95%);
+
+@telegramHoverColor   : saturate(darken(@telegramColor, 5), 10, relative);
+@whatsAppHoverColor   : saturate(darken(@whatsAppColor, 5), 10, relative);
 
 /*---  Dark Tones  ---*/
 @fullBlackHover       : lighten(@fullBlack, 5);
@@ -832,9 +854,20 @@
 @googlePlusFocusColor : saturate(darken(@googlePlusColor, 8), 20, relative);
 @linkedInFocusColor   : saturate(darken(@linkedInColor, 8), 20, relative);
 @youtubeFocusColor    : saturate(darken(@youtubeColor, 8), 20, relative);
-@instagramFocusColor  : saturate(darken(@instagramColor, 8), 20, relative);
 @pinterestFocusColor  : saturate(darken(@pinterestColor, 8), 20, relative);
 @vkFocusColor         : saturate(darken(@vkColor, 8), 20, relative);
+
+@instagramFocusColorBlue    : saturate(darken(@instagramColorBlue, 8), 20, relative);
+@instagramFocusColorPurple  : saturate(darken(@instagramColorPurple, 8), 20, relative);
+@instagramFocusColorViolet  : saturate(darken(@instagramColorViolet, 8), 20, relative);
+@instagramFocusColorOrange  : saturate(darken(@instagramColorOrange, 8), 20, relative);
+@instagramFocusColorLight   : saturate(darken(@instagramColorLight, 8), 20, relative);
+@instagramFocusColorYellow  : saturate(darken(@instagramColorYellow, 8), 20, relative);
+
+@instagramFocusColor  : radial-gradient(75% 75% at 30% 115%, @instagramFocusColorLight 25%, @instagramFocusColorYellow 45%, @instagramFocusColorOrange 60%, rgba(0,0,0,0) 95%), linear-gradient(-8deg, @instagramFocusColorViolet 5%, @instagramFocusColorPurple 45%, @instagramFocusColorBlue 95%);
+
+@telegramFocusColor   : saturate(darken(@telegramColor, 8), 20, relative);
+@whatsAppFocusColor   : saturate(darken(@whatsAppColor, 8), 20, relative);
 
 /*---  Dark Tones  ---*/
 @fullBlackFocus       : lighten(@fullBlack, 8);
@@ -891,9 +924,20 @@
 @googlePlusDownColor : darken(@googlePlusColor, 10);
 @linkedInDownColor   : darken(@linkedInColor, 10);
 @youtubeDownColor    : darken(@youtubeColor, 10);
-@instagramDownColor  : darken(@instagramColor, 10);
 @pinterestDownColor  : darken(@pinterestColor, 10);
 @vkDownColor         : darken(@vkColor, 10);
+
+@instagramDownColorBlue     : darken(@instagramColorBlue, 10);
+@instagramDownColorPurple   : darken(@instagramColorPurple, 10);
+@instagramDownColorViolet   : darken(@instagramColorViolet, 10);
+@instagramDownColorOrange   : darken(@instagramColorOrange, 10);
+@instagramDownColorLight    : darken(@instagramColorLight, 10);
+@instagramDownColorYellow   : darken(@instagramColorYellow, 10);
+
+@instagramDownColor  : radial-gradient(75% 75% at 30% 115%, @instagramDownColorLight 25%, @instagramDownColorYellow 45%, @instagramDownColorOrange 60%, rgba(0,0,0,0) 95%), linear-gradient(-8deg, @instagramDownColorViolet 5%, @instagramDownColorPurple 45%, @instagramDownColorBlue 95%);
+
+@telegramDownColor   : darken(@telegramColor, 10);
+@whatsAppDownColor   : darken(@whatsAppColor, 10);
 
 /*---  Dark Tones  ---*/
 @fullBlackDown       : lighten(@fullBlack, 10);
@@ -950,9 +994,20 @@
 @googlePlusActiveColor : saturate(darken(@googlePlusColor, 5), 15, relative);
 @linkedInActiveColor   : saturate(darken(@linkedInColor, 5), 15, relative);
 @youtubeActiveColor    : saturate(darken(@youtubeColor, 5), 15, relative);
-@instagramActiveColor  : saturate(darken(@instagramColor, 5), 15, relative);
 @pinterestActiveColor  : saturate(darken(@pinterestColor, 5), 15, relative);
 @vkActiveColor         : saturate(darken(@vkColor, 5), 15, relative);
+
+@instagramActiveColorBlue   : saturate(darken(@instagramColorBlue, 5), 15, relative);
+@instagramActiveColorPurple : saturate(darken(@instagramColorPurple, 5), 15, relative);
+@instagramActiveColorViolet : saturate(darken(@instagramColorViolet, 5), 15, relative);
+@instagramActiveColorOrange : saturate(darken(@instagramColorOrange, 5), 15, relative);
+@instagramActiveColorLight  : saturate(darken(@instagramColorLight, 5), 15, relative);
+@instagramActiveColorYellow : saturate(darken(@instagramColorYellow, 5), 15, relative);
+
+@instagramActiveColor  : radial-gradient(75% 75% at 30% 115%, @instagramActiveColorLight 25%, @instagramActiveColorYellow 45%, @instagramActiveColorOrange 60%, rgba(0,0,0,0) 95%), linear-gradient(-8deg, @instagramActiveColorViolet 5%, @instagramActiveColorPurple 45%, @instagramActiveColorBlue 95%);
+
+@telegramActiveColor   : saturate(darken(@telegramColor, 5), 15, relative);
+@whatsAppActiveColor   : saturate(darken(@whatsAppColor, 5), 15, relative);
 
 /*---  Dark Tones  ---*/
 @fullBlackActive       : darken(@fullBlack, 5);
