@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.3.1 - Statistic
+ * # Semantic UI 2.3.2 - Statistic
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -64,14 +64,14 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 0em 1.5em 2em;
+  margin: 0em 1.5em 1em;
   max-width: auto;
 }
 .ui.statistics {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 1em -1.5em -2em;
+  margin: 1em -1.5em -1em;
 }
 
 /* Clearing */
@@ -85,9 +85,6 @@
 }
 .ui.statistics:first-child {
   margin-top: 0em;
-}
-.ui.statistics:last-child {
-  margin-bottom: 0em;
 }
 
 
@@ -191,74 +188,74 @@
 ---------------*/
 
 .ui.ten.statistics {
-  margin: 0em 0em -2em;
+  margin: 0em 0em -1em;
 }
 .ui.ten.statistics .statistic {
   min-width: 10%;
-  margin: 0em 0em 2em;
+  margin: 0em 0em 1em;
 }
 .ui.nine.statistics {
-  margin: 0em 0em -2em;
+  margin: 0em 0em -1em;
 }
 .ui.nine.statistics .statistic {
   min-width: 11.11111111%;
-  margin: 0em 0em 2em;
+  margin: 0em 0em 1em;
 }
 .ui.eight.statistics {
-  margin: 0em 0em -2em;
+  margin: 0em 0em -1em;
 }
 .ui.eight.statistics .statistic {
   min-width: 12.5%;
-  margin: 0em 0em 2em;
+  margin: 0em 0em 1em;
 }
 .ui.seven.statistics {
-  margin: 0em 0em -2em;
+  margin: 0em 0em -1em;
 }
 .ui.seven.statistics .statistic {
   min-width: 14.28571429%;
-  margin: 0em 0em 2em;
+  margin: 0em 0em 1em;
 }
 .ui.six.statistics {
-  margin: 0em 0em -2em;
+  margin: 0em 0em -1em;
 }
 .ui.six.statistics .statistic {
   min-width: 16.66666667%;
-  margin: 0em 0em 2em;
+  margin: 0em 0em 1em;
 }
 .ui.five.statistics {
-  margin: 0em 0em -2em;
+  margin: 0em 0em -1em;
 }
 .ui.five.statistics .statistic {
   min-width: 20%;
-  margin: 0em 0em 2em;
+  margin: 0em 0em 1em;
 }
 .ui.four.statistics {
-  margin: 0em 0em -2em;
+  margin: 0em 0em -1em;
 }
 .ui.four.statistics .statistic {
   min-width: 25%;
-  margin: 0em 0em 2em;
+  margin: 0em 0em 1em;
 }
 .ui.three.statistics {
-  margin: 0em 0em -2em;
+  margin: 0em 0em -1em;
 }
 .ui.three.statistics .statistic {
   min-width: 33.33333333%;
-  margin: 0em 0em 2em;
+  margin: 0em 0em 1em;
 }
 .ui.two.statistics {
-  margin: 0em 0em -2em;
+  margin: 0em 0em -1em;
 }
 .ui.two.statistics .statistic {
   min-width: 50%;
-  margin: 0em 0em 2em;
+  margin: 0em 0em 1em;
 }
 .ui.one.statistics {
-  margin: 0em 0em -2em;
+  margin: 0em 0em -1em;
 }
 .ui.one.statistics .statistic {
   min-width: 100%;
-  margin: 0em 0em 2em;
+  margin: 0em 0em 1em;
 }
 
 /*--------------
