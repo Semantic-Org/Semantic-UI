@@ -7,7 +7,7 @@
 - **Button** - Add `inverted` and `inverted basic` variations for `primary` and `secondary` buttons  **Thanks @hammy2899** [#6242](https://github.com/Semantic-Org/Semantic-UI/issues/6242)
 
 **Theming**
-- **Global** - Add `hover` `down` `active` and `focus` variables for `invertedPrimaryColor` and `invertedSecondaryColor`
+- **Global** - Add `hover` `down` `active` and `focus` variables for `@invertedPrimaryColor` and `@invertedSecondaryColor`
 
 **Bugs**
 - **Dropdown** Fixed bug that could cause dropdown to recursively trigger network requests specifically when using `apiSettings` with a url that returns valid response but with no results when clicking directly on the `dropdown icon`. **Thanks @vpeti** [#5231](https://github.com/Semantic-Org/Semantic-UI/issues/5231) [#5809](https://github.com/Semantic-Org/Semantic-UI/issues/5809)
