@@ -3,6 +3,7 @@
 ### Built-In Tools
 
 From the Semantic directory you can setup gulp to build Semantic by running.
+
 ```bash
 npm install
 ```
@@ -10,11 +11,12 @@ npm install
 Semantic will automatically configure itself using a `post-install` script built into the package.
 
 After set-up can use gulp to build your project's css:
+
 ```bash
-/* Watch files */
+# Watch files
 gulp watch
 
-/* Build all files */
+# Build all files
 gulp build
 ```
 
@@ -27,9 +29,8 @@ Visit the [Getting Started Guide](http://learnsemantic.com/guide/expert.html) fo
 Each gulp task can be imported into your own Gulpfile using `require`
 
 ```javascript
-var
-  watch = require('path/to/semantic/tasks/watch')
-;
+const watch = require('path/to/semantic/tasks/watch');
+
 gulp.task('watch ui', 'Watch Semantic UI', watch));
 ```
 
@@ -40,12 +41,14 @@ gulp.task('watch ui', 'Watch Semantic UI', watch));
 Before using source files you will need to create a `theme.config` by renaming `theme.config.example`, and a site folder by renaming `_site/` to `site/`
 
 You can then import Semantic from your own LESS files:
+
 ```less
 /* Import all components */
 @import 'src/semantic';
 ```
 
 To import individual components you will have to create a scope for each import using `& {}`
+
 ```less
 /* Import a specific component */
 & { @import 'src/definitions/elements/button'; }
@@ -60,7 +63,6 @@ filename | usage | Initial Name
 **theme.config** | config file that stores each element's current theme for LESS | theme.config.example
 **site/** | folder storing all your site's variables and css overrides for each UI component | _site/
 **semantic.json** | stores folder paths for build tools and current installed version for updates. Only necessary when using build tools | semantic.json.example
-
 
 ### Workflow
 
@@ -119,9 +121,9 @@ You may also specify your own custom LESS in `site/elements/button.overrides`. T
 You can modify `theme.config` to use any prepackaged theme available in `src/themes/`.
 
 For example you can modify `theme.config` to use a `github` button theme by changing
+
 ```less
 @button: 'github';
 ```
 
 View the [Customization Guide](http://learnsemantic.com/developing/customizing.html) to learn more
-
