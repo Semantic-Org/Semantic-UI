@@ -3,14 +3,18 @@
 ### Version 2.3.2 - June 17, 2018
 
 **Enhancements**
+- **Modal** - Modal and Dimmer now prevent background page from scrolling on mobile or where touch events are present
+- **Button** - Add `inverted` and `inverted basic` variations for `primary` and `secondary` buttons  **Thanks @hammy2899** [#6242](https://github.com/Semantic-Org/Semantic-UI/pull/6424)
+
+**Theming**
 - **Global** - Add `hover` `down` `active` and `focus` variables for `invertedPrimaryColor` and `invertedSecondaryColor`
-- **Button** - Add `inverted` and `inverted basic` variations for `primary` and `secondary` buttons  **Thanks @hammy2899** #6242
 
 **Bugs**
+- **Dropdown** Fixed bug that could cause dropdown to recursively trigger network requests specifically when using `apiSettings` with a url that returns valid response but with no results when clicking directly on the `dropdown icon`. **Thanks @vpeti** [#5231 [#5809](https://github.com/Semantic-Org/Semantic-UI/pull/6424)
 - **Statistics** - Fix issue where grouped statistics would have excess bottom margin if they are `:last-child`
 - **Label** - Fix `basic label` does not use `@basicBackground` variables **Thanks @levithomson**
-- **Modal** - Modal will not refocus a field if field is already focused **Thanks @nikolaybobrovskiy** #6301
-- **Icon** - Fix `wechat icon` not displaying due to typo **Thanks @alex-karo** #6429
+- **Modal** - Modal will not refocus a field if field is already focused **Thanks @nikolaybobrovskiy** [#6301](https://github.com/Semantic-Org/Semantic-UI/pull/6424)
+- **Icon** - Fix `wechat icon` not displaying due to typo **Thanks @alex-karo** [#6429](https://github.com/Semantic-Org/Semantic-UI/pull/6424)
 
 ### Version 2.3.1 - Mar 18, 2018
 
