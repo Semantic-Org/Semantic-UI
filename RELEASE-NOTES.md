@@ -1,5 +1,12 @@
 ## RELEASE NOTES
 
+
+### Version 2.3.2 - June 17, 2018
+
+**Bugs**
+
+- **Statistics** - Fix issue where grouped statistics would have excess bottom margin if they are `:last-child`
+
 ### Version 2.3.1 - Mar 18, 2018
 
 **Note on Flex Modals**
