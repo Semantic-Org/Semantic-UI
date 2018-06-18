@@ -3,9 +3,14 @@
 
 ### Version 2.3.2 - June 17, 2018
 
-**Bugs**
+**Enhancements**
+- **Global** - Add `hover` `down` `active` and `focus` variables for `invertedPrimaryColor` and `invertedSecondaryColor`
+- **Button** - Add `inverted` and `inverted basic` variations for `primary` and `secondary` buttons #6242 **Thanks @hammy2899**
 
+**Bugs**
 - **Statistics** - Fix issue where grouped statistics would have excess bottom margin if they are `:last-child`
+- **Label** - Fix `basic label` does not use `@basicBackground` variables **Thanks @levithomson**
+- **
 
 ### Version 2.3.1 - Mar 18, 2018
 
