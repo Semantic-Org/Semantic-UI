@@ -1677,6 +1677,7 @@ i.icon.youtube.play:before { content: "\f167"; }
   i.icon.vk,
   i.icon.vnv,
   i.icon.vuejs,
+  i.icon.wechat,
   i.icon.weibo,
   i.icon.weixin,
   i.icon.whatsapp,

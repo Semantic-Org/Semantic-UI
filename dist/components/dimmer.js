@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.3.1 - Dimmer
+ * # Semantic UI 2.3.2 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -114,6 +114,10 @@ $.fn.dimmer = function(parameters) {
 
         bind: {
           events: function() {
+            if(module.is.page()) {
+              // touch events default to passive, due to changes in chrome to optimize mobile perf
+              $dimmable.get(0).addEventListener('touchmove', module.event.preventScroll, { passive: false });
+            }
             if(settings.on == 'hover') {
               $dimmable
                 .on('mouseenter' + eventNamespace, module.show)
@@ -141,6 +145,9 @@ $.fn.dimmer = function(parameters) {
 
         unbind: {
           events: function() {
+            if(module.is.page()) {
+              $dimmable.get(0).removeEventListener('touchmove', module.event.preventScroll, { passive: false });
+            }
             $module
               .removeData(moduleNamespace)
             ;
@@ -157,6 +164,9 @@ $.fn.dimmer = function(parameters) {
               module.hide();
               event.stopImmediatePropagation();
             }
+          },
+          preventScroll: function(event) {
+            event.preventDefault();
           }
         },
 
