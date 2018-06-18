@@ -329,11 +329,21 @@
        Inverted
 --------------------*/
 
-.ui.inverted.button {
+.ui.inverted.button:not(.primary + .secondary) {
   box-shadow: 0px 0px 0px @invertedBorderSize @white inset !important;
   background: transparent none;
   color: @white;
   text-shadow: none !important;
+}
+.ui.inverted.primary.button {
+  box-shadow: 0px 0px 0px @invertedBorderSize @primaryColor inset !important;
+  background: transparent none;
+  color: @primaryColor;
+}
+.ui.inverted.secondary.button {
+  box-shadow: 0px 0px 0px @invertedBorderSize @secondaryColor inset !important;
+  background: transparent none;
+  color: @secondaryColor;
 }
 
 /* Group */
@@ -353,25 +363,57 @@
 /* States */
 
 /* Hover */
-.ui.inverted.button:hover {
+.ui.inverted.button:hover:not(.primary + .secondary) {
   background: @white;
   box-shadow: 0px 0px 0px @invertedBorderSize @white inset !important;
   color: @hoverColor;
 }
+.ui.inverted.primary.button:hover {
+  background: @primaryColorHover;
+  box-shadow: 0px 0px 0px @invertedBorderSize @primaryColorHover inset !important;
+  color: @white;
+}
+.ui.inverted.secondary.button:hover {
+  background: @secondaryColorHover;
+  box-shadow: 0px 0px 0px @invertedBorderSize @secondaryColorHover inset !important;
+  color: @white;
+}
 
 /* Active / Focus */
-.ui.inverted.button:focus,
-.ui.inverted.button.active {
+.ui.inverted.button:focus:not(.primary + .secondary),
+.ui.inverted.button.active:not(.primary + .secondary) {
   background: @white;
   box-shadow: 0px 0px 0px @invertedBorderSize @white inset !important;
   color: @focusColor;
 }
+.ui.inverted.primary.button:focus,
+.ui.inverted.primary.button.active {
+  background: @primaryColorActive;
+  box-shadow: 0px 0px 0px @invertedBorderSize @primaryColorActive inset !important;
+  color: @white;
+}
+.ui.inverted.secondary.button:focus,
+.ui.inverted.secondary.button.active {
+  background: @secondaryColorActive;
+  box-shadow: 0px 0px 0px @invertedBorderSize @secondaryColorActive inset !important;
+  color: @white;
+}
 
 /* Active Focus */
-.ui.inverted.button.active:focus {
+.ui.inverted.button.active:focus:not(.primary + .secondary) {
   background: @midWhite;
   box-shadow: 0px 0px 0px @invertedBorderSize @midWhite inset !important;
-  color: @focusColor;
+  color: @white;
+}
+.ui.inverted.primary.button.active:focus {
+  background: @primaryColorActive;
+  box-shadow: 0px 0px 0px @invertedBorderSize @primaryColorActive inset !important;
+  color: @white;
+}
+.ui.inverted.secondary.button.active:focus {
+  background: @secondaryColorActive;
+  box-shadow: 0px 0px 0px @invertedBorderSize @secondaryColorActive inset !important;
+  color: @white;
 }
 
 
