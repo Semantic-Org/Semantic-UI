@@ -6,14 +6,15 @@
          View
 --------------------*/
 
-@margin: 1em 0em;
+@verticalMargin: 1em;
+@margin: @verticalMargin 0em;
 @textAlign: center;
 @maxWidth: auto;
 
 /* Group */
 @horizontalSpacing: 1.5em;
-@rowSpacing: 2em;
-@groupMargin: 1em -@horizontalSpacing -@rowSpacing;
+@rowSpacing: 1em;
+@groupMargin: @verticalMargin -@horizontalSpacing -@rowSpacing;
 
 /* Group Element */
 @elementMargin: 0em @horizontalSpacing @rowSpacing;
