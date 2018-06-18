@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 2.3.2 - June 17, 2018
+### Version 2.3.2 - June 18, 2018
 
 **Enhancements**
 - **Modal** - Modal and Dimmer now prevent background page from scrolling on mobile or where touch events are present
