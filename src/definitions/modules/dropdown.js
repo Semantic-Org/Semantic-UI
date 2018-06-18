@@ -754,10 +754,19 @@ $.fn.dropdown = function(parameters) {
                 callback();
               },
               onSuccess : function(response) {
-                module.remove.message();
-                module.setup.menu({
-                  values: response[fields.remoteValues]
-                });
+                var
+                  values          = response[fields.remoteValues],
+                  hasRemoteValues = ($.isArray(values) && values.length > 0)
+                ;
+                if(hasRemoteValues) {
+                  module.remove.message();
+                  module.setup.menu({
+                    values: response[fields.remoteValues]
+                  });
+                }
+                else {
+                  module.add.message(message.noResults);
+                }
                 callback();
               }
             }
