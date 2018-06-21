@@ -87,6 +87,6 @@
          Import Theme
 *******************************/
 
-@import "theme.less";
+@import (multiple) "theme.less";
 
 /* End Config */
