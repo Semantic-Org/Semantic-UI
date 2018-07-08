@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 2.3.3 - June 18, 2018
+
+**Bug Fixes**
+- **Search** - Passing in `cache: false` will now affect default settings for `apiSettings` when using a remote endpoint. Previously you would also have to pass in `apiSettings: { cache: false}` as well
+- **CSS** - Update LESS syntax to be compatible with LESS 3.0 **Thanks @sciyoshi** [#6447](https://github.com/Semantic-Org/Semantic-UI/pull/6447)
+
 ### Version 2.3.2 - June 18, 2018
 
 **Enhancements**
