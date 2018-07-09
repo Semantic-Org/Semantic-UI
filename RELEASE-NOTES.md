@@ -11,9 +11,7 @@
 * `zoom in` is now `zoom-in`
 * `zoom out` is now `zoom-out`
 * `sign in` is now `sign-in`
-* `sign in alternate` is now `sign-in alternate`
 * `sign out` is now `sign-out`
-* `sign out alternate` is now `sign-out alternate`
 * `log out` is now `logout`
 * `in cart` is now `in-cart`
 
