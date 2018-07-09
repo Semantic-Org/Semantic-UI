@@ -5,6 +5,17 @@
 **Bug Fixes**
 - **Search** - Passing in `cache: false` will now affect default settings for `apiSettings` when using a remote endpoint. Previously you would also have to pass in `apiSettings: { cache: false}` as well
 - **CSS** - Update LESS syntax to be compatible with LESS 3.0 **Thanks @sciyoshi** [#6447](https://github.com/Semantic-Org/Semantic-UI/pull/6447)
+- **Icon** - Several icon names have been deprecated due to incompatibility with `transition in` and `transition out` used in animations.
+
+* `linkedin in` is now `linkedin alternate`
+* `zoom in` is now `zoom-in`
+* `zoom out` is now `zoom-out`
+* `sign in` is now `sign-in`
+* `sign in alternate` is now `sign-in alternate`
+* `sign out` is now `sign-out`
+* `sign out alternate` is now `sign-out alternate`
+* `log out` is now `logout`
+* `in cart` is now `in-cart`
 
 ### Version 2.3.2 - June 18, 2018
 

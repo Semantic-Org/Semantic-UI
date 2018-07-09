@@ -31,6 +31,17 @@ for instance `lemon icon` not `lemon outline icon` since there is only one lemon
             Icons
 *******************************/
 
+/* Deprecated *In/Out Naming Conflict) */
+i.icon.linkedin.in:before { content: "\f0e1"; }
+i.icon.zoom.in:before { content: "\f00e"; }
+i.icon.zoom.out:before { content: "\f010"; }
+i.icon.sign.in:before { content: "\f2f6"; }
+i.icon.sign.in.alternate:before { content: "\f2f6"; }
+i.icon.in.cart:before { content: "\f218"; }
+i.icon.log.out:before { content: "\f2f5"; }
+i.icon.sign.out:before { content: "\f2f5"; }
+i.icon.sign.out.alternate:before { content: "\f2f5"; }
+
 /* Icons */
 i.icon.\35 00px:before { content: "\f26e"; }
 i.icon.accessible.icon:before { content: "\f368"; }
@@ -860,16 +871,6 @@ i.icon.yen.sign:before { content: "\f157"; }
 i.icon.yoast:before { content: "\f2b1"; }
 i.icon.youtube:before { content: "\f167"; }
 i.icon.youtube.square:before { content: "\f431"; }
-
-/* Deprecated *In/Out Naming Conflict) */
-i.icon.linkedin.in:before { content: "\f0e1"; }
-i.icon.zoom.in:before { content: "\f00e"; }
-i.icon.sign.in.alternate:before { content: "\f2f6"; }
-i.icon.in.cart:before { content: "\f218"; }
-i.icon.zoom.out:before { content: "\f010"; }
-i.icon.log.out:before { content: "\f2f5"; }
-i.icon.sign.out:before { content: "\f2f5"; }
-i.icon.sign.out.alternate:before { content: "\f2f5"; }
 
 /* Aliases */
 i.icon.chess.rock:before { content: "\f447"; }
