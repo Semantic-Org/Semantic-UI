@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 2.3.3 - June 18, 2018
+### Version 2.3.3 - July 8th, 2018
 
 **Bug Fixes**
 - **Search** - Passing in `cache: false` will now affect default settings for `apiSettings` when using a remote endpoint. Previously you would also have to pass in `apiSettings: { cache: false}` as well
