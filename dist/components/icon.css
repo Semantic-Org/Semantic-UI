@@ -552,9 +552,6 @@ i.icon.zoom.out:before {
 i.icon.sign.in:before {
   content: "\f2f6";
 }
-i.icon.sign.in.alternate:before {
-  content: "\f2f6";
-}
 i.icon.in.cart:before {
   content: "\f218";
 }
@@ -562,9 +559,6 @@ i.icon.log.out:before {
   content: "\f2f5";
 }
 i.icon.sign.out:before {
-  content: "\f2f5";
-}
-i.icon.sign.out.alternate:before {
   content: "\f2f5";
 }
 
@@ -2453,14 +2447,8 @@ i.icon.shopping.cart:before {
 i.icon.shower:before {
   content: "\f2cc";
 }
-i.icon.sign-in.alternate:before {
-  content: "\f2f6";
-}
 i.icon.sign.language:before {
   content: "\f2a7";
-}
-i.icon.sign-out.alternate:before {
-  content: "\f2f5";
 }
 i.icon.signal:before {
   content: "\f012";
