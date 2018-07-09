@@ -1296,6 +1296,7 @@ $.fn.search.settings = {
   },
 
   error : {
+    header          : 'No Results',
     source          : 'Cannot search. No source used, and Semantic API module was not included',
     noResults       : 'Your search returned no results',
     logging         : 'Error in debug logging, exiting.',
@@ -1377,7 +1378,7 @@ $.fn.search.settings = {
         // message type
         if(type == 'empty') {
           html += ''
-            + '<div class="header">No Results</div class="header">'
+            + '<div class="header">' + $.fn.search.settings.error.header + '</div class="header">'
             + '<div class="description">' + message + '</div class="description">'
           ;
         }
