@@ -526,31 +526,36 @@
 /* Other States */
 .ui.selectable.table tr.error:hover,
 .ui.table tr td.selectable.error:hover,
-.ui.selectable.table tr:hover td.error {
+.ui.selectable.table tr:hover td.error,
+.ui.table tbody tr.selectable.error:hover {
   background: #ffe7e7 !important;
   color: #943634 !important;
 }
 .ui.selectable.table tr.warning:hover,
 .ui.table tr td.selectable.warning:hover,
-.ui.selectable.table tr:hover td.warning {
+.ui.selectable.table tr:hover td.warning,
+.ui.table tbody tr.selectable.warning:hover {
   background: #fff4e4 !important;
   color: #493107 !important;
 }
 .ui.selectable.table tr.active:hover,
 .ui.table tr td.selectable.active:hover,
-.ui.selectable.table tr:hover td.active {
+.ui.selectable.table tr:hover td.active,
+.ui.table tbody tr.selectable.active:hover {
   background: #E0E0E0 !important;
   color: rgba(0, 0, 0, 0.87) !important;
 }
 .ui.selectable.table tr.positive:hover,
 .ui.table tr td.selectable.positive:hover,
-.ui.selectable.table tr:hover td.positive {
+.ui.selectable.table tr:hover td.positive,
+.ui.table tbody tr.selectable.positive:hover {
   background: #f7ffe6 !important;
   color: #275b28 !important;
 }
 .ui.selectable.table tr.negative:hover,
 .ui.table tr td.selectable.negative:hover,
-.ui.selectable.table tr:hover td.negative {
+.ui.selectable.table tr:hover td.negative,
+.ui.table tbody tr.selectable.negative:hover {
   background: #ffe7e7 !important;
   color: #943634 !important;
 }
