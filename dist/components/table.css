@@ -501,12 +501,14 @@
 ---------------*/
 
 .ui.selectable.table tbody tr:hover,
-.ui.table tbody tr td.selectable:hover {
+.ui.table tbody tr td.selectable:hover,
+.ui.table tbody tr.selectable:hover {
   background: rgba(0, 0, 0, 0.05) !important;
   color: rgba(0, 0, 0, 0.95) !important;
 }
 .ui.selectable.inverted.table tbody tr:hover,
-.ui.inverted.table tbody tr td.selectable:hover {
+.ui.inverted.table tbody tr td.selectable:hover,
+.ui.inverted.table tbody tr.selectable:hover {
   background: rgba(255, 255, 255, 0.08) !important;
   color: #ffffff !important;
 }
