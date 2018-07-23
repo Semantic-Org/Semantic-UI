@@ -114,10 +114,6 @@ $.fn.dimmer = function(parameters) {
 
         bind: {
           events: function() {
-            if(module.is.page()) {
-              // touch events default to passive, due to changes in chrome to optimize mobile perf
-              $dimmable.get(0).addEventListener('touchmove', module.event.preventScroll, { passive: false });
-            }
             if(settings.on == 'hover') {
               $dimmable
                 .on('mouseenter' + eventNamespace, module.show)
@@ -145,9 +141,6 @@ $.fn.dimmer = function(parameters) {
 
         unbind: {
           events: function() {
-            if(module.is.page()) {
-              $dimmable.get(0).removeEventListener('touchmove', module.event.preventScroll, { passive: false });
-            }
             $module
               .removeData(moduleNamespace)
             ;
@@ -204,6 +197,11 @@ $.fn.dimmer = function(parameters) {
             module.animate.show(callback);
             settings.onShow.call(element);
             settings.onChange.call(element);
+
+            if(module.is.page()) {
+              // touch events default to passive, due to changes in chrome to optimize mobile perf
+              $dimmable.get(0).addEventListener('touchmove', module.event.preventScroll, { passive: false });
+            }
           }
           else {
             module.debug('Dimmer is already shown or disabled');
@@ -220,6 +218,10 @@ $.fn.dimmer = function(parameters) {
             module.animate.hide(callback);
             settings.onHide.call(element);
             settings.onChange.call(element);
+            
+            if(module.is.page()) {
+              $dimmable.get(0).removeEventListener('touchmove', module.event.preventScroll, { passive: false });
+            }
           }
           else {
             module.debug('Dimmer is not visible');
