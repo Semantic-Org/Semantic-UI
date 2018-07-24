@@ -14330,6 +14330,14 @@ img.ui.bordered.image {
   color: #da9796 !important;
 }
 
+.ui.input.error > .label {
+  background-color: #FFF6F6;
+  border-color: #E0B4B4;
+  color: #9F3A38;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 /*******************************
            Variations
 *******************************/
