@@ -252,7 +252,7 @@ $.fn.dimmer = function(parameters) {
               }
               $dimmer
                 .transition({
-                  displayType : settings.useFlex
+                  displayType : module.can.useFlex()
                     ? 'flex'
                     : 'block',
                   animation   : settings.transition + ' in',
@@ -299,7 +299,9 @@ $.fn.dimmer = function(parameters) {
               module.verbose('Hiding dimmer with css');
               $dimmer
                 .transition({
-                  displayType : 'flex',
+                  displayType : module.can.useFlex()
+                    ? 'flex'
+                    : 'block',
                   animation   : settings.transition + ' out',
                   queue       : false,
                   duration    : module.get.duration(),
@@ -361,6 +363,13 @@ $.fn.dimmer = function(parameters) {
           active: function() {
             return $dimmer.hasClass(className.active);
           },
+          ie: function() {
+            var
+              isIE11 = (!(window.ActiveXObject) && 'ActiveXObject' in window),
+              isIE   = ('ActiveXObject' in window)
+            ;
+            return (isIE11 || isIE);
+          },
           animating: function() {
             return ( $dimmer.is(':animated') || $dimmer.hasClass(className.animating) );
           },
@@ -398,8 +407,7 @@ $.fn.dimmer = function(parameters) {
 
         can: {
           useFlex: function() {
-            // test for IE11/edge
-            return true;
+            return !module.is.ie();
           },
           show: function() {
             return !$dimmer.hasClass(className.disabled);

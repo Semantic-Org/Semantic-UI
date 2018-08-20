@@ -168,6 +168,9 @@ $.fn.modal = function(parameters) {
         refresh: function() {
           module.remove.scrolling();
           module.cacheSizes();
+          if(!module.can.useFlex()) {
+            module.set.modalOffset();
+          }
           module.set.screenHeight();
           module.set.type();
         },
@@ -326,6 +329,9 @@ $.fn.modal = function(parameters) {
 
             module.showDimmer();
             module.cacheSizes();
+            if(!module.can.useFlex()) {
+              module.set.modalOffset();
+            }
             module.set.screenHeight();
             module.set.type();
             module.set.clickaway();
@@ -550,11 +556,13 @@ $.fn.modal = function(parameters) {
           $module.addClass(className.loading);
           var
             scrollHeight = $module.prop('scrollHeight'),
+            modalWidth   = $module.outerWidth(),
             modalHeight  = $module.outerHeight()
           ;
           if(module.cache === undefined || modalHeight !== 0) {
             module.cache = {
               pageHeight    : $(document).outerHeight(),
+              width         : modalWidth,
               height        : modalHeight + settings.offset,
               scrollHeight  : scrollHeight + settings.offset,
               contextHeight : (settings.context == 'body')
@@ -569,7 +577,7 @@ $.fn.modal = function(parameters) {
 
         can: {
           useFlex: function() {
-            return $dimmer.dimmer('can use flex');
+            return settings.detachable && $dimmer.dimmer('can use flex');
           },
           fit: function() {
             var
@@ -633,6 +641,7 @@ $.fn.modal = function(parameters) {
             var
               defaultSettings = {
                 debug      : settings.debug,
+                useFlex    : module.can.useFlex(),
                 dimmerName : 'modals',
                 closable   : 'auto',
                 variation  : settings.centered
@@ -663,6 +672,18 @@ $.fn.modal = function(parameters) {
               $dimmable.removeClass(className.blurring);
             }
             $context.dimmer('setting', dimmerSettings);
+          },
+          modalOffset: function() {
+            var
+              width = module.cache.width,
+              height = module.cache.height
+            ;
+            $module
+              .css({
+                marginTop: -(height / 2),
+                marginLeft: -(width / 2)
+              })
+            ;
           },
           screenHeight: function() {
             if( module.can.fit() ) {
@@ -888,6 +909,7 @@ $.fn.modal.settings = {
   namespace      : 'modal',
 
   useFlex        : 'auto',
+  offset         : 0,
 
   silent         : false,
   debug          : false,
@@ -918,7 +940,6 @@ $.fn.modal.settings = {
 
   queue      : false,
   duration   : 500,
-  offset     : 0,
   transition : 'scale',
 
   // padding with edge of page
