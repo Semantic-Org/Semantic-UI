@@ -92,7 +92,7 @@ $.fn.dimmer = function(parameters) {
 
           module.bind.events();
           module.set.dimmable();
-          if(!module.can.useFlex()) {
+          if(!settings.useFlex) {
             module.debug('Absolutely positioned flex not supported. Using legacy positioning.');
             module.set.legacy();
           }
@@ -252,7 +252,7 @@ $.fn.dimmer = function(parameters) {
               }
               $dimmer
                 .transition({
-                  displayType : module.can.useFlex()
+                  displayType : settings.useFlex
                     ? 'flex'
                     : 'block',
                   animation   : settings.transition + ' in',
@@ -299,7 +299,7 @@ $.fn.dimmer = function(parameters) {
               module.verbose('Hiding dimmer with css');
               $dimmer
                 .transition({
-                  displayType : module.can.useFlex()
+                  displayType : settings.useFlex
                     ? 'flex'
                     : 'block',
                   animation   : settings.transition + ' out',
@@ -363,13 +363,6 @@ $.fn.dimmer = function(parameters) {
           active: function() {
             return $dimmer.hasClass(className.active);
           },
-          ie: function() {
-            var
-              isIE11 = (!(window.ActiveXObject) && 'ActiveXObject' in window),
-              isIE   = ('ActiveXObject' in window)
-            ;
-            return (isIE11 || isIE);
-          },
           animating: function() {
             return ( $dimmer.is(':animated') || $dimmer.hasClass(className.animating) );
           },
@@ -406,9 +399,6 @@ $.fn.dimmer = function(parameters) {
         },
 
         can: {
-          useFlex: function() {
-            return !module.is.ie();
-          },
           show: function() {
             return !$dimmer.hasClass(className.disabled);
           }
@@ -673,13 +663,13 @@ $.fn.dimmer.settings = {
   name        : 'Dimmer',
   namespace   : 'dimmer',
 
-  // whether should use flex layout
-  useFlex     : 'auto',
-
   silent      : false,
   debug       : false,
   verbose     : false,
   performance : true,
+
+  // whether should use flex layout
+  useFlex     : true,
 
   // name to distinguish between multiple dimmers in context
   dimmerName  : false,

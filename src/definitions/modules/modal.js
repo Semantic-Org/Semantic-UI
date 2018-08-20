@@ -107,7 +107,7 @@ $.fn.modal = function(parameters) {
           dimmer: function() {
             var
               defaultSettings = {
-                flex       : settings.flex,
+                useFlex    : module.can.useFlex(),
                 debug      : settings.debug,
                 variation  : settings.centered
                   ? false
@@ -343,9 +343,6 @@ $.fn.modal = function(parameters) {
               if(settings.allowMultiple && settings.detachable) {
                 $module.detach().appendTo($dimmer);
               }
-              if(!module.can.useFlex()) {
-
-              }
               settings.onShow.call(element);
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 module.debug('Showing modal with css animations');
@@ -577,7 +574,7 @@ $.fn.modal = function(parameters) {
 
         can: {
           useFlex: function() {
-            return settings.detachable && $dimmer.dimmer('can use flex');
+            return settings.detachable && !module.is.ie();
           },
           fit: function() {
             var
@@ -599,6 +596,13 @@ $.fn.modal = function(parameters) {
         is: {
           active: function() {
             return $module.hasClass(className.active);
+          },
+          ie: function() {
+            var
+              isIE11 = (!(window.ActiveXObject) && 'ActiveXObject' in window),
+              isIE   = ('ActiveXObject' in window)
+            ;
+            return (isIE11 || isIE);
           },
           animating: function() {
             return $module.transition('is supported')
@@ -641,7 +645,6 @@ $.fn.modal = function(parameters) {
             var
               defaultSettings = {
                 debug      : settings.debug,
-                useFlex    : module.can.useFlex(),
                 dimmerName : 'modals',
                 closable   : 'auto',
                 variation  : settings.centered
@@ -684,6 +687,7 @@ $.fn.modal = function(parameters) {
                 marginLeft: -(width / 2)
               })
             ;
+            module.verbose('Setting modal offset for legacy mode');
           },
           screenHeight: function() {
             if( module.can.fit() ) {
