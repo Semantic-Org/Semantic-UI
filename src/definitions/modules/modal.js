@@ -574,7 +574,10 @@ $.fn.modal = function(parameters) {
 
         can: {
           useFlex: function() {
-            return settings.detachable && !module.is.ie();
+            return (settings.useFlex == 'auto')
+              ? settings.detachable && !module.is.ie()
+              : settings.useFlex
+            ;
           },
           fit: function() {
             var
