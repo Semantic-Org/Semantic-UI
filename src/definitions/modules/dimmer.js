@@ -92,6 +92,10 @@ $.fn.dimmer = function(parameters) {
 
           module.bind.events();
           module.set.dimmable();
+          if(!module.can.useFlex()) {
+            module.debug('Absolutely positioned flex not supported. Using legacy positioning.');
+            module.set.legacy();
+          }
           module.instantiate();
         },
 
@@ -248,7 +252,9 @@ $.fn.dimmer = function(parameters) {
               }
               $dimmer
                 .transition({
-                  displayType : 'flex',
+                  displayType : settings.useFlex
+                    ? 'flex'
+                    : 'block',
                   animation   : settings.transition + ' in',
                   queue       : false,
                   duration    : module.get.duration(),
@@ -391,6 +397,10 @@ $.fn.dimmer = function(parameters) {
         },
 
         can: {
+          useFlex: function() {
+            // test for IE11/edge
+            return true;
+          },
           show: function() {
             return !$dimmer.hasClass(className.disabled);
           }
@@ -414,6 +424,9 @@ $.fn.dimmer = function(parameters) {
             }
             module.debug('Setting opacity to', opacity);
             $dimmer.css('background-color', color);
+          },
+          legacy: function() {
+            $dimmer.addClass(className.legacy);
           },
           active: function() {
             $dimmer.addClass(className.active);
@@ -652,6 +665,9 @@ $.fn.dimmer.settings = {
   name        : 'Dimmer',
   namespace   : 'dimmer',
 
+  // whether should use flex layout
+  useFlex     : 'auto',
+
   silent      : false,
   debug       : false,
   verbose     : false,
@@ -700,6 +716,7 @@ $.fn.dimmer.settings = {
     dimmer     : 'dimmer',
     disabled   : 'disabled',
     hide       : 'hide',
+    legacy     : 'legacy',
     pageDimmer : 'page',
     show       : 'show'
   },

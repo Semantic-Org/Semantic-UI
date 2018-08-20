@@ -107,6 +107,7 @@ $.fn.modal = function(parameters) {
           dimmer: function() {
             var
               defaultSettings = {
+                flex       : settings.flex,
                 debug      : settings.debug,
                 variation  : settings.centered
                   ? false
@@ -336,6 +337,9 @@ $.fn.modal = function(parameters) {
               if(settings.allowMultiple && settings.detachable) {
                 $module.detach().appendTo($dimmer);
               }
+              if(!module.can.useFlex()) {
+
+              }
               settings.onShow.call(element);
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 module.debug('Showing modal with css animations');
@@ -564,6 +568,9 @@ $.fn.modal = function(parameters) {
         },
 
         can: {
+          useFlex: function() {
+            return $dimmer.dimmer('can use flex');
+          },
           fit: function() {
             var
               contextHeight  = module.cache.contextHeight,
@@ -879,6 +886,8 @@ $.fn.modal.settings = {
 
   name           : 'Modal',
   namespace      : 'modal',
+
+  useFlex        : 'auto',
 
   silent         : false,
   debug          : false,
