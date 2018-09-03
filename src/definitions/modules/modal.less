@@ -310,6 +310,13 @@
   color: @basicInvertedModalHeaderColor;
 }
 
+/* Resort to margin positioning if legacy */
+.ui.legacy.modal,
+.ui.legacy.page.dimmer > .ui.modal {
+  top: 50%;
+  left: 50%;
+}
+
 /* Tablet and Mobile */
 @media only screen and (max-width : @largestTabletScreen) {
   .ui.basic.modal > .close {

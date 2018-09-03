@@ -92,10 +92,6 @@ $.fn.dimmer = function(parameters) {
 
           module.bind.events();
           module.set.dimmable();
-          if(!settings.useFlex) {
-            module.debug('Absolutely positioned flex not supported. Using legacy positioning.');
-            module.set.legacy();
-          }
           module.instantiate();
         },
 
@@ -247,6 +243,14 @@ $.fn.dimmer = function(parameters) {
               : function(){}
             ;
             if(settings.useCSS && $.fn.transition !== undefined && $dimmer.transition('is supported')) {
+              if(settings.useFlex) {
+                module.debug('Using flex dimmer');
+                module.remove.legacy();
+              }
+              else {
+                module.debug('Using legacy non-flex dimmer');
+                module.set.legacy();
+              }
               if(settings.opacity !== 'auto') {
                 module.set.opacity();
               }
@@ -454,6 +458,9 @@ $.fn.dimmer = function(parameters) {
             $dimmer
               .removeClass(className.active)
             ;
+          },
+          legacy: function() {
+            $dimmer.removeClass(className.legacy);
           },
           dimmed: function() {
             $dimmable.removeClass(className.dimmed);

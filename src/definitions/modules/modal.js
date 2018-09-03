@@ -107,7 +107,6 @@ $.fn.modal = function(parameters) {
           dimmer: function() {
             var
               defaultSettings = {
-                useFlex    : module.can.useFlex(),
                 debug      : settings.debug,
                 variation  : settings.centered
                   ? false
@@ -133,7 +132,7 @@ $.fn.modal = function(parameters) {
             $dimmer = $dimmable.dimmer('get dimmer');
           },
           id: function() {
-            id = (Math.random().toString(16) + '000000000').substr(2,8);
+            id = (Math.random().toString(16) + '000000000').substr(2, 8);
             elementEventNamespace = '.' + id;
             module.verbose('Creating unique id for element', id);
           }
@@ -216,7 +215,7 @@ $.fn.modal = function(parameters) {
 
         get: {
           id: function() {
-            return (Math.random().toString(16) + '000000000').substr(2,8);
+            return (Math.random().toString(16) + '000000000').substr(2, 8);
           }
         },
 
@@ -326,11 +325,15 @@ $.fn.modal = function(parameters) {
             : function(){}
           ;
           if( module.is.animating() || !module.is.active() ) {
-
             module.showDimmer();
             module.cacheSizes();
-            if(!module.can.useFlex()) {
+            if(module.can.useFlex()) {
+              module.remove.legacy();
+            }
+            else {
+              module.set.legacy();
               module.set.modalOffset();
+              module.debug('Using non-flex legacy modal positioning.');
             }
             module.set.screenHeight();
             module.set.type();
@@ -520,6 +523,9 @@ $.fn.modal = function(parameters) {
           active: function() {
             $module.removeClass(className.active);
           },
+          legacy: function() {
+            $module.removeClass(className.legacy);
+          },
           clickaway: function() {
             $dimmer
               .off('click' + elementEventNamespace)
@@ -618,7 +624,7 @@ $.fn.modal = function(parameters) {
           },
           modernBrowser: function() {
             // appName for IE11 reports 'Netscape' can no longer use
-            return !(window.ActiveXObject || "ActiveXObject" in window);
+            return !(window.ActiveXObject || 'ActiveXObject' in window);
           }
         },
 
@@ -650,10 +656,10 @@ $.fn.modal = function(parameters) {
                 debug      : settings.debug,
                 dimmerName : 'modals',
                 closable   : 'auto',
+                useFlex    : module.can.useFlex(),
                 variation  : settings.centered
                   ? false
-                  : 'top aligned'
-                ,
+                  : 'top aligned',
                 duration   : {
                   show     : settings.duration,
                   hide     : settings.duration
@@ -709,6 +715,9 @@ $.fn.modal = function(parameters) {
           scrolling: function() {
             $dimmable.addClass(className.scrolling);
             $module.addClass(className.scrolling);
+          },
+          legacy: function() {
+            $module.addClass(className.legacy);
           },
           type: function() {
             if(module.can.fit()) {
@@ -986,6 +995,7 @@ $.fn.modal.settings = {
     animating  : 'animating',
     blurring   : 'blurring',
     inverted   : 'inverted',
+    legacy     : 'legacy',
     loading    : 'loading',
     scrolling  : 'scrolling',
     undetached : 'undetached'
