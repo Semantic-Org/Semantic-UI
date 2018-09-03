@@ -23,6 +23,7 @@
 *******************************/
 
 .ui.modal {
+  position: absolute;
   display: none;
   z-index: @zIndex;
   text-align: left;
@@ -307,6 +308,13 @@
 }
 .ui.inverted.dimmer > .ui.basic.modal > .header {
   color: @basicInvertedModalHeaderColor;
+}
+
+/* Resort to margin positioning if legacy */
+.ui.legacy.modal,
+.ui.legacy.page.dimmer > .ui.modal {
+  top: 50%;
+  left: 50%;
 }
 
 /* Tablet and Mobile */

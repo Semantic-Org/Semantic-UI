@@ -243,12 +243,22 @@ $.fn.dimmer = function(parameters) {
               : function(){}
             ;
             if(settings.useCSS && $.fn.transition !== undefined && $dimmer.transition('is supported')) {
+              if(settings.useFlex) {
+                module.debug('Using flex dimmer');
+                module.remove.legacy();
+              }
+              else {
+                module.debug('Using legacy non-flex dimmer');
+                module.set.legacy();
+              }
               if(settings.opacity !== 'auto') {
                 module.set.opacity();
               }
               $dimmer
                 .transition({
-                  displayType : 'flex',
+                  displayType : settings.useFlex
+                    ? 'flex'
+                    : 'block',
                   animation   : settings.transition + ' in',
                   queue       : false,
                   duration    : module.get.duration(),
@@ -293,7 +303,9 @@ $.fn.dimmer = function(parameters) {
               module.verbose('Hiding dimmer with css');
               $dimmer
                 .transition({
-                  displayType : 'flex',
+                  displayType : settings.useFlex
+                    ? 'flex'
+                    : 'block',
                   animation   : settings.transition + ' out',
                   queue       : false,
                   duration    : module.get.duration(),
@@ -415,6 +427,9 @@ $.fn.dimmer = function(parameters) {
             module.debug('Setting opacity to', opacity);
             $dimmer.css('background-color', color);
           },
+          legacy: function() {
+            $dimmer.addClass(className.legacy);
+          },
           active: function() {
             $dimmer.addClass(className.active);
           },
@@ -443,6 +458,9 @@ $.fn.dimmer = function(parameters) {
             $dimmer
               .removeClass(className.active)
             ;
+          },
+          legacy: function() {
+            $dimmer.removeClass(className.legacy);
           },
           dimmed: function() {
             $dimmable.removeClass(className.dimmed);
@@ -657,6 +675,9 @@ $.fn.dimmer.settings = {
   verbose     : false,
   performance : true,
 
+  // whether should use flex layout
+  useFlex     : true,
+
   // name to distinguish between multiple dimmers in context
   dimmerName  : false,
 
@@ -700,6 +721,7 @@ $.fn.dimmer.settings = {
     dimmer     : 'dimmer',
     disabled   : 'disabled',
     hide       : 'hide',
+    legacy     : 'legacy',
     pageDimmer : 'page',
     show       : 'show'
   },
