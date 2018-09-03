@@ -1015,7 +1015,7 @@ $.fn.popup = function(parameters) {
             if(settings.on == 'hover' && openedWithTouch) {
               module.bind.touchClose();
             }
-            if(settings.on == 'click' && settings.closable) {
+            if(module.should.useClickaway()) {
               module.bind.clickaway();
             }
           },
@@ -1073,6 +1073,12 @@ $.fn.popup = function(parameters) {
         should: {
           centerArrow: function(calculations) {
             return !module.is.basic() && calculations.target.width <= (settings.arrowPixelsFromEdge * 2);
+          },
+          useClickaway: function() {
+            return (settings.closable == 'auto')
+              ? (settings.on == 'click')
+              : settings.closable
+            ;
           }
         },
 
