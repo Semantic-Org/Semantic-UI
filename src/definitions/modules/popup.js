@@ -1012,11 +1012,11 @@ $.fn.popup = function(parameters) {
             if(settings.hideOnScroll === true || (settings.hideOnScroll == 'auto' && settings.on != 'click')) {
               module.bind.closeOnScroll();
             }
-            if(settings.on == 'hover' && openedWithTouch) {
-              module.bind.touchClose();
-            }
-            if(module.should.useClickaway()) {
+            if(module.is.closable()) {
               module.bind.clickaway();
+            }
+            else if(settings.on == 'hover' && openedWithTouch) {
+              module.bind.touchClose();
             }
           },
           closeOnScroll: function() {
@@ -1074,15 +1074,18 @@ $.fn.popup = function(parameters) {
           centerArrow: function(calculations) {
             return !module.is.basic() && calculations.target.width <= (settings.arrowPixelsFromEdge * 2);
           },
-          useClickaway: function() {
-            return (settings.closable == 'auto')
-              ? (settings.on == 'click')
-              : settings.closable
-            ;
-          }
         },
 
         is: {
+          closable: function() {
+            if(settings.closable == 'auto') {
+              if(settings.on == 'hover') {
+                return false;
+              }
+              return true;
+            }
+            return settings.closable;
+          },
           offstage: function(distanceFromBoundary, position) {
             var
               offstage = []
