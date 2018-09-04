@@ -2,12 +2,16 @@
 
 ### Version 2.3.4 - Aug xx, 2018
 
-**Enhancements**
-
+**Major Enhancements**
 - **Modal/Dimmer** - Modals and dimmers now include a new setting `useFlex` which defaults to `auto`. Modals and dimmers will automatically revert to using non-flex layouts when there may be layout issues with using flexbox.
 
 For example when `attachable: false` is used with a modal, or if IE11/Edge is used (Absolutely positioned elements inside flex containers in IE behave differently)
 
+**New UI**
+
+- **Segment** - Segment now include a `placeholder` type, which can be used to save place for content when content is empty.
+
+- **Loader** - Loader now includes `content loader` which let you specify arbitrary mocked up content to appear before content loads.
 
 
 

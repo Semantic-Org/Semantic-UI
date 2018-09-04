@@ -45,21 +45,16 @@
 @pageGridMargin: (2 * @verticalPadding);
 
 /*******************************
-            States
+            Types
 *******************************/
 
-/* Loading Dimmer */
-@loaderDimmerColor: rgba(255, 255, 255, 0.8);
-@loaderDimmerZIndex: 100;
+/* Placeholder */
+@placeholderBackground: @offWhite;
+@placeholderPadding: @padding;
+@placeholderBorderColor: @borderColor;
+@placeholderBoxShadow: 0px 2px 25px 0 rgba(34, 36, 38, 0.05) inset;
+@placeholderMinHeight: 18rem;
 
-/* Loading Spinner */
-@loaderSize: 3em;
-@loaderLineZIndex: 101;
-
-
-/*******************************
-            Variations
-*******************************/
 
 /* Piled */
 @piledZIndex: auto;
@@ -76,6 +71,24 @@
 @stackedPageBackground: @subtleTransparentBlack;
 @stackedPadding: @verticalPadding + (0.4em);
 @tallStackedPadding: @verticalPadding + (0.8em);
+
+/*******************************
+            States
+*******************************/
+
+/* Loading Dimmer */
+@loaderDimmerColor: rgba(255, 255, 255, 0.8);
+@loaderDimmerZIndex: 100;
+
+/* Loading Spinner */
+@loaderSize: 3em;
+@loaderLineZIndex: 101;
+
+
+/*******************************
+            Variations
+*******************************/
+
 
 /* Raised */
 @raisedBoxShadow: @floatingShadow;
