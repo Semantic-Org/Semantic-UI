@@ -173,52 +173,35 @@
   top: 0px;
   transform: none;
   width: auto;
-  height: 96px;
+  height: auto;
   margin: 0em;
   will-change: background-position, transform;
   overflow: hidden;
   backface-visibility: hidden;
-  animation: placeholderShimmer 1s linear;
+  animation: placeholderShimmer @contentLoadingAnimationDuration linear;
   animation-iteration-count: infinite;
   background-color: @white;
-  background-image: linear-gradient(to right,
-    #EEEEEE 0%,
-    #DDDDDD 15%,
-    #EEEEEE 30%
-  );
-  background-size: 800px 104px;
-  max-width: 420px;
+  background-image: @contentLoadingGradient;
+  background-size: @contentLoadingGradientWidth 100%;
+  max-width: @contentLoaderMaxWidth;
 }
-.ui.content.loader .line {
+
+.ui.content.loader,
+.ui.content.loader .line,
+.ui.content.loader .image.header:after {
   background-color: @white;
 }
-.ui.inverted.content.loader {
-  background-color: @black;
-  background-image: linear-gradient(to right,
-    #222222 0%,
-    #333333 15%,
-    #222222 30%
-  );
-}
-.ui.inverted.content.loader .line {
-  background-color: @black;
-}
-.ui.content.loader:not(:first-child) {
-  margin-top: 1rem;
-}
-.ui.content.loader:not(:last-child) {
-  margin-bottom: 1rem;
-}
+
 .ui.content.loader:before,
 .ui.content.loader:after {
   display: none;
 }
 @keyframes placeholderShimmer{
   0% {
-      background-position: -500px 0
+    background-position: -@contentLoadingGradientWidth 0
   }
   100% {
-      background-position: 500px 0
+    background-position: @contentLoadingGradientWidth 0
   }
 }
 .ui.content.loader + .ui.content.loader {
@@ -238,13 +221,15 @@
 /* Lines */
 .ui.content.loader .line {
   position: relative;
-  height: @contentLineDistance;
+  height: @contentLineMargin;
+}
+.ui.content.loader .line:first-child {
+  height: 0px;
 }
 .ui.content.loader .line:before,
 .ui.content.loader .line:after {
   top: 100%;
   position: absolute;
-  height: @contentLineHeight;
   content: '';
   background-color: inherit;
 }
@@ -255,116 +240,88 @@
   right: 0px;
 }
 
-/* Both Lines */
+/* Any Lines */
+.ui.content.loader .line {
+  margin-bottom: @contentLineHeight;
+}
+.ui.content.loader .line:before,
+.ui.content.loader .line:after {
+  height: @contentLineHeight;
+}
+.ui.content.loader .line:not(:first-child) {
+  margin-top: @contentLineHeight;
+}
+
+/* Header Image + 2 Lines */
 .ui.content.loader .header {
   position: relative;
   overflow: hidden;
 }
-.ui.content.loader .header .line {
-  margin-left: @contentImageWidth;
-}
-.ui.content.loader .header .line:before {
-  width: @contentTextIndent;
-}
 
-/* Line 1 (Outdent from right) */
-.ui.content.loader .header .line:after {
+/* Line Outdent */
+.ui.content.loader .line:nth-child(1):after {
   width: @contentLineOneOutdent;
 }
-/* Line 2 (Outdent from right) */
-.ui.content.loader .header .line:nth-child(2) {
-  margin-top: @contentLineHeight;
-  margin-bottom: @contentLineTotalHeight;
-}
-.ui.content.loader .header .line:nth-child(2):after {
+.ui.content.loader .line:nth-child(2):after {
   width: @contentLineTwoOutdent;
 }
-/* Space below Line 2 */
-.ui.content.loader .header:before {
-  background-color: @white;
-  position: absolute;
-  top: auto;
-  right: 0px;
-  bottom: 0px;
-  width: ~"calc(100% - "(@contentImageWidth)~")";
-  height: @contentLineDistance;
+.ui.content.loader .line:nth-child(3):after {
+  width: @contentLineThreeOutdent;
+}
+.ui.content.loader .line:nth-child(4):after {
+  width: @contentLineFourOutdent;
+}
+.ui.content.loader .line:nth-child(5):after {
+  width: @contentLineFiveOutdent;
+}
+
+/* Header Line 1 & 2*/
+.ui.content.loader .header .line {
+  margin-bottom: @contentHeaderLineHeight;
+}
+.ui.content.loader .header .line:before,
+.ui.content.loader .header .line:after {
+  height: @contentHeaderLineHeight;
+}
+.ui.content.loader .header .line:not(:first-child) {
+  margin-top: @contentHeaderLineHeight;
+}
+.ui.content.loader .header .line:after {
+  width: @contentHeaderLineOneOutdent;
+}
+.ui.content.loader .header .line:nth-child(2):after {
+  width: @contentHeaderLineTwoOutdent;
+}
+
+/* Image Header */
+.ui.content.loader .image.header .line {
+  margin-left: @contentImageWidth;
+}
+.ui.content.loader .image.header .line:before {
+  width: @contentImageTextIndent;
+}
+.ui.content.loader .image.header:after {
+  display: block;
+  height: @contentLineMargin;
   content: '';
+  margin-left: @contentImageWidth;
 }
 
-
-/* Line 2 (Negative Space) */
-
-/*
-.ui.content.loader  .header .line:first-child,
-.ui.content.loader .header .line:last-child,
-.ui.content.loader .subheader .line:last-child {
-  top: 0;
-  left: 40px;
-  right: 0;
-  height: 10px;
+/* Paragraph */
+.ui.content.loader .paragraph + .paragraph .line:first-child,
+.ui.content.loader .header + .paragraph .line:first-child {
+  height: @contentParagraphMarginTop;
 }
 
-.ui.content.loader .header .line:nth-child(2),
-.ui.content.loader .header .line:nth-child(3),
-.ui.content.loader .subheader .line:first-child,
-.ui.content.loader .subheader .line:nth-child(2) {
-  top: 10px;
-  left: 40px;
-  height: 8px;
-  width: 10px;
+/* Inverted Content Loader */
+.ui.inverted.content.loader {
+  background-image: @contentInvertedLoadingGradient;
 }
-.ui.content.loader .header .line:last-child {
-  top: 18px;
-  height: 6px;
+.ui.inverted.content.loader,
+.ui.inverted.content.loader .line,
+.ui.inverted.content.loader .image.header:after {
+  background-color: @black;
 }
-.ui.content.loader .subheader .line:first-child,
-.ui.content.loader .subheader .line:nth-child(2) {
-  top: 24px;
-  height: 6px;
-}
-.ui.content.loader .header .line:nth-child(3),
-.ui.content.loader .subheader .line:nth-child(2) {
-  width: 120px;
-  left: auto;
-  right: 0px;
-}
-.ui.content.loader .subheader .line:nth-child(2) {
-  width: 50px;
-}
-.ui.content.loader .subheader .line:last-child {
-  top: 30px;
-  height: 10px;
-}
-.ui.content.loader .line {
-  top: 40px;
-  left: 0;
-  right: 0;
-  height: 6px;
-}
-.ui.content.loader .content .line:first-child {
-  height: 20px;
-}
-.ui.content.loader .content .line:nth-child(2n) {
-  width: auto;
-  left: 380px;
-  right: 0;
-  top: 60px;
-  height: 8px;
-}
-.ui.content.loader .content .line:nth-child(3) {
-  top: 68px;
-}
-.ui.content.loader .content .line:nth-child(4) {
-  left: 420px;
-  top: 74px;
-}
-.ui.content.loader .content .line:nth-child(5) {
-  top: 82px;
-}
-.ui.content.loader .content .line:nth-child(6) {
-  left: 300px;
-  top: 88px;
-}*/
 
 
 /*-------------------

@@ -25,21 +25,45 @@
 --------------------*/
 
 /* Text */
+@contentLoaderMaxWidth: 30rem;
 @textDistance: @relativeMini;
 @loaderTextColor: @textColor;
 @invertedLoaderTextColor: @invertedTextColor;
 
-/* Content */
+/* Content Loader Lines */
+@contentLineMargin: 12px;
+@contentHeaderLineHeight: 9px;
+@contentLineHeight: 7px;
+@contentParagraphLineHeight: @contentLineHeight;
 
-@contentImageWidth: 40px;
-@contentTextIndent: 10px;
+/* Header Image */
+@contentImageWidth: 50px;
+@contentImageTextIndent: 10px;
 
-@contentLineDistance: 8px;
-@contentLineHeight: 4px;
-@contentLineTotalHeight: (@contentLineDistance + @contentLineHeight);
+/* Paragraph */
+@contentHeaderLineOneOutdent: 0px;
+@contentHeaderLineTwoOutdent: 120px;
+@contentParagraphMarginTop: 20px;
 
-@contentLineOneOutdent: 0px;
-@contentLineTwoOutdent: 120px;
+@contentLineOneOutdent: 4rem;
+@contentLineTwoOutdent: 7rem;
+@contentLineThreeOutdent: 2rem;
+@contentLineFourOutdent: 6rem;
+@contentLineFiveOutdent: 10rem;
+
+/* Glow Gradient */
+@contentLoadingAnimationDuration: 2s;
+@contentLoadingGradientWidth: 1200px;
+@contentLoadingGradient: linear-gradient(to right,
+  #EEEEEE 0%,
+  #DDDDDD 15%,
+  #EEEEEE 30%
+);
+@contentInvertedLoadingGradient: linear-gradient(to right,
+  #222222 0%,
+  #333333 15%,
+  #222222 30%
+);
 
 /*-------------------
         States
