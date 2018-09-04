@@ -162,6 +162,210 @@
              Types
 *******************************/
 
+/*-------------------
+      Content
+--------------------*/
+
+/* Placeholder Paragraph */
+.ui.content.loader {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  transform: none;
+  width: auto;
+  height: 96px;
+  margin: 0em;
+  will-change: background-position, transform;
+  overflow: hidden;
+  backface-visibility: hidden;
+  animation: placeholderShimmer 1s linear;
+  animation-iteration-count: infinite;
+  background-color: @white;
+  background-image: linear-gradient(to right,
+    #EEEEEE 0%,
+    #DDDDDD 15%,
+    #EEEEEE 30%
+  );
+  background-size: 800px 104px;
+  max-width: 420px;
+}
+.ui.content.loader .line {
+  background-color: @white;
+}
+.ui.inverted.content.loader {
+  background-color: @black;
+  background-image: linear-gradient(to right,
+    #222222 0%,
+    #333333 15%,
+    #222222 30%
+  );
+}
+.ui.inverted.content.loader .line {
+  background-color: @black;
+}
+.ui.content.loader:not(:first-child) {
+  margin-top: 1rem;
+}
+.ui.content.loader:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.ui.content.loader:before,
+.ui.content.loader:after {
+  display: none;
+}
+@keyframes placeholderShimmer{
+  0% {
+      background-position: -500px 0
+  }
+  100% {
+      background-position: 500px 0
+  }
+}
+.ui.content.loader + .ui.content.loader {
+  margin-top: 2rem;
+  animation-delay: 0.1s;
+}
+.ui.content.loader + .ui.content.loader + .ui.content.loader {
+  animation-delay: 0.2s;
+}
+.ui.content.loader + .ui.content.loader + .ui.content.loader + .ui.content.loader {
+  animation-delay: 0.3s;
+}
+.ui.content.loader + .ui.content.loader + .ui.content.loader + .ui.content.loader + .ui.content.loader {
+  animation-delay: 0.4s;
+}
+
+/* Lines */
+.ui.content.loader .line {
+  position: relative;
+  height: @contentLineDistance;
+}
+.ui.content.loader .line:before,
+.ui.content.loader .line:after {
+  top: 100%;
+  position: absolute;
+  height: @contentLineHeight;
+  content: '';
+  background-color: inherit;
+}
+.ui.content.loader .line:before {
+  left: 0px;
+}
+.ui.content.loader .line:after {
+  right: 0px;
+}
+
+/* Both Lines */
+.ui.content.loader .header {
+  position: relative;
+  overflow: hidden;
+}
+.ui.content.loader .header .line {
+  margin-left: @contentImageWidth;
+}
+.ui.content.loader .header .line:before {
+  width: @contentTextIndent;
+}
+
+/* Line 1 (Outdent from right) */
+.ui.content.loader .header .line:after {
+  width: @contentLineOneOutdent;
+}
+/* Line 2 (Outdent from right) */
+.ui.content.loader .header .line:nth-child(2) {
+  margin-top: @contentLineHeight;
+  margin-bottom: @contentLineTotalHeight;
+}
+.ui.content.loader .header .line:nth-child(2):after {
+  width: @contentLineTwoOutdent;
+}
+/* Space below Line 2 */
+.ui.content.loader .header:before {
+  background-color: @white;
+  position: absolute;
+  top: auto;
+  right: 0px;
+  bottom: 0px;
+  width: ~"calc(100% - "(@contentImageWidth)~")";
+  height: @contentLineDistance;
+  content: '';
+}
+
+
+/* Line 2 (Negative Space) */
+
+/*
+.ui.content.loader  .header .line:first-child,
+.ui.content.loader .header .line:last-child,
+.ui.content.loader .subheader .line:last-child {
+  top: 0;
+  left: 40px;
+  right: 0;
+  height: 10px;
+}
+
+.ui.content.loader .header .line:nth-child(2),
+.ui.content.loader .header .line:nth-child(3),
+.ui.content.loader .subheader .line:first-child,
+.ui.content.loader .subheader .line:nth-child(2) {
+  top: 10px;
+  left: 40px;
+  height: 8px;
+  width: 10px;
+}
+.ui.content.loader .header .line:last-child {
+  top: 18px;
+  height: 6px;
+}
+.ui.content.loader .subheader .line:first-child,
+.ui.content.loader .subheader .line:nth-child(2) {
+  top: 24px;
+  height: 6px;
+}
+.ui.content.loader .header .line:nth-child(3),
+.ui.content.loader .subheader .line:nth-child(2) {
+  width: 120px;
+  left: auto;
+  right: 0px;
+}
+.ui.content.loader .subheader .line:nth-child(2) {
+  width: 50px;
+}
+.ui.content.loader .subheader .line:last-child {
+  top: 30px;
+  height: 10px;
+}
+.ui.content.loader .line {
+  top: 40px;
+  left: 0;
+  right: 0;
+  height: 6px;
+}
+.ui.content.loader .content .line:first-child {
+  height: 20px;
+}
+.ui.content.loader .content .line:nth-child(2n) {
+  width: auto;
+  left: 380px;
+  right: 0;
+  top: 60px;
+  height: 8px;
+}
+.ui.content.loader .content .line:nth-child(3) {
+  top: 68px;
+}
+.ui.content.loader .content .line:nth-child(4) {
+  left: 420px;
+  top: 74px;
+}
+.ui.content.loader .content .line:nth-child(5) {
+  top: 82px;
+}
+.ui.content.loader .content .line:nth-child(6) {
+  left: 300px;
+  top: 88px;
+}*/
+
 
 /*-------------------
         Text

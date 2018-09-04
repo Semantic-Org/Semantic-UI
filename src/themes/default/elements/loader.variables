@@ -29,6 +29,18 @@
 @loaderTextColor: @textColor;
 @invertedLoaderTextColor: @invertedTextColor;
 
+/* Content */
+
+@contentImageWidth: 40px;
+@contentTextIndent: 10px;
+
+@contentLineDistance: 8px;
+@contentLineHeight: 4px;
+@contentLineTotalHeight: (@contentLineDistance + @contentLineHeight);
+
+@contentLineOneOutdent: 0px;
+@contentLineTwoOutdent: 120px;
+
 /*-------------------
         States
 --------------------*/
