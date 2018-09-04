@@ -30,11 +30,16 @@
 @loaderTextColor: @textColor;
 @invertedLoaderTextColor: @invertedTextColor;
 
+@contentSpacing: 20px;
+
 /* Content Loader Lines */
 @contentLineMargin: 12px;
 @contentHeaderLineHeight: 9px;
 @contentLineHeight: 7px;
 @contentParagraphLineHeight: @contentLineHeight;
+
+/* Image */
+@contentImageHeight: 100px;
 
 /* Header Image */
 @contentImageWidth: 50px;
@@ -43,7 +48,6 @@
 /* Paragraph */
 @contentHeaderLineOneOutdent: 0px;
 @contentHeaderLineTwoOutdent: 120px;
-@contentParagraphMarginTop: 20px;
 
 @contentLineOneOutdent: 4rem;
 @contentLineTwoOutdent: 7rem;

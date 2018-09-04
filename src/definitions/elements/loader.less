@@ -187,8 +187,10 @@
 }
 
 .ui.content.loader,
+.ui.content.loader > :before,
+.ui.content.loader .image.header:after,
 .ui.content.loader .line,
-.ui.content.loader .image.header:after {
+.ui.content.loader .line:after {
   background-color: @white;
 }
 
@@ -216,6 +218,11 @@
 }
 .ui.content.loader + .ui.content.loader + .ui.content.loader + .ui.content.loader + .ui.content.loader {
   animation-delay: 0.4s;
+}
+
+/* Image */
+.ui.content.loader .image:not(.header) {
+  height: @contentImageHeight;
 }
 
 /* Lines */
@@ -308,9 +315,12 @@
 }
 
 /* Paragraph */
-.ui.content.loader .paragraph + .paragraph .line:first-child,
-.ui.content.loader .header + .paragraph .line:first-child {
-  height: @contentParagraphMarginTop;
+.ui.content.loader .image:not(:first-child):before,
+.ui.content.loader .paragraph:not(:first-child):before,
+.ui.content.loader .header:not(:first-child):before {
+  height: @contentSpacing;
+  content: '';
+  display: block;
 }
 
 /* Inverted Content Loader */
@@ -318,10 +328,13 @@
   background-image: @contentInvertedLoadingGradient;
 }
 .ui.inverted.content.loader,
+.ui.inverted.content.loader > :before,
+.ui.inverted.content.loader .image.header:after,
 .ui.inverted.content.loader .line,
-.ui.inverted.content.loader .image.header:after {
+.ui.inverted.content.loader .line:after {
   background-color: @black;
 }
+
 
 
 /*-------------------
