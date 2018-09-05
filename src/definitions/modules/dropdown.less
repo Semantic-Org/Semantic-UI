@@ -84,7 +84,7 @@
  Dropdown Icon
 ---------------*/
 
-.ui.dropdown > .dropdown.icon {
+.ui.dropdown.dropdown > .icon {
   position: relative;
   width: auto;
   font-size: @dropdownIconSize;
@@ -384,9 +384,7 @@ select.ui.dropdown {
   border: @selectBorder;
   visibility: @selectVisibility;
 }
-.ui.selection.dropdown > .search.icon,
-.ui.selection.dropdown > .delete.icon,
-.ui.selection.dropdown > .dropdown.icon {
+.ui.selection.dropdown > .icon {
   cursor: pointer;
   position: absolute;
   width: auto;
@@ -513,8 +511,8 @@ select.ui.dropdown {
 }
 
 /* Dropdown Icon */
-.ui.active.selection.dropdown > .dropdown.icon,
-.ui.visible.selection.dropdown > .dropdown.icon {
+.ui.active.selection.dropdown > .icon,
+.ui.visible.selection.dropdown > .icon {
   opacity: @selectionVisibleIconOpacity;
   z-index: 3;
 }
@@ -662,7 +660,7 @@ select.ui.dropdown {
 }
 
 /* Dropdown Icon */
-.ui.multiple.dropdown .dropdown.icon {
+.ui.multiple.dropdown > .icon {
   margin: @multipleSelectionDropdownIconMargin;
   padding: @multipleSelectionDropdownIconPadding;
 }
@@ -721,7 +719,7 @@ select.ui.dropdown {
   display: inline-block;
   color: @inlineTextColor;
 }
-.ui.inline.dropdown .dropdown.icon {
+.ui.inline.dropdown > .icon {
   margin: @inlineIconMargin;
   vertical-align: baseline;
 }
@@ -1191,7 +1189,7 @@ select.ui.dropdown {
   width: 100%;
   min-width: 0em;
 }
-.ui.fluid.dropdown > .dropdown.icon {
+.ui.fluid.dropdown > .icon {
   float: right;
 }
 
