@@ -13,6 +13,9 @@ For example when `attachable: false` is used with a modal, or if IE11/Edge is us
 
 - **Loader** - Loader now includes `content loader` which let you specify arbitrary mocked up content to appear before content loads.
 
+**Bugs**
+
+- **Dropdown** - Fixed issue where `onChange` when used with `action: hide` would be missing the third param `$item` #6555
 
 
 ### Version 2.3.3 - June 18, 2018

@@ -1646,7 +1646,7 @@ $.fn.dropdown = function(parameters) {
           },
 
           hide: function(text, value, element) {
-            module.set.value(value, text);
+            module.set.value(value, text, $(element));
             module.hideAndClear();
           }
 
