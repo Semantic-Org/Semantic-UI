@@ -43,18 +43,45 @@ gulp.task('default', false, [
   'check-install'
 ]);
 
-gulp.task('watch', 'Watch for site/theme changes', watch);
+gulp.task('watch', function(done) {
+  watch();
+  done();
+});
 
-gulp.task('build', 'Builds all files from source', build);
-gulp.task('build-javascript', 'Builds all javascript from source', buildJS);
-gulp.task('build-css', 'Builds all css from source', buildCSS);
-gulp.task('build-assets', 'Copies all assets from source', buildAssets);
+gulp.task('build', function(done) {
+  build();
+  done();
+});
+gulp.task('build-javascript', function(done) {
+  buildJS();
+  done();
+});
+gulp.task('build-css', function(done) {
+  buildCSS();
+  done();
+});
+gulp.task('build-assets', function(done) {
+  buildAssets();
+  done();
+});
 
-gulp.task('clean', 'Clean dist folder', clean);
-gulp.task('version', 'Displays current version of Semantic', version);
+gulp.task('clean', function(done) {
+  clean();
+  done();
+});
+gulp.task('version', function(done) {
+  version();
+  done();
+});
 
-gulp.task('install', 'Runs set-up', install);
-gulp.task('check-install', 'Displays current version of Semantic', checkInstall);
+gulp.task('install', function(done) {
+  install();
+  done();
+});
+gulp.task('check-install', function(done) {
+  checkInstall();
+  done();
+});
 
 /*--------------
       Docs
@@ -65,8 +92,14 @@ gulp.task('check-install', 'Displays current version of Semantic', checkInstall)
   https://github.com/Semantic-Org/Semantic-UI-Docs/
 */
 
-gulp.task('serve-docs', 'Serve file changes to SUI Docs', serveDocs);
-gulp.task('build-docs', 'Build all files and add to SUI Docs', buildDocs);
+gulp.task('serve-docs', function(done) {
+  serveDocs();
+  done();
+});
+gulp.task('build-docs', function(done) {
+  buildDocs();
+  done();
+});
 
 
 /*--------------
@@ -74,8 +107,14 @@ gulp.task('build-docs', 'Build all files and add to SUI Docs', buildDocs);
 ---------------*/
 
 if(config.rtl) {
-  gulp.task('watch-rtl', 'Watch files as RTL', watchRTL);
-  gulp.task('build-rtl', 'Build all files as RTL', buildRTL);
+  gulp.task('watch-rtl', function(done) {
+    watchRTL();
+    done();
+  });
+  gulp.task('build-rtl', function(done) {
+    buildRTL();
+    done();
+  });
 }
 
 /* Admin Tasks */

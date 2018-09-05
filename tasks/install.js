@@ -23,7 +23,6 @@ var
   fs             = require('fs'),
   mkdirp         = require('mkdirp'),
   path           = require('path'),
-  runSequence    = require('run-sequence'),
 
   // gulp dependencies
   chmod          = require('gulp-chmod'),
@@ -408,12 +407,10 @@ gulp.task('create install files', function(callback) {
 
   });
 
-  runSequence(
-    'create theme.config',
-    'create semantic.json',
-    callback
-  );
-
+  gulp.task('create install files', gulp.series('create theme.config', 'create semantic.json', function(done) {
+    callback();
+    done();
+  }));
 });
 
 gulp.task('clean up install', function() {
@@ -449,11 +446,9 @@ gulp.task('clean up install', function() {
 
 });
 
-runSequence(
-  'run setup',
-  'create install files',
-  'clean up install',
-  callback
-);
+gulp.task('install', gulp.series('run setup', 'create install files', 'clean up install', function(done) {
+  callback();
+  done();
+}));
 
 };

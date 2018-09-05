@@ -21,7 +21,6 @@ var
   print        = require('gulp-print'),
   rename       = require('gulp-rename'),
   replace      = require('gulp-replace'),
-  runSequence  = require('run-sequence'),
 
   // config
   config       = require('../config/user'),
@@ -91,7 +90,10 @@ module.exports = function(callback) {
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
     .on('end', function() {
-      runSequence('package uncompressed css', maybeCallback);
+      gulp.task('css', gulp.series('package uncompressed css', function(done) {
+        maybeCallback();
+        done();
+      }));
     })
   ;
 
@@ -106,7 +108,10 @@ module.exports = function(callback) {
     .pipe(gulp.dest(output.compressed))
     .pipe(print(log.created))
     .on('end', function() {
-      runSequence('package compressed css', maybeCallback);
+      gulp.task('css', gulp.series('package compressed css', function(done) {
+        maybeCallback();
+        done();
+      }));
     })
   ;
 
