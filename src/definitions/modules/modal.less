@@ -317,6 +317,13 @@
   left: 50%;
 }
 
+.ui.legacy.page.dimmer > .ui.scrolling.modal,
+.ui.page.dimmer > .ui.scrolling.legacy.modal,
+.ui.top.aligned.legacy.page.dimmer > .ui.modal,
+.ui.top.aligned.dimmer > .ui.legacy.modal {
+  top: auto;
+}
+
 /* Tablet and Mobile */
 @media only screen and (max-width : @largestTabletScreen) {
   .ui.basic.modal > .close {
@@ -351,6 +358,20 @@
 .modals.dimmer[class*="top aligned"] .modal {
   margin: @topAlignedMargin auto;
 }
+@media only screen and (max-width : @largestMobileScreen) {
+  .modals.dimmer[class*="top aligned"] .modal {
+    margin: @mobileTopAlignedMargin auto;
+  }
+}
+/* Legacy Top Aligned */
+.legacy.modals.dimmer[class*="top aligned"] {
+  padding-top: @topAlignedMargin;
+}
+@media only screen and (max-width : @largestMobileScreen) {
+  .legacy.modals.dimmer[class*="top aligned"] {
+    padding-top: @mobileTopAlignedMargin;
+  }
+}
 
 /*--------------
     Scrolling
@@ -371,7 +392,7 @@
   position: fixed;
 }
 .modals.dimmer .ui.scrolling.modal {
-  margin: @scrollingMargin auto !important;
+  margin: @scrollingMargin auto;
 }
 
 /* Undetached Scrolling */

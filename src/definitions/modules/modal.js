@@ -110,8 +110,7 @@ $.fn.modal = function(parameters) {
                 debug      : settings.debug,
                 variation  : settings.centered
                   ? false
-                  : 'top aligned'
-                ,
+                  : 'top aligned',
                 dimmerName : 'modals'
               },
               dimmerSettings = $.extend(true, defaultSettings, settings.dimmerSettings)
@@ -305,6 +304,7 @@ $.fn.modal = function(parameters) {
             ? callback
             : function(){}
           ;
+          console.log('test');
           module.refreshModals();
           module.set.dimmerSettings();
           module.showModal(callback);
@@ -690,9 +690,12 @@ $.fn.modal = function(parameters) {
               width = module.cache.width,
               height = module.cache.height
             ;
+            console.log(module.can.fit());
             $module
               .css({
-                marginTop: -(height / 2),
+                marginTop: (settings.centered && module.can.fit())
+                  ? -(height / 2)
+                  : 0,
                 marginLeft: -(width / 2)
               })
             ;
