@@ -3706,7 +3706,7 @@ $.fn.dropdown.settings = {
 
   values                 : false,      // specify values to use for dropdown
 
-  clearable              : true,      // whether the value of the dropdown can be cleared
+  clearable              : false,      // whether the value of the dropdown can be cleared
 
   apiSettings            : false,
   selectOnKeydown        : true,       // Whether selection should occur automatically when keyboard shortcuts used
