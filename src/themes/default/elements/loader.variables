@@ -30,30 +30,30 @@
 @loaderTextColor: @textColor;
 @invertedLoaderTextColor: @invertedTextColor;
 
-@contentSpacing: 20px;
 
 /* Content Loader Lines */
-@contentLineMargin: @12px;
-@contentHeaderLineHeight: @9px;
-@contentLineHeight: @7px;
+@contentSpacing: @relative20px;
+@contentLineMargin: @relative12px;
+@contentHeaderLineHeight: @relative9px;
+@contentLineHeight: @relative7px;
 @contentParagraphLineHeight: @contentLineHeight;
 
 /* Image */
 @contentImageHeight: 100px;
 
 /* Header Image */
-@contentImageWidth: 50px;
+@contentImageWidth: 3em;
 @contentImageTextIndent: @10px;
 
 /* Paragraph */
 @contentHeaderLineOneOutdent: 0px;
-@contentHeaderLineTwoOutdent: 8rem;
+@contentHeaderLineTwoOutdent: 8em;
 
-@contentLineOneOutdent: 4rem;
-@contentLineTwoOutdent: 7rem;
-@contentLineThreeOutdent: 2rem;
-@contentLineFourOutdent: 6rem;
-@contentLineFiveOutdent: 10rem;
+@contentLineOneOutdent: 4em;
+@contentLineTwoOutdent: 7em;
+@contentLineThreeOutdent: 2em;
+@contentLineFourOutdent: 6em;
+@contentLineFiveOutdent: 10em;
 
 /* Glow Gradient */
 @contentLoadingAnimationDuration: 2s;
