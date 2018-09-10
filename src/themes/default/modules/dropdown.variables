@@ -232,7 +232,7 @@
 @searchWidescreenMaxMenuHeight: @selectionWidescreenMaxMenuHeight;
 
 /* Inline */
-@inlineIconMargin: 0em @relative7px 0em @relative3px;
+@inlineIconMargin: 0em @relative3px 0em @relative3px;
 @inlineTextColor: inherit;
 @inlineTextFontWeight: @bold;
 @inlineMenuDistance: @relative3px;
