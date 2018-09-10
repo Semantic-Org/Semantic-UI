@@ -83,7 +83,6 @@ $.fn.dimmer = function(parameters) {
             else {
               $dimmer = module.create();
             }
-            module.set.variation();
           }
         },
 
@@ -200,6 +199,7 @@ $.fn.dimmer = function(parameters) {
             : function(){}
           ;
           module.debug('Showing dimmer', $dimmer, settings);
+          module.set.variation();
           if( (!module.is.dimmed() || module.is.animating()) && module.is.enabled() ) {
             module.animate.show(callback);
             settings.onShow.call(element);
@@ -314,6 +314,7 @@ $.fn.dimmer = function(parameters) {
                     module.remove.dimmed();
                   },
                   onComplete  : function() {
+                    module.remove.variation();
                     module.remove.active();
                     callback();
                   }
