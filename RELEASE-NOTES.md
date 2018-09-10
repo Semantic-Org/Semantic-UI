@@ -14,9 +14,11 @@ For example when `attachable: false` is used with a modal, or if IE11/Edge is us
 
 **Bugs**
 - **Dropdown** - Fixed issue where `onChange` when used with `action: hide` would be missing the third param `$item` #6555
+- **Dimmer** - Dimmer now sets `variation` at runtime, to support run-time swapping between `top aligned` and `middle aligned` using `.dimmer('setting', 'variation', 'top aligned')`
 - **Menu/Dropdown** - Fixes dropdown item margin not obeyed inside `labeled icon menu` #6557
 - **Modal** - Fixes `@mobileTopAlignedMargin` theming variable was not implemented
 - **List** - Fixed issue where `content` would not take up 100% width when used alongside `img` or `icon`
+- **Dropdown** - `inline dropdown` `close icon` default right margin default spacing slightly modified.
 
 ### Version 2.3.3 - June 18, 2018
 
