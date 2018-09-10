@@ -1,20 +1,18 @@
 ## RELEASE NOTES
 
-### Version 2.3.4 - Aug xx, 2018
+### Version 2.4.0 - Sep xx, 2018
+
+**New Components**
+- **Segment** - Added new `ui placeholder segment` used to reserve space for UI when no content is available.
+- **Loader** - Added `ui content loader` that can be used to mimic content while its loading
 
 **Major Enhancements**
+- **Dropdown** - Added `clearable` dropdowns. When `clearable: true` is specified, you can
 - **Modal/Dimmer** - Modals and dimmers now include a new setting `useFlex` which defaults to `auto`. Modals and dimmers will automatically revert to using non-flex layouts when there may be layout issues with using flexbox.
 
 For example when `attachable: false` is used with a modal, or if IE11/Edge is used (Absolutely positioned elements inside flex containers in IE behave differently)
 
-**New UI**
-
-- **Segment** - Segment now include a `placeholder` type, which can be used to save place for content when content is empty.
-
-- **Loader** - Loader now includes `content loader` which let you specify arbitrary mocked up content to appear before content loads.
-
 **Bugs**
-
 - **Dropdown** - Fixed issue where `onChange` when used with `action: hide` would be missing the third param `$item` #6555
 - **Menu/Dropdown** - Fixes dropdown item margin not obeyed inside `labeled icon menu` #6557
 
