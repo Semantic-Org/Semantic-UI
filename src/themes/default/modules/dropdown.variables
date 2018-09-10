@@ -211,7 +211,7 @@
 @selectionActiveHoverMenuBoxShadow: @selectionVisibleMenuBoxShadow;
 
 @selectionVisibleConnectingBorder: 0em;
-@selectionVisibleIconOpacity: 1;
+@selectionVisibleIconOpacity: '';
 
 /*--------------
      Search
@@ -308,6 +308,10 @@
 @errorItemTextColor: @errorTextColor;
 @errorItemHoverBackground: #FFF2F2;
 @errorItemActiveBackground: #FDCFCF;
+
+/* Clearable */
+@clearableIconOpacity: 0.8;
+@clearableIconActiveOpacity: 1;
 
 /*-------------------
       Variations
