@@ -25,7 +25,7 @@
 --------------------*/
 
 /* Text */
-@contentLoaderMaxWidth: 30rem;
+@contentLoaderMaxWidth: 50rem;
 @textDistance: @relativeMini;
 @loaderTextColor: @textColor;
 @invertedLoaderTextColor: @invertedTextColor;
@@ -33,9 +33,9 @@
 @contentSpacing: 20px;
 
 /* Content Loader Lines */
-@contentLineMargin: 12px;
-@contentHeaderLineHeight: 9px;
-@contentLineHeight: 7px;
+@contentLineMargin: @12px;
+@contentHeaderLineHeight: @9px;
+@contentLineHeight: @7px;
 @contentParagraphLineHeight: @contentLineHeight;
 
 /* Image */
@@ -43,11 +43,11 @@
 
 /* Header Image */
 @contentImageWidth: 50px;
-@contentImageTextIndent: 10px;
+@contentImageTextIndent: @10px;
 
 /* Paragraph */
 @contentHeaderLineOneOutdent: 0px;
-@contentHeaderLineTwoOutdent: 120px;
+@contentHeaderLineTwoOutdent: 8rem;
 
 @contentLineOneOutdent: 4rem;
 @contentLineTwoOutdent: 7rem;

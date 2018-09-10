@@ -168,7 +168,7 @@
 
 /* Placeholder Paragraph */
 .ui.content.loader {
-  position: relative;
+  position: static;
   left: 0px;
   top: 0px;
   transform: none;
@@ -224,6 +224,19 @@
 .ui.content.loader .image:not(.header) {
   height: @contentImageHeight;
 }
+.ui.content.loader .square.image:not(.header) {
+  height: 0px;
+  overflow: hidden;
+  /* 1/1 aspect ratio */
+  padding-top: 100%;
+}
+.ui.content.loader .rectangular.image:not(.header) {
+  height: 0px;
+  overflow: hidden;
+  /* 4/3 aspect ratio */
+  padding-top: 75%;
+}
+
 
 /* Lines */
 .ui.content.loader .line {
