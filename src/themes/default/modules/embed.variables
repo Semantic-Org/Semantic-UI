@@ -7,7 +7,7 @@
 --------------------*/
 
 /* Simple */
-@background: @lightGrey;
+@background: @lightGray;
 @transitionDuration: 0.5s;
 @transitionEasing: @defaultEasing;
 

@@ -1372,8 +1372,8 @@ Floated Menu / Item
   border-color: #A5673F !important;
   color: #A5673F !important;
 }
-.ui.menu .grey.active.item,
-.ui.grey.menu .active.item {
+.ui.menu .gray.active.item,
+.ui.gray.menu .active.item {
   border-color: #767676 !important;
   color: #767676 !important;
 }
@@ -1632,15 +1632,15 @@ Floated Menu / Item
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Grey */
-.ui.inverted.menu .grey.active.item,
-.ui.inverted.grey.menu {
+/* gray */
+.ui.inverted.menu .gray.active.item,
+.ui.inverted.gray.menu {
   background-color: #767676;
 }
-.ui.inverted.grey.menu .item:before {
+.ui.inverted.gray.menu .item:before {
   background-color: rgba(34, 36, 38, 0.1);
 }
-.ui.inverted.grey.menu .active.item {
+.ui.inverted.gray.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
 

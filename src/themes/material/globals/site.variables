@@ -60,7 +60,7 @@
 @black            : #1B1C1D;
 @blue             : #2196F3;
 @green            : #4CAF50;
-@grey             : #9E9E9E;
+@gray             : #9E9E9E;
 @orange           : #FF9800;
 @pink             : #E91E63;
 @purple           : #9C27B0;
@@ -81,8 +81,8 @@
 
 /*---   Neutrals  ---*/
 @fullBlack        : #000000;
-@darkGrey         : #AAAAAA;
-@lightGrey        : #DCDDDE;
+@darkgray         : #AAAAAA;
+@lightGray        : #DCDDDE;
 @offWhite         : #FAFAFA;
 @darkWhite        : #F0F0F0;
 @white            : #FFFFFF;
@@ -92,10 +92,10 @@
 --------------------*/
 
 @primaryColor        : @blue;
-@secondaryColor      : @grey;
+@secondaryColor      : @gray;
 
 @lightPrimaryColor   : @lightBlue;
-@lightSecondaryColor : @lightGrey;
+@lightSecondaryColor : @lightGray;
 
 /*-------------------
       Paragraph

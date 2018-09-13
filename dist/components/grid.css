@@ -1340,7 +1340,7 @@
 .ui.grid > .row > .purple.column,
 .ui.grid > .row > .pink.column,
 .ui.grid > .row > .brown.column,
-.ui.grid > .row > .grey.column,
+.ui.grid > .row > .gray.column,
 .ui.grid > .row > .black.column {
   margin-top: -1rem;
   margin-bottom: -1rem;
@@ -1436,10 +1436,10 @@
   color: #FFFFFF;
 }
 
-/* Grey */
-.ui.grid > .grey.row,
-.ui.grid > .grey.column,
-.ui.grid > .row > .grey.column {
+/* gray */
+.ui.grid > .gray.row,
+.ui.grid > .gray.column,
+.ui.grid > .row > .gray.column {
   background-color: #767676 !important;
   color: #FFFFFF;
 }

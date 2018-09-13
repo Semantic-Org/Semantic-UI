@@ -34,7 +34,7 @@
 @arrowActiveHoverColor: @primaryColorHover;
 @arrowBorder: transparent;
 
-@paginationActiveBackground: @lightGrey;
+@paginationActiveBackground: @lightGray;
 
 @borderColor: @darkWhite;
 @tabularBorderWidth: 2px;

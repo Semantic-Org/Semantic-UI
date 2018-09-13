@@ -362,15 +362,15 @@ i.inverted.circular.brown.icon {
   color: #FFFFFF !important;
 }
 
-/* Grey */
-i.grey.icon {
+/* gray */
+i.gray.icon {
   color: #767676 !important;
 }
-i.inverted.grey.icon {
+i.inverted.gray.icon {
   color: #DCDDDE !important;
 }
-i.inverted.bordered.grey.icon,
-i.inverted.circular.grey.icon {
+i.inverted.bordered.gray.icon,
+i.inverted.circular.gray.icon {
   background-color: #767676 !important;
   color: #FFFFFF !important;
 }

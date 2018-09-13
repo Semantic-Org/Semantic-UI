@@ -1289,6 +1289,7 @@
 .ui.grid > .row > .purple.column,
 .ui.grid > .row > .pink.column,
 .ui.grid > .row > .brown.column,
+.ui.grid > .row > .gray.column,
 .ui.grid > .row > .grey.column,
 .ui.grid > .row > .black.column {
   margin-top: -(@rowSpacing / 2);
@@ -1374,11 +1375,14 @@
   background-color: @brown !important;
   color: @white;
 }
-/* Grey */
+/* gray / grey */
+.ui.grid > .gray.row,
+.ui.grid > .gray.column,
+.ui.grid > .row > .gray.column,
 .ui.grid > .grey.row,
 .ui.grid > .grey.column,
-.ui.grid > .row > .grey.column {
-  background-color: @grey !important;
+.ui.grid > .row > .grey.column, {
+  background-color: @gray !important;
   color: @white;
 }
 /* Black */

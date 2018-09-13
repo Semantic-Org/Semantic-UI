@@ -156,6 +156,7 @@
 @purpleTextColor: @white;
 @pinkTextColor: @white;
 @brownTextColor: @white;
+@grayTextColor: @white;
 @greyTextColor: @white;
 @blackTextColor: @white;
 
@@ -170,6 +171,7 @@
 @purpleHoverTextColor: @white;
 @pinkHoverTextColor: @white;
 @brownHoverTextColor: @white;
+@grayHoverTextColor: @white;
 @greyHoverTextColor: @white;
 @blackHoverTextColor: @white;
 
@@ -184,7 +186,8 @@
 @purpleRibbonShadow: darken(@purple, 10);
 @pinkRibbonShadow: darken(@pink, 10);
 @brownRibbonShadow: darken(@brown, 10);
-@greyRibbonShadow: darken(@grey, 10);
+@grayRibbonShadow: darken(@gray, 10);
+@greyRibbonShadow: darken(@gray, 10);
 @blackRibbonShadow: darken(@black, 10);
 
 /* Attached */

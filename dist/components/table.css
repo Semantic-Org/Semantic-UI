@@ -740,11 +740,11 @@
   color: #FFFFFF !important;
 }
 
-/* Grey */
-.ui.grey.table {
+/* gray */
+.ui.gray.table {
   border-top: 0.2em solid #767676;
 }
-.ui.inverted.grey.table {
+.ui.inverted.gray.table {
   background-color: #767676 !important;
   color: #FFFFFF !important;
 }

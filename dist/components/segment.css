@@ -617,11 +617,11 @@
   color: #FFFFFF !important;
 }
 
-/* Grey */
-.ui.grey.segment:not(.inverted) {
+/* gray */
+.ui.gray.segment:not(.inverted) {
   border-top: 2px solid #767676 !important;
 }
-.ui.inverted.grey.segment {
+.ui.inverted.gray.segment {
   background-color: #767676 !important;
   color: #FFFFFF !important;
 }

@@ -32,7 +32,8 @@
 @yellow           : #FFCB08;
 
 @black            : #191919;
-@grey             : #CCCCCC;
+@gray             : #CCCCCC;
+@grey             : @gray;
 @white            : #FFFFFF;
 
 /*---  Light Colors  ---*/

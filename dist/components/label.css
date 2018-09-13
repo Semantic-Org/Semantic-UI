@@ -957,42 +957,42 @@ a.ui.basic.brown.label:hover {
   border-color: #975b33 !important;
 }
 
-/*--- Grey ---*/
+/*--- gray ---*/
 
-.ui.grey.labels .label,
-.ui.grey.label {
+.ui.gray.labels .label,
+.ui.gray.label {
   background-color: #767676 !important;
   border-color: #767676 !important;
   color: #FFFFFF !important;
 }
 
 /* Link */
-.ui.grey.labels .label:hover,
-a.ui.grey.label:hover {
+.ui.gray.labels .label:hover,
+a.ui.gray.label:hover {
   background-color: #838383 !important;
   border-color: #838383 !important;
   color: #FFFFFF !important;
 }
 
 /* Corner */
-.ui.grey.corner.label,
-.ui.grey.corner.label:hover {
+.ui.gray.corner.label,
+.ui.gray.corner.label:hover {
   background-color: transparent !important;
 }
 
 /* Ribbon */
-.ui.grey.ribbon.label {
+.ui.gray.ribbon.label {
   border-color: #805031 !important;
 }
 
 /* Basic */
-.ui.basic.grey.label {
+.ui.basic.gray.label {
   background-color: none #FFFFFF !important;
   color: #767676 !important;
   border-color: #767676 !important;
 }
-.ui.basic.grey.labels a.label:hover,
-a.ui.basic.grey.label:hover {
+.ui.basic.gray.labels a.label:hover,
+a.ui.basic.gray.label:hover {
   background-color: #FFFFFF !important;
   color: #838383 !important;
   border-color: #838383 !important;

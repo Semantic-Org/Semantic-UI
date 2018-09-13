@@ -658,16 +658,16 @@ a.ui.card:hover,
           box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #975b33, 0px 1px 3px 0px #BCBDBD;
 }
 
-/* Grey */
-.ui.grey.cards > .card,
-.ui.cards > .grey.card,
-.ui.grey.card {
+/* gray */
+.ui.gray.cards > .card,
+.ui.cards > .gray.card,
+.ui.gray.card {
   -webkit-box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #767676, 0px 1px 3px 0px #D4D4D5;
           box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #767676, 0px 1px 3px 0px #D4D4D5;
 }
-.ui.grey.cards > .card:hover,
-.ui.cards > .grey.card:hover,
-.ui.grey.card:hover {
+.ui.gray.cards > .card:hover,
+.ui.cards > .gray.card:hover,
+.ui.gray.card:hover {
   -webkit-box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #838383, 0px 1px 3px 0px #BCBDBD;
           box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #838383, 0px 1px 3px 0px #BCBDBD;
 }
