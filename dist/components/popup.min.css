@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.3.3 - Popup
+ * # Semantic UI 2.3.2 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *

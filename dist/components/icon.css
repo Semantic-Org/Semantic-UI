@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.3.3 - Icon
+ * # Semantic UI 2.3.2 - Icon
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -362,17 +362,13 @@ i.inverted.circular.brown.icon {
   color: #FFFFFF !important;
 }
 
-/* Gray / Grey */
-i.gray.icon,
+/* Grey */
 i.grey.icon {
   color: #767676 !important;
 }
-i.inverted.gray.icon,
 i.inverted.grey.icon {
   color: #DCDDDE !important;
 }
-i.inverted.bordered.gray.icon,
-i.inverted.circular.gray.icon,
 i.inverted.bordered.grey.icon,
 i.inverted.circular.grey.icon {
   background-color: #767676 !important;
@@ -542,29 +538,6 @@ for instance `lemon icon` not `lemon outline icon` since there is only one lemon
             Icons
 *******************************/
 
-
-/* Deprecated *In/Out Naming Conflict) */
-i.icon.linkedin.in:before {
-  content: "\f0e1";
-}
-i.icon.zoom.in:before {
-  content: "\f00e";
-}
-i.icon.zoom.out:before {
-  content: "\f010";
-}
-i.icon.sign.in:before {
-  content: "\f2f6";
-}
-i.icon.in.cart:before {
-  content: "\f218";
-}
-i.icon.log.out:before {
-  content: "\f2f5";
-}
-i.icon.sign.out:before {
-  content: "\f2f5";
-}
 
 /* Icons */
 i.icon.\35 00px:before {
@@ -1890,7 +1863,7 @@ i.icon.linkify:before {
 i.icon.linkedin:before {
   content: "\f08c";
 }
-i.icon.linkedin.alt:before {
+i.icon.linkedin.in:before {
   content: "\f0e1";
 }
 i.icon.linode:before {
@@ -2451,8 +2424,14 @@ i.icon.shopping.cart:before {
 i.icon.shower:before {
   content: "\f2cc";
 }
+i.icon.sign.in.alternate:before {
+  content: "\f2f6";
+}
 i.icon.sign.language:before {
   content: "\f2a7";
+}
+i.icon.sign.out.alternate:before {
+  content: "\f2f5";
 }
 i.icon.signal:before {
   content: "\f012";
@@ -3437,7 +3416,7 @@ i.icon.idea:before {
 i.icon.ils:before {
   content: "\f20b";
 }
-i.icon.in-cart:before {
+i.icon.in.cart:before {
   content: "\f218";
 }
 i.icon.inr:before {
@@ -3929,10 +3908,10 @@ i.icon.yen:before {
 i.icon.zip:before {
   content: "\f187";
 }
-i.icon.zoom-in:before {
+i.icon.zoom.in:before {
   content: "\f00e";
 }
-i.icon.zoom-out:before {
+i.icon.zoom.out:before {
   content: "\f010";
 }
 i.icon.zoom:before {
@@ -4001,7 +3980,7 @@ i.icon.level.down:before {
 i.icon.level.up:before {
   content: "\f3bf";
 }
-i.icon.logout:before {
+i.icon.log.out:before {
   content: "\f2f5";
 }
 i.icon.meanpath:before {
@@ -4031,10 +4010,10 @@ i.icon.resize.horizontal:before {
 i.icon.resize.vertical:before {
   content: "\f338";
 }
-i.icon.sign-in:before {
+i.icon.sign.in:before {
   content: "\f2f6";
 }
-i.icon.sign-out:before {
+i.icon.sign.out:before {
   content: "\f2f5";
 }
 i.icon.spoon:before {
@@ -4640,7 +4619,6 @@ i.icon.leanpub,
 i.icon.less,
 i.icon.linechat,
 i.icon.linkedin,
-i.icon.linkedin.alternate,
 i.icon.linkedin.in,
 i.icon.linode,
 i.icon.linux,

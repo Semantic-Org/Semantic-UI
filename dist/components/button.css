@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.3.3 - Button
+ * # Semantic UI 2.3.2 - Button
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1422,10 +1422,8 @@
   color: #FFFFFF !important;
 }
 
-/*--- Gray / Grey ---*/
+/*--- Grey ---*/
 
-.ui.gray.buttons .button,
-.ui.gray.button,
 .ui.grey.buttons .button,
 .ui.grey.button {
   background-color: #767676;
@@ -1433,39 +1431,28 @@
   text-shadow: none;
   background-image: none;
 }
-.ui.gray.button,
 .ui.grey.button {
   -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
           box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
 }
-.ui.gray.buttons .button:hover,
-.ui.gray.button:hover,
 .ui.grey.buttons .button:hover,
 .ui.grey.button:hover {
   background-color: #838383;
   color: #FFFFFF;
   text-shadow: none;
 }
-.ui.gray.buttons .button:focus,
-.ui.gray.button:focus,
 .ui.grey.buttons .button:focus,
 .ui.grey.button:focus {
   background-color: #8a8a8a;
   color: #FFFFFF;
   text-shadow: none;
 }
-.ui.gray.buttons .button:active,
-.ui.gray.button:active,
 .ui.grey.buttons .button:active,
 .ui.grey.button:active {
   background-color: #909090;
   color: #FFFFFF;
   text-shadow: none;
 }
-.ui.gray.buttons .active.button,
-.ui.gray.buttons .active.button:active,
-.ui.gray.active.button,
-.ui.gray.button .active.button:active,
 .ui.grey.buttons .active.button,
 .ui.grey.buttons .active.button:active,
 .ui.grey.active.button,
@@ -1476,16 +1463,12 @@
 }
 
 /* Basic */
-.ui.basic.gray.buttons .button,
-.ui.basic.gray.button,
 .ui.basic.grey.buttons .button,
 .ui.basic.grey.button {
   -webkit-box-shadow: 0px 0px 0px 1px #767676 inset !important;
           box-shadow: 0px 0px 0px 1px #767676 inset !important;
   color: #767676 !important;
 }
-.ui.basic.gray.buttons .button:hover,
-.ui.basic.gray.button:hover,
 .ui.basic.grey.buttons .button:hover,
 .ui.basic.grey.button:hover {
   background: transparent !important;
@@ -1493,8 +1476,6 @@
           box-shadow: 0px 0px 0px 1px #838383 inset !important;
   color: #838383 !important;
 }
-.ui.basic.gray.buttons .button:focus,
-.ui.basic.gray.button:focus,
 .ui.basic.grey.buttons .button:focus,
 .ui.basic.grey.button:focus {
   background: transparent !important;
@@ -1502,8 +1483,6 @@
           box-shadow: 0px 0px 0px 1px #8a8a8a inset !important;
   color: #838383 !important;
 }
-.ui.basic.gray.buttons .active.button,
-.ui.basic.gray.active.button,
 .ui.basic.grey.buttons .active.button,
 .ui.basic.grey.active.button {
   background: transparent !important;
@@ -1511,21 +1490,17 @@
           box-shadow: 0px 0px 0px 1px #696969 inset !important;
   color: #909090 !important;
 }
-.ui.basic.gray.buttons .button:active,
-.ui.basic.gray.button:active,
 .ui.basic.grey.buttons .button:active,
 .ui.basic.grey.button:active {
   -webkit-box-shadow: 0px 0px 0px 1px #909090 inset !important;
           box-shadow: 0px 0px 0px 1px #909090 inset !important;
   color: #909090 !important;
 }
-.ui.buttons:not(.vertical) > .basic.gray.button:not(:first-child) .ui.buttons:not(.vertical) > .basic.grey.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.grey.button:not(:first-child) {
   margin-left: -1px;
 }
 
 /* Inverted */
-.ui.inverted.gray.buttons .button,
-.ui.inverted.gray.button,
 .ui.inverted.grey.buttons .button,
 .ui.inverted.grey.button {
   background-color: transparent;
@@ -1533,14 +1508,6 @@
           box-shadow: 0px 0px 0px 2px #D4D4D5 inset !important;
   color: #FFFFFF;
 }
-.ui.inverted.gray.buttons .button:hover,
-.ui.inverted.gray.button:hover,
-.ui.inverted.gray.buttons .button:focus,
-.ui.inverted.gray.button:focus,
-.ui.inverted.gray.buttons .button.active,
-.ui.inverted.gray.button.active,
-.ui.inverted.gray.buttons .button:active,
-.ui.inverted.gray.button:active,
 .ui.inverted.grey.buttons .button:hover,
 .ui.inverted.grey.button:hover,
 .ui.inverted.grey.buttons .button:focus,
@@ -1553,35 +1520,24 @@
           box-shadow: none !important;
   color: rgba(0, 0, 0, 0.6);
 }
-.ui.inverted.gray.buttons .button:hover,
-.ui.inverted.gray.button:hover,
 .ui.inverted.grey.buttons .button:hover,
 .ui.inverted.grey.button:hover {
   background-color: #cfd0d2;
 }
-.ui.inverted.gray.buttons .button:focus,
-.ui.inverted.gray.button:focus,
 .ui.inverted.grey.buttons .button:focus,
 .ui.inverted.grey.button:focus {
   background-color: #c7c9cb;
 }
-.ui.inverted.gray.buttons .active.button,
-.ui.inverted.gray.active.button,
 .ui.inverted.grey.buttons .active.button,
 .ui.inverted.grey.active.button {
   background-color: #cfd0d2;
 }
-.ui.inverted.gray.buttons .button:active,
-.ui.inverted.gray.button:active,
 .ui.inverted.grey.buttons .button:active,
 .ui.inverted.grey.button:active {
   background-color: #c2c4c5;
 }
 
 /* Inverted Basic */
-.ui.inverted.gray.basic.buttons .button,
-.ui.inverted.gray.buttons .basic.button,
-.ui.inverted.gray.basic.button,
 .ui.inverted.grey.basic.buttons .button,
 .ui.inverted.grey.buttons .basic.button,
 .ui.inverted.grey.basic.button {
@@ -1590,9 +1546,6 @@
           box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
   color: #FFFFFF !important;
 }
-.ui.inverted.gray.basic.buttons .button:hover,
-.ui.inverted.gray.buttons .basic.button:hover,
-.ui.inverted.gray.basic.button:hover,
 .ui.inverted.grey.basic.buttons .button:hover,
 .ui.inverted.grey.buttons .basic.button:hover,
 .ui.inverted.grey.basic.button:hover {
@@ -1600,9 +1553,6 @@
           box-shadow: 0px 0px 0px 2px #cfd0d2 inset !important;
   color: #FFFFFF !important;
 }
-.ui.inverted.gray.basic.buttons .button:focus,
-.ui.inverted.gray.basic.buttons .button:focus,
-.ui.inverted.gray.basic.button:focus,
 .ui.inverted.grey.basic.buttons .button:focus,
 .ui.inverted.grey.basic.buttons .button:focus,
 .ui.inverted.grey.basic.button:focus {
@@ -1610,9 +1560,6 @@
           box-shadow: 0px 0px 0px 2px #c7c9cb inset !important;
   color: #DCDDDE !important;
 }
-.ui.inverted.gray.basic.buttons .active.button,
-.ui.inverted.gray.buttons .basic.active.button,
-.ui.inverted.gray.basic.active.button,
 .ui.inverted.grey.basic.buttons .active.button,
 .ui.inverted.grey.buttons .basic.active.button,
 .ui.inverted.grey.basic.active.button {
@@ -1620,9 +1567,6 @@
           box-shadow: 0px 0px 0px 2px #cfd0d2 inset !important;
   color: #FFFFFF !important;
 }
-.ui.inverted.gray.basic.buttons .button:active,
-.ui.inverted.gray.buttons .basic.button:active,
-.ui.inverted.gray.basic.button:active,
 .ui.inverted.grey.basic.buttons .button:active,
 .ui.inverted.grey.buttons .basic.button:active,
 .ui.inverted.grey.basic.button:active {

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.3.3 - Grid
+ * # Semantic UI 2.3.2 - Grid
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1340,7 +1340,6 @@
 .ui.grid > .row > .purple.column,
 .ui.grid > .row > .pink.column,
 .ui.grid > .row > .brown.column,
-.ui.grid > .row > .gray.column,
 .ui.grid > .row > .grey.column,
 .ui.grid > .row > .black.column {
   margin-top: -1rem;
@@ -1437,10 +1436,7 @@
   color: #FFFFFF;
 }
 
-/* Gray / Grey */
-.ui.grid > .gray.row,
-.ui.grid > .gray.column,
-.ui.grid > .row > .gray.column,
+/* Grey */
 .ui.grid > .grey.row,
 .ui.grid > .grey.column,
 .ui.grid > .row > .grey.column {

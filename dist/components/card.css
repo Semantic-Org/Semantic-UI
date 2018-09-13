@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.3.3 - Item
+ * # Semantic UI 2.3.2 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -658,19 +658,13 @@ a.ui.card:hover,
           box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #975b33, 0px 1px 3px 0px #BCBDBD;
 }
 
-/* Gray / Grey */
-.ui.gray.cards > .card,
-.ui.cards > .gray.card,
-.ui.gray.card,
+/* Grey */
 .ui.grey.cards > .card,
 .ui.cards > .grey.card,
 .ui.grey.card {
   -webkit-box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #767676, 0px 1px 3px 0px #D4D4D5;
           box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #767676, 0px 1px 3px 0px #D4D4D5;
 }
-.ui.gray.cards > .card:hover,
-.ui.cards > .gray.card:hover,
-.ui.gray.card:hover,
 .ui.grey.cards > .card:hover,
 .ui.cards > .grey.card:hover,
 .ui.grey.card:hover {

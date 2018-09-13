@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.3.3 - Label
+ * # Semantic UI 2.3.2 - Label
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -957,10 +957,8 @@ a.ui.basic.brown.label:hover {
   border-color: #975b33 !important;
 }
 
-/*--- Gray / Grey ---*/
+/*--- Grey ---*/
 
-.ui.gray.labels .label,
-.ui.gray.label,
 .ui.grey.labels .label,
 .ui.grey.label {
   background-color: #767676 !important;
@@ -969,8 +967,6 @@ a.ui.basic.brown.label:hover {
 }
 
 /* Link */
-.ui.gray.labels .label:hover,
-a.ui.gray.label:hover,
 .ui.grey.labels .label:hover,
 a.ui.grey.label:hover {
   background-color: #838383 !important;
@@ -979,27 +975,22 @@ a.ui.grey.label:hover {
 }
 
 /* Corner */
-.ui.gray.corner.label,
-.ui.gray.corner.label:hover,
 .ui.grey.corner.label,
 .ui.grey.corner.label:hover {
   background-color: transparent !important;
 }
 
 /* Ribbon */
-.ui.gray.ribbon.label {
+.ui.grey.ribbon.label {
   border-color: #805031 !important;
 }
 
 /* Basic */
-.ui.basic.gray.label,
 .ui.basic.grey.label {
   background-color: none #FFFFFF !important;
   color: #767676 !important;
   border-color: #767676 !important;
 }
-.ui.basic.gray.labels a.label:hover,
-a.ui.basic.gray.label:hover,
 .ui.basic.grey.labels a.label:hover,
 a.ui.basic.grey.label:hover {
   background-color: #FFFFFF !important;
