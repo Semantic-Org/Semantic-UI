@@ -453,11 +453,13 @@
   background-color: #D67C1C;
 }
 
-/* gray */
-.ui.gray.progress .bar {
+/* Gray / Grey */
+.ui.gray.progress .bar,
+.ui.grey.progress .bar {
   background-color: #767676;
 }
-.ui.gray.inverted.progress .bar {
+.ui.gray.inverted.progress .bar,
+.ui.grey.inverted.progress .bar {
   background-color: #DCDDDE;
 }
 

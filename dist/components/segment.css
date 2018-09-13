@@ -617,11 +617,13 @@
   color: #FFFFFF !important;
 }
 
-/* gray */
-.ui.gray.segment:not(.inverted) {
+/* Gray / Grey */
+.ui.gray.segment:not(.inverted),
+.ui.grey.segment:not(.inverted) {
   border-top: 2px solid #767676 !important;
 }
-.ui.inverted.gray.segment {
+.ui.inverted.gray.segment,
+.ui.inverted.grey.segment {
   background-color: #767676 !important;
   color: #FFFFFF !important;
 }

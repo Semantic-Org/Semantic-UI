@@ -2371,37 +2371,46 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
   color: #FFFFFF !important;
 }
 
-/*--- gray ---*/
+/*--- Gray / Grey ---*/
 
 .ui.gray.buttons .button,
-.ui.gray.button {
+.ui.gray.button,
+.ui.grey.buttons .button,
+.ui.grey.button {
   background-color: #767676;
   color: #FFFFFF;
   text-shadow: none;
   background-image: none;
 }
 
-.ui.gray.button {
+.ui.gray.button,
+.ui.grey.button {
   -webkit-box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
   box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
 }
 
 .ui.gray.buttons .button:hover,
-.ui.gray.button:hover {
+.ui.gray.button:hover,
+.ui.grey.buttons .button:hover,
+.ui.grey.button:hover {
   background-color: #838383;
   color: #FFFFFF;
   text-shadow: none;
 }
 
 .ui.gray.buttons .button:focus,
-.ui.gray.button:focus {
+.ui.gray.button:focus,
+.ui.grey.buttons .button:focus,
+.ui.grey.button:focus {
   background-color: #8a8a8a;
   color: #FFFFFF;
   text-shadow: none;
 }
 
 .ui.gray.buttons .button:active,
-.ui.gray.button:active {
+.ui.gray.button:active,
+.ui.grey.buttons .button:active,
+.ui.grey.button:active {
   background-color: #909090;
   color: #FFFFFF;
   text-shadow: none;
@@ -2410,7 +2419,11 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 .ui.gray.buttons .active.button,
 .ui.gray.buttons .active.button:active,
 .ui.gray.active.button,
-.ui.gray.button .active.button:active {
+.ui.gray.button .active.button:active,
+.ui.grey.buttons .active.button,
+.ui.grey.buttons .active.button:active,
+.ui.grey.active.button,
+.ui.grey.button .active.button:active {
   background-color: #696969;
   color: #FFFFFF;
   text-shadow: none;
@@ -2419,14 +2432,18 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 /* Basic */
 
 .ui.basic.gray.buttons .button,
-.ui.basic.gray.button {
+.ui.basic.gray.button,
+.ui.basic.grey.buttons .button,
+.ui.basic.grey.button {
   -webkit-box-shadow: 0px 0px 0px 1px #767676 inset !important;
   box-shadow: 0px 0px 0px 1px #767676 inset !important;
   color: #767676 !important;
 }
 
 .ui.basic.gray.buttons .button:hover,
-.ui.basic.gray.button:hover {
+.ui.basic.gray.button:hover,
+.ui.basic.grey.buttons .button:hover,
+.ui.basic.grey.button:hover {
   background: transparent !important;
   -webkit-box-shadow: 0px 0px 0px 1px #838383 inset !important;
   box-shadow: 0px 0px 0px 1px #838383 inset !important;
@@ -2434,7 +2451,9 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 }
 
 .ui.basic.gray.buttons .button:focus,
-.ui.basic.gray.button:focus {
+.ui.basic.gray.button:focus,
+.ui.basic.grey.buttons .button:focus,
+.ui.basic.grey.button:focus {
   background: transparent !important;
   -webkit-box-shadow: 0px 0px 0px 1px #8a8a8a inset !important;
   box-shadow: 0px 0px 0px 1px #8a8a8a inset !important;
@@ -2442,7 +2461,9 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 }
 
 .ui.basic.gray.buttons .active.button,
-.ui.basic.gray.active.button {
+.ui.basic.gray.active.button,
+.ui.basic.grey.buttons .active.button,
+.ui.basic.grey.active.button {
   background: transparent !important;
   -webkit-box-shadow: 0px 0px 0px 1px #696969 inset !important;
   box-shadow: 0px 0px 0px 1px #696969 inset !important;
@@ -2450,20 +2471,24 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 }
 
 .ui.basic.gray.buttons .button:active,
-.ui.basic.gray.button:active {
+.ui.basic.gray.button:active,
+.ui.basic.grey.buttons .button:active,
+.ui.basic.grey.button:active {
   -webkit-box-shadow: 0px 0px 0px 1px #909090 inset !important;
   box-shadow: 0px 0px 0px 1px #909090 inset !important;
   color: #909090 !important;
 }
 
-.ui.buttons:not(.vertical) > .basic.gray.button:not(:first-child) {
+.ui.buttons:not(.vertical) > .basic.gray.button:not(:first-child) .ui.buttons:not(.vertical) > .basic.grey.button:not(:first-child) {
   margin-left: -1px;
 }
 
 /* Inverted */
 
 .ui.inverted.gray.buttons .button,
-.ui.inverted.gray.button {
+.ui.inverted.gray.button,
+.ui.inverted.grey.buttons .button,
+.ui.inverted.grey.button {
   background-color: transparent;
   -webkit-box-shadow: 0px 0px 0px 2px #D4D4D5 inset !important;
   box-shadow: 0px 0px 0px 2px #D4D4D5 inset !important;
@@ -2477,29 +2502,45 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 .ui.inverted.gray.buttons .button.active,
 .ui.inverted.gray.button.active,
 .ui.inverted.gray.buttons .button:active,
-.ui.inverted.gray.button:active {
+.ui.inverted.gray.button:active,
+.ui.inverted.grey.buttons .button:hover,
+.ui.inverted.grey.button:hover,
+.ui.inverted.grey.buttons .button:focus,
+.ui.inverted.grey.button:focus,
+.ui.inverted.grey.buttons .button.active,
+.ui.inverted.grey.button.active,
+.ui.inverted.grey.buttons .button:active,
+.ui.inverted.grey.button:active {
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
   color: rgba(0, 0, 0, 0.6);
 }
 
 .ui.inverted.gray.buttons .button:hover,
-.ui.inverted.gray.button:hover {
+.ui.inverted.gray.button:hover,
+.ui.inverted.grey.buttons .button:hover,
+.ui.inverted.grey.button:hover {
   background-color: #cfd0d2;
 }
 
 .ui.inverted.gray.buttons .button:focus,
-.ui.inverted.gray.button:focus {
+.ui.inverted.gray.button:focus,
+.ui.inverted.grey.buttons .button:focus,
+.ui.inverted.grey.button:focus {
   background-color: #c7c9cb;
 }
 
 .ui.inverted.gray.buttons .active.button,
-.ui.inverted.gray.active.button {
+.ui.inverted.gray.active.button,
+.ui.inverted.grey.buttons .active.button,
+.ui.inverted.grey.active.button {
   background-color: #cfd0d2;
 }
 
 .ui.inverted.gray.buttons .button:active,
-.ui.inverted.gray.button:active {
+.ui.inverted.gray.button:active,
+.ui.inverted.grey.buttons .button:active,
+.ui.inverted.grey.button:active {
   background-color: #c2c4c5;
 }
 
@@ -2507,7 +2548,10 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 .ui.inverted.gray.basic.buttons .button,
 .ui.inverted.gray.buttons .basic.button,
-.ui.inverted.gray.basic.button {
+.ui.inverted.gray.basic.button,
+.ui.inverted.grey.basic.buttons .button,
+.ui.inverted.grey.buttons .basic.button,
+.ui.inverted.grey.basic.button {
   background-color: transparent;
   -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
   box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
@@ -2516,7 +2560,10 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 .ui.inverted.gray.basic.buttons .button:hover,
 .ui.inverted.gray.buttons .basic.button:hover,
-.ui.inverted.gray.basic.button:hover {
+.ui.inverted.gray.basic.button:hover,
+.ui.inverted.grey.basic.buttons .button:hover,
+.ui.inverted.grey.buttons .basic.button:hover,
+.ui.inverted.grey.basic.button:hover {
   -webkit-box-shadow: 0px 0px 0px 2px #cfd0d2 inset !important;
   box-shadow: 0px 0px 0px 2px #cfd0d2 inset !important;
   color: #FFFFFF !important;
@@ -2524,7 +2571,10 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 .ui.inverted.gray.basic.buttons .button:focus,
 .ui.inverted.gray.basic.buttons .button:focus,
-.ui.inverted.gray.basic.button:focus {
+.ui.inverted.gray.basic.button:focus,
+.ui.inverted.grey.basic.buttons .button:focus,
+.ui.inverted.grey.basic.buttons .button:focus,
+.ui.inverted.grey.basic.button:focus {
   -webkit-box-shadow: 0px 0px 0px 2px #c7c9cb inset !important;
   box-shadow: 0px 0px 0px 2px #c7c9cb inset !important;
   color: #DCDDDE !important;
@@ -2532,7 +2582,10 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 .ui.inverted.gray.basic.buttons .active.button,
 .ui.inverted.gray.buttons .basic.active.button,
-.ui.inverted.gray.basic.active.button {
+.ui.inverted.gray.basic.active.button,
+.ui.inverted.grey.basic.buttons .active.button,
+.ui.inverted.grey.buttons .basic.active.button,
+.ui.inverted.grey.basic.active.button {
   -webkit-box-shadow: 0px 0px 0px 2px #cfd0d2 inset !important;
   box-shadow: 0px 0px 0px 2px #cfd0d2 inset !important;
   color: #FFFFFF !important;
@@ -2540,7 +2593,10 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 .ui.inverted.gray.basic.buttons .button:active,
 .ui.inverted.gray.buttons .basic.button:active,
-.ui.inverted.gray.basic.button:active {
+.ui.inverted.gray.basic.button:active,
+.ui.inverted.grey.basic.buttons .button:active,
+.ui.inverted.grey.buttons .basic.button:active,
+.ui.inverted.grey.basic.button:active {
   -webkit-box-shadow: 0px 0px 0px 2px #c2c4c5 inset !important;
   box-shadow: 0px 0px 0px 2px #c2c4c5 inset !important;
   color: #FFFFFF !important;
@@ -7448,27 +7504,32 @@ a.ui.inverted.brown.header:hover {
   color: #c86f11 !important;
 }
 
-/*--- gray ---*/
+/*--- Gray / Grey ---*/
 
-.ui.gray.header {
+.ui.gray.header,
+.ui.grey.header {
   color: #767676 !important;
 }
 
-a.ui.gray.header:hover {
+a.ui.gray.header:hover,
+a.ui.grey.header:hover {
   color: #838383 !important;
 }
 
-.ui.gray.dividing.header {
+.ui.gray.dividing.header,
+.ui.grey.dividing.header {
   border-bottom: 2px solid #767676;
 }
 
 /* Inverted */
 
-.ui.inverted.gray.header {
+.ui.inverted.gray.header,
+.ui.inverted.grey.header {
   color: #DCDDDE !important;
 }
 
-a.ui.inverted.gray.header:hover {
+a.ui.inverted.gray.header:hover,
+a.ui.inverted.grey.header:hover {
   color: #cfd0d2 !important;
 }
 
@@ -8056,18 +8117,22 @@ i.inverted.circular.brown.icon {
   color: #FFFFFF !important;
 }
 
-/* gray */
+/* Gray / Grey */
 
-i.gray.icon {
+i.gray.icon,
+i.grey.icon {
   color: #767676 !important;
 }
 
-i.inverted.gray.icon {
+i.inverted.gray.icon,
+i.inverted.grey.icon {
   color: #DCDDDE !important;
 }
 
 i.inverted.bordered.gray.icon,
-i.inverted.circular.gray.icon {
+i.inverted.circular.gray.icon,
+i.inverted.bordered.grey.icon,
+i.inverted.circular.grey.icon {
   background-color: #767676 !important;
   color: #FFFFFF !important;
 }
@@ -15751,10 +15816,12 @@ a.ui.basic.brown.label:hover {
   border-color: #975b33 !important;
 }
 
-/*--- gray ---*/
+/*--- Gray / Grey ---*/
 
 .ui.gray.labels .label,
-.ui.gray.label {
+.ui.gray.label,
+.ui.grey.labels .label,
+.ui.grey.label {
   background-color: #767676 !important;
   border-color: #767676 !important;
   color: #FFFFFF !important;
@@ -15763,7 +15830,9 @@ a.ui.basic.brown.label:hover {
 /* Link */
 
 .ui.gray.labels .label:hover,
-a.ui.gray.label:hover {
+a.ui.gray.label:hover,
+.ui.grey.labels .label:hover,
+a.ui.grey.label:hover {
   background-color: #838383 !important;
   border-color: #838383 !important;
   color: #FFFFFF !important;
@@ -15772,7 +15841,9 @@ a.ui.gray.label:hover {
 /* Corner */
 
 .ui.gray.corner.label,
-.ui.gray.corner.label:hover {
+.ui.gray.corner.label:hover,
+.ui.grey.corner.label,
+.ui.grey.corner.label:hover {
   background-color: transparent !important;
 }
 
@@ -15784,14 +15855,17 @@ a.ui.gray.label:hover {
 
 /* Basic */
 
-.ui.basic.gray.label {
+.ui.basic.gray.label,
+.ui.basic.grey.label {
   background-color: none #FFFFFF !important;
   color: #767676 !important;
   border-color: #767676 !important;
 }
 
 .ui.basic.gray.labels a.label:hover,
-a.ui.basic.gray.label:hover {
+a.ui.basic.gray.label:hover,
+.ui.basic.grey.labels a.label:hover,
+a.ui.basic.grey.label:hover {
   background-color: #FFFFFF !important;
   color: #838383 !important;
   border-color: #838383 !important;
@@ -18740,13 +18814,15 @@ ol.ui.horizontal.list li:before,
   color: #FFFFFF !important;
 }
 
-/* gray */
+/* Gray / Grey */
 
-.ui.gray.segment:not(.inverted) {
+.ui.gray.segment:not(.inverted),
+.ui.grey.segment:not(.inverted) {
   border-top: 2px solid #767676 !important;
 }
 
-.ui.inverted.gray.segment {
+.ui.inverted.gray.segment,
+.ui.inverted.grey.segment {
   background-color: #767676 !important;
   color: #FFFFFF !important;
 }
@@ -22481,6 +22557,7 @@ ol.ui.horizontal.list li:before,
 .ui.grid > .row > .pink.column,
 .ui.grid > .row > .brown.column,
 .ui.grid > .row > .gray.column,
+.ui.grid > .row > .grey.column,
 .ui.grid > .row > .black.column {
   margin-top: -1rem;
   margin-bottom: -1rem;
@@ -22587,11 +22664,14 @@ ol.ui.horizontal.list li:before,
   color: #FFFFFF;
 }
 
-/* gray */
+/* Gray / Grey */
 
 .ui.grid > .gray.row,
 .ui.grid > .gray.column,
-.ui.grid > .row > .gray.column {
+.ui.grid > .row > .gray.column,
+.ui.grid > .grey.row,
+.ui.grid > .grey.column,
+.ui.grid > .row > .grey.column {
   background-color: #767676 !important;
   color: #FFFFFF;
 }
@@ -24782,7 +24862,9 @@ Floated Menu / Item
 }
 
 .ui.menu .gray.active.item,
-.ui.gray.menu .active.item {
+.ui.gray.menu .active.item,
+.ui.menu .grey.active.item,
+.ui.grey.menu .active.item {
   border-color: #767676 !important;
   color: #767676 !important;
 }
@@ -25085,18 +25167,22 @@ Floated Menu / Item
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
 
-/* gray */
+/* Gray / Grey */
 
 .ui.inverted.menu .gray.active.item,
-.ui.inverted.gray.menu {
+.ui.inverted.gray.menu,
+.ui.inverted.menu .grey.active.item,
+.ui.inverted.grey.menu {
   background-color: #767676;
 }
 
-.ui.inverted.gray.menu .item:before {
+.ui.inverted.gray.menu .item:before,
+.ui.inverted.grey.menu .item:before {
   background-color: rgba(34, 36, 38, 0.1);
 }
 
-.ui.inverted.gray.menu .active.item {
+.ui.inverted.gray.menu .active.item,
+.ui.inverted.grey.menu .active.item {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
 
@@ -26965,11 +27051,13 @@ Floated Menu / Item
 
 /* gray */
 
-.ui.gray.table {
+.ui.gray.table,
+.ui.grey.table {
   border-top: 0.2em solid #767676;
 }
 
-.ui.inverted.gray.table {
+.ui.inverted.gray.table,
+.ui.inverted.grey.table {
   background-color: #767676 !important;
   color: #FFFFFF !important;
 }
@@ -28432,18 +28520,24 @@ a.ui.card:hover,
   box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #975b33, 0px 1px 3px 0px #BCBDBD;
 }
 
-/* gray */
+/* Gray / Grey */
 
 .ui.gray.cards > .card,
 .ui.cards > .gray.card,
-.ui.gray.card {
+.ui.gray.card,
+.ui.grey.cards > .card,
+.ui.cards > .grey.card,
+.ui.grey.card {
   -webkit-box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #767676, 0px 1px 3px 0px #D4D4D5;
   box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #767676, 0px 1px 3px 0px #D4D4D5;
 }
 
 .ui.gray.cards > .card:hover,
 .ui.cards > .gray.card:hover,
-.ui.gray.card:hover {
+.ui.gray.card:hover,
+.ui.grey.cards > .card:hover,
+.ui.cards > .grey.card:hover,
+.ui.grey.card:hover {
   -webkit-box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #838383, 0px 1px 3px 0px #BCBDBD;
   box-shadow: 0px 0px 0px 1px #D4D4D5, 0px 2px 0px 0px #838383, 0px 1px 3px 0px #BCBDBD;
 }
@@ -30356,7 +30450,10 @@ a.ui.card:hover,
 
 .ui.gray.statistics .statistic > .value,
 .ui.statistics .gray.statistic > .value,
-.ui.gray.statistic > .value {
+.ui.gray.statistic > .value,
+.ui.grey.statistics .statistic > .value,
+.ui.statistics .grey.statistic > .value,
+.ui.grey.statistic > .value {
   color: #767676;
 }
 
@@ -30442,7 +30539,10 @@ a.ui.card:hover,
 
 .ui.inverted.gray.statistics .statistic > .value,
 .ui.statistics .inverted.gray.statistic > .value,
-.ui.inverted.gray.statistic > .value {
+.ui.inverted.gray.statistic > .value,
+.ui.inverted.grey.statistics .statistic > .value,
+.ui.statistics .inverted.grey.statistic > .value,
+.ui.inverted.grey.statistic > .value {
   color: #DCDDDE;
 }
 
@@ -35719,13 +35819,15 @@ a.ui.nag {
   background-color: #D67C1C;
 }
 
-/* gray */
+/* Gray / Grey */
 
-.ui.gray.progress .bar {
+.ui.gray.progress .bar,
+.ui.grey.progress .bar {
   background-color: #767676;
 }
 
-.ui.gray.inverted.progress .bar {
+.ui.gray.inverted.progress .bar,
+.ui.grey.inverted.progress .bar {
   background-color: #DCDDDE;
 }
 
