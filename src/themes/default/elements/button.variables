@@ -283,6 +283,8 @@
 @yellowTextShadow: @invertedTextShadow;
 @tealTextColor: @invertedTextColor;
 @tealTextShadow: @invertedTextShadow;
+@grayTextColor: @invertedTextColor;
+@grayTextShadow: @invertedTextShadow;
 @greyTextColor: @invertedTextColor;
 @greyTextShadow: @invertedTextShadow;
 
@@ -311,6 +313,8 @@
 @lightYellowTextShadow: @textShadow;
 @lightTealTextColor: @textColor;
 @lightTealTextShadow: @textShadow;
+@lightGrayTextColor: @textColor;
+@lightGrayTextShadow: @textShadow;
 @lightGreyTextColor: @textColor;
 @lightGreyTextShadow: @textShadow;
 

@@ -121,7 +121,7 @@
 @activeIconColor: @darkTextColor;
 
 /* Active + Hover */
-@activeHoverBackground: @lightGrey;
+@activeHoverBackground: @lightGray;
 @activeHoverColor: @textColor;
 
 
