@@ -172,8 +172,6 @@
   left: 0px;
   top: 0px;
   transform: none;
-  width: auto;
-  height: auto;
   margin: 0em;
   will-change: background-position, transform;
   overflow: hidden;
@@ -184,6 +182,10 @@
   background-image: @contentLoadingGradient;
   background-size: @contentLoadingGradientWidth 100%;
   max-width: @contentLoaderMaxWidth;
+}
+.ui.content.content.loader {
+  width: auto;
+  height: auto;
 }
 
 .ui.content.loader,
