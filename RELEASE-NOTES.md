@@ -12,6 +12,9 @@
 
 For example when `attachable: false` is used with a modal, or if IE11/Edge is used (Absolutely positioned elements inside flex containers in IE behave differently)
 
+**Critical Bugs**
+- **Modal** - Fixed issue where `scrolling modal` would not allow for scrolling with touch devices (including mobile). #6449
+
 **Bugs**
 - **Dropdown** - Fixed issue where `onChange` when used with `action: hide` would be missing the third param `$item` #6555
 - **Dimmer** - Dimmer now sets `variation` at runtime, to support run-time swapping between `top aligned` and `middle aligned` using `.dimmer('setting', 'variation', 'top aligned')`
