@@ -157,9 +157,6 @@ $.fn.dimmer = function(parameters) {
               event.stopImmediatePropagation();
             }
           },
-          preventScroll: function(event) {
-            event.preventDefault();
-          }
         },
 
         addContent: function(element) {
@@ -197,11 +194,6 @@ $.fn.dimmer = function(parameters) {
             module.animate.show(callback);
             settings.onShow.call(element);
             settings.onChange.call(element);
-
-            if(module.is.page()) {
-              // touch events default to passive, due to changes in chrome to optimize mobile perf
-              $dimmable.get(0).addEventListener('touchmove', module.event.preventScroll, { passive: false });
-            }
           }
           else {
             module.debug('Dimmer is already shown or disabled');
@@ -218,10 +210,6 @@ $.fn.dimmer = function(parameters) {
             module.animate.hide(callback);
             settings.onHide.call(element);
             settings.onChange.call(element);
-            
-            if(module.is.page()) {
-              $dimmable.get(0).removeEventListener('touchmove', module.event.preventScroll, { passive: false });
-            }
           }
           else {
             module.debug('Dimmer is not visible');

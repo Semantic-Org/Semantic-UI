@@ -209,6 +209,16 @@ $.fn.modal = function(parameters) {
             $window
               .on('resize' + elementEventNamespace, module.event.resize)
             ;
+          },
+          scrollLock: function() {
+            // touch events default to passive, due to changes in chrome to optimize mobile perf
+            $dimmable.get(0).addEventListener('touchmove', module.event.preventScroll, { passive: false });
+          }
+        },
+
+        unbind: {
+          scrollLock: function() {
+            $dimmable.get(0).removeEventListener('touchmove', module.event.preventScroll, { passive: false });
           }
         },
 
@@ -228,6 +238,9 @@ $.fn.modal = function(parameters) {
             module.hide(function() {
               ignoreRepeatedEvents = false;
             });
+          },
+          preventScroll: function(event) {
+            event.preventDefault();
           },
           deny: function() {
             if(ignoreRepeatedEvents || settings.onDeny.call(element, $(this)) === false) {
@@ -304,7 +317,6 @@ $.fn.modal = function(parameters) {
             ? callback
             : function(){}
           ;
-          console.log('test');
           module.refreshModals();
           module.set.dimmerSettings();
           module.showModal(callback);
@@ -315,6 +327,7 @@ $.fn.modal = function(parameters) {
             ? callback
             : function(){}
           ;
+          module.unbind.scrollLock();
           module.refreshModals();
           module.hideModal(callback);
         },
@@ -718,15 +731,18 @@ $.fn.modal = function(parameters) {
           scrolling: function() {
             $dimmable.addClass(className.scrolling);
             $module.addClass(className.scrolling);
+            module.unbind.scrollLock();
           },
           legacy: function() {
             $module.addClass(className.legacy);
           },
           type: function() {
+            console.log('setting');
             if(module.can.fit()) {
               module.verbose('Modal fits on screen');
               if(!module.others.active() && !module.others.animating()) {
                 module.remove.scrolling();
+                module.bind.scrollLock();
               }
             }
             else {
