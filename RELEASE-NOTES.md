@@ -23,6 +23,7 @@ For example when `attachable: false` is used with a modal, or if IE11/Edge is us
 - **Modal** - Fixes `@mobileTopAlignedMargin` theming variable was not implemented
 - **List** - Fixed issue where `content` would not take up 100% width when used alongside `img` or `icon`
 - **Dropdown** - `inline dropdown` `close icon` default right margin default spacing slightly modified.
+- **Icon** - Fixes missing `disk outline icon` alias #6556
 
 ### Version 2.3.3 - June 18, 2018
 
