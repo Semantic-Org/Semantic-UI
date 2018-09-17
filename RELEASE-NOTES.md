@@ -16,19 +16,22 @@
 
 **Critical Bugs**
 - **Modal** - Fixed issue where `scrolling modal` would not allow for scrolling with touch devices. [#6449](https://github.com/Semantic-Org/Semantic-UI/issues/6449)
+- **Label** - Fixed issue where `basic label` were appearing incorrectly **Thanks @lasley / @ColinFrick** [#6582](https://github.com/Semantic-Org/Semantic-UI/issues/6582) [#6440](https://github.com/Semantic-Org/Semantic-UI/issues/6440)
+- **Menu/Dropdown** - Fixed `left menu` inside `ui menu` would display horizontally as `flex` [#6359](https://github.com/Semantic-Org/Semantic-UI/issues/6359)
 
 **Bugs**
 - **Dimmer** - Dimmer now sets `variation` at runtime, to support run-time swapping between `top aligned` and `middle aligned` using `.dimmer('setting', 'variation', 'top aligned')`
-- **Dropdown** - `inline dropdown` `close icon` default right margin default spacing slightly modified.
 - **Dropdown** - Fixed issue where `onChange` when used with `action: hide` would be missing the third param `$item` [#6555](https://github.com/Semantic-Org/Semantic-UI/issues/6555)
 - **Flag** - Add `uk` alias for `united kingdom` **Thanks @PhilipGarnero** [#6531](https://github.com/Semantic-Org/Semantic-UI/issues/6531)
 - **Icon** - Fixes missing `disk outline icon` alias [#6556](https://github.com/Semantic-Org/Semantic-UI/issues/6556)
-- **Label** - Fixed issue where `basic label` were appearing incorrectly **Thanks @lasley / @ColinFrick** [#6582](https://github.com/Semantic-Org/Semantic-UI/issues/6582) [#6440](https://github.com/Semantic-Org/Semantic-UI/issues/6440)
-- **List** - Fixed issue where `content` would not take up 100% width when used alongside `img` or `icon`
-- **Menu/Dropdown** - Fixed `left menu` inside `ui menu` would display horizontally as `flex` [#6359](https://github.com/Semantic-Org/Semantic-UI/issues/6359)
+- **List** - Fixed issue where list `content` would not take up 100% width when used alongside `img` or `icon`
 - **Menu/Dropdown** - Fixes dropdown item margin not obeyed inside `labeled icon menu` [#6557](https://github.com/Semantic-Org/Semantic-UI/issues/6557)
 - **Modal** - Fixes `@mobileTopAlignedMargin` theming variable was not implemented
 - **Modal** - Modal now will remove `blurring` after undimming, to prevent issues with `position: fixed` [#6520](https://github.com/Semantic-Org/Semantic-UI/issues/6520)
+
+**Minor Changes**
+- **Dropdown** - `inline dropdown` `close icon` default right margin default spacing slightly modified.
+
 
 ### Version 2.3.3 - July 8th, 2018
 
