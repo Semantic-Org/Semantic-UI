@@ -41,7 +41,6 @@
     "gulp-replace": "*",
     "gulp-rtlcss": "*",
     "gulp-uglify": "*",
-    "gulp-util": "*",
     "gulp-watch": "*",
     "map-stream": "*",
     "require-dot-file": "*",
@@ -75,7 +74,6 @@
     "gulp-replace": "^0.6.1",
     "gulp-rtlcss": "^1.0.0",
     "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
     "jquery": "^3.2.1",
     "map-stream": "^0.1.0",
@@ -92,7 +90,8 @@
     "gulp-debug": "*",
     "gulp-git": "*",
     "gulp-tap": "*",
-    "merge-stream": "*"
+    "merge-stream": "*",
+    "replace-ext": "^1.0.0"
   },
   "style": "dist/semantic.css"
 }
