@@ -321,7 +321,7 @@
 @tabularVerticalBackground: none @tabularBackgroundColor;
 
 @tabularFluidOffset: 1px;
-@tabularFluidWidth: ~"calc(100% + "(@tabularFluidOffset * 2)~")";
+@tabularFluidWidth: calc(100% + (@tabularFluidOffset * 2));
 
 @tabularActiveBackground: none @white;
 @tabularActiveColor: @selectedTextColor;
@@ -430,7 +430,7 @@
 @attachedTopOffset: 0px;
 @attachedBottomOffset: 0px;
 @attachedHorizontalOffset: -@borderWidth;
-@attachedWidth: ~"calc(100% + "-@attachedHorizontalOffset * 2~")";
+@attachedWidth: calc(100% - (@attachedHorizontalOffset * 2));
 @attachedBoxShadow: none;
 @attachedBorder: @borderWidth solid @solidBorderColor;
 @attachedBottomBoxShadow:
