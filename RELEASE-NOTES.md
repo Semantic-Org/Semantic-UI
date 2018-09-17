@@ -11,26 +11,24 @@
 - **Segment** - Added new `ui placeholder segment` used to reserve space for UI when content is missing or empty.
 
 **Major Enhancements**
-- **Dropdown** - Added `clearable` dropdowns. When `clearable: true` is specified an (X) will appear to clear dropdown selection #2072
-- **Modal/Dimmer** - Modals and dimmers now include a new setting `useFlex` which defaults to `auto`. Modals and dimmers will automatically revert to using non-flex layouts when there may be layout issues with using flexbox.
-
-For example when `attachable: false` is used with a modal, or if IE11/Edge is used (Absolutely positioned elements inside flex containers in IE behave differently)
+- **Dropdown** - Added `clearable` dropdowns. When `clearable: true` is specified an (X) will appear to clear dropdown selection [#2072](https://github.com/Semantic-Org/Semantic-UI/issues/2072)
+- **Modal/Dimmer** - Modals and dimmers now include a new setting `useFlex` which defaults to `auto`. Modals and dimmers will automatically revert to using non-flex layouts when there may be layout issues with using flexbox. Modals will fall back to JS position when `detachable: false` is used or with IE11/Edge (Absolutely positioned elements inside flex containers in IE behave differently).
 
 **Critical Bugs**
-- **Modal** - Fixed issue where `scrolling modal` would not allow for scrolling with touch devices. #6449
+- **Modal** - Fixed issue where `scrolling modal` would not allow for scrolling with touch devices. [#6449](https://github.com/Semantic-Org/Semantic-UI/issues/6449)
 
 **Bugs**
 - **Dimmer** - Dimmer now sets `variation` at runtime, to support run-time swapping between `top aligned` and `middle aligned` using `.dimmer('setting', 'variation', 'top aligned')`
 - **Dropdown** - `inline dropdown` `close icon` default right margin default spacing slightly modified.
-- **Dropdown** - Fixed issue where `onChange` when used with `action: hide` would be missing the third param `$item` #6555
-- **Flag** - Add `uk` alias for `united kingdom` **Thanks @PhilipGarnero** #6531
-- **Icon** - Fixes missing `disk outline icon` alias #6556
-- **Label** - Fixed issue where `basic label` were appearing incorrectly **Thanks @lasley / @ColinFrick** #6582 #6440
+- **Dropdown** - Fixed issue where `onChange` when used with `action: hide` would be missing the third param `$item` [#6555](https://github.com/Semantic-Org/Semantic-UI/issues/6555)
+- **Flag** - Add `uk` alias for `united kingdom` **Thanks @PhilipGarnero** [#6531](https://github.com/Semantic-Org/Semantic-UI/issues/6531)
+- **Icon** - Fixes missing `disk outline icon` alias [#6556](https://github.com/Semantic-Org/Semantic-UI/issues/6556)
+- **Label** - Fixed issue where `basic label` were appearing incorrectly **Thanks @lasley / @ColinFrick** [#6582](https://github.com/Semantic-Org/Semantic-UI/issues/6582) [#6440](https://github.com/Semantic-Org/Semantic-UI/issues/6440)
 - **List** - Fixed issue where `content` would not take up 100% width when used alongside `img` or `icon`
-- **Menu/Dropdown** - Fixed `left menu` inside `ui menu` would display horizontally as `flex` #6359
-- **Menu/Dropdown** - Fixes dropdown item margin not obeyed inside `labeled icon menu` #6557
+- **Menu/Dropdown** - Fixed `left menu` inside `ui menu` would display horizontally as `flex` [#6359](https://github.com/Semantic-Org/Semantic-UI/issues/6359)
+- **Menu/Dropdown** - Fixes dropdown item margin not obeyed inside `labeled icon menu` [#6557](https://github.com/Semantic-Org/Semantic-UI/issues/6557)
 - **Modal** - Fixes `@mobileTopAlignedMargin` theming variable was not implemented
-- **Modal** - Modal now will remove `blurring` after undimming, to prevent issues with `position: fixed` #6520
+- **Modal** - Modal now will remove `blurring` after undimming, to prevent issues with `position: fixed` [#6520](https://github.com/Semantic-Org/Semantic-UI/issues/6520)
 
 ### Version 2.3.3 - July 8th, 2018
 
