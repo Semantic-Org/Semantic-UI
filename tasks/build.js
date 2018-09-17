@@ -5,14 +5,10 @@
 var
   // dependencies
   gulp         = require('gulp-help')(require('gulp')),
-  runSequence  = require('run-sequence'),
 
   // config
   config       = require('./config/user'),
-  install      = require('./config/project/install'),
-
-  // task sequence
-  tasks        = []
+  install      = require('./config/project/install')
 ;
 
 
@@ -39,12 +35,14 @@ module.exports = function(callback) {
   }
 
   if(config.rtl == 'both') {
-    tasks.push('build-rtl');
+    gulp.task('build', gulp.series('build-rtl', 'build-javascript', 'build-css', 'build-assets', function(done) {
+      callback();
+      done();
+    }));
+  } else {
+    gulp.task('build', gulp.series('build-javascript', 'build-css', 'build-assets', function(done) {
+      callback();
+      done();
+    }));
   }
-
-  tasks.push('build-javascript');
-  tasks.push('build-css');
-  tasks.push('build-assets');
-
-  runSequence(tasks, callback);
 };

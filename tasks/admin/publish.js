@@ -10,16 +10,15 @@
 */
 
 var
-  runSequence = require('run-sequence')
+  gulp = require('gulp')
 ;
 
 /* Release All */
 module.exports = function(callback) {
 
-  runSequence(
-    'update distributions', // commit less/css versions to github
-    'update components', // commit components to github
-    callback
-  );
+  gulp.task('publish', gulp.series('update distributions', 'update components', function(done) {
+    callback();
+    done();
+  }));
 
 };

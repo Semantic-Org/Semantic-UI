@@ -11,19 +11,21 @@
 */
 
 var
-  runSequence = require('run-sequence')
+  gulp = require('gulp')
 ;
 
 /* Release All */
 module.exports = function(callback) {
 
-  runSequence(
-    //'build', // build Semantic
-    'init distributions', // sync with current github version
-    'create distributions', // update each repo with changes from master repo
-    'init components', // sync with current github version
-    'create components', // update each repo
-    callback
-  );
+  gulp.task('release', gulp.series(
+    'init distributions',
+    'create distributions',
+    'init components',
+    'create components',
+    function(done) {
+      callback();
+      done();
+    }
+  ));
 
 };

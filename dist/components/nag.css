@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.3.2 - Nag
+ * # Semantic UI 2.3.3 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
