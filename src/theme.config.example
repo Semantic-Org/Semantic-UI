@@ -33,6 +33,7 @@
 @label      : 'default';
 @list       : 'default';
 @loader     : 'default';
+@placeholder: 'default';
 @rail       : 'default';
 @reveal     : 'default';
 @segment    : 'default';
