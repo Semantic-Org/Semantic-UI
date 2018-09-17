@@ -39,8 +39,11 @@ module.exports = function(callback) {
       callback();
       done();
     }));
-  } else {
+  }
+  else {
+    console.log('starting task');
     gulp.task('build', gulp.series('build-javascript', 'build-css', 'build-assets', function(done) {
+      console.log('im here');
       callback();
       done();
     }));
