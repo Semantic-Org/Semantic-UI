@@ -49,11 +49,11 @@
 *******************************/
 
 /* Placeholder */
-@placeholderBackground: @offWhite;
-@placeholderPadding: @padding;
-@placeholderBorderColor: @borderColor;
-@placeholderBoxShadow: 0px 2px 25px 0 rgba(34, 36, 38, 0.05) inset;
-@placeholderMinHeight: 18rem;
+@emptyBackground: @offWhite;
+@emptyPadding: @padding;
+@emptyBorderColor: @borderColor;
+@emptyBoxShadow: 0px 2px 25px 0 rgba(34, 36, 38, 0.05) inset;
+@emptyMinHeight: 18rem;
 
 
 /* Piled */

@@ -1,0 +1,49 @@
+@placeholderMaxWidth: 50rem;
+
+/* Key Content Sizing */
+@placeholderLineMargin: @relative12px;
+@placeholderHeaderLineHeight: @relative9px;
+@placeholderLineHeight: @relative7px;
+@placeholderParagraphLineHeight: @placeholderLineHeight;
+
+@placeholderSpacing: @relative20px;
+
+/* Image */
+@placeholderImageHeight: 100px;
+
+/* Header Image */
+@placeholderImageWidth: 3em;
+@placeholderImageTextIndent: @10px;
+
+/* Paragraph */
+@placeholderHeaderLineOneOutdent: 40%;
+@placeholderHeaderLineTwoOutdent: 20%;
+
+@placeholderLineOneOutdent: @placeholderLongLineOutdent;
+@placeholderLineTwoOutdent: @placeholderShortLineOutdent;
+@placeholderLineThreeOutdent: @placeholderMediumLineOutdent;
+@placeholderLineFourOutdent: @placeholderVeryShortLineOutdent;
+@placeholderLineFiveOutdent: @placeholderShortLineOutdent;
+
+
+/* Glow Gradient */
+@placeholderLoadingAnimationDuration: 2s;
+@placeholderLoadingGradientWidth: 1200px;
+@placeholderLoadingGradient: linear-gradient(to right,
+  #EEEEEE 0%,
+  #DDDDDD 15%,
+  #EEEEEE 30%
+);
+@placeholderInvertedLoadingGradient: linear-gradient(to right,
+  #222222 0%,
+  #333333 15%,
+  #222222 30%
+);
+
+/* Variations */
+@placeholderFullLineOutdent: 0%;
+@placeholderVeryLongLineOutdent: 10%;
+@placeholderLongLineOutdent: 35%;
+@placeholderMediumLineOutdent: 50%;
+@placeholderShortLineOutdent: 65%;
+@placeholderVeryShortLineOutdent: 80%;

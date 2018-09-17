@@ -89,6 +89,7 @@ module.exports = {
     'message',
     'modal',
     'nag',
+    'placeholder',
     'popup',
     'progress',
     'rail',

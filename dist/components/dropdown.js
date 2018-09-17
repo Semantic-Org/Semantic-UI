@@ -1019,7 +1019,12 @@ $.fn.dropdown = function(parameters) {
           },
           icon: {
             click: function(event) {
-              module.toggle();
+              if($icon.hasClass(className.clear)) {
+                module.clear();
+              }
+              else {
+                module.toggle();
+              }
             }
           },
           text: {
@@ -1646,7 +1651,7 @@ $.fn.dropdown = function(parameters) {
           },
 
           hide: function(text, value, element) {
-            module.set.value(value, text);
+            module.set.value(value, text, $(element));
             module.hideAndClear();
           }
 
@@ -2481,6 +2486,15 @@ $.fn.dropdown = function(parameters) {
                 $module.data(metadata.value, stringValue);
               }
             }
+            if(module.is.single() && settings.clearable) {
+              // treat undefined or '' as empty
+              if(!escapedValue) {
+                module.remove.clearable();
+              }
+              else {
+                module.set.clearable();
+              }
+            }
             if(settings.fireOnInit === false && module.is.initialLoad()) {
               module.verbose('No callback on initial load', settings.onChange);
             }
@@ -2576,7 +2590,10 @@ $.fn.dropdown = function(parameters) {
                 }
               })
             ;
-          }
+          },
+          clearable: function() {
+            $icon.addClass(className.clear);
+          },
         },
 
         add: {
@@ -2774,7 +2791,7 @@ $.fn.dropdown = function(parameters) {
             }
             module.set.value(newValue, addedValue, addedText, $selectedItem);
             module.check.maxSelections();
-          }
+          },
         },
 
         remove: {
@@ -2999,6 +3016,9 @@ $.fn.dropdown = function(parameters) {
                 .removeAttr('tabindex')
               ;
             }
+          },
+          clearable: function() {
+            $icon.removeClass(className.clear);
           }
         },
 
@@ -3686,6 +3706,8 @@ $.fn.dropdown.settings = {
 
   values                 : false,      // specify values to use for dropdown
 
+  clearable              : false,      // whether the value of the dropdown can be cleared
+
   apiSettings            : false,
   selectOnKeydown        : true,       // Whether selection should occur automatically when keyboard shortcuts used
   minCharacters          : 0,          // Minimum characters required to trigger API call
@@ -3838,6 +3860,7 @@ $.fn.dropdown.settings = {
     active      : 'active',
     addition    : 'addition',
     animating   : 'animating',
+    clear       : 'clear',
     disabled    : 'disabled',
     empty       : 'empty',
     dropdown    : 'ui dropdown',
