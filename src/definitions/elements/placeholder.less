@@ -44,16 +44,16 @@
   margin-top: @consecutivePlaceholderSpacing;
 }
 .ui.placeholder + .ui.placeholder {
-  animation-delay: 0.1s;
+  animation-delay: @placeholderAnimationInterval;
 }
 .ui.placeholder + .ui.placeholder + .ui.placeholder {
-  animation-delay: 0.2s;
+  animation-delay: (@placeholderAnimationInterval * 2);
 }
 .ui.placeholder + .ui.placeholder + .ui.placeholder + .ui.placeholder {
-  animation-delay: 0.3s;
+  animation-delay: (@placeholderAnimationInterval * 3);
 }
 .ui.placeholder + .ui.placeholder + .ui.placeholder + .ui.placeholder + .ui.placeholder {
-  animation-delay: 0.4s;
+  animation-delay: (@placeholderAnimationInterval * 4);
 }
 
 .ui.placeholder,
@@ -227,6 +227,6 @@
         Fluid
 --------------------*/
 
-.ui.fluid.placehlder {
+.ui.fluid.placeholder {
   max-width: none;
 }

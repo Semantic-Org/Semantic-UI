@@ -8,6 +8,9 @@
 
 @placeholderSpacing: @relative20px;
 
+/* Interval between consecutive placeholders */
+@placeholderAnimationInterval: 0.15s;
+
 /* Repeated Placeholder */
 @consecutivePlaceholderSpacing: 2rem;
 
