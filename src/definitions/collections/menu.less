@@ -467,21 +467,21 @@ Floated Menu / Item
 -------------------*/
 
 /* Left Floated */
-.ui.menu:not(.vertical) .left.item,
-.ui.menu:not(.vertical) .left.menu {
+.ui.menu:not(.vertical) > .left.item,
+.ui.menu:not(.vertical) > .left.menu {
   display: flex;
   margin-right: auto !important;
 }
 /* Right Floated */
-.ui.menu:not(.vertical) .right.item,
-.ui.menu:not(.vertical) .right.menu {
+.ui.menu:not(.vertical) > .right.item,
+.ui.menu:not(.vertical) > .right.menu {
   display: flex;
   margin-left: auto !important;
 }
 
 /* Swapped Borders */
-.ui.menu .right.item::before,
-.ui.menu .right.menu > .item::before {
+.ui.menu > .right.item::before,
+.ui.menu > .right.menu > .item::before {
   right: auto;
   left: 0;
 }
