@@ -2,17 +2,16 @@
 
 ### Version 2.4.0 - Sep 17, 2018
 
-**Install Notes**
-`2.4.0` includes a new component `placeholder`. To use this component in your existing SUI site, be sure to add `@placeholder: 'default';` to your `theme.config`. You can see an example in `theme.config.example`
+> `2.4.0` includes a new component `placeholder`. To use this component in your existing SUI site, be sure to add `@placeholder: 'default';` to your `theme.config`. You can see an example in `theme.config.example`
 
 **New Components**
-- **Loader** - Added `ui placeholder` that can be used to mimic content while its loading
+- **Placeholder** - Added `ui placeholder` that can be used to show where content will soon appear.
 
 **New UI Type**
-- **Segment** - Added new `ui placeholder segment` used to reserve space for UI when no content is available.
+- **Segment** - Added new `ui placeholder segment` used to reserve space for UI when content is missing or empty.
 
 **Major Enhancements**
-- **Dropdown** - Added `clearable` dropdowns. When `clearable: true` is specified, you can
+- **Dropdown** - Added `clearable` dropdowns. When `clearable: true` is specified an (X) will appear to clear dropdown selection #2072
 - **Modal/Dimmer** - Modals and dimmers now include a new setting `useFlex` which defaults to `auto`. Modals and dimmers will automatically revert to using non-flex layouts when there may be layout issues with using flexbox.
 
 For example when `attachable: false` is used with a modal, or if IE11/Edge is used (Absolutely positioned elements inside flex containers in IE behave differently)
