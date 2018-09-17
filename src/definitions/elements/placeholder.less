@@ -22,13 +22,7 @@
 
 .ui.placeholder {
   position: static;
-  left: 0px;
-  top: 0px;
-  transform: none;
-  margin: 0em;
-  will-change: background-position, transform;
   overflow: hidden;
-  backface-visibility: hidden;
   animation: placeholderShimmer @placeholderLoadingAnimationDuration linear;
   animation-iteration-count: infinite;
   background-color: @white;
@@ -44,6 +38,22 @@
   100% {
     background-position: @placeholderLoadingGradientWidth 0
   }
+}
+
+.ui.placeholder + .ui.placeholder {
+  margin-top: @consecutivePlaceholderSpacing;
+}
+.ui.placeholder + .ui.placeholder {
+  animation-delay: 0.1s;
+}
+.ui.placeholder + .ui.placeholder + .ui.placeholder {
+  animation-delay: 0.2s;
+}
+.ui.placeholder + .ui.placeholder + .ui.placeholder + .ui.placeholder {
+  animation-delay: 0.3s;
+}
+.ui.placeholder + .ui.placeholder + .ui.placeholder + .ui.placeholder + .ui.placeholder {
+  animation-delay: 0.4s;
 }
 
 .ui.placeholder,
@@ -210,4 +220,13 @@
 }
 .ui.placeholder .very.short.line.line.line:after {
   width: @placeholderVeryShortLineOutdent;
+}
+
+
+/*-------------------
+        Fluid
+--------------------*/
+
+.ui.fluid.placehlder {
+  max-width: none;
 }

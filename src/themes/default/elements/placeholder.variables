@@ -1,4 +1,4 @@
-@placeholderMaxWidth: 50rem;
+@placeholderMaxWidth: 30rem;
 
 /* Key Content Sizing */
 @placeholderLineMargin: @relative12px;
@@ -8,6 +8,9 @@
 
 @placeholderSpacing: @relative20px;
 
+/* Repeated Placeholder */
+@consecutivePlaceholderSpacing: 2rem;
+
 /* Image */
 @placeholderImageHeight: 100px;
 
@@ -16,13 +19,13 @@
 @placeholderImageTextIndent: @10px;
 
 /* Paragraph */
-@placeholderHeaderLineOneOutdent: 40%;
-@placeholderHeaderLineTwoOutdent: 20%;
+@placeholderHeaderLineOneOutdent: 20%;
+@placeholderHeaderLineTwoOutdent: 60%;
 
-@placeholderLineOneOutdent: @placeholderLongLineOutdent;
-@placeholderLineTwoOutdent: @placeholderShortLineOutdent;
-@placeholderLineThreeOutdent: @placeholderMediumLineOutdent;
-@placeholderLineFourOutdent: @placeholderVeryShortLineOutdent;
+@placeholderLineOneOutdent: @placeholderFullLineOutdent;
+@placeholderLineTwoOutdent: @placeholderMediumLineOutdent;
+@placeholderLineThreeOutdent: @placeholderVeryLongLineOutdent;
+@placeholderLineFourOutdent: @placeholderLongLineOutdent;
 @placeholderLineFiveOutdent: @placeholderShortLineOutdent;
 
 
@@ -30,14 +33,14 @@
 @placeholderLoadingAnimationDuration: 2s;
 @placeholderLoadingGradientWidth: 1200px;
 @placeholderLoadingGradient: linear-gradient(to right,
-  #EEEEEE 0%,
-  #DDDDDD 15%,
-  #EEEEEE 30%
+  rgba(0, 0, 0, 0.08) 0%,
+  rgba(0, 0, 0, 0.15) 15%,
+  rgba(0, 0, 0, 0.08) 30%
 );
 @placeholderInvertedLoadingGradient: linear-gradient(to right,
-  #222222 0%,
-  #333333 15%,
-  #222222 30%
+  rgba(255, 255, 255, 0.08) 0%,
+  rgba(255, 255, 255, 0.14) 15%,
+  rgba(255, 255, 255, 0.08) 30%
 );
 
 /* Variations */
