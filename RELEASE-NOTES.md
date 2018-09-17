@@ -24,7 +24,7 @@ For example when `attachable: false` is used with a modal, or if IE11/Edge is us
 - **List** - Fixed issue where `content` would not take up 100% width when used alongside `img` or `icon`
 - **Dropdown** - `inline dropdown` `close icon` default right margin default spacing slightly modified.
 - **Icon** - Fixes missing `disk outline icon` alias #6556
-- **Flag** - Add `uk` alias for `united kingdom` #6531
+- **Flag** - Add `uk` alias for `united kingdom` **Thanks @PhilipGarnero** #6531
 
 ### Version 2.3.3 - July 8th, 2018
 
