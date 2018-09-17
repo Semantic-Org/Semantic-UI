@@ -319,6 +319,8 @@ $.fn.modal = function(parameters) {
           ;
           module.refreshModals();
           module.set.dimmerSettings();
+          module.set.dimmerStyles();
+
           module.showModal(callback);
         },
 
@@ -327,7 +329,6 @@ $.fn.modal = function(parameters) {
             ? callback
             : function(){}
           ;
-          module.unbind.scrollLock();
           module.refreshModals();
           module.hideModal(callback);
         },
@@ -425,6 +426,7 @@ $.fn.modal = function(parameters) {
                   },
                   onComplete : function() {
                     settings.onHidden.call(element);
+                    module.remove.dimmerStyles();
                     module.restore.focus();
                     callback();
                   }
@@ -449,6 +451,7 @@ $.fn.modal = function(parameters) {
 
         hideDimmer: function() {
           if( $dimmable.dimmer('is animating') || ($dimmable.dimmer('is active')) ) {
+            module.unbind.scrollLock();
             $dimmable.dimmer('hide', function() {
               module.remove.clickaway();
               module.remove.screenHeight();
@@ -543,6 +546,10 @@ $.fn.modal = function(parameters) {
             $dimmer
               .off('click' + elementEventNamespace)
             ;
+          },
+          dimmerStyles: function() {
+            $dimmer.removeClass(className.inverted);
+            $dimmable.removeClass(className.blurring);
           },
           bodyStyle: function() {
             if($body.attr('style') === '') {
@@ -685,6 +692,11 @@ $.fn.modal = function(parameters) {
                 ? dimmerSettings.variation + ' inverted'
                 : 'inverted'
               ;
+            }
+            $context.dimmer('setting', dimmerSettings);
+          },
+          dimmerStyles: function() {
+            if(settings.inverted) {
               $dimmer.addClass(className.inverted);
             }
             else {
@@ -696,14 +708,12 @@ $.fn.modal = function(parameters) {
             else {
               $dimmable.removeClass(className.blurring);
             }
-            $context.dimmer('setting', dimmerSettings);
           },
           modalOffset: function() {
             var
               width = module.cache.width,
               height = module.cache.height
             ;
-            console.log(module.can.fit());
             $module
               .css({
                 marginTop: (settings.centered && module.can.fit())
@@ -737,7 +747,6 @@ $.fn.modal = function(parameters) {
             $module.addClass(className.legacy);
           },
           type: function() {
-            console.log('setting');
             if(module.can.fit()) {
               module.verbose('Modal fits on screen');
               if(!module.others.active() && !module.others.animating()) {
