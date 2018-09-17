@@ -1352,7 +1352,7 @@ i.icon.youtube.play:before { content: "\f167"; }
   i.icon.window.restore.outline:before { content: "\f2d2"; }
 
   /* Outline Aliases */
-  i.icon.disk.outline:before { content: "\f0A0"; }
+  i.icon.disk.outline:before { content: "\f0a0"; }
   i.icon.heart.empty,
   i.icon.star.empty {
     font-family: @outlineFontName;
