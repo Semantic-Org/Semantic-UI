@@ -17,8 +17,9 @@ For example when `attachable: false` is used with a modal, or if IE11/Edge is us
 
 **Bugs**
 - **Dropdown** - Fixed issue where `onChange` when used with `action: hide` would be missing the third param `$item` #6555
+- **Menu/Dropdown** - Fixed `left menu` inside `ui menu` would display horizontally as `flex` #6359
 - **Dimmer** - Dimmer now sets `variation` at runtime, to support run-time swapping between `top aligned` and `middle aligned` using `.dimmer('setting', 'variation', 'top aligned')`
-- **Modal** - Modal now will remove `blurring` after undimming, to prevent issues with position: fixed #6520
+- **Modal** - Modal now will remove `blurring` after undimming, to prevent issues with `position: fixed` #6520
 - **Menu/Dropdown** - Fixes dropdown item margin not obeyed inside `labeled icon menu` #6557
 - **Modal** - Fixes `@mobileTopAlignedMargin` theming variable was not implemented
 - **List** - Fixed issue where `content` would not take up 100% width when used alongside `img` or `icon`
