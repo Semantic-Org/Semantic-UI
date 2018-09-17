@@ -25,7 +25,7 @@ For example when `attachable: false` is used with a modal, or if IE11/Edge is us
 - **Dropdown** - `inline dropdown` `close icon` default right margin default spacing slightly modified.
 - **Icon** - Fixes missing `disk outline icon` alias #6556
 
-### Version 2.3.3 - June 18, 2018
+### Version 2.3.3 - July 8th, 2018
 
 **Bug Fixes**
 - **Search** - Passing in `cache: false` will now affect default settings for `apiSettings` when using a remote endpoint. Previously you would also have to pass in `apiSettings: { cache: false}` as well
@@ -36,9 +36,7 @@ For example when `attachable: false` is used with a modal, or if IE11/Edge is us
 * `zoom in` is now `zoom-in`
 * `zoom out` is now `zoom-out`
 * `sign in` is now `sign-in`
-* `sign in alternate` is now `sign-in alternate`
 * `sign out` is now `sign-out`
-* `sign out alternate` is now `sign-out alternate`
 * `log out` is now `logout`
 * `in cart` is now `in-cart`
 
