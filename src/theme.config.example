@@ -55,7 +55,6 @@
 @embed      : 'default';
 @modal      : 'default';
 @nag        : 'default';
-@placeholder: 'default';
 @popup      : 'default';
 @progress   : 'default';
 @rating     : 'default';
