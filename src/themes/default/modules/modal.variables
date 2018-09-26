@@ -91,7 +91,7 @@
 @widescreenMonitorMargin: 0em 0em 0em 0em;
 
 @fullScreenWidth: 95%;
-@fullScreenOffset: 0em;
+@fullScreenOffset: auto;
 @fullScreenMargin: 1em auto;
 
 /* Coupling */
