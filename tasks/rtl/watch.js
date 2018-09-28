@@ -153,7 +153,7 @@ module.exports = function(callback) {
           .pipe(gulp.dest(output.uncompressed))
           .pipe(print(log.created))
           .on('end', function() {
-            (gulp.task('default', gulp.series('package uncompressed rtl css')))();
+            (gulp.series('package uncompressed rtl css'))();
           })
         ;
 
@@ -166,7 +166,7 @@ module.exports = function(callback) {
           .pipe(gulp.dest(output.compressed))
           .pipe(print(log.created))
           .on('end', function() {
-            (gulp.task('default', gulp.series('package compressed rtl css')))();
+            (gulp.series('package compressed rtl css'))();
           })
         ;
 
@@ -196,7 +196,7 @@ module.exports = function(callback) {
         .pipe(gulp.dest(output.compressed))
         .pipe(print(log.created))
         .on('end', function() {
-          (gulp.task('default', gulp.series('package compressed js', 'package uncompressed js')))();
+          (gulp.series('package compressed js', 'package uncompressed js'))();
         })
       ;
     })

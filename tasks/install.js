@@ -444,9 +444,6 @@ gulp.task('clean up install', function() {
 
 });
 
-(gulp.series('run setup', 'create install files', 'clean up install', function(done) {
-  callback();
-  done();
-}))();
+(gulp.series('run setup', 'create install files', 'clean up install'))();
 };
 

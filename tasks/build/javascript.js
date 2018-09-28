@@ -68,10 +68,7 @@ module.exports = function(callback) {
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
     .pipe(print(log.created))
     .on('end', function() {
-      (gulp.task('default', gulp.series('package compressed js', 'package uncompressed js', function(done){
-        callback();
-        done();
-      })))();
+      (gulp.series('package compressed js', 'package uncompressed js'))();
     })
   ;
 
