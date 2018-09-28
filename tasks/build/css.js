@@ -90,10 +90,10 @@ module.exports = function(callback) {
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
     .on('end', function() {
-      gulp.task('css', gulp.series('package uncompressed css', function(done) {
+      (gulp.task('css', gulp.series('package uncompressed css', function(done) {
         maybeCallback();
         done();
-      }));
+      })))();
     })
   ;
 
@@ -108,10 +108,10 @@ module.exports = function(callback) {
     .pipe(gulp.dest(output.compressed))
     .pipe(print(log.created))
     .on('end', function() {
-      gulp.task('css', gulp.series('package compressed css', function(done) {
+      (gulp.task('css', gulp.series('package compressed css', function(done) {
         maybeCallback();
         done();
-      }));
+      })))();
     })
   ;
 

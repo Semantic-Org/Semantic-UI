@@ -50,8 +50,7 @@ var
 module.exports = function(callback) {
   var
     stream,
-    index,
-    tasks = []
+    index
   ;
 
   for(index in release.components) {
@@ -307,8 +306,7 @@ module.exports = function(callback) {
         ;
       });
 
-
-      gulp.task(task.all, gulp.series(
+      (gulp.task(task.all, gulp.series(
         task.repo,
         task.npm,
         task.bower,
@@ -321,7 +319,7 @@ module.exports = function(callback) {
           callback();
           done();
         }
-      ));
+      )))();
 
     })(component);
   }

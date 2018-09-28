@@ -17,7 +17,7 @@ var
 /* Release All */
 module.exports = function(callback) {
 
-  gulp.task('release', gulp.series(
+  (gulp.task('release', gulp.series(
     'init distributions',
     'create distributions',
     'init components',
@@ -26,6 +26,6 @@ module.exports = function(callback) {
       callback();
       done();
     }
-  ));
+  )))();
 
 };

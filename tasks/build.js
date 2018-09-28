@@ -30,19 +30,22 @@ module.exports = function(callback) {
 
   // check for right-to-left (RTL) language
   if(config.rtl === true || config.rtl === 'Yes') {
-    gulp.start('build-rtl');
+    (gulp.task('build', gulp.series('build-rtl', function(done) {
+      callback();
+      done();
+    })))();
     return;
   }
 
   if(config.rtl == 'both') {
-    gulp.task('build', gulp.series('build-rtl', 'build-javascript', 'build-css', 'build-assets', function(done) {
+    (gulp.task('build', gulp.series('build-rtl', 'build-javascript', 'build-css', 'build-assets', function(done) {
       callback();
       done();
-    }));
+    })))();
   } else {
-    gulp.task('build', gulp.series('build-javascript', 'build-css', 'build-assets', function(done) {
+    (gulp.task('build', gulp.series('build-javascript', 'build-css', 'build-assets', function(done) {
       callback();
       done();
-    }));
+    })))();
   }
 };

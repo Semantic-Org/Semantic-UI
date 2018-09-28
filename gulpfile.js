@@ -39,9 +39,10 @@ var
              Tasks
 *******************************/
 
-gulp.task('default', false, [
-  'check-install'
-]);
+gulp.task('default', function(done) {
+  checkInstall();
+  done();
+});
 
 gulp.task('watch', function(done) {
   watch();

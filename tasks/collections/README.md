@@ -12,5 +12,5 @@ var
 gulp = install(gulp);
 
 // tasks are now injected and ready to be used
-gulp.start('install');
+install();
 ```

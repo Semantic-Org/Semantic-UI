@@ -16,9 +16,9 @@ var
 /* Release All */
 module.exports = function(callback) {
 
-  gulp.task('publish', gulp.series('update distributions', 'update components', function(done) {
+  (gulp.task('publish', gulp.series('update distributions', 'update components', function(done) {
     callback();
     done();
-  }));
+  })))();
 
 };

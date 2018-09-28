@@ -45,7 +45,8 @@ var
 module.exports = function(callback) {
   var
     stream,
-    index
+    index,
+    tasks = []
   ;
 
   for(index in release.distributions) {
@@ -207,11 +208,12 @@ module.exports = function(callback) {
         ;
       });
 
-    })(distribution);
-  }
+      (gulp.task('create', gulp.series(task.meteor, task.repo, task.package, function(done){
+        callback();
+        done();
+      })))();
 
-  gulp.task('create', gulp.series(task.meteor, task.repo, task.package, function(done){
-    callback();
-    done();
-  }));
+    })(distribution);
+
+  }
 };
