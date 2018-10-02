@@ -414,11 +414,11 @@ gulp.task('create install files', function(callback) {
   }))();
 });
 
-gulp.task('clean up install', function() {
+gulp.task('clean up install', function(done) {
   // Completion Message
   if(installFolder && !install.shouldAutoInstall()) {
     console.log('\n Setup Complete! \n Installing Peer Dependencies. \x1b[0;31mPlease refrain from ctrl + c\x1b[0m... \n After completion navigate to \x1b[92m' + answers.semanticRoot + '\x1b[0m and run "\x1b[92mgulp build\x1b[0m" to build');
-    process.exit(0);
+    done();
   }
 
   // If auto-install is switched on, we skip the configuration section and simply build the dependencies
