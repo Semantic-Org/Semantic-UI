@@ -1110,7 +1110,7 @@ select.ui.dropdown {
 @media all and (-ms-high-contrast:none) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
-    min-width: ~"calc(100% - "@scrollbarWidth~")";
+    min-width: calc(100% - @scrollbarWidth);
   }
 }
 @media only screen and (max-width : @largestMobileScreen) {
