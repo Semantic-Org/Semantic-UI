@@ -14,7 +14,7 @@ var
   flatten      = require('gulp-flatten'),
   gulpif       = require('gulp-if'),
   plumber      = require('gulp-plumber'),
-  print        = require('gulp-print'),
+  print        = require('gulp-print').default,
   rename       = require('gulp-rename'),
   replace      = require('gulp-replace'),
   uglify       = require('gulp-uglify'),
