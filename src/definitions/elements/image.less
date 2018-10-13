@@ -325,4 +325,30 @@ img.ui.bordered.image {
   margin: 0em @imageHorizontalMargin @imageVerticalMargin;
 }
 
+
+/*******************************
+              Caption
+*******************************/
+
+.ui.image .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: @captionDarkBackground;
+  color: @blackTextColor;
+  text-align: center;
+  padding: @captionPadding;
+}
+
+.ui.image .caption.big {
+  font-size: @captionBigFontSize;
+}
+
+.ui.image .caption.light {
+  background: @captionLightBackground;
+  color: @whiteTextColor;
+}
+
+
 .loadUIOverrides();

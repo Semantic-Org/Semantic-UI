@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.3.3 - Image
+ * # Semantic UI 2.4.0 - Image
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -295,6 +295,29 @@ img.ui.bordered.image {
 .ui.images > svg {
   display: inline-block;
   margin: 0em 0.25rem 0.5rem;
+}
+
+
+/*******************************
+              Caption
+*******************************/
+
+.ui.image .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  padding: 1em;
+}
+.ui.image .caption.big {
+  font-size: 2em;
+}
+.ui.image .caption.light {
+  background: rgba(255, 255, 255, 0.5);
+  color: black;
 }
 
 

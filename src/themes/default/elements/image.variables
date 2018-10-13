@@ -42,3 +42,13 @@
 @bigWidth: 600px;
 @hugeWidth: 800px;
 @massiveWidth: 960px;
+
+/* Colored */
+@blackTextColor: white;
+@whiteTextColor: black;
+
+/* Caption */
+@captionDarkBackground: rgba(0, 0, 0, .5);
+@captionLightBackground: rgba(255, 255, 255, .5);
+@captionPadding: 1em;
+@captionBigFontSize: 2em;
