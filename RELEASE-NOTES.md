@@ -2,8 +2,14 @@
 
 ### Version 2.4.1 - Oct 13, 2018
 
-**Bug Fixes**
+**Note**
+If you are using the `semantic-ui-less` package with versions of LESS before 3.5 some `calc` values will not be computed correctly due to changes in variable interpolation. It is recommended that you upgrade to at least 3.5 to continue using new versions of SUI.
 
+**Build Tools**
+- **LESS** - We are now using Less 3.0 with new syntax for string literals
+- **Gulp** - Updated all gulp dependencies to most recent released versions with modifications to tasks as necessary.
+
+**Bug Fixes**
 - **Embed** - Embed will now correctly remove DOM metadata on `destroy`
 - **Grid** - Fix issue with `very relaxed vertically divided grid` having wrong margins on dividers
 
