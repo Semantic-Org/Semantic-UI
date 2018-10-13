@@ -34,7 +34,6 @@ var
   rename          = require('gulp-rename'),
   replace         = require('gulp-replace'),
   tap             = require('gulp-tap'),
-  util            = require('gulp-util'),
 
   // config
   config          = require('../../config/user'),
