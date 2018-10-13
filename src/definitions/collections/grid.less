@@ -1112,12 +1112,12 @@
 .ui.relaxed[class*="vertically divided"].grid > .row:before {
   margin-left: (@relaxedGutterWidth / 2);
   margin-right: (@relaxedGutterWidth / 2);
-  width: ~"calc(100% - "@relaxedGutterWidth~")";
+  width: calc(100% - @relaxedGutterWidth);
 }
 .ui[class*="very relaxed"][class*="vertically divided"].grid > .row:before {
-  margin-left: @veryRelaxedGutterWidth;
-  margin-right: @veryRelaxedGutterWidth;
-  width: ~"calc(100% - "@veryRelaxedGutterWidth~")";
+  margin-left: (@veryRelaxedGutterWidth / 2);
+  margin-right: (@veryRelaxedGutterWidth / 2);
+  width: calc(100% - @veryRelaxedGutterWidth);
 }
 
 /*----------------------

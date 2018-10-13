@@ -5,6 +5,7 @@
 **Bug Fixes**
 
 - **Embed** - Embed will now correctly remove DOM metadata on `destroy`
+- **Grid** - Fix issue with `very relaxed vertically divided grid` having wrong margins on dividers
 
 ### Version 2.4.0 - Sep 17, 2018
 
