@@ -10,6 +10,7 @@
 - **Gulp** - Updated all gulp dependencies to most recent released versions with modifications to tasks as necessary.
 
 **Bug Fixes**
+- **Modal** - Fixed `fullscreen modal` having incorrect left offset with flex modals #6587
 - **Embed** - Embed will now correctly remove DOM metadata on `destroy`
 - **Grid** - Fix issue with `very relaxed vertically divided grid` having wrong margins on dividers
 
