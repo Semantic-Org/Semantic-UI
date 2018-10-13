@@ -1,5 +1,11 @@
 ## RELEASE NOTES
 
+### Version 2.4.1 - Oct 13, 2018
+
+**Bug Fixes**
+
+- **Embed** - Embed will now correctly remove DOM metadata on `destroy`
+
 ### Version 2.4.0 - Sep 17, 2018
 
 > `2.4.0` includes a new component `placeholder`. To use this component in your existing SUI site, be sure to add `@placeholder: 'default';` to your `theme.config`. You can see an example in `theme.config.example`
