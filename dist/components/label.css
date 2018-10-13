@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.4.0 - Label
+ * # Semantic UI 2.4.1 - Label
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -316,15 +316,15 @@ a.ui.label {
 
 /* Positioning */
 .ui.ribbon.label {
-  left: calc( -1rem  -  1.2em );
+  left: calc(-1rem - 1.2em);
   margin-right: -1.2em;
-  padding-left: calc( 1rem  +  1.2em );
+  padding-left: calc(1rem + 1.2em);
   padding-right: 1.2em;
 }
 .ui[class*="right ribbon"].label {
-  left: calc(100% +  1rem  +  1.2em );
+  left: calc(100% + 1rem + 1.2em);
   padding-left: 1.2em;
-  padding-right: calc( 1rem  +  1.2em );
+  padding-right: calc(1rem + 1.2em);
 }
 
 /* Right Ribbon */
@@ -351,20 +351,20 @@ a.ui.label {
 }
 .ui.card .image > .ui.ribbon.label,
 .ui.image > .ui.ribbon.label {
-  left: calc( 0.05rem  -  1.2em );
+  left: calc(--0.05rem - 1.2em);
 }
 .ui.card .image > .ui[class*="right ribbon"].label,
 .ui.image > .ui[class*="right ribbon"].label {
-  left: calc(100% +  -0.05rem  +  1.2em );
+  left: calc(100% + -0.05rem + 1.2em);
   padding-left: 0.833em;
 }
 
 /* Inside Table */
 .ui.table td > .ui.ribbon.label {
-  left: calc( -0.78571429em  -  1.2em );
+  left: calc(-0.78571429em - 1.2em);
 }
 .ui.table td > .ui[class*="right ribbon"].label {
-  left: calc(100% +  0.78571429em  +  1.2em );
+  left: calc(100% + 0.78571429em + 1.2em);
   padding-left: 0.833em;
 }
 

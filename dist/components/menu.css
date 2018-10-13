@@ -629,7 +629,7 @@ Floated Menu / Item
   border-bottom: 1px solid #D4D4D5;
 }
 .ui.tabular.fluid.menu {
-  width: calc(100% +  2px ) !important;
+  width: calc(100% + (1px * 2)) !important;
 }
 .ui.tabular.menu .item {
   background: transparent;
@@ -674,7 +674,7 @@ Floated Menu / Item
 }
 .top.attached.segment + .ui.bottom.tabular.menu {
   position: relative;
-  width: calc(100% +  2px );
+  width: calc(100% + (1px * 2));
   left: -1px;
 }
 
@@ -1753,13 +1753,13 @@ Floated Menu / Item
   width: 14.285%;
 }
 .ui.menu.eight.item .item {
-  width: 12.500%;
+  width: 12.5%;
 }
 .ui.menu.nine.item .item {
   width: 11.11%;
 }
 .ui.menu.ten.item .item {
-  width: 10.0%;
+  width: 10%;
 }
 .ui.menu.eleven.item .item {
   width: 9.09%;
@@ -1914,8 +1914,8 @@ Floated Menu / Item
   bottom: 0px;
   border-radius: 0px;
   margin: 0em -1px;
-  width: calc(100% +  2px );
-  max-width: calc(100% +  2px );
+  width: calc(100% - (-1px * 2));
+  max-width: calc(100% - (-1px * 2));
   -webkit-box-shadow: none;
           box-shadow: none;
 }

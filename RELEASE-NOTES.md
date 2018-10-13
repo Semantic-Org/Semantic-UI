@@ -3,10 +3,11 @@
 ### Version 2.4.1 - Oct 13, 2018
 
 **Note**
-> If you are using the `semantic-ui-less` package with versions of LESS before 3.5 some `calc` values will not be computed correctly due to changes in variable interpolation. It is recommended that you upgrade to at least 3.5 to continue using new versions of SUI.
+> If you are using the `semantic-ui-less` package with versions of LESS before 3.5 some `calc` values will not be computed correctly due to changes in variable interpolation. It is recommended that you upgrade to at least 3.5 to continue using new versions of SUI. For more information see #6512
 
 **Build**
-- **LESS** - SUI now supports less versions greater than `3.5.0`
+- **LESS** - SUI now supports less versions greater than `3.5.0` **Thanks @sciyoshi** #6512
+- **Gulp** - Migrated deprecated `gulp-util` to `replace-ext` **Thanks @stevelacy** #6322
 - **Gulp** - Updated all gulp dependencies to most recent released versions with modifications to tasks as necessary.
 
 **Bug Fixes**

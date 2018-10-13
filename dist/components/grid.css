@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.4.0 - Grid
+ * # Semantic UI 2.4.1 - Grid
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -151,7 +151,7 @@
   margin: 1rem 1rem;
 }
 .ui.grid .column + .ui.vertical.divider {
-  height: calc(50% -  1rem );
+  height: calc(50% - (2rem / 2));
 }
 
 /* Remove Border on Last Horizontal Segment */
@@ -1092,7 +1092,7 @@
   content: "";
   top: 0em;
   left: 0px;
-  width: calc(100% -  2rem );
+  width: calc(100% - 2rem);
   height: 1px;
   margin: 0% 1rem;
   -webkit-box-shadow: 0px -1px 0px 0px rgba(34, 36, 38, 0.15);
@@ -1131,12 +1131,12 @@
 .ui.relaxed[class*="vertically divided"].grid > .row:before {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
-  width: calc(100% -  3rem );
+  width: calc(100% - 3rem);
 }
 .ui[class*="very relaxed"][class*="vertically divided"].grid > .row:before {
-  margin-left: 5rem;
-  margin-right: 5rem;
-  width: calc(100% -  5rem );
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+  width: calc(100% - 5rem);
 }
 
 /*----------------------
