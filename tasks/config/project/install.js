@@ -366,6 +366,7 @@ module.exports = {
           { name: "label", checked: true },
           { name: "list", checked: true },
           { name: "loader", checked: true },
+          { name: "placeholder", checked: true },
           { name: "rail", checked: true },
           { name: "reveal", checked: true },
           { name: "segment", checked: true },

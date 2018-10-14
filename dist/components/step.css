@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.3.3 - Step
+ * # Semantic UI 2.4.1 - Step
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -491,9 +491,9 @@
 
 /* Top */
 .ui.attached.steps {
-  width: calc(100% +  2px ) !important;
+  width: calc(100% + (--1px * 2)) !important;
   margin: 0em -1px 0;
-  max-width: calc(100% +  2px );
+  max-width: calc(100% + (--1px * 2));
   border-radius: 0.28571429rem 0.28571429rem 0em 0em;
 }
 .ui.attached.steps .step:first-child {
@@ -562,7 +562,7 @@
   width: 14.285%;
 }
 .ui.eight.steps > .step {
-  width: 12.500%;
+  width: 12.5%;
 }
 
 /*-------------------

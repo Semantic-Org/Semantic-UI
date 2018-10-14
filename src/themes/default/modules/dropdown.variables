@@ -211,7 +211,7 @@
 @selectionActiveHoverMenuBoxShadow: @selectionVisibleMenuBoxShadow;
 
 @selectionVisibleConnectingBorder: 0em;
-@selectionVisibleIconOpacity: 1;
+@selectionVisibleIconOpacity: '';
 
 /*--------------
      Search
@@ -232,7 +232,7 @@
 @searchWidescreenMaxMenuHeight: @selectionWidescreenMaxMenuHeight;
 
 /* Inline */
-@inlineIconMargin: 0em @relative7px 0em @relative3px;
+@inlineIconMargin: 0em @relative3px 0em @relative3px;
 @inlineTextColor: inherit;
 @inlineTextFontWeight: @bold;
 @inlineMenuDistance: @relative3px;
@@ -308,6 +308,10 @@
 @errorItemTextColor: @errorTextColor;
 @errorItemHoverBackground: #FFF2F2;
 @errorItemActiveBackground: #FDCFCF;
+
+/* Clearable */
+@clearableIconOpacity: 0.8;
+@clearableIconActiveOpacity: 1;
 
 /*-------------------
       Variations

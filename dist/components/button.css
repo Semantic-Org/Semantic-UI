@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.3.3 - Button
+ * # Semantic UI 2.4.1 - Button
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1195,7 +1195,7 @@
   width: 100%;
 }
 .ui.eight.buttons > .button {
-  width: 12.500%;
+  width: 12.5%;
 }
 .ui.nine.buttons {
   width: 100%;
@@ -1249,7 +1249,7 @@
   height: 14.285%;
 }
 .ui.eight.vertical.buttons > .button {
-  height: 12.500%;
+  height: 12.5%;
 }
 .ui.nine.vertical.buttons > .button {
   height: 11.11%;

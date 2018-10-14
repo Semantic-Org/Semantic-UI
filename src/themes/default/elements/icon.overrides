@@ -1346,9 +1346,9 @@ i.icon.youtube.play:before { content: "\f167"; }
   i.icon.window.maximize.outline:before { content: "\f2d0"; }
   i.icon.window.minimize.outline:before { content: "\f2d1"; }
   i.icon.window.restore.outline:before { content: "\f2d2"; }
-  i.icon.disk.outline:before { content: "\f369"; }
 
   /* Outline Aliases */
+  i.icon.disk.outline:before { content: "\f0a0"; }
   i.icon.heart.empty,
   i.icon.star.empty {
     font-family: @outlineFontName;

@@ -310,6 +310,7 @@ i.flag.gabon:before {
   background-position: -36px 0px;
 }
 i.flag.gb:before,
+i.flag.uk:before,
 i.flag.united.kingdom:before {
   background-position: -36px -26px;
 }

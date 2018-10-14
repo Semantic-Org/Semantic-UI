@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.3.3 - Segment
+ * # Semantic UI 2.4.1 - Segment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -102,6 +102,68 @@
              Types
 *******************************/
 
+
+/*-------------------
+     Placeholder
+--------------------*/
+
+.ui.placeholder.segment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  max-width: initial;
+  -webkit-animation: none;
+          animation: none;
+  overflow: visible;
+  padding: 1em 1em;
+  min-height: 18rem;
+  background: #F9FAFB;
+  border-color: rgba(34, 36, 38, 0.15);
+  -webkit-box-shadow: 0px 2px 25px 0 rgba(34, 36, 38, 0.05) inset;
+          box-shadow: 0px 2px 25px 0 rgba(34, 36, 38, 0.05) inset;
+}
+.ui.placeholder.segment .button,
+.ui.placeholder.segment textarea {
+  display: block;
+}
+.ui.placeholder.segment .field,
+.ui.placeholder.segment textarea,
+.ui.placeholder.segment > .ui.input,
+.ui.placeholder.segment .button {
+  max-width: 15rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ui.placeholder.segment .column .button,
+.ui.placeholder.segment .column .field,
+.ui.placeholder.segment .column textarea,
+.ui.placeholder.segment .column > .ui.input {
+  max-width: 15rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ui.placeholder.segment > .inline {
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.ui.placeholder.segment > .inline > .button {
+  display: inline-block;
+  width: auto;
+  margin: 0px 0.35714286rem 0px 0px;
+}
+.ui.placeholder.segment > .inline > .button:last-child {
+  margin-right: 0px;
+}
 
 /*-------------------
         Piled
@@ -731,8 +793,8 @@
   bottom: 0px;
   border-radius: 0px;
   margin: 0em -1px;
-  width: calc(100% +  2px );
-  max-width: calc(100% +  2px );
+  width: calc(100% - (-1px * 2));
+  max-width: calc(100% - (-1px * 2));
   -webkit-box-shadow: none;
           box-shadow: none;
   border: 1px solid #D4D4D5;

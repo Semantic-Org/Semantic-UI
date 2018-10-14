@@ -211,7 +211,7 @@
 
 /* Menu */
 .ui.menu .dropdown.item .menu {
-  min-width: ~"calc(100% - 1px)";
+  min-width: calc(100% - 1px);
   border-radius: 0em 0em @dropdownMenuBorderRadius @dropdownMenuBorderRadius;
   background: @dropdownBackground;
   margin: @dropdownMenuDistance 0px 0px;
@@ -254,7 +254,7 @@
   display: inline-block;
   font-size: @dropdownItemIconFontSize !important;
   float: @dropdownItemIconFloat;
-  margin: @dropdownItemIconMargin;
+  margin: @dropdownItemIconMargin !important;
 }
 
 
@@ -468,7 +468,7 @@ Floated Menu / Item
 
 /* Left Floated */
 .ui.menu:not(.vertical) .left.item,
-.ui.menu:not(.vertical) .left.menu {
+.ui.menu:not(.vertical) :not(.dropdown) > .left.menu {
   display: flex;
   margin-right: auto !important;
 }
@@ -1193,7 +1193,7 @@ Floated Menu / Item
 }
 
 /* Item */
-.ui.labeled.icon.menu  .item {
+.ui.labeled.icon.menu .item {
   min-width: @labeledIconMinWidth;
   flex-direction: column;
 }

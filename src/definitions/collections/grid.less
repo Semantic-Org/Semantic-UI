@@ -139,7 +139,7 @@
   margin: (@rowSpacing / 2) (@gutterWidth / 2);
 }
 .ui.grid .column + .ui.vertical.divider {
-  height: ~"calc(50% - "(@rowSpacing/2)~")";
+  height: calc(50% - (@rowSpacing / 2));
 }
 
 /* Remove Border on Last Horizontal Segment */
@@ -1077,7 +1077,7 @@
   top: 0em;
   left: 0px;
 
-  width: ~"calc(100% - "@gutterWidth~")";
+  width: calc(100% - @gutterWidth);
   height: 1px;
 
   margin: 0% (@gutterWidth / 2);
@@ -1112,12 +1112,12 @@
 .ui.relaxed[class*="vertically divided"].grid > .row:before {
   margin-left: (@relaxedGutterWidth / 2);
   margin-right: (@relaxedGutterWidth / 2);
-  width: ~"calc(100% - "@relaxedGutterWidth~")";
+  width: calc(100% - @relaxedGutterWidth);
 }
 .ui[class*="very relaxed"][class*="vertically divided"].grid > .row:before {
-  margin-left: @veryRelaxedGutterWidth;
-  margin-right: @veryRelaxedGutterWidth;
-  width: ~"calc(100% - "@veryRelaxedGutterWidth~")";
+  margin-left: (@veryRelaxedGutterWidth / 2);
+  margin-right: (@veryRelaxedGutterWidth / 2);
+  width: calc(100% - @veryRelaxedGutterWidth);
 }
 
 /*----------------------

@@ -110,6 +110,60 @@
              Types
 *******************************/
 
+
+/*-------------------
+     Placeholder
+--------------------*/
+
+.ui.placeholder.segment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  max-width: initial;
+  animation: none;
+  overflow: visible;
+  padding: @placeholderPadding;
+  min-height: @placeholderMinHeight;
+  background: @placeholderBackground;
+  border-color: @placeholderBorderColor;
+  box-shadow: @placeholderBoxShadow;
+}
+
+.ui.placeholder.segment .button,
+.ui.placeholder.segment textarea {
+  display: block;
+}
+.ui.placeholder.segment .field,
+.ui.placeholder.segment textarea,
+.ui.placeholder.segment > .ui.input,
+.ui.placeholder.segment .button {
+  max-width: @placeholderContentMaxWidth;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ui.placeholder.segment .column .button,
+.ui.placeholder.segment .column .field,
+.ui.placeholder.segment .column textarea,
+.ui.placeholder.segment .column > .ui.input {
+  max-width: @placeholderContentMaxWidth;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ui.placeholder.segment > .inline  {
+  align-self: center;
+}
+.ui.placeholder.segment > .inline > .button {
+  display: inline-block;
+  width: auto;
+  margin: @placeholderContentInlineButtonMargin;
+}
+.ui.placeholder.segment > .inline > .button:last-child {
+  margin-right: 0px;
+}
+
+
 /*-------------------
         Piled
 --------------------*/
