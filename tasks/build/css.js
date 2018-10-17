@@ -79,12 +79,9 @@ module.exports = function(callback) {
     .pipe(flatten())
   ;
 
-  // two concurrent streams from same source to concat release
-  uncompressedStream = stream.pipe(clone());
-  compressedStream   = stream.pipe(clone());
-
   // uncompressed component css
-  uncompressedStream
+  uncompressedStream = stream
+    .pipe(clone())
     .pipe(plumber())
     .pipe(replace(assets.source, assets.uncompressed))
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
@@ -97,8 +94,8 @@ module.exports = function(callback) {
 
   // compressed component css
   compressedStream = stream
-    .pipe(plumber())
     .pipe(clone())
+    .pipe(plumber())
     .pipe(replace(assets.source, assets.compressed))
     .pipe(minifyCSS(settings.minify))
     .pipe(rename(settings.rename.minCSS))
