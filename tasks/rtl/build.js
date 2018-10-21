@@ -90,7 +90,7 @@ module.exports = function(callback) {
     })
   ;
 
-  compressedStream = stream
+  compressedStream
     .pipe(plumber())
     .pipe(clone())
     .pipe(replace(assets.source, assets.compressed))

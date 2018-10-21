@@ -96,7 +96,7 @@ module.exports = function(callback) {
   ;
 
   // compressed component css
-  compressedStream = stream
+  compressedStream
     .pipe(plumber())
     .pipe(clone())
     .pipe(replace(assets.source, assets.compressed))

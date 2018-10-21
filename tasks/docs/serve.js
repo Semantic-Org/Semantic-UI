@@ -188,7 +188,7 @@ module.exports = function () {
           })
         ;
 
-        compressedStream = stream
+        compressedStream
           .pipe(plumber())
           .pipe(replace(assets.source, assets.compressed))
           .pipe(minifyCSS(settings.minify))
