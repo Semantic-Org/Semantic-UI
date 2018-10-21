@@ -3,7 +3,7 @@
 ### Version 2.4.2 - Oct 21, 2018
 
 **Build**
-- Fix issue that could prevent `gulp build` from running due to updates to gulp dependencies [#6631](https://github.com/Semantic-Org/Semantic-UI/issues/6631) [#6622](https://github.com/Semantic-Org/Semantic-UI/issues/6622) [#6067](https://github.com/Semantic-Org/Semantic-UI/issues/6067)
+- Fix issue that could prevent `gulp build` from running due to updates to gulp dependencies **Thanks for assistance @himanshu230** [#6631](https://github.com/Semantic-Org/Semantic-UI/issues/6631) [#6622](https://github.com/Semantic-Org/Semantic-UI/issues/6622) [#6067](https://github.com/Semantic-Org/Semantic-UI/issues/6067)
 
 ### Version 2.4.1 - Oct 13, 2018
 
