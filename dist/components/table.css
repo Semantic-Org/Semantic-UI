@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.4.0 - Table
+ * # Semantic UI 2.4.1 - Table
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -564,8 +564,8 @@
   bottom: 0px;
   border-radius: 0px;
   margin: 0em -1px;
-  width: calc(100% +  2px );
-  max-width: calc(100% +  2px );
+  width: calc(100% - (-1px * 2));
+  max-width: calc(100% - (-1px * 2));
   -webkit-box-shadow: none;
           box-shadow: none;
   border: 1px solid #D4D4D5;
