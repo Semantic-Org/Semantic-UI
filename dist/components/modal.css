@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.4.0 - Modal
+ * # Semantic UI 2.4.2 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -427,7 +427,7 @@
 
 /* Scrolling Content */
 .ui.modal .scrolling.content {
-  max-height: calc(70vh);
+  max-height: calc(80vh - 10em);
   overflow: auto;
 }
 
@@ -437,11 +437,7 @@
 
 .ui.fullscreen.modal {
   width: 95% !important;
-  left: 0em !important;
   margin: 1em auto;
-}
-.ui.fullscreen.scrolling.modal {
-  left: 0em !important;
 }
 .ui.fullscreen.modal > .header {
   padding-right: 2.25rem;
