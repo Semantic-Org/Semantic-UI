@@ -45,21 +45,18 @@
 @pageGridMargin: (2 * @verticalPadding);
 
 /*******************************
-            States
+            Types
 *******************************/
 
-/* Loading Dimmer */
-@loaderDimmerColor: rgba(255, 255, 255, 0.8);
-@loaderDimmerZIndex: 100;
+/* Placeholder */
+@placeholderBackground: @offWhite;
+@placeholderPadding: @padding;
+@placeholderBorderColor: @borderColor;
+@placeholderBoxShadow: 0px 2px 25px 0 rgba(34, 36, 38, 0.05) inset;
+@placeholderMinHeight: 18rem;
+@placeholderContentMaxWidth: 15rem;
+@placeholderContentInlineButtonMargin: 0px @5px 0px 0px;
 
-/* Loading Spinner */
-@loaderSize: 3em;
-@loaderLineZIndex: 101;
-
-
-/*******************************
-            Variations
-*******************************/
 
 /* Piled */
 @piledZIndex: auto;
@@ -77,6 +74,24 @@
 @stackedPadding: @verticalPadding + (0.4em);
 @tallStackedPadding: @verticalPadding + (0.8em);
 
+/*******************************
+            States
+*******************************/
+
+/* Loading Dimmer */
+@loaderDimmerColor: rgba(255, 255, 255, 0.8);
+@loaderDimmerZIndex: 100;
+
+/* Loading Spinner */
+@loaderSize: 3em;
+@loaderLineZIndex: 101;
+
+
+/*******************************
+            Variations
+*******************************/
+
+
 /* Raised */
 @raisedBoxShadow: @floatingShadow;
 
@@ -88,7 +103,7 @@
 @attachedTopOffset: 0px;
 @attachedBottomOffset: 0px;
 @attachedHorizontalOffset: -@borderWidth;
-@attachedWidth: ~"calc(100% + "-@attachedHorizontalOffset * 2~")";
+@attachedWidth: calc(100% - (@attachedHorizontalOffset * 2));
 @attachedBoxShadow: none;
 @attachedBorder: @borderWidth solid @solidBorderColor;
 @attachedBottomBoxShadow:

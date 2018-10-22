@@ -85,6 +85,7 @@ module.exports = {
     'label',
     'list',
     'loader',
+    'placeholder',
     'menu',
     'message',
     'modal',

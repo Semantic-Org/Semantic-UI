@@ -31,6 +31,15 @@ for instance `lemon icon` not `lemon outline icon` since there is only one lemon
             Icons
 *******************************/
 
+/* Deprecated *In/Out Naming Conflict) */
+i.icon.linkedin.in:before { content: "\f0e1"; }
+i.icon.zoom.in:before { content: "\f00e"; }
+i.icon.zoom.out:before { content: "\f010"; }
+i.icon.sign.in:before { content: "\f2f6"; }
+i.icon.in.cart:before { content: "\f218"; }
+i.icon.log.out:before { content: "\f2f5"; }
+i.icon.sign.out:before { content: "\f2f5"; }
+
 /* Icons */
 i.icon.\35 00px:before { content: "\f26e"; }
 i.icon.accessible.icon:before { content: "\f368"; }
@@ -473,7 +482,7 @@ i.icon.lightbulb:before { content: "\f0eb"; }
 i.icon.linechat:before { content: "\f3c0"; }
 i.icon.linkify:before { content: "\f0c1"; }
 i.icon.linkedin:before { content: "\f08c"; }
-i.icon.linkedin.in:before { content: "\f0e1"; }
+i.icon.linkedin.alt:before { content: "\f0e1"; }
 i.icon.linode:before { content: "\f2b8"; }
 i.icon.linux:before { content: "\f17c"; }
 i.icon.lira.sign:before { content: "\f195"; }
@@ -660,9 +669,7 @@ i.icon.shopping.bag:before { content: "\f290"; }
 i.icon.shopping.basket:before { content: "\f291"; }
 i.icon.shopping.cart:before { content: "\f07a"; }
 i.icon.shower:before { content: "\f2cc"; }
-i.icon.sign.in.alternate:before { content: "\f2f6"; }
 i.icon.sign.language:before { content: "\f2a7"; }
-i.icon.sign.out.alternate:before { content: "\f2f5"; }
 i.icon.signal:before { content: "\f012"; }
 i.icon.simplybuilt:before { content: "\f215"; }
 i.icon.sistrix:before { content: "\f3ee"; }
@@ -861,7 +868,6 @@ i.icon.yoast:before { content: "\f2b1"; }
 i.icon.youtube:before { content: "\f167"; }
 i.icon.youtube.square:before { content: "\f431"; }
 
-
 /* Aliases */
 i.icon.chess.rock:before { content: "\f447"; }
 i.icon.ordered.list:before { content: "\f0cb"; }
@@ -993,7 +999,7 @@ i.icon.hourglass.three:before { content: "\f253"; }
 i.icon.hourglass.two:before { content: "\f252"; }
 i.icon.idea:before { content: "\f0eb"; }
 i.icon.ils:before { content: "\f20b"; }
-i.icon.in.cart:before { content: "\f218"; }
+i.icon.in-cart:before { content: "\f218"; }
 i.icon.inr:before { content: "\f156"; }
 i.icon.intergender:before { content: "\f224"; }
 i.icon.intersex:before { content: "\f224"; }
@@ -1157,8 +1163,8 @@ i.icon.yc:before { content: "\f23b"; }
 i.icon.ycombinator:before { content: "\f23b"; }
 i.icon.yen:before { content: "\f157"; }
 i.icon.zip:before { content: "\f187"; }
-i.icon.zoom.in:before { content: "\f00e"; }
-i.icon.zoom.out:before { content: "\f010"; }
+i.icon.zoom-in:before { content: "\f00e"; }
+i.icon.zoom-out:before { content: "\f010"; }
 i.icon.zoom:before { content: "\f00e"; }
 i.icon.bitbucket.square:before { content: "\f171"; }
 i.icon.checkmark.box:before { content: "\f14a"; }
@@ -1181,7 +1187,7 @@ i.icon.food:before { content: "\f2e7"; }
 i.icon.hourglass.zero:before { content: "\f253"; }
 i.icon.level.down:before { content: "\f3be"; }
 i.icon.level.up:before { content: "\f3bf"; }
-i.icon.log.out:before { content: "\f2f5"; }
+i.icon.logout:before { content: "\f2f5"; }
 i.icon.meanpath:before { content: "\f0c8"; }
 i.icon.money:before { content: "\f3d1"; }
 i.icon.move:before { content: "\f0b2"; }
@@ -1191,8 +1197,8 @@ i.icon.radio:before { content: "\f192"; }
 i.icon.remove.bookmark:before { content: "\f02e"; }
 i.icon.resize.horizontal:before { content: "\f337"; }
 i.icon.resize.vertical:before { content: "\f338"; }
-i.icon.sign.in:before { content: "\f2f6"; }
-i.icon.sign.out:before { content: "\f2f5"; }
+i.icon.sign-in:before { content: "\f2f6"; }
+i.icon.sign-out:before { content: "\f2f5"; }
 i.icon.spoon:before { content: "\f2e5"; }
 i.icon.star.half.empty:before { content: "\f089"; }
 i.icon.star.half.full:before { content: "\f089"; }
@@ -1340,9 +1346,9 @@ i.icon.youtube.play:before { content: "\f167"; }
   i.icon.window.maximize.outline:before { content: "\f2d0"; }
   i.icon.window.minimize.outline:before { content: "\f2d1"; }
   i.icon.window.restore.outline:before { content: "\f2d2"; }
-  i.icon.disk.outline:before { content: "\f369"; }
 
   /* Outline Aliases */
+  i.icon.disk.outline:before { content: "\f0a0"; }
   i.icon.heart.empty,
   i.icon.star.empty {
     font-family: @outlineFontName;
@@ -1544,6 +1550,7 @@ i.icon.youtube.play:before { content: "\f167"; }
   i.icon.less,
   i.icon.linechat,
   i.icon.linkedin,
+  i.icon.linkedin.alternate,
   i.icon.linkedin.in,
   i.icon.linode,
   i.icon.linux,

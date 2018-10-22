@@ -18,59 +18,60 @@
 */
 
 /* Global */
-@site       : 'default';
-@reset      : 'default';
+@site        : 'default';
+@reset       : 'default';
 
 /* Elements */
-@button     : 'default';
-@container  : 'default';
-@divider    : 'default';
-@flag       : 'default';
-@header     : 'default';
-@icon       : 'default';
-@image      : 'default';
-@input      : 'default';
-@label      : 'default';
-@list       : 'default';
-@loader     : 'default';
-@rail       : 'default';
-@reveal     : 'default';
-@segment    : 'default';
-@step       : 'default';
+@button      : 'default';
+@container   : 'default';
+@divider     : 'default';
+@flag        : 'default';
+@header      : 'default';
+@icon        : 'default';
+@image       : 'default';
+@input       : 'default';
+@label       : 'default';
+@list        : 'default';
+@loader      : 'default';
+@placeholder : 'default';
+@rail        : 'default';
+@reveal      : 'default';
+@segment     : 'default';
+@step        : 'default';
 
 /* Collections */
-@breadcrumb : 'default';
-@form       : 'default';
-@grid       : 'default';
-@menu       : 'default';
-@message    : 'default';
-@table      : 'default';
+@breadcrumb  : 'default';
+@form        : 'default';
+@grid        : 'default';
+@menu        : 'default';
+@message     : 'default';
+@table       : 'default';
 
 /* Modules */
-@accordion  : 'default';
-@checkbox   : 'default';
-@dimmer     : 'default';
-@dropdown   : 'default';
-@embed      : 'default';
-@modal      : 'default';
-@nag        : 'default';
-@popup      : 'default';
-@progress   : 'default';
-@rating     : 'default';
-@search     : 'default';
-@shape      : 'default';
-@sidebar    : 'default';
-@sticky     : 'default';
-@tab        : 'default';
-@transition : 'default';
+@accordion   : 'default';
+@checkbox    : 'default';
+@dimmer      : 'default';
+@dropdown    : 'default';
+@embed       : 'default';
+@modal       : 'default';
+@nag         : 'default';
+@popup       : 'default';
+@progress    : 'default';
+@rating      : 'default';
+@search      : 'default';
+@shape       : 'default';
+@sidebar     : 'default';
+@sticky      : 'default';
+@tab         : 'default';
+@transition  : 'default';
 
 /* Views */
-@ad         : 'default';
-@card       : 'default';
-@comment    : 'default';
-@feed       : 'default';
-@item       : 'default';
-@statistic  : 'default';
+@ad          : 'default';
+@card        : 'default';
+@comment     : 'default';
+@feed        : 'default';
+@item        : 'default';
+@statistic   : 'default';
 
 /*******************************
             Folders
@@ -87,6 +88,6 @@
          Import Theme
 *******************************/
 
-@import "theme.less";
+@import (multiple) "theme.less";
 
 /* End Config */

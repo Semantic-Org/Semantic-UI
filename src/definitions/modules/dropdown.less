@@ -925,6 +925,18 @@ select.ui.dropdown {
 }
 
 
+/*--------------------
+        Clear
+----------------------*/
+
+.ui.dropdown > .clear.dropdown.icon {
+  opacity: @clearableIconOpacity;
+  transition: opacity @defaultDuration @defaultEasing;
+}
+.ui.dropdown > .clear.dropdown.icon:hover {
+  opacity: @clearableIconActiveOpacity;
+}
+
 
 /*--------------------
         Disabled
@@ -1098,7 +1110,7 @@ select.ui.dropdown {
 @media all and (-ms-high-contrast:none) {
   .ui.scrolling.dropdown .menu,
   .ui.dropdown .scrolling.menu {
-    min-width: ~"calc(100% - "@scrollbarWidth~")";
+    min-width: calc(100% - @scrollbarWidth);
   }
 }
 @media only screen and (max-width : @largestMobileScreen) {
