@@ -31,6 +31,9 @@ var
   tasks        = require('./config/tasks'),
   install      = require('./config/project/install'),
 
+  // build tasks
+  buildCSS     = require('./build/css'),
+
   // shorthand
   globs        = config.globs,
   assets       = config.paths.assets,
@@ -84,6 +87,14 @@ module.exports = function(callback) {
     ], function(file) {
 
       var
+        tasksCompleted = 0,
+        maybeCallback  = function() {
+          tasksCompleted++;
+          if(tasksCompleted === 2) {
+            callback();
+          }
+        },
+
         lessPath,
 
         stream,
@@ -114,7 +125,7 @@ module.exports = function(callback) {
       if(isConfig) {
         console.info('Rebuilding all UI');
         // impossible to tell which file was updated in theme.config, rebuild all
-        gulp.start('build-css');
+        buildCSS(callback);
         return;
       }
       else if(isPackagedTheme) {
@@ -162,7 +173,7 @@ module.exports = function(callback) {
           .pipe(gulp.dest(output.uncompressed))
           .pipe(print(log.created))
           .on('end', function() {
-            gulp.start('package uncompressed css');
+            runSequence('package uncompressed css', maybeCallback);
           })
         ;
 
@@ -174,7 +185,7 @@ module.exports = function(callback) {
           .pipe(gulp.dest(output.compressed))
           .pipe(print(log.created))
           .on('end', function() {
-            gulp.start('package compressed css');
+            runSequence('package compressed css', maybeCallback);
           })
         ;
       }
@@ -205,6 +216,7 @@ module.exports = function(callback) {
         .on('end', function() {
           gulp.start('package compressed js');
           gulp.start('package uncompressed js');
+          callback();
         })
       ;
     })
@@ -224,6 +236,9 @@ module.exports = function(callback) {
         .pipe(gulpif(config.hasPermission, chmod(config.permission)))
         .pipe(gulp.dest(output.themes))
         .pipe(print(log.created))
+        .on('end', function() {
+          callback();
+        })
       ;
     })
   ;
