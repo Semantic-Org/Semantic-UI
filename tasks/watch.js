@@ -23,6 +23,7 @@ var
   uglify       = require('gulp-uglify'),
   replaceExt   = require('replace-ext'),
   watch        = require('gulp-watch'),
+  runSequence  = require('run-sequence'),
 
   // user config
   config       = require('./config/user'),
