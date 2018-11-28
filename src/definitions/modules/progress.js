@@ -96,6 +96,7 @@ $.fn.progress = function(parameters) {
         destroy: function() {
           module.verbose('Destroying previous progress for', $module);
           clearInterval(instance.interval);
+          clearInterval(instance.intervalInfinite);
           module.remove.state();
           $module.removeData(moduleNamespace);
           instance = undefined;
@@ -117,9 +118,10 @@ $.fn.progress = function(parameters) {
           metadata: function() {
             var
               data = {
-                percent : $module.data(metadata.percent),
-                total   : $module.data(metadata.total),
-                value   : $module.data(metadata.value)
+                percent  : $module.data(metadata.percent),
+                total    : $module.data(metadata.total),
+                value    : $module.data(metadata.value),
+                infinite : $module.data(metadata.infinite),
               }
             ;
             if(data.percent) {
@@ -135,6 +137,10 @@ $.fn.progress = function(parameters) {
               module.set.value(data.value);
               module.set.progress(data.value);
             }
+            if(data.infinite) {
+              module.debug('Infinite loop set from metadata', data.infinite);
+              module.set.infinite(data.infinite);
+            }
           },
           settings: function() {
             if(settings.total !== false) {
@@ -149,6 +155,10 @@ $.fn.progress = function(parameters) {
             if(settings.percent !== false) {
               module.debug('Current percent set in settings', settings.percent);
               module.set.percent(settings.percent);
+            }
+            if(settings.infinite !== false) {
+              module.debug('Infinite loop set in settings', settings.infinite);
+              module.set.infinite(settings.infinite);
             }
           }
         },
@@ -328,6 +338,9 @@ $.fn.progress = function(parameters) {
           },
           total: function() {
             return module.total || false;
+          },
+          offset: function() {
+            return module.offset || 0;
           }
         },
 
@@ -427,6 +440,22 @@ $.fn.progress = function(parameters) {
               })
             ;
           },
+          offset: function(offset) {
+            offset = offset || settings.offset;
+            $bar
+              .css({
+                'margin-left': offset + '%'
+              })
+            ;
+            module.offset = offset;
+          },
+          offsetInfinite: function(offset) {
+            offset = offset || settings.offset;
+            if(offset - module.get.percent() > 100){
+              offset = -(module.get.percent());
+            }
+            module.set.offset(offset);
+          },
           percent: function(percent) {
             percent = (typeof percent == 'string')
               ? +(percent.replace('%', ''))
@@ -456,6 +485,21 @@ $.fn.progress = function(parameters) {
             module.set.labelInterval();
             module.set.labels();
             settings.onChange.call(element, percent, module.value, module.total);
+          },
+          infinite: function(infinite) {
+            clearInterval(module.intervalInfinite);
+            if(infinite) {
+              module.intervalInfinite = setInterval(function() {
+                var
+                  isInDOM = $.contains(document.documentElement, element)
+                ;
+                if(!isInDOM) {
+                  clearInterval(module.intervalInfinite);
+                  animating = false;
+                };
+                module.set.offsetInfinite(module.get.offset() + (settings.framerate / 30));
+              }, settings.framerate);
+            }
           },
           labelInterval: function() {
             var
@@ -874,6 +918,9 @@ $.fn.progress.settings = {
   total          : false,
   value          : false,
 
+  infinite       : false,
+  offset         : 0,
+
   // delay in ms for fail safe animation callback
   failSafeDelay : 100,
 
@@ -898,9 +945,10 @@ $.fn.progress.settings = {
   },
 
   metadata: {
-    percent : 'percent',
-    total   : 'total',
-    value   : 'value'
+    percent  : 'percent',
+    total    : 'total',
+    value    : 'value',
+    infinite : 'infinite'
   },
 
   selector : {
