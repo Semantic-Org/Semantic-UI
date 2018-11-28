@@ -137,10 +137,8 @@ $.fn.progress = function(parameters) {
               module.set.value(data.value);
               module.set.progress(data.value);
             }
-            if(data.infinite) {
-              module.debug('Infinite loop set from metadata', data.infinite);
-              module.set.infinite(data.infinite);
-            }
+            module.debug('Infinite loop set from metadata', data.infinite);
+            module.set.infinite(data.infinite);
           },
           settings: function() {
             if(settings.total !== false) {
@@ -156,10 +154,8 @@ $.fn.progress = function(parameters) {
               module.debug('Current percent set in settings', settings.percent);
               module.set.percent(settings.percent);
             }
-            if(settings.infinite !== false) {
-              module.debug('Infinite loop set in settings', settings.infinite);
-              module.set.infinite(settings.infinite);
-            }
+            module.debug('Infinite loop set in settings', settings.infinite);
+            module.set.infinite(settings.infinite);
           }
         },
 
@@ -487,6 +483,7 @@ $.fn.progress = function(parameters) {
             settings.onChange.call(element, percent, module.value, module.total);
           },
           infinite: function(infinite) {
+            module.set.offset(settings.offset || 0);
             clearInterval(module.intervalInfinite);
             if(infinite) {
               module.intervalInfinite = setInterval(function() {
