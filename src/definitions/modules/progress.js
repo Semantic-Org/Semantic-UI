@@ -96,7 +96,7 @@ $.fn.progress = function(parameters) {
         destroy: function() {
           module.verbose('Destroying previous progress for', $module);
           clearInterval(instance.interval);
-          clearInterval(instance.intervalInfinite);
+          clearInterval(instance.intervalLoading);
           module.remove.state();
           $module.removeData(moduleNamespace);
           instance = undefined;
@@ -118,10 +118,10 @@ $.fn.progress = function(parameters) {
           metadata: function() {
             var
               data = {
-                percent  : $module.data(metadata.percent),
-                total    : $module.data(metadata.total),
-                value    : $module.data(metadata.value),
-                infinite : $module.data(metadata.infinite),
+                percent : $module.data(metadata.percent),
+                total   : $module.data(metadata.total),
+                value   : $module.data(metadata.value),
+                loading : $module.data(metadata.loading),
               }
             ;
             if(data.percent) {
@@ -137,8 +137,8 @@ $.fn.progress = function(parameters) {
               module.set.value(data.value);
               module.set.progress(data.value);
             }
-            module.debug('Infinite loop set from metadata', data.infinite);
-            module.set.infinite(data.infinite);
+            module.debug('Loading loop set from metadata', data.loading);
+            module.set.loading(data.loading);
           },
           settings: function() {
             if(settings.total !== false) {
@@ -154,8 +154,8 @@ $.fn.progress = function(parameters) {
               module.debug('Current percent set in settings', settings.percent);
               module.set.percent(settings.percent);
             }
-            module.debug('Infinite loop set in settings', settings.infinite);
-            module.set.infinite(settings.infinite);
+            module.debug('Loading loop set in settings', settings.loading);
+            module.set.loading(settings.loading);
           }
         },
 
@@ -445,7 +445,7 @@ $.fn.progress = function(parameters) {
             ;
             module.offset = offset;
           },
-          offsetInfinite: function(offset) {
+          offsetLoading: function(offset) {
             offset = offset || settings.offset;
             if(offset - module.get.percent() > 100){
               offset = -(module.get.percent());
@@ -482,19 +482,19 @@ $.fn.progress = function(parameters) {
             module.set.labels();
             settings.onChange.call(element, percent, module.value, module.total);
           },
-          infinite: function(infinite) {
+          loading: function(loading) {
             module.set.offset(settings.offset || 0);
-            clearInterval(module.intervalInfinite);
-            if(infinite) {
-              module.intervalInfinite = setInterval(function() {
+            clearInterval(module.intervalLoading);
+            if(loading) {
+              module.intervalLoading = setInterval(function() {
                 var
                   isInDOM = $.contains(document.documentElement, element)
                 ;
                 if(!isInDOM) {
-                  clearInterval(module.intervalInfinite);
+                  clearInterval(module.intervalLoading);
                   animating = false;
                 };
-                module.set.offsetInfinite(module.get.offset() + (settings.framerate / 30));
+                module.set.offsetLoading(module.get.offset() + (settings.framerate / 30));
               }, settings.framerate);
             }
           },
@@ -915,7 +915,7 @@ $.fn.progress.settings = {
   total          : false,
   value          : false,
 
-  infinite       : false,
+  loading        : false,
   offset         : 0,
 
   // delay in ms for fail safe animation callback
@@ -942,10 +942,10 @@ $.fn.progress.settings = {
   },
 
   metadata: {
-    percent  : 'percent',
-    total    : 'total',
-    value    : 'value',
-    infinite : 'infinite'
+    percent : 'percent',
+    total   : 'total',
+    value   : 'value',
+    loading : 'loading'
   },
 
   selector : {
