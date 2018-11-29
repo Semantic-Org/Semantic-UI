@@ -137,8 +137,10 @@ $.fn.progress = function(parameters) {
               module.set.value(data.value);
               module.set.progress(data.value);
             }
-            module.debug('Loading loop set from metadata', data.loading);
-            module.set.loading(data.loading);
+            if(data.loading) {
+              module.debug('Loading loop set from metadata', data.loading);
+              module.set.loading(data.loading);
+            }
           },
           settings: function() {
             if(settings.total !== false) {
@@ -154,8 +156,10 @@ $.fn.progress = function(parameters) {
               module.debug('Current percent set in settings', settings.percent);
               module.set.percent(settings.percent);
             }
-            module.debug('Loading loop set in settings', settings.loading);
-            module.set.loading(settings.loading);
+            if(settings.loading !== false) {
+              module.debug('Loading loop set in settings', settings.loading);
+              module.set.loading(settings.loading);
+            }
           }
         },
 
