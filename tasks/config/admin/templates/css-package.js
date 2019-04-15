@@ -15,7 +15,7 @@ Package.onUse(function(api) {
 
   api.use('jquery', 'client');
 
-  api.addAssets
+  api.addAssets([
     // icons
     'themes/default/assets/fonts/icons.eot',
     'themes/default/assets/fonts/icons.svg',
