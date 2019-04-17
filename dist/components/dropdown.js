@@ -803,7 +803,9 @@ $.fn.dropdown = function(parameters) {
                   value
                 ;
                 if(settings.match == 'both' || settings.match == 'text') {
+                  
                   text = String(module.get.choiceText($choice, false));
+                  text = text.normalize('NFD').replace(/[\u0300-\u036f]/g, "");                                               
                   if(text.search(beginsWithRegExp) !== -1) {
                     results.push(this);
                     return true;
