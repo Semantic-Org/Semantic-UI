@@ -138,6 +138,9 @@ $.fn.modal = function(parameters) {
         },
 
         destroy: function() {
+          if (module.observer) {
+            observer.disconnect();
+          }
           module.verbose('Destroying previous modal');
           $module
             .removeData(moduleNamespace)
@@ -160,6 +163,7 @@ $.fn.modal = function(parameters) {
               subtree   : true
             });
             module.debug('Setting up mutation observer', observer);
+            module.observer = observer;
           }
         },
 
