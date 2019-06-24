@@ -138,7 +138,7 @@ $.fn.modal = function(parameters) {
         },
 
         destroy: function() {
-          if (module.observer) {
+          if (observer) {
             observer.disconnect();
           }
           module.verbose('Destroying previous modal');
@@ -163,7 +163,6 @@ $.fn.modal = function(parameters) {
               subtree   : true
             });
             module.debug('Setting up mutation observer', observer);
-            module.observer = observer;
           }
         },
 
