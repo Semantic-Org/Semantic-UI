@@ -16,7 +16,6 @@
 
 var
   gulp           = require('gulp'),
-
   // node dependencies
   console        = require('better-console'),
   extend         = require('extend'),
@@ -34,6 +33,8 @@ var
   replace        = require('gulp-replace'),
   requireDotFile = require('require-dot-file'),
   wrench         = require('wrench-sui'),
+
+  runSequence    = require('gulp4-run-sequence'),
 
   // install config
   install        = require('./config/project/install'),
@@ -326,6 +327,8 @@ gulp.task('create install files', function(callback) {
       .pipe(gulp.dest(installFolder))
     ;
 
+    callback();
+
   }
 
 
@@ -408,7 +411,7 @@ gulp.task('create install files', function(callback) {
 
   });
 
-  gulp.parallel(
+  runSequence(
     'create theme.config',
     'create semantic.json',
     callback
@@ -449,7 +452,9 @@ gulp.task('clean up install', function() {
 
 });
 
-gulp.series(
+
+
+runSequence(
   'run setup',
   'create install files',
   'clean up install',
