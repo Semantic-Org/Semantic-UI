@@ -3,9 +3,15 @@
 *******************************/
 
 var
-  release = require('./config/project/release')
+  release = require('./config/project/release'),
+  version
 ;
 
-module.exports = function(callback) {
+version = function(callback) {
   console.log(release.title + ' ' + release.version);
 };
+
+/* Export with Metadata */
+version.displayName = 'version';
+version.description = 'Displays current version of Semantic';
+module.exports = version;

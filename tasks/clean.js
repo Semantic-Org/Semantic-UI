@@ -5,10 +5,16 @@
 var
   del    = require('del'),
   config = require('./config/user'),
-  tasks  = require('./config/tasks')
+  tasks  = require('./config/tasks'),
+
+  clean
 ;
 
 // cleans distribution files
-module.exports = function(callback) {
+clean = function(callback) {
   return del([config.paths.clean], tasks.settings.del, callback);
 };
+
+clean.displayName = 'clean';
+clean.description = 'Cleans dist folder';
+module.exports = clean;

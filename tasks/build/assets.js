@@ -19,10 +19,12 @@ var
   output       = config.paths.output,
   source       = config.paths.source,
 
-  log          = tasks.log
+  log          = tasks.log,
+
+  buildAssets
 ;
 
-module.exports = function(callback) {
+buildAssets = function(callback) {
 
   console.info('Building assets');
 
@@ -33,3 +35,8 @@ module.exports = function(callback) {
   ;
 
 };
+
+/* Export with Metadata */
+buildAssets.displayName = 'build-css';
+buildAssets.description = 'Builds all css from source';
+module.exports = buildAssets;

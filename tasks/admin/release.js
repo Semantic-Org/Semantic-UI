@@ -10,14 +10,10 @@
 
 */
 
-var
-  runSequence = require('run-sequence')
-;
-
 /* Release All */
 module.exports = function(callback) {
 
-  runSequence(
+  gulp.series(
     //'build', // build Semantic
     'init distributions', // sync with current github version
     'create distributions', // update each repo with changes from master repo

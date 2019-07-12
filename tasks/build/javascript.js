@@ -33,13 +33,15 @@ var
   banner       = tasks.banner,
   comments     = tasks.regExp.comments,
   log          = tasks.log,
-  settings     = tasks.settings
+  settings     = tasks.settings,
+
+  buildJavascript
 ;
 
 // add internal tasks (concat release)
 require('../collections/internal')(gulp);
 
-module.exports = function(callback) {
+buildJavascript = function(callback) {
 
   var
     stream,
@@ -55,7 +57,7 @@ module.exports = function(callback) {
   }
 
   // copy source javascript
-  gulp.src(source.definitions + '/**/' + globs.components + '.js')
+  return gulp.src(source.definitions + '/**/' + globs.components + '.js')
     .pipe(plumber())
     .pipe(flatten())
     .pipe(replace(comments.license.in, comments.license.out))
@@ -75,3 +77,8 @@ module.exports = function(callback) {
   ;
 
 };
+
+/* Export with Metadata */
+buildJavascript.displayName = 'build-javascript';
+buildJavascript.description = 'Builds all javascript from source';
+module.exports = buildJavascript;

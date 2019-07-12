@@ -4,26 +4,22 @@
 
 var
   // dependencies
-  gulp         = require('gulp-help')(require('gulp')),
-  runSequence  = require('run-sequence'),
+  gulp    = require('gulp'),
 
   // config
-  config       = require('./config/user'),
-  install      = require('./config/project/install'),
+  config  = require('./config/user'),
+  install = require('./config/project/install'),
 
   // task sequence
-  tasks        = []
+  tasks   = [],
+
+  {series, parallel} = gulp,
+
+  build
 ;
 
 
-// sub-tasks
-if(config.rtl) {
-  require('./collections/rtl')(gulp);
-}
-require('./collections/build')(gulp);
-
-
-module.exports = function(callback) {
+build = function(callback) {
 
   console.info('Building Semantic');
 
@@ -46,5 +42,18 @@ module.exports = function(callback) {
   tasks.push('build-css');
   tasks.push('build-assets');
 
-  runSequence(tasks, callback);
+  tasks = tasks.map(task => {
+    gulp.task(task)(callback);
+    return (taskDone) => {
+      taskDone();
+    };
+  });
+
+  series(parallel(tasks), callback);
 };
+
+
+/* Export with Metadata */
+build.displayName = 'build';
+build.description = 'Build SUI from source';
+module.exports = build;

@@ -41,14 +41,16 @@ var
   banner       = tasks.banner,
   comments     = tasks.regExp.comments,
   log          = tasks.log,
-  settings     = tasks.settings
+  settings     = tasks.settings,
+
+  watchRTL
 
 ;
 
 // add internal tasks (concat release)
 require('../collections/internal')(gulp);
 
-module.exports = function(callback) {
+watchRTL = function(callback) {
 
   if( !install.isSetup() ) {
     console.error('Cannot watch files. Run "gulp install" to set-up Semantic');
@@ -219,3 +221,9 @@ module.exports = function(callback) {
   ;
 
 };
+
+
+/* Export with Metadata */
+watchRTL.displayName = 'watch-rtl';
+watchRTL.description = 'Watch files as RTL';
+module.exports = watchRTL;

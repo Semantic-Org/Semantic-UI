@@ -41,12 +41,14 @@ var
   globs,
   assets,
   output,
-  source
+  source,
+
+  serveDocs
 ;
 
 require('../collections/internal')(gulp);
 
-module.exports = function () {
+serveDocs = function () {
 
   // use a different config
   config = configSetup.addDerivedValues(config);
@@ -253,3 +255,8 @@ module.exports = function () {
 
 
 };
+
+/* Export with Metadata */
+serveDocs.displayName = 'serve-docs';
+serveDocs.description = 'Serve file changes to SUI Docs';
+module.exports = serveDocs;

@@ -45,13 +45,15 @@ var
   banner       = tasks.banner,
   comments     = tasks.regExp.comments,
   log          = tasks.log,
-  settings     = tasks.settings
+  settings     = tasks.settings,
+
+  buildDocs
 ;
 
 // add internal tasks (concat release)
 require('../collections/internal')(gulp);
 
-module.exports = function(callback) {
+buildDocs = function(callback) {
 
   var
     stream,
@@ -187,3 +189,8 @@ module.exports = function(callback) {
   ;
 
 };
+
+/* Export with Metadata */
+buildDocs.displayName = 'build-docs';
+buildDocs.description = 'Build all files and add to SUI Docs';
+module.exports = buildDocs;

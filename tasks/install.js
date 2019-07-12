@@ -23,7 +23,6 @@ var
   fs             = require('fs'),
   mkdirp         = require('mkdirp'),
   path           = require('path'),
-  runSequence    = require('run-sequence'),
 
   // gulp dependencies
   chmod          = require('gulp-chmod'),
@@ -51,11 +50,12 @@ var
   folders        = install.folders,
   regExp         = install.regExp,
   settings       = install.settings,
-  source         = install.source
+  source         = install.source,
+
+  install
 ;
 
-// Export install task
-module.exports = function (callback) {
+install = function (callback) {
 
 var
   currentConfig = requireDotFile('semantic.json'),
@@ -408,7 +408,7 @@ gulp.task('create install files', function(callback) {
 
   });
 
-  runSequence(
+  gulp.parallel(
     'create theme.config',
     'create semantic.json',
     callback
@@ -449,7 +449,7 @@ gulp.task('clean up install', function() {
 
 });
 
-runSequence(
+gulp.series(
   'run setup',
   'create install files',
   'clean up install',
@@ -457,3 +457,9 @@ runSequence(
 );
 
 };
+
+/* Export with Metadata */
+install.displayName = 'install';
+install.description = 'Installs semantic';
+module.exports = install;
+

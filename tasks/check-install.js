@@ -7,11 +7,13 @@ var
   gulp         = require('gulp'),
   fs           = require('fs'),
   console      = require('better-console'),
-  install      = require('./config/project/install')
+  install      = require('./config/project/install'),
+
+  checkInstall
 ;
 
 // export task
-module.exports = function() {
+checkInstall = function() {
 
   setTimeout(function() {
     if( !install.isSetup() ) {
@@ -26,3 +28,8 @@ module.exports = function() {
 
 
 };
+
+/* Export with Metadata */
+checkInstall.displayName = 'check-install';
+checkInstall.description = 'Checks if SUI needs to install before build/watch';
+module.exports = checkInstall;

@@ -3,7 +3,7 @@
 *******************************/
 
 var
-  gulp         = require('gulp-help')(require('gulp')),
+  gulp         = require('gulp'),
 
   // node dependencies
   console      = require('better-console'),
@@ -22,7 +22,6 @@ var
   replace      = require('gulp-replace'),
   uglify       = require('gulp-uglify'),
   replaceExt   = require('replace-ext'),
-  watch        = require('gulp-watch'),
 
   // user config
   config       = require('./config/user'),
@@ -40,7 +39,9 @@ var
   banner       = tasks.banner,
   comments     = tasks.regExp.comments,
   log          = tasks.log,
-  settings     = tasks.settings
+  settings     = tasks.settings,
+
+  watch
 
 ;
 
@@ -52,7 +53,7 @@ require('./collections/internal')(gulp);
 
 
 // export task
-module.exports = function(callback) {
+watch = function(callback) {
 
   if( !install.isSetup() ) {
     console.error('Cannot watch files. Run "gulp install" to set-up Semantic');
@@ -229,3 +230,9 @@ module.exports = function(callback) {
   ;
 
 };
+
+
+/* Export with Metadata */
+watch.displayName = 'watch';
+watch.description = 'Watch for site/theme changes';
+module.exports = watch;

@@ -21,7 +21,6 @@ var
   print        = require('gulp-print').default,
   rename       = require('gulp-rename'),
   replace      = require('gulp-replace'),
-  runSequence  = require('run-sequence'),
 
   // config
   config       = require('../config/user'),
@@ -37,13 +36,15 @@ var
   banner       = tasks.banner,
   comments     = tasks.regExp.comments,
   log          = tasks.log,
-  settings     = tasks.settings
+  settings     = tasks.settings,
+
+  buildCSS
 ;
 
 // add internal tasks (concat release)
 require('../collections/internal')(gulp);
 
-module.exports = function(callback) {
+buildCSS = function(callback) {
 
   var
     tasksCompleted = 0,
@@ -91,7 +92,8 @@ module.exports = function(callback) {
     .pipe(gulp.dest(output.uncompressed))
     .pipe(print(log.created))
     .on('end', function() {
-      runSequence('package uncompressed css', maybeCallback);
+      gulp.start('package uncompressed css');
+      maybeCallback();
     })
   ;
 
@@ -106,8 +108,14 @@ module.exports = function(callback) {
     .pipe(gulp.dest(output.compressed))
     .pipe(print(log.created))
     .on('end', function() {
-      runSequence('package compressed css', maybeCallback);
+      gulp.start('package compressed css');
+      maybeCallback();
     })
   ;
 
 };
+
+/* Export with Metadata */
+buildCSS.displayName = 'build-css';
+buildCSS.description = 'Builds all css from source';
+module.exports = buildCSS;
