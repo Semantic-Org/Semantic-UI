@@ -22,7 +22,6 @@ var
   replace      = require('gulp-replace'),
   uglify       = require('gulp-uglify'),
   replaceExt   = require('replace-ext'),
-  watch        = require('gulp-watch'),
 
   // user config
   config       = require('../config/docs'),

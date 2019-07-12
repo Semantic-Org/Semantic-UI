@@ -23,7 +23,6 @@ var
   rtlcss       = require('gulp-rtlcss'),
   uglify       = require('gulp-uglify'),
   replaceExt   = require('replace-ext'),
-  watch        = require('gulp-watch'),
 
   // user config
   config       = require('../config/user'),

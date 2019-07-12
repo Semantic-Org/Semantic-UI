@@ -55,7 +55,7 @@ var
   install
 ;
 
-install = function (callback) {
+installer = function (callback) {
 
 var
   currentConfig = requireDotFile('semantic.json'),
@@ -459,7 +459,7 @@ gulp.series(
 };
 
 /* Export with Metadata */
-install.displayName = 'install';
-install.description = 'Installs semantic';
-module.exports = install;
+installer.displayName = 'install';
+installer.description = 'Installs semantic';
+module.exports = installer;
 

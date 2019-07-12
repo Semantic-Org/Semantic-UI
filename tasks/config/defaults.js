@@ -98,7 +98,6 @@ module.exports = {
     'sticky',
     'tab',
     'transition',
-    'video',
 
     // behaviors
     'api',
