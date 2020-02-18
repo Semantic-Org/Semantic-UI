@@ -749,19 +749,19 @@ $.fn.form = function(parameters) {
 
         remove: {
           rule: function(field, rule) {
-            var
-              rules = $.isArray(rule)
-                ? rule
-                : [rule]
-            ;
+            if(validation[field] == undefined || !$.isArray(validation[field].rules)) {
+              return;
+            }
             if(rule == undefined) {
               module.debug('Removed all rules');
               validation[field].rules = [];
               return;
             }
-            if(validation[field] == undefined || !$.isArray(validation[field].rules)) {
-              return;
-            }
+            var
+              rules = $.isArray(rule)
+                ? rule
+                : [rule]
+            ;
             $.each(validation[field].rules, function(index, rule) {
               if(rules.indexOf(rule.type) !== -1) {
                 module.debug('Removed rule', rule.type);
