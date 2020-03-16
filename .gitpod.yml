@@ -1,0 +1,2 @@
+tasks:
+  - command: yarn install

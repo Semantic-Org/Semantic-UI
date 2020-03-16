@@ -6,6 +6,8 @@
 
 [![CDNJS](https://img.shields.io/cdnjs/v/semantic-ui.svg)](https://cdnjs.com/libraries/semantic-ui/)
 
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/Semantic-Org/Semantic-UI) 
+
 [Semantic](http://www.semantic-ui.com) is a UI framework designed for theming.
 
 Key Features
@@ -64,6 +66,17 @@ Check out our [integration wiki](https://github.com/Semantic-Org/Semantic-UI/wik
 * Microsoft Edge 12+
 
 Although some components will work in IE9, [grids](http://semantic-ui.com/collections/grid.html) and other [flexbox](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Flexible_boxes) components are not supported by IE9 and may not appear correctly.
+
+## One-click online setup for contributing
+
+You can use gitpod(a free online VS Code like IDE). With a single click it will launch a workspace and automatically:
+
+- clone the Semantic-UI repo.
+- install the dependencies.
+
+so that anyone interested in contributing can start straight away.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
 
 ## Community
 
