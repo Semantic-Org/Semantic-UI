@@ -117,7 +117,7 @@ module.exports = {
 
     /* What Browsers to Prefix */
     prefix: {
-      browsers: [
+      overrideBrowserslist: [
         'last 2 versions',
         '> 1%',
         'opera 12.1',
