@@ -2,7 +2,7 @@
           Build Task
 *******************************/
 
-var
+let
   gulp         = require('gulp'),
 
   // node dependencies
@@ -35,6 +35,8 @@ var
   log          = tasks.log,
   settings     = tasks.settings,
 
+  {series, parallel} = gulp,
+
   buildJavascript
 ;
 
@@ -43,7 +45,7 @@ require('../collections/internal')(gulp);
 
 buildJavascript = function(callback) {
 
-  var
+  let
     stream,
     compressedStream,
     uncompressedStream
@@ -81,4 +83,4 @@ buildJavascript = function(callback) {
 /* Export with Metadata */
 buildJavascript.displayName = 'build-javascript';
 buildJavascript.description = 'Builds all javascript from source';
-module.exports = buildJavascript;
+module.exports = series(buildJavascript);

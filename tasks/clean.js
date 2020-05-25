@@ -3,9 +3,13 @@
 *******************************/
 
 var
+  gulp   = require('gulp'),
+
   del    = require('del'),
   config = require('./config/user'),
   tasks  = require('./config/tasks'),
+
+  {series, parallel} = gulp,
 
   clean
 ;
@@ -17,4 +21,4 @@ clean = function(callback) {
 
 clean.displayName = 'clean';
 clean.description = 'Cleans dist folder';
-module.exports = clean;
+module.exports = series(clean);

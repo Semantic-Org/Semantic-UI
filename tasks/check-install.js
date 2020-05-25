@@ -15,17 +15,14 @@ var
 // export task
 checkInstall = function() {
 
-  setTimeout(function() {
-    if( !install.isSetup() ) {
-      console.log('Starting install...');
-      gulp.start('install');
-      return;
-    }
-    else {
-      gulp.start('watch');
-    }
-  }, 50); // Delay to allow console.clear to remove messages from check event
-
+  if( !install.isSetup() ) {
+    console.log('Starting install...');
+    gulp.start('install');
+    return;
+  }
+  else {
+    gulp.start('watch');
+  }
 
 };
 

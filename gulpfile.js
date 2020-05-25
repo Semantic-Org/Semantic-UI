@@ -54,7 +54,7 @@ gulp.task('watch', watch);
 gulp.task('build', build);
 gulp.task('build-javascript', buildJS);
 gulp.task('build-css', buildCSS);
-gulp.task('build-assets',buildAssets);
+gulp.task('build-assets', buildAssets);
 
 gulp.task('clean', clean);
 gulp.task('version', version);

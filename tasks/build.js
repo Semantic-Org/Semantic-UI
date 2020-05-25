@@ -15,7 +15,7 @@ let
   buildAssets = require('./build/assets'),
 
   // rtl
-  buildRTL     = require('./rtl/build'),
+  buildRTL    = require('./rtl/build'),
 
   // task sequence
   tasks   = [],
@@ -25,17 +25,17 @@ let
   build
 ;
 
-
 if(config.rtl == 'both') {
   tasks.push(buildRTL);
 }
 
-tasks.push(buildJS);
-tasks.push(buildCSS);
-tasks.push(buildAssets);
-
 if(config.rtl === true || config.rtl === 'Yes') {
   tasks.push(buildRTL);
+}
+else {
+  tasks.push(buildJS);
+  tasks.push(buildCSS);
+  tasks.push(buildAssets);
 }
 
 build = parallel(tasks);

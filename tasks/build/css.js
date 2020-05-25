@@ -38,20 +38,21 @@ var
   log          = tasks.log,
   settings     = tasks.settings,
 
+  {series, parallel} = gulp,
+
   buildCSS
 ;
 
 // add internal tasks (concat release)
 require('../collections/internal')(gulp);
 
-buildCSS = function(callback) {
-
-  var
+buildCSS = function(taskCallback) {
+  let
     tasksCompleted = 0,
     maybeCallback  = function() {
       tasksCompleted++;
       if(tasksCompleted === 2) {
-        callback();
+        taskCallback();
       }
     },
 
@@ -118,4 +119,4 @@ buildCSS = function(callback) {
 /* Export with Metadata */
 buildCSS.displayName = 'build-css';
 buildCSS.description = 'Builds all css from source';
-module.exports = buildCSS;
+module.exports = series(buildCSS);

@@ -8,7 +8,7 @@
   * Registers component with NPM
 */
 
-var
+let
   // node dependencies
   process = require('child_process'),
 
@@ -35,7 +35,7 @@ module.exports = function(callback) {
       callback();
       return;
     }
-    var
+    let
       repo            = repos[index].toLowerCase(),
       outputDirectory = release.outputRoot + repo + '/',
       exec            = process.exec,

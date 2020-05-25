@@ -2,7 +2,7 @@
            Watch Task
 *******************************/
 
-var
+let
   gulp         = require('gulp'),
 
   // node deps
@@ -42,7 +42,16 @@ var
   log          = tasks.log,
   settings     = tasks.settings,
 
-  watchRTL
+  watchRTL,
+
+  // individual watch tasks
+  watchCSS,
+  watchJS,
+  watchAssets,
+
+  watchCSSCallback,
+  watchJSCallback,
+  watchAssetsCallback
 
 ;
 
@@ -71,7 +80,7 @@ watchRTL = function(callback) {
       source.themes        + '/**/*.{overrides,variables}'
     ], function(file) {
 
-      var
+      let
         lessPath,
 
         stream,

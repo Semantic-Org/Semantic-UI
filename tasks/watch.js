@@ -41,6 +41,8 @@ let
   log          = tasks.log,
   settings     = tasks.settings,
 
+  {series, parallel} = gulp,
+
   watch,
 
   // individual watch tasks
@@ -199,7 +201,6 @@ watch = function(callback) {
   watchCSS
     .on('change', watchCSSCallback)
     .on('add', watchCSSCallback)
-    .close()
   ;
 
   /*--------------
@@ -232,7 +233,6 @@ watch = function(callback) {
   watchJS
     .on('change', watchJSCallback)
     .on('add', watchJSCallback)
-    .close()
   ;
 
   /*--------------
@@ -256,9 +256,7 @@ watch = function(callback) {
   watchAssets
     .on('change', watchAssetsCallback)
     .on('add', watchAssetsCallback)
-    .close()
   ;
-
 
 };
 
@@ -266,4 +264,4 @@ watch = function(callback) {
 /* Export with Metadata */
 watch.displayName = 'watch';
 watch.description = 'Watch for site/theme changes';
-module.exports = watch;
+module.exports = series(watch);

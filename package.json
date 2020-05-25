@@ -85,7 +85,7 @@
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
-    "github": "^14.0.0",
+    "@octokit/rest": "^17.9.2",
     "gulp-concat-filenames": "*",
     "gulp-debug": "^4.0.0",
     "gulp-git": "^2.10.1",

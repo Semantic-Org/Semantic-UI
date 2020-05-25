@@ -8,6 +8,7 @@ var
   // gulp dependencies
   chmod        = require('gulp-chmod'),
   gulpif       = require('gulp-if'),
+  print        = require('gulp-print').default,
 
   // config
   config       = require('../config/user'),
@@ -20,6 +21,7 @@ var
   source       = config.paths.source,
 
   log          = tasks.log,
+  {series, parallel} = gulp,
 
   buildAssets
 ;
@@ -31,6 +33,7 @@ buildAssets = function(callback) {
   // copy assets
   return gulp.src(source.themes + '/**/assets/**/*.*')
     .pipe(gulpif(config.hasPermission, chmod(config.permission)))
+    .pipe(print(log.created))
     .pipe(gulp.dest(output.themes))
   ;
 
@@ -39,4 +42,4 @@ buildAssets = function(callback) {
 /* Export with Metadata */
 buildAssets.displayName = 'build-assets';
 buildAssets.description = 'Builds all assets';
-module.exports = buildAssets;
+module.exports = series(buildAssets);

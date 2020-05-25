@@ -3,7 +3,10 @@
 *******************************/
 
 let
+  gulp    = require('gulp'),
   release = require('./config/project/release'),
+
+  {series, parallel} = gulp,
   version
 ;
 
@@ -14,4 +17,4 @@ version = function(callback) {
 /* Export with Metadata */
 version.displayName = 'version';
 version.description = 'Displays current version of Semantic';
-module.exports = version;
+module.exports = series(version);

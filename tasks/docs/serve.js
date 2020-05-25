@@ -31,6 +31,8 @@ var
   configSetup  = require('../config/project/config'),
   install      = require('../config/project/install'),
 
+  {series, parallel} = gulp,
+
   // shorthand
   banner       = tasks.banner,
   comments     = tasks.regExp.comments,
@@ -41,6 +43,21 @@ var
   assets,
   output,
   source,
+
+  watchSRC,
+  watchSRCCallback,
+
+  watchExamples,
+  watchExamplesCallback,
+
+  watchCSS,
+  watchCSSCallback,
+
+  watchJS,
+  watchJSCallback,
+
+  watchAssets,
+  watchAssetsCallback,
 
   serveDocs
 ;
@@ -63,10 +80,12 @@ serveDocs = function () {
      Copy Source
   ---------------*/
 
-  gulp
+  watchSRC = gulp
     .watch([
       'src/**/*.*'
-    ], function(file) {
+    ])
+  ;
+  watchSRCCallback = function(file) {
       console.clear();
       return gulp.src(file.path, {
           base: 'src/'
@@ -74,146 +93,160 @@ serveDocs = function () {
         .pipe(gulp.dest(output.less))
         .pipe(print(log.created))
       ;
-    })
+  };
+  watchSRC
+    .on('change', watchSRCCallback)
+    .on('add', watchSRCCallback)
   ;
 
   /*--------------
     Copy Examples
   ---------------*/
 
-  gulp
+  watchExamples = gulp
     .watch([
       'examples/**/*.*'
-    ], function(file) {
-      console.clear();
-      return gulp.src(file.path, {
-          base: 'examples/'
-        })
-        .pipe(gulp.dest(output.examples))
-        .pipe(print(log.created))
-      ;
-    })
+    ])
   ;
+
+  watchExamplesCallback = function(file) {
+    console.clear();
+    return gulp.src(file.path, {
+        base: 'examples/'
+      })
+      .pipe(gulp.dest(output.examples))
+      .pipe(print(log.created))
+    ;
+  };
+  watchSRC
+    .on('change', watchExamplesCallback)
+    .on('add', watchExamplesCallback)
+  ;
+
 
   /*--------------
       Watch CSS
   ---------------*/
 
-  gulp
+  watchCSS = gulp
     .watch([
       source.config,
       source.definitions   + '/**/*.less',
       source.site          + '/**/*.{overrides,variables}',
       source.themes        + '/**/*.{overrides,variables}'
-    ], function(file) {
+    ])
+  ;
+  watchCSSCallback = function(file) {
+    let
+      lessPath,
 
-      var
-        lessPath,
+      stream,
+      compressedStream,
+      uncompressedStream,
 
-        stream,
-        compressedStream,
-        uncompressedStream,
+      isDefinition,
+      isPackagedTheme,
+      isSiteTheme,
+      isConfig
+    ;
 
-        isDefinition,
-        isPackagedTheme,
-        isSiteTheme,
-        isConfig
+    // log modified file
+    gulp.src(file.path)
+      .pipe(print(log.modified))
+    ;
+
+    /*--------------
+       Find Source
+    ---------------*/
+
+    // recompile on *.override , *.variable change
+    isConfig        = (file.path.indexOf('theme.config') !== -1 || file.path.indexOf('site.variables') !== -1);
+    isPackagedTheme = (file.path.indexOf(source.themes) !== -1);
+    isSiteTheme     = (file.path.indexOf(source.site) !== -1);
+    isDefinition    = (file.path.indexOf(source.definitions) !== -1);
+
+    if(isConfig) {
+      // console.info('Rebuilding all files');
+      // cant rebuild paths are wrong
+      // gulp.start('build-docs');
+      return;
+    }
+    else if(isPackagedTheme) {
+      console.log('Change detected in packaged theme');
+      lessPath = replaceExt(file.path, '.less');
+      lessPath = lessPath.replace(tasks.regExp.theme, source.definitions);
+    }
+    else if(isSiteTheme) {
+      console.log('Change detected in site theme');
+      lessPath = replaceExt(file.path, '.less');
+      lessPath = lessPath.replace(source.site, source.definitions);
+    }
+    else {
+      console.log('Change detected in definition');
+      lessPath = file.path;
+    }
+
+    /*--------------
+      Create CSS
+    ---------------*/
+
+    if( fs.existsSync(lessPath) ) {
+
+      // unified css stream
+      stream = gulp.src(lessPath)
+        .pipe(plumber())
+        .pipe(less(settings.less))
+        .pipe(replace(comments.variables.in, comments.variables.out))
+        .pipe(replace(comments.large.in, comments.large.out))
+        .pipe(replace(comments.small.in, comments.small.out))
+        .pipe(replace(comments.tiny.in, comments.tiny.out))
+        .pipe(autoprefixer(settings.prefix))
+        .pipe(gulpif(config.hasPermission, chmod(config.permission)))
       ;
 
-      // log modified file
-      gulp.src(file.path)
-        .pipe(print(log.modified))
+      // use 2 concurrent streams from same pipe
+      uncompressedStream = stream.pipe(clone());
+      compressedStream   = stream.pipe(clone());
+
+      uncompressedStream
+        .pipe(plumber())
+        .pipe(replace(assets.source, assets.uncompressed))
+        .pipe(header(banner, settings.header))
+        .pipe(gulp.dest(output.uncompressed))
+        .pipe(print(log.created))
+        .on('end', function() {
+          gulp.start('package uncompressed docs css');
+        })
       ;
 
-      /*--------------
-         Find Source
-      ---------------*/
+      compressedStream
+        .pipe(plumber())
+        .pipe(replace(assets.source, assets.compressed))
+        .pipe(minifyCSS(settings.minify))
+        .pipe(rename(settings.rename.minCSS))
+        .pipe(header(banner, settings.header))
+        .pipe(gulp.dest(output.compressed))
+        .pipe(print(log.created))
+        .on('end', function() {
+          gulp.start('package compressed docs css');
+        })
+      ;
 
-      // recompile on *.override , *.variable change
-      isConfig        = (file.path.indexOf('theme.config') !== -1 || file.path.indexOf('site.variables') !== -1);
-      isPackagedTheme = (file.path.indexOf(source.themes) !== -1);
-      isSiteTheme     = (file.path.indexOf(source.site) !== -1);
-      isDefinition    = (file.path.indexOf(source.definitions) !== -1);
-
-      if(isConfig) {
-        // console.info('Rebuilding all files');
-        // cant rebuild paths are wrong
-        // gulp.start('build-docs');
-        return;
-      }
-      else if(isPackagedTheme) {
-        console.log('Change detected in packaged theme');
-        lessPath = replaceExt(file.path, '.less');
-        lessPath = lessPath.replace(tasks.regExp.theme, source.definitions);
-      }
-      else if(isSiteTheme) {
-        console.log('Change detected in site theme');
-        lessPath = replaceExt(file.path, '.less');
-        lessPath = lessPath.replace(source.site, source.definitions);
-      }
-      else {
-        console.log('Change detected in definition');
-        lessPath = file.path;
-      }
-
-      /*--------------
-        Create CSS
-      ---------------*/
-
-      if( fs.existsSync(lessPath) ) {
-
-        // unified css stream
-        stream = gulp.src(lessPath)
-          .pipe(plumber())
-          .pipe(less(settings.less))
-          .pipe(replace(comments.variables.in, comments.variables.out))
-          .pipe(replace(comments.large.in, comments.large.out))
-          .pipe(replace(comments.small.in, comments.small.out))
-          .pipe(replace(comments.tiny.in, comments.tiny.out))
-          .pipe(autoprefixer(settings.prefix))
-          .pipe(gulpif(config.hasPermission, chmod(config.permission)))
-        ;
-
-        // use 2 concurrent streams from same pipe
-        uncompressedStream = stream.pipe(clone());
-        compressedStream   = stream.pipe(clone());
-
-        uncompressedStream
-          .pipe(plumber())
-          .pipe(replace(assets.source, assets.uncompressed))
-          .pipe(header(banner, settings.header))
-          .pipe(gulp.dest(output.uncompressed))
-          .pipe(print(log.created))
-          .on('end', function() {
-            gulp.start('package uncompressed docs css');
-          })
-        ;
-
-        compressedStream
-          .pipe(plumber())
-          .pipe(replace(assets.source, assets.compressed))
-          .pipe(minifyCSS(settings.minify))
-          .pipe(rename(settings.rename.minCSS))
-          .pipe(header(banner, settings.header))
-          .pipe(gulp.dest(output.compressed))
-          .pipe(print(log.created))
-          .on('end', function() {
-            gulp.start('package compressed docs css');
-          })
-        ;
-
-      }
-      else {
-        console.log('Cannot find UI definition at path', lessPath);
-      }
-    })
+    }
+    else {
+      console.log('Cannot find UI definition at path', lessPath);
+    }
+  };
+  watchCSS
+    .on('add', watchCSSCallback)
+    .on('change', watchCSSCallback)
   ;
 
   /*--------------
       Watch JS
   ---------------*/
 
-  gulp
+  watchJS = gulp
     .watch([
       source.definitions   + '/**/*.js'
     ], function(file) {
@@ -234,22 +267,32 @@ serveDocs = function () {
     })
   ;
 
+  watchJS
+    .on('add', watchJSCallback)
+    .on('change', watchJSCallback)
+  ;
+
   /*--------------
     Watch Assets
   ---------------*/
 
   // only copy assets that match component names (or their plural)
-  gulp
+  watchAssets = gulp
     .watch([
       source.themes   + '/**/assets/**/' + globs.components + '?(s).*'
-    ], function(file) {
-      // copy assets
-      gulp.src(file.path, { base: source.themes })
-        .pipe(gulpif(config.hasPermission, chmod(config.permission)))
-        .pipe(gulp.dest(output.themes))
-        .pipe(print(log.created))
-      ;
-    })
+    ])
+  ;
+  // copy assets
+  watchAssetsCallback = function(file) {
+    gulp.src(file.path, { base: source.themes })
+      .pipe(gulpif(config.hasPermission, chmod(config.permission)))
+      .pipe(gulp.dest(output.themes))
+      .pipe(print(log.created))
+    ;
+  };
+  watchAssets
+    .on('add', watchAssetsCallback)
+    .on('change', watchAssetsCallback)
   ;
 
 
