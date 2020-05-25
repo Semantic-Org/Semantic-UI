@@ -37,6 +37,6 @@ buildAssets = function(callback) {
 };
 
 /* Export with Metadata */
-buildAssets.displayName = 'build-css';
-buildAssets.description = 'Builds all css from source';
+buildAssets.displayName = 'build-assets';
+buildAssets.description = 'Builds all assets';
 module.exports = buildAssets;

@@ -2,13 +2,20 @@
           Build Task
 *******************************/
 
-var
+let
   // dependencies
-  gulp    = require('gulp'),
+  gulp        = require('gulp'),
 
   // config
-  config  = require('./config/user'),
-  install = require('./config/project/install'),
+  config      = require('./config/user'),
+  install     = require('./config/project/install'),
+
+  buildJS     = require('./build/javascript'),
+  buildCSS    = require('./build/css'),
+  buildAssets = require('./build/assets'),
+
+  // rtl
+  buildRTL     = require('./rtl/build'),
 
   // task sequence
   tasks   = [],
@@ -19,38 +26,19 @@ var
 ;
 
 
-build = function(callback) {
+if(config.rtl == 'both') {
+  tasks.push(buildRTL);
+}
 
-  console.info('Building Semantic');
+tasks.push(buildJS);
+tasks.push(buildCSS);
+tasks.push(buildAssets);
 
-  if( !install.isSetup() ) {
-    console.error('Cannot find semantic.json. Run "gulp install" to set-up Semantic');
-    return 1;
-  }
+if(config.rtl === true || config.rtl === 'Yes') {
+  tasks.push(buildRTL);
+}
 
-  // check for right-to-left (RTL) language
-  if(config.rtl === true || config.rtl === 'Yes') {
-    gulp.start('build-rtl');
-    return;
-  }
-
-  if(config.rtl == 'both') {
-    tasks.push('build-rtl');
-  }
-
-  tasks.push('build-javascript');
-  tasks.push('build-css');
-  tasks.push('build-assets');
-
-  tasks = tasks.map(task => {
-    gulp.task(task)(callback);
-    return (taskDone) => {
-      taskDone();
-    };
-  });
-
-  series(parallel(tasks), callback);
-};
+build = parallel(tasks);
 
 
 /* Export with Metadata */

@@ -2,7 +2,7 @@
             Set-up
 *******************************/
 
-var
+let
   gulp         = require('gulp'),
 
   // read user config to know what task to load
@@ -36,7 +36,13 @@ var
 
 /* Simple Compatibility with Gulp 3 */
 gulp.start = function(name) {
-  gulp.task(name)();
+  let task = gulp.task(name);
+  if(task) {
+    task();
+  }
+  else {
+    console.log('cant find', name);
+  }
 }
 
 /*******************************
@@ -57,7 +63,7 @@ gulp.task('install', install);
 gulp.task('check-install', checkInstall);
 
 
-//gulp.task('default', ['check-install']);
+gulp.task('default', checkInstall);
 
 /*--------------
       Docs

@@ -2,7 +2,7 @@
           Version Task
 *******************************/
 
-var
+let
   release = require('./config/project/release'),
   version
 ;
