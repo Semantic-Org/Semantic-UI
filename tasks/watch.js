@@ -199,6 +199,7 @@ watch = function(callback) {
   watchCSS
     .on('change', watchCSSCallback)
     .on('add', watchCSSCallback)
+    .close()
   ;
 
   /*--------------
@@ -231,6 +232,7 @@ watch = function(callback) {
   watchJS
     .on('change', watchJSCallback)
     .on('add', watchJSCallback)
+    .close()
   ;
 
   /*--------------
@@ -254,7 +256,9 @@ watch = function(callback) {
   watchAssets
     .on('change', watchAssetsCallback)
     .on('add', watchAssetsCallback)
+    .close()
   ;
+
 
 };
 
