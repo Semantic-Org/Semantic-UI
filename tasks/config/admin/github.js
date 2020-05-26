@@ -8,7 +8,7 @@
 var
   fs          = require('fs'),
   path        = require('path'),
-  githubAPI   = require('github'),
+  { Octokit } = require('@octokit/rest'),
 
   // stores oauth info for GitHub API
   oAuthConfig = path.join(__dirname, 'oauth.js'),
@@ -22,16 +22,11 @@ if(!oAuth) {
   console.error('Must add oauth token for GitHub in tasks/config/admin/oauth.js');
 }
 
-github = new githubAPI({
-  version    : '3.0.0',
-  debug      : true,
-  protocol   : 'https',
+github = new Octokit({
+  version   : '3.0.0',
+  auth      : oAuth.token,
+  userAgent : 'Semantic-Org-Pusher-Bot',
   timeout    : 5000
-});
-
-github.authenticate({
-  type: 'oauth',
-  token: oAuth.token
 });
 
 module.exports = github;

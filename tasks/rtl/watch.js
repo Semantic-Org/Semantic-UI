@@ -2,7 +2,7 @@
            Watch Task
 *******************************/
 
-var
+let
   gulp         = require('gulp'),
 
   // node deps
@@ -23,7 +23,6 @@ var
   rtlcss       = require('gulp-rtlcss'),
   uglify       = require('gulp-uglify'),
   replaceExt   = require('replace-ext'),
-  watch        = require('gulp-watch'),
 
   // user config
   config       = require('../config/user'),
@@ -41,14 +40,25 @@ var
   banner       = tasks.banner,
   comments     = tasks.regExp.comments,
   log          = tasks.log,
-  settings     = tasks.settings
+  settings     = tasks.settings,
+
+  watchRTL,
+
+  // individual watch tasks
+  watchCSS,
+  watchJS,
+  watchAssets,
+
+  watchCSSCallback,
+  watchJSCallback,
+  watchAssetsCallback
 
 ;
 
 // add internal tasks (concat release)
 require('../collections/internal')(gulp);
 
-module.exports = function(callback) {
+watchRTL = function(callback) {
 
   if( !install.isSetup() ) {
     console.error('Cannot watch files. Run "gulp install" to set-up Semantic');
@@ -70,7 +80,7 @@ module.exports = function(callback) {
       source.themes        + '/**/*.{overrides,variables}'
     ], function(file) {
 
-      var
+      let
         lessPath,
 
         stream,
@@ -219,3 +229,9 @@ module.exports = function(callback) {
   ;
 
 };
+
+
+/* Export with Metadata */
+watchRTL.displayName = 'watch-rtl';
+watchRTL.description = 'Watch files as RTL';
+module.exports = watchRTL;

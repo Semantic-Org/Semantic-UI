@@ -2,7 +2,7 @@
            Build Docs
 *******************************/
 
-var
+let
   gulp         = require('gulp'),
 
   // node dependencies
@@ -36,6 +36,8 @@ var
   // metadata parsing
   metadata     = require('./metadata'),
 
+  {series, parallel} = gulp,
+
   // shorthand
   globs,
   assets,
@@ -45,13 +47,15 @@ var
   banner       = tasks.banner,
   comments     = tasks.regExp.comments,
   log          = tasks.log,
-  settings     = tasks.settings
+  settings     = tasks.settings,
+
+  buildDocs
 ;
 
 // add internal tasks (concat release)
 require('../collections/internal')(gulp);
 
-module.exports = function(callback) {
+buildDocs = function(callback) {
 
   var
     stream,
@@ -80,7 +84,8 @@ module.exports = function(callback) {
   gulp.src(config.paths.template.eco + globs.eco)
     .pipe(map(metadata.parser))
     .on('end', function() {
-      fs.writeFile(output.metadata + '/metadata.json', JSON.stringify(metadata.result, null, 2));
+      let jsonString = JSON.stringify(metadata.result, null, 2);
+      fs.writeFileSync(output.metadata + '/metadata.json', jsonString);
     })
   ;
 
@@ -187,3 +192,8 @@ module.exports = function(callback) {
   ;
 
 };
+
+/* Export with Metadata */
+buildDocs.displayName = 'build-docs';
+buildDocs.description = 'Build all files and add to SUI Docs';
+module.exports = series(buildDocs);
