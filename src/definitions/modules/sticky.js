@@ -402,6 +402,18 @@ $.fn.sticky = function(parameters) {
               module.determineContainer();
             }
             else {
+              var tallestHeight = Math.max(module.cache.context.height, module.cache.element.height);
+              if(tallestHeight - $container.outerHeight() > settings.jitter) {
+                module.debug('Context is taller than container. Specifying exact height for container', module.cache.context.height);
+                $container.css({
+                  height: tallestHeight,
+                });
+              }
+              else {
+                $container.css({
+                  height: '',
+                });
+              }
               if( Math.abs($container.outerHeight() - module.cache.context.height) > settings.jitter) {
                 module.debug('Context has padding, specifying exact height for container', module.cache.context.height);
                 $container.css({
