@@ -44,7 +44,6 @@
     "map-stream": "*",
     "replace-ext": "*",
     "require-dot-file": "*",
-    "run-sequence": "*",
     "yamljs": "*"
   },
   "dependencies": {
@@ -72,7 +71,6 @@
     "gulp-replace": "^1.0.0",
     "gulp-rtlcss": "^1.4.1",
     "gulp-uglify": "^3.0.2",
-    "gulp4-run-sequence": "^1.0.1",
     "jquery": "^3.5.1",
     "map-stream": "^0.1.0",
     "merge-stream": "^1.0.0",
@@ -80,7 +78,6 @@
     "prompt-sui": "^3.2.1",
     "replace-ext": "^1.0.1",
     "require-dot-file": "^0.4.0",
-    "run-sequence": "^2.2.1",
     "wrench-sui": "^0.0.3",
     "yamljs": "^0.3.0"
   },

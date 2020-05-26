@@ -34,8 +34,6 @@ let
   requireDotFile = require('require-dot-file'),
   wrench         = require('wrench-sui'),
 
-  runSequence    = require('gulp4-run-sequence'),
-
   // install config
   install        = require('./config/project/install'),
 
@@ -44,6 +42,8 @@ let
 
   // release config (name/title/etc)
   release        = require('./config/project/release'),
+
+  {series, parallel, task} = gulp,
 
   // shorthand
   questions      = install.questions,
@@ -190,7 +190,7 @@ installer = function (callback) {
      Create SUI
   ---------------*/
 
-  gulp.task('run setup', function() {
+  task('run setup', function() {
 
     // If auto-install is switched on, we skip the configuration section and simply reuse the configuration from semantic.json
     if(install.shouldAutoInstall()) {
@@ -212,7 +212,7 @@ installer = function (callback) {
     }
   });
 
-  gulp.task('create install files', function(callback) {
+  task('create install files', function(callback) {
 
     /*--------------
      Exit Conditions
@@ -220,6 +220,7 @@ installer = function (callback) {
 
     // if config exists and user specifies not to proceed
     if(answers.overwrite !== undefined && answers.overwrite == 'no') {
+      callback();
       return;
     }
     console.clear();
@@ -349,7 +350,7 @@ installer = function (callback) {
       Theme Config
     ---------------*/
 
-    gulp.task('create theme.config', function() {
+    task('create theme.config', function() {
       let
         // determine path to site theme folder from theme config
         // force CSS path variable to use forward slashes for paths
@@ -383,7 +384,7 @@ installer = function (callback) {
       Semantic.json
     ---------------*/
 
-    gulp.task('create semantic.json', function() {
+    task('create semantic.json', function() {
 
       let
         jsonConfig = install.createJSON(answers)
@@ -393,7 +394,6 @@ installer = function (callback) {
       if( fs.existsSync(installPaths.config) ) {
         console.info('Extending config file (semantic.json)', installPaths.config);
         return gulp.src(installPaths.config)
-          .pipe(plumber())
           .pipe(rename(settings.rename.json)) // preserve file extension
           .pipe(jsonEditor(jsonConfig))
           .pipe(gulp.dest(installPaths.configFolder))
@@ -411,15 +411,18 @@ installer = function (callback) {
 
     });
 
-    runSequence(
-      'create theme.config',
-      'create semantic.json',
-      callback
-    );
+    series(
+      task('create theme.config'),
+      task('create semantic.json'),
+      function doSetupCallback(innerCallback) {
+        innerCallback();
+        callback();
+      }
+    )();
 
   });
 
-  gulp.task('clean up install', function() {
+  task('clean up install', function() {
 
     // Completion Message
     if(installFolder && !install.shouldAutoInstall()) {
@@ -452,12 +455,15 @@ installer = function (callback) {
 
   });
 
-  runSequence(
-    'run setup',
-    'create install files',
-    'clean up install',
-    callback
-  );
+  series(
+    task('run setup'),
+    task('create install files'),
+    task('clean up install'),
+    function doInstallCallback(innerCallback) {
+      innerCallback();
+      callback();
+    }
+  )();
 
 };
 
