@@ -148,11 +148,12 @@ installer = function (callback) {
         ;
 
         console.info('Update complete! Run "\x1b[92mgulp build\x1b[0m" to rebuild dist/ files.');
-
+        callback();
         return;
       }
       else {
         console.log('Current version of Semantic UI already installed');
+        callback();
         return;
       }
 
@@ -327,8 +328,6 @@ installer = function (callback) {
         .pipe(plumber())
         .pipe(gulp.dest(installFolder))
       ;
-
-      callback();
 
     }
 
