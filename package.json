@@ -31,7 +31,6 @@
     "gulp-dedupe": "*",
     "gulp-flatten": "*",
     "gulp-header": "*",
-    "gulp-help": "*",
     "gulp-if": "*",
     "gulp-less": "*",
     "gulp-notify": "*",
