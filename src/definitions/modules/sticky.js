@@ -438,7 +438,7 @@ $.fn.sticky = function(parameters) {
           },
           size: function() {
             if(module.cache.element.height !== 0 && module.cache.element.width !== 0) {
-              element.style.setProperty('width',  module.cache.element.width  + 'px', 'important');
+              element.style.setProperty('width', module.cache.element.width  + 'px', 'important');
               element.style.setProperty('height', module.cache.element.height + 'px', 'important');
             }
           }
@@ -501,7 +501,7 @@ $.fn.sticky = function(parameters) {
                 module.bindBottom();
               }
               else if(scroll.top > element.top) {
-                if( (element.height + scroll.top - elementScroll) >= context.bottom ) {
+                if((element.height + scroll.top - elementScroll) >= context.bottom  && element.height < context.height) {
                   module.debug('Initial element position is bottom of container');
                   module.bindBottom();
                 }
