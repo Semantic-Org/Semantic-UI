@@ -34,14 +34,11 @@ let
   watchRTL     = require('./tasks/rtl/watch')
 ;
 
-/* Simple Compatibility with Gulp 3 */
+/* Simple Compatibility Fix for Gulp 3 Style Tasks */
 gulp.start = function(name) {
   let task = gulp.task(name);
   if(task) {
     task();
-  }
-  else {
-    console.log('cant find', name);
   }
 }
 
