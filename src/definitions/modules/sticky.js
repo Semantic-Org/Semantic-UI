@@ -580,6 +580,9 @@ $.fn.sticky = function(parameters) {
         bindTop: function() {
           module.debug('Binding element to top of parent container');
           module.remove.offset();
+          if(settings.setSize) {
+            module.set.size();
+          }
           $module
             .css({
               left         : '',
@@ -597,6 +600,9 @@ $.fn.sticky = function(parameters) {
         bindBottom: function() {
           module.debug('Binding element to bottom of parent container');
           module.remove.offset();
+          if(settings.setSize) {
+            module.set.size();
+          }
           $module
             .css({
               left         : '',
