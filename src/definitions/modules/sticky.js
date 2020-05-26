@@ -65,6 +65,7 @@ $.fn.sticky = function(parameters) {
         element         = this,
 
         documentObserver,
+        contextObserver,
         observer,
         module
       ;
@@ -72,7 +73,6 @@ $.fn.sticky = function(parameters) {
       module      = {
 
         initialize: function() {
-
           module.determineContainer();
           module.determineContext();
           module.verbose('Initializing sticky', settings, $container);
@@ -101,6 +101,9 @@ $.fn.sticky = function(parameters) {
           if(documentObserver) {
             documentObserver.disconnect();
           }
+          if(contextObserver) {
+            contextObserver.disconnect();
+          }
           if(observer) {
             observer.disconnect();
           }
@@ -115,7 +118,17 @@ $.fn.sticky = function(parameters) {
         },
 
         observeChanges: function() {
-          if('MutationObserver' in window) {
+          if('ResizeObserver' in window) {
+
+            contextObserver = new ResizeObserver(module.event.contextResized);
+            contextObserver.observe($context[0]);
+
+            observer = new ResizeObserver(module.event.elementResized);
+            observer.observe(element);
+            console.log('observing', $context.get(0), element);
+            module.debug('Setting up mutation observer', observer);
+          }
+          else if('MutationObserver' in window) {
             documentObserver = new MutationObserver(module.event.documentChanged);
             observer         = new MutationObserver(module.event.changed);
             documentObserver.observe(document, {
@@ -183,12 +196,24 @@ $.fn.sticky = function(parameters) {
         },
 
         event: {
+          elementResized: function(resizes) {
+            var
+              resize = resizes[0]
+            ;
+            console.log('element', resize.contentRect.height, module.cache.positions.element.height);
+          },
+          contextResized: function(resizes) {
+            var
+              resize = resizes[0]
+            ;
+            console.log('context', resize, module.cache);
+          },
           changed: function(mutations) {
-            clearTimeout(module.timer);
-            module.timer = setTimeout(function() {
+            clearTimeout(module.changedTimer);
+            module.changedTimer = setTimeout(function() {
               module.verbose('DOM tree modified, updating sticky menu', mutations);
               module.refresh();
-            }, 100);
+            }, 200);
           },
           documentChanged: function(mutations) {
             [].forEach.call(mutations, function(mutation) {
@@ -223,7 +248,7 @@ $.fn.sticky = function(parameters) {
 
         refresh: function(hardRefresh) {
           module.reset();
-          if(!settings.context) {
+          if($context.length == 0) {
             module.determineContext();
           }
           if(hardRefresh) {
@@ -252,12 +277,9 @@ $.fn.sticky = function(parameters) {
           elementScroll: function(scroll) {
             module.elementScroll = scroll;
           },
-          positions: function() {
-            var
-              scrollContext = {
-                height : $scroll.height()
-              },
-              element = {
+          elementPositions: function(elementPositions) {
+            if(!elementPositions) {
+              elementPositions = {
                 margin: {
                   top    : parseInt($module.css('margin-top'), 10),
                   bottom : parseInt($module.css('margin-bottom'), 10),
@@ -265,21 +287,84 @@ $.fn.sticky = function(parameters) {
                 offset : $module.offset(),
                 width  : $module.outerWidth(),
                 height : $module.outerHeight()
-              },
-              context = {
+              };
+            }
+            module.debug('Element positions refreshed');
+            if(!module.cache) {
+              module.cache = {};
+            }
+            $.extend(true, module.cache, {
+              positions: {
+                element: elementPositions
+              }
+            });
+          },
+          scrollContextPositions: function(scrollContextPositions) {
+            if(!scrollContextPositions) {
+              scrollContextPositions = {
+                height : $scroll.height(),
+                top    : $scroll.scrollTop(),
+                left   : $scroll.scrollLeft(),
+              };
+            }
+            module.debug('Scroll context positions refreshed');
+            if(!module.cache) {
+              module.cache = {};
+            }
+            $.extend(true, module.cache, {
+              positions: {
+                scrollContext: scrollContextPositions
+              }
+            });
+          },
+          contextPositions: function(contextPositions) {
+            if(!contextPositions) {
+              contextPositions = {
                 offset : $context.offset(),
                 height : $context.outerHeight()
-              },
-              container = {
-                height: $container.outerHeight()
+              };
+            }
+            module.debug('Context positions refreshed');
+            if(!module.cache) {
+              module.cache = {};
+            }
+            $.extend(true, module.cache, {
+              positions: {
+                context: contextPositions
               }
+            });
+          },
+          containerPositions: function(containerPositions) {
+            if(!containerPositions) {
+              containerPositions = {
+                height: $container.outerHeight()
+              };
+            }
+            module.debug('Container positions refreshed');
+            if(!module.cache) {
+              module.cache = {};
+            }
+            $.extend(true, module.cache, {
+              positions: {
+                container: containerPositions
+              }
+            });
+          },
+          positions: function(cacheFilled) {
+            if(!cacheFilled) {
+              module.save.elementPositions();
+              module.save.scrollContextPositions();
+              module.save.contextPositions();
+              module.save.containerPositions();
+            }
+            var
+              scrollContext = module.cache.positions.scrollContext,
+              element       = module.cache.positions.element,
+              context       = module.cache.positions.context,
+              container     = module.cache.positions.container
             ;
             if( !module.is.standardScroll() ) {
               module.debug('Non-standard scroll. Removing scroll offset from element offset');
-
-              scrollContext.top  = $scroll.scrollTop();
-              scrollContext.left = $scroll.scrollLeft();
-
               element.offset.top  += scrollContext.top;
               context.offset.top  += scrollContext.top;
               element.offset.left += scrollContext.left;
@@ -438,7 +523,7 @@ $.fn.sticky = function(parameters) {
           },
           size: function() {
             if(module.cache.element.height !== 0 && module.cache.element.width !== 0) {
-              element.style.setProperty('width',  module.cache.element.width  + 'px', 'important');
+              element.style.setProperty('width', module.cache.element.width  + 'px', 'important');
               element.style.setProperty('height', module.cache.element.height + 'px', 'important');
             }
           }
