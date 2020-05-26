@@ -8,6 +8,7 @@
 - **Meteor** - Fix issue with misuse of `api.addAssets` #6790 **Thanks @gimco**
 
 **Examples**
+- **Modal** - Fixed mutation observer was not properly disconnected
 - **Sticky** - Adds new example for sticky to highlight behavior when sticky/context height varies
 
 **Bug Fixes**
