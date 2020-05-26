@@ -1,5 +1,14 @@
 ## RELEASE NOTES
 
+### Version 2.5.0 - Oct 21, 2018
+
+**Build**
+- **Gulp** - Updated all tasks to work with Gulp 4. This should fix SUI to install correctly on Node 12 or greater (see [Gulp3 Issue](https://github.com/gulpjs/gulp/issues/2324) for more details)
+
+**Bug Fixes**
+- **Dropdown** - Fix issue where dropdown menu could not open to right when in `right menu` inside a `ui menu` (See examples/sticky.html) for use-case
+- **Sticky** - Fix issue where element might be `bound bottom` (fixed to bottom of context) if the sticky element is larger than the context
+
 ### Version 2.4.2 - Oct 21, 2018
 
 **Build**
