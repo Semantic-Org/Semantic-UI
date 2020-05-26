@@ -20,7 +20,6 @@ var
   fs             = require('fs'),
   path           = require('path'),
   git            = require('gulp-git'),
-  githubAPI      = require('@octokit/rest'),
   requireDotFile = require('require-dot-file'),
 
   // admin files

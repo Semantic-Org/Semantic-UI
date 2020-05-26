@@ -85,9 +85,9 @@ serveDocs = function () {
       'src/**/*.*'
     ])
   ;
-  watchSRCCallback = function(file) {
+  watchSRCCallback = function(filePath) {
       console.clear();
-      return gulp.src(file.path, {
+      return gulp.src(filePath, {
           base: 'src/'
         })
         .pipe(gulp.dest(output.less))
@@ -109,9 +109,9 @@ serveDocs = function () {
     ])
   ;
 
-  watchExamplesCallback = function(file) {
+  watchExamplesCallback = function(filePath) {
     console.clear();
-    return gulp.src(file.path, {
+    return gulp.src(filePath, {
         base: 'examples/'
       })
       .pipe(gulp.dest(output.examples))
@@ -136,7 +136,7 @@ serveDocs = function () {
       source.themes        + '/**/*.{overrides,variables}'
     ])
   ;
-  watchCSSCallback = function(file) {
+  watchCSSCallback = function(filePath) {
     let
       lessPath,
 
@@ -151,7 +151,7 @@ serveDocs = function () {
     ;
 
     // log modified file
-    gulp.src(file.path)
+    gulp.src(filePath)
       .pipe(print(log.modified))
     ;
 
@@ -160,10 +160,10 @@ serveDocs = function () {
     ---------------*/
 
     // recompile on *.override , *.variable change
-    isConfig        = (file.path.indexOf('theme.config') !== -1 || file.path.indexOf('site.variables') !== -1);
-    isPackagedTheme = (file.path.indexOf(source.themes) !== -1);
-    isSiteTheme     = (file.path.indexOf(source.site) !== -1);
-    isDefinition    = (file.path.indexOf(source.definitions) !== -1);
+    isConfig        = (filePath.indexOf('theme.config') !== -1 || filePath.indexOf('site.variables') !== -1);
+    isPackagedTheme = (filePath.indexOf(source.themes) !== -1);
+    isSiteTheme     = (filePath.indexOf(source.site) !== -1);
+    isDefinition    = (filePath.indexOf(source.definitions) !== -1);
 
     if(isConfig) {
       // console.info('Rebuilding all files');
@@ -173,17 +173,17 @@ serveDocs = function () {
     }
     else if(isPackagedTheme) {
       console.log('Change detected in packaged theme');
-      lessPath = replaceExt(file.path, '.less');
+      lessPath = replaceExt(filePath, '.less');
       lessPath = lessPath.replace(tasks.regExp.theme, source.definitions);
     }
     else if(isSiteTheme) {
       console.log('Change detected in site theme');
-      lessPath = replaceExt(file.path, '.less');
+      lessPath = replaceExt(filePath, '.less');
       lessPath = lessPath.replace(source.site, source.definitions);
     }
     else {
       console.log('Change detected in definition');
-      lessPath = file.path;
+      lessPath = filePath;
     }
 
     /*--------------
@@ -249,23 +249,25 @@ serveDocs = function () {
   watchJS = gulp
     .watch([
       source.definitions   + '/**/*.js'
-    ], function(file) {
-      gulp.src(file.path)
-        .pipe(plumber())
-        .pipe(gulpif(config.hasPermission, chmod(config.permission)))
-        .pipe(gulp.dest(output.uncompressed))
-        .pipe(print(log.created))
-        .pipe(uglify(settings.uglify))
-        .pipe(rename(settings.rename.minJS))
-        .pipe(gulp.dest(output.compressed))
-        .pipe(print(log.created))
-        .on('end', function() {
-          gulp.start('package compressed docs js');
-          gulp.start('package uncompressed docs js');
-        })
-      ;
-    })
+    ])
   ;
+
+  watchJSCallback = function(filePath) {
+    gulp.src(filePath)
+      .pipe(plumber())
+      .pipe(gulpif(config.hasPermission, chmod(config.permission)))
+      .pipe(gulp.dest(output.uncompressed))
+      .pipe(print(log.created))
+      .pipe(uglify(settings.uglify))
+      .pipe(rename(settings.rename.minJS))
+      .pipe(gulp.dest(output.compressed))
+      .pipe(print(log.created))
+      .on('end', function() {
+        gulp.start('package compressed docs js');
+        gulp.start('package uncompressed docs js');
+      })
+    ;
+  };
 
   watchJS
     .on('add', watchJSCallback)
@@ -283,8 +285,8 @@ serveDocs = function () {
     ])
   ;
   // copy assets
-  watchAssetsCallback = function(file) {
-    gulp.src(file.path, { base: source.themes })
+  watchAssetsCallback = function(filePath) {
+    gulp.src(filePath, { base: source.themes })
       .pipe(gulpif(config.hasPermission, chmod(config.permission)))
       .pipe(gulp.dest(output.themes))
       .pipe(print(log.created))

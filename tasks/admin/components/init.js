@@ -21,7 +21,6 @@ var
   fs        = require('fs'),
   path      = require('path'),
   git       = require('gulp-git'),
-  githubAPI = require('@octokit/rest'),
   mkdirp    = require('mkdirp'),
 
   // admin files
@@ -149,7 +148,7 @@ module.exports = function(callback) {
       // avoid rate throttling
       global.clearTimeout(timer);
       timer = global.setTimeout(function() {
-        stepRepo()
+        stepRepo();
       }, 0);
     }
 
