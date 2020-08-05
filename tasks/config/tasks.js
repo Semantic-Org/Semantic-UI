@@ -100,11 +100,12 @@ module.exports = {
                 console.error('Missing theme.config value for ', element);
               }
               console.error('Most likely new UI was added in an update. You will need to add missing elements from theme.config.example');
-            }
-            if(error.line == 46) {
+            } else if(error.line == 46) {
               element = regExp.element.exec(error.message)[1];
               theme   = regExp.theme.exec(error.message)[1];
               console.error(theme + ' is not an available theme for ' + element);
+            } else {
+              console.log(error);
             }
           }
           else {
