@@ -80,7 +80,10 @@ module.exports = function(callback) {
   gulp.src(config.paths.template.eco + globs.eco)
     .pipe(map(metadata.parser))
     .on('end', function() {
-      fs.writeFile(output.metadata + '/metadata.json', JSON.stringify(metadata.result, null, 2));
+      fs.writeFile(output.metadata + '/metadata.json', JSON.stringify(metadata.result, null, 2),
+        error => {
+          console.log("metadata failed", error);
+        });
     })
   ;
 
