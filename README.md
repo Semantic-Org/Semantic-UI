@@ -68,7 +68,7 @@ Although some components will work in IE9, [grids](http://semantic-ui.com/collec
 ## Community
 
 #### Getting Help
-Please **do not post** usage questions to GitHub Issues. For these types of questions use our [Gitter chatroom] or [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui).
+Please **do not post** usage questions to GitHub Issues. For these types of questions use our [Gitter chatroom](https://gitter.im/Semantic-Org/Semantic-UI) or [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui).
 
 #### Submitting Bugs and Enhancements
 [GitHub Issues](https://github.com/Semantic-Org/Semantic-UI/issues) is for suggesting enhancements and reporting bugs. Before submiting a bug make sure you do the following:
