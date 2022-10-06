@@ -29,7 +29,7 @@ let
 
 /* Release All */
 release = series(
-  //build, // build Semantic
+  build, // build Semantic
   initDistributions, // sync with current github version
   createDistributions, // update each repo with changes from master repo
   initComponents, // sync with current github version

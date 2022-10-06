@@ -12,7 +12,7 @@
 
 */
 
-var
+let
   gulp           = require('gulp'),
 
   // node dependencies
@@ -39,7 +39,7 @@ var
 
 module.exports = function(callback) {
 
-  var
+  let
     index = -1,
     total = release.components.length,
     timer,
@@ -61,7 +61,7 @@ module.exports = function(callback) {
       return;
     }
 
-    var
+    let
       component            = release.components[index],
       outputDirectory      = path.resolve(path.join(release.outputRoot, component)),
       capitalizedComponent = component.charAt(0).toUpperCase() + component.slice(1),
@@ -151,13 +151,20 @@ module.exports = function(callback) {
     }
 
     // create release on GitHub.com
-    function createRelease(version) {
+    async function createRelease(version) {
       if(version) {
         releaseOptions.target_commitish = version;
       }
-      github.repos.createRelease(releaseOptions, function() {
-        nextRepo();
-      });
+      console.info('-----------------------------');
+      console.info(releaseOptions);
+      console.info('-----------------------------');
+      try {
+        await github.repos.createRelease(releaseOptions)
+      }
+      catch(e) {
+        console.error(`Release creation failed. Most likely already released "${releaseOptions.tag_name}"`);
+      };
+      nextRepo();
     }
 
     // Steps to next repository
