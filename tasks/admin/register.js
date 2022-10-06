@@ -52,7 +52,6 @@ module.exports = function(callback) {
     ;
 
     /* Register with NPM */
-    console.info(`NPM Token "${config.npmToken}"`);
     console.info(`NPM Publish "${repo}"`);
     console.info(outputDirectory);
     await npmPublish({
