@@ -5,6 +5,7 @@ src/**/site/
 theme.config
 semantic.json
 tasks/**/oauth.js
+package-lock.json
 
 # Numerous always-ignore extensions
 *.diff
