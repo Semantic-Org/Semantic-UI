@@ -267,7 +267,7 @@ $.fn.form = function(parameters) {
             if(!$field || $field.length === 0) {
               return true;
             }
-            else if($field.is('input[type="checkbox"]')) {
+            else if($field.is('input[type="checkbox"]') || $field.is('input[type="radio"]') ) {
               return !$field.is(':checked');
             }
             else {
