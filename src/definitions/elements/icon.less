@@ -73,16 +73,16 @@ i.icon.loading {
   line-height: 1;
 }
 
-i.icon.loading:before {
+i.icon.loading {
   animation: icon-loading @loadingDuration linear infinite;
 }
 
 @keyframes icon-loading {
   from {
-    transform: translateY(-50%) rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
-    transform: translateY(-50%) rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
