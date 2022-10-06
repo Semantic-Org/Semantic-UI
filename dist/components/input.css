@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.4.2 - Input
+ * # Semantic UI 2.5.0 - Input
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -22,17 +22,13 @@
   position: relative;
   font-weight: normal;
   font-style: normal;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   color: rgba(0, 0, 0, 0.87);
 }
 .ui.input > input {
   margin: 0em;
   max-width: 100%;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+  flex: 1 0 auto;
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   text-align: left;
@@ -43,12 +39,8 @@
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
-  -webkit-transition: border-color 0.1s ease, -webkit-box-shadow 0.1s ease;
-  transition: border-color 0.1s ease, -webkit-box-shadow 0.1s ease;
   transition: box-shadow 0.1s ease, border-color 0.1s ease;
-  transition: box-shadow 0.1s ease, border-color 0.1s ease, -webkit-box-shadow 0.1s ease;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 /*--------------------
@@ -95,8 +87,7 @@
   border-color: rgba(0, 0, 0, 0.3);
   background: #FAFAFA;
   color: rgba(0, 0, 0, 0.87);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 /*--------------------
@@ -130,8 +121,7 @@
   border-color: #767676 transparent transparent;
   border-style: solid;
   border-width: 0.2em;
-  -webkit-box-shadow: 0px 0px 0px 1px transparent;
-          box-shadow: 0px 0px 0px 1px transparent;
+  box-shadow: 0px 0px 0px 1px transparent;
 }
 
 /*--------------------
@@ -143,8 +133,7 @@
   border-color: #85B7D9;
   background: #FFFFFF;
   color: rgba(0, 0, 0, 0.8);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.input.focus > input::-webkit-input-placeholder,
 .ui.input > input:focus::-webkit-input-placeholder {
@@ -167,8 +156,7 @@
   background-color: #FFF6F6;
   border-color: #E0B4B4;
   color: #9F3A38;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 /* Error Placeholder */
@@ -207,8 +195,7 @@
   border-color: transparent !important;
   background-color: transparent !important;
   padding: 0em !important;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   border-radius: 0px !important;
 }
 
@@ -258,7 +245,6 @@
   width: 2.67142857em;
   opacity: 0.5;
   border-radius: 0em 0.28571429rem 0.28571429rem 0em;
-  -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
 }
 .ui.icon.input > i.icon:not(.link) {
@@ -311,9 +297,7 @@
 
 /* Adjacent Label */
 .ui.labeled.input > .label {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  flex: 0 0 auto;
   margin: 0;
   font-size: 1em;
 }
@@ -396,15 +380,9 @@
 
 .ui.action.input > .button,
 .ui.action.input > .buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  align-items: center;
+  flex: 0 0 auto;
 }
 .ui.action.input > .button,
 .ui.action.input > .buttons > .button {
@@ -472,8 +450,6 @@
 ---------------------*/
 
 .ui.fluid.input {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 .ui.fluid.input > input {

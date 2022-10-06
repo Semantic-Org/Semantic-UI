@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.4.2 - Modal
+ * # Semantic UI 2.5.0 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20,13 +20,9 @@
   text-align: left;
   background: #FFFFFF;
   border: none;
-  -webkit-box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(0, 0, 0, 0.2);
-  -webkit-transform-origin: 50% 25%;
-          transform-origin: 50% 25%;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.2), 1px 3px 15px 2px rgba(0, 0, 0, 0.2);
+  transform-origin: 50% 25%;
+  flex: 0 0 auto;
   border-radius: 0.28571429rem;
   -webkit-user-select: text;
      -moz-user-select: text;
@@ -81,8 +77,7 @@
   background: #FFFFFF;
   margin: 0em;
   padding: 1.25rem 1.5rem;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   color: rgba(0, 0, 0, 0.85);
   border-bottom: 1px solid rgba(34, 36, 38, 0.15);
 }
@@ -105,53 +100,37 @@
   background: #FFFFFF;
 }
 .ui.modal > .image.content {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 /* Image */
 .ui.modal > .content > .image {
   display: block;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 auto;
-          flex: 0 1 auto;
+  flex: 0 1 auto;
   width: '';
-  -ms-flex-item-align: top;
-      align-self: top;
+  align-self: top;
 }
 .ui.modal > [class*="top aligned"] {
-  -ms-flex-item-align: top;
-      align-self: top;
+  align-self: top;
 }
 .ui.modal > [class*="middle aligned"] {
-  -ms-flex-item-align: middle;
-      align-self: middle;
+  align-self: middle;
 }
 .ui.modal > [class*="stretched"] {
-  -ms-flex-item-align: stretch;
-      align-self: stretch;
+  align-self: stretch;
 }
 
 /* Description */
 .ui.modal > .content > .description {
   display: block;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+  flex: 1 0 auto;
   min-width: 0px;
-  -ms-flex-item-align: top;
-      align-self: top;
+  align-self: top;
 }
 .ui.modal > .content > .icon + .description,
 .ui.modal > .content > .image + .description {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 1 auto;
-          flex: 0 1 auto;
+  flex: 0 1 auto;
   min-width: '';
   width: auto;
   padding-left: 2em;
@@ -244,10 +223,7 @@
   }
   /*rtl:ignore*/
   .ui.modal .image.content {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
   .ui.modal .content > .image {
     display: block;
@@ -266,8 +242,7 @@
     width: 100% !important;
     margin: 0em !important;
     padding: 1rem 0rem !important;
-    -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }
   
 /* Let Buttons Stack */
@@ -285,8 +260,7 @@
 ---------------*/
 
 .ui.inverted.dimmer > .ui.modal {
-  -webkit-box-shadow: 1px 3px 10px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 1px 3px 10px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 3px 10px 2px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -298,8 +272,7 @@
   background-color: transparent;
   border: none;
   border-radius: 0em;
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   color: #FFFFFF;
 }
 .ui.basic.modal > .header,
@@ -396,9 +369,7 @@
   overflow: hidden;
 }
 .scrolling.dimmable > .dimmer {
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  justify-content: flex-start;
 }
 .scrolling.dimmable.dimmed > .dimmer {
   overflow: auto;

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.4.2 - Loader
+ * # Semantic UI 2.5.0 - Loader
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -23,8 +23,7 @@
   margin: 0px;
   text-align: center;
   z-index: 1000;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
 }
 
 /* Static Shape */
@@ -55,29 +54,24 @@
   border-color: #767676 transparent transparent;
   border-style: solid;
   border-width: 0.2em;
-  -webkit-box-shadow: 0px 0px 0px 1px transparent;
-          box-shadow: 0px 0px 0px 1px transparent;
+  box-shadow: 0px 0px 0px 1px transparent;
 }
 
 /* Active Animation */
 @-webkit-keyframes loader {
   from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 @keyframes loader {
   from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -318,8 +312,7 @@
   margin: 0em;
   left: 0em;
   top: 0em;
-  -webkit-transform: none;
-          transform: none;
+  transform: none;
 }
 .ui.inline.loader.active,
 .ui.inline.loader.visible {

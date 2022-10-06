@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.4.2 - Feed
+ * # Semantic UI 2.5.0 - Feed
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -31,13 +31,8 @@
 
 /* Event */
 .ui.feed > .event {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   width: 100%;
   padding: 0.21428571rem 0em;
   margin: 0em;
@@ -55,13 +50,10 @@
 /* Event Label */
 .ui.feed > .event > .label {
   display: block;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  flex: 0 0 auto;
   width: 2.5em;
   height: auto;
-  -ms-flex-item-align: stretch;
-      align-self: stretch;
+  align-self: stretch;
   text-align: left;
 }
 .ui.feed > .event > .label .icon {
@@ -91,11 +83,8 @@
 /* Content */
 .ui.feed > .event > .content {
   display: block;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
-  -ms-flex-item-align: stretch;
-      align-self: stretch;
+  flex: 1 1 auto;
+  align-self: stretch;
   text-align: left;
   word-wrap: break-word;
 }
@@ -214,8 +203,7 @@
   background: none;
   border: none;
   border-radius: 0;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   padding: 0em;
   color: rgba(0, 0, 0, 0.6);
 }
@@ -234,7 +222,6 @@
 }
 .ui.feed > .event > .content .meta .like {
   color: '';
-  -webkit-transition: 0.2s color ease;
   transition: 0.2s color ease;
 }
 .ui.feed > .event > .content .meta .like:hover .icon {
@@ -258,7 +245,6 @@
   cursor: pointer;
   opacity: 1;
   color: rgba(0, 0, 0, 0.5);
-  -webkit-transition: color 0.1s ease;
   transition: color 0.1s ease;
 }
 .ui.feed > .event > .content .meta a:hover,

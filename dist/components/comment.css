@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.4.2 - Comment
+ * # Semantic UI 2.5.0 - Comment
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -206,8 +206,7 @@
 .ui.threaded.comments .comment .comments {
   margin: -1.5em 0 -1em 1.25em;
   padding: 3em 0em 2em 2.25em;
-  -webkit-box-shadow: -1px 0px 0px rgba(34, 36, 38, 0.15);
-          box-shadow: -1px 0px 0px rgba(34, 36, 38, 0.15);
+  box-shadow: -1px 0px 0px rgba(34, 36, 38, 0.15);
 }
 
 /*--------------------
@@ -220,10 +219,8 @@
   top: 0px;
   right: 0px;
   left: auto;
-  -webkit-transition: opacity 0.2s ease;
   transition: opacity 0.2s ease;
-  -webkit-transition-delay: 0.1s;
-          transition-delay: 0.1s;
+  transition-delay: 0.1s;
 }
 .ui.minimal.comments .comment > .content:hover > .actions {
   opacity: 1;
