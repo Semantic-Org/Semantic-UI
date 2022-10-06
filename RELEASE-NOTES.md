@@ -2,6 +2,9 @@
 
 ### Version 2.5.0 - Oct 21, 2018
 
+**Note**
+> Special Note: If you run into any breaking changes with Gulp 4. Please reach out to me at jack@semantic-ui.com with bug reports
+
 **Critical Fix**
 - **CSS** - Fix extra semicolon causing CSS build of Semantic UI to fail compilation with various systems
 
