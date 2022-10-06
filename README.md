@@ -109,6 +109,4 @@ Guides & Tutorials | Help write guides and tutorials | [Join the discussion](htt
 
 If you'd like to start a conversation about Semantic feel free to e-mail me at [jack@semantic-ui.com](mailto:jack@semantic-ui.com)
 
-[![Flattr This](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=jlukic&url=https%3A%2F%2Fgithub.com%2Fjlukic%2FSemantic-UI)
-
 <a href="http://packagequality.com/#?package=semantic-ui"><img src="http://npm.packagequality.com/badge/semantic-ui.png"/></a>
