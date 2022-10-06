@@ -11,11 +11,16 @@
 let
   // node dependencies
   process = require('child_process'),
+  fs      = require('fs'),
 
   npmPublish = require('@jsdevtools/npm-publish'),
 
   // config
   release = require('../config/admin/release'),
+
+  config = fs.existsSync(__dirname + '/../config/admin/oauth.js')
+    ? require('../config/admin/oauth')
+    : false,
 
   // register components and distributions
   repos   = release.distributions.concat(release.components),
@@ -26,9 +31,17 @@ let
   stepRepo
 ;
 
-module.exports = function(callback) {
+module.exports = async function(callback) {
 
-  console.log('Registering repos with package managers');
+  console.log('Publishing main repo');
+  await npmPublish({
+    package: `./package.json`,
+    token: config.npmToken,
+    greaterVersionOnly: true,
+    debug: function(log) {
+      console.log(log);
+    }
+  });
 
   // Do Git commands synchronously per component, to avoid issues
   stepRepo = async function() {
@@ -40,10 +53,6 @@ module.exports = function(callback) {
     }
 
     let
-      fs     = require('fs'),
-      config = fs.existsSync(__dirname + '/../config/admin/oauth.js')
-        ? require('../config/admin/oauth')
-        : false,
       repo            = repos[index].toLowerCase(),
       outputDirectory = `${release.outputRoot}${repo}/`,
       exec            = process.exec,
