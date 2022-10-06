@@ -6,7 +6,7 @@
 > Special Note: If you run into any breaking changes with Gulp 4. Please reach out to me at jack@semantic-ui.com with bug reports
 
 **Critical Fix**
-- **CSS** - Fix extra semicolon causing CSS build of Semantic UI to fail compilation with various systems
+- **CSS** - Fix extra semicolon causing CSS build of Semantic UI to fail compilation with various systems #7065 [React Issue](https://github.com/Semantic-Org/Semantic-UI-React/issues/4287) [CSS Repo Issue #81](https://github.com/Semantic-Org/Semantic-UI-CSS/issues/81) [CSS Issue #75](https://github.com/Semantic-Org/Semantic-UI-CSS/issues/75)
 
 **Breaking Changes**
 - **Gulp** - Updated all tasks to work with Gulp 4. This should fix SUI to install correctly on Node 12 or greater (see [Gulp3 Issue](https://github.com/gulpjs/gulp/issues/2324) for more details)
