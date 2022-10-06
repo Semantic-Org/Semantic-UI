@@ -879,6 +879,23 @@
   transform: translateY(-50%);
 }
 
+/* Loading */
+.ui.labeled.icon.button > .icon.loading {
+  animation: none;
+}
+.ui.labeled.icon.button > .icon.loading:before {
+  animation: labeled-button-icon-loading @loadingIconDuration linear infinite;
+}
+
+@keyframes labeled-button-icon-loading {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
 .ui.labeled.icon.buttons .button > .icon {
   border-radius: 0em;
 }

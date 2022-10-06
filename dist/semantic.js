@@ -1,15 +1,15 @@
  /*
- * # Semantic UI - 2.4.2
+ * # Semantic UI - 2.5.0
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
- * Copyright 2014 Contributors
+ * Copyright 2022 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 /*!
- * # Semantic UI 2.4.2 - Site
+ * # Semantic UI 2.5.0 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -497,7 +497,7 @@ $.extend($.expr[ ":" ], {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.4.2 - Form Validation
+ * # Semantic UI 2.5.0 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2204,7 +2204,7 @@ $.fn.form.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.4.2 - Accordion
+ * # Semantic UI 2.5.0 - Accordion
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2818,7 +2818,7 @@ $.extend( $.easing, {
 
 
 /*!
- * # Semantic UI 2.4.2 - Checkbox
+ * # Semantic UI 2.5.0 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -3650,7 +3650,7 @@ $.fn.checkbox.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.4.2 - Dimmer
+ * # Semantic UI 2.5.0 - Dimmer
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -4384,7 +4384,7 @@ $.fn.dimmer.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.4.2 - Dropdown
+ * # Semantic UI 2.5.0 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -8340,7 +8340,7 @@ $.fn.dropdown.settings.templates = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.4.2 - Embed
+ * # Semantic UI 2.5.0 - Embed
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9047,7 +9047,7 @@ $.fn.embed.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.4.2 - Modal
+ * # Semantic UI 2.5.0 - Modal
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -9186,6 +9186,9 @@ $.fn.modal = function(parameters) {
         },
 
         destroy: function() {
+          if (observer) {
+            observer.disconnect();
+          }
           module.verbose('Destroying previous modal');
           $module
             .removeData(moduleNamespace)
@@ -10082,7 +10085,7 @@ $.fn.modal.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.4.2 - Nag
+ * # Semantic UI 2.5.0 - Nag
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -10590,7 +10593,7 @@ $.extend( $.easing, {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.4.2 - Popup
+ * # Semantic UI 2.5.0 - Popup
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -12123,7 +12126,7 @@ $.fn.popup.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.4.2 - Progress
+ * # Semantic UI 2.5.0 - Progress
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13055,7 +13058,7 @@ $.fn.progress.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.4.2 - Rating
+ * # Semantic UI 2.5.0 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -13564,7 +13567,7 @@ $.fn.rating.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.4.2 - Search
+ * # Semantic UI 2.5.0 - Search
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15070,7 +15073,7 @@ $.fn.search.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.4.2 - Shape
+ * # Semantic UI 2.5.0 - Shape
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -15992,7 +15995,7 @@ $.fn.shape.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.4.2 - Sidebar
+ * # Semantic UI 2.5.0 - Sidebar
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17026,7 +17029,7 @@ $.fn.sidebar.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.4.2 - Sticky
+ * # Semantic UI 2.5.0 - Sticky
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -17429,6 +17432,18 @@ $.fn.sticky = function(parameters) {
               module.determineContainer();
             }
             else {
+              var tallestHeight = Math.max(module.cache.context.height, module.cache.element.height);
+              if(tallestHeight - $container.outerHeight() > settings.jitter) {
+                module.debug('Context is taller than container. Specifying exact height for container', module.cache.context.height);
+                $container.css({
+                  height: tallestHeight,
+                });
+              }
+              else {
+                $container.css({
+                  height: '',
+                });
+              }
               if( Math.abs($container.outerHeight() - module.cache.context.height) > settings.jitter) {
                 module.debug('Context has padding, specifying exact height for container', module.cache.context.height);
                 $container.css({
@@ -17465,7 +17480,7 @@ $.fn.sticky = function(parameters) {
           },
           size: function() {
             if(module.cache.element.height !== 0 && module.cache.element.width !== 0) {
-              element.style.setProperty('width',  module.cache.element.width  + 'px', 'important');
+              element.style.setProperty('width', module.cache.element.width  + 'px', 'important');
               element.style.setProperty('height', module.cache.element.height + 'px', 'important');
             }
           }
@@ -17528,7 +17543,7 @@ $.fn.sticky = function(parameters) {
                 module.bindBottom();
               }
               else if(scroll.top > element.top) {
-                if( (element.height + scroll.top - elementScroll) >= context.bottom ) {
+                if((element.height + scroll.top - elementScroll) >= context.bottom  && element.height < context.height) {
                   module.debug('Initial element position is bottom of container');
                   module.bindBottom();
                 }
@@ -17607,6 +17622,9 @@ $.fn.sticky = function(parameters) {
         bindTop: function() {
           module.debug('Binding element to top of parent container');
           module.remove.offset();
+          if(settings.setSize) {
+            module.set.size();
+          }
           $module
             .css({
               left         : '',
@@ -17624,6 +17642,9 @@ $.fn.sticky = function(parameters) {
         bindBottom: function() {
           module.debug('Binding element to bottom of parent container');
           module.remove.offset();
+          if(settings.setSize) {
+            module.set.size();
+          }
           $module
             .css({
               left         : '',
@@ -17986,7 +18007,7 @@ $.fn.sticky.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.4.2 - Tab
+ * # Semantic UI 2.5.0 - Tab
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -18939,7 +18960,7 @@ $.fn.tab.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.4.2 - Transition
+ * # Semantic UI 2.5.0 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -20035,7 +20056,7 @@ $.fn.transition.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.4.2 - API
+ * # Semantic UI 2.5.0 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -21203,7 +21224,7 @@ $.api.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.4.2 - Visibility
+ * # Semantic UI 2.5.0 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *

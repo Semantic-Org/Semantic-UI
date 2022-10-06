@@ -71,15 +71,19 @@ i.icon:before {
 i.icon.loading {
   height: 1em;
   line-height: 1;
+}
+
+i.icon.loading {
   animation: icon-loading @loadingDuration linear infinite;
 }
+
 @keyframes icon-loading {
- from {
+  from {
     transform: rotate(0deg);
- }
- to {
+  }
+  to {
     transform: rotate(360deg);
- }
+  }
 }
 
 /*******************************

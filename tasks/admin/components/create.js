@@ -22,7 +22,6 @@ var
   del             = require('del'),
   fs              = require('fs'),
   path            = require('path'),
-  runSequence     = require('run-sequence'),
 
   // admin dependencies
   concatFileNames = require('gulp-concat-filenames'),
@@ -310,7 +309,7 @@ module.exports = function(callback) {
 
       // synchronous tasks in orchestrator? I think not
       gulp.task(task.all, false, function(callback) {
-        runSequence([
+        gulp.series([
           task.repo,
           task.npm,
           task.bower,
@@ -327,5 +326,5 @@ module.exports = function(callback) {
     })(component);
   }
 
-  runSequence(tasks, callback);
+  gulp.series(tasks, callback);
 };

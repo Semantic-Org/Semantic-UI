@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.4.2 - Rating
+ * # Semantic UI 2.5.0 - Rating
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -14,8 +14,6 @@
 *******************************/
 
 .ui.rating {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   white-space: nowrap;
   vertical-align: baseline;
@@ -31,13 +29,10 @@
   text-align: center;
   font-weight: normal;
   font-style: normal;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+  flex: 1 0 auto;
   cursor: pointer;
   width: 1.25em;
   height: auto;
-  -webkit-transition: opacity 0.1s ease, background 0.1s ease, text-shadow 0.1s ease, color 0.1s ease;
   transition: opacity 0.1s ease, background 0.1s ease, text-shadow 0.1s ease, color 0.1s ease;
 }
 

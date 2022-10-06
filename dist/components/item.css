@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.4.2 - Item
+ * # Semantic UI 2.5.0 - Item
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -19,8 +19,6 @@
 ---------------*/
 
 .ui.items > .item {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin: 1em 0em;
   width: 100%;
@@ -29,12 +27,8 @@
   padding: 0em;
   border: none;
   border-radius: 0rem;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  -webkit-transition: -webkit-box-shadow 0.1s ease;
-  transition: -webkit-box-shadow 0.1s ease;
+  box-shadow: none;
   transition: box-shadow 0.1s ease;
-  transition: box-shadow 0.1s ease, -webkit-box-shadow 0.1s ease;
   z-index: '';
 }
 .ui.items > .item a {
@@ -80,16 +74,13 @@
 
 .ui.items > .item > .image {
   position: relative;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  flex: 0 0 auto;
   display: block;
   float: none;
   margin: 0em;
   padding: 0em;
   max-height: '';
-  -ms-flex-item-align: top;
-      align-self: top;
+  align-self: top;
 }
 .ui.items > .item > .image > img {
   display: block;
@@ -108,14 +99,11 @@
 
 .ui.items > .item > .content {
   display: block;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+  flex: 1 1 auto;
   background: none;
   margin: 0em;
   padding: 0em;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   font-size: 1em;
   border: none;
   border-radius: 0em;
@@ -133,8 +121,7 @@
   width: auto;
   display: block;
   margin-left: 0em;
-  -ms-flex-item-align: top;
-      align-self: top;
+  align-self: top;
   padding-left: 1.5em;
 }
 .ui.items > .item > .content > .header {
@@ -166,8 +153,7 @@
 ---------------*/
 
 .ui.items > .item .content img {
-  -ms-flex-item-align: middle;
-      align-self: middle;
+  align-self: middle;
   width: '';
 }
 .ui.items > .item img.avatar,
@@ -229,7 +215,6 @@
 /* Generic */
 .ui.items > .item > .content a:not(.ui) {
   color: '';
-  -webkit-transition: color 0.1s ease;
   transition: color 0.1s ease;
 }
 .ui.items > .item > .content a:not(.ui):hover {
@@ -264,7 +249,6 @@
 .ui.items > .item > .content .favorite.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.1s ease;
   transition: color 0.1s ease;
 }
 .ui.items > .item > .content .favorite.icon:hover {
@@ -282,7 +266,6 @@
 .ui.items > .item > .content .like.icon {
   cursor: pointer;
   opacity: 0.75;
-  -webkit-transition: color 0.1s ease;
   transition: color 0.1s ease;
 }
 .ui.items > .item > .content .like.icon:hover {
@@ -307,9 +290,7 @@
   top: 0em;
   left: 0em;
   color: rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  -webkit-transition: color 0.1s ease;
+  box-shadow: none;
   transition: color 0.1s ease;
   border-top: none;
 }
@@ -356,10 +337,7 @@
 /* Mobile Only */
 @media only screen and (max-width: 767px) {
   .ui.items:not(.unstackable) > .item {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
     margin: 2em 0em;
   }
   .ui.items:not(.unstackable) > .item > .image {
@@ -390,16 +368,13 @@
 --------------------*/
 
 .ui.items > .item > .image + [class*="top aligned"].content {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
 }
 .ui.items > .item > .image + [class*="middle aligned"].content {
-  -ms-flex-item-align: center;
-      align-self: center;
+  align-self: center;
 }
 .ui.items > .item > .image + [class*="bottom aligned"].content {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
 
 /*--------------

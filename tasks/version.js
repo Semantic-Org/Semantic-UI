@@ -2,10 +2,19 @@
           Version Task
 *******************************/
 
-var
-  release = require('./config/project/release')
+let
+  gulp    = require('gulp'),
+  release = require('./config/project/release'),
+
+  {series, parallel} = gulp,
+  version
 ;
 
-module.exports = function(callback) {
+version = function(callback) {
   console.log(release.title + ' ' + release.version);
 };
+
+/* Export with Metadata */
+version.displayName = 'version';
+version.description = 'Displays current version of Semantic';
+module.exports = series(version);

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.4.2 - Site
+ * # Semantic UI 2.5.0 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -144,6 +144,10 @@ input::-webkit-selection {
 }
 textarea::-moz-selection,
 input::-moz-selection {
+  background-color: rgba(100, 100, 100, 0.4);
+  color: rgba(0, 0, 0, 0.87);
+}
+textarea::-moz-selection, input::-moz-selection {
   background-color: rgba(100, 100, 100, 0.4);
   color: rgba(0, 0, 0, 0.87);
 }

@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.4.2 - Label
+ * # Semantic UI 2.5.0 - Label
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -26,7 +26,6 @@
   font-weight: bold;
   border: 0px solid transparent;
   border-radius: 0.28571429rem;
-  -webkit-transition: background 0.1s ease;
   transition: background 0.1s ease;
 }
 .ui.label:first-child {
@@ -46,7 +45,6 @@ a.ui.label {
   cursor: pointer;
   color: inherit;
   opacity: 0.5;
-  -webkit-transition: 0.1s opacity ease;
   transition: 0.1s opacity ease;
 }
 .ui.label > a:hover {
@@ -86,7 +84,6 @@ a.ui.label {
   margin-left: 0.5em;
   font-size: 0.92857143em;
   opacity: 0.5;
-  -webkit-transition: background 0.1s ease;
   transition: background 0.1s ease;
 }
 .ui.label > .delete.icon:hover {
@@ -150,8 +147,7 @@ a.ui.label {
   background: #E8E8E8;
   padding: 0.5833em 0.833em 0.5833em 0.5em;
   border-radius: 0.28571429rem;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .ui.image.label img {
   display: inline-block;
@@ -178,14 +174,12 @@ a.ui.label {
   padding-left: 1.5em;
   padding-right: 1.5em;
   border-radius: 0em 0.28571429rem 0.28571429rem 0em;
-  -webkit-transition: none;
   transition: none;
 }
 .ui.tag.labels .label:before,
 .ui.tag.label:before {
   position: absolute;
-  -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
-          transform: translateY(-50%) translateX(50%) rotate(-45deg);
+  transform: translateY(-50%) translateX(50%) rotate(-45deg);
   top: 50%;
   right: 100%;
   content: '';
@@ -193,7 +187,6 @@ a.ui.label {
   background-image: none;
   width: 1.56em;
   height: 1.56em;
-  -webkit-transition: none;
   transition: none;
 }
 .ui.tag.labels .label:after,
@@ -206,8 +199,7 @@ a.ui.label {
   background-color: #FFFFFF !important;
   width: 0.5em;
   height: 0.5em;
-  -webkit-box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
-          box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.3);
   border-radius: 500rem;
 }
 
@@ -226,7 +218,6 @@ a.ui.label {
   width: 4em;
   height: 4em;
   z-index: 1;
-  -webkit-transition: border-color 0.1s ease;
   transition: border-color 0.1s ease;
 }
 
@@ -248,7 +239,6 @@ a.ui.label {
   border-bottom: 4em solid transparent;
   border-left: 0em solid transparent;
   border-right-color: inherit;
-  -webkit-transition: border-color 0.1s ease;
   transition: border-color 0.1s ease;
 }
 .ui.corner.label .icon {
@@ -330,8 +320,7 @@ a.ui.label {
 /* Right Ribbon */
 .ui[class*="right ribbon"].label {
   text-align: left;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
+  transform: translateX(-100%);
   border-radius: 0.28571429rem 0em 0em 0.28571429rem;
 }
 .ui[class*="right ribbon"].label:after {
@@ -1047,8 +1036,7 @@ a.ui.basic.black.label:hover {
   background: none #FFFFFF;
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 /* Link */
@@ -1056,10 +1044,8 @@ a.ui.basic.label:hover {
   text-decoration: none;
   background: none #FFFFFF;
   color: #1e70bf;
-  -webkit-box-shadow: 1px solid rgba(34, 36, 38, 0.15);
-          box-shadow: 1px solid rgba(34, 36, 38, 0.15);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: 1px solid rgba(34, 36, 38, 0.15);
+  box-shadow: none;
 }
 
 /* Pointing */
@@ -1074,8 +1060,7 @@ a.ui.basic.label:hover {
 .ui.label.fluid,
 .ui.fluid.labels > .label {
   width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /*-------------------
@@ -1144,13 +1129,11 @@ a.ui.basic.label:hover {
 .ui.pointing.label:before {
   position: absolute;
   content: '';
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   background-image: none;
   z-index: 2;
   width: 0.6666em;
   height: 0.6666em;
-  -webkit-transition: background 0.1s ease;
   transition: background 0.1s ease;
 }
 
@@ -1163,8 +1146,7 @@ a.ui.basic.label:hover {
 .ui.pointing.label:before,
 .ui[class*="pointing above"].label:before {
   border-width: 1px 0px 0px 1px;
-  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
-          transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
   top: 0%;
   left: 50%;
 }
@@ -1181,8 +1163,7 @@ a.ui.basic.label:hover {
   border-width: 0px 1px 1px 0px;
   top: auto;
   right: auto;
-  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
-          transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
   top: 100%;
   left: 50%;
 }
@@ -1195,8 +1176,7 @@ a.ui.basic.label:hover {
 }
 .ui[class*="left pointing"].label:before {
   border-width: 0px 0px 1px 1px;
-  -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
-          transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
   bottom: auto;
   right: auto;
   top: 50%;
@@ -1211,8 +1191,7 @@ a.ui.basic.label:hover {
 }
 .ui[class*="right pointing"].label:before {
   border-width: 1px 1px 0px 0px;
-  -webkit-transform: translateX(50%) translateY(-50%) rotate(45deg);
-          transform: translateX(50%) translateY(-50%) rotate(45deg);
+  transform: translateX(50%) translateY(-50%) rotate(45deg);
   top: 50%;
   right: 0%;
   bottom: auto;

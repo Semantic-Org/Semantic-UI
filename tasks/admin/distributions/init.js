@@ -12,7 +12,7 @@
 
 */
 
-var
+let
   gulp      = require('gulp'),
 
   // node dependencies
@@ -21,7 +21,6 @@ var
   fs        = require('fs'),
   path      = require('path'),
   git       = require('gulp-git'),
-  githubAPI = require('github'),
   mkdirp    = require('mkdirp'),
 
   // admin files
@@ -64,7 +63,7 @@ module.exports = function(callback) {
       return;
     }
 
-    var
+    let
       component          = release.distributions[index],
       lowerCaseComponent = component.toLowerCase(),
       outputDirectory    = path.resolve(release.outputRoot + lowerCaseComponent),
@@ -148,7 +147,7 @@ module.exports = function(callback) {
       // avoid rate throttling
       global.clearTimeout(timer);
       timer = global.setTimeout(function() {
-        stepRepo()
+        stepRepo();
       }, 0);
     }
 
