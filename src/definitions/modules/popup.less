@@ -107,7 +107,7 @@
   position: absolute;
   text-transform: none;
   text-align: left;
-  white-space: nowrap;
+  white-space: normal;
 
   font-size: @tooltipFontSize;
 
@@ -124,6 +124,10 @@
   border-radius: @tooltipBorderRadius;
   box-shadow: @tooltipBoxShadow;
   z-index: @tooltipZIndex;
+}
+
+[data-tooltip][data-single-line]:after {
+  white-space: nowrap !important;
 }
 
 /* Default Position (Top Center) */
