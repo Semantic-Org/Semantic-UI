@@ -1,6 +1,6 @@
 ## RELEASE NOTES
 
-### Version 2.5.0 - Oct 21, 2018
+### Version 2.5.0 - Oct 6, 2022
 
 **Note**
 > Special Note: If you run into any breaking changes with Gulp 4. Please reach out to me at jack@semantic-ui.com with bug reports
