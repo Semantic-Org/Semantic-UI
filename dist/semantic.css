@@ -1719,6 +1719,38 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
   transform: translateY(-50%);
 }
 
+/* Loading */
+
+.ui.labeled.icon.button > .icon.loading {
+  -webkit-animation: none;
+  animation: none;
+}
+
+.ui.labeled.icon.button > .icon.loading:before {
+  -webkit-animation: labeled-button-icon-loading 2s linear infinite;
+  animation: labeled-button-icon-loading 2s linear infinite;
+}
+
+@-webkit-keyframes labeled-button-icon-loading {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+@keyframes labeled-button-icon-loading {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
 .ui.labeled.icon.buttons .button > .icon {
   border-radius: 0em;
 }
@@ -7399,6 +7431,9 @@ i.icon:before {
 i.icon.loading {
   height: 1em;
   line-height: 1;
+}
+
+i.icon.loading {
   -webkit-animation: icon-loading 2s linear infinite;
   animation: icon-loading 2s linear infinite;
 }
