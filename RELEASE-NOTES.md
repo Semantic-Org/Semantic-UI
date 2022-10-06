@@ -1,5 +1,32 @@
 ## RELEASE NOTES
 
+### Version 2.5.0 - Oct 21, 2018
+
+**Note**
+> Special Note: If you run into any breaking changes with Gulp 4. Please reach out to me at jack@semantic-ui.com with bug reports
+
+**Critical Fix**
+- **CSS** - Fix extra semicolon causing CSS build of Semantic UI to fail compilation with various systems
+
+**Breaking Changes**
+- **Gulp** - Updated all tasks to work with Gulp 4. This should fix SUI to install correctly on Node 12 or greater (see [Gulp3 Issue](https://github.com/gulpjs/gulp/issues/2324) for more details)
+- **Node** - Updated scripts to build in Node 18 via vanilla install.
+
+**Build**
+- **Theme** - Allow site's global site theme to be missing #6876 **Thanks @cruzdanillo**
+- **Meteor** - Fix issue with misuse of `api.addAssets` #6790 **Thanks @gimco**
+- **Gulp** - Report errors in build #7005 **Thanks @bundyo**
+
+**Examples**
+- **Modal** - Fixed mutation observer was not properly disconnected
+- **Sticky** - Adds new example for sticky to highlight behavior when sticky/context height varies
+
+**Bug Fixes**
+- **Dropdown** - Fix issue where dropdown menu could not open to right when in `right menu` inside a `ui menu` (See examples/sticky.html) for use-case
+- **Sticky** - Fix issue where element might be `bound bottom` (fixed to bottom of context) if the sticky element is larger than the context
+- **Sticky** - Fix issue when sticky size is larger than context size caused context `min-height` not to be set correctly.
+- **Button** - Fix usage of loading on in labeled button #7023 thanks @flppv
+
 ### Version 2.4.2 - Oct 21, 2018
 
 **Build**
