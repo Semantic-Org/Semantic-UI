@@ -9,10 +9,10 @@
 - **CSS** - Fix extra semicolon causing CSS build of Semantic UI to fail compilation with various systems #7065 [React Issue](https://github.com/Semantic-Org/Semantic-UI-React/issues/4287) [CSS Repo Issue #81](https://github.com/Semantic-Org/Semantic-UI-CSS/issues/81) [CSS Issue #75](https://github.com/Semantic-Org/Semantic-UI-CSS/issues/75)
 
 **Breaking Changes**
-- **Gulp** - Updated all tasks to work with Gulp 4. This should fix SUI to install correctly on Node 12 or greater (see [Gulp3 Issue](https://github.com/gulpjs/gulp/issues/2324) for more details)
-- **Node** - Updated scripts to build in Node 18 via vanilla install.
+- **Gulp 4** -All tasks have been rewritten to work with Gulp 4. This should fix SUI to install correctly on Node 12 or greater (see [Gulp3 Issue](https://github.com/gulpjs/gulp/issues/2324) for more details)
 
 **Build**
+- **Node** - Updated scripts to build in Node 18 via vanilla install.
 - **Theme** - Allow site's global site theme to be missing #6876 **Thanks @cruzdanillo**
 - **Meteor** - Fix issue with misuse of `api.addAssets` #6790 **Thanks @gimco**
 - **Gulp** - Report errors in build #7005 **Thanks @bundyo**
