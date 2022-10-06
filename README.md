@@ -68,7 +68,7 @@ Although some components will work in IE9, [grids](http://semantic-ui.com/collec
 ## Community
 
 #### Getting Help
-Please **do not post** usage questions to GitHub Issues. For these types of questions use our [Gitter chatroom] or [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui).
+Please **do not post** usage questions to GitHub Issues. For these types of questions use our [Gitter chatroom][Gitter.im Room] or [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui).
 
 #### Submitting Bugs and Enhancements
 [GitHub Issues](https://github.com/Semantic-Org/Semantic-UI/issues) is for suggesting enhancements and reporting bugs. Before submiting a bug make sure you do the following:
@@ -92,7 +92,7 @@ When adding pull requests, be sure to merge into the [next](https://github.com/S
 Resource | Description
 --- | --- |
 Bugs & Feature Requests |  All bug submission **require** a link to a test case, and a set of steps to reproduce the issue. You can make a test case by forking this [JSFiddle](https://jsfiddle.net/ca0rovs3/), then submit your [bug report on GitHub Issues](https://github.com/Semantic-Org/Semantic-UI/issues)
-Live Chat | Join our [Gitter.im Room](https://gitter.im/Semantic-Org/Semantic-UI)
+Live Chat | Join our [Gitter.im Room][Gitter.im Room]
 Newsletter Updates | Sign up for updates at [semantic-ui.com](http://www.semantic-ui.com)
 Additional Resources  | Submit a question on [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui) or ask our [Google Group](https://groups.google.com/forum/#!forum/semantic-ui)
 
@@ -110,3 +110,5 @@ Guides & Tutorials | Help write guides and tutorials | [Join the discussion](htt
 If you'd like to start a conversation about Semantic feel free to e-mail me at [jack@semantic-ui.com](mailto:jack@semantic-ui.com)
 
 <a href="http://packagequality.com/#?package=semantic-ui"><img src="http://npm.packagequality.com/badge/semantic-ui.png"/></a>
+
+[Gitter.im Room]: https://gitter.im/Semantic-Org/Semantic-UI
