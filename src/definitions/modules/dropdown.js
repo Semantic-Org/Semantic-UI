@@ -27,6 +27,7 @@ $.fn.dropdown = function(parameters) {
     moduleSelector = $allModules.selector || '',
 
     hasTouch       = ('ontouchstart' in document.documentElement),
+    onTouchMove    = false,
     time           = new Date().getTime(),
     performance    = [],
 
@@ -551,7 +552,9 @@ $.fn.dropdown = function(parameters) {
               ;
             }
             $menu
-              .on('touchstart' + eventNamespace, selector.item, module.event.item.mouseenter)
+              .on('touchstart' + eventNamespace, selector.item, module.event.touch.start)
+              .on('touchmove' + eventNamespace, selector.item, module.event.touch.move)
+              .on('touchend' + eventNamespace, selector.item, module.event.item.click)
             ;
           },
           keyboardEvents: function() {
@@ -994,6 +997,14 @@ $.fn.dropdown = function(parameters) {
               }
             }
           },
+          touch: {
+            start: function () {
+              onTouchMove = false;
+            },
+            move: function () {
+              onTouchMove = true;
+            },
+          },
           search: {
             focus: function() {
               activated = true;
@@ -1173,7 +1184,7 @@ $.fn.dropdown = function(parameters) {
                 hasSubMenu     = ($subMenu.length > 0),
                 isBubbledEvent = ($subMenu.find($target).length > 0)
               ;
-              if( !isBubbledEvent && hasSubMenu ) {
+              if( !isBubbledEvent && hasSubMenu && settings.toggleSubMenusOn === 'hover' ) {
                 clearTimeout(module.itemTimer);
                 module.itemTimer = setTimeout(function() {
                   module.verbose('Showing sub-menu', $subMenu);
@@ -1189,7 +1200,7 @@ $.fn.dropdown = function(parameters) {
               var
                 $subMenu = $(this).children(selector.menu)
               ;
-              if($subMenu.length > 0) {
+              if($subMenu.length > 0 && settings.toggleSubMenusOn === 'hover') {
                 clearTimeout(module.itemTimer);
                 module.itemTimer = setTimeout(function() {
                   module.verbose('Hiding sub-menu', $subMenu);
@@ -1203,17 +1214,29 @@ $.fn.dropdown = function(parameters) {
                 $target        = (event)
                   ? $(event.target)
                   : $(''),
-                $subMenu       = $choice.find(selector.menu),
+                $subMenu       = $choice.children(selector.menu),
+                $otherMenus    = $choice.siblings(selector.item).find(selector.menu),
                 text           = module.get.choiceText($choice),
                 value          = module.get.choiceValue($choice, text),
                 hasSubMenu     = ($subMenu.length > 0),
                 isBubbledEvent = ($subMenu.find($target).length > 0)
               ;
+              if (onTouchMove) {
+                return;
+              }
               // prevents IE11 bug where menu receives focus even though `tabindex=-1`
               if(module.has.menuSearch()) {
                 $(document.activeElement).blur();
               }
-              if(!isBubbledEvent && (!hasSubMenu || settings.allowCategorySelection)) {
+              if (
+                !isBubbledEvent && (
+                  !hasSubMenu || (
+                    settings.allowCategorySelection &&
+                    settings.toggleSubMenusOn === 'hover' &&
+                    !hasTouch
+                  )
+                )
+              ) {
                 if(module.is.searchSelection()) {
                   if(settings.allowAdditions) {
                     module.remove.userAddition();
@@ -1228,6 +1251,24 @@ $.fn.dropdown = function(parameters) {
                   module.set.scrollPosition($choice);
                 }
                 module.determine.selectAction.call(this, text, value);
+              } else if (
+                !isBubbledEvent &&
+                hasSubMenu && (
+                  settings.toggleSubMenusOn === 'click' ||
+                  hasTouch
+                )
+              ) {
+                if (module.is.visible($subMenu)) {
+                  module.verbose('Hiding sub-menu', $subMenu);
+                  module.animate.hide(false, $subMenu);
+                } else {
+                  module.verbose('Showing sub-menu', $subMenu);
+                  $.each($otherMenus, function() {
+                    module.animate.hide(false, $(this));
+                  });
+                  module.animate.show(false, $subMenu);
+                }
+                event.preventDefault();
               }
             }
           },
@@ -1617,6 +1658,7 @@ $.fn.dropdown = function(parameters) {
             if( module.can.activate( $(element) ) ) {
               module.set.selected(value, $(element));
               if(module.is.multiple() && !module.is.allFiltered()) {
+                event.preventDefault();
                 return;
               }
               else {
@@ -1633,6 +1675,7 @@ $.fn.dropdown = function(parameters) {
             if( module.can.activate( $(element) ) ) {
               module.set.value(value, text, $(element));
               if(module.is.multiple() && !module.is.allFiltered()) {
+                event.preventDefault();
                 return;
               }
               else {
@@ -1648,11 +1691,13 @@ $.fn.dropdown = function(parameters) {
             ;
             module.set.selected(value, $(element));
             module.hideAndClear();
+            event.preventDefault();
           },
 
           hide: function(text, value, element) {
             module.set.value(value, text, $(element));
             module.hideAndClear();
+            event.preventDefault();
           }
 
         },
@@ -3702,6 +3747,7 @@ $.fn.dropdown.settings = {
   performance            : true,
 
   on                     : 'click',    // what event should show menu action on item selection
+  toggleSubMenusOn       : 'hover',    // What event should show sub menus on item selection ("click" or "hover").
   action                 : 'activate', // action on item selection (nothing, activate, select, combo, hide, function(){})
 
   values                 : false,      // specify values to use for dropdown
