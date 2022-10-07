@@ -516,6 +516,12 @@
   color: inherit;
   padding: @cellVerticalPadding @cellHorizontalPadding;
 }
+.ui.compact.table tbody tr td.selectable > a:not(.ui) {
+  padding: @compactVerticalPadding @compactHorizontalPadding;
+}
+.ui[class*="very compact"].table tbody tr td.selectable > a:not(.ui) {
+  padding: @veryCompactVerticalPadding @veryCompactHorizontalPadding;
+}
 
 /* Other States */
 .ui.selectable.table tr.error:hover,
