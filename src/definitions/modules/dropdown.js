@@ -3896,16 +3896,16 @@ $.fn.dropdown.settings.templates = {
     ;
     html +=  '<i class="dropdown icon"></i>';
     if(select.placeholder) {
-      html += '<div class="default text">' + placeholder + '</div>';
+      html += '<div class="default text" aria-live="assertive">' + placeholder + '</div>';
     }
     else {
-      html += '<div class="text"></div>';
+      html += '<div class="text" aria-live="assertive"></div>';
     }
-    html += '<div class="menu">';
+    html += '<div class="menu" role="listbox">';
     $.each(select.values, function(index, option) {
       html += (option.disabled)
-        ? '<div class="disabled item" data-value="' + option.value + '">' + option.name + '</div>'
-        : '<div class="item" data-value="' + option.value + '">' + option.name + '</div>'
+        ? '<div role="option" disabled class="disabled item" data-value="' + option.value + '">' + option.name + '</div>'
+        : '<div role="option" class="item" data-value="' + option.value + '">' + option.name + '</div>'
       ;
     });
     html += '</div>';
