@@ -660,7 +660,7 @@ $.fn.modal = function(parameters) {
                 ? $autofocus.first()
                 : $inputs.first()
             ;
-            if($input.length > 0) {
+            if($input.length > 0 && !$input.is(':focus')) {
               $input.focus();
             }
           },
