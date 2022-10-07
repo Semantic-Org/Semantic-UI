@@ -172,6 +172,11 @@
   color: @headerColor;
 }
 
+.ui.cards.inverted > .card > .content > .header,
+.ui.card.inverted > .content > .header {
+  color: @invertedTextColor;
+}
+
 /* Default Header Size */
 .ui.cards > .card > .content > .header:not(.ui),
 .ui.card > .content > .header:not(.ui) {
@@ -249,6 +254,12 @@
   color: @descriptionColor;
 }
 
+.ui.cards.inverted > .card > .content > .description,
+.ui.card.inverted > .content > .description {
+  color: @invertedTextColor !important;
+}
+
+
 /*--------------
     Paragraph
 ---------------*/
@@ -271,6 +282,11 @@
   font-size: @metaFontSize;
   color: @metaColor;
 }
+.ui.cards.inverted > .card .meta,
+.ui.card.inverted .meta {
+  color: @invertedMutedTextColor !important;
+}
+
 .ui.cards > .card .meta *,
 .ui.card .meta * {
   margin-right: @metaSpacing;
@@ -296,9 +312,19 @@
   color: @contentLinkColor;
   transition: @contentLinkTransition;
 }
-.ui.cards > .card > .content a:not(.ui):hover,
-.ui.card > .content a:not(.ui):hover {
+.ui.cards.inverted > .card > .content a:not(.ui):hover,
+.ui.card.inverted > .content a:not(.ui):hover {
   color: @contentLinkHoverColor;
+}
+
+/* Generic - Inverted */
+.ui.cards.inverted > .card > .content a:not(.ui),
+.ui.card.inverted > .content a:not(.ui) {
+  color: @invertedTextColor !important;
+}
+.ui.cards.inverted > .card > .content a:not(.ui):hover,
+.ui.card.inverted > .content a:not(.ui):hover {
+  color: @invertedHoveredTextColor !important;
 }
 
 /* Header */
@@ -311,6 +337,16 @@
   color: @headerLinkHoverColor;
 }
 
+/* Header - Inverted */
+.ui.cards.inverted > .card > .content a.header,
+.ui.card.inverted > .content a.header {
+  color: @invertedTextColor !important;
+}
+.ui.cards.inverted > .card > .content a.header:hover,
+.ui.card.inverted > .content a.header:hover {
+  color: @invertedHoveredTextColor !important;
+}
+
 /* Meta */
 .ui.cards > .card .meta > a:not(.ui),
 .ui.card .meta > a:not(.ui) {
@@ -319,6 +355,16 @@
 .ui.cards > .card .meta > a:not(.ui):hover,
 .ui.card .meta > a:not(.ui):hover {
   color: @metaLinkHoverColor;
+}
+
+/* Meta - Inverted */
+.ui.cards.inverted > .card .meta > a:not(.ui),
+.ui.card.inverted .meta > a:not(.ui) {
+  color: @invertedMutedTextColor !important;
+}
+.ui.cards.inverted > .card .meta > a:not(.ui):hover,
+.ui.card.inverted .meta > a:not(.ui):hover {
+  color: @invertedLightTextColor !important;
 }
 
 /*--------------
@@ -415,6 +461,14 @@
   color: @extraLinkHoverColor;
 }
 
+.ui.cards.inverted > .card > .extra a:not(.ui),
+.ui.card.inverted > .extra a:not(.ui) {
+  color: @invertedMutedTextColor !important;
+}
+.ui.cards.inverted > .card > .extra a:not(.ui):hover,
+.ui.card.inverted > .extra a:not(.ui):hover {
+  color: @invertedLightTextColor !important;
+}
 
 /*******************************
            Variations
@@ -489,18 +543,18 @@ a.ui.card:hover,
 --------------------*/
 
 /* Red */
-.ui.red.cards > .card,
-.ui.cards > .red.card,
-.ui.red.card {
+.ui.red.cards:not(.inverted) > .card:not(.inverted),
+.ui.cards:not(.inverted) > .red.card:not(.inverted),
+.ui.red.card:not(.inverted) {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @red,
     @shadowBoxShadow
   ;
 }
-.ui.red.cards > .card:hover,
-.ui.cards > .red.card:hover,
-.ui.red.card:hover {
+.ui.red.cards:not(.inverted) > .card:not(.inverted):hover,
+.ui.cards:not(.inverted) > .red.card:not(.inverted):hover,
+.ui.red.card:not(.inverted):hover {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @redHover,
@@ -508,19 +562,28 @@ a.ui.card:hover,
   ;
 }
 
+.ui.red.cards > .card.inverted,
+.ui.red.cards.inverted > .card,
+.ui.cards > .red.card.inverted,
+.ui.cards.inverted > .red.card,
+.ui.red.card.inverted {
+  background-color: @red !important;
+  color: @invertedTextColor !important;
+}
+
 /* Orange */
-.ui.orange.cards > .card,
-.ui.cards > .orange.card,
-.ui.orange.card {
+.ui.orange.cards:not(.inverted) > .card:not(.inverted),
+.ui.cards:not(.inverted) > .orange.card:not(.inverted),
+.ui.orange.card:not(.inverted) {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @orange,
     @shadowBoxShadow
   ;
 }
-.ui.orange.cards > .card:hover,
-.ui.cards > .orange.card:hover,
-.ui.orange.card:hover {
+.ui.orange.cards:not(.inverted) > .card:not(.inverted):hover,
+.ui.cards::not(.inverted) > .orange.card:not(.inverted):hover,
+.ui.orange.card:not(.inverted):hover {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @orangeHover,
@@ -528,19 +591,29 @@ a.ui.card:hover,
   ;
 }
 
+.ui.orange.cards > .card.inverted,
+.ui.orange.cards.inverted > .card,
+.ui.cards > .orange.card.inverted,
+.ui.cards.inverted > .orange.card,
+.ui.orange.card.inverted {
+  background-color: @orange !important;
+  color: @invertedTextColor !important;
+}
+
 /* Yellow */
-.ui.yellow.cards > .card,
-.ui.cards > .yellow.card,
-.ui.yellow.card {
+.ui.yellow.cards:not(.inverted) > .card:not(.inverted),
+.ui.cards:not(.inverted) > .yellow.card:not(.inverted),
+.ui.yellow.card:not(.inverted) {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @yellow,
     @shadowBoxShadow
   ;
 }
-.ui.yellow.cards > .card:hover,
-.ui.cards > .yellow.card:hover,
-.ui.yellow.card:hover {
+
+.ui.yellow.cards:not(.inverted) > .card:not(.inverted):hover,
+.ui.cards:not(.inverted) > .yellow.card:not(.inverted):hover,
+.ui.yellow.card:not(.inverted):hover {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @yellowHover,
@@ -548,19 +621,29 @@ a.ui.card:hover,
   ;
 }
 
+.ui.yellow.cards > .card.inverted,
+.ui.yellow.cards.inverted > .card,
+.ui.cards > .yellow.card.inverted,
+.ui.cards.inverted > .yellow.card,
+.ui.yellow.card.inverted {
+  background-color: @yellow !important;
+  color: @invertedTextColor !important;
+}
+
 /* Olive */
-.ui.olive.cards > .card,
-.ui.cards > .olive.card,
-.ui.olive.card {
+.ui.olive.cards:not(.inverted) > .card:not(.inverted),
+.ui.cards:not(.inverted) > .olive.card:not(.inverted),
+.ui.olive.card:not(.inverted) {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @olive,
     @shadowBoxShadow
   ;
 }
-.ui.olive.cards > .card:hover,
-.ui.cards > .olive.card:hover,
-.ui.olive.card:hover {
+
+.ui.olive.cards:not(.inverted) > .card:not(.inverted):hover,
+.ui.cards:not(.inverted) > .olive.card:not(.inverted):hover,
+.ui.olive.card:not(.inverted):hover {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @oliveHover,
@@ -568,19 +651,28 @@ a.ui.card:hover,
   ;
 }
 
+.ui.olive.cards > .card.inverted,
+.ui.olive.cards.inverted > .card,
+.ui.cards > .olive.card.inverted,
+.ui.cards.inverted > .olive.card,
+.ui.olive.card.inverted {
+  background-color: @olive !important;
+  color: @invertedTextColor !important;
+}
+
 /* Green */
-.ui.green.cards > .card,
-.ui.cards > .green.card,
-.ui.green.card {
+.ui.green.cards:not(.inverted) > .card:not(.inverted),
+.ui.cards:not(.inverted) > .green.card:not(.inverted),
+.ui.green.card:not(.inverted) {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @green,
     @shadowBoxShadow
   ;
 }
-.ui.green.cards > .card:hover,
-.ui.cards > .green.card:hover,
-.ui.green.card:hover {
+.ui.green.cards:not(.inverted) > .card:not(.inverted):hover,
+.ui.cards:not(.inverted) > .green.card:not(.inverted):hover,
+.ui.green.card:not(.inverted):hover {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @greenHover,
@@ -588,19 +680,28 @@ a.ui.card:hover,
   ;
 }
 
+.ui.green.cards > .card.inverted,
+.ui.green.cards.inverted > .card,
+.ui.cards > .green.card.inverted,
+.ui.cards.inverted > .green.card,
+.ui.green.card.inverted {
+  background-color: @green !important;
+  color: @invertedTextColor !important;
+}
+
 /* Teal */
-.ui.teal.cards > .card,
-.ui.cards > .teal.card,
-.ui.teal.card {
+.ui.teal.cards:not(.inverted) > .card:not(.inverted),
+.ui.cards:not(.inverted) > .teal.card:not(.inverted),
+.ui.teal.card:not(.inverted) {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @teal,
     @shadowBoxShadow
   ;
 }
-.ui.teal.cards > .card:hover,
-.ui.cards > .teal.card:hover,
-.ui.teal.card:hover {
+.ui.teal.cards:not(.inverted) > .card:not(.inverted):hover,
+.ui.cards:not(.inverted) > .teal.card:not(.inverted):hover,
+.ui.teal.card:not(.inverted):hover {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @tealHover,
@@ -608,19 +709,28 @@ a.ui.card:hover,
   ;
 }
 
+.ui.teal.cards > .card.inverted,
+.ui.teal.cards.inverted > .card,
+.ui.cards > .teal.card.inverted,
+.ui.cards.inverted > .teal.card,
+.ui.teal.card.inverted {
+  background-color: @teal !important;
+  color: @invertedTextColor !important;
+}
+
 /* Blue */
-.ui.blue.cards > .card,
-.ui.cards > .blue.card,
-.ui.blue.card {
+.ui.blue.cards:not(.inverted) > .card:not(.inverted),
+.ui.cards:not(.inverted) > .blue.card:not(.inverted),
+.ui.blue.card:not(.inverted) {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @blue,
     @shadowBoxShadow
   ;
 }
-.ui.blue.cards > .card:hover,
-.ui.cards > .blue.card:hover,
-.ui.blue.card:hover {
+.ui.blue.cards:not(.inverted) > .card:not(.inverted):hover,
+.ui.cards:not(.inverted) > .blue.card:not(.inverted):hover,
+.ui.blue.card:not(.inverted):hover {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @blueHover,
@@ -628,19 +738,28 @@ a.ui.card:hover,
   ;
 }
 
+.ui.blue.cards > .card.inverted,
+.ui.blue.cards.inverted > .card,
+.ui.cards > .blue.card.inverted,
+.ui.cards.inverted > .blue.card,
+.ui.blue.card.inverted {
+  background-color: @blue !important;
+  color: @invertedTextColor !important;
+}
+
 /* Violet */
-.ui.violet.cards > .card,
-.ui.cards > .violet.card,
-.ui.violet.card {
+.ui.violet.cards:not(.inverted) > .card:not(.inverted),
+.ui.cards:not(.inverted) > .violet.card:not(.inverted),
+.ui.violet.card:not(.inverted) {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @violet,
     @shadowBoxShadow
   ;
 }
-.ui.violet.cards > .card:hover,
-.ui.cards > .violet.card:hover,
-.ui.violet.card:hover {
+.ui.violet.cards:not(.inverted) > .card:not(.inverted):hover,
+.ui.cards:not(.inverted) > .violet.card:not(.inverted):hover,
+.ui.violet.card:not(.inverted):hover {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @violetHover,
@@ -648,19 +767,28 @@ a.ui.card:hover,
   ;
 }
 
+.ui.violet.cards > .card.inverted,
+.ui.violet.cards.inverted > .card,
+.ui.cards > .violet.card.inverted,
+.ui.cards.inverted > .violet.card,
+.ui.violet.card.inverted {
+  background-color: @violet !important;
+  color: @invertedTextColor !important;
+}
+
 /* Purple */
-.ui.purple.cards > .card,
-.ui.cards > .purple.card,
-.ui.purple.card {
+.ui.purple.cards:not(.inverted) > .card:not(.inverted),
+.ui.cards:not(.inverted) > .purple.card:not(.inverted),
+.ui.purple.card:not(.inverted) {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @purple,
     @shadowBoxShadow
   ;
 }
-.ui.purple.cards > .card:hover,
-.ui.cards > .purple.card:hover,
-.ui.purple.card:hover {
+.ui.purple.cards:not(.inverted) > .card:not(.inverted):hover,
+.ui.cards:not(.inverted) > .purple.card:not(.inverted):hover,
+.ui.purple.card:not(.inverted):hover {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @purpleHover,
@@ -668,19 +796,28 @@ a.ui.card:hover,
   ;
 }
 
+.ui.purple.cards > .card.inverted,
+.ui.purple.cards.inverted > .card,
+.ui.cards > .purple.card.inverted,
+.ui.cards.inverted > .purple.card,
+.ui.purple.card.inverted {
+  background-color: @purple !important;
+  color: @invertedTextColor !important;
+}
+
 /* Pink */
-.ui.pink.cards > .card,
-.ui.cards > .pink.card,
-.ui.pink.card {
+.ui.pink.cards:not(.inverted) > .card:not(.inverted),
+.ui.cards:not(.inverted) > .pink.card:not(.inverted),
+.ui.pink.card:not(.inverted) {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @pink,
     @shadowBoxShadow
   ;
 }
-.ui.pink.cards > .card:hover,
-.ui.cards > .pink.card:hover,
-.ui.pink.card:hover {
+.ui.pink.cards:not(.inverted) > .card:not(.inverted):hover,
+.ui.cards:not(.inverted) > .pink.card:not(.inverted):hover,
+.ui.pink.card:not(.inverted):hover {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @pinkHover,
@@ -688,19 +825,28 @@ a.ui.card:hover,
   ;
 }
 
+.ui.pink.cards > .card.inverted,
+.ui.pink.cards.inverted > .card,
+.ui.cards > .pink.card.inverted,
+.ui.cards.inverted > .pink.card,
+.ui.pink.card.inverted {
+  background-color: @pink !important;
+  color: @invertedTextColor !important;
+}
+
 /* Brown */
-.ui.brown.cards > .card,
-.ui.cards > .brown.card,
-.ui.brown.card {
+.ui.brown.cards:not(.inverted) > .card:not(.inverted),
+.ui.cards:not(.inverted) > .brown.card:not(.inverted),
+.ui.brown.card:not(.inverted) {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @brown,
     @shadowBoxShadow
   ;
 }
-.ui.brown.cards > .card:hover,
-.ui.cards > .brown.card:hover,
-.ui.brown.card:hover {
+.ui.brown.cards:not(.inverted) > .card:not(.inverted):hover,
+.ui.cards:not(.inverted) > .brown.card:not(.inverted):hover,
+.ui.brown.card:not(.inverted):hover {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @brownHover,
@@ -708,19 +854,28 @@ a.ui.card:hover,
   ;
 }
 
+.ui.brown.cards > .card.inverted,
+.ui.brown.cards.inverted > .card,
+.ui.cards > .brown.card.inverted,
+.ui.cards.inverted > .brown.card,
+.ui.brown.card.inverted {
+  background-color: @brown !important;
+  color: @invertedTextColor !important;
+}
+
 /* Grey */
-.ui.grey.cards > .card,
-.ui.cards > .grey.card,
-.ui.grey.card {
+.ui.grey.cards:not(.inverted) > .card:not(.inverted),
+.ui.cards:not(.inverted) > .grey.card:not(.inverted),
+.ui.grey.card:not(.inverted) {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @grey,
     @shadowBoxShadow
   ;
 }
-.ui.grey.cards > .card:hover,
-.ui.cards > .grey.card:hover,
-.ui.grey.card:hover {
+.ui.grey.cards:not(.inverted) > .card:not(.inverted):hover,
+.ui.cards:not(.inverted) > .grey.card:not(.inverted):hover,
+.ui.grey.card:not(.inverted):hover {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @greyHover,
@@ -728,24 +883,42 @@ a.ui.card:hover,
   ;
 }
 
+.ui.grey.cards > .card.inverted,
+.ui.grey.cards.inverted > .card,
+.ui.cards > .grey.card.inverted,
+.ui.cards.inverted > .grey.card,
+.ui.grey.card.inverted {
+  background-color: @grey !important;
+  color: @invertedTextColor !important;
+}
+
 /* Black */
-.ui.black.cards > .card,
-.ui.cards > .black.card,
-.ui.black.card {
+.ui.black.cards:not(.inverted) > .card:not(.inverted),
+.ui.cards:not(.inverted) > .black.card:not(.inverted),
+.ui.black.card:not(.inverted) {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @black,
     @shadowBoxShadow
   ;
 }
-.ui.black.cards > .card:hover,
-.ui.cards > .black.card:hover,
-.ui.black.card:hover {
+.ui.black.cards:not(.inverted) > .card:not(.inverted):hover,
+.ui.cards:not(.inverted) > .black.card:not(.inverted):hover,
+.ui.black.card:not(.inverted):hover {
   box-shadow:
     @borderShadow,
     0px @coloredShadowDistance 0px 0px @blackHover,
     @shadowHoverBoxShadow
   ;
+}
+
+.ui.black.cards > .card.inverted,
+.ui.black.cards.inverted > .card,
+.ui.cards > .black.card.inverted,
+.ui.cards.inverted > .black.card,
+.ui.black.card.inverted {
+  background-color: @black !important;
+  color: @invertedTextColor !important;
 }
 
 /*--------------
