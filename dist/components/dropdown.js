@@ -788,7 +788,7 @@ $.fn.dropdown = function(parameters) {
               : module.get.query(),
             results          =  null,
             escapedTerm      = module.escape.string(searchTerm),
-            beginsWithRegExp = new RegExp('^' + escapedTerm, 'igm')
+            beginsWithRegExp = new RegExp(escapedTerm, 'igm')
           ;
           // avoid loop if we're matching nothing
           if( module.has.query() ) {
