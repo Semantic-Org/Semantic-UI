@@ -128,6 +128,7 @@
 /* Ribbon */
 @ribbonTriangleSize: 1.2em;
 @ribbonShadowColor: rgba(0, 0, 0, 0.15);
+@ribbonZIndex: 5;
 
 @ribbonMargin: 1rem;
 @ribbonOffset: calc(-@ribbonMargin - @ribbonTriangleSize);
