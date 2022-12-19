@@ -5,7 +5,7 @@
 Questions about usage should be asked in our [Gitter chatroom](https://gitter.im/Semantic-Org/Semantic-UI), on [Semantic UI forums](http://forums.semantic-ui.com) or [StackOverflow](http://stackoverflow.com/questions/tagged/semantic-ui).
 
 Examples of usage questions
-* *Why isnt my code working?*
+* *Why isn't my code working?*
 * *Can Semantic UI do this?*
 
 Once you receive feedback through community channels you may find your question is actually a bug. At this point it's a good idea to submit it as a bug report. Just keep in mind the following suggestions.
