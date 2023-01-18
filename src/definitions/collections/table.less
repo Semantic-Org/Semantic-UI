@@ -500,21 +500,25 @@
 .ui.table tbody tr td.selectable:hover {
   background: @selectableBackground !important;
   color: @selectableTextColor !important;
+  cursor: pointer;
 }
 .ui.selectable.inverted.table tbody tr:hover,
 .ui.inverted.table tbody tr td.selectable:hover {
   background: @selectableInvertedBackground !important;
   color: @selectableInvertedTextColor !important;
+  cursor: pointer;
 }
 
 /* Selectable Cell Link */
 .ui.table tbody tr td.selectable {
   padding: 0em;
+  cursor: pointer;
 }
 .ui.table tbody tr td.selectable > a:not(.ui) {
   display: block;
   color: inherit;
   padding: @cellVerticalPadding @cellHorizontalPadding;
+  cursor: pointer;
 }
 
 /* Other States */
