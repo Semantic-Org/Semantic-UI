@@ -362,11 +362,18 @@ $.fn.sidebar = function(parameters) {
           }
         },
 
-        show: function(callback) {
+        show: function(callback, options) {
+          options = typeof callback === 'object'
+            ? callback
+            : options
+              ? options
+              : {}
+          ;
           callback = $.isFunction(callback)
             ? callback
             : function(){}
           ;
+
           if(module.is.hidden()) {
             module.refreshSidebars();
             if(settings.overlay)  {
@@ -393,7 +400,7 @@ $.fn.sidebar = function(parameters) {
             module.pushPage(function() {
               callback.call(element);
               settings.onShow.call(element);
-            });
+            }, options);
             settings.onChange.call(element);
             settings.onVisible.call(element);
           }
@@ -456,7 +463,7 @@ $.fn.sidebar = function(parameters) {
           }
         },
 
-        pushPage: function(callback) {
+        pushPage: function(callback, options) {
           var
             transition = module.get.transition(),
             $transition = (transition === 'overlay' || module.othersActive())
@@ -477,6 +484,11 @@ $.fn.sidebar = function(parameters) {
           module.repaint();
           animate = function() {
             module.bind.clickaway();
+            if (options) {
+              if (options.notClosable) {
+                module.unbind.clickaway();
+              }
+            }
             module.add.inlineCSS();
             module.set.animating();
             module.set.visible();
