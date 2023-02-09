@@ -96,6 +96,7 @@ $.fn.progress = function(parameters) {
         destroy: function() {
           module.verbose('Destroying previous progress for', $module);
           clearInterval(instance.interval);
+          clearInterval(instance.intervalLoading);
           module.remove.state();
           $module.removeData(moduleNamespace);
           instance = undefined;
@@ -119,7 +120,8 @@ $.fn.progress = function(parameters) {
               data = {
                 percent : $module.data(metadata.percent),
                 total   : $module.data(metadata.total),
-                value   : $module.data(metadata.value)
+                value   : $module.data(metadata.value),
+                loading : $module.data(metadata.loading),
               }
             ;
             if(data.percent) {
@@ -135,6 +137,10 @@ $.fn.progress = function(parameters) {
               module.set.value(data.value);
               module.set.progress(data.value);
             }
+            if(data.loading) {
+              module.debug('Loading loop set from metadata', data.loading);
+              module.set.loading(data.loading);
+            }
           },
           settings: function() {
             if(settings.total !== false) {
@@ -149,6 +155,10 @@ $.fn.progress = function(parameters) {
             if(settings.percent !== false) {
               module.debug('Current percent set in settings', settings.percent);
               module.set.percent(settings.percent);
+            }
+            if(settings.loading !== false) {
+              module.debug('Loading loop set in settings', settings.loading);
+              module.set.loading(settings.loading);
             }
           }
         },
@@ -328,6 +338,9 @@ $.fn.progress = function(parameters) {
           },
           total: function() {
             return module.total || false;
+          },
+          offset: function() {
+            return module.offset || 0;
           }
         },
 
@@ -355,6 +368,9 @@ $.fn.progress = function(parameters) {
           },
           active: function() {
             return $module.hasClass(className.active);
+          },
+          loading: function() {
+            return $module.hasClass(className.loading);
           },
           visible: function() {
             return $module.is(':visible');
@@ -394,7 +410,11 @@ $.fn.progress = function(parameters) {
           error: function() {
             module.verbose('Removing error state');
             $module.removeClass(className.error);
-          }
+          },
+          loading: function() {
+            module.verbose('Removing loading state');
+            $module.removeClass(className.loading);
+          },
         },
 
         set: {
@@ -427,6 +447,22 @@ $.fn.progress = function(parameters) {
               })
             ;
           },
+          offset: function(offset) {
+            offset = offset || settings.offset;
+            $bar
+              .css({
+                'margin-left': offset + '%'
+              })
+            ;
+            module.offset = offset;
+          },
+          offsetLoading: function(offset) {
+            offset = offset || settings.offset;
+            if(offset - module.get.percent() > 100){
+              offset = -(module.get.percent());
+            }
+            module.set.offset(offset);
+          },
           percent: function(percent) {
             percent = (typeof percent == 'string')
               ? +(percent.replace('%', ''))
@@ -456,6 +492,33 @@ $.fn.progress = function(parameters) {
             module.set.labelInterval();
             module.set.labels();
             settings.onChange.call(element, percent, module.value, module.total);
+          },
+          loading: function(loading) {
+            module.debug('Setting loading state');
+            if(settings.showActivity && !module.is.loading() ) {
+              $module.addClass(className.loading);
+            }
+            module.remove.warning();
+            module.remove.error();
+            module.remove.success();
+            module.remove.active();
+            module.set.loadingInterval();
+          },
+          loadingInterval: function() {
+            module.set.offset(settings.offset || 0);
+            clearInterval(module.intervalLoading);
+            if(module.is.loading() || settings.loading) {
+              module.intervalLoading = setInterval(function() {
+                var
+                  isInDOM = $.contains(document.documentElement, element)
+                ;
+                if(!isInDOM) {
+                  clearInterval(module.intervalLoading);
+                  animating = false;
+                };
+                module.set.offsetLoading(module.get.offset() + (settings.framerate / 30));
+              }, settings.framerate);
+            }
           },
           labelInterval: function() {
             var
@@ -540,6 +603,7 @@ $.fn.progress = function(parameters) {
             module.remove.warning();
             module.remove.error();
             module.remove.success();
+            module.remove.loading();
             text = settings.onLabelUpdate('active', text, module.value, module.total);
             if(text) {
               module.set.label(text);
@@ -555,6 +619,7 @@ $.fn.progress = function(parameters) {
             module.remove.active();
             module.remove.warning();
             module.remove.error();
+            module.remove.loading();
             module.complete();
             if(settings.text.success) {
               text = settings.onLabelUpdate('success', text, module.value, module.total);
@@ -575,6 +640,7 @@ $.fn.progress = function(parameters) {
             module.remove.active();
             module.remove.success();
             module.remove.error();
+            module.remove.loading();
             module.complete();
             text = settings.onLabelUpdate('warning', text, module.value, module.total);
             if(text) {
@@ -591,6 +657,7 @@ $.fn.progress = function(parameters) {
             module.remove.active();
             module.remove.success();
             module.remove.warning();
+            module.remove.loading();
             module.complete();
             text = settings.onLabelUpdate('error', text, module.value, module.total);
             if(text) {
@@ -874,6 +941,9 @@ $.fn.progress.settings = {
   total          : false,
   value          : false,
 
+  loading        : false,
+  offset         : 0,
+
   // delay in ms for fail safe animation callback
   failSafeDelay : 100,
 
@@ -900,7 +970,8 @@ $.fn.progress.settings = {
   metadata: {
     percent : 'percent',
     total   : 'total',
-    value   : 'value'
+    value   : 'value',
+    loading : 'loading'
   },
 
   selector : {
@@ -922,7 +993,8 @@ $.fn.progress.settings = {
     active  : 'active',
     error   : 'error',
     success : 'success',
-    warning : 'warning'
+    warning : 'warning',
+    loading : 'loading'
   }
 
 };
