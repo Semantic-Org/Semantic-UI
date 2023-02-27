@@ -202,6 +202,39 @@
   color: @placeholderErrorFocusColor !important;
 }
 
+/*--------------------
+        Invalid
+---------------------*/
+
+.ui.input > input:invalid {
+  background-color: @errorBackground;
+  border-color: @errorBorder;
+  color: @errorColor;
+  box-shadow: @errorBoxShadow;
+}
+
+/* Error Placeholder */
+.ui.input > input:invalid::-webkit-input-placeholder {
+  color: @placeholderErrorColor;
+}
+.ui.input > input:invalid::-moz-placeholder {
+  color: @placeholderErrorColor;
+}
+.ui.input > input:invalid:-ms-input-placeholder {
+  color: @placeholderErrorColor !important;
+}
+
+/* Focused Error Placeholder */
+.ui.input > input:invalid:focus::-webkit-input-placeholder {
+  color: @placeholderErrorFocusColor;
+}
+.ui.input > input:invalid:focus::-moz-placeholder {
+  color: @placeholderErrorFocusColor;
+}
+.ui.input > input:invalid:focus:-ms-input-placeholder {
+  color: @placeholderErrorFocusColor !important;
+}
+
 /*******************************
            Variations
 *******************************/
