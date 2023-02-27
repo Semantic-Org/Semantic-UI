@@ -295,7 +295,7 @@
   Extra Content
 -----------------*/
 
-.ui.items > .item .extra {
+.ui.items > .item > .content > .extra {
   display: @extraDisplay;
   position: @extraPosition;
   background: @extraBackground;
@@ -309,14 +309,14 @@
   transition: @extraTransition;
   border-top: @extraDivider;
 }
-.ui.items > .item .extra > * {
+.ui.items > .item > .content > .extra > * {
   margin: (@extraRowSpacing / 2) @extraHorizontalSpacing (@extraRowSpacing / 2) 0em;
 }
-.ui.items > .item .extra > [class*="right floated"] {
+.ui.items > .item > .content > .extra > [class*="right floated"] {
   margin: (@extraRowSpacing / 2) 0em (@extraRowSpacing / 2) @extraHorizontalSpacing;
 }
 
-.ui.items > .item .extra:after {
+.ui.items > .item > .content > .extra:after {
   display: block;
   content: ' ';
   height: 0px;
