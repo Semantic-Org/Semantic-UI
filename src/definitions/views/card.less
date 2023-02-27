@@ -488,6 +488,46 @@ a.ui.card:hover,
        Colors
 --------------------*/
 
+/* Primary */
+.ui.primary.cards > .card,
+.ui.cards > .primary.card,
+.ui.primary.card {
+  box-shadow:
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @primaryColor,
+    @shadowBoxShadow
+  ;
+}
+.ui.primary.cards > .card:hover,
+.ui.cards > .primary.card:hover,
+.ui.primary.card:hover {
+  box-shadow:
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @primaryColorHover,
+    @shadowHoverBoxShadow
+  ;
+}
+
+/* Secondary */
+.ui.secondary.cards > .card,
+.ui.cards > .secondary.card,
+.ui.secondary.card {
+  box-shadow:
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @secondaryColor,
+    @shadowBoxShadow
+  ;
+}
+.ui.secondary.cards > .card:hover,
+.ui.cards > .secondary.card:hover,
+.ui.secondary.card:hover {
+  box-shadow:
+    @borderShadow,
+    0px @coloredShadowDistance 0px 0px @secondaryColorHover,
+    @shadowHoverBoxShadow
+  ;
+}
+
 /* Red */
 .ui.red.cards > .card,
 .ui.cards > .red.card,
