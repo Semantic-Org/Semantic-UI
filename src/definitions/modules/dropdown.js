@@ -269,6 +269,15 @@ $.fn.dropdown = function(parameters) {
 
         select: {
           firstUnfiltered: function() {
+            module.verbose('Ensuring that an unfiltered option is selected');
+            var visibleExistingSelectedItem = $item.filter(
+                '.' + className.selected +
+                ':not(.' + className.filtered + ')' +
+                ':not(.' + className.disabled + ')');
+            if (visibleExistingSelectedItem.length) {
+              module.verbose('Previously selected element is unfiltered, not changing selection');
+              return;
+            }
             module.verbose('Selecting first non-filtered element');
             module.remove.selectedItem();
             $item
