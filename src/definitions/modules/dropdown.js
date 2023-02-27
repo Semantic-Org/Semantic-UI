@@ -934,8 +934,8 @@ $.fn.dropdown = function(parameters) {
             module.setup.menu({values: values});
             $.each(values, function(index, item) {
               if(item.selected == true) {
-                module.debug('Setting initial selection to', item.value);
-                module.set.selected(item.value);
+                module.debug('Setting initial selection to', String(item[fields.value]));
+                module.set.selected(String(item[fields.value]));
                 return true;
               }
             });
