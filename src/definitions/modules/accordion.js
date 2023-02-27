@@ -131,7 +131,7 @@ $.fn.accordion = function(parameters) {
                 ? $title.eq(query)
                 : $(query).closest(selector.title)
               : $(this).closest(selector.title),
-            $activeContent = $activeTitle.next($content),
+            $activeContent = $activeTitle.closest(settings.selector.accordion).children(settings.selector.content),
             isAnimating = $activeContent.hasClass(className.animating),
             isActive    = $activeContent.hasClass(className.active),
             isOpen      = (isActive && !isAnimating),
@@ -158,7 +158,7 @@ $.fn.accordion = function(parameters) {
                 ? $title.eq(query)
                 : $(query).closest(selector.title)
               : $(this).closest(selector.title),
-            $activeContent = $activeTitle.next($content),
+            $activeContent = $activeTitle.closest(settings.selector.accordion).children(settings.selector.content),
             isAnimating = $activeContent.hasClass(className.animating),
             isActive    = $activeContent.hasClass(className.active),
             isOpen      = (isActive || isAnimating)
@@ -224,7 +224,7 @@ $.fn.accordion = function(parameters) {
                 ? $title.eq(query)
                 : $(query).closest(selector.title)
               : $(this).closest(selector.title),
-            $activeContent = $activeTitle.next($content),
+            $activeContent = $activeTitle.closest(settings.selector.accordion).children(settings.selector.content),
             isAnimating    = $activeContent.hasClass(className.animating),
             isActive       = $activeContent.hasClass(className.active),
             isOpening      = (!isActive && isAnimating),
