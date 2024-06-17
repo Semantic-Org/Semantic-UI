@@ -58,6 +58,8 @@ i.icon:before {
 i.icon.loading {
   height: 1em;
   line-height: 1;
+}
+i.icon.loading {
   -webkit-animation: icon-loading 2s linear infinite;
           animation: icon-loading 2s linear infinite;
 }

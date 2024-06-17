@@ -12,7 +12,7 @@
 
 */
 
-var
+let
   gulp           = require('gulp'),
 
   // node dependencies
@@ -39,7 +39,7 @@ var
 
 module.exports = function(callback) {
 
-  var
+  let
     index = -1,
     total = release.distributions.length,
     timer,
@@ -61,7 +61,7 @@ module.exports = function(callback) {
       return;
     }
 
-    var
+    let
       distribution         = release.distributions[index],
       outputDirectory      = path.resolve(path.join(release.outputRoot, distribution.toLowerCase() )),
       repoName             = release.distRepoRoot + distribution,
@@ -141,18 +141,29 @@ module.exports = function(callback) {
     function getSHA() {
       git.exec(versionOptions, function(error, version) {
         version = version.trim();
-        createRelease(version);
+        try {
+          createRelease(version);
+        } catch(e) {
+          console.error('Failed to create release, most likely this release already exists');
+        }
       });
     }
 
     // create release on GitHub.com
-    function createRelease(version) {
+    async function createRelease(version) {
       if(version) {
         releaseOptions.target_commitish = version;
       }
-      github.repos.createRelease(releaseOptions, function() {
-        nextRepo();
-      });
+      console.info('-----------------------------');
+      console.info(releaseOptions);
+      console.info('-----------------------------');
+      try {
+        await github.repos.createRelease(releaseOptions)
+      }
+      catch(e) {
+        console.error(`Release creation failed. Most likely already released "${releaseOptions.tag_name}"`);
+      };
+      nextRepo();
     }
 
     // Steps to next repository
@@ -160,7 +171,10 @@ module.exports = function(callback) {
       console.log('Sleeping for 1 second...');
       // avoid rate throttling
       global.clearTimeout(timer);
-      timer = global.setTimeout(stepRepo, 100);
+      timer = global.setTimeout(function() {
+        console.log('Sleeping complete');
+        stepRepo();
+      }, 100);
     }
 
 

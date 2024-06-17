@@ -17,11 +17,9 @@ Key Features
 
 Semantic allows developers to build beautiful websites fast, with **concise HTML**, **intuitive javascript**, and **simplified debugging**, helping make front-end development a delightful experience. Semantic is responsively designed allowing your website to scale on multiple devices. Semantic is production ready and partnered with frameworks such as **React**, **Angular**, **Meteor**, and **Ember**, which means you can integrate it with any of these frameworks to organize your UI layer alongside your application logic.
 
-## 2.4.0 Release (Sep 17th, 2018)
+## 2.5.0 Release (Oct 6, 2022)
 
-Semantic UI `2.4` is now available. Read up on [what's new](http://www.semantic-ui.com/introduction/new.html) in the docs.
-
-Migration info from `1.x` can be found in the [2.0 release notes](https://github.com/Semantic-Org/Semantic-UI/blob/master/RELEASE-NOTES.md#version-200---march-xx-2015)
+Semantic UI is now compatible with Node 18 and Gulp 4. 
 
 ## User Support
 

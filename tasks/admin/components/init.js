@@ -53,6 +53,8 @@ module.exports = function(callback) {
     return;
   }
 
+  console.info('Init components');
+
   // Do Git commands synchronously per component, to avoid issues
   stepRepo = function() {
 
@@ -148,6 +150,7 @@ module.exports = function(callback) {
       // avoid rate throttling
       global.clearTimeout(timer);
       timer = global.setTimeout(function() {
+        console.info('Stepping to next repo');
         stepRepo();
       }, 0);
     }
@@ -164,6 +167,5 @@ module.exports = function(callback) {
   };
 
   stepRepo();
-
 
 };

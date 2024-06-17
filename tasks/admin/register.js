@@ -11,9 +11,16 @@
 let
   // node dependencies
   process = require('child_process'),
+  fs      = require('fs'),
+
+  npmPublish = require('@jsdevtools/npm-publish'),
 
   // config
   release = require('../config/admin/release'),
+
+  config = fs.existsSync(__dirname + '/../config/admin/oauth.js')
+    ? require('../config/admin/oauth')
+    : false,
 
   // register components and distributions
   repos   = release.distributions.concat(release.components),
@@ -24,26 +31,50 @@ let
   stepRepo
 ;
 
-module.exports = function(callback) {
+module.exports = async function(callback) {
 
-  console.log('Registering repos with package managers');
+  console.log('Publishing main repo');
+  await npmPublish({
+    package: `./package.json`,
+    token: config.npmToken,
+    greaterVersionOnly: true,
+    debug: function(log) {
+      console.log(log);
+    }
+  });
 
   // Do Git commands synchronously per component, to avoid issues
-  stepRepo = function() {
+  stepRepo = async function() {
+
     index = index + 1;
     if(index >= total) {
       callback();
       return;
     }
+
     let
       repo            = repos[index].toLowerCase(),
-      outputDirectory = release.outputRoot + repo + '/',
+      outputDirectory = `${release.outputRoot}${repo}/`,
       exec            = process.exec,
       execSettings    = {cwd: outputDirectory},
-      updateNPM       = 'npm publish;meteor publish;'
+      updateNPM       = 'meteor publish;'
     ;
 
     /* Register with NPM */
+    console.info(`NPM Publish "${repo}"`);
+    console.info(outputDirectory);
+    await npmPublish({
+      package: `${outputDirectory}/package.json`,
+      token: config.npmToken,
+      greaterVersionOnly: true,
+      debug: function(log) {
+        console.log(log);
+      }
+    });
+
+    /* Register with NPM */
+    console.info(`Meteor publish "${repo}"`);
+    console.info(outputDirectory);
     exec(updateNPM, execSettings, function(err, stdout, stderr) {
       console.log(err, stdout, stderr);
       stepRepo();

@@ -2259,28 +2259,25 @@ $.fn.dropdown = function(parameters) {
             $text.addClass(className.placeholder);
           },
           tabbable: function() {
-            if( module.is.searchSelection() ) {
+            var selectTabIndex = $module.attr('tabindex'); // Capture the tabindex from the select element
+            if (module.is.searchSelection()) {
               module.debug('Added tabindex to searchable dropdown');
               $search
                 .val('')
-                .attr('tabindex', 0)
-              ;
+                .attr('tabindex', selectTabIndex !== undefined ? selectTabIndex : 0); // Use the captured tabindex
               $menu
-                .attr('tabindex', -1)
-              ;
-            }
-            else {
+                .attr('tabindex', -1);
+            } else {
               module.debug('Added tabindex to dropdown');
-              if( $module.attr('tabindex') === undefined) {
+              if ($module.attr('tabindex') === undefined) {
                 $module
-                  .attr('tabindex', 0)
-                ;
+                  .attr('tabindex', selectTabIndex !== undefined ? selectTabIndex : 0); // Use the captured tabindex
                 $menu
-                  .attr('tabindex', -1)
-                ;
+                  .attr('tabindex', -1);
               }
             }
-          },
+          }
+          ,
           initialLoad: function() {
             module.verbose('Setting initial load');
             initialLoad = true;
