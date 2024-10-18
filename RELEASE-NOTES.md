@@ -211,7 +211,7 @@ To preserve functionality `movePopup` default has remained as `true` (moving the
 - **Images / Transition** - Fixed issue where `ui images` would show nested images with `transition hidden` as block (Fixes sequential img animation demo in docs)
 
 **Doc Updates**
-- **Icons** - Icon documentation now has a search that will copy the relevent icon html to clipboard
+- **Icons** - Icon documentation now has a search that will copy the relevant icon html to clipboard
 - **Icons** - Icon documentation now lists publicly all icon aliases
 
 **Doc Bugs**
@@ -689,12 +689,12 @@ To trigger UI updates you can call `validate form`. Additional form behaviors ha
 
 **Major Bug Fixes**
 - **Checkbox/Dropdown/Search** - Fixed issue where using `.trigger('change')` would not fire native `change` event. Only triggering event handlers attached with jQuery [#3108](https://github.com/Semantic-Org/Semantic-UI/issues/3108)
-- **Transition** - Fixed bug where static transitions (those that dont animate in/out of view) would not fire `onComplete` event
+- **Transition** - Fixed bug where static transitions (those that don't animate in/out of view) would not fire `onComplete` event
 - **Sticky** - Fixes bug where sticky would stick at incorrect times when using a different scroll container than `body` and scrollTop is not 0 on page load.
 
 **Bugs**
 - **Divider/Step/Modal/AD** - Fixes 1px jump at `@mobileBreakpoint` caused by incorrect edge conditions in media query [#3180](https://github.com/Semantic-Org/Semantic-UI/issues/3180) **Thanks @mdehoog**
-- **Dimmer** - Dimmer can now works correctly with `opacity: 0` [#3167](https://github.com/Semantic-Org/Semantic-UI/issues/3167) **Thanks @mdehoog**
+- **Dimmer** - Dimmer can now work correctly with `opacity: 0` [#3167](https://github.com/Semantic-Org/Semantic-UI/issues/3167) **Thanks @mdehoog**
 - **Dropdown** - Fixed condition where focusing on dropdown would show a blank menu when "no results" was reached and the dropdown was refocused
 - **Dropdown** - Search dropdowns will now correctly filter by current search term on re-focus
 - **Dropdown** - Fixed issue where tabindex was being removed incorrectly with `selection dropdown` in some cases. [#3002](https://github.com/Semantic-Org/Semantic-UI/issues/3002)
@@ -1718,7 +1718,7 @@ Importing `semantic.less` still does not require any special syntax
 - **Transition** - Transitions with direction now use word order dependency to prevent conflict with component directions, for example `bottom left popup slide down in transition
 
 **Docs**
-- Fixed bug with chinese mirror modal appearing on every page load when selecting chinese language
+- Fixed bug with Chinese mirror modal appearing on every page load when selecting chinese language
 
 ### Version 1.8.1 - January 26, 2015
 
@@ -2035,7 +2035,7 @@ Importing `semantic.less` still does not require any special syntax
 
 **Enhancements**
 - **Transition** - Transition's caching of final display state and animation existence now has improved performance.
-- **Popup** - Popup now has a ``settings.prefer`` that defaults to ``adjacent``. This setting sets prefered next placement when a popup cannot fit on screen in the chosen placement. ``prefer`` can also be set to ``opposite`` to prefer the same position on the opposite side
+- **Popup** - Popup now has a ``settings.prefer`` that defaults to ``adjacent``. This setting sets preferred next placement when a popup cannot fit on screen in the chosen placement. ``prefer`` can also be set to ``opposite`` to prefer the same position on the opposite side
 - **Popup** - Popup can now use a setting ``lastResort``. When set to a position it will be used as a last resort even if popup does not entirely fit on the page. Setting this to ``false`` will produce an error when a popup cannot fit on screen.
 - **Transition** now has ``useFailSafe`` parameter (off by default) to ensure transition callback fires even if native ``onAnimationEnd`` event does not fire due to element visibility. [Chromium Bug Report by Product Manager @ Mozilla](https://code.google.com/p/chromium/issues/detail?id=135350#c2) and [this open issue](https://code.google.com/p/chromium/issues/detail?id=437860)
 - **All UI** - Many ``em`` measurements adjusted slightly to calculate out as exact pixel values (Fixes 1px rounding errors)
