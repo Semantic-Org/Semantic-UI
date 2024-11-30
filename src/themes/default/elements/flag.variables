@@ -6,7 +6,8 @@
        Element
 --------------------*/
 
-@spritePath: "@{imagePath}/flags.png";
+@spritePath: "@{imagePath}/flags-emoji@2x.png";
+@spritePath3x: "@{imagePath}/flags-emoji@3x.png";
 @width: 16px;
 @height: 11px;
 @verticalAlign: baseline;

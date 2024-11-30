@@ -44,9 +44,22 @@ i.flag:not(.icon) {
 i.flag:not(.icon):before {
   display: inline-block;
   content: '';
-  background: url(@spritePath) no-repeat -108px -1976px;
+  background: url(@spritePath) no-repeat 0 0;
+  background-size: 124px;
   width: @width;
   height: @height;
+}
+
+/* @2x Images (Pixel Ratio of 1.25+) */
+@media
+  only screen and (-o-min-device-pixel-ratio: 5/4),
+  only screen and (-webkit-min-device-pixel-ratio: 1.25),
+  only screen and (min--moz-device-pixel-ratio: 1.25),
+  only screen and (min-device-pixel-ratio: 1.25),
+  only screen and (min-resolution: 1.25dppx) {
+  i.flag:not(.icon):before {
+    background-image: url(@spritePath3x);
+  }
 }
 
 .loadUIOverrides();
