@@ -64,6 +64,10 @@
           animation-play-state: paused;
 }
 
+/* Clone */
+.clone {
+    display: none;
+}
 
 /*******************************
           Variations
