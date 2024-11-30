@@ -1879,7 +1879,15 @@ $.fn.dropdown = function(parameters) {
             }
             if(settings.sortSelect) {
               select.values.sort(function(a, b) {
-                return (a.name > b.name)
+                var
+                  aName = a.name,
+                  bName = b.name
+                ;
+                if(settings.sortNatural) {
+                  aName = aName.toLowerCase();
+                  bName = bName.toLowerCase();
+                }
+                return (aName > bName)
                   ? 1
                   : -1
                 ;
@@ -3727,6 +3735,7 @@ $.fn.dropdown.settings = {
   placeholder            : 'auto',     // whether to convert blank <select> values to placeholder text
   preserveHTML           : true,       // preserve html when selecting value
   sortSelect             : false,      // sort selection on init
+  sortNatural            : true,       // use natural sorting when reordering values
 
   forceSelection         : true,       // force a choice on blur with search selection
 
