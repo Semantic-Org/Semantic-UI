@@ -19,7 +19,7 @@ Semantic allows developers to build beautiful websites fast, with **concise HTML
 
 ## 2.5.0 Release (Oct 6, 2022)
 
-Semantic UI is now compatible with Node 18 and Gulp 4. 
+Semantic UI is now compatible with Node 18 and Gulp 4.
 
 ## User Support
 
